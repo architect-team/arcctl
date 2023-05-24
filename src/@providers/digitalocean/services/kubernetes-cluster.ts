@@ -1,8 +1,8 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanKubernetesClusterService extends ResourceService<

@@ -2,60 +2,64 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface LightsailLbStickinessPolicyConfig extends cdktf.TerraformMetaArguments {
+export interface LightsailLbStickinessPolicyConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#cookie_duration LightsailLbStickinessPolicy#cookie_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#cookie_duration LightsailLbStickinessPolicy#cookie_duration}
+   */
   readonly cookieDuration: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#enabled LightsailLbStickinessPolicy#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#enabled LightsailLbStickinessPolicy#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#id LightsailLbStickinessPolicy#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#id LightsailLbStickinessPolicy#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#lb_name LightsailLbStickinessPolicy#lb_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy#lb_name LightsailLbStickinessPolicy#lb_name}
+   */
   readonly lbName: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy aws_lightsail_lb_stickiness_policy}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy aws_lightsail_lb_stickiness_policy}
+ */
 export class LightsailLbStickinessPolicy extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lightsail_lb_stickiness_policy";
+  public static readonly tfResourceType = 'aws_lightsail_lb_stickiness_policy';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy aws_lightsail_lb_stickiness_policy} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LightsailLbStickinessPolicyConfig
-  */
-  public constructor(scope: Construct, id: string, config: LightsailLbStickinessPolicyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_stickiness_policy aws_lightsail_lb_stickiness_policy} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LightsailLbStickinessPolicyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LightsailLbStickinessPolicyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lightsail_lb_stickiness_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class LightsailLbStickinessPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cookieDuration = config.cookieDuration;
     this._enabled = config.enabled;

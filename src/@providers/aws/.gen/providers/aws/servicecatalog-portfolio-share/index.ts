@@ -2,83 +2,93 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface ServicecatalogPortfolioShareConfig extends cdktf.TerraformMetaArguments {
+export interface ServicecatalogPortfolioShareConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#accept_language ServicecatalogPortfolioShare#accept_language}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#accept_language ServicecatalogPortfolioShare#accept_language}
+   */
   readonly acceptLanguage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#id ServicecatalogPortfolioShare#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#id ServicecatalogPortfolioShare#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#portfolio_id ServicecatalogPortfolioShare#portfolio_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#portfolio_id ServicecatalogPortfolioShare#portfolio_id}
+   */
   readonly portfolioId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#principal_id ServicecatalogPortfolioShare#principal_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#principal_id ServicecatalogPortfolioShare#principal_id}
+   */
   readonly principalId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#share_principals ServicecatalogPortfolioShare#share_principals}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#share_principals ServicecatalogPortfolioShare#share_principals}
+   */
   readonly sharePrincipals?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#share_tag_options ServicecatalogPortfolioShare#share_tag_options}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#share_tag_options ServicecatalogPortfolioShare#share_tag_options}
+   */
   readonly shareTagOptions?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#type ServicecatalogPortfolioShare#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#type ServicecatalogPortfolioShare#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#wait_for_acceptance ServicecatalogPortfolioShare#wait_for_acceptance}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#wait_for_acceptance ServicecatalogPortfolioShare#wait_for_acceptance}
+   */
   readonly waitForAcceptance?: boolean | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#timeouts ServicecatalogPortfolioShare#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#timeouts ServicecatalogPortfolioShare#timeouts}
+   */
   readonly timeouts?: ServicecatalogPortfolioShareTimeouts;
 }
 export interface ServicecatalogPortfolioShareTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#create ServicecatalogPortfolioShare#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#create ServicecatalogPortfolioShare#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#delete ServicecatalogPortfolioShare#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#delete ServicecatalogPortfolioShare#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#read ServicecatalogPortfolioShare#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#read ServicecatalogPortfolioShare#read}
+   */
   readonly read?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#update ServicecatalogPortfolioShare#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share#update ServicecatalogPortfolioShare#update}
+   */
   readonly update?: string;
 }
 
-export function servicecatalogPortfolioShareTimeoutsToTerraform(struct?: ServicecatalogPortfolioShareTimeoutsOutputReference | ServicecatalogPortfolioShareTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogPortfolioShareTimeoutsToTerraform(
+  struct?:
+    | ServicecatalogPortfolioShareTimeoutsOutputReference
+    | ServicecatalogPortfolioShareTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ServicecatalogPortfolioShareTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -86,14 +96,20 @@ export class ServicecatalogPortfolioShareTimeoutsOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServicecatalogPortfolioShareTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServicecatalogPortfolioShareTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -118,7 +134,9 @@ export class ServicecatalogPortfolioShareTimeoutsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogPortfolioShareTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServicecatalogPortfolioShareTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -126,12 +144,10 @@ export class ServicecatalogPortfolioShareTimeoutsOutputReference extends cdktf.C
       this._delete = undefined;
       this._read = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -207,33 +223,36 @@ export class ServicecatalogPortfolioShareTimeoutsOutputReference extends cdktf.C
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share aws_servicecatalog_portfolio_share}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share aws_servicecatalog_portfolio_share}
+ */
 export class ServicecatalogPortfolioShare extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_servicecatalog_portfolio_share";
+  public static readonly tfResourceType = 'aws_servicecatalog_portfolio_share';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share aws_servicecatalog_portfolio_share} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServicecatalogPortfolioShareConfig
-  */
-  public constructor(scope: Construct, id: string, config: ServicecatalogPortfolioShareConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_portfolio_share aws_servicecatalog_portfolio_share} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServicecatalogPortfolioShareConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServicecatalogPortfolioShareConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_portfolio_share',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -241,7 +260,7 @@ export class ServicecatalogPortfolioShare extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acceptLanguage = config.acceptLanguage;
     this._id = config.id;
@@ -383,7 +402,10 @@ export class ServicecatalogPortfolioShare extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServicecatalogPortfolioShareTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ServicecatalogPortfolioShareTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -412,7 +434,9 @@ export class ServicecatalogPortfolioShare extends cdktf.TerraformResource {
       share_tag_options: cdktf.booleanToTerraform(this._shareTagOptions),
       type: cdktf.stringToTerraform(this._type),
       wait_for_acceptance: cdktf.booleanToTerraform(this._waitForAcceptance),
-      timeouts: servicecatalogPortfolioShareTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: servicecatalogPortfolioShareTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

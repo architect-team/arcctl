@@ -2,74 +2,81 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsIamPolicyDocumentConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsIamPolicyDocumentConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#id DataAwsIamPolicyDocument#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#id DataAwsIamPolicyDocument#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#override_json DataAwsIamPolicyDocument#override_json}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#override_json DataAwsIamPolicyDocument#override_json}
+   */
   readonly overrideJson?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#override_policy_documents DataAwsIamPolicyDocument#override_policy_documents}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#override_policy_documents DataAwsIamPolicyDocument#override_policy_documents}
+   */
   readonly overridePolicyDocuments?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#policy_id DataAwsIamPolicyDocument#policy_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#policy_id DataAwsIamPolicyDocument#policy_id}
+   */
   readonly policyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#source_json DataAwsIamPolicyDocument#source_json}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#source_json DataAwsIamPolicyDocument#source_json}
+   */
   readonly sourceJson?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#source_policy_documents DataAwsIamPolicyDocument#source_policy_documents}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#source_policy_documents DataAwsIamPolicyDocument#source_policy_documents}
+   */
   readonly sourcePolicyDocuments?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#version DataAwsIamPolicyDocument#version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#version DataAwsIamPolicyDocument#version}
+   */
   readonly version?: string;
   /**
-  * statement block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#statement DataAwsIamPolicyDocument#statement}
-  */
+   * statement block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#statement DataAwsIamPolicyDocument#statement}
+   */
   readonly statement?: DataAwsIamPolicyDocumentStatement[] | cdktf.IResolvable;
 }
 export interface DataAwsIamPolicyDocumentStatementCondition {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#test DataAwsIamPolicyDocument#test}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#test DataAwsIamPolicyDocument#test}
+   */
   readonly test: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#values DataAwsIamPolicyDocument#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#values DataAwsIamPolicyDocument#values}
+   */
   readonly values: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#variable DataAwsIamPolicyDocument#variable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#variable DataAwsIamPolicyDocument#variable}
+   */
   readonly variable: string;
 }
 
-export function dataAwsIamPolicyDocumentStatementConditionToTerraform(struct?: DataAwsIamPolicyDocumentStatementCondition | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIamPolicyDocumentStatementConditionToTerraform(
+  struct?: DataAwsIamPolicyDocumentStatementCondition | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     test: cdktf.stringToTerraform(struct!.test),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
     variable: cdktf.stringToTerraform(struct!.variable),
-  }
+  };
 }
 
 export class DataAwsIamPolicyDocumentStatementConditionOutputReference extends cdktf.ComplexObject {
@@ -77,16 +84,29 @@ export class DataAwsIamPolicyDocumentStatementConditionOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsIamPolicyDocumentStatementCondition | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsIamPolicyDocumentStatementCondition
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -107,19 +127,22 @@ export class DataAwsIamPolicyDocumentStatementConditionOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIamPolicyDocumentStatementCondition | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsIamPolicyDocumentStatementCondition
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._test = undefined;
       this._values = undefined;
       this._variable = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._test = value.test;
@@ -169,44 +192,66 @@ export class DataAwsIamPolicyDocumentStatementConditionOutputReference extends c
 }
 
 export class DataAwsIamPolicyDocumentStatementConditionList extends cdktf.ComplexList {
-  public internalValue? : DataAwsIamPolicyDocumentStatementCondition[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsIamPolicyDocumentStatementCondition[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsIamPolicyDocumentStatementConditionOutputReference {
-    return new DataAwsIamPolicyDocumentStatementConditionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsIamPolicyDocumentStatementConditionOutputReference {
+    return new DataAwsIamPolicyDocumentStatementConditionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsIamPolicyDocumentStatementNotPrincipals {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#identifiers DataAwsIamPolicyDocument#identifiers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#identifiers DataAwsIamPolicyDocument#identifiers}
+   */
   readonly identifiers: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#type DataAwsIamPolicyDocument#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#type DataAwsIamPolicyDocument#type}
+   */
   readonly type: string;
 }
 
-export function dataAwsIamPolicyDocumentStatementNotPrincipalsToTerraform(struct?: DataAwsIamPolicyDocumentStatementNotPrincipals | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIamPolicyDocumentStatementNotPrincipalsToTerraform(
+  struct?: DataAwsIamPolicyDocumentStatementNotPrincipals | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    identifiers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.identifiers),
+    identifiers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.identifiers),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference extends cdktf.ComplexObject {
@@ -214,16 +259,29 @@ export class DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsIamPolicyDocumentStatementNotPrincipals | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsIamPolicyDocumentStatementNotPrincipals
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -240,18 +298,21 @@ export class DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIamPolicyDocumentStatementNotPrincipals | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsIamPolicyDocumentStatementNotPrincipals
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._identifiers = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._identifiers = value.identifiers;
@@ -287,44 +348,66 @@ export class DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference exten
 }
 
 export class DataAwsIamPolicyDocumentStatementNotPrincipalsList extends cdktf.ComplexList {
-  public internalValue? : DataAwsIamPolicyDocumentStatementNotPrincipals[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsIamPolicyDocumentStatementNotPrincipals[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference {
-    return new DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference {
+    return new DataAwsIamPolicyDocumentStatementNotPrincipalsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsIamPolicyDocumentStatementPrincipals {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#identifiers DataAwsIamPolicyDocument#identifiers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#identifiers DataAwsIamPolicyDocument#identifiers}
+   */
   readonly identifiers: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#type DataAwsIamPolicyDocument#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#type DataAwsIamPolicyDocument#type}
+   */
   readonly type: string;
 }
 
-export function dataAwsIamPolicyDocumentStatementPrincipalsToTerraform(struct?: DataAwsIamPolicyDocumentStatementPrincipals | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIamPolicyDocumentStatementPrincipalsToTerraform(
+  struct?: DataAwsIamPolicyDocumentStatementPrincipals | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    identifiers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.identifiers),
+    identifiers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.identifiers),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class DataAwsIamPolicyDocumentStatementPrincipalsOutputReference extends cdktf.ComplexObject {
@@ -332,16 +415,29 @@ export class DataAwsIamPolicyDocumentStatementPrincipalsOutputReference extends 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsIamPolicyDocumentStatementPrincipals | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsIamPolicyDocumentStatementPrincipals
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -358,18 +454,21 @@ export class DataAwsIamPolicyDocumentStatementPrincipalsOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIamPolicyDocumentStatementPrincipals | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsIamPolicyDocumentStatementPrincipals
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._identifiers = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._identifiers = value.identifiers;
@@ -405,85 +504,128 @@ export class DataAwsIamPolicyDocumentStatementPrincipalsOutputReference extends 
 }
 
 export class DataAwsIamPolicyDocumentStatementPrincipalsList extends cdktf.ComplexList {
-  public internalValue? : DataAwsIamPolicyDocumentStatementPrincipals[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsIamPolicyDocumentStatementPrincipals[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsIamPolicyDocumentStatementPrincipalsOutputReference {
-    return new DataAwsIamPolicyDocumentStatementPrincipalsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsIamPolicyDocumentStatementPrincipalsOutputReference {
+    return new DataAwsIamPolicyDocumentStatementPrincipalsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsIamPolicyDocumentStatement {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#actions DataAwsIamPolicyDocument#actions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#actions DataAwsIamPolicyDocument#actions}
+   */
   readonly actions?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#effect DataAwsIamPolicyDocument#effect}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#effect DataAwsIamPolicyDocument#effect}
+   */
   readonly effect?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#not_actions DataAwsIamPolicyDocument#not_actions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#not_actions DataAwsIamPolicyDocument#not_actions}
+   */
   readonly notActions?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#not_resources DataAwsIamPolicyDocument#not_resources}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#not_resources DataAwsIamPolicyDocument#not_resources}
+   */
   readonly notResources?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#resources DataAwsIamPolicyDocument#resources}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#resources DataAwsIamPolicyDocument#resources}
+   */
   readonly resources?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#sid DataAwsIamPolicyDocument#sid}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#sid DataAwsIamPolicyDocument#sid}
+   */
   readonly sid?: string;
   /**
-  * condition block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#condition DataAwsIamPolicyDocument#condition}
-  */
-  readonly condition?: DataAwsIamPolicyDocumentStatementCondition[] | cdktf.IResolvable;
+   * condition block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#condition DataAwsIamPolicyDocument#condition}
+   */
+  readonly condition?:
+    | DataAwsIamPolicyDocumentStatementCondition[]
+    | cdktf.IResolvable;
   /**
-  * not_principals block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#not_principals DataAwsIamPolicyDocument#not_principals}
-  */
-  readonly notPrincipals?: DataAwsIamPolicyDocumentStatementNotPrincipals[] | cdktf.IResolvable;
+   * not_principals block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#not_principals DataAwsIamPolicyDocument#not_principals}
+   */
+  readonly notPrincipals?:
+    | DataAwsIamPolicyDocumentStatementNotPrincipals[]
+    | cdktf.IResolvable;
   /**
-  * principals block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#principals DataAwsIamPolicyDocument#principals}
-  */
-  readonly principals?: DataAwsIamPolicyDocumentStatementPrincipals[] | cdktf.IResolvable;
+   * principals block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document#principals DataAwsIamPolicyDocument#principals}
+   */
+  readonly principals?:
+    | DataAwsIamPolicyDocumentStatementPrincipals[]
+    | cdktf.IResolvable;
 }
 
-export function dataAwsIamPolicyDocumentStatementToTerraform(struct?: DataAwsIamPolicyDocumentStatement | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIamPolicyDocumentStatementToTerraform(
+  struct?: DataAwsIamPolicyDocumentStatement | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     actions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.actions),
     effect: cdktf.stringToTerraform(struct!.effect),
-    not_actions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.notActions),
-    not_resources: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.notResources),
-    resources: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.resources),
+    not_actions: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.notActions),
+    not_resources: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.notResources),
+    resources: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.resources),
     sid: cdktf.stringToTerraform(struct!.sid),
-    condition: cdktf.listMapper(dataAwsIamPolicyDocumentStatementConditionToTerraform, true)(struct!.condition),
-    not_principals: cdktf.listMapper(dataAwsIamPolicyDocumentStatementNotPrincipalsToTerraform, true)(struct!.notPrincipals),
-    principals: cdktf.listMapper(dataAwsIamPolicyDocumentStatementPrincipalsToTerraform, true)(struct!.principals),
-  }
+    condition: cdktf.listMapper(
+      dataAwsIamPolicyDocumentStatementConditionToTerraform,
+      true,
+    )(struct!.condition),
+    not_principals: cdktf.listMapper(
+      dataAwsIamPolicyDocumentStatementNotPrincipalsToTerraform,
+      true,
+    )(struct!.notPrincipals),
+    principals: cdktf.listMapper(
+      dataAwsIamPolicyDocumentStatementPrincipalsToTerraform,
+      true,
+    )(struct!.principals),
+  };
 }
 
 export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.ComplexObject {
@@ -491,16 +633,29 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsIamPolicyDocumentStatement | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsIamPolicyDocumentStatement
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -545,7 +700,9 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIamPolicyDocumentStatement | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DataAwsIamPolicyDocumentStatement | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -558,12 +715,10 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
       this._condition.internalValue = undefined;
       this._notPrincipals.internalValue = undefined;
       this._principals.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._actions = value.actions;
@@ -675,11 +830,17 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
   }
 
   // condition - computed: false, optional: true, required: false
-  private _condition = new DataAwsIamPolicyDocumentStatementConditionList(this, "condition", true);
+  private _condition = new DataAwsIamPolicyDocumentStatementConditionList(
+    this,
+    'condition',
+    true,
+  );
   public get condition() {
     return this._condition;
   }
-  public putCondition(value: DataAwsIamPolicyDocumentStatementCondition[] | cdktf.IResolvable) {
+  public putCondition(
+    value: DataAwsIamPolicyDocumentStatementCondition[] | cdktf.IResolvable,
+  ) {
     this._condition.internalValue = value;
   }
   public resetCondition() {
@@ -691,11 +852,18 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
   }
 
   // not_principals - computed: false, optional: true, required: false
-  private _notPrincipals = new DataAwsIamPolicyDocumentStatementNotPrincipalsList(this, "not_principals", true);
+  private _notPrincipals =
+    new DataAwsIamPolicyDocumentStatementNotPrincipalsList(
+      this,
+      'not_principals',
+      true,
+    );
   public get notPrincipals() {
     return this._notPrincipals;
   }
-  public putNotPrincipals(value: DataAwsIamPolicyDocumentStatementNotPrincipals[] | cdktf.IResolvable) {
+  public putNotPrincipals(
+    value: DataAwsIamPolicyDocumentStatementNotPrincipals[] | cdktf.IResolvable,
+  ) {
     this._notPrincipals.internalValue = value;
   }
   public resetNotPrincipals() {
@@ -707,11 +875,17 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
   }
 
   // principals - computed: false, optional: true, required: false
-  private _principals = new DataAwsIamPolicyDocumentStatementPrincipalsList(this, "principals", true);
+  private _principals = new DataAwsIamPolicyDocumentStatementPrincipalsList(
+    this,
+    'principals',
+    true,
+  );
   public get principals() {
     return this._principals;
   }
-  public putPrincipals(value: DataAwsIamPolicyDocumentStatementPrincipals[] | cdktf.IResolvable) {
+  public putPrincipals(
+    value: DataAwsIamPolicyDocumentStatementPrincipals[] | cdktf.IResolvable,
+  ) {
     this._principals.internalValue = value;
   }
   public resetPrincipals() {
@@ -724,53 +898,67 @@ export class DataAwsIamPolicyDocumentStatementOutputReference extends cdktf.Comp
 }
 
 export class DataAwsIamPolicyDocumentStatementList extends cdktf.ComplexList {
-  public internalValue? : DataAwsIamPolicyDocumentStatement[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsIamPolicyDocumentStatement[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsIamPolicyDocumentStatementOutputReference {
-    return new DataAwsIamPolicyDocumentStatementOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsIamPolicyDocumentStatementOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document aws_iam_policy_document}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document aws_iam_policy_document}
+ */
 export class DataAwsIamPolicyDocument extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_iam_policy_document";
+  public static readonly tfResourceType = 'aws_iam_policy_document';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document aws_iam_policy_document} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsIamPolicyDocumentConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsIamPolicyDocumentConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/iam_policy_document aws_iam_policy_document} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsIamPolicyDocumentConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsIamPolicyDocumentConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_policy_document',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -778,7 +966,7 @@ export class DataAwsIamPolicyDocument extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._overrideJson = config.overrideJson;
@@ -912,11 +1100,17 @@ export class DataAwsIamPolicyDocument extends cdktf.TerraformDataSource {
   }
 
   // statement - computed: false, optional: true, required: false
-  private _statement = new DataAwsIamPolicyDocumentStatementList(this, "statement", false);
+  private _statement = new DataAwsIamPolicyDocumentStatementList(
+    this,
+    'statement',
+    false,
+  );
   public get statement() {
     return this._statement;
   }
-  public putStatement(value: DataAwsIamPolicyDocumentStatement[] | cdktf.IResolvable) {
+  public putStatement(
+    value: DataAwsIamPolicyDocumentStatement[] | cdktf.IResolvable,
+  ) {
     this._statement.internalValue = value;
   }
   public resetStatement() {
@@ -935,12 +1129,21 @@ export class DataAwsIamPolicyDocument extends cdktf.TerraformDataSource {
     return {
       id: cdktf.stringToTerraform(this._id),
       override_json: cdktf.stringToTerraform(this._overrideJson),
-      override_policy_documents: cdktf.listMapper(cdktf.stringToTerraform, false)(this._overridePolicyDocuments),
+      override_policy_documents: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._overridePolicyDocuments),
       policy_id: cdktf.stringToTerraform(this._policyId),
       source_json: cdktf.stringToTerraform(this._sourceJson),
-      source_policy_documents: cdktf.listMapper(cdktf.stringToTerraform, false)(this._sourcePolicyDocuments),
+      source_policy_documents: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._sourcePolicyDocuments),
       version: cdktf.stringToTerraform(this._version),
-      statement: cdktf.listMapper(dataAwsIamPolicyDocumentStatementToTerraform, true)(this._statement.internalValue),
+      statement: cdktf.listMapper(
+        dataAwsIamPolicyDocumentStatementToTerraform,
+        true,
+      )(this._statement.internalValue),
     };
   }
 }

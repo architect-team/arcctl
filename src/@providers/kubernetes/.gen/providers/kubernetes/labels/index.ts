@@ -2,89 +2,98 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface LabelsConfig extends cdktf.TerraformMetaArguments {
   /**
-  * The apiVersion of the resource to label.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#api_version Labels#api_version}
-  */
+   * The apiVersion of the resource to label.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#api_version Labels#api_version}
+   */
   readonly apiVersion: string;
   /**
-  * Set the name of the field manager for the specified labels.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#field_manager Labels#field_manager}
-  */
+   * Set the name of the field manager for the specified labels.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#field_manager Labels#field_manager}
+   */
   readonly fieldManager?: string;
   /**
-  * Force overwriting labels that were created or edited outside of Terraform.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#force Labels#force}
-  */
+   * Force overwriting labels that were created or edited outside of Terraform.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#force Labels#force}
+   */
   readonly force?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#id Labels#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#id Labels#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * The kind of the resource to label.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#kind Labels#kind}
-  */
+   * The kind of the resource to label.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#kind Labels#kind}
+   */
   readonly kind: string;
   /**
-  * A map of labels to apply to the resource.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#labels Labels#labels}
-  */
+   * A map of labels to apply to the resource.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#labels Labels#labels}
+   */
   readonly labels: { [key: string]: string };
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#metadata Labels#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#metadata Labels#metadata}
+   */
   readonly metadata: LabelsMetadata;
 }
 export interface LabelsMetadata {
   /**
-  * The name of the resource.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#name Labels#name}
-  */
+   * The name of the resource.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#name Labels#name}
+   */
   readonly name: string;
   /**
-  * The namespace of the resource.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#namespace Labels#namespace}
-  */
+   * The namespace of the resource.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/labels#namespace Labels#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function labelsMetadataToTerraform(struct?: LabelsMetadataOutputReference | LabelsMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function labelsMetadataToTerraform(
+  struct?: LabelsMetadataOutputReference | LabelsMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class LabelsMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -107,8 +116,7 @@ export class LabelsMetadataOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -146,33 +154,32 @@ export class LabelsMetadataOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/labels kubernetes_labels}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/labels kubernetes_labels}
+ */
 export class Labels extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_labels";
+  public static readonly tfResourceType = 'kubernetes_labels';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/labels kubernetes_labels} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LabelsConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/labels kubernetes_labels} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LabelsConfig
+   */
   public constructor(scope: Construct, id: string, config: LabelsConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_labels',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -180,7 +187,7 @@ export class Labels extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._apiVersion = config.apiVersion;
     this._fieldManager = config.fieldManager;
@@ -283,7 +290,7 @@ export class Labels extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new LabelsMetadataOutputReference(this, "metadata");
+  private _metadata = new LabelsMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }

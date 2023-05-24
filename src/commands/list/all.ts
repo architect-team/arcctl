@@ -1,7 +1,7 @@
 import { Flags } from '@oclif/core';
-import { ResourceType } from '../../@resources/index.js';
-import { BaseCommand } from '../../base-command.js';
-import { createTable } from '../../utils/table.js';
+import { ResourceType } from '../../@resources/index.ts';
+import { BaseCommand } from '../../base-command.ts';
+import { createTable } from '../../utils/table.ts';
 
 export default class ListAllResourcesCommand extends BaseCommand {
   static description = 'List all the cloud resources for each supported type';

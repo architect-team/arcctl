@@ -2,104 +2,103 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface EmrStudioConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#auth_mode EmrStudio#auth_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#auth_mode EmrStudio#auth_mode}
+   */
   readonly authMode: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#default_s3_location EmrStudio#default_s3_location}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#default_s3_location EmrStudio#default_s3_location}
+   */
   readonly defaultS3Location: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#description EmrStudio#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#description EmrStudio#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#engine_security_group_id EmrStudio#engine_security_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#engine_security_group_id EmrStudio#engine_security_group_id}
+   */
   readonly engineSecurityGroupId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#id EmrStudio#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#id EmrStudio#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#idp_auth_url EmrStudio#idp_auth_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#idp_auth_url EmrStudio#idp_auth_url}
+   */
   readonly idpAuthUrl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#idp_relay_state_parameter_name EmrStudio#idp_relay_state_parameter_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#idp_relay_state_parameter_name EmrStudio#idp_relay_state_parameter_name}
+   */
   readonly idpRelayStateParameterName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#name EmrStudio#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#name EmrStudio#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#service_role EmrStudio#service_role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#service_role EmrStudio#service_role}
+   */
   readonly serviceRole: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#subnet_ids EmrStudio#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#subnet_ids EmrStudio#subnet_ids}
+   */
   readonly subnetIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#tags EmrStudio#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#tags EmrStudio#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#tags_all EmrStudio#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#tags_all EmrStudio#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#user_role EmrStudio#user_role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#user_role EmrStudio#user_role}
+   */
   readonly userRole?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#vpc_id EmrStudio#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#vpc_id EmrStudio#vpc_id}
+   */
   readonly vpcId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#workspace_security_group_id EmrStudio#workspace_security_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emr_studio#workspace_security_group_id EmrStudio#workspace_security_group_id}
+   */
   readonly workspaceSecurityGroupId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/emr_studio aws_emr_studio}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/emr_studio aws_emr_studio}
+ */
 export class EmrStudio extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_emr_studio";
+  public static readonly tfResourceType = 'aws_emr_studio';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/emr_studio aws_emr_studio} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EmrStudioConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/emr_studio aws_emr_studio} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EmrStudioConfig
+   */
   public constructor(scope: Construct, id: string, config: EmrStudioConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_emr_studio',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -107,7 +106,7 @@ export class EmrStudio extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._authMode = config.authMode;
     this._defaultS3Location = config.defaultS3Location;
@@ -365,18 +364,27 @@ export class EmrStudio extends cdktf.TerraformResource {
       auth_mode: cdktf.stringToTerraform(this._authMode),
       default_s3_location: cdktf.stringToTerraform(this._defaultS3Location),
       description: cdktf.stringToTerraform(this._description),
-      engine_security_group_id: cdktf.stringToTerraform(this._engineSecurityGroupId),
+      engine_security_group_id: cdktf.stringToTerraform(
+        this._engineSecurityGroupId,
+      ),
       id: cdktf.stringToTerraform(this._id),
       idp_auth_url: cdktf.stringToTerraform(this._idpAuthUrl),
-      idp_relay_state_parameter_name: cdktf.stringToTerraform(this._idpRelayStateParameterName),
+      idp_relay_state_parameter_name: cdktf.stringToTerraform(
+        this._idpRelayStateParameterName,
+      ),
       name: cdktf.stringToTerraform(this._name),
       service_role: cdktf.stringToTerraform(this._serviceRole),
-      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
+      subnet_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       user_role: cdktf.stringToTerraform(this._userRole),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
-      workspace_security_group_id: cdktf.stringToTerraform(this._workspaceSecurityGroupId),
+      workspace_security_group_id: cdktf.stringToTerraform(
+        this._workspaceSecurityGroupId,
+      ),
     };
   }
 }

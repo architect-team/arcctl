@@ -1,4 +1,4 @@
-import { BaseCommand } from '../base-command.js';
+import { BaseCommand } from '../base-command.ts';
 import { ImageRepository } from 'npm:@architect-io/arc-oci';
 import { Flags } from '@oclif/core';
 import yaml from 'js-yaml';

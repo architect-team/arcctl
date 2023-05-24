@@ -2,58 +2,68 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface ServicecatalogBudgetResourceAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface ServicecatalogBudgetResourceAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#budget_name ServicecatalogBudgetResourceAssociation#budget_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#budget_name ServicecatalogBudgetResourceAssociation#budget_name}
+   */
   readonly budgetName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#id ServicecatalogBudgetResourceAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#id ServicecatalogBudgetResourceAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#resource_id ServicecatalogBudgetResourceAssociation#resource_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#resource_id ServicecatalogBudgetResourceAssociation#resource_id}
+   */
   readonly resourceId: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#timeouts ServicecatalogBudgetResourceAssociation#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#timeouts ServicecatalogBudgetResourceAssociation#timeouts}
+   */
   readonly timeouts?: ServicecatalogBudgetResourceAssociationTimeouts;
 }
 export interface ServicecatalogBudgetResourceAssociationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#create ServicecatalogBudgetResourceAssociation#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#create ServicecatalogBudgetResourceAssociation#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#delete ServicecatalogBudgetResourceAssociation#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#delete ServicecatalogBudgetResourceAssociation#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#read ServicecatalogBudgetResourceAssociation#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association#read ServicecatalogBudgetResourceAssociation#read}
+   */
   readonly read?: string;
 }
 
-export function servicecatalogBudgetResourceAssociationTimeoutsToTerraform(struct?: ServicecatalogBudgetResourceAssociationTimeoutsOutputReference | ServicecatalogBudgetResourceAssociationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogBudgetResourceAssociationTimeoutsToTerraform(
+  struct?:
+    | ServicecatalogBudgetResourceAssociationTimeoutsOutputReference
+    | ServicecatalogBudgetResourceAssociationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -61,14 +71,20 @@ export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference exte
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServicecatalogBudgetResourceAssociationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServicecatalogBudgetResourceAssociationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -89,19 +105,22 @@ export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogBudgetResourceAssociationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServicecatalogBudgetResourceAssociationTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -160,33 +179,37 @@ export class ServicecatalogBudgetResourceAssociationTimeoutsOutputReference exte
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association aws_servicecatalog_budget_resource_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association aws_servicecatalog_budget_resource_association}
+ */
 export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_servicecatalog_budget_resource_association";
+  public static readonly tfResourceType =
+    'aws_servicecatalog_budget_resource_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association aws_servicecatalog_budget_resource_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServicecatalogBudgetResourceAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: ServicecatalogBudgetResourceAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_budget_resource_association aws_servicecatalog_budget_resource_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServicecatalogBudgetResourceAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServicecatalogBudgetResourceAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_budget_resource_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -194,7 +217,7 @@ export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformReso
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._budgetName = config.budgetName;
     this._id = config.id;
@@ -249,7 +272,11 @@ export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformReso
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServicecatalogBudgetResourceAssociationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new ServicecatalogBudgetResourceAssociationTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -273,7 +300,9 @@ export class ServicecatalogBudgetResourceAssociation extends cdktf.TerraformReso
       budget_name: cdktf.stringToTerraform(this._budgetName),
       id: cdktf.stringToTerraform(this._id),
       resource_id: cdktf.stringToTerraform(this._resourceId),
-      timeouts: servicecatalogBudgetResourceAssociationTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: servicecatalogBudgetResourceAssociationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

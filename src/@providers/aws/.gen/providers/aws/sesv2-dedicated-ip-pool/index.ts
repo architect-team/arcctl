@@ -2,66 +2,76 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Sesv2DedicatedIpPoolConfig extends cdktf.TerraformMetaArguments {
+export interface Sesv2DedicatedIpPoolConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#id Sesv2DedicatedIpPool#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#id Sesv2DedicatedIpPool#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#pool_name Sesv2DedicatedIpPool#pool_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#pool_name Sesv2DedicatedIpPool#pool_name}
+   */
   readonly poolName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#scaling_mode Sesv2DedicatedIpPool#scaling_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#scaling_mode Sesv2DedicatedIpPool#scaling_mode}
+   */
   readonly scalingMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#tags Sesv2DedicatedIpPool#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#tags Sesv2DedicatedIpPool#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#tags_all Sesv2DedicatedIpPool#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#tags_all Sesv2DedicatedIpPool#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#timeouts Sesv2DedicatedIpPool#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#timeouts Sesv2DedicatedIpPool#timeouts}
+   */
   readonly timeouts?: Sesv2DedicatedIpPoolTimeouts;
 }
 export interface Sesv2DedicatedIpPoolTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#create Sesv2DedicatedIpPool#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#create Sesv2DedicatedIpPool#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#delete Sesv2DedicatedIpPool#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#delete Sesv2DedicatedIpPool#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#update Sesv2DedicatedIpPool#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool#update Sesv2DedicatedIpPool#update}
+   */
   readonly update?: string;
 }
 
-export function sesv2DedicatedIpPoolTimeoutsToTerraform(struct?: Sesv2DedicatedIpPoolTimeoutsOutputReference | Sesv2DedicatedIpPoolTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sesv2DedicatedIpPoolTimeoutsToTerraform(
+  struct?:
+    | Sesv2DedicatedIpPoolTimeoutsOutputReference
+    | Sesv2DedicatedIpPoolTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -69,14 +79,20 @@ export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Sesv2DedicatedIpPoolTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Sesv2DedicatedIpPoolTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -97,19 +113,19 @@ export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Sesv2DedicatedIpPoolTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Sesv2DedicatedIpPoolTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -168,33 +184,36 @@ export class Sesv2DedicatedIpPoolTimeoutsOutputReference extends cdktf.ComplexOb
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool aws_sesv2_dedicated_ip_pool}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool aws_sesv2_dedicated_ip_pool}
+ */
 export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sesv2_dedicated_ip_pool";
+  public static readonly tfResourceType = 'aws_sesv2_dedicated_ip_pool';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool aws_sesv2_dedicated_ip_pool} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Sesv2DedicatedIpPoolConfig
-  */
-  public constructor(scope: Construct, id: string, config: Sesv2DedicatedIpPoolConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sesv2_dedicated_ip_pool aws_sesv2_dedicated_ip_pool} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Sesv2DedicatedIpPoolConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Sesv2DedicatedIpPoolConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sesv2_dedicated_ip_pool',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -202,7 +221,7 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._poolName = config.poolName;
@@ -299,7 +318,10 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Sesv2DedicatedIpPoolTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new Sesv2DedicatedIpPoolTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -325,7 +347,9 @@ export class Sesv2DedicatedIpPool extends cdktf.TerraformResource {
       scaling_mode: cdktf.stringToTerraform(this._scalingMode),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      timeouts: sesv2DedicatedIpPoolTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: sesv2DedicatedIpPoolTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -1,7 +1,7 @@
 import {
   ProviderCredentials,
   ProviderCredentialsSchema,
-} from '../credentials.js';
+} from '../credentials.ts';
 
 export interface DockerCredentials extends ProviderCredentials {
   host?: string;

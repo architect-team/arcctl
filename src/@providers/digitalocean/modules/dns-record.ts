@@ -1,9 +1,9 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { DataDigitaloceanDomain } from '../.gen/providers/digitalocean/data-digitalocean-domain/index.js';
-import { Record as DORecord } from '../.gen/providers/digitalocean/record/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDnsRecordService } from '../services/dns-record.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { DataDigitaloceanDomain } from '../.gen/providers/digitalocean/data-digitalocean-domain/index.ts';
+import { Record as DORecord } from '../.gen/providers/digitalocean/record/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDnsRecordService } from '../services/dns-record.ts';
 import { Construct } from 'npm:constructs';
 
 export class DigitaloceanDnsRecordModule extends ResourceModule<

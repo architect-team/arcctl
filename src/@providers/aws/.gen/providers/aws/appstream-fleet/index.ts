@@ -2,122 +2,133 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface AppstreamFleetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#description AppstreamFleet#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#description AppstreamFleet#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#disconnect_timeout_in_seconds AppstreamFleet#disconnect_timeout_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#disconnect_timeout_in_seconds AppstreamFleet#disconnect_timeout_in_seconds}
+   */
   readonly disconnectTimeoutInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#display_name AppstreamFleet#display_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#display_name AppstreamFleet#display_name}
+   */
   readonly displayName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#enable_default_internet_access AppstreamFleet#enable_default_internet_access}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#enable_default_internet_access AppstreamFleet#enable_default_internet_access}
+   */
   readonly enableDefaultInternetAccess?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#fleet_type AppstreamFleet#fleet_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#fleet_type AppstreamFleet#fleet_type}
+   */
   readonly fleetType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#iam_role_arn AppstreamFleet#iam_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#iam_role_arn AppstreamFleet#iam_role_arn}
+   */
   readonly iamRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#id AppstreamFleet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#id AppstreamFleet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#idle_disconnect_timeout_in_seconds AppstreamFleet#idle_disconnect_timeout_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#idle_disconnect_timeout_in_seconds AppstreamFleet#idle_disconnect_timeout_in_seconds}
+   */
   readonly idleDisconnectTimeoutInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#image_arn AppstreamFleet#image_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#image_arn AppstreamFleet#image_arn}
+   */
   readonly imageArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#image_name AppstreamFleet#image_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#image_name AppstreamFleet#image_name}
+   */
   readonly imageName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#instance_type AppstreamFleet#instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#instance_type AppstreamFleet#instance_type}
+   */
   readonly instanceType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#max_user_duration_in_seconds AppstreamFleet#max_user_duration_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#max_user_duration_in_seconds AppstreamFleet#max_user_duration_in_seconds}
+   */
   readonly maxUserDurationInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#name AppstreamFleet#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#name AppstreamFleet#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#stream_view AppstreamFleet#stream_view}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#stream_view AppstreamFleet#stream_view}
+   */
   readonly streamView?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#tags AppstreamFleet#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#tags AppstreamFleet#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#tags_all AppstreamFleet#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#tags_all AppstreamFleet#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * compute_capacity block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#compute_capacity AppstreamFleet#compute_capacity}
-  */
+   * compute_capacity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#compute_capacity AppstreamFleet#compute_capacity}
+   */
   readonly computeCapacity: AppstreamFleetComputeCapacity;
   /**
-  * domain_join_info block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#domain_join_info AppstreamFleet#domain_join_info}
-  */
+   * domain_join_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#domain_join_info AppstreamFleet#domain_join_info}
+   */
   readonly domainJoinInfo?: AppstreamFleetDomainJoinInfo;
   /**
-  * vpc_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#vpc_config AppstreamFleet#vpc_config}
-  */
+   * vpc_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#vpc_config AppstreamFleet#vpc_config}
+   */
   readonly vpcConfig?: AppstreamFleetVpcConfig;
 }
 export interface AppstreamFleetComputeCapacity {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#desired_instances AppstreamFleet#desired_instances}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#desired_instances AppstreamFleet#desired_instances}
+   */
   readonly desiredInstances: number;
 }
 
-export function appstreamFleetComputeCapacityToTerraform(struct?: AppstreamFleetComputeCapacityOutputReference | AppstreamFleetComputeCapacity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appstreamFleetComputeCapacityToTerraform(
+  struct?:
+    | AppstreamFleetComputeCapacityOutputReference
+    | AppstreamFleetComputeCapacity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     desired_instances: cdktf.numberToTerraform(struct!.desiredInstances),
-  }
+  };
 }
 
 export class AppstreamFleetComputeCapacityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -135,8 +146,7 @@ export class AppstreamFleetComputeCapacityOutputReference extends cdktf.ComplexO
     if (value === undefined) {
       this.isEmptyObject = false;
       this._desiredInstances = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._desiredInstances = value.desiredInstances;
     }
@@ -172,34 +182,47 @@ export class AppstreamFleetComputeCapacityOutputReference extends cdktf.ComplexO
 }
 export interface AppstreamFleetDomainJoinInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#directory_name AppstreamFleet#directory_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#directory_name AppstreamFleet#directory_name}
+   */
   readonly directoryName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#organizational_unit_distinguished_name AppstreamFleet#organizational_unit_distinguished_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#organizational_unit_distinguished_name AppstreamFleet#organizational_unit_distinguished_name}
+   */
   readonly organizationalUnitDistinguishedName?: string;
 }
 
-export function appstreamFleetDomainJoinInfoToTerraform(struct?: AppstreamFleetDomainJoinInfoOutputReference | AppstreamFleetDomainJoinInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appstreamFleetDomainJoinInfoToTerraform(
+  struct?:
+    | AppstreamFleetDomainJoinInfoOutputReference
+    | AppstreamFleetDomainJoinInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     directory_name: cdktf.stringToTerraform(struct!.directoryName),
-    organizational_unit_distinguished_name: cdktf.stringToTerraform(struct!.organizationalUnitDistinguishedName),
-  }
+    organizational_unit_distinguished_name: cdktf.stringToTerraform(
+      struct!.organizationalUnitDistinguishedName,
+    ),
+  };
 }
 
 export class AppstreamFleetDomainJoinInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -212,7 +235,8 @@ export class AppstreamFleetDomainJoinInfoOutputReference extends cdktf.ComplexOb
     }
     if (this._organizationalUnitDistinguishedName !== undefined) {
       hasAnyValues = true;
-      internalValueResult.organizationalUnitDistinguishedName = this._organizationalUnitDistinguishedName;
+      internalValueResult.organizationalUnitDistinguishedName =
+        this._organizationalUnitDistinguishedName;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -222,11 +246,11 @@ export class AppstreamFleetDomainJoinInfoOutputReference extends cdktf.ComplexOb
       this.isEmptyObject = false;
       this._directoryName = undefined;
       this._organizationalUnitDistinguishedName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._directoryName = value.directoryName;
-      this._organizationalUnitDistinguishedName = value.organizationalUnitDistinguishedName;
+      this._organizationalUnitDistinguishedName =
+        value.organizationalUnitDistinguishedName;
     }
   }
 
@@ -264,34 +288,49 @@ export class AppstreamFleetDomainJoinInfoOutputReference extends cdktf.ComplexOb
 }
 export interface AppstreamFleetVpcConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#security_group_ids AppstreamFleet#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#security_group_ids AppstreamFleet#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#subnet_ids AppstreamFleet#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet#subnet_ids AppstreamFleet#subnet_ids}
+   */
   readonly subnetIds?: string[];
 }
 
-export function appstreamFleetVpcConfigToTerraform(struct?: AppstreamFleetVpcConfigOutputReference | AppstreamFleetVpcConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appstreamFleetVpcConfigToTerraform(
+  struct?: AppstreamFleetVpcConfigOutputReference | AppstreamFleetVpcConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
-  }
+    security_group_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.subnetIds),
+  };
 }
 
 export class AppstreamFleetVpcConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -314,8 +353,7 @@ export class AppstreamFleetVpcConfigOutputReference extends cdktf.ComplexObject 
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnetIds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnetIds = value.subnetIds;
@@ -356,33 +394,36 @@ export class AppstreamFleetVpcConfigOutputReference extends cdktf.ComplexObject 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet aws_appstream_fleet}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet aws_appstream_fleet}
+ */
 export class AppstreamFleet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_appstream_fleet";
+  public static readonly tfResourceType = 'aws_appstream_fleet';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet aws_appstream_fleet} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AppstreamFleetConfig
-  */
-  public constructor(scope: Construct, id: string, config: AppstreamFleetConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appstream_fleet aws_appstream_fleet} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AppstreamFleetConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AppstreamFleetConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_appstream_fleet',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -390,7 +431,7 @@ export class AppstreamFleet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._disconnectTimeoutInSeconds = config.disconnectTimeoutInSeconds;
@@ -399,7 +440,8 @@ export class AppstreamFleet extends cdktf.TerraformResource {
     this._fleetType = config.fleetType;
     this._iamRoleArn = config.iamRoleArn;
     this._id = config.id;
-    this._idleDisconnectTimeoutInSeconds = config.idleDisconnectTimeoutInSeconds;
+    this._idleDisconnectTimeoutInSeconds =
+      config.idleDisconnectTimeoutInSeconds;
     this._imageArn = config.imageArn;
     this._imageName = config.imageName;
     this._instanceType = config.instanceType;
@@ -683,7 +725,10 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // compute_capacity - computed: false, optional: false, required: true
-  private _computeCapacity = new AppstreamFleetComputeCapacityOutputReference(this, "compute_capacity");
+  private _computeCapacity = new AppstreamFleetComputeCapacityOutputReference(
+    this,
+    'compute_capacity',
+  );
   public get computeCapacity() {
     return this._computeCapacity;
   }
@@ -696,7 +741,10 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // domain_join_info - computed: false, optional: true, required: false
-  private _domainJoinInfo = new AppstreamFleetDomainJoinInfoOutputReference(this, "domain_join_info");
+  private _domainJoinInfo = new AppstreamFleetDomainJoinInfoOutputReference(
+    this,
+    'domain_join_info',
+  );
   public get domainJoinInfo() {
     return this._domainJoinInfo;
   }
@@ -712,7 +760,10 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   }
 
   // vpc_config - computed: false, optional: true, required: false
-  private _vpcConfig = new AppstreamFleetVpcConfigOutputReference(this, "vpc_config");
+  private _vpcConfig = new AppstreamFleetVpcConfigOutputReference(
+    this,
+    'vpc_config',
+  );
   public get vpcConfig() {
     return this._vpcConfig;
   }
@@ -734,24 +785,38 @@ export class AppstreamFleet extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       description: cdktf.stringToTerraform(this._description),
-      disconnect_timeout_in_seconds: cdktf.numberToTerraform(this._disconnectTimeoutInSeconds),
+      disconnect_timeout_in_seconds: cdktf.numberToTerraform(
+        this._disconnectTimeoutInSeconds,
+      ),
       display_name: cdktf.stringToTerraform(this._displayName),
-      enable_default_internet_access: cdktf.booleanToTerraform(this._enableDefaultInternetAccess),
+      enable_default_internet_access: cdktf.booleanToTerraform(
+        this._enableDefaultInternetAccess,
+      ),
       fleet_type: cdktf.stringToTerraform(this._fleetType),
       iam_role_arn: cdktf.stringToTerraform(this._iamRoleArn),
       id: cdktf.stringToTerraform(this._id),
-      idle_disconnect_timeout_in_seconds: cdktf.numberToTerraform(this._idleDisconnectTimeoutInSeconds),
+      idle_disconnect_timeout_in_seconds: cdktf.numberToTerraform(
+        this._idleDisconnectTimeoutInSeconds,
+      ),
       image_arn: cdktf.stringToTerraform(this._imageArn),
       image_name: cdktf.stringToTerraform(this._imageName),
       instance_type: cdktf.stringToTerraform(this._instanceType),
-      max_user_duration_in_seconds: cdktf.numberToTerraform(this._maxUserDurationInSeconds),
+      max_user_duration_in_seconds: cdktf.numberToTerraform(
+        this._maxUserDurationInSeconds,
+      ),
       name: cdktf.stringToTerraform(this._name),
       stream_view: cdktf.stringToTerraform(this._streamView),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      compute_capacity: appstreamFleetComputeCapacityToTerraform(this._computeCapacity.internalValue),
-      domain_join_info: appstreamFleetDomainJoinInfoToTerraform(this._domainJoinInfo.internalValue),
-      vpc_config: appstreamFleetVpcConfigToTerraform(this._vpcConfig.internalValue),
+      compute_capacity: appstreamFleetComputeCapacityToTerraform(
+        this._computeCapacity.internalValue,
+      ),
+      domain_join_info: appstreamFleetDomainJoinInfoToTerraform(
+        this._domainJoinInfo.internalValue,
+      ),
+      vpc_config: appstreamFleetVpcConfigToTerraform(
+        this._vpcConfig.internalValue,
+      ),
     };
   }
 }

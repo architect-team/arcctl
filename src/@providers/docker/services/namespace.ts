@@ -1,8 +1,8 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { DockerCredentials } from '../credentials.js';
-import { DockerNetworkModule } from '../modules/namespace.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { DockerCredentials } from '../credentials.ts';
+import { DockerNetworkModule } from '../modules/namespace.ts';
 
 export class DockerNamespaceService extends ResourceService<
   'namespace',

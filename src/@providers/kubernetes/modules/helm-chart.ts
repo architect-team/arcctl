@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.js';
-import { ResourceModule } from '../../module.js';
-import { Release } from '../.gen/providers/helm/release/index.js';
-import { KubernetesCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
+import { ResourceModule } from '../../module.ts';
+import { Release } from '../.gen/providers/helm/release/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'npm:constructs';
 import yaml from 'js-yaml';
 

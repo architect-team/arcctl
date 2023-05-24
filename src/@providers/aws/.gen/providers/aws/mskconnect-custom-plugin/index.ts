@@ -2,78 +2,90 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface MskconnectCustomPluginConfig extends cdktf.TerraformMetaArguments {
+export interface MskconnectCustomPluginConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#content_type MskconnectCustomPlugin#content_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#content_type MskconnectCustomPlugin#content_type}
+   */
   readonly contentType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#description MskconnectCustomPlugin#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#description MskconnectCustomPlugin#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#id MskconnectCustomPlugin#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#id MskconnectCustomPlugin#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#name MskconnectCustomPlugin#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#name MskconnectCustomPlugin#name}
+   */
   readonly name: string;
   /**
-  * location block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#location MskconnectCustomPlugin#location}
-  */
+   * location block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#location MskconnectCustomPlugin#location}
+   */
   readonly location: MskconnectCustomPluginLocation;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#timeouts MskconnectCustomPlugin#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#timeouts MskconnectCustomPlugin#timeouts}
+   */
   readonly timeouts?: MskconnectCustomPluginTimeouts;
 }
 export interface MskconnectCustomPluginLocationS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#bucket_arn MskconnectCustomPlugin#bucket_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#bucket_arn MskconnectCustomPlugin#bucket_arn}
+   */
   readonly bucketArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#file_key MskconnectCustomPlugin#file_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#file_key MskconnectCustomPlugin#file_key}
+   */
   readonly fileKey: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#object_version MskconnectCustomPlugin#object_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#object_version MskconnectCustomPlugin#object_version}
+   */
   readonly objectVersion?: string;
 }
 
-export function mskconnectCustomPluginLocationS3ToTerraform(struct?: MskconnectCustomPluginLocationS3OutputReference | MskconnectCustomPluginLocationS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskconnectCustomPluginLocationS3ToTerraform(
+  struct?:
+    | MskconnectCustomPluginLocationS3OutputReference
+    | MskconnectCustomPluginLocationS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_arn: cdktf.stringToTerraform(struct!.bucketArn),
     file_key: cdktf.stringToTerraform(struct!.fileKey),
     object_version: cdktf.stringToTerraform(struct!.objectVersion),
-  }
+  };
 }
 
 export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -95,14 +107,15 @@ export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskconnectCustomPluginLocationS3 | undefined) {
+  public set internalValue(
+    value: MskconnectCustomPluginLocationS3 | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketArn = undefined;
       this._fileKey = undefined;
       this._objectVersion = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketArn = value.bucketArn;
       this._fileKey = value.fileKey;
@@ -154,31 +167,42 @@ export class MskconnectCustomPluginLocationS3OutputReference extends cdktf.Compl
 }
 export interface MskconnectCustomPluginLocation {
   /**
-  * s3 block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#s3 MskconnectCustomPlugin#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#s3 MskconnectCustomPlugin#s3}
+   */
   readonly s3: MskconnectCustomPluginLocationS3;
 }
 
-export function mskconnectCustomPluginLocationToTerraform(struct?: MskconnectCustomPluginLocationOutputReference | MskconnectCustomPluginLocation): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskconnectCustomPluginLocationToTerraform(
+  struct?:
+    | MskconnectCustomPluginLocationOutputReference
+    | MskconnectCustomPluginLocation,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     s3: mskconnectCustomPluginLocationS3ToTerraform(struct!.s3),
-  }
+  };
 }
 
 export class MskconnectCustomPluginLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -196,15 +220,14 @@ export class MskconnectCustomPluginLocationOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3.internalValue = value.s3;
     }
   }
 
   // s3 - computed: false, optional: false, required: true
-  private _s3 = new MskconnectCustomPluginLocationS3OutputReference(this, "s3");
+  private _s3 = new MskconnectCustomPluginLocationS3OutputReference(this, 's3');
   public get s3() {
     return this._s3;
   }
@@ -218,24 +241,33 @@ export class MskconnectCustomPluginLocationOutputReference extends cdktf.Complex
 }
 export interface MskconnectCustomPluginTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#create MskconnectCustomPlugin#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#create MskconnectCustomPlugin#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#delete MskconnectCustomPlugin#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin#delete MskconnectCustomPlugin#delete}
+   */
   readonly delete?: string;
 }
 
-export function mskconnectCustomPluginTimeoutsToTerraform(struct?: MskconnectCustomPluginTimeoutsOutputReference | MskconnectCustomPluginTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskconnectCustomPluginTimeoutsToTerraform(
+  struct?:
+    | MskconnectCustomPluginTimeoutsOutputReference
+    | MskconnectCustomPluginTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class MskconnectCustomPluginTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -243,14 +275,20 @@ export class MskconnectCustomPluginTimeoutsOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskconnectCustomPluginTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | MskconnectCustomPluginTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -267,18 +305,18 @@ export class MskconnectCustomPluginTimeoutsOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskconnectCustomPluginTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: MskconnectCustomPluginTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -320,33 +358,36 @@ export class MskconnectCustomPluginTimeoutsOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin aws_mskconnect_custom_plugin}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin aws_mskconnect_custom_plugin}
+ */
 export class MskconnectCustomPlugin extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_mskconnect_custom_plugin";
+  public static readonly tfResourceType = 'aws_mskconnect_custom_plugin';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin aws_mskconnect_custom_plugin} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options MskconnectCustomPluginConfig
-  */
-  public constructor(scope: Construct, id: string, config: MskconnectCustomPluginConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/mskconnect_custom_plugin aws_mskconnect_custom_plugin} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options MskconnectCustomPluginConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: MskconnectCustomPluginConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_mskconnect_custom_plugin',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -354,7 +395,7 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._contentType = config.contentType;
     this._description = config.description;
@@ -442,7 +483,10 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
   }
 
   // location - computed: false, optional: false, required: true
-  private _location = new MskconnectCustomPluginLocationOutputReference(this, "location");
+  private _location = new MskconnectCustomPluginLocationOutputReference(
+    this,
+    'location',
+  );
   public get location() {
     return this._location;
   }
@@ -455,7 +499,10 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new MskconnectCustomPluginTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new MskconnectCustomPluginTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -480,8 +527,12 @@ export class MskconnectCustomPlugin extends cdktf.TerraformResource {
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      location: mskconnectCustomPluginLocationToTerraform(this._location.internalValue),
-      timeouts: mskconnectCustomPluginTimeoutsToTerraform(this._timeouts.internalValue),
+      location: mskconnectCustomPluginLocationToTerraform(
+        this._location.internalValue,
+      ),
+      timeouts: mskconnectCustomPluginTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

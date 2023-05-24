@@ -2,74 +2,88 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface AppmeshVirtualServiceConfig extends cdktf.TerraformMetaArguments {
+export interface AppmeshVirtualServiceConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#id AppmeshVirtualService#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#id AppmeshVirtualService#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#mesh_name AppmeshVirtualService#mesh_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#mesh_name AppmeshVirtualService#mesh_name}
+   */
   readonly meshName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#mesh_owner AppmeshVirtualService#mesh_owner}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#mesh_owner AppmeshVirtualService#mesh_owner}
+   */
   readonly meshOwner?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#name AppmeshVirtualService#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#name AppmeshVirtualService#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#tags AppmeshVirtualService#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#tags AppmeshVirtualService#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#tags_all AppmeshVirtualService#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#tags_all AppmeshVirtualService#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#spec AppmeshVirtualService#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#spec AppmeshVirtualService#spec}
+   */
   readonly spec: AppmeshVirtualServiceSpec;
 }
 export interface AppmeshVirtualServiceSpecProviderVirtualNode {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_node_name AppmeshVirtualService#virtual_node_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_node_name AppmeshVirtualService#virtual_node_name}
+   */
   readonly virtualNodeName: string;
 }
 
-export function appmeshVirtualServiceSpecProviderVirtualNodeToTerraform(struct?: AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference | AppmeshVirtualServiceSpecProviderVirtualNode): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appmeshVirtualServiceSpecProviderVirtualNodeToTerraform(
+  struct?:
+    | AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference
+    | AppmeshVirtualServiceSpecProviderVirtualNode,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     virtual_node_name: cdktf.stringToTerraform(struct!.virtualNodeName),
-  }
+  };
 }
 
 export class AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppmeshVirtualServiceSpecProviderVirtualNode | undefined {
+  public get internalValue():
+    | AppmeshVirtualServiceSpecProviderVirtualNode
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._virtualNodeName !== undefined) {
@@ -79,12 +93,13 @@ export class AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppmeshVirtualServiceSpecProviderVirtualNode | undefined) {
+  public set internalValue(
+    value: AppmeshVirtualServiceSpecProviderVirtualNode | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._virtualNodeName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._virtualNodeName = value.virtualNodeName;
     }
@@ -105,33 +120,46 @@ export class AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference extends
 }
 export interface AppmeshVirtualServiceSpecProviderVirtualRouter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_router_name AppmeshVirtualService#virtual_router_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_router_name AppmeshVirtualService#virtual_router_name}
+   */
   readonly virtualRouterName: string;
 }
 
-export function appmeshVirtualServiceSpecProviderVirtualRouterToTerraform(struct?: AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference | AppmeshVirtualServiceSpecProviderVirtualRouter): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appmeshVirtualServiceSpecProviderVirtualRouterToTerraform(
+  struct?:
+    | AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference
+    | AppmeshVirtualServiceSpecProviderVirtualRouter,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     virtual_router_name: cdktf.stringToTerraform(struct!.virtualRouterName),
-  }
+  };
 }
 
 export class AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppmeshVirtualServiceSpecProviderVirtualRouter | undefined {
+  public get internalValue():
+    | AppmeshVirtualServiceSpecProviderVirtualRouter
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._virtualRouterName !== undefined) {
@@ -141,12 +169,13 @@ export class AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppmeshVirtualServiceSpecProviderVirtualRouter | undefined) {
+  public set internalValue(
+    value: AppmeshVirtualServiceSpecProviderVirtualRouter | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._virtualRouterName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._virtualRouterName = value.virtualRouterName;
     }
@@ -167,38 +196,53 @@ export class AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference exten
 }
 export interface AppmeshVirtualServiceSpecProvider {
   /**
-  * virtual_node block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_node AppmeshVirtualService#virtual_node}
-  */
+   * virtual_node block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_node AppmeshVirtualService#virtual_node}
+   */
   readonly virtualNode?: AppmeshVirtualServiceSpecProviderVirtualNode;
   /**
-  * virtual_router block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_router AppmeshVirtualService#virtual_router}
-  */
+   * virtual_router block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#virtual_router AppmeshVirtualService#virtual_router}
+   */
   readonly virtualRouter?: AppmeshVirtualServiceSpecProviderVirtualRouter;
 }
 
-export function appmeshVirtualServiceSpecProviderToTerraform(struct?: AppmeshVirtualServiceSpecProviderOutputReference | AppmeshVirtualServiceSpecProvider): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appmeshVirtualServiceSpecProviderToTerraform(
+  struct?:
+    | AppmeshVirtualServiceSpecProviderOutputReference
+    | AppmeshVirtualServiceSpecProvider,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    virtual_node: appmeshVirtualServiceSpecProviderVirtualNodeToTerraform(struct!.virtualNode),
-    virtual_router: appmeshVirtualServiceSpecProviderVirtualRouterToTerraform(struct!.virtualRouter),
-  }
+    virtual_node: appmeshVirtualServiceSpecProviderVirtualNodeToTerraform(
+      struct!.virtualNode,
+    ),
+    virtual_router: appmeshVirtualServiceSpecProviderVirtualRouterToTerraform(
+      struct!.virtualRouter,
+    ),
+  };
 }
 
 export class AppmeshVirtualServiceSpecProviderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -216,13 +260,14 @@ export class AppmeshVirtualServiceSpecProviderOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppmeshVirtualServiceSpecProvider | undefined) {
+  public set internalValue(
+    value: AppmeshVirtualServiceSpecProvider | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._virtualNode.internalValue = undefined;
       this._virtualRouter.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._virtualNode.internalValue = value.virtualNode;
       this._virtualRouter.internalValue = value.virtualRouter;
@@ -230,7 +275,11 @@ export class AppmeshVirtualServiceSpecProviderOutputReference extends cdktf.Comp
   }
 
   // virtual_node - computed: false, optional: true, required: false
-  private _virtualNode = new AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference(this, "virtual_node");
+  private _virtualNode =
+    new AppmeshVirtualServiceSpecProviderVirtualNodeOutputReference(
+      this,
+      'virtual_node',
+    );
   public get virtualNode() {
     return this._virtualNode;
   }
@@ -246,11 +295,17 @@ export class AppmeshVirtualServiceSpecProviderOutputReference extends cdktf.Comp
   }
 
   // virtual_router - computed: false, optional: true, required: false
-  private _virtualRouter = new AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference(this, "virtual_router");
+  private _virtualRouter =
+    new AppmeshVirtualServiceSpecProviderVirtualRouterOutputReference(
+      this,
+      'virtual_router',
+    );
   public get virtualRouter() {
     return this._virtualRouter;
   }
-  public putVirtualRouter(value: AppmeshVirtualServiceSpecProviderVirtualRouter) {
+  public putVirtualRouter(
+    value: AppmeshVirtualServiceSpecProviderVirtualRouter,
+  ) {
     this._virtualRouter.internalValue = value;
   }
   public resetVirtualRouter() {
@@ -263,31 +318,40 @@ export class AppmeshVirtualServiceSpecProviderOutputReference extends cdktf.Comp
 }
 export interface AppmeshVirtualServiceSpec {
   /**
-  * provider block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#provider AppmeshVirtualService#provider}
-  */
+   * provider block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service#provider AppmeshVirtualService#provider}
+   */
   readonly provider?: AppmeshVirtualServiceSpecProvider;
 }
 
-export function appmeshVirtualServiceSpecToTerraform(struct?: AppmeshVirtualServiceSpecOutputReference | AppmeshVirtualServiceSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appmeshVirtualServiceSpecToTerraform(
+  struct?: AppmeshVirtualServiceSpecOutputReference | AppmeshVirtualServiceSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     provider: appmeshVirtualServiceSpecProviderToTerraform(struct!.provider),
-  }
+  };
 }
 
 export class AppmeshVirtualServiceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -305,15 +369,17 @@ export class AppmeshVirtualServiceSpecOutputReference extends cdktf.ComplexObjec
     if (value === undefined) {
       this.isEmptyObject = false;
       this._provider.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._provider.internalValue = value.provider;
     }
   }
 
   // provider - computed: false, optional: true, required: false
-  private _provider = new AppmeshVirtualServiceSpecProviderOutputReference(this, "provider");
+  private _provider = new AppmeshVirtualServiceSpecProviderOutputReference(
+    this,
+    'provider',
+  );
   public get provider() {
     return this._provider;
   }
@@ -330,33 +396,36 @@ export class AppmeshVirtualServiceSpecOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service aws_appmesh_virtual_service}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service aws_appmesh_virtual_service}
+ */
 export class AppmeshVirtualService extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_appmesh_virtual_service";
+  public static readonly tfResourceType = 'aws_appmesh_virtual_service';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service aws_appmesh_virtual_service} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AppmeshVirtualServiceConfig
-  */
-  public constructor(scope: Construct, id: string, config: AppmeshVirtualServiceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appmesh_virtual_service aws_appmesh_virtual_service} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AppmeshVirtualServiceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AppmeshVirtualServiceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_appmesh_virtual_service',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -364,7 +433,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._meshName = config.meshName;
@@ -490,7 +559,7 @@ export class AppmeshVirtualService extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new AppmeshVirtualServiceSpecOutputReference(this, "spec");
+  private _spec = new AppmeshVirtualServiceSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }

@@ -2,66 +2,77 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface LambdaAliasConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#description LambdaAlias#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#description LambdaAlias#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#function_name LambdaAlias#function_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#function_name LambdaAlias#function_name}
+   */
   readonly functionName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#function_version LambdaAlias#function_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#function_version LambdaAlias#function_version}
+   */
   readonly functionVersion: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#id LambdaAlias#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#id LambdaAlias#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#name LambdaAlias#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#name LambdaAlias#name}
+   */
   readonly name: string;
   /**
-  * routing_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#routing_config LambdaAlias#routing_config}
-  */
+   * routing_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#routing_config LambdaAlias#routing_config}
+   */
   readonly routingConfig?: LambdaAliasRoutingConfig;
 }
 export interface LambdaAliasRoutingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#additional_version_weights LambdaAlias#additional_version_weights}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias#additional_version_weights LambdaAlias#additional_version_weights}
+   */
   readonly additionalVersionWeights?: { [key: string]: number };
 }
 
-export function lambdaAliasRoutingConfigToTerraform(struct?: LambdaAliasRoutingConfigOutputReference | LambdaAliasRoutingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaAliasRoutingConfigToTerraform(
+  struct?: LambdaAliasRoutingConfigOutputReference | LambdaAliasRoutingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    additional_version_weights: cdktf.hashMapper(cdktf.numberToTerraform)(struct!.additionalVersionWeights),
-  }
+    additional_version_weights: cdktf.hashMapper(cdktf.numberToTerraform)(
+      struct!.additionalVersionWeights,
+    ),
+  };
 }
 
 export class LambdaAliasRoutingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -70,7 +81,8 @@ export class LambdaAliasRoutingConfigOutputReference extends cdktf.ComplexObject
     const internalValueResult: any = {};
     if (this._additionalVersionWeights !== undefined) {
       hasAnyValues = true;
-      internalValueResult.additionalVersionWeights = this._additionalVersionWeights;
+      internalValueResult.additionalVersionWeights =
+        this._additionalVersionWeights;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -79,8 +91,7 @@ export class LambdaAliasRoutingConfigOutputReference extends cdktf.ComplexObject
     if (value === undefined) {
       this.isEmptyObject = false;
       this._additionalVersionWeights = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._additionalVersionWeights = value.additionalVersionWeights;
     }
@@ -104,33 +115,32 @@ export class LambdaAliasRoutingConfigOutputReference extends cdktf.ComplexObject
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias aws_lambda_alias}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias aws_lambda_alias}
+ */
 export class LambdaAlias extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lambda_alias";
+  public static readonly tfResourceType = 'aws_lambda_alias';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias aws_lambda_alias} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LambdaAliasConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_alias aws_lambda_alias} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LambdaAliasConfig
+   */
   public constructor(scope: Construct, id: string, config: LambdaAliasConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_alias',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -138,7 +148,7 @@ export class LambdaAlias extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._functionName = config.functionName;
@@ -234,7 +244,10 @@ export class LambdaAlias extends cdktf.TerraformResource {
   }
 
   // routing_config - computed: false, optional: true, required: false
-  private _routingConfig = new LambdaAliasRoutingConfigOutputReference(this, "routing_config");
+  private _routingConfig = new LambdaAliasRoutingConfigOutputReference(
+    this,
+    'routing_config',
+  );
   public get routingConfig() {
     return this._routingConfig;
   }
@@ -260,7 +273,9 @@ export class LambdaAlias extends cdktf.TerraformResource {
       function_version: cdktf.stringToTerraform(this._functionVersion),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      routing_config: lambdaAliasRoutingConfigToTerraform(this._routingConfig.internalValue),
+      routing_config: lambdaAliasRoutingConfigToTerraform(
+        this._routingConfig.internalValue,
+      ),
     };
   }
 }

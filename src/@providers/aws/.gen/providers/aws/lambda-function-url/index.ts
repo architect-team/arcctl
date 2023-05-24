@@ -2,93 +2,114 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface LambdaFunctionUrlConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#authorization_type LambdaFunctionUrl#authorization_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#authorization_type LambdaFunctionUrl#authorization_type}
+   */
   readonly authorizationType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#function_name LambdaFunctionUrl#function_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#function_name LambdaFunctionUrl#function_name}
+   */
   readonly functionName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#id LambdaFunctionUrl#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#id LambdaFunctionUrl#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#qualifier LambdaFunctionUrl#qualifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#qualifier LambdaFunctionUrl#qualifier}
+   */
   readonly qualifier?: string;
   /**
-  * cors block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#cors LambdaFunctionUrl#cors}
-  */
+   * cors block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#cors LambdaFunctionUrl#cors}
+   */
   readonly cors?: LambdaFunctionUrlCors;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#timeouts LambdaFunctionUrl#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#timeouts LambdaFunctionUrl#timeouts}
+   */
   readonly timeouts?: LambdaFunctionUrlTimeouts;
 }
 export interface LambdaFunctionUrlCors {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_credentials LambdaFunctionUrl#allow_credentials}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_credentials LambdaFunctionUrl#allow_credentials}
+   */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_headers LambdaFunctionUrl#allow_headers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_headers LambdaFunctionUrl#allow_headers}
+   */
   readonly allowHeaders?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_methods LambdaFunctionUrl#allow_methods}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_methods LambdaFunctionUrl#allow_methods}
+   */
   readonly allowMethods?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_origins LambdaFunctionUrl#allow_origins}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#allow_origins LambdaFunctionUrl#allow_origins}
+   */
   readonly allowOrigins?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#expose_headers LambdaFunctionUrl#expose_headers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#expose_headers LambdaFunctionUrl#expose_headers}
+   */
   readonly exposeHeaders?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#max_age LambdaFunctionUrl#max_age}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#max_age LambdaFunctionUrl#max_age}
+   */
   readonly maxAge?: number;
 }
 
-export function lambdaFunctionUrlCorsToTerraform(struct?: LambdaFunctionUrlCorsOutputReference | LambdaFunctionUrlCors): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionUrlCorsToTerraform(
+  struct?: LambdaFunctionUrlCorsOutputReference | LambdaFunctionUrlCors,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     allow_credentials: cdktf.booleanToTerraform(struct!.allowCredentials),
-    allow_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowHeaders),
-    allow_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowMethods),
-    allow_origins: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowOrigins),
-    expose_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.exposeHeaders),
+    allow_headers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowHeaders),
+    allow_methods: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowMethods),
+    allow_origins: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowOrigins),
+    expose_headers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.exposeHeaders),
     max_age: cdktf.numberToTerraform(struct!.maxAge),
-  }
+  };
 }
 
 export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -131,8 +152,7 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
       this._allowOrigins = undefined;
       this._exposeHeaders = undefined;
       this._maxAge = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowCredentials = value.allowCredentials;
       this._allowHeaders = value.allowHeaders;
@@ -241,19 +261,28 @@ export class LambdaFunctionUrlCorsOutputReference extends cdktf.ComplexObject {
 }
 export interface LambdaFunctionUrlTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#create LambdaFunctionUrl#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url#create LambdaFunctionUrl#create}
+   */
   readonly create?: string;
 }
 
-export function lambdaFunctionUrlTimeoutsToTerraform(struct?: LambdaFunctionUrlTimeoutsOutputReference | LambdaFunctionUrlTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionUrlTimeoutsToTerraform(
+  struct?:
+    | LambdaFunctionUrlTimeoutsOutputReference
+    | LambdaFunctionUrlTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class LambdaFunctionUrlTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -261,14 +290,20 @@ export class LambdaFunctionUrlTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaFunctionUrlTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LambdaFunctionUrlTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -281,17 +316,17 @@ export class LambdaFunctionUrlTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaFunctionUrlTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: LambdaFunctionUrlTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -316,33 +351,36 @@ export class LambdaFunctionUrlTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url aws_lambda_function_url}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url aws_lambda_function_url}
+ */
 export class LambdaFunctionUrl extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lambda_function_url";
+  public static readonly tfResourceType = 'aws_lambda_function_url';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url aws_lambda_function_url} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LambdaFunctionUrlConfig
-  */
-  public constructor(scope: Construct, id: string, config: LambdaFunctionUrlConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_url aws_lambda_function_url} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LambdaFunctionUrlConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LambdaFunctionUrlConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_function_url',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -350,7 +388,7 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._authorizationType = config.authorizationType;
     this._functionName = config.functionName;
@@ -438,7 +476,7 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
   }
 
   // cors - computed: false, optional: true, required: false
-  private _cors = new LambdaFunctionUrlCorsOutputReference(this, "cors");
+  private _cors = new LambdaFunctionUrlCorsOutputReference(this, 'cors');
   public get cors() {
     return this._cors;
   }
@@ -454,7 +492,10 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new LambdaFunctionUrlTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new LambdaFunctionUrlTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -480,7 +521,9 @@ export class LambdaFunctionUrl extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       qualifier: cdktf.stringToTerraform(this._qualifier),
       cors: lambdaFunctionUrlCorsToTerraform(this._cors.internalValue),
-      timeouts: lambdaFunctionUrlTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: lambdaFunctionUrlTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

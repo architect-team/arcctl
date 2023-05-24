@@ -1,10 +1,10 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.js';
-import AwsUtils from '../utils.js';
-import { AwsRegionService } from './region.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
+import AwsUtils from '../utils.ts';
+import { AwsRegionService } from './region.ts';
 
 export class AwsKubernetesClusterService extends ResourceService<
   'kubernetesCluster',

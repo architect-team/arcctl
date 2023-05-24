@@ -1,8 +1,8 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { DockerCredentials } from '../credentials.js';
-import { DockerDeploymentModule } from '../modules/deployment.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { DockerCredentials } from '../credentials.ts';
+import { DockerDeploymentModule } from '../modules/deployment.ts';
 
 export class DockerDeploymentService extends ResourceService<
   'deployment',

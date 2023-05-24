@@ -2,156 +2,159 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface SnsTopicConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#application_failure_feedback_role_arn SnsTopic#application_failure_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#application_failure_feedback_role_arn SnsTopic#application_failure_feedback_role_arn}
+   */
   readonly applicationFailureFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#application_success_feedback_role_arn SnsTopic#application_success_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#application_success_feedback_role_arn SnsTopic#application_success_feedback_role_arn}
+   */
   readonly applicationSuccessFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#application_success_feedback_sample_rate SnsTopic#application_success_feedback_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#application_success_feedback_sample_rate SnsTopic#application_success_feedback_sample_rate}
+   */
   readonly applicationSuccessFeedbackSampleRate?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#content_based_deduplication SnsTopic#content_based_deduplication}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#content_based_deduplication SnsTopic#content_based_deduplication}
+   */
   readonly contentBasedDeduplication?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#delivery_policy SnsTopic#delivery_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#delivery_policy SnsTopic#delivery_policy}
+   */
   readonly deliveryPolicy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#display_name SnsTopic#display_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#display_name SnsTopic#display_name}
+   */
   readonly displayName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#fifo_topic SnsTopic#fifo_topic}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#fifo_topic SnsTopic#fifo_topic}
+   */
   readonly fifoTopic?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#firehose_failure_feedback_role_arn SnsTopic#firehose_failure_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#firehose_failure_feedback_role_arn SnsTopic#firehose_failure_feedback_role_arn}
+   */
   readonly firehoseFailureFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#firehose_success_feedback_role_arn SnsTopic#firehose_success_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#firehose_success_feedback_role_arn SnsTopic#firehose_success_feedback_role_arn}
+   */
   readonly firehoseSuccessFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#firehose_success_feedback_sample_rate SnsTopic#firehose_success_feedback_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#firehose_success_feedback_sample_rate SnsTopic#firehose_success_feedback_sample_rate}
+   */
   readonly firehoseSuccessFeedbackSampleRate?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#http_failure_feedback_role_arn SnsTopic#http_failure_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#http_failure_feedback_role_arn SnsTopic#http_failure_feedback_role_arn}
+   */
   readonly httpFailureFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#http_success_feedback_role_arn SnsTopic#http_success_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#http_success_feedback_role_arn SnsTopic#http_success_feedback_role_arn}
+   */
   readonly httpSuccessFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#http_success_feedback_sample_rate SnsTopic#http_success_feedback_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#http_success_feedback_sample_rate SnsTopic#http_success_feedback_sample_rate}
+   */
   readonly httpSuccessFeedbackSampleRate?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#id SnsTopic#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#id SnsTopic#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#kms_master_key_id SnsTopic#kms_master_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#kms_master_key_id SnsTopic#kms_master_key_id}
+   */
   readonly kmsMasterKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#lambda_failure_feedback_role_arn SnsTopic#lambda_failure_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#lambda_failure_feedback_role_arn SnsTopic#lambda_failure_feedback_role_arn}
+   */
   readonly lambdaFailureFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#lambda_success_feedback_role_arn SnsTopic#lambda_success_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#lambda_success_feedback_role_arn SnsTopic#lambda_success_feedback_role_arn}
+   */
   readonly lambdaSuccessFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#lambda_success_feedback_sample_rate SnsTopic#lambda_success_feedback_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#lambda_success_feedback_sample_rate SnsTopic#lambda_success_feedback_sample_rate}
+   */
   readonly lambdaSuccessFeedbackSampleRate?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#name SnsTopic#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#name SnsTopic#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#name_prefix SnsTopic#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#name_prefix SnsTopic#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#policy SnsTopic#policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#policy SnsTopic#policy}
+   */
   readonly policy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#signature_version SnsTopic#signature_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#signature_version SnsTopic#signature_version}
+   */
   readonly signatureVersion?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#sqs_failure_feedback_role_arn SnsTopic#sqs_failure_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#sqs_failure_feedback_role_arn SnsTopic#sqs_failure_feedback_role_arn}
+   */
   readonly sqsFailureFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#sqs_success_feedback_role_arn SnsTopic#sqs_success_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#sqs_success_feedback_role_arn SnsTopic#sqs_success_feedback_role_arn}
+   */
   readonly sqsSuccessFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#sqs_success_feedback_sample_rate SnsTopic#sqs_success_feedback_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#sqs_success_feedback_sample_rate SnsTopic#sqs_success_feedback_sample_rate}
+   */
   readonly sqsSuccessFeedbackSampleRate?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#tags SnsTopic#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#tags SnsTopic#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#tags_all SnsTopic#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#tags_all SnsTopic#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#tracing_config SnsTopic#tracing_config}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_topic#tracing_config SnsTopic#tracing_config}
+   */
   readonly tracingConfig?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sns_topic aws_sns_topic}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sns_topic aws_sns_topic}
+ */
 export class SnsTopic extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sns_topic";
+  public static readonly tfResourceType = 'aws_sns_topic';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sns_topic aws_sns_topic} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SnsTopicConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: SnsTopicConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sns_topic aws_sns_topic} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SnsTopicConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SnsTopicConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sns_topic',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -159,18 +162,24 @@ export class SnsTopic extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
-    this._applicationFailureFeedbackRoleArn = config.applicationFailureFeedbackRoleArn;
-    this._applicationSuccessFeedbackRoleArn = config.applicationSuccessFeedbackRoleArn;
-    this._applicationSuccessFeedbackSampleRate = config.applicationSuccessFeedbackSampleRate;
+    this._applicationFailureFeedbackRoleArn =
+      config.applicationFailureFeedbackRoleArn;
+    this._applicationSuccessFeedbackRoleArn =
+      config.applicationSuccessFeedbackRoleArn;
+    this._applicationSuccessFeedbackSampleRate =
+      config.applicationSuccessFeedbackSampleRate;
     this._contentBasedDeduplication = config.contentBasedDeduplication;
     this._deliveryPolicy = config.deliveryPolicy;
     this._displayName = config.displayName;
     this._fifoTopic = config.fifoTopic;
-    this._firehoseFailureFeedbackRoleArn = config.firehoseFailureFeedbackRoleArn;
-    this._firehoseSuccessFeedbackRoleArn = config.firehoseSuccessFeedbackRoleArn;
-    this._firehoseSuccessFeedbackSampleRate = config.firehoseSuccessFeedbackSampleRate;
+    this._firehoseFailureFeedbackRoleArn =
+      config.firehoseFailureFeedbackRoleArn;
+    this._firehoseSuccessFeedbackRoleArn =
+      config.firehoseSuccessFeedbackRoleArn;
+    this._firehoseSuccessFeedbackSampleRate =
+      config.firehoseSuccessFeedbackSampleRate;
     this._httpFailureFeedbackRoleArn = config.httpFailureFeedbackRoleArn;
     this._httpSuccessFeedbackRoleArn = config.httpSuccessFeedbackRoleArn;
     this._httpSuccessFeedbackSampleRate = config.httpSuccessFeedbackSampleRate;
@@ -178,7 +187,8 @@ export class SnsTopic extends cdktf.TerraformResource {
     this._kmsMasterKeyId = config.kmsMasterKeyId;
     this._lambdaFailureFeedbackRoleArn = config.lambdaFailureFeedbackRoleArn;
     this._lambdaSuccessFeedbackRoleArn = config.lambdaSuccessFeedbackRoleArn;
-    this._lambdaSuccessFeedbackSampleRate = config.lambdaSuccessFeedbackSampleRate;
+    this._lambdaSuccessFeedbackSampleRate =
+      config.lambdaSuccessFeedbackSampleRate;
     this._name = config.name;
     this._namePrefix = config.namePrefix;
     this._policy = config.policy;
@@ -659,31 +669,63 @@ export class SnsTopic extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      application_failure_feedback_role_arn: cdktf.stringToTerraform(this._applicationFailureFeedbackRoleArn),
-      application_success_feedback_role_arn: cdktf.stringToTerraform(this._applicationSuccessFeedbackRoleArn),
-      application_success_feedback_sample_rate: cdktf.numberToTerraform(this._applicationSuccessFeedbackSampleRate),
-      content_based_deduplication: cdktf.booleanToTerraform(this._contentBasedDeduplication),
+      application_failure_feedback_role_arn: cdktf.stringToTerraform(
+        this._applicationFailureFeedbackRoleArn,
+      ),
+      application_success_feedback_role_arn: cdktf.stringToTerraform(
+        this._applicationSuccessFeedbackRoleArn,
+      ),
+      application_success_feedback_sample_rate: cdktf.numberToTerraform(
+        this._applicationSuccessFeedbackSampleRate,
+      ),
+      content_based_deduplication: cdktf.booleanToTerraform(
+        this._contentBasedDeduplication,
+      ),
       delivery_policy: cdktf.stringToTerraform(this._deliveryPolicy),
       display_name: cdktf.stringToTerraform(this._displayName),
       fifo_topic: cdktf.booleanToTerraform(this._fifoTopic),
-      firehose_failure_feedback_role_arn: cdktf.stringToTerraform(this._firehoseFailureFeedbackRoleArn),
-      firehose_success_feedback_role_arn: cdktf.stringToTerraform(this._firehoseSuccessFeedbackRoleArn),
-      firehose_success_feedback_sample_rate: cdktf.numberToTerraform(this._firehoseSuccessFeedbackSampleRate),
-      http_failure_feedback_role_arn: cdktf.stringToTerraform(this._httpFailureFeedbackRoleArn),
-      http_success_feedback_role_arn: cdktf.stringToTerraform(this._httpSuccessFeedbackRoleArn),
-      http_success_feedback_sample_rate: cdktf.numberToTerraform(this._httpSuccessFeedbackSampleRate),
+      firehose_failure_feedback_role_arn: cdktf.stringToTerraform(
+        this._firehoseFailureFeedbackRoleArn,
+      ),
+      firehose_success_feedback_role_arn: cdktf.stringToTerraform(
+        this._firehoseSuccessFeedbackRoleArn,
+      ),
+      firehose_success_feedback_sample_rate: cdktf.numberToTerraform(
+        this._firehoseSuccessFeedbackSampleRate,
+      ),
+      http_failure_feedback_role_arn: cdktf.stringToTerraform(
+        this._httpFailureFeedbackRoleArn,
+      ),
+      http_success_feedback_role_arn: cdktf.stringToTerraform(
+        this._httpSuccessFeedbackRoleArn,
+      ),
+      http_success_feedback_sample_rate: cdktf.numberToTerraform(
+        this._httpSuccessFeedbackSampleRate,
+      ),
       id: cdktf.stringToTerraform(this._id),
       kms_master_key_id: cdktf.stringToTerraform(this._kmsMasterKeyId),
-      lambda_failure_feedback_role_arn: cdktf.stringToTerraform(this._lambdaFailureFeedbackRoleArn),
-      lambda_success_feedback_role_arn: cdktf.stringToTerraform(this._lambdaSuccessFeedbackRoleArn),
-      lambda_success_feedback_sample_rate: cdktf.numberToTerraform(this._lambdaSuccessFeedbackSampleRate),
+      lambda_failure_feedback_role_arn: cdktf.stringToTerraform(
+        this._lambdaFailureFeedbackRoleArn,
+      ),
+      lambda_success_feedback_role_arn: cdktf.stringToTerraform(
+        this._lambdaSuccessFeedbackRoleArn,
+      ),
+      lambda_success_feedback_sample_rate: cdktf.numberToTerraform(
+        this._lambdaSuccessFeedbackSampleRate,
+      ),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       policy: cdktf.stringToTerraform(this._policy),
       signature_version: cdktf.numberToTerraform(this._signatureVersion),
-      sqs_failure_feedback_role_arn: cdktf.stringToTerraform(this._sqsFailureFeedbackRoleArn),
-      sqs_success_feedback_role_arn: cdktf.stringToTerraform(this._sqsSuccessFeedbackRoleArn),
-      sqs_success_feedback_sample_rate: cdktf.numberToTerraform(this._sqsSuccessFeedbackSampleRate),
+      sqs_failure_feedback_role_arn: cdktf.stringToTerraform(
+        this._sqsFailureFeedbackRoleArn,
+      ),
+      sqs_success_feedback_role_arn: cdktf.stringToTerraform(
+        this._sqsSuccessFeedbackRoleArn,
+      ),
+      sqs_success_feedback_sample_rate: cdktf.numberToTerraform(
+        this._sqsSuccessFeedbackSampleRate,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       tracing_config: cdktf.stringToTerraform(this._tracingConfig),

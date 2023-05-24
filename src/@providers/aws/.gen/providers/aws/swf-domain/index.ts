@@ -2,72 +2,71 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface SwfDomainConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#description SwfDomain#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#description SwfDomain#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#id SwfDomain#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#id SwfDomain#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#name SwfDomain#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#name SwfDomain#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#name_prefix SwfDomain#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#name_prefix SwfDomain#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#tags SwfDomain#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#tags SwfDomain#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#tags_all SwfDomain#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#tags_all SwfDomain#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#workflow_execution_retention_period_in_days SwfDomain#workflow_execution_retention_period_in_days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/swf_domain#workflow_execution_retention_period_in_days SwfDomain#workflow_execution_retention_period_in_days}
+   */
   readonly workflowExecutionRetentionPeriodInDays: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/swf_domain aws_swf_domain}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/swf_domain aws_swf_domain}
+ */
 export class SwfDomain extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_swf_domain";
+  public static readonly tfResourceType = 'aws_swf_domain';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/swf_domain aws_swf_domain} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SwfDomainConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/swf_domain aws_swf_domain} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SwfDomainConfig
+   */
   public constructor(scope: Construct, id: string, config: SwfDomainConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_swf_domain',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +74,7 @@ export class SwfDomain extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -83,7 +82,8 @@ export class SwfDomain extends cdktf.TerraformResource {
     this._namePrefix = config.namePrefix;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._workflowExecutionRetentionPeriodInDays = config.workflowExecutionRetentionPeriodInDays;
+    this._workflowExecutionRetentionPeriodInDays =
+      config.workflowExecutionRetentionPeriodInDays;
   }
 
   // ==========
@@ -194,7 +194,9 @@ export class SwfDomain extends cdktf.TerraformResource {
   // workflow_execution_retention_period_in_days - computed: false, optional: false, required: true
   private _workflowExecutionRetentionPeriodInDays?: string;
   public get workflowExecutionRetentionPeriodInDays() {
-    return this.getStringAttribute('workflow_execution_retention_period_in_days');
+    return this.getStringAttribute(
+      'workflow_execution_retention_period_in_days',
+    );
   }
   public set workflowExecutionRetentionPeriodInDays(value: string) {
     this._workflowExecutionRetentionPeriodInDays = value;
@@ -216,7 +218,9 @@ export class SwfDomain extends cdktf.TerraformResource {
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      workflow_execution_retention_period_in_days: cdktf.stringToTerraform(this._workflowExecutionRetentionPeriodInDays),
+      workflow_execution_retention_period_in_days: cdktf.stringToTerraform(
+        this._workflowExecutionRetentionPeriodInDays,
+      ),
     };
   }
 }

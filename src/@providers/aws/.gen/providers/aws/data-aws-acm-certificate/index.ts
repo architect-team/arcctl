@@ -2,72 +2,76 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsAcmCertificateConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsAcmCertificateConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#domain DataAwsAcmCertificate#domain}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#domain DataAwsAcmCertificate#domain}
+   */
   readonly domain: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#id DataAwsAcmCertificate#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#id DataAwsAcmCertificate#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#key_types DataAwsAcmCertificate#key_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#key_types DataAwsAcmCertificate#key_types}
+   */
   readonly keyTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#most_recent DataAwsAcmCertificate#most_recent}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#most_recent DataAwsAcmCertificate#most_recent}
+   */
   readonly mostRecent?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#statuses DataAwsAcmCertificate#statuses}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#statuses DataAwsAcmCertificate#statuses}
+   */
   readonly statuses?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#tags DataAwsAcmCertificate#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#tags DataAwsAcmCertificate#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#types DataAwsAcmCertificate#types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate#types DataAwsAcmCertificate#types}
+   */
   readonly types?: string[];
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate aws_acm_certificate}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate aws_acm_certificate}
+ */
 export class DataAwsAcmCertificate extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_acm_certificate";
+  public static readonly tfResourceType = 'aws_acm_certificate';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate aws_acm_certificate} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsAcmCertificateConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsAcmCertificateConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/acm_certificate aws_acm_certificate} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsAcmCertificateConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsAcmCertificateConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_acm_certificate',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +79,7 @@ export class DataAwsAcmCertificate extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._domain = config.domain;
     this._id = config.id;
@@ -227,9 +231,15 @@ export class DataAwsAcmCertificate extends cdktf.TerraformDataSource {
     return {
       domain: cdktf.stringToTerraform(this._domain),
       id: cdktf.stringToTerraform(this._id),
-      key_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._keyTypes),
+      key_types: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._keyTypes),
       most_recent: cdktf.booleanToTerraform(this._mostRecent),
-      statuses: cdktf.listMapper(cdktf.stringToTerraform, false)(this._statuses),
+      statuses: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._statuses),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._types),
     };

@@ -2,62 +2,77 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsIdentitystoreUserConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsIdentitystoreUserConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#id DataAwsIdentitystoreUser#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#id DataAwsIdentitystoreUser#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#identity_store_id DataAwsIdentitystoreUser#identity_store_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#identity_store_id DataAwsIdentitystoreUser#identity_store_id}
+   */
   readonly identityStoreId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#user_id DataAwsIdentitystoreUser#user_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#user_id DataAwsIdentitystoreUser#user_id}
+   */
   readonly userId?: string;
   /**
-  * alternate_identifier block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#alternate_identifier DataAwsIdentitystoreUser#alternate_identifier}
-  */
+   * alternate_identifier block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#alternate_identifier DataAwsIdentitystoreUser#alternate_identifier}
+   */
   readonly alternateIdentifier?: DataAwsIdentitystoreUserAlternateIdentifier;
   /**
-  * filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#filter DataAwsIdentitystoreUser#filter}
-  */
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#filter DataAwsIdentitystoreUser#filter}
+   */
   readonly filter?: DataAwsIdentitystoreUserFilter;
 }
-export interface DataAwsIdentitystoreUserAddresses {
-}
+export interface DataAwsIdentitystoreUserAddresses {}
 
-export function dataAwsIdentitystoreUserAddressesToTerraform(struct?: DataAwsIdentitystoreUserAddresses): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserAddressesToTerraform(
+  struct?: DataAwsIdentitystoreUserAddresses,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsIdentitystoreUserAddressesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsIdentitystoreUserAddresses | undefined {
@@ -66,11 +81,12 @@ export class DataAwsIdentitystoreUserAddressesOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreUserAddresses | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreUserAddresses | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -117,46 +133,68 @@ export class DataAwsIdentitystoreUserAddressesOutputReference extends cdktf.Comp
 }
 
 export class DataAwsIdentitystoreUserAddressesList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsIdentitystoreUserAddressesOutputReference {
-    return new DataAwsIdentitystoreUserAddressesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsIdentitystoreUserAddressesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsIdentitystoreUserEmails {
-}
+export interface DataAwsIdentitystoreUserEmails {}
 
-export function dataAwsIdentitystoreUserEmailsToTerraform(struct?: DataAwsIdentitystoreUserEmails): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserEmailsToTerraform(
+  struct?: DataAwsIdentitystoreUserEmails,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsIdentitystoreUserEmailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsIdentitystoreUserEmails | undefined {
@@ -168,8 +206,7 @@ export class DataAwsIdentitystoreUserEmailsOutputReference extends cdktf.Complex
   public set internalValue(value: DataAwsIdentitystoreUserEmails | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -191,46 +228,68 @@ export class DataAwsIdentitystoreUserEmailsOutputReference extends cdktf.Complex
 }
 
 export class DataAwsIdentitystoreUserEmailsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsIdentitystoreUserEmailsOutputReference {
-    return new DataAwsIdentitystoreUserEmailsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsIdentitystoreUserEmailsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsIdentitystoreUserExternalIds {
-}
+export interface DataAwsIdentitystoreUserExternalIds {}
 
-export function dataAwsIdentitystoreUserExternalIdsToTerraform(struct?: DataAwsIdentitystoreUserExternalIds): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserExternalIdsToTerraform(
+  struct?: DataAwsIdentitystoreUserExternalIds,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsIdentitystoreUserExternalIdsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsIdentitystoreUserExternalIds | undefined {
@@ -239,11 +298,12 @@ export class DataAwsIdentitystoreUserExternalIdsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreUserExternalIds | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreUserExternalIds | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -260,46 +320,70 @@ export class DataAwsIdentitystoreUserExternalIdsOutputReference extends cdktf.Co
 }
 
 export class DataAwsIdentitystoreUserExternalIdsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsIdentitystoreUserExternalIdsOutputReference {
-    return new DataAwsIdentitystoreUserExternalIdsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsIdentitystoreUserExternalIdsOutputReference {
+    return new DataAwsIdentitystoreUserExternalIdsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsIdentitystoreUserName {
-}
+export interface DataAwsIdentitystoreUserName {}
 
-export function dataAwsIdentitystoreUserNameToTerraform(struct?: DataAwsIdentitystoreUserName): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserNameToTerraform(
+  struct?: DataAwsIdentitystoreUserName,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsIdentitystoreUserNameOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsIdentitystoreUserName | undefined {
@@ -311,8 +395,7 @@ export class DataAwsIdentitystoreUserNameOutputReference extends cdktf.ComplexOb
   public set internalValue(value: DataAwsIdentitystoreUserName | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -349,46 +432,68 @@ export class DataAwsIdentitystoreUserNameOutputReference extends cdktf.ComplexOb
 }
 
 export class DataAwsIdentitystoreUserNameList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsIdentitystoreUserNameOutputReference {
-    return new DataAwsIdentitystoreUserNameOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsIdentitystoreUserNameOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsIdentitystoreUserPhoneNumbers {
-}
+export interface DataAwsIdentitystoreUserPhoneNumbers {}
 
-export function dataAwsIdentitystoreUserPhoneNumbersToTerraform(struct?: DataAwsIdentitystoreUserPhoneNumbers): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserPhoneNumbersToTerraform(
+  struct?: DataAwsIdentitystoreUserPhoneNumbers,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsIdentitystoreUserPhoneNumbersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsIdentitystoreUserPhoneNumbers | undefined {
@@ -397,11 +502,12 @@ export class DataAwsIdentitystoreUserPhoneNumbersOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreUserPhoneNumbers | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreUserPhoneNumbers | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -423,60 +529,83 @@ export class DataAwsIdentitystoreUserPhoneNumbersOutputReference extends cdktf.C
 }
 
 export class DataAwsIdentitystoreUserPhoneNumbersList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsIdentitystoreUserPhoneNumbersOutputReference {
-    return new DataAwsIdentitystoreUserPhoneNumbersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsIdentitystoreUserPhoneNumbersOutputReference {
+    return new DataAwsIdentitystoreUserPhoneNumbersOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsIdentitystoreUserAlternateIdentifierExternalId {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#id DataAwsIdentitystoreUser#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#id DataAwsIdentitystoreUser#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#issuer DataAwsIdentitystoreUser#issuer}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#issuer DataAwsIdentitystoreUser#issuer}
+   */
   readonly issuer: string;
 }
 
-export function dataAwsIdentitystoreUserAlternateIdentifierExternalIdToTerraform(struct?: DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReference | DataAwsIdentitystoreUserAlternateIdentifierExternalId): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserAlternateIdentifierExternalIdToTerraform(
+  struct?:
+    | DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReference
+    | DataAwsIdentitystoreUserAlternateIdentifierExternalId,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     issuer: cdktf.stringToTerraform(struct!.issuer),
-  }
+  };
 }
 
 export class DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsIdentitystoreUserAlternateIdentifierExternalId | undefined {
+  public get internalValue():
+    | DataAwsIdentitystoreUserAlternateIdentifierExternalId
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -490,13 +619,14 @@ export class DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreUserAlternateIdentifierExternalId | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreUserAlternateIdentifierExternalId | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._issuer = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._issuer = value.issuer;
@@ -531,38 +661,51 @@ export class DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReferenc
 }
 export interface DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_path DataAwsIdentitystoreUser#attribute_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_path DataAwsIdentitystoreUser#attribute_path}
+   */
   readonly attributePath: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_value DataAwsIdentitystoreUser#attribute_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_value DataAwsIdentitystoreUser#attribute_value}
+   */
   readonly attributeValue: string;
 }
 
-export function dataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeToTerraform(struct?: DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputReference | DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeToTerraform(
+  struct?:
+    | DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputReference
+    | DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     attribute_path: cdktf.stringToTerraform(struct!.attributePath),
     attribute_value: cdktf.stringToTerraform(struct!.attributeValue),
-  }
+  };
 }
 
 export class DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute | undefined {
+  public get internalValue():
+    | DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._attributePath !== undefined) {
@@ -576,13 +719,16 @@ export class DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._attributePath = undefined;
       this._attributeValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attributePath = value.attributePath;
       this._attributeValue = value.attributeValue;
@@ -617,42 +763,61 @@ export class DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputRef
 }
 export interface DataAwsIdentitystoreUserAlternateIdentifier {
   /**
-  * external_id block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#external_id DataAwsIdentitystoreUser#external_id}
-  */
+   * external_id block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#external_id DataAwsIdentitystoreUser#external_id}
+   */
   readonly externalId?: DataAwsIdentitystoreUserAlternateIdentifierExternalId;
   /**
-  * unique_attribute block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#unique_attribute DataAwsIdentitystoreUser#unique_attribute}
-  */
+   * unique_attribute block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#unique_attribute DataAwsIdentitystoreUser#unique_attribute}
+   */
   readonly uniqueAttribute?: DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute;
 }
 
-export function dataAwsIdentitystoreUserAlternateIdentifierToTerraform(struct?: DataAwsIdentitystoreUserAlternateIdentifierOutputReference | DataAwsIdentitystoreUserAlternateIdentifier): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserAlternateIdentifierToTerraform(
+  struct?:
+    | DataAwsIdentitystoreUserAlternateIdentifierOutputReference
+    | DataAwsIdentitystoreUserAlternateIdentifier,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    external_id: dataAwsIdentitystoreUserAlternateIdentifierExternalIdToTerraform(struct!.externalId),
-    unique_attribute: dataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeToTerraform(struct!.uniqueAttribute),
-  }
+    external_id:
+      dataAwsIdentitystoreUserAlternateIdentifierExternalIdToTerraform(
+        struct!.externalId,
+      ),
+    unique_attribute:
+      dataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeToTerraform(
+        struct!.uniqueAttribute,
+      ),
+  };
 }
 
 export class DataAwsIdentitystoreUserAlternateIdentifierOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsIdentitystoreUserAlternateIdentifier | undefined {
+  public get internalValue():
+    | DataAwsIdentitystoreUserAlternateIdentifier
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._externalId?.internalValue !== undefined) {
@@ -661,18 +826,20 @@ export class DataAwsIdentitystoreUserAlternateIdentifierOutputReference extends 
     }
     if (this._uniqueAttribute?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.uniqueAttribute = this._uniqueAttribute?.internalValue;
+      internalValueResult.uniqueAttribute =
+        this._uniqueAttribute?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreUserAlternateIdentifier | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreUserAlternateIdentifier | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._externalId.internalValue = undefined;
       this._uniqueAttribute.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._externalId.internalValue = value.externalId;
       this._uniqueAttribute.internalValue = value.uniqueAttribute;
@@ -680,11 +847,17 @@ export class DataAwsIdentitystoreUserAlternateIdentifierOutputReference extends 
   }
 
   // external_id - computed: false, optional: true, required: false
-  private _externalId = new DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReference(this, "external_id");
+  private _externalId =
+    new DataAwsIdentitystoreUserAlternateIdentifierExternalIdOutputReference(
+      this,
+      'external_id',
+    );
   public get externalId() {
     return this._externalId;
   }
-  public putExternalId(value: DataAwsIdentitystoreUserAlternateIdentifierExternalId) {
+  public putExternalId(
+    value: DataAwsIdentitystoreUserAlternateIdentifierExternalId,
+  ) {
     this._externalId.internalValue = value;
   }
   public resetExternalId() {
@@ -696,11 +869,17 @@ export class DataAwsIdentitystoreUserAlternateIdentifierOutputReference extends 
   }
 
   // unique_attribute - computed: false, optional: true, required: false
-  private _uniqueAttribute = new DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputReference(this, "unique_attribute");
+  private _uniqueAttribute =
+    new DataAwsIdentitystoreUserAlternateIdentifierUniqueAttributeOutputReference(
+      this,
+      'unique_attribute',
+    );
   public get uniqueAttribute() {
     return this._uniqueAttribute;
   }
-  public putUniqueAttribute(value: DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute) {
+  public putUniqueAttribute(
+    value: DataAwsIdentitystoreUserAlternateIdentifierUniqueAttribute,
+  ) {
     this._uniqueAttribute.internalValue = value;
   }
   public resetUniqueAttribute() {
@@ -713,34 +892,45 @@ export class DataAwsIdentitystoreUserAlternateIdentifierOutputReference extends 
 }
 export interface DataAwsIdentitystoreUserFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_path DataAwsIdentitystoreUser#attribute_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_path DataAwsIdentitystoreUser#attribute_path}
+   */
   readonly attributePath: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_value DataAwsIdentitystoreUser#attribute_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user#attribute_value DataAwsIdentitystoreUser#attribute_value}
+   */
   readonly attributeValue: string;
 }
 
-export function dataAwsIdentitystoreUserFilterToTerraform(struct?: DataAwsIdentitystoreUserFilterOutputReference | DataAwsIdentitystoreUserFilter): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreUserFilterToTerraform(
+  struct?:
+    | DataAwsIdentitystoreUserFilterOutputReference
+    | DataAwsIdentitystoreUserFilter,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     attribute_path: cdktf.stringToTerraform(struct!.attributePath),
     attribute_value: cdktf.stringToTerraform(struct!.attributeValue),
-  }
+  };
 }
 
 export class DataAwsIdentitystoreUserFilterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -763,8 +953,7 @@ export class DataAwsIdentitystoreUserFilterOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._attributePath = undefined;
       this._attributeValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attributePath = value.attributePath;
       this._attributeValue = value.attributeValue;
@@ -799,33 +988,36 @@ export class DataAwsIdentitystoreUserFilterOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user aws_identitystore_user}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user aws_identitystore_user}
+ */
 export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_identitystore_user";
+  public static readonly tfResourceType = 'aws_identitystore_user';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user aws_identitystore_user} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsIdentitystoreUserConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsIdentitystoreUserConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/identitystore_user aws_identitystore_user} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsIdentitystoreUserConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsIdentitystoreUserConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_identitystore_user',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -833,7 +1025,7 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._identityStoreId = config.identityStoreId;
@@ -847,7 +1039,11 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   // ==========
 
   // addresses - computed: true, optional: false, required: false
-  private _addresses = new DataAwsIdentitystoreUserAddressesList(this, "addresses", false);
+  private _addresses = new DataAwsIdentitystoreUserAddressesList(
+    this,
+    'addresses',
+    false,
+  );
   public get addresses() {
     return this._addresses;
   }
@@ -858,13 +1054,21 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // emails - computed: true, optional: false, required: false
-  private _emails = new DataAwsIdentitystoreUserEmailsList(this, "emails", false);
+  private _emails = new DataAwsIdentitystoreUserEmailsList(
+    this,
+    'emails',
+    false,
+  );
   public get emails() {
     return this._emails;
   }
 
   // external_ids - computed: true, optional: false, required: false
-  private _externalIds = new DataAwsIdentitystoreUserExternalIdsList(this, "external_ids", false);
+  private _externalIds = new DataAwsIdentitystoreUserExternalIdsList(
+    this,
+    'external_ids',
+    false,
+  );
   public get externalIds() {
     return this._externalIds;
   }
@@ -904,7 +1108,7 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: false, required: false
-  private _name = new DataAwsIdentitystoreUserNameList(this, "name", false);
+  private _name = new DataAwsIdentitystoreUserNameList(this, 'name', false);
   public get name() {
     return this._name;
   }
@@ -915,7 +1119,11 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // phone_numbers - computed: true, optional: false, required: false
-  private _phoneNumbers = new DataAwsIdentitystoreUserPhoneNumbersList(this, "phone_numbers", false);
+  private _phoneNumbers = new DataAwsIdentitystoreUserPhoneNumbersList(
+    this,
+    'phone_numbers',
+    false,
+  );
   public get phoneNumbers() {
     return this._phoneNumbers;
   }
@@ -967,11 +1175,17 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // alternate_identifier - computed: false, optional: true, required: false
-  private _alternateIdentifier = new DataAwsIdentitystoreUserAlternateIdentifierOutputReference(this, "alternate_identifier");
+  private _alternateIdentifier =
+    new DataAwsIdentitystoreUserAlternateIdentifierOutputReference(
+      this,
+      'alternate_identifier',
+    );
   public get alternateIdentifier() {
     return this._alternateIdentifier;
   }
-  public putAlternateIdentifier(value: DataAwsIdentitystoreUserAlternateIdentifier) {
+  public putAlternateIdentifier(
+    value: DataAwsIdentitystoreUserAlternateIdentifier,
+  ) {
     this._alternateIdentifier.internalValue = value;
   }
   public resetAlternateIdentifier() {
@@ -983,7 +1197,10 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsIdentitystoreUserFilterOutputReference(this, "filter");
+  private _filter = new DataAwsIdentitystoreUserFilterOutputReference(
+    this,
+    'filter',
+  );
   public get filter() {
     return this._filter;
   }
@@ -1007,8 +1224,13 @@ export class DataAwsIdentitystoreUser extends cdktf.TerraformDataSource {
       id: cdktf.stringToTerraform(this._id),
       identity_store_id: cdktf.stringToTerraform(this._identityStoreId),
       user_id: cdktf.stringToTerraform(this._userId),
-      alternate_identifier: dataAwsIdentitystoreUserAlternateIdentifierToTerraform(this._alternateIdentifier.internalValue),
-      filter: dataAwsIdentitystoreUserFilterToTerraform(this._filter.internalValue),
+      alternate_identifier:
+        dataAwsIdentitystoreUserAlternateIdentifierToTerraform(
+          this._alternateIdentifier.internalValue,
+        ),
+      filter: dataAwsIdentitystoreUserFilterToTerraform(
+        this._filter.internalValue,
+      ),
     };
   }
 }

@@ -2,133 +2,142 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface LoadbalancerConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#algorithm Loadbalancer#algorithm}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#algorithm Loadbalancer#algorithm}
+   */
   readonly algorithm?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#disable_lets_encrypt_dns_records Loadbalancer#disable_lets_encrypt_dns_records}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#disable_lets_encrypt_dns_records Loadbalancer#disable_lets_encrypt_dns_records}
+   */
   readonly disableLetsEncryptDnsRecords?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#droplet_ids Loadbalancer#droplet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#droplet_ids Loadbalancer#droplet_ids}
+   */
   readonly dropletIds?: number[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#droplet_tag Loadbalancer#droplet_tag}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#droplet_tag Loadbalancer#droplet_tag}
+   */
   readonly dropletTag?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#enable_backend_keepalive Loadbalancer#enable_backend_keepalive}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#enable_backend_keepalive Loadbalancer#enable_backend_keepalive}
+   */
   readonly enableBackendKeepalive?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#enable_proxy_protocol Loadbalancer#enable_proxy_protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#enable_proxy_protocol Loadbalancer#enable_proxy_protocol}
+   */
   readonly enableProxyProtocol?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#http_idle_timeout_seconds Loadbalancer#http_idle_timeout_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#http_idle_timeout_seconds Loadbalancer#http_idle_timeout_seconds}
+   */
   readonly httpIdleTimeoutSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#id Loadbalancer#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#id Loadbalancer#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#name Loadbalancer#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#name Loadbalancer#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#project_id Loadbalancer#project_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#project_id Loadbalancer#project_id}
+   */
   readonly projectId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#redirect_http_to_https Loadbalancer#redirect_http_to_https}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#redirect_http_to_https Loadbalancer#redirect_http_to_https}
+   */
   readonly redirectHttpToHttps?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#region Loadbalancer#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#region Loadbalancer#region}
+   */
   readonly region: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#size Loadbalancer#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#size Loadbalancer#size}
+   */
   readonly size?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#size_unit Loadbalancer#size_unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#size_unit Loadbalancer#size_unit}
+   */
   readonly sizeUnit?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#vpc_uuid Loadbalancer#vpc_uuid}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#vpc_uuid Loadbalancer#vpc_uuid}
+   */
   readonly vpcUuid?: string;
   /**
-  * firewall block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#firewall Loadbalancer#firewall}
-  */
+   * firewall block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#firewall Loadbalancer#firewall}
+   */
   readonly firewall?: LoadbalancerFirewall;
   /**
-  * forwarding_rule block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#forwarding_rule Loadbalancer#forwarding_rule}
-  */
+   * forwarding_rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#forwarding_rule Loadbalancer#forwarding_rule}
+   */
   readonly forwardingRule: LoadbalancerForwardingRule[] | cdktf.IResolvable;
   /**
-  * healthcheck block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#healthcheck Loadbalancer#healthcheck}
-  */
+   * healthcheck block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#healthcheck Loadbalancer#healthcheck}
+   */
   readonly healthcheck?: LoadbalancerHealthcheck;
   /**
-  * sticky_sessions block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#sticky_sessions Loadbalancer#sticky_sessions}
-  */
+   * sticky_sessions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#sticky_sessions Loadbalancer#sticky_sessions}
+   */
   readonly stickySessions?: LoadbalancerStickySessions;
 }
 export interface LoadbalancerFirewall {
   /**
-  * the rules for ALLOWING traffic to the LB (strings in the form: 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#allow Loadbalancer#allow}
-  */
+   * the rules for ALLOWING traffic to the LB (strings in the form: 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#allow Loadbalancer#allow}
+   */
   readonly allow?: string[];
   /**
-  * the rules for DENYING traffic to the LB (strings in the form: 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#deny Loadbalancer#deny}
-  */
+   * the rules for DENYING traffic to the LB (strings in the form: 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#deny Loadbalancer#deny}
+   */
   readonly deny?: string[];
 }
 
-export function loadbalancerFirewallToTerraform(struct?: LoadbalancerFirewallOutputReference | LoadbalancerFirewall): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function loadbalancerFirewallToTerraform(
+  struct?: LoadbalancerFirewallOutputReference | LoadbalancerFirewall,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     allow: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allow),
     deny: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.deny),
-  }
+  };
 }
 
 export class LoadbalancerFirewallOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -151,8 +160,7 @@ export class LoadbalancerFirewallOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._allow = undefined;
       this._deny = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allow = value.allow;
       this._deny = value.deny;
@@ -193,39 +201,45 @@ export class LoadbalancerFirewallOutputReference extends cdktf.ComplexObject {
 }
 export interface LoadbalancerForwardingRule {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#certificate_id Loadbalancer#certificate_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#certificate_id Loadbalancer#certificate_id}
+   */
   readonly certificateId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#certificate_name Loadbalancer#certificate_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#certificate_name Loadbalancer#certificate_name}
+   */
   readonly certificateName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#entry_port Loadbalancer#entry_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#entry_port Loadbalancer#entry_port}
+   */
   readonly entryPort: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#entry_protocol Loadbalancer#entry_protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#entry_protocol Loadbalancer#entry_protocol}
+   */
   readonly entryProtocol: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#target_port Loadbalancer#target_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#target_port Loadbalancer#target_port}
+   */
   readonly targetPort: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#target_protocol Loadbalancer#target_protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#target_protocol Loadbalancer#target_protocol}
+   */
   readonly targetProtocol: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#tls_passthrough Loadbalancer#tls_passthrough}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#tls_passthrough Loadbalancer#tls_passthrough}
+   */
   readonly tlsPassthrough?: boolean | cdktf.IResolvable;
 }
 
-export function loadbalancerForwardingRuleToTerraform(struct?: LoadbalancerForwardingRule | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function loadbalancerForwardingRuleToTerraform(
+  struct?: LoadbalancerForwardingRule | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     certificate_id: cdktf.stringToTerraform(struct!.certificateId),
@@ -235,7 +249,7 @@ export function loadbalancerForwardingRuleToTerraform(struct?: LoadbalancerForwa
     target_port: cdktf.numberToTerraform(struct!.targetPort),
     target_protocol: cdktf.stringToTerraform(struct!.targetProtocol),
     tls_passthrough: cdktf.booleanToTerraform(struct!.tlsPassthrough),
-  }
+  };
 }
 
 export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObject {
@@ -243,16 +257,29 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): LoadbalancerForwardingRule | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LoadbalancerForwardingRule
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -289,7 +316,9 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LoadbalancerForwardingRule | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: LoadbalancerForwardingRule | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -300,12 +329,10 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
       this._targetPort = undefined;
       this._targetProtocol = undefined;
       this._tlsPassthrough = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._certificateId = value.certificateId;
@@ -420,79 +447,101 @@ export class LoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObje
 }
 
 export class LoadbalancerForwardingRuleList extends cdktf.ComplexList {
-  public internalValue? : LoadbalancerForwardingRule[] | cdktf.IResolvable
+  public internalValue?: LoadbalancerForwardingRule[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): LoadbalancerForwardingRuleOutputReference {
-    return new LoadbalancerForwardingRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new LoadbalancerForwardingRuleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface LoadbalancerHealthcheck {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#check_interval_seconds Loadbalancer#check_interval_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#check_interval_seconds Loadbalancer#check_interval_seconds}
+   */
   readonly checkIntervalSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#healthy_threshold Loadbalancer#healthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#healthy_threshold Loadbalancer#healthy_threshold}
+   */
   readonly healthyThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#path Loadbalancer#path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#path Loadbalancer#path}
+   */
   readonly path?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#port Loadbalancer#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#port Loadbalancer#port}
+   */
   readonly port: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#protocol Loadbalancer#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#protocol Loadbalancer#protocol}
+   */
   readonly protocol: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#response_timeout_seconds Loadbalancer#response_timeout_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#response_timeout_seconds Loadbalancer#response_timeout_seconds}
+   */
   readonly responseTimeoutSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#unhealthy_threshold Loadbalancer#unhealthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#unhealthy_threshold Loadbalancer#unhealthy_threshold}
+   */
   readonly unhealthyThreshold?: number;
 }
 
-export function loadbalancerHealthcheckToTerraform(struct?: LoadbalancerHealthcheckOutputReference | LoadbalancerHealthcheck): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function loadbalancerHealthcheckToTerraform(
+  struct?: LoadbalancerHealthcheckOutputReference | LoadbalancerHealthcheck,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    check_interval_seconds: cdktf.numberToTerraform(struct!.checkIntervalSeconds),
+    check_interval_seconds: cdktf.numberToTerraform(
+      struct!.checkIntervalSeconds,
+    ),
     healthy_threshold: cdktf.numberToTerraform(struct!.healthyThreshold),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.numberToTerraform(struct!.port),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-    response_timeout_seconds: cdktf.numberToTerraform(struct!.responseTimeoutSeconds),
+    response_timeout_seconds: cdktf.numberToTerraform(
+      struct!.responseTimeoutSeconds,
+    ),
     unhealthy_threshold: cdktf.numberToTerraform(struct!.unhealthyThreshold),
-  }
+  };
 }
 
 export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -540,8 +589,7 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
       this._protocol = undefined;
       this._responseTimeoutSeconds = undefined;
       this._unhealthyThreshold = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._checkIntervalSeconds = value.checkIntervalSeconds;
       this._healthyThreshold = value.healthyThreshold;
@@ -661,39 +709,50 @@ export class LoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject 
 }
 export interface LoadbalancerStickySessions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#cookie_name Loadbalancer#cookie_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#cookie_name Loadbalancer#cookie_name}
+   */
   readonly cookieName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#cookie_ttl_seconds Loadbalancer#cookie_ttl_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#cookie_ttl_seconds Loadbalancer#cookie_ttl_seconds}
+   */
   readonly cookieTtlSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#type Loadbalancer#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer#type Loadbalancer#type}
+   */
   readonly type?: string;
 }
 
-export function loadbalancerStickySessionsToTerraform(struct?: LoadbalancerStickySessionsOutputReference | LoadbalancerStickySessions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function loadbalancerStickySessionsToTerraform(
+  struct?:
+    | LoadbalancerStickySessionsOutputReference
+    | LoadbalancerStickySessions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cookie_name: cdktf.stringToTerraform(struct!.cookieName),
     cookie_ttl_seconds: cdktf.numberToTerraform(struct!.cookieTtlSeconds),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class LoadbalancerStickySessionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -721,8 +780,7 @@ export class LoadbalancerStickySessionsOutputReference extends cdktf.ComplexObje
       this._cookieName = undefined;
       this._cookieTtlSeconds = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cookieName = value.cookieName;
       this._cookieTtlSeconds = value.cookieTtlSeconds;
@@ -780,33 +838,32 @@ export class LoadbalancerStickySessionsOutputReference extends cdktf.ComplexObje
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer digitalocean_loadbalancer}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer digitalocean_loadbalancer}
+ */
 export class Loadbalancer extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_loadbalancer";
+  public static readonly tfResourceType = 'digitalocean_loadbalancer';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer digitalocean_loadbalancer} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LoadbalancerConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/loadbalancer digitalocean_loadbalancer} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LoadbalancerConfig
+   */
   public constructor(scope: Construct, id: string, config: LoadbalancerConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_loadbalancer',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -814,7 +871,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._algorithm = config.algorithm;
     this._disableLetsEncryptDnsRecords = config.disableLetsEncryptDnsRecords;
@@ -876,7 +933,9 @@ export class Loadbalancer extends cdktf.TerraformResource {
   // droplet_ids - computed: true, optional: true, required: false
   private _dropletIds?: number[];
   public get dropletIds() {
-    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
+    return cdktf.Token.asNumberList(
+      cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')),
+    );
   }
   public set dropletIds(value: number[]) {
     this._dropletIds = value;
@@ -1091,7 +1150,7 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // firewall - computed: false, optional: true, required: false
-  private _firewall = new LoadbalancerFirewallOutputReference(this, "firewall");
+  private _firewall = new LoadbalancerFirewallOutputReference(this, 'firewall');
   public get firewall() {
     return this._firewall;
   }
@@ -1107,11 +1166,17 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // forwarding_rule - computed: false, optional: false, required: true
-  private _forwardingRule = new LoadbalancerForwardingRuleList(this, "forwarding_rule", true);
+  private _forwardingRule = new LoadbalancerForwardingRuleList(
+    this,
+    'forwarding_rule',
+    true,
+  );
   public get forwardingRule() {
     return this._forwardingRule;
   }
-  public putForwardingRule(value: LoadbalancerForwardingRule[] | cdktf.IResolvable) {
+  public putForwardingRule(
+    value: LoadbalancerForwardingRule[] | cdktf.IResolvable,
+  ) {
     this._forwardingRule.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1120,7 +1185,10 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // healthcheck - computed: false, optional: true, required: false
-  private _healthcheck = new LoadbalancerHealthcheckOutputReference(this, "healthcheck");
+  private _healthcheck = new LoadbalancerHealthcheckOutputReference(
+    this,
+    'healthcheck',
+  );
   public get healthcheck() {
     return this._healthcheck;
   }
@@ -1136,7 +1204,10 @@ export class Loadbalancer extends cdktf.TerraformResource {
   }
 
   // sticky_sessions - computed: false, optional: true, required: false
-  private _stickySessions = new LoadbalancerStickySessionsOutputReference(this, "sticky_sessions");
+  private _stickySessions = new LoadbalancerStickySessionsOutputReference(
+    this,
+    'sticky_sessions',
+  );
   public get stickySessions() {
     return this._stickySessions;
   }
@@ -1158,24 +1229,44 @@ export class Loadbalancer extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       algorithm: cdktf.stringToTerraform(this._algorithm),
-      disable_lets_encrypt_dns_records: cdktf.booleanToTerraform(this._disableLetsEncryptDnsRecords),
-      droplet_ids: cdktf.listMapper(cdktf.numberToTerraform, false)(this._dropletIds),
+      disable_lets_encrypt_dns_records: cdktf.booleanToTerraform(
+        this._disableLetsEncryptDnsRecords,
+      ),
+      droplet_ids: cdktf.listMapper(
+        cdktf.numberToTerraform,
+        false,
+      )(this._dropletIds),
       droplet_tag: cdktf.stringToTerraform(this._dropletTag),
-      enable_backend_keepalive: cdktf.booleanToTerraform(this._enableBackendKeepalive),
-      enable_proxy_protocol: cdktf.booleanToTerraform(this._enableProxyProtocol),
-      http_idle_timeout_seconds: cdktf.numberToTerraform(this._httpIdleTimeoutSeconds),
+      enable_backend_keepalive: cdktf.booleanToTerraform(
+        this._enableBackendKeepalive,
+      ),
+      enable_proxy_protocol: cdktf.booleanToTerraform(
+        this._enableProxyProtocol,
+      ),
+      http_idle_timeout_seconds: cdktf.numberToTerraform(
+        this._httpIdleTimeoutSeconds,
+      ),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       project_id: cdktf.stringToTerraform(this._projectId),
-      redirect_http_to_https: cdktf.booleanToTerraform(this._redirectHttpToHttps),
+      redirect_http_to_https: cdktf.booleanToTerraform(
+        this._redirectHttpToHttps,
+      ),
       region: cdktf.stringToTerraform(this._region),
       size: cdktf.stringToTerraform(this._size),
       size_unit: cdktf.numberToTerraform(this._sizeUnit),
       vpc_uuid: cdktf.stringToTerraform(this._vpcUuid),
       firewall: loadbalancerFirewallToTerraform(this._firewall.internalValue),
-      forwarding_rule: cdktf.listMapper(loadbalancerForwardingRuleToTerraform, true)(this._forwardingRule.internalValue),
-      healthcheck: loadbalancerHealthcheckToTerraform(this._healthcheck.internalValue),
-      sticky_sessions: loadbalancerStickySessionsToTerraform(this._stickySessions.internalValue),
+      forwarding_rule: cdktf.listMapper(
+        loadbalancerForwardingRuleToTerraform,
+        true,
+      )(this._forwardingRule.internalValue),
+      healthcheck: loadbalancerHealthcheckToTerraform(
+        this._healthcheck.internalValue,
+      ),
+      sticky_sessions: loadbalancerStickySessionsToTerraform(
+        this._stickySessions.internalValue,
+      ),
     };
   }
 }

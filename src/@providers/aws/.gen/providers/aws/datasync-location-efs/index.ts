@@ -2,83 +2,98 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DatasyncLocationEfsConfig extends cdktf.TerraformMetaArguments {
+export interface DatasyncLocationEfsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#access_point_arn DatasyncLocationEfs#access_point_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#access_point_arn DatasyncLocationEfs#access_point_arn}
+   */
   readonly accessPointArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#efs_file_system_arn DatasyncLocationEfs#efs_file_system_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#efs_file_system_arn DatasyncLocationEfs#efs_file_system_arn}
+   */
   readonly efsFileSystemArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#file_system_access_role_arn DatasyncLocationEfs#file_system_access_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#file_system_access_role_arn DatasyncLocationEfs#file_system_access_role_arn}
+   */
   readonly fileSystemAccessRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#id DatasyncLocationEfs#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#id DatasyncLocationEfs#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#in_transit_encryption DatasyncLocationEfs#in_transit_encryption}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#in_transit_encryption DatasyncLocationEfs#in_transit_encryption}
+   */
   readonly inTransitEncryption?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#subdirectory DatasyncLocationEfs#subdirectory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#subdirectory DatasyncLocationEfs#subdirectory}
+   */
   readonly subdirectory?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#tags DatasyncLocationEfs#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#tags DatasyncLocationEfs#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#tags_all DatasyncLocationEfs#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#tags_all DatasyncLocationEfs#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * ec2_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#ec2_config DatasyncLocationEfs#ec2_config}
-  */
+   * ec2_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#ec2_config DatasyncLocationEfs#ec2_config}
+   */
   readonly ec2Config: DatasyncLocationEfsEc2Config;
 }
 export interface DatasyncLocationEfsEc2Config {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#security_group_arns DatasyncLocationEfs#security_group_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#security_group_arns DatasyncLocationEfs#security_group_arns}
+   */
   readonly securityGroupArns: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#subnet_arn DatasyncLocationEfs#subnet_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs#subnet_arn DatasyncLocationEfs#subnet_arn}
+   */
   readonly subnetArn: string;
 }
 
-export function datasyncLocationEfsEc2ConfigToTerraform(struct?: DatasyncLocationEfsEc2ConfigOutputReference | DatasyncLocationEfsEc2Config): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datasyncLocationEfsEc2ConfigToTerraform(
+  struct?:
+    | DatasyncLocationEfsEc2ConfigOutputReference
+    | DatasyncLocationEfsEc2Config,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupArns),
+    security_group_arns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupArns),
     subnet_arn: cdktf.stringToTerraform(struct!.subnetArn),
-  }
+  };
 }
 
 export class DatasyncLocationEfsEc2ConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -101,8 +116,7 @@ export class DatasyncLocationEfsEc2ConfigOutputReference extends cdktf.ComplexOb
       this.isEmptyObject = false;
       this._securityGroupArns = undefined;
       this._subnetArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupArns = value.securityGroupArns;
       this._subnetArn = value.subnetArn;
@@ -137,33 +151,36 @@ export class DatasyncLocationEfsEc2ConfigOutputReference extends cdktf.ComplexOb
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs aws_datasync_location_efs}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs aws_datasync_location_efs}
+ */
 export class DatasyncLocationEfs extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_datasync_location_efs";
+  public static readonly tfResourceType = 'aws_datasync_location_efs';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs aws_datasync_location_efs} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DatasyncLocationEfsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DatasyncLocationEfsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_efs aws_datasync_location_efs} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DatasyncLocationEfsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DatasyncLocationEfsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_datasync_location_efs',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -171,7 +188,7 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accessPointArn = config.accessPointArn;
     this._efsFileSystemArn = config.efsFileSystemArn;
@@ -324,7 +341,10 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
   }
 
   // ec2_config - computed: false, optional: false, required: true
-  private _ec2Config = new DatasyncLocationEfsEc2ConfigOutputReference(this, "ec2_config");
+  private _ec2Config = new DatasyncLocationEfsEc2ConfigOutputReference(
+    this,
+    'ec2_config',
+  );
   public get ec2Config() {
     return this._ec2Config;
   }
@@ -344,13 +364,17 @@ export class DatasyncLocationEfs extends cdktf.TerraformResource {
     return {
       access_point_arn: cdktf.stringToTerraform(this._accessPointArn),
       efs_file_system_arn: cdktf.stringToTerraform(this._efsFileSystemArn),
-      file_system_access_role_arn: cdktf.stringToTerraform(this._fileSystemAccessRoleArn),
+      file_system_access_role_arn: cdktf.stringToTerraform(
+        this._fileSystemAccessRoleArn,
+      ),
       id: cdktf.stringToTerraform(this._id),
       in_transit_encryption: cdktf.stringToTerraform(this._inTransitEncryption),
       subdirectory: cdktf.stringToTerraform(this._subdirectory),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      ec2_config: datasyncLocationEfsEc2ConfigToTerraform(this._ec2Config.internalValue),
+      ec2_config: datasyncLocationEfsEc2ConfigToTerraform(
+        this._ec2Config.internalValue,
+      ),
     };
   }
 }

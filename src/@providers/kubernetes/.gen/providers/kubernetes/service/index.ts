@@ -2,66 +2,80 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface ServiceConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#id Service#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#id Service#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Terraform will wait for the load balancer to have at least 1 endpoint before considering the resource created.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#wait_for_load_balancer Service#wait_for_load_balancer}
-  */
+   * Terraform will wait for the load balancer to have at least 1 endpoint before considering the resource created.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#wait_for_load_balancer Service#wait_for_load_balancer}
+   */
   readonly waitForLoadBalancer?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#metadata Service#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#metadata Service#metadata}
+   */
   readonly metadata: ServiceMetadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#spec Service#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#spec Service#spec}
+   */
   readonly spec: ServiceSpec;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#timeouts Service#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#timeouts Service#timeouts}
+   */
   readonly timeouts?: ServiceTimeouts;
 }
-export interface ServiceStatusLoadBalancerIngress {
-}
+export interface ServiceStatusLoadBalancerIngress {}
 
-export function serviceStatusLoadBalancerIngressToTerraform(struct?: ServiceStatusLoadBalancerIngress): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceStatusLoadBalancerIngressToTerraform(
+  struct?: ServiceStatusLoadBalancerIngress,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class ServiceStatusLoadBalancerIngressOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): ServiceStatusLoadBalancerIngress | undefined {
@@ -70,11 +84,12 @@ export class ServiceStatusLoadBalancerIngressOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceStatusLoadBalancerIngress | undefined) {
+  public set internalValue(
+    value: ServiceStatusLoadBalancerIngress | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -91,46 +106,68 @@ export class ServiceStatusLoadBalancerIngressOutputReference extends cdktf.Compl
 }
 
 export class ServiceStatusLoadBalancerIngressList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceStatusLoadBalancerIngressOutputReference {
-    return new ServiceStatusLoadBalancerIngressOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceStatusLoadBalancerIngressOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface ServiceStatusLoadBalancer {
-}
+export interface ServiceStatusLoadBalancer {}
 
-export function serviceStatusLoadBalancerToTerraform(struct?: ServiceStatusLoadBalancer): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceStatusLoadBalancerToTerraform(
+  struct?: ServiceStatusLoadBalancer,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class ServiceStatusLoadBalancerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): ServiceStatusLoadBalancer | undefined {
@@ -142,60 +179,83 @@ export class ServiceStatusLoadBalancerOutputReference extends cdktf.ComplexObjec
   public set internalValue(value: ServiceStatusLoadBalancer | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // ingress - computed: true, optional: false, required: false
-  private _ingress = new ServiceStatusLoadBalancerIngressList(this, "ingress", false);
+  private _ingress = new ServiceStatusLoadBalancerIngressList(
+    this,
+    'ingress',
+    false,
+  );
   public get ingress() {
     return this._ingress;
   }
 }
 
 export class ServiceStatusLoadBalancerList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceStatusLoadBalancerOutputReference {
-    return new ServiceStatusLoadBalancerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceStatusLoadBalancerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface ServiceStatus {
-}
+export interface ServiceStatus {}
 
 export function serviceStatusToTerraform(struct?: ServiceStatus): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class ServiceStatusOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): ServiceStatus | undefined {
@@ -207,74 +267,91 @@ export class ServiceStatusOutputReference extends cdktf.ComplexObject {
   public set internalValue(value: ServiceStatus | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // load_balancer - computed: true, optional: false, required: false
-  private _loadBalancer = new ServiceStatusLoadBalancerList(this, "load_balancer", false);
+  private _loadBalancer = new ServiceStatusLoadBalancerList(
+    this,
+    'load_balancer',
+    false,
+  );
   public get loadBalancer() {
     return this._loadBalancer;
   }
 }
 
 export class ServiceStatusList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceStatusOutputReference {
-    return new ServiceStatusOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceStatusOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceMetadata {
   /**
-  * An unstructured key value map stored with the service that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#annotations Service#annotations}
-  */
+   * An unstructured key value map stored with the service that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#annotations Service#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#generate_name Service#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#generate_name Service#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the service. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#labels Service#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the service. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#labels Service#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the service, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#name Service#name}
-  */
+   * Name of the service, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#name Service#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the service must be unique.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#namespace Service#namespace}
-  */
+   * Namespace defines the space within which name of the service must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#namespace Service#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function serviceMetadataToTerraform(struct?: ServiceMetadataOutputReference | ServiceMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceMetadataToTerraform(
+  struct?: ServiceMetadataOutputReference | ServiceMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -282,17 +359,20 @@ export function serviceMetadataToTerraform(struct?: ServiceMetadataOutputReferen
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class ServiceMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -330,8 +410,7 @@ export class ServiceMetadataOutputReference extends cdktf.ComplexObject {
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -438,47 +517,53 @@ export class ServiceMetadataOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceSpecPort {
   /**
-  * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#app_protocol Service#app_protocol}
-  */
+   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#app_protocol Service#app_protocol}
+   */
   readonly appProtocol?: string;
   /**
-  * The name of this port within the service. All ports within the service must have unique names. Optional if only one ServicePort is defined on this service.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#name Service#name}
-  */
+   * The name of this port within the service. All ports within the service must have unique names. Optional if only one ServicePort is defined on this service.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#name Service#name}
+   */
   readonly name?: string;
   /**
-  * The port on each node on which this service is exposed when `type` is `NodePort` or `LoadBalancer`. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the `type` of this service requires one. More info: http://kubernetes.io/docs/user-guide/services#type--nodeport
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#node_port Service#node_port}
-  */
+   * The port on each node on which this service is exposed when `type` is `NodePort` or `LoadBalancer`. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the `type` of this service requires one. More info: http://kubernetes.io/docs/user-guide/services#type--nodeport
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#node_port Service#node_port}
+   */
   readonly nodePort?: number;
   /**
-  * The port that will be exposed by this service.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#port Service#port}
-  */
+   * The port that will be exposed by this service.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#port Service#port}
+   */
   readonly port: number;
   /**
-  * The IP protocol for this port. Supports `TCP` and `UDP`. Default is `TCP`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#protocol Service#protocol}
-  */
+   * The IP protocol for this port. Supports `TCP` and `UDP`. Default is `TCP`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#protocol Service#protocol}
+   */
   readonly protocol?: string;
   /**
-  * Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. This field is ignored for services with `cluster_ip = "None"`. More info: http://kubernetes.io/docs/user-guide/services#defining-a-service
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#target_port Service#target_port}
-  */
+   * Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. This field is ignored for services with `cluster_ip = "None"`. More info: http://kubernetes.io/docs/user-guide/services#defining-a-service
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#target_port Service#target_port}
+   */
   readonly targetPort?: string;
 }
 
-export function serviceSpecPortToTerraform(struct?: ServiceSpecPort | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceSpecPortToTerraform(
+  struct?: ServiceSpecPort | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     app_protocol: cdktf.stringToTerraform(struct!.appProtocol),
@@ -487,7 +572,7 @@ export function serviceSpecPortToTerraform(struct?: ServiceSpecPort | cdktf.IRes
     port: cdktf.numberToTerraform(struct!.port),
     protocol: cdktf.stringToTerraform(struct!.protocol),
     target_port: cdktf.stringToTerraform(struct!.targetPort),
-  }
+  };
 }
 
 export class ServiceSpecPortOutputReference extends cdktf.ComplexObject {
@@ -495,13 +580,23 @@ export class ServiceSpecPortOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): ServiceSpecPort | cdktf.IResolvable | undefined {
@@ -537,7 +632,9 @@ export class ServiceSpecPortOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceSpecPort | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceSpecPort | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -547,12 +644,10 @@ export class ServiceSpecPortOutputReference extends cdktf.ComplexObject {
       this._port = undefined;
       this._protocol = undefined;
       this._targetPort = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._appProtocol = value.appProtocol;
@@ -659,55 +754,77 @@ export class ServiceSpecPortOutputReference extends cdktf.ComplexObject {
 }
 
 export class ServiceSpecPortList extends cdktf.ComplexList {
-  public internalValue? : ServiceSpecPort[] | cdktf.IResolvable
+  public internalValue?: ServiceSpecPort[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceSpecPortOutputReference {
-    return new ServiceSpecPortOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceSpecPortOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceSpecSessionAffinityConfigClientIp {
   /**
-  * Specifies the seconds of `ClientIP` type session sticky time. The value must be > 0 and <= 86400(for 1 day) if `ServiceAffinity` == `ClientIP`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#timeout_seconds Service#timeout_seconds}
-  */
+   * Specifies the seconds of `ClientIP` type session sticky time. The value must be > 0 and <= 86400(for 1 day) if `ServiceAffinity` == `ClientIP`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#timeout_seconds Service#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
 }
 
-export function serviceSpecSessionAffinityConfigClientIpToTerraform(struct?: ServiceSpecSessionAffinityConfigClientIpOutputReference | ServiceSpecSessionAffinityConfigClientIp): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceSpecSessionAffinityConfigClientIpToTerraform(
+  struct?:
+    | ServiceSpecSessionAffinityConfigClientIpOutputReference
+    | ServiceSpecSessionAffinityConfigClientIp,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-  }
+  };
 }
 
 export class ServiceSpecSessionAffinityConfigClientIpOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceSpecSessionAffinityConfigClientIp | undefined {
+  public get internalValue():
+    | ServiceSpecSessionAffinityConfigClientIp
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._timeoutSeconds !== undefined) {
@@ -717,12 +834,13 @@ export class ServiceSpecSessionAffinityConfigClientIpOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceSpecSessionAffinityConfigClientIp | undefined) {
+  public set internalValue(
+    value: ServiceSpecSessionAffinityConfigClientIp | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._timeoutSeconds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._timeoutSeconds = value.timeoutSeconds;
     }
@@ -746,31 +864,44 @@ export class ServiceSpecSessionAffinityConfigClientIpOutputReference extends cdk
 }
 export interface ServiceSpecSessionAffinityConfig {
   /**
-  * client_ip block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#client_ip Service#client_ip}
-  */
+   * client_ip block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#client_ip Service#client_ip}
+   */
   readonly clientIp?: ServiceSpecSessionAffinityConfigClientIp;
 }
 
-export function serviceSpecSessionAffinityConfigToTerraform(struct?: ServiceSpecSessionAffinityConfigOutputReference | ServiceSpecSessionAffinityConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceSpecSessionAffinityConfigToTerraform(
+  struct?:
+    | ServiceSpecSessionAffinityConfigOutputReference
+    | ServiceSpecSessionAffinityConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    client_ip: serviceSpecSessionAffinityConfigClientIpToTerraform(struct!.clientIp),
-  }
+    client_ip: serviceSpecSessionAffinityConfigClientIpToTerraform(
+      struct!.clientIp,
+    ),
+  };
 }
 
 export class ServiceSpecSessionAffinityConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -784,19 +915,24 @@ export class ServiceSpecSessionAffinityConfigOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceSpecSessionAffinityConfig | undefined) {
+  public set internalValue(
+    value: ServiceSpecSessionAffinityConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._clientIp.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._clientIp.internalValue = value.clientIp;
     }
   }
 
   // client_ip - computed: false, optional: true, required: false
-  private _clientIp = new ServiceSpecSessionAffinityConfigClientIpOutputReference(this, "client_ip");
+  private _clientIp =
+    new ServiceSpecSessionAffinityConfigClientIpOutputReference(
+      this,
+      'client_ip',
+    );
   public get clientIp() {
     return this._clientIp;
   }
@@ -813,157 +949,190 @@ export class ServiceSpecSessionAffinityConfigOutputReference extends cdktf.Compl
 }
 export interface ServiceSpec {
   /**
-  * Defines if `NodePorts` will be automatically allocated for services with type `LoadBalancer`. It may be set to `false` if the cluster load-balancer does not rely on `NodePorts`.  If the caller requests specific `NodePorts` (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type `LoadBalancer`. Default is `true`. More info: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-nodeport-allocation
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#allocate_load_balancer_node_ports Service#allocate_load_balancer_node_ports}
-  */
+   * Defines if `NodePorts` will be automatically allocated for services with type `LoadBalancer`. It may be set to `false` if the cluster load-balancer does not rely on `NodePorts`.  If the caller requests specific `NodePorts` (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type `LoadBalancer`. Default is `true`. More info: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-nodeport-allocation
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#allocate_load_balancer_node_ports Service#allocate_load_balancer_node_ports}
+   */
   readonly allocateLoadBalancerNodePorts?: boolean | cdktf.IResolvable;
   /**
-  * The IP address of the service. It is usually assigned randomly by the master. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. `None` can be specified for headless services when proxying is not required. Ignored if type is `ExternalName`. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#cluster_ip Service#cluster_ip}
-  */
+   * The IP address of the service. It is usually assigned randomly by the master. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. `None` can be specified for headless services when proxying is not required. Ignored if type is `ExternalName`. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#cluster_ip Service#cluster_ip}
+   */
   readonly clusterIp?: string;
   /**
-  * List of IP addresses assigned to this service, and are usually assigned randomly. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise creation of the service will fail. If this field is not specified, it will be initialized from the `clusterIP` field. If this field is specified, clients must ensure that `clusterIPs[0]` and `clusterIP` have the same value. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#cluster_ips Service#cluster_ips}
-  */
+   * List of IP addresses assigned to this service, and are usually assigned randomly. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise creation of the service will fail. If this field is not specified, it will be initialized from the `clusterIP` field. If this field is specified, clients must ensure that `clusterIPs[0]` and `clusterIP` have the same value. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#cluster_ips Service#cluster_ips}
+   */
   readonly clusterIps?: string[];
   /**
-  * A list of IP addresses for which nodes in the cluster will also accept traffic for this service. These IPs are not managed by Kubernetes. The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#external_ips Service#external_ips}
-  */
+   * A list of IP addresses for which nodes in the cluster will also accept traffic for this service. These IPs are not managed by Kubernetes. The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#external_ips Service#external_ips}
+   */
   readonly externalIps?: string[];
   /**
-  * The external reference that kubedns or equivalent will return as a CNAME record for this service. No proxying will be involved. Must be a valid DNS name and requires `type` to be `ExternalName`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#external_name Service#external_name}
-  */
+   * The external reference that kubedns or equivalent will return as a CNAME record for this service. No proxying will be involved. Must be a valid DNS name and requires `type` to be `ExternalName`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#external_name Service#external_name}
+   */
   readonly externalName?: string;
   /**
-  * Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. `Local` preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. `Cluster` obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading. More info: https://kubernetes.io/docs/tutorials/services/source-ip/
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#external_traffic_policy Service#external_traffic_policy}
-  */
+   * Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. `Local` preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. `Cluster` obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading. More info: https://kubernetes.io/docs/tutorials/services/source-ip/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#external_traffic_policy Service#external_traffic_policy}
+   */
   readonly externalTrafficPolicy?: string;
   /**
-  * Specifies the Healthcheck NodePort for the service. Only effects when type is set to `LoadBalancer` and external_traffic_policy is set to `Local`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#health_check_node_port Service#health_check_node_port}
-  */
+   * Specifies the Healthcheck NodePort for the service. Only effects when type is set to `LoadBalancer` and external_traffic_policy is set to `Local`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#health_check_node_port Service#health_check_node_port}
+   */
   readonly healthCheckNodePort?: number;
   /**
-  * Specifies if the cluster internal traffic should be routed to all endpoints or node-local endpoints only. `Cluster` routes internal traffic to a Service to all endpoints. `Local` routes traffic to node-local endpoints only, traffic is dropped if no node-local endpoints are ready. The default value is `Cluster`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#internal_traffic_policy Service#internal_traffic_policy}
-  */
+   * Specifies if the cluster internal traffic should be routed to all endpoints or node-local endpoints only. `Cluster` routes internal traffic to a Service to all endpoints. `Local` routes traffic to node-local endpoints only, traffic is dropped if no node-local endpoints are ready. The default value is `Cluster`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#internal_traffic_policy Service#internal_traffic_policy}
+   */
   readonly internalTrafficPolicy?: string;
   /**
-  * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#ip_families Service#ip_families}
-  */
+   * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#ip_families Service#ip_families}
+   */
   readonly ipFamilies?: string[];
   /**
-  * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this field will be set to SingleStack. Services can be 'SingleStack' (a single IP family), 'PreferDualStack' (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or 'RequireDualStack' (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#ip_family_policy Service#ip_family_policy}
-  */
+   * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this field will be set to SingleStack. Services can be 'SingleStack' (a single IP family), 'PreferDualStack' (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or 'RequireDualStack' (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#ip_family_policy Service#ip_family_policy}
+   */
   readonly ipFamilyPolicy?: string;
   /**
-  * The class of the load balancer implementation this Service belongs to. If specified, the value of this field must be a label-style identifier, with an optional prefix. This field can only be set when the Service type is `LoadBalancer`. If not set, the default load balancer implementation is used. This field can only be set when creating or updating a Service to type `LoadBalancer`. More info: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-class
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#load_balancer_class Service#load_balancer_class}
-  */
+   * The class of the load balancer implementation this Service belongs to. If specified, the value of this field must be a label-style identifier, with an optional prefix. This field can only be set when the Service type is `LoadBalancer`. If not set, the default load balancer implementation is used. This field can only be set when creating or updating a Service to type `LoadBalancer`. More info: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-class
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#load_balancer_class Service#load_balancer_class}
+   */
   readonly loadBalancerClass?: string;
   /**
-  * Only applies to `type = LoadBalancer`. LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying this field when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#load_balancer_ip Service#load_balancer_ip}
-  */
+   * Only applies to `type = LoadBalancer`. LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying this field when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#load_balancer_ip Service#load_balancer_ip}
+   */
   readonly loadBalancerIp?: string;
   /**
-  * If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature. More info: http://kubernetes.io/docs/user-guide/services-firewalls
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#load_balancer_source_ranges Service#load_balancer_source_ranges}
-  */
+   * If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature. More info: http://kubernetes.io/docs/user-guide/services-firewalls
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#load_balancer_source_ranges Service#load_balancer_source_ranges}
+   */
   readonly loadBalancerSourceRanges?: string[];
   /**
-  * When set to true, indicates that DNS implementations must publish the `notReadyAddresses` of subsets for the Endpoints associated with the Service. The default value is `false`. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate `SRV` records for its Pods without respect to their readiness for purpose of peer discovery.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#publish_not_ready_addresses Service#publish_not_ready_addresses}
-  */
+   * When set to true, indicates that DNS implementations must publish the `notReadyAddresses` of subsets for the Endpoints associated with the Service. The default value is `false`. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate `SRV` records for its Pods without respect to their readiness for purpose of peer discovery.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#publish_not_ready_addresses Service#publish_not_ready_addresses}
+   */
   readonly publishNotReadyAddresses?: boolean | cdktf.IResolvable;
   /**
-  * Route service traffic to pods with label keys and values matching this selector. Only applies to types `ClusterIP`, `NodePort`, and `LoadBalancer`. More info: http://kubernetes.io/docs/user-guide/services#overview
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#selector Service#selector}
-  */
+   * Route service traffic to pods with label keys and values matching this selector. Only applies to types `ClusterIP`, `NodePort`, and `LoadBalancer`. More info: http://kubernetes.io/docs/user-guide/services#overview
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#selector Service#selector}
+   */
   readonly selector?: { [key: string]: string };
   /**
-  * Used to maintain session affinity. Supports `ClientIP` and `None`. Defaults to `None`. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#session_affinity Service#session_affinity}
-  */
+   * Used to maintain session affinity. Supports `ClientIP` and `None`. Defaults to `None`. More info: http://kubernetes.io/docs/user-guide/services#virtual-ips-and-service-proxies
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#session_affinity Service#session_affinity}
+   */
   readonly sessionAffinity?: string;
   /**
-  * Determines how the service is exposed. Defaults to `ClusterIP`. Valid options are `ExternalName`, `ClusterIP`, `NodePort`, and `LoadBalancer`. `ExternalName` maps to the specified `external_name`. More info: http://kubernetes.io/docs/user-guide/services#overview
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#type Service#type}
-  */
+   * Determines how the service is exposed. Defaults to `ClusterIP`. Valid options are `ExternalName`, `ClusterIP`, `NodePort`, and `LoadBalancer`. `ExternalName` maps to the specified `external_name`. More info: http://kubernetes.io/docs/user-guide/services#overview
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#type Service#type}
+   */
   readonly type?: string;
   /**
-  * port block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#port Service#port}
-  */
+   * port block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#port Service#port}
+   */
   readonly port?: ServiceSpecPort[] | cdktf.IResolvable;
   /**
-  * session_affinity_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#session_affinity_config Service#session_affinity_config}
-  */
+   * session_affinity_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#session_affinity_config Service#session_affinity_config}
+   */
   readonly sessionAffinityConfig?: ServiceSpecSessionAffinityConfig;
 }
 
-export function serviceSpecToTerraform(struct?: ServiceSpecOutputReference | ServiceSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceSpecToTerraform(
+  struct?: ServiceSpecOutputReference | ServiceSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    allocate_load_balancer_node_ports: cdktf.booleanToTerraform(struct!.allocateLoadBalancerNodePorts),
+    allocate_load_balancer_node_ports: cdktf.booleanToTerraform(
+      struct!.allocateLoadBalancerNodePorts,
+    ),
     cluster_ip: cdktf.stringToTerraform(struct!.clusterIp),
-    cluster_ips: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.clusterIps),
-    external_ips: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.externalIps),
+    cluster_ips: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.clusterIps),
+    external_ips: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.externalIps),
     external_name: cdktf.stringToTerraform(struct!.externalName),
-    external_traffic_policy: cdktf.stringToTerraform(struct!.externalTrafficPolicy),
-    health_check_node_port: cdktf.numberToTerraform(struct!.healthCheckNodePort),
-    internal_traffic_policy: cdktf.stringToTerraform(struct!.internalTrafficPolicy),
-    ip_families: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.ipFamilies),
+    external_traffic_policy: cdktf.stringToTerraform(
+      struct!.externalTrafficPolicy,
+    ),
+    health_check_node_port: cdktf.numberToTerraform(
+      struct!.healthCheckNodePort,
+    ),
+    internal_traffic_policy: cdktf.stringToTerraform(
+      struct!.internalTrafficPolicy,
+    ),
+    ip_families: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.ipFamilies),
     ip_family_policy: cdktf.stringToTerraform(struct!.ipFamilyPolicy),
     load_balancer_class: cdktf.stringToTerraform(struct!.loadBalancerClass),
     load_balancer_ip: cdktf.stringToTerraform(struct!.loadBalancerIp),
-    load_balancer_source_ranges: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.loadBalancerSourceRanges),
-    publish_not_ready_addresses: cdktf.booleanToTerraform(struct!.publishNotReadyAddresses),
+    load_balancer_source_ranges: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.loadBalancerSourceRanges),
+    publish_not_ready_addresses: cdktf.booleanToTerraform(
+      struct!.publishNotReadyAddresses,
+    ),
     selector: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.selector),
     session_affinity: cdktf.stringToTerraform(struct!.sessionAffinity),
     type: cdktf.stringToTerraform(struct!.type),
     port: cdktf.listMapper(serviceSpecPortToTerraform, true)(struct!.port),
-    session_affinity_config: serviceSpecSessionAffinityConfigToTerraform(struct!.sessionAffinityConfig),
-  }
+    session_affinity_config: serviceSpecSessionAffinityConfigToTerraform(
+      struct!.sessionAffinityConfig,
+    ),
+  };
 }
 
 export class ServiceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -972,7 +1141,8 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
     const internalValueResult: any = {};
     if (this._allocateLoadBalancerNodePorts !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allocateLoadBalancerNodePorts = this._allocateLoadBalancerNodePorts;
+      internalValueResult.allocateLoadBalancerNodePorts =
+        this._allocateLoadBalancerNodePorts;
     }
     if (this._clusterIp !== undefined) {
       hasAnyValues = true;
@@ -1020,11 +1190,13 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
     }
     if (this._loadBalancerSourceRanges !== undefined) {
       hasAnyValues = true;
-      internalValueResult.loadBalancerSourceRanges = this._loadBalancerSourceRanges;
+      internalValueResult.loadBalancerSourceRanges =
+        this._loadBalancerSourceRanges;
     }
     if (this._publishNotReadyAddresses !== undefined) {
       hasAnyValues = true;
-      internalValueResult.publishNotReadyAddresses = this._publishNotReadyAddresses;
+      internalValueResult.publishNotReadyAddresses =
+        this._publishNotReadyAddresses;
     }
     if (this._selector !== undefined) {
       hasAnyValues = true;
@@ -1044,7 +1216,8 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
     }
     if (this._sessionAffinityConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sessionAffinityConfig = this._sessionAffinityConfig?.internalValue;
+      internalValueResult.sessionAffinityConfig =
+        this._sessionAffinityConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -1071,8 +1244,7 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
       this._type = undefined;
       this._port.internalValue = undefined;
       this._sessionAffinityConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allocateLoadBalancerNodePorts = value.allocateLoadBalancerNodePorts;
       this._clusterIp = value.clusterIp;
@@ -1291,7 +1463,9 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
   // load_balancer_source_ranges - computed: false, optional: true, required: false
   private _loadBalancerSourceRanges?: string[];
   public get loadBalancerSourceRanges() {
-    return cdktf.Fn.tolist(this.getListAttribute('load_balancer_source_ranges'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('load_balancer_source_ranges'),
+    );
   }
   public set loadBalancerSourceRanges(value: string[]) {
     this._loadBalancerSourceRanges = value;
@@ -1369,7 +1543,7 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port = new ServiceSpecPortList(this, "port", false);
+  private _port = new ServiceSpecPortList(this, 'port', false);
   public get port() {
     return this._port;
   }
@@ -1385,7 +1559,11 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // session_affinity_config - computed: false, optional: true, required: false
-  private _sessionAffinityConfig = new ServiceSpecSessionAffinityConfigOutputReference(this, "session_affinity_config");
+  private _sessionAffinityConfig =
+    new ServiceSpecSessionAffinityConfigOutputReference(
+      this,
+      'session_affinity_config',
+    );
   public get sessionAffinityConfig() {
     return this._sessionAffinityConfig;
   }
@@ -1402,19 +1580,25 @@ export class ServiceSpecOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#create Service#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service#create Service#create}
+   */
   readonly create?: string;
 }
 
-export function serviceTimeoutsToTerraform(struct?: ServiceTimeoutsOutputReference | ServiceTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTimeoutsToTerraform(
+  struct?: ServiceTimeoutsOutputReference | ServiceTimeouts | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class ServiceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -1422,10 +1606,13 @@ export class ServiceTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1442,17 +1629,17 @@ export class ServiceTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -1477,33 +1664,32 @@ export class ServiceTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/service kubernetes_service}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/service kubernetes_service}
+ */
 export class Service extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_service";
+  public static readonly tfResourceType = 'kubernetes_service';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/service kubernetes_service} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServiceConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/service kubernetes_service} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServiceConfig
+   */
   public constructor(scope: Construct, id: string, config: ServiceConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_service',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1511,7 +1697,7 @@ export class Service extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._waitForLoadBalancer = config.waitForLoadBalancer;
@@ -1541,7 +1727,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // status - computed: true, optional: false, required: false
-  private _status = new ServiceStatusList(this, "status", false);
+  private _status = new ServiceStatusList(this, 'status', false);
   public get status() {
     return this._status;
   }
@@ -1563,7 +1749,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new ServiceMetadataOutputReference(this, "metadata");
+  private _metadata = new ServiceMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -1576,7 +1762,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new ServiceSpecOutputReference(this, "spec");
+  private _spec = new ServiceSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -1589,7 +1775,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServiceTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ServiceTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -1611,7 +1797,9 @@ export class Service extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      wait_for_load_balancer: cdktf.booleanToTerraform(this._waitForLoadBalancer),
+      wait_for_load_balancer: cdktf.booleanToTerraform(
+        this._waitForLoadBalancer,
+      ),
       metadata: serviceMetadataToTerraform(this._metadata.internalValue),
       spec: serviceSpecToTerraform(this._spec.internalValue),
       timeouts: serviceTimeoutsToTerraform(this._timeouts.internalValue),

@@ -1,8 +1,11 @@
 import { Help, Interfaces } from '@oclif/core';
-import { createTable } from './utils/table.js';
+import { createTable } from './utils/table.ts';
 
 export default class CustomHelp extends Help {
-  constructor(config: Interfaces.Config, opts: Partial<Interfaces.HelpOptions> = {}) {
+  constructor(
+    config: Interfaces.Config,
+    opts: Partial<Interfaces.HelpOptions> = {},
+  ) {
     super(config, opts);
   }
 
@@ -14,7 +17,10 @@ export default class CustomHelp extends Help {
     const seenDisplayNames: string[] = [];
     for (const command of this.config.commands) {
       const baseCommand = command as any;
-      if (!baseCommand.displayName || seenDisplayNames.includes(baseCommand.displayName)) {
+      if (
+        !baseCommand.displayName ||
+        seenDisplayNames.includes(baseCommand.displayName)
+      ) {
         continue;
       }
       seenDisplayNames.push(baseCommand.displayName);

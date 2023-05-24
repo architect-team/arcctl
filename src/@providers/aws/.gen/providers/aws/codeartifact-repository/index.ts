@@ -2,84 +2,100 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface CodeartifactRepositoryConfig extends cdktf.TerraformMetaArguments {
+export interface CodeartifactRepositoryConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#description CodeartifactRepository#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#description CodeartifactRepository#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#domain CodeartifactRepository#domain}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#domain CodeartifactRepository#domain}
+   */
   readonly domain: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#domain_owner CodeartifactRepository#domain_owner}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#domain_owner CodeartifactRepository#domain_owner}
+   */
   readonly domainOwner?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#id CodeartifactRepository#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#id CodeartifactRepository#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#repository CodeartifactRepository#repository}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#repository CodeartifactRepository#repository}
+   */
   readonly repository: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#tags CodeartifactRepository#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#tags CodeartifactRepository#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#tags_all CodeartifactRepository#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#tags_all CodeartifactRepository#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * external_connections block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#external_connections CodeartifactRepository#external_connections}
-  */
+   * external_connections block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#external_connections CodeartifactRepository#external_connections}
+   */
   readonly externalConnections?: CodeartifactRepositoryExternalConnections;
   /**
-  * upstream block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#upstream CodeartifactRepository#upstream}
-  */
+   * upstream block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#upstream CodeartifactRepository#upstream}
+   */
   readonly upstream?: CodeartifactRepositoryUpstream[] | cdktf.IResolvable;
 }
 export interface CodeartifactRepositoryExternalConnections {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#external_connection_name CodeartifactRepository#external_connection_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#external_connection_name CodeartifactRepository#external_connection_name}
+   */
   readonly externalConnectionName: string;
 }
 
-export function codeartifactRepositoryExternalConnectionsToTerraform(struct?: CodeartifactRepositoryExternalConnectionsOutputReference | CodeartifactRepositoryExternalConnections): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function codeartifactRepositoryExternalConnectionsToTerraform(
+  struct?:
+    | CodeartifactRepositoryExternalConnectionsOutputReference
+    | CodeartifactRepositoryExternalConnections,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    external_connection_name: cdktf.stringToTerraform(struct!.externalConnectionName),
-  }
+    external_connection_name: cdktf.stringToTerraform(
+      struct!.externalConnectionName,
+    ),
+  };
 }
 
 export class CodeartifactRepositoryExternalConnectionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CodeartifactRepositoryExternalConnections | undefined {
+  public get internalValue():
+    | CodeartifactRepositoryExternalConnections
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._externalConnectionName !== undefined) {
@@ -89,12 +105,13 @@ export class CodeartifactRepositoryExternalConnectionsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CodeartifactRepositoryExternalConnections | undefined) {
+  public set internalValue(
+    value: CodeartifactRepositoryExternalConnections | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._externalConnectionName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._externalConnectionName = value.externalConnectionName;
     }
@@ -125,19 +142,25 @@ export class CodeartifactRepositoryExternalConnectionsOutputReference extends cd
 }
 export interface CodeartifactRepositoryUpstream {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#repository_name CodeartifactRepository#repository_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository#repository_name CodeartifactRepository#repository_name}
+   */
   readonly repositoryName: string;
 }
 
-export function codeartifactRepositoryUpstreamToTerraform(struct?: CodeartifactRepositoryUpstream | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function codeartifactRepositoryUpstreamToTerraform(
+  struct?: CodeartifactRepositoryUpstream | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     repository_name: cdktf.stringToTerraform(struct!.repositoryName),
-  }
+  };
 }
 
 export class CodeartifactRepositoryUpstreamOutputReference extends cdktf.ComplexObject {
@@ -145,16 +168,29 @@ export class CodeartifactRepositoryUpstreamOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): CodeartifactRepositoryUpstream | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CodeartifactRepositoryUpstream
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -167,17 +203,17 @@ export class CodeartifactRepositoryUpstreamOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CodeartifactRepositoryUpstream | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: CodeartifactRepositoryUpstream | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._repositoryName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._repositoryName = value.repositoryName;
@@ -199,53 +235,65 @@ export class CodeartifactRepositoryUpstreamOutputReference extends cdktf.Complex
 }
 
 export class CodeartifactRepositoryUpstreamList extends cdktf.ComplexList {
-  public internalValue? : CodeartifactRepositoryUpstream[] | cdktf.IResolvable
+  public internalValue?: CodeartifactRepositoryUpstream[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): CodeartifactRepositoryUpstreamOutputReference {
-    return new CodeartifactRepositoryUpstreamOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new CodeartifactRepositoryUpstreamOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository aws_codeartifact_repository}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository aws_codeartifact_repository}
+ */
 export class CodeartifactRepository extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_codeartifact_repository";
+  public static readonly tfResourceType = 'aws_codeartifact_repository';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository aws_codeartifact_repository} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CodeartifactRepositoryConfig
-  */
-  public constructor(scope: Construct, id: string, config: CodeartifactRepositoryConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codeartifact_repository aws_codeartifact_repository} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CodeartifactRepositoryConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CodeartifactRepositoryConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_codeartifact_repository',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -253,7 +301,7 @@ export class CodeartifactRepository extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._domain = config.domain;
@@ -387,11 +435,17 @@ export class CodeartifactRepository extends cdktf.TerraformResource {
   }
 
   // external_connections - computed: false, optional: true, required: false
-  private _externalConnections = new CodeartifactRepositoryExternalConnectionsOutputReference(this, "external_connections");
+  private _externalConnections =
+    new CodeartifactRepositoryExternalConnectionsOutputReference(
+      this,
+      'external_connections',
+    );
   public get externalConnections() {
     return this._externalConnections;
   }
-  public putExternalConnections(value: CodeartifactRepositoryExternalConnections) {
+  public putExternalConnections(
+    value: CodeartifactRepositoryExternalConnections,
+  ) {
     this._externalConnections.internalValue = value;
   }
   public resetExternalConnections() {
@@ -403,11 +457,17 @@ export class CodeartifactRepository extends cdktf.TerraformResource {
   }
 
   // upstream - computed: false, optional: true, required: false
-  private _upstream = new CodeartifactRepositoryUpstreamList(this, "upstream", false);
+  private _upstream = new CodeartifactRepositoryUpstreamList(
+    this,
+    'upstream',
+    false,
+  );
   public get upstream() {
     return this._upstream;
   }
-  public putUpstream(value: CodeartifactRepositoryUpstream[] | cdktf.IResolvable) {
+  public putUpstream(
+    value: CodeartifactRepositoryUpstream[] | cdktf.IResolvable,
+  ) {
     this._upstream.internalValue = value;
   }
   public resetUpstream() {
@@ -431,8 +491,14 @@ export class CodeartifactRepository extends cdktf.TerraformResource {
       repository: cdktf.stringToTerraform(this._repository),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      external_connections: codeartifactRepositoryExternalConnectionsToTerraform(this._externalConnections.internalValue),
-      upstream: cdktf.listMapper(codeartifactRepositoryUpstreamToTerraform, true)(this._upstream.internalValue),
+      external_connections:
+        codeartifactRepositoryExternalConnectionsToTerraform(
+          this._externalConnections.internalValue,
+        ),
+      upstream: cdktf.listMapper(
+        codeartifactRepositoryUpstreamToTerraform,
+        true,
+      )(this._upstream.internalValue),
     };
   }
 }

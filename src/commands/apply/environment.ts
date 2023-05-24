@@ -1,6 +1,6 @@
-import { BaseCommand } from '../../base-command.js';
-import { parseEnvironment } from '../../environments/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
+import { BaseCommand } from '../../base-command.ts';
+import { parseEnvironment } from '../../environments/index.ts';
+import { ExecutableGraph } from '../../executable-graph/index.ts';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
 import path from 'path';

@@ -2,125 +2,145 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface ServicecatalogProvisionedProductConfig extends cdktf.TerraformMetaArguments {
+export interface ServicecatalogProvisionedProductConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#accept_language ServicecatalogProvisionedProduct#accept_language}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#accept_language ServicecatalogProvisionedProduct#accept_language}
+   */
   readonly acceptLanguage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#id ServicecatalogProvisionedProduct#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#id ServicecatalogProvisionedProduct#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#ignore_errors ServicecatalogProvisionedProduct#ignore_errors}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#ignore_errors ServicecatalogProvisionedProduct#ignore_errors}
+   */
   readonly ignoreErrors?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#name ServicecatalogProvisionedProduct#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#name ServicecatalogProvisionedProduct#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#notification_arns ServicecatalogProvisionedProduct#notification_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#notification_arns ServicecatalogProvisionedProduct#notification_arns}
+   */
   readonly notificationArns?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#path_id ServicecatalogProvisionedProduct#path_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#path_id ServicecatalogProvisionedProduct#path_id}
+   */
   readonly pathId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#path_name ServicecatalogProvisionedProduct#path_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#path_name ServicecatalogProvisionedProduct#path_name}
+   */
   readonly pathName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#product_id ServicecatalogProvisionedProduct#product_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#product_id ServicecatalogProvisionedProduct#product_id}
+   */
   readonly productId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#product_name ServicecatalogProvisionedProduct#product_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#product_name ServicecatalogProvisionedProduct#product_name}
+   */
   readonly productName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#provisioning_artifact_id ServicecatalogProvisionedProduct#provisioning_artifact_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#provisioning_artifact_id ServicecatalogProvisionedProduct#provisioning_artifact_id}
+   */
   readonly provisioningArtifactId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#provisioning_artifact_name ServicecatalogProvisionedProduct#provisioning_artifact_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#provisioning_artifact_name ServicecatalogProvisionedProduct#provisioning_artifact_name}
+   */
   readonly provisioningArtifactName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#retain_physical_resources ServicecatalogProvisionedProduct#retain_physical_resources}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#retain_physical_resources ServicecatalogProvisionedProduct#retain_physical_resources}
+   */
   readonly retainPhysicalResources?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#tags ServicecatalogProvisionedProduct#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#tags ServicecatalogProvisionedProduct#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#tags_all ServicecatalogProvisionedProduct#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#tags_all ServicecatalogProvisionedProduct#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * provisioning_parameters block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#provisioning_parameters ServicecatalogProvisionedProduct#provisioning_parameters}
-  */
-  readonly provisioningParameters?: ServicecatalogProvisionedProductProvisioningParameters[] | cdktf.IResolvable;
+   * provisioning_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#provisioning_parameters ServicecatalogProvisionedProduct#provisioning_parameters}
+   */
+  readonly provisioningParameters?:
+    | ServicecatalogProvisionedProductProvisioningParameters[]
+    | cdktf.IResolvable;
   /**
-  * stack_set_provisioning_preferences block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#stack_set_provisioning_preferences ServicecatalogProvisionedProduct#stack_set_provisioning_preferences}
-  */
+   * stack_set_provisioning_preferences block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#stack_set_provisioning_preferences ServicecatalogProvisionedProduct#stack_set_provisioning_preferences}
+   */
   readonly stackSetProvisioningPreferences?: ServicecatalogProvisionedProductStackSetProvisioningPreferences;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#timeouts ServicecatalogProvisionedProduct#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#timeouts ServicecatalogProvisionedProduct#timeouts}
+   */
   readonly timeouts?: ServicecatalogProvisionedProductTimeouts;
 }
-export interface ServicecatalogProvisionedProductOutputs {
-}
+export interface ServicecatalogProvisionedProductOutputs {}
 
-export function servicecatalogProvisionedProductOutputsToTerraform(struct?: ServicecatalogProvisionedProductOutputs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogProvisionedProductOutputsToTerraform(
+  struct?: ServicecatalogProvisionedProductOutputs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class ServicecatalogProvisionedProductOutputsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServicecatalogProvisionedProductOutputs | undefined {
+  public get internalValue():
+    | ServicecatalogProvisionedProductOutputs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogProvisionedProductOutputs | undefined) {
+  public set internalValue(
+    value: ServicecatalogProvisionedProductOutputs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -142,48 +162,66 @@ export class ServicecatalogProvisionedProductOutputsOutputReference extends cdkt
 }
 
 export class ServicecatalogProvisionedProductOutputsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ServicecatalogProvisionedProductOutputsOutputReference {
-    return new ServicecatalogProvisionedProductOutputsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ServicecatalogProvisionedProductOutputsOutputReference {
+    return new ServicecatalogProvisionedProductOutputsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServicecatalogProvisionedProductProvisioningParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#key ServicecatalogProvisionedProduct#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#key ServicecatalogProvisionedProduct#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#use_previous_value ServicecatalogProvisionedProduct#use_previous_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#use_previous_value ServicecatalogProvisionedProduct#use_previous_value}
+   */
   readonly usePreviousValue?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#value ServicecatalogProvisionedProduct#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#value ServicecatalogProvisionedProduct#value}
+   */
   readonly value?: string;
 }
 
-export function servicecatalogProvisionedProductProvisioningParametersToTerraform(struct?: ServicecatalogProvisionedProductProvisioningParameters | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogProvisionedProductProvisioningParametersToTerraform(
+  struct?:
+    | ServicecatalogProvisionedProductProvisioningParameters
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     use_previous_value: cdktf.booleanToTerraform(struct!.usePreviousValue),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ServicecatalogProvisionedProductProvisioningParametersOutputReference extends cdktf.ComplexObject {
@@ -191,16 +229,29 @@ export class ServicecatalogProvisionedProductProvisioningParametersOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServicecatalogProvisionedProductProvisioningParameters | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServicecatalogProvisionedProductProvisioningParameters
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -221,19 +272,22 @@ export class ServicecatalogProvisionedProductProvisioningParametersOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogProvisionedProductProvisioningParameters | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServicecatalogProvisionedProductProvisioningParameters
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._usePreviousValue = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -289,78 +343,113 @@ export class ServicecatalogProvisionedProductProvisioningParametersOutputReferen
 }
 
 export class ServicecatalogProvisionedProductProvisioningParametersList extends cdktf.ComplexList {
-  public internalValue? : ServicecatalogProvisionedProductProvisioningParameters[] | cdktf.IResolvable
+  public internalValue?:
+    | ServicecatalogProvisionedProductProvisioningParameters[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ServicecatalogProvisionedProductProvisioningParametersOutputReference {
-    return new ServicecatalogProvisionedProductProvisioningParametersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ServicecatalogProvisionedProductProvisioningParametersOutputReference {
+    return new ServicecatalogProvisionedProductProvisioningParametersOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServicecatalogProvisionedProductStackSetProvisioningPreferences {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#accounts ServicecatalogProvisionedProduct#accounts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#accounts ServicecatalogProvisionedProduct#accounts}
+   */
   readonly accounts?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#failure_tolerance_count ServicecatalogProvisionedProduct#failure_tolerance_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#failure_tolerance_count ServicecatalogProvisionedProduct#failure_tolerance_count}
+   */
   readonly failureToleranceCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#failure_tolerance_percentage ServicecatalogProvisionedProduct#failure_tolerance_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#failure_tolerance_percentage ServicecatalogProvisionedProduct#failure_tolerance_percentage}
+   */
   readonly failureTolerancePercentage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#max_concurrency_count ServicecatalogProvisionedProduct#max_concurrency_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#max_concurrency_count ServicecatalogProvisionedProduct#max_concurrency_count}
+   */
   readonly maxConcurrencyCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#max_concurrency_percentage ServicecatalogProvisionedProduct#max_concurrency_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#max_concurrency_percentage ServicecatalogProvisionedProduct#max_concurrency_percentage}
+   */
   readonly maxConcurrencyPercentage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#regions ServicecatalogProvisionedProduct#regions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#regions ServicecatalogProvisionedProduct#regions}
+   */
   readonly regions?: string[];
 }
 
-export function servicecatalogProvisionedProductStackSetProvisioningPreferencesToTerraform(struct?: ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutputReference | ServicecatalogProvisionedProductStackSetProvisioningPreferences): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogProvisionedProductStackSetProvisioningPreferencesToTerraform(
+  struct?:
+    | ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutputReference
+    | ServicecatalogProvisionedProductStackSetProvisioningPreferences,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    accounts: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.accounts),
-    failure_tolerance_count: cdktf.numberToTerraform(struct!.failureToleranceCount),
-    failure_tolerance_percentage: cdktf.numberToTerraform(struct!.failureTolerancePercentage),
+    accounts: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.accounts),
+    failure_tolerance_count: cdktf.numberToTerraform(
+      struct!.failureToleranceCount,
+    ),
+    failure_tolerance_percentage: cdktf.numberToTerraform(
+      struct!.failureTolerancePercentage,
+    ),
     max_concurrency_count: cdktf.numberToTerraform(struct!.maxConcurrencyCount),
-    max_concurrency_percentage: cdktf.numberToTerraform(struct!.maxConcurrencyPercentage),
+    max_concurrency_percentage: cdktf.numberToTerraform(
+      struct!.maxConcurrencyPercentage,
+    ),
     regions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.regions),
-  }
+  };
 }
 
 export class ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServicecatalogProvisionedProductStackSetProvisioningPreferences | undefined {
+  public get internalValue():
+    | ServicecatalogProvisionedProductStackSetProvisioningPreferences
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accounts !== undefined) {
@@ -373,7 +462,8 @@ export class ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutp
     }
     if (this._failureTolerancePercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failureTolerancePercentage = this._failureTolerancePercentage;
+      internalValueResult.failureTolerancePercentage =
+        this._failureTolerancePercentage;
     }
     if (this._maxConcurrencyCount !== undefined) {
       hasAnyValues = true;
@@ -381,7 +471,8 @@ export class ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutp
     }
     if (this._maxConcurrencyPercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.maxConcurrencyPercentage = this._maxConcurrencyPercentage;
+      internalValueResult.maxConcurrencyPercentage =
+        this._maxConcurrencyPercentage;
     }
     if (this._regions !== undefined) {
       hasAnyValues = true;
@@ -390,7 +481,11 @@ export class ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogProvisionedProductStackSetProvisioningPreferences | undefined) {
+  public set internalValue(
+    value:
+      | ServicecatalogProvisionedProductStackSetProvisioningPreferences
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accounts = undefined;
@@ -399,8 +494,7 @@ export class ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutp
       this._maxConcurrencyCount = undefined;
       this._maxConcurrencyPercentage = undefined;
       this._regions = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accounts = value.accounts;
       this._failureToleranceCount = value.failureToleranceCount;
@@ -509,34 +603,43 @@ export class ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutp
 }
 export interface ServicecatalogProvisionedProductTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#create ServicecatalogProvisionedProduct#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#create ServicecatalogProvisionedProduct#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#delete ServicecatalogProvisionedProduct#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#delete ServicecatalogProvisionedProduct#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#read ServicecatalogProvisionedProduct#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#read ServicecatalogProvisionedProduct#read}
+   */
   readonly read?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#update ServicecatalogProvisionedProduct#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product#update ServicecatalogProvisionedProduct#update}
+   */
   readonly update?: string;
 }
 
-export function servicecatalogProvisionedProductTimeoutsToTerraform(struct?: ServicecatalogProvisionedProductTimeoutsOutputReference | ServicecatalogProvisionedProductTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogProvisionedProductTimeoutsToTerraform(
+  struct?:
+    | ServicecatalogProvisionedProductTimeoutsOutputReference
+    | ServicecatalogProvisionedProductTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ServicecatalogProvisionedProductTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -544,14 +647,20 @@ export class ServicecatalogProvisionedProductTimeoutsOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServicecatalogProvisionedProductTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServicecatalogProvisionedProductTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -576,7 +685,12 @@ export class ServicecatalogProvisionedProductTimeoutsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogProvisionedProductTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServicecatalogProvisionedProductTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -584,12 +698,10 @@ export class ServicecatalogProvisionedProductTimeoutsOutputReference extends cdk
       this._delete = undefined;
       this._read = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -665,33 +777,37 @@ export class ServicecatalogProvisionedProductTimeoutsOutputReference extends cdk
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product aws_servicecatalog_provisioned_product}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product aws_servicecatalog_provisioned_product}
+ */
 export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_servicecatalog_provisioned_product";
+  public static readonly tfResourceType =
+    'aws_servicecatalog_provisioned_product';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product aws_servicecatalog_provisioned_product} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServicecatalogProvisionedProductConfig
-  */
-  public constructor(scope: Construct, id: string, config: ServicecatalogProvisionedProductConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioned_product aws_servicecatalog_provisioned_product} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServicecatalogProvisionedProductConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServicecatalogProvisionedProductConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_provisioned_product',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -699,7 +815,7 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acceptLanguage = config.acceptLanguage;
     this._id = config.id;
@@ -716,7 +832,8 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._provisioningParameters.internalValue = config.provisioningParameters;
-    this._stackSetProvisioningPreferences.internalValue = config.stackSetProvisioningPreferences;
+    this._stackSetProvisioningPreferences.internalValue =
+      config.stackSetProvisioningPreferences;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -837,7 +954,11 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
   }
 
   // outputs - computed: true, optional: false, required: false
-  private _outputs = new ServicecatalogProvisionedProductOutputsList(this, "outputs", true);
+  private _outputs = new ServicecatalogProvisionedProductOutputsList(
+    this,
+    'outputs',
+    true,
+  );
   public get outputs() {
     return this._outputs;
   }
@@ -1002,11 +1123,20 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
   }
 
   // provisioning_parameters - computed: false, optional: true, required: false
-  private _provisioningParameters = new ServicecatalogProvisionedProductProvisioningParametersList(this, "provisioning_parameters", false);
+  private _provisioningParameters =
+    new ServicecatalogProvisionedProductProvisioningParametersList(
+      this,
+      'provisioning_parameters',
+      false,
+    );
   public get provisioningParameters() {
     return this._provisioningParameters;
   }
-  public putProvisioningParameters(value: ServicecatalogProvisionedProductProvisioningParameters[] | cdktf.IResolvable) {
+  public putProvisioningParameters(
+    value:
+      | ServicecatalogProvisionedProductProvisioningParameters[]
+      | cdktf.IResolvable,
+  ) {
     this._provisioningParameters.internalValue = value;
   }
   public resetProvisioningParameters() {
@@ -1018,11 +1148,17 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
   }
 
   // stack_set_provisioning_preferences - computed: false, optional: true, required: false
-  private _stackSetProvisioningPreferences = new ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutputReference(this, "stack_set_provisioning_preferences");
+  private _stackSetProvisioningPreferences =
+    new ServicecatalogProvisionedProductStackSetProvisioningPreferencesOutputReference(
+      this,
+      'stack_set_provisioning_preferences',
+    );
   public get stackSetProvisioningPreferences() {
     return this._stackSetProvisioningPreferences;
   }
-  public putStackSetProvisioningPreferences(value: ServicecatalogProvisionedProductStackSetProvisioningPreferences) {
+  public putStackSetProvisioningPreferences(
+    value: ServicecatalogProvisionedProductStackSetProvisioningPreferences,
+  ) {
     this._stackSetProvisioningPreferences.internalValue = value;
   }
   public resetStackSetProvisioningPreferences() {
@@ -1034,7 +1170,11 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServicecatalogProvisionedProductTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new ServicecatalogProvisionedProductTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -1059,19 +1199,36 @@ export class ServicecatalogProvisionedProduct extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       ignore_errors: cdktf.booleanToTerraform(this._ignoreErrors),
       name: cdktf.stringToTerraform(this._name),
-      notification_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._notificationArns),
+      notification_arns: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._notificationArns),
       path_id: cdktf.stringToTerraform(this._pathId),
       path_name: cdktf.stringToTerraform(this._pathName),
       product_id: cdktf.stringToTerraform(this._productId),
       product_name: cdktf.stringToTerraform(this._productName),
-      provisioning_artifact_id: cdktf.stringToTerraform(this._provisioningArtifactId),
-      provisioning_artifact_name: cdktf.stringToTerraform(this._provisioningArtifactName),
-      retain_physical_resources: cdktf.booleanToTerraform(this._retainPhysicalResources),
+      provisioning_artifact_id: cdktf.stringToTerraform(
+        this._provisioningArtifactId,
+      ),
+      provisioning_artifact_name: cdktf.stringToTerraform(
+        this._provisioningArtifactName,
+      ),
+      retain_physical_resources: cdktf.booleanToTerraform(
+        this._retainPhysicalResources,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      provisioning_parameters: cdktf.listMapper(servicecatalogProvisionedProductProvisioningParametersToTerraform, true)(this._provisioningParameters.internalValue),
-      stack_set_provisioning_preferences: servicecatalogProvisionedProductStackSetProvisioningPreferencesToTerraform(this._stackSetProvisioningPreferences.internalValue),
-      timeouts: servicecatalogProvisionedProductTimeoutsToTerraform(this._timeouts.internalValue),
+      provisioning_parameters: cdktf.listMapper(
+        servicecatalogProvisionedProductProvisioningParametersToTerraform,
+        true,
+      )(this._provisioningParameters.internalValue),
+      stack_set_provisioning_preferences:
+        servicecatalogProvisionedProductStackSetProvisioningPreferencesToTerraform(
+          this._stackSetProvisioningPreferences.internalValue,
+        ),
+      timeouts: servicecatalogProvisionedProductTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

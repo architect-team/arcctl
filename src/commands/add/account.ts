@@ -1,6 +1,6 @@
-import { SupportedProviders } from '../../@providers/supported-providers.js';
-import { BaseCommand } from '../../base-command.js';
-import { createProvider } from '../../utils/providers.js';
+import { SupportedProviders } from '../../@providers/supported-providers.ts';
+import { BaseCommand } from '../../base-command.ts';
+import { createProvider } from '../../utils/providers.ts';
 import { Flags } from '@oclif/core';
 
 export default class AddAccountCommand extends BaseCommand {

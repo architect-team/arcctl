@@ -1,5 +1,5 @@
-import { BaseCommand } from '../../base-command.js';
-import { getProviders, saveProviders } from '../../utils/providers.js';
+import { BaseCommand } from '../../base-command.ts';
+import { getProviders, saveProviders } from '../../utils/providers.ts';
 
 export default class RemoveAccountCmd extends BaseCommand {
   static description = 'Delete the specified account';

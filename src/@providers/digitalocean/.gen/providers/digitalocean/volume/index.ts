@@ -2,84 +2,83 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface VolumeConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#description Volume#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#description Volume#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#filesystem_type Volume#filesystem_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#filesystem_type Volume#filesystem_type}
+   */
   readonly filesystemType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#id Volume#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#id Volume#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#initial_filesystem_label Volume#initial_filesystem_label}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#initial_filesystem_label Volume#initial_filesystem_label}
+   */
   readonly initialFilesystemLabel?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#initial_filesystem_type Volume#initial_filesystem_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#initial_filesystem_type Volume#initial_filesystem_type}
+   */
   readonly initialFilesystemType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#name Volume#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#name Volume#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#region Volume#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#region Volume#region}
+   */
   readonly region: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#size Volume#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#size Volume#size}
+   */
   readonly size: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#snapshot_id Volume#snapshot_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#snapshot_id Volume#snapshot_id}
+   */
   readonly snapshotId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#tags Volume#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume#tags Volume#tags}
+   */
   readonly tags?: string[];
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/volume digitalocean_volume}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/volume digitalocean_volume}
+ */
 export class Volume extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_volume";
+  public static readonly tfResourceType = 'digitalocean_volume';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/volume digitalocean_volume} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options VolumeConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/volume digitalocean_volume} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options VolumeConfig
+   */
   public constructor(scope: Construct, id: string, config: VolumeConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_volume',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -87,7 +86,7 @@ export class Volume extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._filesystemType = config.filesystemType;
@@ -123,7 +122,9 @@ export class Volume extends cdktf.TerraformResource {
 
   // droplet_ids - computed: true, optional: false, required: false
   public get dropletIds() {
-    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
+    return cdktf.Token.asNumberList(
+      cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')),
+    );
   }
 
   // filesystem_label - computed: true, optional: false, required: false
@@ -280,8 +281,12 @@ export class Volume extends cdktf.TerraformResource {
       description: cdktf.stringToTerraform(this._description),
       filesystem_type: cdktf.stringToTerraform(this._filesystemType),
       id: cdktf.stringToTerraform(this._id),
-      initial_filesystem_label: cdktf.stringToTerraform(this._initialFilesystemLabel),
-      initial_filesystem_type: cdktf.stringToTerraform(this._initialFilesystemType),
+      initial_filesystem_label: cdktf.stringToTerraform(
+        this._initialFilesystemLabel,
+      ),
+      initial_filesystem_type: cdktf.stringToTerraform(
+        this._initialFilesystemType,
+      ),
       name: cdktf.stringToTerraform(this._name),
       region: cdktf.stringToTerraform(this._region),
       size: cdktf.numberToTerraform(this._size),

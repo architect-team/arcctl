@@ -2,137 +2,155 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface StoragegatewayGatewayConfig extends cdktf.TerraformMetaArguments {
+export interface StoragegatewayGatewayConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#activation_key StoragegatewayGateway#activation_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#activation_key StoragegatewayGateway#activation_key}
+   */
   readonly activationKey?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#average_download_rate_limit_in_bits_per_sec StoragegatewayGateway#average_download_rate_limit_in_bits_per_sec}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#average_download_rate_limit_in_bits_per_sec StoragegatewayGateway#average_download_rate_limit_in_bits_per_sec}
+   */
   readonly averageDownloadRateLimitInBitsPerSec?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#average_upload_rate_limit_in_bits_per_sec StoragegatewayGateway#average_upload_rate_limit_in_bits_per_sec}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#average_upload_rate_limit_in_bits_per_sec StoragegatewayGateway#average_upload_rate_limit_in_bits_per_sec}
+   */
   readonly averageUploadRateLimitInBitsPerSec?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#cloudwatch_log_group_arn StoragegatewayGateway#cloudwatch_log_group_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#cloudwatch_log_group_arn StoragegatewayGateway#cloudwatch_log_group_arn}
+   */
   readonly cloudwatchLogGroupArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_ip_address StoragegatewayGateway#gateway_ip_address}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_ip_address StoragegatewayGateway#gateway_ip_address}
+   */
   readonly gatewayIpAddress?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_name StoragegatewayGateway#gateway_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_name StoragegatewayGateway#gateway_name}
+   */
   readonly gatewayName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_timezone StoragegatewayGateway#gateway_timezone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_timezone StoragegatewayGateway#gateway_timezone}
+   */
   readonly gatewayTimezone: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_type StoragegatewayGateway#gateway_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_type StoragegatewayGateway#gateway_type}
+   */
   readonly gatewayType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_vpc_endpoint StoragegatewayGateway#gateway_vpc_endpoint}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#gateway_vpc_endpoint StoragegatewayGateway#gateway_vpc_endpoint}
+   */
   readonly gatewayVpcEndpoint?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#id StoragegatewayGateway#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#id StoragegatewayGateway#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#medium_changer_type StoragegatewayGateway#medium_changer_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#medium_changer_type StoragegatewayGateway#medium_changer_type}
+   */
   readonly mediumChangerType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_file_share_visibility StoragegatewayGateway#smb_file_share_visibility}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_file_share_visibility StoragegatewayGateway#smb_file_share_visibility}
+   */
   readonly smbFileShareVisibility?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_guest_password StoragegatewayGateway#smb_guest_password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_guest_password StoragegatewayGateway#smb_guest_password}
+   */
   readonly smbGuestPassword?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_security_strategy StoragegatewayGateway#smb_security_strategy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_security_strategy StoragegatewayGateway#smb_security_strategy}
+   */
   readonly smbSecurityStrategy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#tags StoragegatewayGateway#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#tags StoragegatewayGateway#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#tags_all StoragegatewayGateway#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#tags_all StoragegatewayGateway#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#tape_drive_type StoragegatewayGateway#tape_drive_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#tape_drive_type StoragegatewayGateway#tape_drive_type}
+   */
   readonly tapeDriveType?: string;
   /**
-  * maintenance_start_time block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#maintenance_start_time StoragegatewayGateway#maintenance_start_time}
-  */
+   * maintenance_start_time block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#maintenance_start_time StoragegatewayGateway#maintenance_start_time}
+   */
   readonly maintenanceStartTime?: StoragegatewayGatewayMaintenanceStartTime;
   /**
-  * smb_active_directory_settings block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_active_directory_settings StoragegatewayGateway#smb_active_directory_settings}
-  */
+   * smb_active_directory_settings block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#smb_active_directory_settings StoragegatewayGateway#smb_active_directory_settings}
+   */
   readonly smbActiveDirectorySettings?: StoragegatewayGatewaySmbActiveDirectorySettings;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#timeouts StoragegatewayGateway#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#timeouts StoragegatewayGateway#timeouts}
+   */
   readonly timeouts?: StoragegatewayGatewayTimeouts;
 }
-export interface StoragegatewayGatewayGatewayNetworkInterface {
-}
+export interface StoragegatewayGatewayGatewayNetworkInterface {}
 
-export function storagegatewayGatewayGatewayNetworkInterfaceToTerraform(struct?: StoragegatewayGatewayGatewayNetworkInterface): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storagegatewayGatewayGatewayNetworkInterfaceToTerraform(
+  struct?: StoragegatewayGatewayGatewayNetworkInterface,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class StoragegatewayGatewayGatewayNetworkInterfaceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StoragegatewayGatewayGatewayNetworkInterface | undefined {
+  public get internalValue():
+    | StoragegatewayGatewayGatewayNetworkInterface
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StoragegatewayGatewayGatewayNetworkInterface | undefined) {
+  public set internalValue(
+    value: StoragegatewayGatewayGatewayNetworkInterface | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -144,67 +162,90 @@ export class StoragegatewayGatewayGatewayNetworkInterfaceOutputReference extends
 }
 
 export class StoragegatewayGatewayGatewayNetworkInterfaceList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StoragegatewayGatewayGatewayNetworkInterfaceOutputReference {
-    return new StoragegatewayGatewayGatewayNetworkInterfaceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StoragegatewayGatewayGatewayNetworkInterfaceOutputReference {
+    return new StoragegatewayGatewayGatewayNetworkInterfaceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StoragegatewayGatewayMaintenanceStartTime {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#day_of_month StoragegatewayGateway#day_of_month}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#day_of_month StoragegatewayGateway#day_of_month}
+   */
   readonly dayOfMonth?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#day_of_week StoragegatewayGateway#day_of_week}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#day_of_week StoragegatewayGateway#day_of_week}
+   */
   readonly dayOfWeek?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#hour_of_day StoragegatewayGateway#hour_of_day}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#hour_of_day StoragegatewayGateway#hour_of_day}
+   */
   readonly hourOfDay: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#minute_of_hour StoragegatewayGateway#minute_of_hour}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#minute_of_hour StoragegatewayGateway#minute_of_hour}
+   */
   readonly minuteOfHour?: number;
 }
 
-export function storagegatewayGatewayMaintenanceStartTimeToTerraform(struct?: StoragegatewayGatewayMaintenanceStartTimeOutputReference | StoragegatewayGatewayMaintenanceStartTime): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storagegatewayGatewayMaintenanceStartTimeToTerraform(
+  struct?:
+    | StoragegatewayGatewayMaintenanceStartTimeOutputReference
+    | StoragegatewayGatewayMaintenanceStartTime,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     day_of_month: cdktf.stringToTerraform(struct!.dayOfMonth),
     day_of_week: cdktf.stringToTerraform(struct!.dayOfWeek),
     hour_of_day: cdktf.numberToTerraform(struct!.hourOfDay),
     minute_of_hour: cdktf.numberToTerraform(struct!.minuteOfHour),
-  }
+  };
 }
 
 export class StoragegatewayGatewayMaintenanceStartTimeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StoragegatewayGatewayMaintenanceStartTime | undefined {
+  public get internalValue():
+    | StoragegatewayGatewayMaintenanceStartTime
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dayOfMonth !== undefined) {
@@ -226,15 +267,16 @@ export class StoragegatewayGatewayMaintenanceStartTimeOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StoragegatewayGatewayMaintenanceStartTime | undefined) {
+  public set internalValue(
+    value: StoragegatewayGatewayMaintenanceStartTime | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dayOfMonth = undefined;
       this._dayOfWeek = undefined;
       this._hourOfDay = undefined;
       this._minuteOfHour = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dayOfMonth = value.dayOfMonth;
       this._dayOfWeek = value.dayOfWeek;
@@ -306,58 +348,74 @@ export class StoragegatewayGatewayMaintenanceStartTimeOutputReference extends cd
 }
 export interface StoragegatewayGatewaySmbActiveDirectorySettings {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#domain_controllers StoragegatewayGateway#domain_controllers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#domain_controllers StoragegatewayGateway#domain_controllers}
+   */
   readonly domainControllers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#domain_name StoragegatewayGateway#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#domain_name StoragegatewayGateway#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#organizational_unit StoragegatewayGateway#organizational_unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#organizational_unit StoragegatewayGateway#organizational_unit}
+   */
   readonly organizationalUnit?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#password StoragegatewayGateway#password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#password StoragegatewayGateway#password}
+   */
   readonly password: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#timeout_in_seconds StoragegatewayGateway#timeout_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#timeout_in_seconds StoragegatewayGateway#timeout_in_seconds}
+   */
   readonly timeoutInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#username StoragegatewayGateway#username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#username StoragegatewayGateway#username}
+   */
   readonly username: string;
 }
 
-export function storagegatewayGatewaySmbActiveDirectorySettingsToTerraform(struct?: StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference | StoragegatewayGatewaySmbActiveDirectorySettings): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storagegatewayGatewaySmbActiveDirectorySettingsToTerraform(
+  struct?:
+    | StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference
+    | StoragegatewayGatewaySmbActiveDirectorySettings,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    domain_controllers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.domainControllers),
+    domain_controllers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.domainControllers),
     domain_name: cdktf.stringToTerraform(struct!.domainName),
     organizational_unit: cdktf.stringToTerraform(struct!.organizationalUnit),
     password: cdktf.stringToTerraform(struct!.password),
     timeout_in_seconds: cdktf.numberToTerraform(struct!.timeoutInSeconds),
     username: cdktf.stringToTerraform(struct!.username),
-  }
+  };
 }
 
 export class StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StoragegatewayGatewaySmbActiveDirectorySettings | undefined {
+  public get internalValue():
+    | StoragegatewayGatewaySmbActiveDirectorySettings
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._domainControllers !== undefined) {
@@ -387,7 +445,9 @@ export class StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StoragegatewayGatewaySmbActiveDirectorySettings | undefined) {
+  public set internalValue(
+    value: StoragegatewayGatewaySmbActiveDirectorySettings | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._domainControllers = undefined;
@@ -396,8 +456,7 @@ export class StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference exte
       this._password = undefined;
       this._timeoutInSeconds = undefined;
       this._username = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domainControllers = value.domainControllers;
       this._domainName = value.domainName;
@@ -502,19 +561,28 @@ export class StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference exte
 }
 export interface StoragegatewayGatewayTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#create StoragegatewayGateway#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway#create StoragegatewayGateway#create}
+   */
   readonly create?: string;
 }
 
-export function storagegatewayGatewayTimeoutsToTerraform(struct?: StoragegatewayGatewayTimeoutsOutputReference | StoragegatewayGatewayTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storagegatewayGatewayTimeoutsToTerraform(
+  struct?:
+    | StoragegatewayGatewayTimeoutsOutputReference
+    | StoragegatewayGatewayTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class StoragegatewayGatewayTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -522,14 +590,20 @@ export class StoragegatewayGatewayTimeoutsOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StoragegatewayGatewayTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StoragegatewayGatewayTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -542,17 +616,17 @@ export class StoragegatewayGatewayTimeoutsOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StoragegatewayGatewayTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: StoragegatewayGatewayTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -577,33 +651,36 @@ export class StoragegatewayGatewayTimeoutsOutputReference extends cdktf.ComplexO
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway aws_storagegateway_gateway}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway aws_storagegateway_gateway}
+ */
 export class StoragegatewayGateway extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_storagegateway_gateway";
+  public static readonly tfResourceType = 'aws_storagegateway_gateway';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway aws_storagegateway_gateway} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options StoragegatewayGatewayConfig
-  */
-  public constructor(scope: Construct, id: string, config: StoragegatewayGatewayConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway aws_storagegateway_gateway} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options StoragegatewayGatewayConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: StoragegatewayGatewayConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_storagegateway_gateway',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -611,11 +688,13 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._activationKey = config.activationKey;
-    this._averageDownloadRateLimitInBitsPerSec = config.averageDownloadRateLimitInBitsPerSec;
-    this._averageUploadRateLimitInBitsPerSec = config.averageUploadRateLimitInBitsPerSec;
+    this._averageDownloadRateLimitInBitsPerSec =
+      config.averageDownloadRateLimitInBitsPerSec;
+    this._averageUploadRateLimitInBitsPerSec =
+      config.averageUploadRateLimitInBitsPerSec;
     this._cloudwatchLogGroupArn = config.cloudwatchLogGroupArn;
     this._gatewayIpAddress = config.gatewayIpAddress;
     this._gatewayName = config.gatewayName;
@@ -631,7 +710,8 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
     this._tagsAll = config.tagsAll;
     this._tapeDriveType = config.tapeDriveType;
     this._maintenanceStartTime.internalValue = config.maintenanceStartTime;
-    this._smbActiveDirectorySettings.internalValue = config.smbActiveDirectorySettings;
+    this._smbActiveDirectorySettings.internalValue =
+      config.smbActiveDirectorySettings;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -663,7 +743,9 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
   // average_download_rate_limit_in_bits_per_sec - computed: false, optional: true, required: false
   private _averageDownloadRateLimitInBitsPerSec?: number;
   public get averageDownloadRateLimitInBitsPerSec() {
-    return this.getNumberAttribute('average_download_rate_limit_in_bits_per_sec');
+    return this.getNumberAttribute(
+      'average_download_rate_limit_in_bits_per_sec',
+    );
   }
   public set averageDownloadRateLimitInBitsPerSec(value: number) {
     this._averageDownloadRateLimitInBitsPerSec = value;
@@ -753,7 +835,12 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
   }
 
   // gateway_network_interface - computed: true, optional: false, required: false
-  private _gatewayNetworkInterface = new StoragegatewayGatewayGatewayNetworkInterfaceList(this, "gateway_network_interface", false);
+  private _gatewayNetworkInterface =
+    new StoragegatewayGatewayGatewayNetworkInterfaceList(
+      this,
+      'gateway_network_interface',
+      false,
+    );
   public get gatewayNetworkInterface() {
     return this._gatewayNetworkInterface;
   }
@@ -937,11 +1024,17 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
   }
 
   // maintenance_start_time - computed: false, optional: true, required: false
-  private _maintenanceStartTime = new StoragegatewayGatewayMaintenanceStartTimeOutputReference(this, "maintenance_start_time");
+  private _maintenanceStartTime =
+    new StoragegatewayGatewayMaintenanceStartTimeOutputReference(
+      this,
+      'maintenance_start_time',
+    );
   public get maintenanceStartTime() {
     return this._maintenanceStartTime;
   }
-  public putMaintenanceStartTime(value: StoragegatewayGatewayMaintenanceStartTime) {
+  public putMaintenanceStartTime(
+    value: StoragegatewayGatewayMaintenanceStartTime,
+  ) {
     this._maintenanceStartTime.internalValue = value;
   }
   public resetMaintenanceStartTime() {
@@ -953,11 +1046,17 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
   }
 
   // smb_active_directory_settings - computed: false, optional: true, required: false
-  private _smbActiveDirectorySettings = new StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference(this, "smb_active_directory_settings");
+  private _smbActiveDirectorySettings =
+    new StoragegatewayGatewaySmbActiveDirectorySettingsOutputReference(
+      this,
+      'smb_active_directory_settings',
+    );
   public get smbActiveDirectorySettings() {
     return this._smbActiveDirectorySettings;
   }
-  public putSmbActiveDirectorySettings(value: StoragegatewayGatewaySmbActiveDirectorySettings) {
+  public putSmbActiveDirectorySettings(
+    value: StoragegatewayGatewaySmbActiveDirectorySettings,
+  ) {
     this._smbActiveDirectorySettings.internalValue = value;
   }
   public resetSmbActiveDirectorySettings() {
@@ -969,7 +1068,10 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new StoragegatewayGatewayTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new StoragegatewayGatewayTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -991,9 +1093,15 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       activation_key: cdktf.stringToTerraform(this._activationKey),
-      average_download_rate_limit_in_bits_per_sec: cdktf.numberToTerraform(this._averageDownloadRateLimitInBitsPerSec),
-      average_upload_rate_limit_in_bits_per_sec: cdktf.numberToTerraform(this._averageUploadRateLimitInBitsPerSec),
-      cloudwatch_log_group_arn: cdktf.stringToTerraform(this._cloudwatchLogGroupArn),
+      average_download_rate_limit_in_bits_per_sec: cdktf.numberToTerraform(
+        this._averageDownloadRateLimitInBitsPerSec,
+      ),
+      average_upload_rate_limit_in_bits_per_sec: cdktf.numberToTerraform(
+        this._averageUploadRateLimitInBitsPerSec,
+      ),
+      cloudwatch_log_group_arn: cdktf.stringToTerraform(
+        this._cloudwatchLogGroupArn,
+      ),
       gateway_ip_address: cdktf.stringToTerraform(this._gatewayIpAddress),
       gateway_name: cdktf.stringToTerraform(this._gatewayName),
       gateway_timezone: cdktf.stringToTerraform(this._gatewayTimezone),
@@ -1001,15 +1109,25 @@ export class StoragegatewayGateway extends cdktf.TerraformResource {
       gateway_vpc_endpoint: cdktf.stringToTerraform(this._gatewayVpcEndpoint),
       id: cdktf.stringToTerraform(this._id),
       medium_changer_type: cdktf.stringToTerraform(this._mediumChangerType),
-      smb_file_share_visibility: cdktf.booleanToTerraform(this._smbFileShareVisibility),
+      smb_file_share_visibility: cdktf.booleanToTerraform(
+        this._smbFileShareVisibility,
+      ),
       smb_guest_password: cdktf.stringToTerraform(this._smbGuestPassword),
       smb_security_strategy: cdktf.stringToTerraform(this._smbSecurityStrategy),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       tape_drive_type: cdktf.stringToTerraform(this._tapeDriveType),
-      maintenance_start_time: storagegatewayGatewayMaintenanceStartTimeToTerraform(this._maintenanceStartTime.internalValue),
-      smb_active_directory_settings: storagegatewayGatewaySmbActiveDirectorySettingsToTerraform(this._smbActiveDirectorySettings.internalValue),
-      timeouts: storagegatewayGatewayTimeoutsToTerraform(this._timeouts.internalValue),
+      maintenance_start_time:
+        storagegatewayGatewayMaintenanceStartTimeToTerraform(
+          this._maintenanceStartTime.internalValue,
+        ),
+      smb_active_directory_settings:
+        storagegatewayGatewaySmbActiveDirectorySettingsToTerraform(
+          this._smbActiveDirectorySettings.internalValue,
+        ),
+      timeouts: storagegatewayGatewayTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

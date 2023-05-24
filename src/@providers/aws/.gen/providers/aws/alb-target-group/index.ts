@@ -2,152 +2,158 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface AlbTargetGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#connection_termination AlbTargetGroup#connection_termination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#connection_termination AlbTargetGroup#connection_termination}
+   */
   readonly connectionTermination?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#deregistration_delay AlbTargetGroup#deregistration_delay}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#deregistration_delay AlbTargetGroup#deregistration_delay}
+   */
   readonly deregistrationDelay?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#id AlbTargetGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#id AlbTargetGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#ip_address_type AlbTargetGroup#ip_address_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#ip_address_type AlbTargetGroup#ip_address_type}
+   */
   readonly ipAddressType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#lambda_multi_value_headers_enabled AlbTargetGroup#lambda_multi_value_headers_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#lambda_multi_value_headers_enabled AlbTargetGroup#lambda_multi_value_headers_enabled}
+   */
   readonly lambdaMultiValueHeadersEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#load_balancing_algorithm_type AlbTargetGroup#load_balancing_algorithm_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#load_balancing_algorithm_type AlbTargetGroup#load_balancing_algorithm_type}
+   */
   readonly loadBalancingAlgorithmType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#load_balancing_cross_zone_enabled AlbTargetGroup#load_balancing_cross_zone_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#load_balancing_cross_zone_enabled AlbTargetGroup#load_balancing_cross_zone_enabled}
+   */
   readonly loadBalancingCrossZoneEnabled?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#name AlbTargetGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#name AlbTargetGroup#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#name_prefix AlbTargetGroup#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#name_prefix AlbTargetGroup#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#port AlbTargetGroup#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#port AlbTargetGroup#port}
+   */
   readonly port?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#preserve_client_ip AlbTargetGroup#preserve_client_ip}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#preserve_client_ip AlbTargetGroup#preserve_client_ip}
+   */
   readonly preserveClientIp?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#protocol AlbTargetGroup#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#protocol AlbTargetGroup#protocol}
+   */
   readonly protocol?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#protocol_version AlbTargetGroup#protocol_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#protocol_version AlbTargetGroup#protocol_version}
+   */
   readonly protocolVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#proxy_protocol_v2 AlbTargetGroup#proxy_protocol_v2}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#proxy_protocol_v2 AlbTargetGroup#proxy_protocol_v2}
+   */
   readonly proxyProtocolV2?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#slow_start AlbTargetGroup#slow_start}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#slow_start AlbTargetGroup#slow_start}
+   */
   readonly slowStart?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#tags AlbTargetGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#tags AlbTargetGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#tags_all AlbTargetGroup#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#tags_all AlbTargetGroup#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#target_type AlbTargetGroup#target_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#target_type AlbTargetGroup#target_type}
+   */
   readonly targetType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#vpc_id AlbTargetGroup#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#vpc_id AlbTargetGroup#vpc_id}
+   */
   readonly vpcId?: string;
   /**
-  * health_check block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#health_check AlbTargetGroup#health_check}
-  */
+   * health_check block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#health_check AlbTargetGroup#health_check}
+   */
   readonly healthCheck?: AlbTargetGroupHealthCheck;
   /**
-  * stickiness block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#stickiness AlbTargetGroup#stickiness}
-  */
+   * stickiness block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#stickiness AlbTargetGroup#stickiness}
+   */
   readonly stickiness?: AlbTargetGroupStickiness;
   /**
-  * target_failover block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#target_failover AlbTargetGroup#target_failover}
-  */
+   * target_failover block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#target_failover AlbTargetGroup#target_failover}
+   */
   readonly targetFailover?: AlbTargetGroupTargetFailover[] | cdktf.IResolvable;
 }
 export interface AlbTargetGroupHealthCheck {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#enabled AlbTargetGroup#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#enabled AlbTargetGroup#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#healthy_threshold AlbTargetGroup#healthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#healthy_threshold AlbTargetGroup#healthy_threshold}
+   */
   readonly healthyThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#interval AlbTargetGroup#interval}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#interval AlbTargetGroup#interval}
+   */
   readonly interval?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#matcher AlbTargetGroup#matcher}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#matcher AlbTargetGroup#matcher}
+   */
   readonly matcher?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#path AlbTargetGroup#path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#path AlbTargetGroup#path}
+   */
   readonly path?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#port AlbTargetGroup#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#port AlbTargetGroup#port}
+   */
   readonly port?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#protocol AlbTargetGroup#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#protocol AlbTargetGroup#protocol}
+   */
   readonly protocol?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#timeout AlbTargetGroup#timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#timeout AlbTargetGroup#timeout}
+   */
   readonly timeout?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#unhealthy_threshold AlbTargetGroup#unhealthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#unhealthy_threshold AlbTargetGroup#unhealthy_threshold}
+   */
   readonly unhealthyThreshold?: number;
 }
 
-export function albTargetGroupHealthCheckToTerraform(struct?: AlbTargetGroupHealthCheckOutputReference | AlbTargetGroupHealthCheck): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function albTargetGroupHealthCheckToTerraform(
+  struct?: AlbTargetGroupHealthCheckOutputReference | AlbTargetGroupHealthCheck,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
@@ -159,17 +165,20 @@ export function albTargetGroupHealthCheckToTerraform(struct?: AlbTargetGroupHeal
     protocol: cdktf.stringToTerraform(struct!.protocol),
     timeout: cdktf.numberToTerraform(struct!.timeout),
     unhealthy_threshold: cdktf.numberToTerraform(struct!.unhealthyThreshold),
-  }
+  };
 }
 
 export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -227,8 +236,7 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
       this._protocol = undefined;
       this._timeout = undefined;
       this._unhealthyThreshold = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._healthyThreshold = value.healthyThreshold;
@@ -388,44 +396,53 @@ export class AlbTargetGroupHealthCheckOutputReference extends cdktf.ComplexObjec
 }
 export interface AlbTargetGroupStickiness {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#cookie_duration AlbTargetGroup#cookie_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#cookie_duration AlbTargetGroup#cookie_duration}
+   */
   readonly cookieDuration?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#cookie_name AlbTargetGroup#cookie_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#cookie_name AlbTargetGroup#cookie_name}
+   */
   readonly cookieName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#enabled AlbTargetGroup#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#enabled AlbTargetGroup#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#type AlbTargetGroup#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#type AlbTargetGroup#type}
+   */
   readonly type: string;
 }
 
-export function albTargetGroupStickinessToTerraform(struct?: AlbTargetGroupStickinessOutputReference | AlbTargetGroupStickiness): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function albTargetGroupStickinessToTerraform(
+  struct?: AlbTargetGroupStickinessOutputReference | AlbTargetGroupStickiness,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cookie_duration: cdktf.numberToTerraform(struct!.cookieDuration),
     cookie_name: cdktf.stringToTerraform(struct!.cookieName),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -458,8 +475,7 @@ export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject
       this._cookieName = undefined;
       this._enabled = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cookieDuration = value.cookieDuration;
       this._cookieName = value.cookieName;
@@ -531,24 +547,30 @@ export class AlbTargetGroupStickinessOutputReference extends cdktf.ComplexObject
 }
 export interface AlbTargetGroupTargetFailover {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#on_deregistration AlbTargetGroup#on_deregistration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#on_deregistration AlbTargetGroup#on_deregistration}
+   */
   readonly onDeregistration: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#on_unhealthy AlbTargetGroup#on_unhealthy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group#on_unhealthy AlbTargetGroup#on_unhealthy}
+   */
   readonly onUnhealthy: string;
 }
 
-export function albTargetGroupTargetFailoverToTerraform(struct?: AlbTargetGroupTargetFailover | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function albTargetGroupTargetFailoverToTerraform(
+  struct?: AlbTargetGroupTargetFailover | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     on_deregistration: cdktf.stringToTerraform(struct!.onDeregistration),
     on_unhealthy: cdktf.stringToTerraform(struct!.onUnhealthy),
-  }
+  };
 }
 
 export class AlbTargetGroupTargetFailoverOutputReference extends cdktf.ComplexObject {
@@ -556,16 +578,29 @@ export class AlbTargetGroupTargetFailoverOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AlbTargetGroupTargetFailover | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AlbTargetGroupTargetFailover
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -582,18 +617,18 @@ export class AlbTargetGroupTargetFailoverOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AlbTargetGroupTargetFailover | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: AlbTargetGroupTargetFailover | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._onDeregistration = undefined;
       this._onUnhealthy = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._onDeregistration = value.onDeregistration;
@@ -629,53 +664,65 @@ export class AlbTargetGroupTargetFailoverOutputReference extends cdktf.ComplexOb
 }
 
 export class AlbTargetGroupTargetFailoverList extends cdktf.ComplexList {
-  public internalValue? : AlbTargetGroupTargetFailover[] | cdktf.IResolvable
+  public internalValue?: AlbTargetGroupTargetFailover[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): AlbTargetGroupTargetFailoverOutputReference {
-    return new AlbTargetGroupTargetFailoverOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new AlbTargetGroupTargetFailoverOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group aws_alb_target_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group aws_alb_target_group}
+ */
 export class AlbTargetGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_alb_target_group";
+  public static readonly tfResourceType = 'aws_alb_target_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group aws_alb_target_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AlbTargetGroupConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: AlbTargetGroupConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/alb_target_group aws_alb_target_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AlbTargetGroupConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AlbTargetGroupConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_alb_target_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -683,13 +730,14 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._connectionTermination = config.connectionTermination;
     this._deregistrationDelay = config.deregistrationDelay;
     this._id = config.id;
     this._ipAddressType = config.ipAddressType;
-    this._lambdaMultiValueHeadersEnabled = config.lambdaMultiValueHeadersEnabled;
+    this._lambdaMultiValueHeadersEnabled =
+      config.lambdaMultiValueHeadersEnabled;
     this._loadBalancingAlgorithmType = config.loadBalancingAlgorithmType;
     this._loadBalancingCrossZoneEnabled = config.loadBalancingCrossZoneEnabled;
     this._name = config.name;
@@ -792,7 +840,9 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   public get lambdaMultiValueHeadersEnabled() {
     return this.getBooleanAttribute('lambda_multi_value_headers_enabled');
   }
-  public set lambdaMultiValueHeadersEnabled(value: boolean | cdktf.IResolvable) {
+  public set lambdaMultiValueHeadersEnabled(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._lambdaMultiValueHeadersEnabled = value;
   }
   public resetLambdaMultiValueHeadersEnabled() {
@@ -1028,7 +1078,10 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck = new AlbTargetGroupHealthCheckOutputReference(this, "health_check");
+  private _healthCheck = new AlbTargetGroupHealthCheckOutputReference(
+    this,
+    'health_check',
+  );
   public get healthCheck() {
     return this._healthCheck;
   }
@@ -1044,7 +1097,10 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // stickiness - computed: false, optional: true, required: false
-  private _stickiness = new AlbTargetGroupStickinessOutputReference(this, "stickiness");
+  private _stickiness = new AlbTargetGroupStickinessOutputReference(
+    this,
+    'stickiness',
+  );
   public get stickiness() {
     return this._stickiness;
   }
@@ -1060,11 +1116,17 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
   }
 
   // target_failover - computed: false, optional: true, required: false
-  private _targetFailover = new AlbTargetGroupTargetFailoverList(this, "target_failover", false);
+  private _targetFailover = new AlbTargetGroupTargetFailoverList(
+    this,
+    'target_failover',
+    false,
+  );
   public get targetFailover() {
     return this._targetFailover;
   }
-  public putTargetFailover(value: AlbTargetGroupTargetFailover[] | cdktf.IResolvable) {
+  public putTargetFailover(
+    value: AlbTargetGroupTargetFailover[] | cdktf.IResolvable,
+  ) {
     this._targetFailover.internalValue = value;
   }
   public resetTargetFailover() {
@@ -1081,13 +1143,21 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      connection_termination: cdktf.booleanToTerraform(this._connectionTermination),
+      connection_termination: cdktf.booleanToTerraform(
+        this._connectionTermination,
+      ),
       deregistration_delay: cdktf.stringToTerraform(this._deregistrationDelay),
       id: cdktf.stringToTerraform(this._id),
       ip_address_type: cdktf.stringToTerraform(this._ipAddressType),
-      lambda_multi_value_headers_enabled: cdktf.booleanToTerraform(this._lambdaMultiValueHeadersEnabled),
-      load_balancing_algorithm_type: cdktf.stringToTerraform(this._loadBalancingAlgorithmType),
-      load_balancing_cross_zone_enabled: cdktf.stringToTerraform(this._loadBalancingCrossZoneEnabled),
+      lambda_multi_value_headers_enabled: cdktf.booleanToTerraform(
+        this._lambdaMultiValueHeadersEnabled,
+      ),
+      load_balancing_algorithm_type: cdktf.stringToTerraform(
+        this._loadBalancingAlgorithmType,
+      ),
+      load_balancing_cross_zone_enabled: cdktf.stringToTerraform(
+        this._loadBalancingCrossZoneEnabled,
+      ),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       port: cdktf.numberToTerraform(this._port),
@@ -1100,9 +1170,16 @@ export class AlbTargetGroup extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       target_type: cdktf.stringToTerraform(this._targetType),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
-      health_check: albTargetGroupHealthCheckToTerraform(this._healthCheck.internalValue),
-      stickiness: albTargetGroupStickinessToTerraform(this._stickiness.internalValue),
-      target_failover: cdktf.listMapper(albTargetGroupTargetFailoverToTerraform, true)(this._targetFailover.internalValue),
+      health_check: albTargetGroupHealthCheckToTerraform(
+        this._healthCheck.internalValue,
+      ),
+      stickiness: albTargetGroupStickinessToTerraform(
+        this._stickiness.internalValue,
+      ),
+      target_failover: cdktf.listMapper(
+        albTargetGroupTargetFailoverToTerraform,
+        true,
+      )(this._targetFailover.internalValue),
     };
   }
 }

@@ -2,60 +2,64 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanSpacesBucketConfig extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanSpacesBucketConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#id DataDigitaloceanSpacesBucket#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#id DataDigitaloceanSpacesBucket#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Bucket name
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#name DataDigitaloceanSpacesBucket#name}
-  */
+   * Bucket name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#name DataDigitaloceanSpacesBucket#name}
+   */
   readonly name: string;
   /**
-  * Bucket region
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#region DataDigitaloceanSpacesBucket#region}
-  */
+   * Bucket region
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket#region DataDigitaloceanSpacesBucket#region}
+   */
   readonly region: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket digitalocean_spaces_bucket}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket digitalocean_spaces_bucket}
+ */
 export class DataDigitaloceanSpacesBucket extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_spaces_bucket";
+  public static readonly tfResourceType = 'digitalocean_spaces_bucket';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket digitalocean_spaces_bucket} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataDigitaloceanSpacesBucketConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataDigitaloceanSpacesBucketConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket digitalocean_spaces_bucket} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataDigitaloceanSpacesBucketConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataDigitaloceanSpacesBucketConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_spaces_bucket',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class DataDigitaloceanSpacesBucket extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;

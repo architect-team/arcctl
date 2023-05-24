@@ -2,66 +2,74 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface ServiceAccountV1Config extends cdktf.TerraformMetaArguments {
   /**
-  * Enable automatic mounting of the service account token
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#automount_service_account_token ServiceAccountV1#automount_service_account_token}
-  */
+   * Enable automatic mounting of the service account token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#automount_service_account_token ServiceAccountV1#automount_service_account_token}
+   */
   readonly automountServiceAccountToken?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#id ServiceAccountV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#id ServiceAccountV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * image_pull_secret block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#image_pull_secret ServiceAccountV1#image_pull_secret}
-  */
-  readonly imagePullSecret?: ServiceAccountV1ImagePullSecret[] | cdktf.IResolvable;
+   * image_pull_secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#image_pull_secret ServiceAccountV1#image_pull_secret}
+   */
+  readonly imagePullSecret?:
+    | ServiceAccountV1ImagePullSecret[]
+    | cdktf.IResolvable;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#metadata ServiceAccountV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#metadata ServiceAccountV1#metadata}
+   */
   readonly metadata: ServiceAccountV1Metadata;
   /**
-  * secret block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#secret ServiceAccountV1#secret}
-  */
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#secret ServiceAccountV1#secret}
+   */
   readonly secret?: ServiceAccountV1Secret[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#timeouts ServiceAccountV1#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#timeouts ServiceAccountV1#timeouts}
+   */
   readonly timeouts?: ServiceAccountV1Timeouts;
 }
 export interface ServiceAccountV1ImagePullSecret {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
+   */
   readonly name?: string;
 }
 
-export function serviceAccountV1ImagePullSecretToTerraform(struct?: ServiceAccountV1ImagePullSecret | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceAccountV1ImagePullSecretToTerraform(
+  struct?: ServiceAccountV1ImagePullSecret | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class ServiceAccountV1ImagePullSecretOutputReference extends cdktf.ComplexObject {
@@ -69,16 +77,29 @@ export class ServiceAccountV1ImagePullSecretOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceAccountV1ImagePullSecret | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceAccountV1ImagePullSecret
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -91,17 +112,17 @@ export class ServiceAccountV1ImagePullSecretOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceAccountV1ImagePullSecret | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceAccountV1ImagePullSecret | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -126,61 +147,76 @@ export class ServiceAccountV1ImagePullSecretOutputReference extends cdktf.Comple
 }
 
 export class ServiceAccountV1ImagePullSecretList extends cdktf.ComplexList {
-  public internalValue? : ServiceAccountV1ImagePullSecret[] | cdktf.IResolvable
+  public internalValue?: ServiceAccountV1ImagePullSecret[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceAccountV1ImagePullSecretOutputReference {
-    return new ServiceAccountV1ImagePullSecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceAccountV1ImagePullSecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceAccountV1Metadata {
   /**
-  * An unstructured key value map stored with the service account that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#annotations ServiceAccountV1#annotations}
-  */
+   * An unstructured key value map stored with the service account that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#annotations ServiceAccountV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#generate_name ServiceAccountV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#generate_name ServiceAccountV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the service account. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#labels ServiceAccountV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the service account. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#labels ServiceAccountV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the service account, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
-  */
+   * Name of the service account, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the service account must be unique.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#namespace ServiceAccountV1#namespace}
-  */
+   * Namespace defines the space within which name of the service account must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#namespace ServiceAccountV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function serviceAccountV1MetadataToTerraform(struct?: ServiceAccountV1MetadataOutputReference | ServiceAccountV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceAccountV1MetadataToTerraform(
+  struct?: ServiceAccountV1MetadataOutputReference | ServiceAccountV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -188,17 +224,20 @@ export function serviceAccountV1MetadataToTerraform(struct?: ServiceAccountV1Met
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -236,8 +275,7 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -344,21 +382,27 @@ export class ServiceAccountV1MetadataOutputReference extends cdktf.ComplexObject
 }
 export interface ServiceAccountV1Secret {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#name ServiceAccountV1#name}
+   */
   readonly name?: string;
 }
 
-export function serviceAccountV1SecretToTerraform(struct?: ServiceAccountV1Secret | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceAccountV1SecretToTerraform(
+  struct?: ServiceAccountV1Secret | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class ServiceAccountV1SecretOutputReference extends cdktf.ComplexObject {
@@ -366,16 +410,29 @@ export class ServiceAccountV1SecretOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceAccountV1Secret | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceAccountV1Secret
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -388,17 +445,17 @@ export class ServiceAccountV1SecretOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceAccountV1Secret | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceAccountV1Secret | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -423,39 +480,57 @@ export class ServiceAccountV1SecretOutputReference extends cdktf.ComplexObject {
 }
 
 export class ServiceAccountV1SecretList extends cdktf.ComplexList {
-  public internalValue? : ServiceAccountV1Secret[] | cdktf.IResolvable
+  public internalValue?: ServiceAccountV1Secret[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceAccountV1SecretOutputReference {
-    return new ServiceAccountV1SecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceAccountV1SecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceAccountV1Timeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#create ServiceAccountV1#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1#create ServiceAccountV1#create}
+   */
   readonly create?: string;
 }
 
-export function serviceAccountV1TimeoutsToTerraform(struct?: ServiceAccountV1TimeoutsOutputReference | ServiceAccountV1Timeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceAccountV1TimeoutsToTerraform(
+  struct?:
+    | ServiceAccountV1TimeoutsOutputReference
+    | ServiceAccountV1Timeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class ServiceAccountV1TimeoutsOutputReference extends cdktf.ComplexObject {
@@ -463,14 +538,20 @@ export class ServiceAccountV1TimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceAccountV1Timeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceAccountV1Timeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -483,17 +564,17 @@ export class ServiceAccountV1TimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceAccountV1Timeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceAccountV1Timeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -518,33 +599,36 @@ export class ServiceAccountV1TimeoutsOutputReference extends cdktf.ComplexObject
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1 kubernetes_service_account_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1 kubernetes_service_account_v1}
+ */
 export class ServiceAccountV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_service_account_v1";
+  public static readonly tfResourceType = 'kubernetes_service_account_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1 kubernetes_service_account_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServiceAccountV1Config
-  */
-  public constructor(scope: Construct, id: string, config: ServiceAccountV1Config) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/service_account_v1 kubernetes_service_account_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServiceAccountV1Config
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServiceAccountV1Config,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_service_account_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -552,7 +636,7 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._automountServiceAccountToken = config.automountServiceAccountToken;
     this._id = config.id;
@@ -604,11 +688,17 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
   }
 
   // image_pull_secret - computed: false, optional: true, required: false
-  private _imagePullSecret = new ServiceAccountV1ImagePullSecretList(this, "image_pull_secret", true);
+  private _imagePullSecret = new ServiceAccountV1ImagePullSecretList(
+    this,
+    'image_pull_secret',
+    true,
+  );
   public get imagePullSecret() {
     return this._imagePullSecret;
   }
-  public putImagePullSecret(value: ServiceAccountV1ImagePullSecret[] | cdktf.IResolvable) {
+  public putImagePullSecret(
+    value: ServiceAccountV1ImagePullSecret[] | cdktf.IResolvable,
+  ) {
     this._imagePullSecret.internalValue = value;
   }
   public resetImagePullSecret() {
@@ -620,7 +710,10 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new ServiceAccountV1MetadataOutputReference(this, "metadata");
+  private _metadata = new ServiceAccountV1MetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -633,7 +726,7 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new ServiceAccountV1SecretList(this, "secret", true);
+  private _secret = new ServiceAccountV1SecretList(this, 'secret', true);
   public get secret() {
     return this._secret;
   }
@@ -649,7 +742,10 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServiceAccountV1TimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ServiceAccountV1TimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -670,12 +766,24 @@ export class ServiceAccountV1 extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      automount_service_account_token: cdktf.booleanToTerraform(this._automountServiceAccountToken),
+      automount_service_account_token: cdktf.booleanToTerraform(
+        this._automountServiceAccountToken,
+      ),
       id: cdktf.stringToTerraform(this._id),
-      image_pull_secret: cdktf.listMapper(serviceAccountV1ImagePullSecretToTerraform, true)(this._imagePullSecret.internalValue),
-      metadata: serviceAccountV1MetadataToTerraform(this._metadata.internalValue),
-      secret: cdktf.listMapper(serviceAccountV1SecretToTerraform, true)(this._secret.internalValue),
-      timeouts: serviceAccountV1TimeoutsToTerraform(this._timeouts.internalValue),
+      image_pull_secret: cdktf.listMapper(
+        serviceAccountV1ImagePullSecretToTerraform,
+        true,
+      )(this._imagePullSecret.internalValue),
+      metadata: serviceAccountV1MetadataToTerraform(
+        this._metadata.internalValue,
+      ),
+      secret: cdktf.listMapper(
+        serviceAccountV1SecretToTerraform,
+        true,
+      )(this._secret.internalValue),
+      timeouts: serviceAccountV1TimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

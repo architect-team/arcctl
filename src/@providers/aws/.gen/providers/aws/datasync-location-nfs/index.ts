@@ -2,72 +2,84 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DatasyncLocationNfsConfig extends cdktf.TerraformMetaArguments {
+export interface DatasyncLocationNfsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#id DatasyncLocationNfs#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#id DatasyncLocationNfs#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#server_hostname DatasyncLocationNfs#server_hostname}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#server_hostname DatasyncLocationNfs#server_hostname}
+   */
   readonly serverHostname: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#subdirectory DatasyncLocationNfs#subdirectory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#subdirectory DatasyncLocationNfs#subdirectory}
+   */
   readonly subdirectory: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#tags DatasyncLocationNfs#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#tags DatasyncLocationNfs#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#tags_all DatasyncLocationNfs#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#tags_all DatasyncLocationNfs#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * mount_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#mount_options DatasyncLocationNfs#mount_options}
-  */
+   * mount_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#mount_options DatasyncLocationNfs#mount_options}
+   */
   readonly mountOptions?: DatasyncLocationNfsMountOptions;
   /**
-  * on_prem_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#on_prem_config DatasyncLocationNfs#on_prem_config}
-  */
+   * on_prem_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#on_prem_config DatasyncLocationNfs#on_prem_config}
+   */
   readonly onPremConfig: DatasyncLocationNfsOnPremConfig;
 }
 export interface DatasyncLocationNfsMountOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#version DatasyncLocationNfs#version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#version DatasyncLocationNfs#version}
+   */
   readonly version?: string;
 }
 
-export function datasyncLocationNfsMountOptionsToTerraform(struct?: DatasyncLocationNfsMountOptionsOutputReference | DatasyncLocationNfsMountOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datasyncLocationNfsMountOptionsToTerraform(
+  struct?:
+    | DatasyncLocationNfsMountOptionsOutputReference
+    | DatasyncLocationNfsMountOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     version: cdktf.stringToTerraform(struct!.version),
-  }
+  };
 }
 
 export class DatasyncLocationNfsMountOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -85,8 +97,7 @@ export class DatasyncLocationNfsMountOptionsOutputReference extends cdktf.Comple
     if (value === undefined) {
       this.isEmptyObject = false;
       this._version = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._version = value.version;
     }
@@ -110,29 +121,43 @@ export class DatasyncLocationNfsMountOptionsOutputReference extends cdktf.Comple
 }
 export interface DatasyncLocationNfsOnPremConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#agent_arns DatasyncLocationNfs#agent_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs#agent_arns DatasyncLocationNfs#agent_arns}
+   */
   readonly agentArns: string[];
 }
 
-export function datasyncLocationNfsOnPremConfigToTerraform(struct?: DatasyncLocationNfsOnPremConfigOutputReference | DatasyncLocationNfsOnPremConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datasyncLocationNfsOnPremConfigToTerraform(
+  struct?:
+    | DatasyncLocationNfsOnPremConfigOutputReference
+    | DatasyncLocationNfsOnPremConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    agent_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.agentArns),
-  }
+    agent_arns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.agentArns),
+  };
 }
 
 export class DatasyncLocationNfsOnPremConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -150,8 +175,7 @@ export class DatasyncLocationNfsOnPremConfigOutputReference extends cdktf.Comple
     if (value === undefined) {
       this.isEmptyObject = false;
       this._agentArns = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._agentArns = value.agentArns;
     }
@@ -172,33 +196,36 @@ export class DatasyncLocationNfsOnPremConfigOutputReference extends cdktf.Comple
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs aws_datasync_location_nfs}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs aws_datasync_location_nfs}
+ */
 export class DatasyncLocationNfs extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_datasync_location_nfs";
+  public static readonly tfResourceType = 'aws_datasync_location_nfs';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs aws_datasync_location_nfs} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DatasyncLocationNfsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DatasyncLocationNfsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_nfs aws_datasync_location_nfs} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DatasyncLocationNfsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DatasyncLocationNfsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_datasync_location_nfs',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -206,7 +233,7 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._serverHostname = config.serverHostname;
@@ -306,7 +333,10 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // mount_options - computed: false, optional: true, required: false
-  private _mountOptions = new DatasyncLocationNfsMountOptionsOutputReference(this, "mount_options");
+  private _mountOptions = new DatasyncLocationNfsMountOptionsOutputReference(
+    this,
+    'mount_options',
+  );
   public get mountOptions() {
     return this._mountOptions;
   }
@@ -322,7 +352,10 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
   }
 
   // on_prem_config - computed: false, optional: false, required: true
-  private _onPremConfig = new DatasyncLocationNfsOnPremConfigOutputReference(this, "on_prem_config");
+  private _onPremConfig = new DatasyncLocationNfsOnPremConfigOutputReference(
+    this,
+    'on_prem_config',
+  );
   public get onPremConfig() {
     return this._onPremConfig;
   }
@@ -345,8 +378,12 @@ export class DatasyncLocationNfs extends cdktf.TerraformResource {
       subdirectory: cdktf.stringToTerraform(this._subdirectory),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      mount_options: datasyncLocationNfsMountOptionsToTerraform(this._mountOptions.internalValue),
-      on_prem_config: datasyncLocationNfsOnPremConfigToTerraform(this._onPremConfig.internalValue),
+      mount_options: datasyncLocationNfsMountOptionsToTerraform(
+        this._mountOptions.internalValue,
+      ),
+      on_prem_config: datasyncLocationNfsOnPremConfigToTerraform(
+        this._onPremConfig.internalValue,
+      ),
     };
   }
 }

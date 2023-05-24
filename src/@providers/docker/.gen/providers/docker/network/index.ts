@@ -2,129 +2,135 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface NetworkConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Enable manual container attachment to the network.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#attachable Network#attachable}
-  */
+   * Enable manual container attachment to the network.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#attachable Network#attachable}
+   */
   readonly attachable?: boolean | cdktf.IResolvable;
   /**
-  * Requests daemon to check for networks with same name.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#check_duplicate Network#check_duplicate}
-  */
+   * Requests daemon to check for networks with same name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#check_duplicate Network#check_duplicate}
+   */
   readonly checkDuplicate?: boolean | cdktf.IResolvable;
   /**
-  * The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#driver Network#driver}
-  */
+   * The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#driver Network#driver}
+   */
   readonly driver?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#id Network#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#id Network#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Create swarm routing-mesh network. Defaults to `false`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ingress Network#ingress}
-  */
+   * Create swarm routing-mesh network. Defaults to `false`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ingress Network#ingress}
+   */
   readonly ingress?: boolean | cdktf.IResolvable;
   /**
-  * Whether the network is internal.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#internal Network#internal}
-  */
+   * Whether the network is internal.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#internal Network#internal}
+   */
   readonly internal?: boolean | cdktf.IResolvable;
   /**
-  * Driver used by the custom IP scheme of the network. Defaults to `default`
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_driver Network#ipam_driver}
-  */
+   * Driver used by the custom IP scheme of the network. Defaults to `default`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_driver Network#ipam_driver}
+   */
   readonly ipamDriver?: string;
   /**
-  * Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_options Network#ipam_options}
-  */
+   * Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_options Network#ipam_options}
+   */
   readonly ipamOptions?: { [key: string]: string };
   /**
-  * Enable IPv6 networking. Defaults to `false`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipv6 Network#ipv6}
-  */
+   * Enable IPv6 networking. Defaults to `false`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipv6 Network#ipv6}
+   */
   readonly ipv6?: boolean | cdktf.IResolvable;
   /**
-  * The name of the Docker network.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#name Network#name}
-  */
+   * The name of the Docker network.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#name Network#name}
+   */
   readonly name: string;
   /**
-  * Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#options Network#options}
-  */
+   * Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#options Network#options}
+   */
   readonly options?: { [key: string]: string };
   /**
-  * ipam_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_config Network#ipam_config}
-  */
+   * ipam_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ipam_config Network#ipam_config}
+   */
   readonly ipamConfig?: NetworkIpamConfig[] | cdktf.IResolvable;
   /**
-  * labels block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#labels Network#labels}
-  */
+   * labels block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#labels Network#labels}
+   */
   readonly labels?: NetworkLabels[] | cdktf.IResolvable;
 }
 export interface NetworkIpamConfig {
   /**
-  * Auxiliary IPv4 or IPv6 addresses used by Network driver
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#aux_address Network#aux_address}
-  */
+   * Auxiliary IPv4 or IPv6 addresses used by Network driver
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#aux_address Network#aux_address}
+   */
   readonly auxAddress?: { [key: string]: string };
   /**
-  * The IP address of the gateway
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#gateway Network#gateway}
-  */
+   * The IP address of the gateway
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#gateway Network#gateway}
+   */
   readonly gateway?: string;
   /**
-  * The ip range in CIDR form
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ip_range Network#ip_range}
-  */
+   * The ip range in CIDR form
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#ip_range Network#ip_range}
+   */
   readonly ipRange?: string;
   /**
-  * The subnet in CIDR form
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#subnet Network#subnet}
-  */
+   * The subnet in CIDR form
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#subnet Network#subnet}
+   */
   readonly subnet?: string;
 }
 
-export function networkIpamConfigToTerraform(struct?: NetworkIpamConfig | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkIpamConfigToTerraform(
+  struct?: NetworkIpamConfig | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     aux_address: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.auxAddress),
     gateway: cdktf.stringToTerraform(struct!.gateway),
     ip_range: cdktf.stringToTerraform(struct!.ipRange),
     subnet: cdktf.stringToTerraform(struct!.subnet),
-  }
+  };
 }
 
 export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
@@ -132,16 +138,29 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): NetworkIpamConfig | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | NetworkIpamConfig
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -166,7 +185,9 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkIpamConfig | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: NetworkIpamConfig | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -174,12 +195,10 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
       this._gateway = undefined;
       this._ipRange = undefined;
       this._subnet = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._auxAddress = value.auxAddress;
@@ -255,48 +274,63 @@ export class NetworkIpamConfigOutputReference extends cdktf.ComplexObject {
 }
 
 export class NetworkIpamConfigList extends cdktf.ComplexList {
-  public internalValue? : NetworkIpamConfig[] | cdktf.IResolvable
+  public internalValue?: NetworkIpamConfig[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): NetworkIpamConfigOutputReference {
-    return new NetworkIpamConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new NetworkIpamConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface NetworkLabels {
   /**
-  * Name of the label
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#label Network#label}
-  */
+   * Name of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#label Network#label}
+   */
   readonly label: string;
   /**
-  * Value of the label
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#value Network#value}
-  */
+   * Value of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/network#value Network#value}
+   */
   readonly value: string;
 }
 
-export function networkLabelsToTerraform(struct?: NetworkLabels | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkLabelsToTerraform(
+  struct?: NetworkLabels | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     label: cdktf.stringToTerraform(struct!.label),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class NetworkLabelsOutputReference extends cdktf.ComplexObject {
@@ -304,13 +338,23 @@ export class NetworkLabelsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): NetworkLabels | cdktf.IResolvable | undefined {
@@ -330,18 +374,18 @@ export class NetworkLabelsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkLabels | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: NetworkLabels | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._label = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._label = value.label;
@@ -377,53 +421,61 @@ export class NetworkLabelsOutputReference extends cdktf.ComplexObject {
 }
 
 export class NetworkLabelsList extends cdktf.ComplexList {
-  public internalValue? : NetworkLabels[] | cdktf.IResolvable
+  public internalValue?: NetworkLabels[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): NetworkLabelsOutputReference {
-    return new NetworkLabelsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new NetworkLabelsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/r/network docker_network}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/r/network docker_network}
+ */
 export class Network extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_network";
+  public static readonly tfResourceType = 'docker_network';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/r/network docker_network} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options NetworkConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/r/network docker_network} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options NetworkConfig
+   */
   public constructor(scope: Construct, id: string, config: NetworkConfig) {
     super(scope, id, {
       terraformResourceType: 'docker_network',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -431,7 +483,7 @@ export class Network extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._attachable = config.attachable;
     this._checkDuplicate = config.checkDuplicate;
@@ -631,7 +683,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // ipam_config - computed: false, optional: true, required: false
-  private _ipamConfig = new NetworkIpamConfigList(this, "ipam_config", true);
+  private _ipamConfig = new NetworkIpamConfigList(this, 'ipam_config', true);
   public get ipamConfig() {
     return this._ipamConfig;
   }
@@ -647,7 +699,7 @@ export class Network extends cdktf.TerraformResource {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels = new NetworkLabelsList(this, "labels", true);
+  private _labels = new NetworkLabelsList(this, 'labels', true);
   public get labels() {
     return this._labels;
   }
@@ -675,12 +727,20 @@ export class Network extends cdktf.TerraformResource {
       ingress: cdktf.booleanToTerraform(this._ingress),
       internal: cdktf.booleanToTerraform(this._internal),
       ipam_driver: cdktf.stringToTerraform(this._ipamDriver),
-      ipam_options: cdktf.hashMapper(cdktf.stringToTerraform)(this._ipamOptions),
+      ipam_options: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._ipamOptions,
+      ),
       ipv6: cdktf.booleanToTerraform(this._ipv6),
       name: cdktf.stringToTerraform(this._name),
       options: cdktf.hashMapper(cdktf.stringToTerraform)(this._options),
-      ipam_config: cdktf.listMapper(networkIpamConfigToTerraform, true)(this._ipamConfig.internalValue),
-      labels: cdktf.listMapper(networkLabelsToTerraform, true)(this._labels.internalValue),
+      ipam_config: cdktf.listMapper(
+        networkIpamConfigToTerraform,
+        true,
+      )(this._ipamConfig.internalValue),
+      labels: cdktf.listMapper(
+        networkLabelsToTerraform,
+        true,
+      )(this._labels.internalValue),
     };
   }
 }

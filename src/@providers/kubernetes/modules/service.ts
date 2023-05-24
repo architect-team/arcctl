@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Service } from '../.gen/providers/kubernetes/service/index.js';
-import { KubernetesCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Service } from '../.gen/providers/kubernetes/service/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'npm:constructs';
 
 export class KubernetesServiceModule extends ResourceModule<

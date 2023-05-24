@@ -1,6 +1,6 @@
-import { Component } from '../../components/index.js';
-import { parseComponent } from '../../components/parser.js';
-import { ComponentStore } from '../store.js';
+import { Component } from '../../components/index.ts';
+import { parseComponent } from '../../components/parser.ts';
+import { ComponentStore } from '../store.ts';
 import { ImageManifest, ImageRepository } from 'npm:@architect-io/arc-oci';
 import jest from 'jest-mock';
 import mock_fs from 'mock-fs';

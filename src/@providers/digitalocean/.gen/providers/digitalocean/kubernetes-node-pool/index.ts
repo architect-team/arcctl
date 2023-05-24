@@ -2,90 +2,104 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface KubernetesNodePoolConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#auto_scale KubernetesNodePool#auto_scale}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#auto_scale KubernetesNodePool#auto_scale}
+   */
   readonly autoScale?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#cluster_id KubernetesNodePool#cluster_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#cluster_id KubernetesNodePool#cluster_id}
+   */
   readonly clusterId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#id KubernetesNodePool#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#id KubernetesNodePool#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#labels KubernetesNodePool#labels}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#labels KubernetesNodePool#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#max_nodes KubernetesNodePool#max_nodes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#max_nodes KubernetesNodePool#max_nodes}
+   */
   readonly maxNodes?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#min_nodes KubernetesNodePool#min_nodes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#min_nodes KubernetesNodePool#min_nodes}
+   */
   readonly minNodes?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#name KubernetesNodePool#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#name KubernetesNodePool#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#node_count KubernetesNodePool#node_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#node_count KubernetesNodePool#node_count}
+   */
   readonly nodeCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#size KubernetesNodePool#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#size KubernetesNodePool#size}
+   */
   readonly size: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#tags KubernetesNodePool#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#tags KubernetesNodePool#tags}
+   */
   readonly tags?: string[];
   /**
-  * taint block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#taint KubernetesNodePool#taint}
-  */
+   * taint block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#taint KubernetesNodePool#taint}
+   */
   readonly taint?: KubernetesNodePoolTaint[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#timeouts KubernetesNodePool#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#timeouts KubernetesNodePool#timeouts}
+   */
   readonly timeouts?: KubernetesNodePoolTimeouts;
 }
-export interface KubernetesNodePoolNodes {
-}
+export interface KubernetesNodePoolNodes {}
 
-export function kubernetesNodePoolNodesToTerraform(struct?: KubernetesNodePoolNodes): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kubernetesNodePoolNodesToTerraform(
+  struct?: KubernetesNodePoolNodes,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class KubernetesNodePoolNodesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): KubernetesNodePoolNodes | undefined {
@@ -97,8 +111,7 @@ export class KubernetesNodePoolNodesOutputReference extends cdktf.ComplexObject 
   public set internalValue(value: KubernetesNodePoolNodes | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -135,48 +148,62 @@ export class KubernetesNodePoolNodesOutputReference extends cdktf.ComplexObject 
 }
 
 export class KubernetesNodePoolNodesList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): KubernetesNodePoolNodesOutputReference {
-    return new KubernetesNodePoolNodesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new KubernetesNodePoolNodesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KubernetesNodePoolTaint {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#effect KubernetesNodePool#effect}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#effect KubernetesNodePool#effect}
+   */
   readonly effect: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#key KubernetesNodePool#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#key KubernetesNodePool#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#value KubernetesNodePool#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#value KubernetesNodePool#value}
+   */
   readonly value: string;
 }
 
-export function kubernetesNodePoolTaintToTerraform(struct?: KubernetesNodePoolTaint | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kubernetesNodePoolTaintToTerraform(
+  struct?: KubernetesNodePoolTaint | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     effect: cdktf.stringToTerraform(struct!.effect),
     key: cdktf.stringToTerraform(struct!.key),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject {
@@ -184,16 +211,29 @@ export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): KubernetesNodePoolTaint | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KubernetesNodePoolTaint
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -214,19 +254,19 @@ export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KubernetesNodePoolTaint | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: KubernetesNodePoolTaint | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._effect = undefined;
       this._key = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._effect = value.effect;
@@ -276,44 +316,62 @@ export class KubernetesNodePoolTaintOutputReference extends cdktf.ComplexObject 
 }
 
 export class KubernetesNodePoolTaintList extends cdktf.ComplexList {
-  public internalValue? : KubernetesNodePoolTaint[] | cdktf.IResolvable
+  public internalValue?: KubernetesNodePoolTaint[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): KubernetesNodePoolTaintOutputReference {
-    return new KubernetesNodePoolTaintOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new KubernetesNodePoolTaintOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KubernetesNodePoolTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#create KubernetesNodePool#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#create KubernetesNodePool#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#delete KubernetesNodePool#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool#delete KubernetesNodePool#delete}
+   */
   readonly delete?: string;
 }
 
-export function kubernetesNodePoolTimeoutsToTerraform(struct?: KubernetesNodePoolTimeoutsOutputReference | KubernetesNodePoolTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kubernetesNodePoolTimeoutsToTerraform(
+  struct?:
+    | KubernetesNodePoolTimeoutsOutputReference
+    | KubernetesNodePoolTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class KubernetesNodePoolTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -321,14 +379,20 @@ export class KubernetesNodePoolTimeoutsOutputReference extends cdktf.ComplexObje
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KubernetesNodePoolTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KubernetesNodePoolTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -345,18 +409,18 @@ export class KubernetesNodePoolTimeoutsOutputReference extends cdktf.ComplexObje
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KubernetesNodePoolTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: KubernetesNodePoolTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -398,33 +462,36 @@ export class KubernetesNodePoolTimeoutsOutputReference extends cdktf.ComplexObje
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool digitalocean_kubernetes_node_pool}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool digitalocean_kubernetes_node_pool}
+ */
 export class KubernetesNodePool extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_kubernetes_node_pool";
+  public static readonly tfResourceType = 'digitalocean_kubernetes_node_pool';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool digitalocean_kubernetes_node_pool} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options KubernetesNodePoolConfig
-  */
-  public constructor(scope: Construct, id: string, config: KubernetesNodePoolConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_node_pool digitalocean_kubernetes_node_pool} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options KubernetesNodePoolConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: KubernetesNodePoolConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_kubernetes_node_pool',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -432,7 +499,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoScale = config.autoScale;
     this._clusterId = config.clusterId;
@@ -580,7 +647,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // nodes - computed: true, optional: false, required: false
-  private _nodes = new KubernetesNodePoolNodesList(this, "nodes", false);
+  private _nodes = new KubernetesNodePoolNodesList(this, 'nodes', false);
   public get nodes() {
     return this._nodes;
   }
@@ -615,7 +682,7 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // taint - computed: false, optional: true, required: false
-  private _taint = new KubernetesNodePoolTaintList(this, "taint", true);
+  private _taint = new KubernetesNodePoolTaintList(this, 'taint', true);
   public get taint() {
     return this._taint;
   }
@@ -631,7 +698,10 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new KubernetesNodePoolTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new KubernetesNodePoolTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -662,8 +732,13 @@ export class KubernetesNodePool extends cdktf.TerraformResource {
       node_count: cdktf.numberToTerraform(this._nodeCount),
       size: cdktf.stringToTerraform(this._size),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
-      taint: cdktf.listMapper(kubernetesNodePoolTaintToTerraform, true)(this._taint.internalValue),
-      timeouts: kubernetesNodePoolTimeoutsToTerraform(this._timeouts.internalValue),
+      taint: cdktf.listMapper(
+        kubernetesNodePoolTaintToTerraform,
+        true,
+      )(this._taint.internalValue),
+      timeouts: kubernetesNodePoolTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

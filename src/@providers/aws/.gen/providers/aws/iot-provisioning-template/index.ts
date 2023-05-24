@@ -2,87 +2,101 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface IotProvisioningTemplateConfig extends cdktf.TerraformMetaArguments {
+export interface IotProvisioningTemplateConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#description IotProvisioningTemplate#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#description IotProvisioningTemplate#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#enabled IotProvisioningTemplate#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#enabled IotProvisioningTemplate#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#id IotProvisioningTemplate#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#id IotProvisioningTemplate#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#name IotProvisioningTemplate#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#name IotProvisioningTemplate#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#provisioning_role_arn IotProvisioningTemplate#provisioning_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#provisioning_role_arn IotProvisioningTemplate#provisioning_role_arn}
+   */
   readonly provisioningRoleArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#tags IotProvisioningTemplate#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#tags IotProvisioningTemplate#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#tags_all IotProvisioningTemplate#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#tags_all IotProvisioningTemplate#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#template_body IotProvisioningTemplate#template_body}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#template_body IotProvisioningTemplate#template_body}
+   */
   readonly templateBody: string;
   /**
-  * pre_provisioning_hook block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#pre_provisioning_hook IotProvisioningTemplate#pre_provisioning_hook}
-  */
+   * pre_provisioning_hook block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#pre_provisioning_hook IotProvisioningTemplate#pre_provisioning_hook}
+   */
   readonly preProvisioningHook?: IotProvisioningTemplatePreProvisioningHook;
 }
 export interface IotProvisioningTemplatePreProvisioningHook {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#payload_version IotProvisioningTemplate#payload_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#payload_version IotProvisioningTemplate#payload_version}
+   */
   readonly payloadVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#target_arn IotProvisioningTemplate#target_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template#target_arn IotProvisioningTemplate#target_arn}
+   */
   readonly targetArn: string;
 }
 
-export function iotProvisioningTemplatePreProvisioningHookToTerraform(struct?: IotProvisioningTemplatePreProvisioningHookOutputReference | IotProvisioningTemplatePreProvisioningHook): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function iotProvisioningTemplatePreProvisioningHookToTerraform(
+  struct?:
+    | IotProvisioningTemplatePreProvisioningHookOutputReference
+    | IotProvisioningTemplatePreProvisioningHook,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     payload_version: cdktf.stringToTerraform(struct!.payloadVersion),
     target_arn: cdktf.stringToTerraform(struct!.targetArn),
-  }
+  };
 }
 
 export class IotProvisioningTemplatePreProvisioningHookOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IotProvisioningTemplatePreProvisioningHook | undefined {
+  public get internalValue():
+    | IotProvisioningTemplatePreProvisioningHook
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._payloadVersion !== undefined) {
@@ -96,13 +110,14 @@ export class IotProvisioningTemplatePreProvisioningHookOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IotProvisioningTemplatePreProvisioningHook | undefined) {
+  public set internalValue(
+    value: IotProvisioningTemplatePreProvisioningHook | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._payloadVersion = undefined;
       this._targetArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._payloadVersion = value.payloadVersion;
       this._targetArn = value.targetArn;
@@ -140,33 +155,36 @@ export class IotProvisioningTemplatePreProvisioningHookOutputReference extends c
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template aws_iot_provisioning_template}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template aws_iot_provisioning_template}
+ */
 export class IotProvisioningTemplate extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_iot_provisioning_template";
+  public static readonly tfResourceType = 'aws_iot_provisioning_template';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template aws_iot_provisioning_template} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options IotProvisioningTemplateConfig
-  */
-  public constructor(scope: Construct, id: string, config: IotProvisioningTemplateConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iot_provisioning_template aws_iot_provisioning_template} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options IotProvisioningTemplateConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: IotProvisioningTemplateConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_iot_provisioning_template',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -174,7 +192,7 @@ export class IotProvisioningTemplate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._enabled = config.enabled;
@@ -321,11 +339,17 @@ export class IotProvisioningTemplate extends cdktf.TerraformResource {
   }
 
   // pre_provisioning_hook - computed: false, optional: true, required: false
-  private _preProvisioningHook = new IotProvisioningTemplatePreProvisioningHookOutputReference(this, "pre_provisioning_hook");
+  private _preProvisioningHook =
+    new IotProvisioningTemplatePreProvisioningHookOutputReference(
+      this,
+      'pre_provisioning_hook',
+    );
   public get preProvisioningHook() {
     return this._preProvisioningHook;
   }
-  public putPreProvisioningHook(value: IotProvisioningTemplatePreProvisioningHook) {
+  public putPreProvisioningHook(
+    value: IotProvisioningTemplatePreProvisioningHook,
+  ) {
     this._preProvisioningHook.internalValue = value;
   }
   public resetPreProvisioningHook() {
@@ -350,7 +374,10 @@ export class IotProvisioningTemplate extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       template_body: cdktf.stringToTerraform(this._templateBody),
-      pre_provisioning_hook: iotProvisioningTemplatePreProvisioningHookToTerraform(this._preProvisioningHook.internalValue),
+      pre_provisioning_hook:
+        iotProvisioningTemplatePreProvisioningHookToTerraform(
+          this._preProvisioningHook.internalValue,
+        ),
     };
   }
 }

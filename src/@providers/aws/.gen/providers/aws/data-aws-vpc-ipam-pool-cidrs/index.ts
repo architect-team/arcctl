@@ -2,58 +2,73 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsVpcIpamPoolCidrsConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsVpcIpamPoolCidrsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#id DataAwsVpcIpamPoolCidrs#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#id DataAwsVpcIpamPoolCidrs#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#ipam_pool_id DataAwsVpcIpamPoolCidrs#ipam_pool_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#ipam_pool_id DataAwsVpcIpamPoolCidrs#ipam_pool_id}
+   */
   readonly ipamPoolId: string;
   /**
-  * filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#filter DataAwsVpcIpamPoolCidrs#filter}
-  */
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#filter DataAwsVpcIpamPoolCidrs#filter}
+   */
   readonly filter?: DataAwsVpcIpamPoolCidrsFilter[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#timeouts DataAwsVpcIpamPoolCidrs#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#timeouts DataAwsVpcIpamPoolCidrs#timeouts}
+   */
   readonly timeouts?: DataAwsVpcIpamPoolCidrsTimeouts;
 }
-export interface DataAwsVpcIpamPoolCidrsIpamPoolCidrs {
-}
+export interface DataAwsVpcIpamPoolCidrsIpamPoolCidrs {}
 
-export function dataAwsVpcIpamPoolCidrsIpamPoolCidrsToTerraform(struct?: DataAwsVpcIpamPoolCidrsIpamPoolCidrs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsVpcIpamPoolCidrsIpamPoolCidrsToTerraform(
+  struct?: DataAwsVpcIpamPoolCidrsIpamPoolCidrs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsVpcIpamPoolCidrsIpamPoolCidrs | undefined {
@@ -62,11 +77,12 @@ export class DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsVpcIpamPoolCidrsIpamPoolCidrs | undefined) {
+  public set internalValue(
+    value: DataAwsVpcIpamPoolCidrsIpamPoolCidrs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -83,43 +99,59 @@ export class DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference extends cdktf.C
 }
 
 export class DataAwsVpcIpamPoolCidrsIpamPoolCidrsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference {
-    return new DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference {
+    return new DataAwsVpcIpamPoolCidrsIpamPoolCidrsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsVpcIpamPoolCidrsFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#name DataAwsVpcIpamPoolCidrs#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#name DataAwsVpcIpamPoolCidrs#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#values DataAwsVpcIpamPoolCidrs#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#values DataAwsVpcIpamPoolCidrs#values}
+   */
   readonly values: string[];
 }
 
-export function dataAwsVpcIpamPoolCidrsFilterToTerraform(struct?: DataAwsVpcIpamPoolCidrsFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsVpcIpamPoolCidrsFilterToTerraform(
+  struct?: DataAwsVpcIpamPoolCidrsFilter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsVpcIpamPoolCidrsFilterOutputReference extends cdktf.ComplexObject {
@@ -127,16 +159,29 @@ export class DataAwsVpcIpamPoolCidrsFilterOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsVpcIpamPoolCidrsFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsVpcIpamPoolCidrsFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -153,18 +198,18 @@ export class DataAwsVpcIpamPoolCidrsFilterOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsVpcIpamPoolCidrsFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DataAwsVpcIpamPoolCidrsFilter | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -200,39 +245,57 @@ export class DataAwsVpcIpamPoolCidrsFilterOutputReference extends cdktf.ComplexO
 }
 
 export class DataAwsVpcIpamPoolCidrsFilterList extends cdktf.ComplexList {
-  public internalValue? : DataAwsVpcIpamPoolCidrsFilter[] | cdktf.IResolvable
+  public internalValue?: DataAwsVpcIpamPoolCidrsFilter[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsVpcIpamPoolCidrsFilterOutputReference {
-    return new DataAwsVpcIpamPoolCidrsFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsVpcIpamPoolCidrsFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsVpcIpamPoolCidrsTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#read DataAwsVpcIpamPoolCidrs#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs#read DataAwsVpcIpamPoolCidrs#read}
+   */
   readonly read?: string;
 }
 
-export function dataAwsVpcIpamPoolCidrsTimeoutsToTerraform(struct?: DataAwsVpcIpamPoolCidrsTimeoutsOutputReference | DataAwsVpcIpamPoolCidrsTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsVpcIpamPoolCidrsTimeoutsToTerraform(
+  struct?:
+    | DataAwsVpcIpamPoolCidrsTimeoutsOutputReference
+    | DataAwsVpcIpamPoolCidrsTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class DataAwsVpcIpamPoolCidrsTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -240,14 +303,20 @@ export class DataAwsVpcIpamPoolCidrsTimeoutsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsVpcIpamPoolCidrsTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsVpcIpamPoolCidrsTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -260,17 +329,17 @@ export class DataAwsVpcIpamPoolCidrsTimeoutsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsVpcIpamPoolCidrsTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DataAwsVpcIpamPoolCidrsTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -295,33 +364,36 @@ export class DataAwsVpcIpamPoolCidrsTimeoutsOutputReference extends cdktf.Comple
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs aws_vpc_ipam_pool_cidrs}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs aws_vpc_ipam_pool_cidrs}
+ */
 export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_vpc_ipam_pool_cidrs";
+  public static readonly tfResourceType = 'aws_vpc_ipam_pool_cidrs';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs aws_vpc_ipam_pool_cidrs} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsVpcIpamPoolCidrsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsVpcIpamPoolCidrsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/vpc_ipam_pool_cidrs aws_vpc_ipam_pool_cidrs} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsVpcIpamPoolCidrsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsVpcIpamPoolCidrsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_ipam_pool_cidrs',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -329,7 +401,7 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._ipamPoolId = config.ipamPoolId;
@@ -358,7 +430,11 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
   }
 
   // ipam_pool_cidrs - computed: true, optional: false, required: false
-  private _ipamPoolCidrs = new DataAwsVpcIpamPoolCidrsIpamPoolCidrsList(this, "ipam_pool_cidrs", true);
+  private _ipamPoolCidrs = new DataAwsVpcIpamPoolCidrsIpamPoolCidrsList(
+    this,
+    'ipam_pool_cidrs',
+    true,
+  );
   public get ipamPoolCidrs() {
     return this._ipamPoolCidrs;
   }
@@ -377,7 +453,7 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsVpcIpamPoolCidrsFilterList(this, "filter", true);
+  private _filter = new DataAwsVpcIpamPoolCidrsFilterList(this, 'filter', true);
   public get filter() {
     return this._filter;
   }
@@ -393,7 +469,10 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsVpcIpamPoolCidrsTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DataAwsVpcIpamPoolCidrsTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -416,8 +495,13 @@ export class DataAwsVpcIpamPoolCidrs extends cdktf.TerraformDataSource {
     return {
       id: cdktf.stringToTerraform(this._id),
       ipam_pool_id: cdktf.stringToTerraform(this._ipamPoolId),
-      filter: cdktf.listMapper(dataAwsVpcIpamPoolCidrsFilterToTerraform, true)(this._filter.internalValue),
-      timeouts: dataAwsVpcIpamPoolCidrsTimeoutsToTerraform(this._timeouts.internalValue),
+      filter: cdktf.listMapper(
+        dataAwsVpcIpamPoolCidrsFilterToTerraform,
+        true,
+      )(this._filter.internalValue),
+      timeouts: dataAwsVpcIpamPoolCidrsTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

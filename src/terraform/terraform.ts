@@ -1,6 +1,6 @@
-import PluginManager from '../plugins/plugin-manager.js';
-import { CldCtlTerraformStack } from '../utils/stack.js';
-import { TerraformPlugin, TerraformVersion } from './plugin.js';
+import PluginManager from '../plugins/plugin-manager.ts';
+import { CldCtlTerraformStack } from '../utils/stack.ts';
+import { TerraformPlugin, TerraformVersion } from './plugin.ts';
 import { ExecaChildProcess } from 'execa';
 import fs from 'fs';
 import path from 'path';

@@ -2,88 +2,97 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Ec2TransitGatewayVpcAttachmentConfig extends cdktf.TerraformMetaArguments {
+export interface Ec2TransitGatewayVpcAttachmentConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#appliance_mode_support Ec2TransitGatewayVpcAttachment#appliance_mode_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#appliance_mode_support Ec2TransitGatewayVpcAttachment#appliance_mode_support}
+   */
   readonly applianceModeSupport?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#dns_support Ec2TransitGatewayVpcAttachment#dns_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#dns_support Ec2TransitGatewayVpcAttachment#dns_support}
+   */
   readonly dnsSupport?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#id Ec2TransitGatewayVpcAttachment#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#id Ec2TransitGatewayVpcAttachment#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#ipv6_support Ec2TransitGatewayVpcAttachment#ipv6_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#ipv6_support Ec2TransitGatewayVpcAttachment#ipv6_support}
+   */
   readonly ipv6Support?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#subnet_ids Ec2TransitGatewayVpcAttachment#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#subnet_ids Ec2TransitGatewayVpcAttachment#subnet_ids}
+   */
   readonly subnetIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#tags Ec2TransitGatewayVpcAttachment#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#tags Ec2TransitGatewayVpcAttachment#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#tags_all Ec2TransitGatewayVpcAttachment#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#tags_all Ec2TransitGatewayVpcAttachment#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#transit_gateway_default_route_table_association Ec2TransitGatewayVpcAttachment#transit_gateway_default_route_table_association}
-  */
-  readonly transitGatewayDefaultRouteTableAssociation?: boolean | cdktf.IResolvable;
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#transit_gateway_default_route_table_association Ec2TransitGatewayVpcAttachment#transit_gateway_default_route_table_association}
+   */
+  readonly transitGatewayDefaultRouteTableAssociation?:
+    | boolean
+    | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#transit_gateway_default_route_table_propagation Ec2TransitGatewayVpcAttachment#transit_gateway_default_route_table_propagation}
-  */
-  readonly transitGatewayDefaultRouteTablePropagation?: boolean | cdktf.IResolvable;
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#transit_gateway_default_route_table_propagation Ec2TransitGatewayVpcAttachment#transit_gateway_default_route_table_propagation}
+   */
+  readonly transitGatewayDefaultRouteTablePropagation?:
+    | boolean
+    | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#transit_gateway_id Ec2TransitGatewayVpcAttachment#transit_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#transit_gateway_id Ec2TransitGatewayVpcAttachment#transit_gateway_id}
+   */
   readonly transitGatewayId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#vpc_id Ec2TransitGatewayVpcAttachment#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment#vpc_id Ec2TransitGatewayVpcAttachment#vpc_id}
+   */
   readonly vpcId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment aws_ec2_transit_gateway_vpc_attachment}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment aws_ec2_transit_gateway_vpc_attachment}
+ */
 export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_transit_gateway_vpc_attachment";
+  public static readonly tfResourceType =
+    'aws_ec2_transit_gateway_vpc_attachment';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment aws_ec2_transit_gateway_vpc_attachment} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2TransitGatewayVpcAttachmentConfig
-  */
-  public constructor(scope: Construct, id: string, config: Ec2TransitGatewayVpcAttachmentConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment aws_ec2_transit_gateway_vpc_attachment} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2TransitGatewayVpcAttachmentConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Ec2TransitGatewayVpcAttachmentConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_transit_gateway_vpc_attachment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -91,7 +100,7 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._applianceModeSupport = config.applianceModeSupport;
     this._dnsSupport = config.dnsSupport;
@@ -100,8 +109,10 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
     this._subnetIds = config.subnetIds;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._transitGatewayDefaultRouteTableAssociation = config.transitGatewayDefaultRouteTableAssociation;
-    this._transitGatewayDefaultRouteTablePropagation = config.transitGatewayDefaultRouteTablePropagation;
+    this._transitGatewayDefaultRouteTableAssociation =
+      config.transitGatewayDefaultRouteTableAssociation;
+    this._transitGatewayDefaultRouteTablePropagation =
+      config.transitGatewayDefaultRouteTablePropagation;
     this._transitGatewayId = config.transitGatewayId;
     this._vpcId = config.vpcId;
   }
@@ -220,11 +231,17 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // transit_gateway_default_route_table_association - computed: false, optional: true, required: false
-  private _transitGatewayDefaultRouteTableAssociation?: boolean | cdktf.IResolvable;
+  private _transitGatewayDefaultRouteTableAssociation?:
+    | boolean
+    | cdktf.IResolvable;
   public get transitGatewayDefaultRouteTableAssociation() {
-    return this.getBooleanAttribute('transit_gateway_default_route_table_association');
+    return this.getBooleanAttribute(
+      'transit_gateway_default_route_table_association',
+    );
   }
-  public set transitGatewayDefaultRouteTableAssociation(value: boolean | cdktf.IResolvable) {
+  public set transitGatewayDefaultRouteTableAssociation(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._transitGatewayDefaultRouteTableAssociation = value;
   }
   public resetTransitGatewayDefaultRouteTableAssociation() {
@@ -236,11 +253,17 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
   }
 
   // transit_gateway_default_route_table_propagation - computed: false, optional: true, required: false
-  private _transitGatewayDefaultRouteTablePropagation?: boolean | cdktf.IResolvable;
+  private _transitGatewayDefaultRouteTablePropagation?:
+    | boolean
+    | cdktf.IResolvable;
   public get transitGatewayDefaultRouteTablePropagation() {
-    return this.getBooleanAttribute('transit_gateway_default_route_table_propagation');
+    return this.getBooleanAttribute(
+      'transit_gateway_default_route_table_propagation',
+    );
   }
-  public set transitGatewayDefaultRouteTablePropagation(value: boolean | cdktf.IResolvable) {
+  public set transitGatewayDefaultRouteTablePropagation(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._transitGatewayDefaultRouteTablePropagation = value;
   }
   public resetTransitGatewayDefaultRouteTablePropagation() {
@@ -288,15 +311,24 @@ export class Ec2TransitGatewayVpcAttachment extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      appliance_mode_support: cdktf.stringToTerraform(this._applianceModeSupport),
+      appliance_mode_support: cdktf.stringToTerraform(
+        this._applianceModeSupport,
+      ),
       dns_support: cdktf.stringToTerraform(this._dnsSupport),
       id: cdktf.stringToTerraform(this._id),
       ipv6_support: cdktf.stringToTerraform(this._ipv6Support),
-      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
+      subnet_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      transit_gateway_default_route_table_association: cdktf.booleanToTerraform(this._transitGatewayDefaultRouteTableAssociation),
-      transit_gateway_default_route_table_propagation: cdktf.booleanToTerraform(this._transitGatewayDefaultRouteTablePropagation),
+      transit_gateway_default_route_table_association: cdktf.booleanToTerraform(
+        this._transitGatewayDefaultRouteTableAssociation,
+      ),
+      transit_gateway_default_route_table_propagation: cdktf.booleanToTerraform(
+        this._transitGatewayDefaultRouteTablePropagation,
+      ),
       transit_gateway_id: cdktf.stringToTerraform(this._transitGatewayId),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
     };

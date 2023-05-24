@@ -2,79 +2,91 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataKubernetesSecretConfig extends cdktf.TerraformMetaArguments {
+export interface DataKubernetesSecretConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * A map of the secret data with values encoded in base64 format
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#binary_data DataKubernetesSecret#binary_data}
-  */
+   * A map of the secret data with values encoded in base64 format
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#binary_data DataKubernetesSecret#binary_data}
+   */
   readonly binaryData?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#id DataKubernetesSecret#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#id DataKubernetesSecret#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#metadata DataKubernetesSecret#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#metadata DataKubernetesSecret#metadata}
+   */
   readonly metadata: DataKubernetesSecretMetadata;
 }
 export interface DataKubernetesSecretMetadata {
   /**
-  * An unstructured key value map stored with the secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#annotations DataKubernetesSecret#annotations}
-  */
+   * An unstructured key value map stored with the secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#annotations DataKubernetesSecret#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#labels DataKubernetesSecret#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#labels DataKubernetesSecret#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the secret, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#name DataKubernetesSecret#name}
-  */
+   * Name of the secret, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#name DataKubernetesSecret#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the secret must be unique.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#namespace DataKubernetesSecret#namespace}
-  */
+   * Namespace defines the space within which name of the secret must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/secret#namespace DataKubernetesSecret#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function dataKubernetesSecretMetadataToTerraform(struct?: DataKubernetesSecretMetadataOutputReference | DataKubernetesSecretMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataKubernetesSecretMetadataToTerraform(
+  struct?:
+    | DataKubernetesSecretMetadataOutputReference
+    | DataKubernetesSecretMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -107,8 +119,7 @@ export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexOb
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._labels = value.labels;
@@ -198,33 +209,36 @@ export class DataKubernetesSecretMetadataOutputReference extends cdktf.ComplexOb
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/d/secret kubernetes_secret}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/d/secret kubernetes_secret}
+ */
 export class DataKubernetesSecret extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_secret";
+  public static readonly tfResourceType = 'kubernetes_secret';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/d/secret kubernetes_secret} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataKubernetesSecretConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataKubernetesSecretConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/d/secret kubernetes_secret} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataKubernetesSecretConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataKubernetesSecretConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_secret',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -232,7 +246,7 @@ export class DataKubernetesSecret extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._binaryData = config.binaryData;
     this._id = config.id;
@@ -260,7 +274,7 @@ export class DataKubernetesSecret extends cdktf.TerraformDataSource {
   }
 
   // data - computed: true, optional: false, required: false
-  private _data = new cdktf.StringMap(this, "data");
+  private _data = new cdktf.StringMap(this, 'data');
   public get data() {
     return this._data;
   }
@@ -292,7 +306,10 @@ export class DataKubernetesSecret extends cdktf.TerraformDataSource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new DataKubernetesSecretMetadataOutputReference(this, "metadata");
+  private _metadata = new DataKubernetesSecretMetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -312,7 +329,9 @@ export class DataKubernetesSecret extends cdktf.TerraformDataSource {
     return {
       binary_data: cdktf.hashMapper(cdktf.stringToTerraform)(this._binaryData),
       id: cdktf.stringToTerraform(this._id),
-      metadata: dataKubernetesSecretMetadataToTerraform(this._metadata.internalValue),
+      metadata: dataKubernetesSecretMetadataToTerraform(
+        this._metadata.internalValue,
+      ),
     };
   }
 }

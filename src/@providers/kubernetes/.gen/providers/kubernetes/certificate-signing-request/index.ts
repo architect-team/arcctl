@@ -2,91 +2,103 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface CertificateSigningRequestConfig extends cdktf.TerraformMetaArguments {
+export interface CertificateSigningRequestConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Automatically approve the CertificateSigningRequest
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#auto_approve CertificateSigningRequest#auto_approve}
-  */
+   * Automatically approve the CertificateSigningRequest
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#auto_approve CertificateSigningRequest#auto_approve}
+   */
   readonly autoApprove?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#id CertificateSigningRequest#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#id CertificateSigningRequest#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#metadata CertificateSigningRequest#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#metadata CertificateSigningRequest#metadata}
+   */
   readonly metadata: CertificateSigningRequestMetadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#spec CertificateSigningRequest#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#spec CertificateSigningRequest#spec}
+   */
   readonly spec: CertificateSigningRequestSpec;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#timeouts CertificateSigningRequest#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#timeouts CertificateSigningRequest#timeouts}
+   */
   readonly timeouts?: CertificateSigningRequestTimeouts;
 }
 export interface CertificateSigningRequestMetadata {
   /**
-  * An unstructured key value map stored with the certificate signing request that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#annotations CertificateSigningRequest#annotations}
-  */
+   * An unstructured key value map stored with the certificate signing request that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#annotations CertificateSigningRequest#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#generate_name CertificateSigningRequest#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#generate_name CertificateSigningRequest#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the certificate signing request. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#labels CertificateSigningRequest#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the certificate signing request. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#labels CertificateSigningRequest#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the certificate signing request, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#name CertificateSigningRequest#name}
-  */
+   * Name of the certificate signing request, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#name CertificateSigningRequest#name}
+   */
   readonly name?: string;
 }
 
-export function certificateSigningRequestMetadataToTerraform(struct?: CertificateSigningRequestMetadataOutputReference | CertificateSigningRequestMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function certificateSigningRequestMetadataToTerraform(
+  struct?:
+    | CertificateSigningRequestMetadataOutputReference
+    | CertificateSigningRequestMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     generate_name: cdktf.stringToTerraform(struct!.generateName),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class CertificateSigningRequestMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -112,15 +124,16 @@ export class CertificateSigningRequestMetadataOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CertificateSigningRequestMetadata | undefined) {
+  public set internalValue(
+    value: CertificateSigningRequestMetadata | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._annotations = undefined;
       this._generateName = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -210,16 +223,16 @@ export class CertificateSigningRequestMetadataOutputReference extends cdktf.Comp
 }
 export interface CertificateSigningRequestSpec {
   /**
-  * Base64-encoded PKCS#10 CSR data
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#request CertificateSigningRequest#request}
-  */
+   * Base64-encoded PKCS#10 CSR data
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#request CertificateSigningRequest#request}
+   */
   readonly request: string;
   /**
-  * Requested signer for the request. It is a qualified name in the form: `scope-hostname.io/name`.If empty, it will be defaulted: 1. If it's a kubelet client certificate, it is assigned `kubernetes.io/kube-apiserver-client-kubelet`.2. If it's a kubelet serving certificate, it is assigned `kubernetes.io/kubelet-serving`.3. Otherwise, it is assigned `kubernetes.io/legacy-unknown`. Distribution of trust for signers happens out of band.You can select on this field using `spec.signerName`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#signer_name CertificateSigningRequest#signer_name}
-  */
+   * Requested signer for the request. It is a qualified name in the form: `scope-hostname.io/name`.If empty, it will be defaulted: 1. If it's a kubelet client certificate, it is assigned `kubernetes.io/kube-apiserver-client-kubelet`.2. If it's a kubelet serving certificate, it is assigned `kubernetes.io/kubelet-serving`.3. Otherwise, it is assigned `kubernetes.io/legacy-unknown`. Distribution of trust for signers happens out of band.You can select on this field using `spec.signerName`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#signer_name CertificateSigningRequest#signer_name}
+   */
   readonly signerName?: string;
   /**
   * allowedUsages specifies a set of usage contexts the key will be valid for. See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
@@ -254,26 +267,37 @@ Valid values are:
   readonly usages?: string[];
 }
 
-export function certificateSigningRequestSpecToTerraform(struct?: CertificateSigningRequestSpecOutputReference | CertificateSigningRequestSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function certificateSigningRequestSpecToTerraform(
+  struct?:
+    | CertificateSigningRequestSpecOutputReference
+    | CertificateSigningRequestSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     request: cdktf.stringToTerraform(struct!.request),
     signer_name: cdktf.stringToTerraform(struct!.signerName),
     usages: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.usages),
-  }
+  };
 }
 
 export class CertificateSigningRequestSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -301,8 +325,7 @@ export class CertificateSigningRequestSpecOutputReference extends cdktf.ComplexO
       this._request = undefined;
       this._signerName = undefined;
       this._usages = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._request = value.request;
       this._signerName = value.signerName;
@@ -357,19 +380,28 @@ export class CertificateSigningRequestSpecOutputReference extends cdktf.ComplexO
 }
 export interface CertificateSigningRequestTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#create CertificateSigningRequest#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request#create CertificateSigningRequest#create}
+   */
   readonly create?: string;
 }
 
-export function certificateSigningRequestTimeoutsToTerraform(struct?: CertificateSigningRequestTimeoutsOutputReference | CertificateSigningRequestTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function certificateSigningRequestTimeoutsToTerraform(
+  struct?:
+    | CertificateSigningRequestTimeoutsOutputReference
+    | CertificateSigningRequestTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class CertificateSigningRequestTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -377,14 +409,20 @@ export class CertificateSigningRequestTimeoutsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CertificateSigningRequestTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CertificateSigningRequestTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -397,17 +435,17 @@ export class CertificateSigningRequestTimeoutsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CertificateSigningRequestTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: CertificateSigningRequestTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -432,33 +470,37 @@ export class CertificateSigningRequestTimeoutsOutputReference extends cdktf.Comp
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request kubernetes_certificate_signing_request}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request kubernetes_certificate_signing_request}
+ */
 export class CertificateSigningRequest extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_certificate_signing_request";
+  public static readonly tfResourceType =
+    'kubernetes_certificate_signing_request';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request kubernetes_certificate_signing_request} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CertificateSigningRequestConfig
-  */
-  public constructor(scope: Construct, id: string, config: CertificateSigningRequestConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/certificate_signing_request kubernetes_certificate_signing_request} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CertificateSigningRequestConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CertificateSigningRequestConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_certificate_signing_request',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -466,7 +508,7 @@ export class CertificateSigningRequest extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoApprove = config.autoApprove;
     this._id = config.id;
@@ -517,7 +559,10 @@ export class CertificateSigningRequest extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new CertificateSigningRequestMetadataOutputReference(this, "metadata");
+  private _metadata = new CertificateSigningRequestMetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -530,7 +575,10 @@ export class CertificateSigningRequest extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new CertificateSigningRequestSpecOutputReference(this, "spec");
+  private _spec = new CertificateSigningRequestSpecOutputReference(
+    this,
+    'spec',
+  );
   public get spec() {
     return this._spec;
   }
@@ -543,7 +591,10 @@ export class CertificateSigningRequest extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new CertificateSigningRequestTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new CertificateSigningRequestTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -566,9 +617,13 @@ export class CertificateSigningRequest extends cdktf.TerraformResource {
     return {
       auto_approve: cdktf.booleanToTerraform(this._autoApprove),
       id: cdktf.stringToTerraform(this._id),
-      metadata: certificateSigningRequestMetadataToTerraform(this._metadata.internalValue),
+      metadata: certificateSigningRequestMetadataToTerraform(
+        this._metadata.internalValue,
+      ),
       spec: certificateSigningRequestSpecToTerraform(this._spec.internalValue),
-      timeouts: certificateSigningRequestTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: certificateSigningRequestTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

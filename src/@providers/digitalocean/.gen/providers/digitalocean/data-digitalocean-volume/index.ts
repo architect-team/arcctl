@@ -2,66 +2,70 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanVolumeConfig extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanVolumeConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * volume description
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#description DataDigitaloceanVolume#description}
-  */
+   * volume description
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#description DataDigitaloceanVolume#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#id DataDigitaloceanVolume#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#id DataDigitaloceanVolume#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * name of the volume
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#name DataDigitaloceanVolume#name}
-  */
+   * name of the volume
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#name DataDigitaloceanVolume#name}
+   */
   readonly name: string;
   /**
-  * the region that the volume is provisioned in
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#region DataDigitaloceanVolume#region}
-  */
+   * the region that the volume is provisioned in
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#region DataDigitaloceanVolume#region}
+   */
   readonly region?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/volume digitalocean_volume}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/volume digitalocean_volume}
+ */
 export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_volume";
+  public static readonly tfResourceType = 'digitalocean_volume';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/volume digitalocean_volume} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataDigitaloceanVolumeConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataDigitaloceanVolumeConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/volume digitalocean_volume} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataDigitaloceanVolumeConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataDigitaloceanVolumeConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_volume',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -69,7 +73,7 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -99,7 +103,9 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
 
   // droplet_ids - computed: true, optional: false, required: false
   public get dropletIds() {
-    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
+    return cdktf.Token.asNumberList(
+      cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')),
+    );
   }
 
   // filesystem_label - computed: true, optional: false, required: false

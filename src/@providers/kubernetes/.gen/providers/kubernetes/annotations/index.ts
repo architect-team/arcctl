@@ -2,95 +2,104 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface AnnotationsConfig extends cdktf.TerraformMetaArguments {
   /**
-  * A map of annotations to apply to the resource.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#annotations Annotations#annotations}
-  */
+   * A map of annotations to apply to the resource.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#annotations Annotations#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * The apiVersion of the resource to annotate.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#api_version Annotations#api_version}
-  */
+   * The apiVersion of the resource to annotate.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#api_version Annotations#api_version}
+   */
   readonly apiVersion: string;
   /**
-  * Set the name of the field manager for the specified labels.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#field_manager Annotations#field_manager}
-  */
+   * Set the name of the field manager for the specified labels.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#field_manager Annotations#field_manager}
+   */
   readonly fieldManager?: string;
   /**
-  * Force overwriting annotations that were created or edited outside of Terraform.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#force Annotations#force}
-  */
+   * Force overwriting annotations that were created or edited outside of Terraform.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#force Annotations#force}
+   */
   readonly force?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#id Annotations#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#id Annotations#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * The kind of the resource to annotate.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#kind Annotations#kind}
-  */
+   * The kind of the resource to annotate.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#kind Annotations#kind}
+   */
   readonly kind: string;
   /**
-  * A map of annotations to apply to the resource template.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#template_annotations Annotations#template_annotations}
-  */
+   * A map of annotations to apply to the resource template.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#template_annotations Annotations#template_annotations}
+   */
   readonly templateAnnotations?: { [key: string]: string };
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#metadata Annotations#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#metadata Annotations#metadata}
+   */
   readonly metadata: AnnotationsMetadata;
 }
 export interface AnnotationsMetadata {
   /**
-  * The name of the resource.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#name Annotations#name}
-  */
+   * The name of the resource.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#name Annotations#name}
+   */
   readonly name: string;
   /**
-  * The namespace of the resource.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#namespace Annotations#namespace}
-  */
+   * The namespace of the resource.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations#namespace Annotations#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function annotationsMetadataToTerraform(struct?: AnnotationsMetadataOutputReference | AnnotationsMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function annotationsMetadataToTerraform(
+  struct?: AnnotationsMetadataOutputReference | AnnotationsMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class AnnotationsMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -113,8 +122,7 @@ export class AnnotationsMetadataOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -152,33 +160,32 @@ export class AnnotationsMetadataOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations kubernetes_annotations}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations kubernetes_annotations}
+ */
 export class Annotations extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_annotations";
+  public static readonly tfResourceType = 'kubernetes_annotations';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations kubernetes_annotations} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AnnotationsConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/annotations kubernetes_annotations} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AnnotationsConfig
+   */
   public constructor(scope: Construct, id: string, config: AnnotationsConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_annotations',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -186,7 +193,7 @@ export class Annotations extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._annotations = config.annotations;
     this._apiVersion = config.apiVersion;
@@ -309,7 +316,7 @@ export class Annotations extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new AnnotationsMetadataOutputReference(this, "metadata");
+  private _metadata = new AnnotationsMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -333,7 +340,9 @@ export class Annotations extends cdktf.TerraformResource {
       force: cdktf.booleanToTerraform(this._force),
       id: cdktf.stringToTerraform(this._id),
       kind: cdktf.stringToTerraform(this._kind),
-      template_annotations: cdktf.hashMapper(cdktf.stringToTerraform)(this._templateAnnotations),
+      template_annotations: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._templateAnnotations,
+      ),
       metadata: annotationsMetadataToTerraform(this._metadata.internalValue),
     };
   }

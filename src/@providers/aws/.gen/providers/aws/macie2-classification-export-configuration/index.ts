@@ -2,64 +2,78 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Macie2ClassificationExportConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface Macie2ClassificationExportConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#id Macie2ClassificationExportConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#id Macie2ClassificationExportConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * s3_destination block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#s3_destination Macie2ClassificationExportConfiguration#s3_destination}
-  */
+   * s3_destination block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#s3_destination Macie2ClassificationExportConfiguration#s3_destination}
+   */
   readonly s3Destination?: Macie2ClassificationExportConfigurationS3Destination;
 }
 export interface Macie2ClassificationExportConfigurationS3Destination {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#bucket_name Macie2ClassificationExportConfiguration#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#bucket_name Macie2ClassificationExportConfiguration#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#key_prefix Macie2ClassificationExportConfiguration#key_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#key_prefix Macie2ClassificationExportConfiguration#key_prefix}
+   */
   readonly keyPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#kms_key_arn Macie2ClassificationExportConfiguration#kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration#kms_key_arn Macie2ClassificationExportConfiguration#kms_key_arn}
+   */
   readonly kmsKeyArn: string;
 }
 
-export function macie2ClassificationExportConfigurationS3DestinationToTerraform(struct?: Macie2ClassificationExportConfigurationS3DestinationOutputReference | Macie2ClassificationExportConfigurationS3Destination): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function macie2ClassificationExportConfigurationS3DestinationToTerraform(
+  struct?:
+    | Macie2ClassificationExportConfigurationS3DestinationOutputReference
+    | Macie2ClassificationExportConfigurationS3Destination,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     key_prefix: cdktf.stringToTerraform(struct!.keyPrefix),
     kms_key_arn: cdktf.stringToTerraform(struct!.kmsKeyArn),
-  }
+  };
 }
 
 export class Macie2ClassificationExportConfigurationS3DestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Macie2ClassificationExportConfigurationS3Destination | undefined {
+  public get internalValue():
+    | Macie2ClassificationExportConfigurationS3Destination
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -77,14 +91,15 @@ export class Macie2ClassificationExportConfigurationS3DestinationOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Macie2ClassificationExportConfigurationS3Destination | undefined) {
+  public set internalValue(
+    value: Macie2ClassificationExportConfigurationS3Destination | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._keyPrefix = undefined;
       this._kmsKeyArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._keyPrefix = value.keyPrefix;
@@ -136,33 +151,37 @@ export class Macie2ClassificationExportConfigurationS3DestinationOutputReference
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration aws_macie2_classification_export_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration aws_macie2_classification_export_configuration}
+ */
 export class Macie2ClassificationExportConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_macie2_classification_export_configuration";
+  public static readonly tfResourceType =
+    'aws_macie2_classification_export_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration aws_macie2_classification_export_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Macie2ClassificationExportConfigurationConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: Macie2ClassificationExportConfigurationConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie2_classification_export_configuration aws_macie2_classification_export_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Macie2ClassificationExportConfigurationConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Macie2ClassificationExportConfigurationConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_macie2_classification_export_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -170,7 +189,7 @@ export class Macie2ClassificationExportConfiguration extends cdktf.TerraformReso
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._s3Destination.internalValue = config.s3Destination;
@@ -197,11 +216,17 @@ export class Macie2ClassificationExportConfiguration extends cdktf.TerraformReso
   }
 
   // s3_destination - computed: false, optional: true, required: false
-  private _s3Destination = new Macie2ClassificationExportConfigurationS3DestinationOutputReference(this, "s3_destination");
+  private _s3Destination =
+    new Macie2ClassificationExportConfigurationS3DestinationOutputReference(
+      this,
+      's3_destination',
+    );
   public get s3Destination() {
     return this._s3Destination;
   }
-  public putS3Destination(value: Macie2ClassificationExportConfigurationS3Destination) {
+  public putS3Destination(
+    value: Macie2ClassificationExportConfigurationS3Destination,
+  ) {
     this._s3Destination.internalValue = value;
   }
   public resetS3Destination() {
@@ -219,7 +244,10 @@ export class Macie2ClassificationExportConfiguration extends cdktf.TerraformReso
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      s3_destination: macie2ClassificationExportConfigurationS3DestinationToTerraform(this._s3Destination.internalValue),
+      s3_destination:
+        macie2ClassificationExportConfigurationS3DestinationToTerraform(
+          this._s3Destination.internalValue,
+        ),
     };
   }
 }

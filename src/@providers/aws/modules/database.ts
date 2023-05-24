@@ -1,10 +1,10 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Rds } from '../.gen/modules/rds.js';
-import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.js';
-import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.js';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
-import { AwsCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Rds } from '../.gen/modules/rds.ts';
+import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.ts';
+import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.ts';
+import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { AwsCredentials } from '../credentials.ts';
 import { Construct } from 'npm:constructs';
 
 export class AwsDatabaseModule extends ResourceModule<

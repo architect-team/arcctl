@@ -2,79 +2,91 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataKubernetesConfigMapV1Config extends cdktf.TerraformMetaArguments {
+export interface DataKubernetesConfigMapV1Config
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#id DataKubernetesConfigMapV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#id DataKubernetesConfigMapV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#immutable DataKubernetesConfigMapV1#immutable}
-  */
+   * Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#immutable DataKubernetesConfigMapV1#immutable}
+   */
   readonly immutable?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#metadata DataKubernetesConfigMapV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#metadata DataKubernetesConfigMapV1#metadata}
+   */
   readonly metadata: DataKubernetesConfigMapV1Metadata;
 }
 export interface DataKubernetesConfigMapV1Metadata {
   /**
-  * An unstructured key value map stored with the config_map that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#annotations DataKubernetesConfigMapV1#annotations}
-  */
+   * An unstructured key value map stored with the config_map that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#annotations DataKubernetesConfigMapV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the config_map. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#labels DataKubernetesConfigMapV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the config_map. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#labels DataKubernetesConfigMapV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the config_map, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#name DataKubernetesConfigMapV1#name}
-  */
+   * Name of the config_map, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#name DataKubernetesConfigMapV1#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the config_map must be unique.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#namespace DataKubernetesConfigMapV1#namespace}
-  */
+   * Namespace defines the space within which name of the config_map must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1#namespace DataKubernetesConfigMapV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function dataKubernetesConfigMapV1MetadataToTerraform(struct?: DataKubernetesConfigMapV1MetadataOutputReference | DataKubernetesConfigMapV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataKubernetesConfigMapV1MetadataToTerraform(
+  struct?:
+    | DataKubernetesConfigMapV1MetadataOutputReference
+    | DataKubernetesConfigMapV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class DataKubernetesConfigMapV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -100,15 +112,16 @@ export class DataKubernetesConfigMapV1MetadataOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataKubernetesConfigMapV1Metadata | undefined) {
+  public set internalValue(
+    value: DataKubernetesConfigMapV1Metadata | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._annotations = undefined;
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._labels = value.labels;
@@ -198,33 +211,36 @@ export class DataKubernetesConfigMapV1MetadataOutputReference extends cdktf.Comp
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1 kubernetes_config_map_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1 kubernetes_config_map_v1}
+ */
 export class DataKubernetesConfigMapV1 extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_config_map_v1";
+  public static readonly tfResourceType = 'kubernetes_config_map_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1 kubernetes_config_map_v1} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataKubernetesConfigMapV1Config
-  */
-  public constructor(scope: Construct, id: string, config: DataKubernetesConfigMapV1Config) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/d/config_map_v1 kubernetes_config_map_v1} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataKubernetesConfigMapV1Config
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataKubernetesConfigMapV1Config,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_config_map_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -232,7 +248,7 @@ export class DataKubernetesConfigMapV1 extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._immutable = config.immutable;
@@ -244,13 +260,13 @@ export class DataKubernetesConfigMapV1 extends cdktf.TerraformDataSource {
   // ==========
 
   // binary_data - computed: true, optional: false, required: false
-  private _binaryData = new cdktf.StringMap(this, "binary_data");
+  private _binaryData = new cdktf.StringMap(this, 'binary_data');
   public get binaryData() {
     return this._binaryData;
   }
 
   // data - computed: true, optional: false, required: false
-  private _data = new cdktf.StringMap(this, "data");
+  private _data = new cdktf.StringMap(this, 'data');
   public get data() {
     return this._data;
   }
@@ -288,7 +304,10 @@ export class DataKubernetesConfigMapV1 extends cdktf.TerraformDataSource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new DataKubernetesConfigMapV1MetadataOutputReference(this, "metadata");
+  private _metadata = new DataKubernetesConfigMapV1MetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -308,7 +327,9 @@ export class DataKubernetesConfigMapV1 extends cdktf.TerraformDataSource {
     return {
       id: cdktf.stringToTerraform(this._id),
       immutable: cdktf.booleanToTerraform(this._immutable),
-      metadata: dataKubernetesConfigMapV1MetadataToTerraform(this._metadata.internalValue),
+      metadata: dataKubernetesConfigMapV1MetadataToTerraform(
+        this._metadata.internalValue,
+      ),
     };
   }
 }

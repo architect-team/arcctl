@@ -2,112 +2,115 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface SpacesBucketObjectConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#acl SpacesBucketObject#acl}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#acl SpacesBucketObject#acl}
+   */
   readonly acl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#bucket SpacesBucketObject#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#bucket SpacesBucketObject#bucket}
+   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#cache_control SpacesBucketObject#cache_control}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#cache_control SpacesBucketObject#cache_control}
+   */
   readonly cacheControl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content SpacesBucketObject#content}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content SpacesBucketObject#content}
+   */
   readonly content?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_base64 SpacesBucketObject#content_base64}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_base64 SpacesBucketObject#content_base64}
+   */
   readonly contentBase64?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_disposition SpacesBucketObject#content_disposition}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_disposition SpacesBucketObject#content_disposition}
+   */
   readonly contentDisposition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_encoding SpacesBucketObject#content_encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_encoding SpacesBucketObject#content_encoding}
+   */
   readonly contentEncoding?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_language SpacesBucketObject#content_language}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_language SpacesBucketObject#content_language}
+   */
   readonly contentLanguage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_type SpacesBucketObject#content_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_type SpacesBucketObject#content_type}
+   */
   readonly contentType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#etag SpacesBucketObject#etag}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#etag SpacesBucketObject#etag}
+   */
   readonly etag?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#force_destroy SpacesBucketObject#force_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#force_destroy SpacesBucketObject#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#id SpacesBucketObject#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#id SpacesBucketObject#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#key SpacesBucketObject#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#key SpacesBucketObject#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#metadata SpacesBucketObject#metadata}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#metadata SpacesBucketObject#metadata}
+   */
   readonly metadata?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#region SpacesBucketObject#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#region SpacesBucketObject#region}
+   */
   readonly region: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#source SpacesBucketObject#source}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#source SpacesBucketObject#source}
+   */
   readonly source?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#website_redirect SpacesBucketObject#website_redirect}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#website_redirect SpacesBucketObject#website_redirect}
+   */
   readonly websiteRedirect?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object}
+ */
 export class SpacesBucketObject extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_spaces_bucket_object";
+  public static readonly tfResourceType = 'digitalocean_spaces_bucket_object';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SpacesBucketObjectConfig
-  */
-  public constructor(scope: Construct, id: string, config: SpacesBucketObjectConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SpacesBucketObjectConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SpacesBucketObjectConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_spaces_bucket_object',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -115,7 +118,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acl = config.acl;
     this._bucket = config.bucket;

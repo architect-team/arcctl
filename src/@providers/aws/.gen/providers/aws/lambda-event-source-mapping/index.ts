@@ -2,150 +2,166 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface LambdaEventSourceMappingConfig extends cdktf.TerraformMetaArguments {
+export interface LambdaEventSourceMappingConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#batch_size LambdaEventSourceMapping#batch_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#batch_size LambdaEventSourceMapping#batch_size}
+   */
   readonly batchSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#bisect_batch_on_function_error LambdaEventSourceMapping#bisect_batch_on_function_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#bisect_batch_on_function_error LambdaEventSourceMapping#bisect_batch_on_function_error}
+   */
   readonly bisectBatchOnFunctionError?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#enabled LambdaEventSourceMapping#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#enabled LambdaEventSourceMapping#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#event_source_arn LambdaEventSourceMapping#event_source_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#event_source_arn LambdaEventSourceMapping#event_source_arn}
+   */
   readonly eventSourceArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#function_name LambdaEventSourceMapping#function_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#function_name LambdaEventSourceMapping#function_name}
+   */
   readonly functionName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#function_response_types LambdaEventSourceMapping#function_response_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#function_response_types LambdaEventSourceMapping#function_response_types}
+   */
   readonly functionResponseTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#id LambdaEventSourceMapping#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#id LambdaEventSourceMapping#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_batching_window_in_seconds LambdaEventSourceMapping#maximum_batching_window_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_batching_window_in_seconds LambdaEventSourceMapping#maximum_batching_window_in_seconds}
+   */
   readonly maximumBatchingWindowInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_record_age_in_seconds LambdaEventSourceMapping#maximum_record_age_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_record_age_in_seconds LambdaEventSourceMapping#maximum_record_age_in_seconds}
+   */
   readonly maximumRecordAgeInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_retry_attempts LambdaEventSourceMapping#maximum_retry_attempts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_retry_attempts LambdaEventSourceMapping#maximum_retry_attempts}
+   */
   readonly maximumRetryAttempts?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#parallelization_factor LambdaEventSourceMapping#parallelization_factor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#parallelization_factor LambdaEventSourceMapping#parallelization_factor}
+   */
   readonly parallelizationFactor?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#queues LambdaEventSourceMapping#queues}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#queues LambdaEventSourceMapping#queues}
+   */
   readonly queues?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#starting_position LambdaEventSourceMapping#starting_position}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#starting_position LambdaEventSourceMapping#starting_position}
+   */
   readonly startingPosition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#starting_position_timestamp LambdaEventSourceMapping#starting_position_timestamp}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#starting_position_timestamp LambdaEventSourceMapping#starting_position_timestamp}
+   */
   readonly startingPositionTimestamp?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#topics LambdaEventSourceMapping#topics}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#topics LambdaEventSourceMapping#topics}
+   */
   readonly topics?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#tumbling_window_in_seconds LambdaEventSourceMapping#tumbling_window_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#tumbling_window_in_seconds LambdaEventSourceMapping#tumbling_window_in_seconds}
+   */
   readonly tumblingWindowInSeconds?: number;
   /**
-  * amazon_managed_kafka_event_source_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#amazon_managed_kafka_event_source_config LambdaEventSourceMapping#amazon_managed_kafka_event_source_config}
-  */
+   * amazon_managed_kafka_event_source_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#amazon_managed_kafka_event_source_config LambdaEventSourceMapping#amazon_managed_kafka_event_source_config}
+   */
   readonly amazonManagedKafkaEventSourceConfig?: LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig;
   /**
-  * destination_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#destination_config LambdaEventSourceMapping#destination_config}
-  */
+   * destination_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#destination_config LambdaEventSourceMapping#destination_config}
+   */
   readonly destinationConfig?: LambdaEventSourceMappingDestinationConfig;
   /**
-  * filter_criteria block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#filter_criteria LambdaEventSourceMapping#filter_criteria}
-  */
+   * filter_criteria block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#filter_criteria LambdaEventSourceMapping#filter_criteria}
+   */
   readonly filterCriteria?: LambdaEventSourceMappingFilterCriteria;
   /**
-  * scaling_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#scaling_config LambdaEventSourceMapping#scaling_config}
-  */
+   * scaling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#scaling_config LambdaEventSourceMapping#scaling_config}
+   */
   readonly scalingConfig?: LambdaEventSourceMappingScalingConfig;
   /**
-  * self_managed_event_source block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#self_managed_event_source LambdaEventSourceMapping#self_managed_event_source}
-  */
+   * self_managed_event_source block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#self_managed_event_source LambdaEventSourceMapping#self_managed_event_source}
+   */
   readonly selfManagedEventSource?: LambdaEventSourceMappingSelfManagedEventSource;
   /**
-  * self_managed_kafka_event_source_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#self_managed_kafka_event_source_config LambdaEventSourceMapping#self_managed_kafka_event_source_config}
-  */
+   * self_managed_kafka_event_source_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#self_managed_kafka_event_source_config LambdaEventSourceMapping#self_managed_kafka_event_source_config}
+   */
   readonly selfManagedKafkaEventSourceConfig?: LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig;
   /**
-  * source_access_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#source_access_configuration LambdaEventSourceMapping#source_access_configuration}
-  */
-  readonly sourceAccessConfiguration?: LambdaEventSourceMappingSourceAccessConfiguration[] | cdktf.IResolvable;
+   * source_access_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#source_access_configuration LambdaEventSourceMapping#source_access_configuration}
+   */
+  readonly sourceAccessConfiguration?:
+    | LambdaEventSourceMappingSourceAccessConfiguration[]
+    | cdktf.IResolvable;
 }
 export interface LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#consumer_group_id LambdaEventSourceMapping#consumer_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#consumer_group_id LambdaEventSourceMapping#consumer_group_id}
+   */
   readonly consumerGroupId?: string;
 }
 
-export function lambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigToTerraform(struct?: LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputReference | LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigToTerraform(
+  struct?:
+    | LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputReference
+    | LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     consumer_group_id: cdktf.stringToTerraform(struct!.consumerGroupId),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._consumerGroupId !== undefined) {
@@ -155,12 +171,15 @@ export class LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig | undefined) {
+  public set internalValue(
+    value:
+      | LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._consumerGroupId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._consumerGroupId = value.consumerGroupId;
     }
@@ -184,33 +203,46 @@ export class LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputRe
 }
 export interface LambdaEventSourceMappingDestinationConfigOnFailure {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#destination_arn LambdaEventSourceMapping#destination_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#destination_arn LambdaEventSourceMapping#destination_arn}
+   */
   readonly destinationArn: string;
 }
 
-export function lambdaEventSourceMappingDestinationConfigOnFailureToTerraform(struct?: LambdaEventSourceMappingDestinationConfigOnFailureOutputReference | LambdaEventSourceMappingDestinationConfigOnFailure): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingDestinationConfigOnFailureToTerraform(
+  struct?:
+    | LambdaEventSourceMappingDestinationConfigOnFailureOutputReference
+    | LambdaEventSourceMappingDestinationConfigOnFailure,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     destination_arn: cdktf.stringToTerraform(struct!.destinationArn),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingDestinationConfigOnFailureOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingDestinationConfigOnFailure | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingDestinationConfigOnFailure
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._destinationArn !== undefined) {
@@ -220,12 +252,13 @@ export class LambdaEventSourceMappingDestinationConfigOnFailureOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingDestinationConfigOnFailure | undefined) {
+  public set internalValue(
+    value: LambdaEventSourceMappingDestinationConfigOnFailure | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._destinationArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._destinationArn = value.destinationArn;
     }
@@ -246,35 +279,50 @@ export class LambdaEventSourceMappingDestinationConfigOnFailureOutputReference e
 }
 export interface LambdaEventSourceMappingDestinationConfig {
   /**
-  * on_failure block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#on_failure LambdaEventSourceMapping#on_failure}
-  */
+   * on_failure block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#on_failure LambdaEventSourceMapping#on_failure}
+   */
   readonly onFailure?: LambdaEventSourceMappingDestinationConfigOnFailure;
 }
 
-export function lambdaEventSourceMappingDestinationConfigToTerraform(struct?: LambdaEventSourceMappingDestinationConfigOutputReference | LambdaEventSourceMappingDestinationConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingDestinationConfigToTerraform(
+  struct?:
+    | LambdaEventSourceMappingDestinationConfigOutputReference
+    | LambdaEventSourceMappingDestinationConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    on_failure: lambdaEventSourceMappingDestinationConfigOnFailureToTerraform(struct!.onFailure),
-  }
+    on_failure: lambdaEventSourceMappingDestinationConfigOnFailureToTerraform(
+      struct!.onFailure,
+    ),
+  };
 }
 
 export class LambdaEventSourceMappingDestinationConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingDestinationConfig | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingDestinationConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._onFailure?.internalValue !== undefined) {
@@ -284,23 +332,30 @@ export class LambdaEventSourceMappingDestinationConfigOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingDestinationConfig | undefined) {
+  public set internalValue(
+    value: LambdaEventSourceMappingDestinationConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._onFailure.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._onFailure.internalValue = value.onFailure;
     }
   }
 
   // on_failure - computed: false, optional: true, required: false
-  private _onFailure = new LambdaEventSourceMappingDestinationConfigOnFailureOutputReference(this, "on_failure");
+  private _onFailure =
+    new LambdaEventSourceMappingDestinationConfigOnFailureOutputReference(
+      this,
+      'on_failure',
+    );
   public get onFailure() {
     return this._onFailure;
   }
-  public putOnFailure(value: LambdaEventSourceMappingDestinationConfigOnFailure) {
+  public putOnFailure(
+    value: LambdaEventSourceMappingDestinationConfigOnFailure,
+  ) {
     this._onFailure.internalValue = value;
   }
   public resetOnFailure() {
@@ -313,19 +368,25 @@ export class LambdaEventSourceMappingDestinationConfigOutputReference extends cd
 }
 export interface LambdaEventSourceMappingFilterCriteriaFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#pattern LambdaEventSourceMapping#pattern}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#pattern LambdaEventSourceMapping#pattern}
+   */
   readonly pattern?: string;
 }
 
-export function lambdaEventSourceMappingFilterCriteriaFilterToTerraform(struct?: LambdaEventSourceMappingFilterCriteriaFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingFilterCriteriaFilterToTerraform(
+  struct?: LambdaEventSourceMappingFilterCriteriaFilter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     pattern: cdktf.stringToTerraform(struct!.pattern),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingFilterCriteriaFilterOutputReference extends cdktf.ComplexObject {
@@ -333,16 +394,29 @@ export class LambdaEventSourceMappingFilterCriteriaFilterOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): LambdaEventSourceMappingFilterCriteriaFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingFilterCriteriaFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -355,17 +429,20 @@ export class LambdaEventSourceMappingFilterCriteriaFilterOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingFilterCriteriaFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | LambdaEventSourceMappingFilterCriteriaFilter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._pattern = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._pattern = value.pattern;
@@ -390,55 +467,86 @@ export class LambdaEventSourceMappingFilterCriteriaFilterOutputReference extends
 }
 
 export class LambdaEventSourceMappingFilterCriteriaFilterList extends cdktf.ComplexList {
-  public internalValue? : LambdaEventSourceMappingFilterCriteriaFilter[] | cdktf.IResolvable
+  public internalValue?:
+    | LambdaEventSourceMappingFilterCriteriaFilter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): LambdaEventSourceMappingFilterCriteriaFilterOutputReference {
-    return new LambdaEventSourceMappingFilterCriteriaFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): LambdaEventSourceMappingFilterCriteriaFilterOutputReference {
+    return new LambdaEventSourceMappingFilterCriteriaFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface LambdaEventSourceMappingFilterCriteria {
   /**
-  * filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#filter LambdaEventSourceMapping#filter}
-  */
-  readonly filter?: LambdaEventSourceMappingFilterCriteriaFilter[] | cdktf.IResolvable;
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#filter LambdaEventSourceMapping#filter}
+   */
+  readonly filter?:
+    | LambdaEventSourceMappingFilterCriteriaFilter[]
+    | cdktf.IResolvable;
 }
 
-export function lambdaEventSourceMappingFilterCriteriaToTerraform(struct?: LambdaEventSourceMappingFilterCriteriaOutputReference | LambdaEventSourceMappingFilterCriteria): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingFilterCriteriaToTerraform(
+  struct?:
+    | LambdaEventSourceMappingFilterCriteriaOutputReference
+    | LambdaEventSourceMappingFilterCriteria,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    filter: cdktf.listMapper(lambdaEventSourceMappingFilterCriteriaFilterToTerraform, true)(struct!.filter),
-  }
+    filter: cdktf.listMapper(
+      lambdaEventSourceMappingFilterCriteriaFilterToTerraform,
+      true,
+    )(struct!.filter),
+  };
 }
 
 export class LambdaEventSourceMappingFilterCriteriaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingFilterCriteria | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingFilterCriteria
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._filter?.internalValue !== undefined) {
@@ -448,23 +556,30 @@ export class LambdaEventSourceMappingFilterCriteriaOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingFilterCriteria | undefined) {
+  public set internalValue(
+    value: LambdaEventSourceMappingFilterCriteria | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._filter.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._filter.internalValue = value.filter;
     }
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new LambdaEventSourceMappingFilterCriteriaFilterList(this, "filter", true);
+  private _filter = new LambdaEventSourceMappingFilterCriteriaFilterList(
+    this,
+    'filter',
+    true,
+  );
   public get filter() {
     return this._filter;
   }
-  public putFilter(value: LambdaEventSourceMappingFilterCriteriaFilter[] | cdktf.IResolvable) {
+  public putFilter(
+    value: LambdaEventSourceMappingFilterCriteriaFilter[] | cdktf.IResolvable,
+  ) {
     this._filter.internalValue = value;
   }
   public resetFilter() {
@@ -477,33 +592,46 @@ export class LambdaEventSourceMappingFilterCriteriaOutputReference extends cdktf
 }
 export interface LambdaEventSourceMappingScalingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_concurrency LambdaEventSourceMapping#maximum_concurrency}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#maximum_concurrency LambdaEventSourceMapping#maximum_concurrency}
+   */
   readonly maximumConcurrency?: number;
 }
 
-export function lambdaEventSourceMappingScalingConfigToTerraform(struct?: LambdaEventSourceMappingScalingConfigOutputReference | LambdaEventSourceMappingScalingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingScalingConfigToTerraform(
+  struct?:
+    | LambdaEventSourceMappingScalingConfigOutputReference
+    | LambdaEventSourceMappingScalingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     maximum_concurrency: cdktf.numberToTerraform(struct!.maximumConcurrency),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingScalingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingScalingConfig | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingScalingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._maximumConcurrency !== undefined) {
@@ -513,12 +641,13 @@ export class LambdaEventSourceMappingScalingConfigOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingScalingConfig | undefined) {
+  public set internalValue(
+    value: LambdaEventSourceMappingScalingConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._maximumConcurrency = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._maximumConcurrency = value.maximumConcurrency;
     }
@@ -542,33 +671,46 @@ export class LambdaEventSourceMappingScalingConfigOutputReference extends cdktf.
 }
 export interface LambdaEventSourceMappingSelfManagedEventSource {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#endpoints LambdaEventSourceMapping#endpoints}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#endpoints LambdaEventSourceMapping#endpoints}
+   */
   readonly endpoints: { [key: string]: string };
 }
 
-export function lambdaEventSourceMappingSelfManagedEventSourceToTerraform(struct?: LambdaEventSourceMappingSelfManagedEventSourceOutputReference | LambdaEventSourceMappingSelfManagedEventSource): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingSelfManagedEventSourceToTerraform(
+  struct?:
+    | LambdaEventSourceMappingSelfManagedEventSourceOutputReference
+    | LambdaEventSourceMappingSelfManagedEventSource,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     endpoints: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.endpoints),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingSelfManagedEventSourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingSelfManagedEventSource | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingSelfManagedEventSource
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpoints !== undefined) {
@@ -578,12 +720,13 @@ export class LambdaEventSourceMappingSelfManagedEventSourceOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingSelfManagedEventSource | undefined) {
+  public set internalValue(
+    value: LambdaEventSourceMappingSelfManagedEventSource | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpoints = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpoints = value.endpoints;
     }
@@ -604,33 +747,46 @@ export class LambdaEventSourceMappingSelfManagedEventSourceOutputReference exten
 }
 export interface LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#consumer_group_id LambdaEventSourceMapping#consumer_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#consumer_group_id LambdaEventSourceMapping#consumer_group_id}
+   */
   readonly consumerGroupId?: string;
 }
 
-export function lambdaEventSourceMappingSelfManagedKafkaEventSourceConfigToTerraform(struct?: LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputReference | LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingSelfManagedKafkaEventSourceConfigToTerraform(
+  struct?:
+    | LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputReference
+    | LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     consumer_group_id: cdktf.stringToTerraform(struct!.consumerGroupId),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._consumerGroupId !== undefined) {
@@ -640,12 +796,15 @@ export class LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig | undefined) {
+  public set internalValue(
+    value:
+      | LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._consumerGroupId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._consumerGroupId = value.consumerGroupId;
     }
@@ -669,24 +828,32 @@ export class LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputRefe
 }
 export interface LambdaEventSourceMappingSourceAccessConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#type LambdaEventSourceMapping#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#type LambdaEventSourceMapping#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#uri LambdaEventSourceMapping#uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping#uri LambdaEventSourceMapping#uri}
+   */
   readonly uri: string;
 }
 
-export function lambdaEventSourceMappingSourceAccessConfigurationToTerraform(struct?: LambdaEventSourceMappingSourceAccessConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaEventSourceMappingSourceAccessConfigurationToTerraform(
+  struct?:
+    | LambdaEventSourceMappingSourceAccessConfiguration
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
     uri: cdktf.stringToTerraform(struct!.uri),
-  }
+  };
 }
 
 export class LambdaEventSourceMappingSourceAccessConfigurationOutputReference extends cdktf.ComplexObject {
@@ -694,16 +861,29 @@ export class LambdaEventSourceMappingSourceAccessConfigurationOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): LambdaEventSourceMappingSourceAccessConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LambdaEventSourceMappingSourceAccessConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -720,18 +900,21 @@ export class LambdaEventSourceMappingSourceAccessConfigurationOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaEventSourceMappingSourceAccessConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | LambdaEventSourceMappingSourceAccessConfiguration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._type = undefined;
       this._uri = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -767,53 +950,69 @@ export class LambdaEventSourceMappingSourceAccessConfigurationOutputReference ex
 }
 
 export class LambdaEventSourceMappingSourceAccessConfigurationList extends cdktf.ComplexList {
-  public internalValue? : LambdaEventSourceMappingSourceAccessConfiguration[] | cdktf.IResolvable
+  public internalValue?:
+    | LambdaEventSourceMappingSourceAccessConfiguration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): LambdaEventSourceMappingSourceAccessConfigurationOutputReference {
-    return new LambdaEventSourceMappingSourceAccessConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): LambdaEventSourceMappingSourceAccessConfigurationOutputReference {
+    return new LambdaEventSourceMappingSourceAccessConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping aws_lambda_event_source_mapping}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping aws_lambda_event_source_mapping}
+ */
 export class LambdaEventSourceMapping extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lambda_event_source_mapping";
+  public static readonly tfResourceType = 'aws_lambda_event_source_mapping';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping aws_lambda_event_source_mapping} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LambdaEventSourceMappingConfig
-  */
-  public constructor(scope: Construct, id: string, config: LambdaEventSourceMappingConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping aws_lambda_event_source_mapping} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LambdaEventSourceMappingConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LambdaEventSourceMappingConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_event_source_mapping',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -821,7 +1020,7 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._batchSize = config.batchSize;
     this._bisectBatchOnFunctionError = config.bisectBatchOnFunctionError;
@@ -830,7 +1029,8 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
     this._functionName = config.functionName;
     this._functionResponseTypes = config.functionResponseTypes;
     this._id = config.id;
-    this._maximumBatchingWindowInSeconds = config.maximumBatchingWindowInSeconds;
+    this._maximumBatchingWindowInSeconds =
+      config.maximumBatchingWindowInSeconds;
     this._maximumRecordAgeInSeconds = config.maximumRecordAgeInSeconds;
     this._maximumRetryAttempts = config.maximumRetryAttempts;
     this._parallelizationFactor = config.parallelizationFactor;
@@ -839,13 +1039,16 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
     this._startingPositionTimestamp = config.startingPositionTimestamp;
     this._topics = config.topics;
     this._tumblingWindowInSeconds = config.tumblingWindowInSeconds;
-    this._amazonManagedKafkaEventSourceConfig.internalValue = config.amazonManagedKafkaEventSourceConfig;
+    this._amazonManagedKafkaEventSourceConfig.internalValue =
+      config.amazonManagedKafkaEventSourceConfig;
     this._destinationConfig.internalValue = config.destinationConfig;
     this._filterCriteria.internalValue = config.filterCriteria;
     this._scalingConfig.internalValue = config.scalingConfig;
     this._selfManagedEventSource.internalValue = config.selfManagedEventSource;
-    this._selfManagedKafkaEventSourceConfig.internalValue = config.selfManagedKafkaEventSourceConfig;
-    this._sourceAccessConfiguration.internalValue = config.sourceAccessConfiguration;
+    this._selfManagedKafkaEventSourceConfig.internalValue =
+      config.selfManagedKafkaEventSourceConfig;
+    this._sourceAccessConfiguration.internalValue =
+      config.sourceAccessConfiguration;
   }
 
   // ==========
@@ -1136,11 +1339,17 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // amazon_managed_kafka_event_source_config - computed: false, optional: true, required: false
-  private _amazonManagedKafkaEventSourceConfig = new LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputReference(this, "amazon_managed_kafka_event_source_config");
+  private _amazonManagedKafkaEventSourceConfig =
+    new LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputReference(
+      this,
+      'amazon_managed_kafka_event_source_config',
+    );
   public get amazonManagedKafkaEventSourceConfig() {
     return this._amazonManagedKafkaEventSourceConfig;
   }
-  public putAmazonManagedKafkaEventSourceConfig(value: LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig) {
+  public putAmazonManagedKafkaEventSourceConfig(
+    value: LambdaEventSourceMappingAmazonManagedKafkaEventSourceConfig,
+  ) {
     this._amazonManagedKafkaEventSourceConfig.internalValue = value;
   }
   public resetAmazonManagedKafkaEventSourceConfig() {
@@ -1152,11 +1361,17 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // destination_config - computed: false, optional: true, required: false
-  private _destinationConfig = new LambdaEventSourceMappingDestinationConfigOutputReference(this, "destination_config");
+  private _destinationConfig =
+    new LambdaEventSourceMappingDestinationConfigOutputReference(
+      this,
+      'destination_config',
+    );
   public get destinationConfig() {
     return this._destinationConfig;
   }
-  public putDestinationConfig(value: LambdaEventSourceMappingDestinationConfig) {
+  public putDestinationConfig(
+    value: LambdaEventSourceMappingDestinationConfig,
+  ) {
     this._destinationConfig.internalValue = value;
   }
   public resetDestinationConfig() {
@@ -1168,7 +1383,11 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // filter_criteria - computed: false, optional: true, required: false
-  private _filterCriteria = new LambdaEventSourceMappingFilterCriteriaOutputReference(this, "filter_criteria");
+  private _filterCriteria =
+    new LambdaEventSourceMappingFilterCriteriaOutputReference(
+      this,
+      'filter_criteria',
+    );
   public get filterCriteria() {
     return this._filterCriteria;
   }
@@ -1184,7 +1403,11 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // scaling_config - computed: false, optional: true, required: false
-  private _scalingConfig = new LambdaEventSourceMappingScalingConfigOutputReference(this, "scaling_config");
+  private _scalingConfig =
+    new LambdaEventSourceMappingScalingConfigOutputReference(
+      this,
+      'scaling_config',
+    );
   public get scalingConfig() {
     return this._scalingConfig;
   }
@@ -1200,11 +1423,17 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // self_managed_event_source - computed: false, optional: true, required: false
-  private _selfManagedEventSource = new LambdaEventSourceMappingSelfManagedEventSourceOutputReference(this, "self_managed_event_source");
+  private _selfManagedEventSource =
+    new LambdaEventSourceMappingSelfManagedEventSourceOutputReference(
+      this,
+      'self_managed_event_source',
+    );
   public get selfManagedEventSource() {
     return this._selfManagedEventSource;
   }
-  public putSelfManagedEventSource(value: LambdaEventSourceMappingSelfManagedEventSource) {
+  public putSelfManagedEventSource(
+    value: LambdaEventSourceMappingSelfManagedEventSource,
+  ) {
     this._selfManagedEventSource.internalValue = value;
   }
   public resetSelfManagedEventSource() {
@@ -1216,11 +1445,17 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // self_managed_kafka_event_source_config - computed: false, optional: true, required: false
-  private _selfManagedKafkaEventSourceConfig = new LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputReference(this, "self_managed_kafka_event_source_config");
+  private _selfManagedKafkaEventSourceConfig =
+    new LambdaEventSourceMappingSelfManagedKafkaEventSourceConfigOutputReference(
+      this,
+      'self_managed_kafka_event_source_config',
+    );
   public get selfManagedKafkaEventSourceConfig() {
     return this._selfManagedKafkaEventSourceConfig;
   }
-  public putSelfManagedKafkaEventSourceConfig(value: LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig) {
+  public putSelfManagedKafkaEventSourceConfig(
+    value: LambdaEventSourceMappingSelfManagedKafkaEventSourceConfig,
+  ) {
     this._selfManagedKafkaEventSourceConfig.internalValue = value;
   }
   public resetSelfManagedKafkaEventSourceConfig() {
@@ -1232,11 +1467,20 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   }
 
   // source_access_configuration - computed: false, optional: true, required: false
-  private _sourceAccessConfiguration = new LambdaEventSourceMappingSourceAccessConfigurationList(this, "source_access_configuration", true);
+  private _sourceAccessConfiguration =
+    new LambdaEventSourceMappingSourceAccessConfigurationList(
+      this,
+      'source_access_configuration',
+      true,
+    );
   public get sourceAccessConfiguration() {
     return this._sourceAccessConfiguration;
   }
-  public putSourceAccessConfiguration(value: LambdaEventSourceMappingSourceAccessConfiguration[] | cdktf.IResolvable) {
+  public putSourceAccessConfiguration(
+    value:
+      | LambdaEventSourceMappingSourceAccessConfiguration[]
+      | cdktf.IResolvable,
+  ) {
     this._sourceAccessConfiguration.internalValue = value;
   }
   public resetSourceAccessConfiguration() {
@@ -1254,28 +1498,63 @@ export class LambdaEventSourceMapping extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       batch_size: cdktf.numberToTerraform(this._batchSize),
-      bisect_batch_on_function_error: cdktf.booleanToTerraform(this._bisectBatchOnFunctionError),
+      bisect_batch_on_function_error: cdktf.booleanToTerraform(
+        this._bisectBatchOnFunctionError,
+      ),
       enabled: cdktf.booleanToTerraform(this._enabled),
       event_source_arn: cdktf.stringToTerraform(this._eventSourceArn),
       function_name: cdktf.stringToTerraform(this._functionName),
-      function_response_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._functionResponseTypes),
+      function_response_types: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._functionResponseTypes),
       id: cdktf.stringToTerraform(this._id),
-      maximum_batching_window_in_seconds: cdktf.numberToTerraform(this._maximumBatchingWindowInSeconds),
-      maximum_record_age_in_seconds: cdktf.numberToTerraform(this._maximumRecordAgeInSeconds),
-      maximum_retry_attempts: cdktf.numberToTerraform(this._maximumRetryAttempts),
-      parallelization_factor: cdktf.numberToTerraform(this._parallelizationFactor),
+      maximum_batching_window_in_seconds: cdktf.numberToTerraform(
+        this._maximumBatchingWindowInSeconds,
+      ),
+      maximum_record_age_in_seconds: cdktf.numberToTerraform(
+        this._maximumRecordAgeInSeconds,
+      ),
+      maximum_retry_attempts: cdktf.numberToTerraform(
+        this._maximumRetryAttempts,
+      ),
+      parallelization_factor: cdktf.numberToTerraform(
+        this._parallelizationFactor,
+      ),
       queues: cdktf.listMapper(cdktf.stringToTerraform, false)(this._queues),
       starting_position: cdktf.stringToTerraform(this._startingPosition),
-      starting_position_timestamp: cdktf.stringToTerraform(this._startingPositionTimestamp),
+      starting_position_timestamp: cdktf.stringToTerraform(
+        this._startingPositionTimestamp,
+      ),
       topics: cdktf.listMapper(cdktf.stringToTerraform, false)(this._topics),
-      tumbling_window_in_seconds: cdktf.numberToTerraform(this._tumblingWindowInSeconds),
-      amazon_managed_kafka_event_source_config: lambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigToTerraform(this._amazonManagedKafkaEventSourceConfig.internalValue),
-      destination_config: lambdaEventSourceMappingDestinationConfigToTerraform(this._destinationConfig.internalValue),
-      filter_criteria: lambdaEventSourceMappingFilterCriteriaToTerraform(this._filterCriteria.internalValue),
-      scaling_config: lambdaEventSourceMappingScalingConfigToTerraform(this._scalingConfig.internalValue),
-      self_managed_event_source: lambdaEventSourceMappingSelfManagedEventSourceToTerraform(this._selfManagedEventSource.internalValue),
-      self_managed_kafka_event_source_config: lambdaEventSourceMappingSelfManagedKafkaEventSourceConfigToTerraform(this._selfManagedKafkaEventSourceConfig.internalValue),
-      source_access_configuration: cdktf.listMapper(lambdaEventSourceMappingSourceAccessConfigurationToTerraform, true)(this._sourceAccessConfiguration.internalValue),
+      tumbling_window_in_seconds: cdktf.numberToTerraform(
+        this._tumblingWindowInSeconds,
+      ),
+      amazon_managed_kafka_event_source_config:
+        lambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigToTerraform(
+          this._amazonManagedKafkaEventSourceConfig.internalValue,
+        ),
+      destination_config: lambdaEventSourceMappingDestinationConfigToTerraform(
+        this._destinationConfig.internalValue,
+      ),
+      filter_criteria: lambdaEventSourceMappingFilterCriteriaToTerraform(
+        this._filterCriteria.internalValue,
+      ),
+      scaling_config: lambdaEventSourceMappingScalingConfigToTerraform(
+        this._scalingConfig.internalValue,
+      ),
+      self_managed_event_source:
+        lambdaEventSourceMappingSelfManagedEventSourceToTerraform(
+          this._selfManagedEventSource.internalValue,
+        ),
+      self_managed_kafka_event_source_config:
+        lambdaEventSourceMappingSelfManagedKafkaEventSourceConfigToTerraform(
+          this._selfManagedKafkaEventSourceConfig.internalValue,
+        ),
+      source_access_configuration: cdktf.listMapper(
+        lambdaEventSourceMappingSourceAccessConfigurationToTerraform,
+        true,
+      )(this._sourceAccessConfiguration.internalValue),
     };
   }
 }

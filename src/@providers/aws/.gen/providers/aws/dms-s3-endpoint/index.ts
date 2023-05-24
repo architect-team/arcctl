@@ -2,237 +2,246 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface DmsS3EndpointConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#add_column_name DmsS3Endpoint#add_column_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#add_column_name DmsS3Endpoint#add_column_name}
+   */
   readonly addColumnName?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#add_trailing_padding_character DmsS3Endpoint#add_trailing_padding_character}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#add_trailing_padding_character DmsS3Endpoint#add_trailing_padding_character}
+   */
   readonly addTrailingPaddingCharacter?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#bucket_folder DmsS3Endpoint#bucket_folder}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#bucket_folder DmsS3Endpoint#bucket_folder}
+   */
   readonly bucketFolder?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#bucket_name DmsS3Endpoint#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#bucket_name DmsS3Endpoint#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#canned_acl_for_objects DmsS3Endpoint#canned_acl_for_objects}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#canned_acl_for_objects DmsS3Endpoint#canned_acl_for_objects}
+   */
   readonly cannedAclForObjects?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_inserts_and_updates DmsS3Endpoint#cdc_inserts_and_updates}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_inserts_and_updates DmsS3Endpoint#cdc_inserts_and_updates}
+   */
   readonly cdcInsertsAndUpdates?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_inserts_only DmsS3Endpoint#cdc_inserts_only}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_inserts_only DmsS3Endpoint#cdc_inserts_only}
+   */
   readonly cdcInsertsOnly?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_max_batch_interval DmsS3Endpoint#cdc_max_batch_interval}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_max_batch_interval DmsS3Endpoint#cdc_max_batch_interval}
+   */
   readonly cdcMaxBatchInterval?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_min_file_size DmsS3Endpoint#cdc_min_file_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_min_file_size DmsS3Endpoint#cdc_min_file_size}
+   */
   readonly cdcMinFileSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_path DmsS3Endpoint#cdc_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#cdc_path DmsS3Endpoint#cdc_path}
+   */
   readonly cdcPath?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#certificate_arn DmsS3Endpoint#certificate_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#certificate_arn DmsS3Endpoint#certificate_arn}
+   */
   readonly certificateArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#compression_type DmsS3Endpoint#compression_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#compression_type DmsS3Endpoint#compression_type}
+   */
   readonly compressionType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_delimiter DmsS3Endpoint#csv_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_delimiter DmsS3Endpoint#csv_delimiter}
+   */
   readonly csvDelimiter?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_no_sup_value DmsS3Endpoint#csv_no_sup_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_no_sup_value DmsS3Endpoint#csv_no_sup_value}
+   */
   readonly csvNoSupValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_null_value DmsS3Endpoint#csv_null_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_null_value DmsS3Endpoint#csv_null_value}
+   */
   readonly csvNullValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_row_delimiter DmsS3Endpoint#csv_row_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#csv_row_delimiter DmsS3Endpoint#csv_row_delimiter}
+   */
   readonly csvRowDelimiter?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#data_format DmsS3Endpoint#data_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#data_format DmsS3Endpoint#data_format}
+   */
   readonly dataFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#data_page_size DmsS3Endpoint#data_page_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#data_page_size DmsS3Endpoint#data_page_size}
+   */
   readonly dataPageSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_delimiter DmsS3Endpoint#date_partition_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_delimiter DmsS3Endpoint#date_partition_delimiter}
+   */
   readonly datePartitionDelimiter?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_enabled DmsS3Endpoint#date_partition_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_enabled DmsS3Endpoint#date_partition_enabled}
+   */
   readonly datePartitionEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_sequence DmsS3Endpoint#date_partition_sequence}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_sequence DmsS3Endpoint#date_partition_sequence}
+   */
   readonly datePartitionSequence?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_timezone DmsS3Endpoint#date_partition_timezone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#date_partition_timezone DmsS3Endpoint#date_partition_timezone}
+   */
   readonly datePartitionTimezone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#detach_target_on_lob_lookup_failure_parquet DmsS3Endpoint#detach_target_on_lob_lookup_failure_parquet}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#detach_target_on_lob_lookup_failure_parquet DmsS3Endpoint#detach_target_on_lob_lookup_failure_parquet}
+   */
   readonly detachTargetOnLobLookupFailureParquet?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#dict_page_size_limit DmsS3Endpoint#dict_page_size_limit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#dict_page_size_limit DmsS3Endpoint#dict_page_size_limit}
+   */
   readonly dictPageSizeLimit?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#enable_statistics DmsS3Endpoint#enable_statistics}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#enable_statistics DmsS3Endpoint#enable_statistics}
+   */
   readonly enableStatistics?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#encoding_type DmsS3Endpoint#encoding_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#encoding_type DmsS3Endpoint#encoding_type}
+   */
   readonly encodingType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#encryption_mode DmsS3Endpoint#encryption_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#encryption_mode DmsS3Endpoint#encryption_mode}
+   */
   readonly encryptionMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#endpoint_id DmsS3Endpoint#endpoint_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#endpoint_id DmsS3Endpoint#endpoint_id}
+   */
   readonly endpointId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#endpoint_type DmsS3Endpoint#endpoint_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#endpoint_type DmsS3Endpoint#endpoint_type}
+   */
   readonly endpointType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#expected_bucket_owner DmsS3Endpoint#expected_bucket_owner}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#expected_bucket_owner DmsS3Endpoint#expected_bucket_owner}
+   */
   readonly expectedBucketOwner?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#external_table_definition DmsS3Endpoint#external_table_definition}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#external_table_definition DmsS3Endpoint#external_table_definition}
+   */
   readonly externalTableDefinition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#id DmsS3Endpoint#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#id DmsS3Endpoint#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#ignore_header_rows DmsS3Endpoint#ignore_header_rows}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#ignore_header_rows DmsS3Endpoint#ignore_header_rows}
+   */
   readonly ignoreHeaderRows?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#include_op_for_full_load DmsS3Endpoint#include_op_for_full_load}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#include_op_for_full_load DmsS3Endpoint#include_op_for_full_load}
+   */
   readonly includeOpForFullLoad?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#kms_key_arn DmsS3Endpoint#kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#kms_key_arn DmsS3Endpoint#kms_key_arn}
+   */
   readonly kmsKeyArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#max_file_size DmsS3Endpoint#max_file_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#max_file_size DmsS3Endpoint#max_file_size}
+   */
   readonly maxFileSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#parquet_timestamp_in_millisecond DmsS3Endpoint#parquet_timestamp_in_millisecond}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#parquet_timestamp_in_millisecond DmsS3Endpoint#parquet_timestamp_in_millisecond}
+   */
   readonly parquetTimestampInMillisecond?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#parquet_version DmsS3Endpoint#parquet_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#parquet_version DmsS3Endpoint#parquet_version}
+   */
   readonly parquetVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#preserve_transactions DmsS3Endpoint#preserve_transactions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#preserve_transactions DmsS3Endpoint#preserve_transactions}
+   */
   readonly preserveTransactions?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#rfc_4180 DmsS3Endpoint#rfc_4180}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#rfc_4180 DmsS3Endpoint#rfc_4180}
+   */
   readonly rfc4180?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#row_group_length DmsS3Endpoint#row_group_length}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#row_group_length DmsS3Endpoint#row_group_length}
+   */
   readonly rowGroupLength?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#server_side_encryption_kms_key_id DmsS3Endpoint#server_side_encryption_kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#server_side_encryption_kms_key_id DmsS3Endpoint#server_side_encryption_kms_key_id}
+   */
   readonly serverSideEncryptionKmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#service_access_role_arn DmsS3Endpoint#service_access_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#service_access_role_arn DmsS3Endpoint#service_access_role_arn}
+   */
   readonly serviceAccessRoleArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#ssl_mode DmsS3Endpoint#ssl_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#ssl_mode DmsS3Endpoint#ssl_mode}
+   */
   readonly sslMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#tags DmsS3Endpoint#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#tags DmsS3Endpoint#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#tags_all DmsS3Endpoint#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#tags_all DmsS3Endpoint#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#timestamp_column_name DmsS3Endpoint#timestamp_column_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#timestamp_column_name DmsS3Endpoint#timestamp_column_name}
+   */
   readonly timestampColumnName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#use_csv_no_sup_value DmsS3Endpoint#use_csv_no_sup_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#use_csv_no_sup_value DmsS3Endpoint#use_csv_no_sup_value}
+   */
   readonly useCsvNoSupValue?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#use_task_start_time_for_full_load_timestamp DmsS3Endpoint#use_task_start_time_for_full_load_timestamp}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#use_task_start_time_for_full_load_timestamp DmsS3Endpoint#use_task_start_time_for_full_load_timestamp}
+   */
   readonly useTaskStartTimeForFullLoadTimestamp?: boolean | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#timeouts DmsS3Endpoint#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#timeouts DmsS3Endpoint#timeouts}
+   */
   readonly timeouts?: DmsS3EndpointTimeouts;
 }
 export interface DmsS3EndpointTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#create DmsS3Endpoint#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#create DmsS3Endpoint#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#delete DmsS3Endpoint#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint#delete DmsS3Endpoint#delete}
+   */
   readonly delete?: string;
 }
 
-export function dmsS3EndpointTimeoutsToTerraform(struct?: DmsS3EndpointTimeoutsOutputReference | DmsS3EndpointTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dmsS3EndpointTimeoutsToTerraform(
+  struct?:
+    | DmsS3EndpointTimeoutsOutputReference
+    | DmsS3EndpointTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class DmsS3EndpointTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -240,14 +249,20 @@ export class DmsS3EndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DmsS3EndpointTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DmsS3EndpointTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -264,18 +279,18 @@ export class DmsS3EndpointTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DmsS3EndpointTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DmsS3EndpointTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -317,33 +332,36 @@ export class DmsS3EndpointTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint aws_dms_s3_endpoint}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint aws_dms_s3_endpoint}
+ */
 export class DmsS3Endpoint extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_dms_s3_endpoint";
+  public static readonly tfResourceType = 'aws_dms_s3_endpoint';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint aws_dms_s3_endpoint} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DmsS3EndpointConfig
-  */
-  public constructor(scope: Construct, id: string, config: DmsS3EndpointConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dms_s3_endpoint aws_dms_s3_endpoint} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DmsS3EndpointConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DmsS3EndpointConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_dms_s3_endpoint',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -351,7 +369,7 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._addColumnName = config.addColumnName;
     this._addTrailingPaddingCharacter = config.addTrailingPaddingCharacter;
@@ -375,7 +393,8 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
     this._datePartitionEnabled = config.datePartitionEnabled;
     this._datePartitionSequence = config.datePartitionSequence;
     this._datePartitionTimezone = config.datePartitionTimezone;
-    this._detachTargetOnLobLookupFailureParquet = config.detachTargetOnLobLookupFailureParquet;
+    this._detachTargetOnLobLookupFailureParquet =
+      config.detachTargetOnLobLookupFailureParquet;
     this._dictPageSizeLimit = config.dictPageSizeLimit;
     this._enableStatistics = config.enableStatistics;
     this._encodingType = config.encodingType;
@@ -401,7 +420,8 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
     this._tagsAll = config.tagsAll;
     this._timestampColumnName = config.timestampColumnName;
     this._useCsvNoSupValue = config.useCsvNoSupValue;
-    this._useTaskStartTimeForFullLoadTimestamp = config.useTaskStartTimeForFullLoadTimestamp;
+    this._useTaskStartTimeForFullLoadTimestamp =
+      config.useTaskStartTimeForFullLoadTimestamp;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -761,9 +781,13 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   // detach_target_on_lob_lookup_failure_parquet - computed: false, optional: true, required: false
   private _detachTargetOnLobLookupFailureParquet?: boolean | cdktf.IResolvable;
   public get detachTargetOnLobLookupFailureParquet() {
-    return this.getBooleanAttribute('detach_target_on_lob_lookup_failure_parquet');
+    return this.getBooleanAttribute(
+      'detach_target_on_lob_lookup_failure_parquet',
+    );
   }
-  public set detachTargetOnLobLookupFailureParquet(value: boolean | cdktf.IResolvable) {
+  public set detachTargetOnLobLookupFailureParquet(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._detachTargetOnLobLookupFailureParquet = value;
   }
   public resetDetachTargetOnLobLookupFailureParquet() {
@@ -1188,9 +1212,13 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   // use_task_start_time_for_full_load_timestamp - computed: false, optional: true, required: false
   private _useTaskStartTimeForFullLoadTimestamp?: boolean | cdktf.IResolvable;
   public get useTaskStartTimeForFullLoadTimestamp() {
-    return this.getBooleanAttribute('use_task_start_time_for_full_load_timestamp');
+    return this.getBooleanAttribute(
+      'use_task_start_time_for_full_load_timestamp',
+    );
   }
-  public set useTaskStartTimeForFullLoadTimestamp(value: boolean | cdktf.IResolvable) {
+  public set useTaskStartTimeForFullLoadTimestamp(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._useTaskStartTimeForFullLoadTimestamp = value;
   }
   public resetUseTaskStartTimeForFullLoadTimestamp() {
@@ -1202,7 +1230,10 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DmsS3EndpointTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DmsS3EndpointTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -1224,13 +1255,21 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       add_column_name: cdktf.booleanToTerraform(this._addColumnName),
-      add_trailing_padding_character: cdktf.booleanToTerraform(this._addTrailingPaddingCharacter),
+      add_trailing_padding_character: cdktf.booleanToTerraform(
+        this._addTrailingPaddingCharacter,
+      ),
       bucket_folder: cdktf.stringToTerraform(this._bucketFolder),
       bucket_name: cdktf.stringToTerraform(this._bucketName),
-      canned_acl_for_objects: cdktf.stringToTerraform(this._cannedAclForObjects),
-      cdc_inserts_and_updates: cdktf.booleanToTerraform(this._cdcInsertsAndUpdates),
+      canned_acl_for_objects: cdktf.stringToTerraform(
+        this._cannedAclForObjects,
+      ),
+      cdc_inserts_and_updates: cdktf.booleanToTerraform(
+        this._cdcInsertsAndUpdates,
+      ),
       cdc_inserts_only: cdktf.booleanToTerraform(this._cdcInsertsOnly),
-      cdc_max_batch_interval: cdktf.numberToTerraform(this._cdcMaxBatchInterval),
+      cdc_max_batch_interval: cdktf.numberToTerraform(
+        this._cdcMaxBatchInterval,
+      ),
       cdc_min_file_size: cdktf.numberToTerraform(this._cdcMinFileSize),
       cdc_path: cdktf.stringToTerraform(this._cdcPath),
       certificate_arn: cdktf.stringToTerraform(this._certificateArn),
@@ -1241,11 +1280,21 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
       csv_row_delimiter: cdktf.stringToTerraform(this._csvRowDelimiter),
       data_format: cdktf.stringToTerraform(this._dataFormat),
       data_page_size: cdktf.numberToTerraform(this._dataPageSize),
-      date_partition_delimiter: cdktf.stringToTerraform(this._datePartitionDelimiter),
-      date_partition_enabled: cdktf.booleanToTerraform(this._datePartitionEnabled),
-      date_partition_sequence: cdktf.stringToTerraform(this._datePartitionSequence),
-      date_partition_timezone: cdktf.stringToTerraform(this._datePartitionTimezone),
-      detach_target_on_lob_lookup_failure_parquet: cdktf.booleanToTerraform(this._detachTargetOnLobLookupFailureParquet),
+      date_partition_delimiter: cdktf.stringToTerraform(
+        this._datePartitionDelimiter,
+      ),
+      date_partition_enabled: cdktf.booleanToTerraform(
+        this._datePartitionEnabled,
+      ),
+      date_partition_sequence: cdktf.stringToTerraform(
+        this._datePartitionSequence,
+      ),
+      date_partition_timezone: cdktf.stringToTerraform(
+        this._datePartitionTimezone,
+      ),
+      detach_target_on_lob_lookup_failure_parquet: cdktf.booleanToTerraform(
+        this._detachTargetOnLobLookupFailureParquet,
+      ),
       dict_page_size_limit: cdktf.numberToTerraform(this._dictPageSizeLimit),
       enable_statistics: cdktf.booleanToTerraform(this._enableStatistics),
       encoding_type: cdktf.stringToTerraform(this._encodingType),
@@ -1253,25 +1302,39 @@ export class DmsS3Endpoint extends cdktf.TerraformResource {
       endpoint_id: cdktf.stringToTerraform(this._endpointId),
       endpoint_type: cdktf.stringToTerraform(this._endpointType),
       expected_bucket_owner: cdktf.stringToTerraform(this._expectedBucketOwner),
-      external_table_definition: cdktf.stringToTerraform(this._externalTableDefinition),
+      external_table_definition: cdktf.stringToTerraform(
+        this._externalTableDefinition,
+      ),
       id: cdktf.stringToTerraform(this._id),
       ignore_header_rows: cdktf.numberToTerraform(this._ignoreHeaderRows),
-      include_op_for_full_load: cdktf.booleanToTerraform(this._includeOpForFullLoad),
+      include_op_for_full_load: cdktf.booleanToTerraform(
+        this._includeOpForFullLoad,
+      ),
       kms_key_arn: cdktf.stringToTerraform(this._kmsKeyArn),
       max_file_size: cdktf.numberToTerraform(this._maxFileSize),
-      parquet_timestamp_in_millisecond: cdktf.booleanToTerraform(this._parquetTimestampInMillisecond),
+      parquet_timestamp_in_millisecond: cdktf.booleanToTerraform(
+        this._parquetTimestampInMillisecond,
+      ),
       parquet_version: cdktf.stringToTerraform(this._parquetVersion),
-      preserve_transactions: cdktf.booleanToTerraform(this._preserveTransactions),
+      preserve_transactions: cdktf.booleanToTerraform(
+        this._preserveTransactions,
+      ),
       rfc_4180: cdktf.booleanToTerraform(this._rfc4180),
       row_group_length: cdktf.numberToTerraform(this._rowGroupLength),
-      server_side_encryption_kms_key_id: cdktf.stringToTerraform(this._serverSideEncryptionKmsKeyId),
-      service_access_role_arn: cdktf.stringToTerraform(this._serviceAccessRoleArn),
+      server_side_encryption_kms_key_id: cdktf.stringToTerraform(
+        this._serverSideEncryptionKmsKeyId,
+      ),
+      service_access_role_arn: cdktf.stringToTerraform(
+        this._serviceAccessRoleArn,
+      ),
       ssl_mode: cdktf.stringToTerraform(this._sslMode),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       timestamp_column_name: cdktf.stringToTerraform(this._timestampColumnName),
       use_csv_no_sup_value: cdktf.booleanToTerraform(this._useCsvNoSupValue),
-      use_task_start_time_for_full_load_timestamp: cdktf.booleanToTerraform(this._useTaskStartTimeForFullLoadTimestamp),
+      use_task_start_time_for_full_load_timestamp: cdktf.booleanToTerraform(
+        this._useTaskStartTimeForFullLoadTimestamp,
+      ),
       timeouts: dmsS3EndpointTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

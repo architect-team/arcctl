@@ -2,74 +2,90 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface EfsReplicationConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface EfsReplicationConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#id EfsReplicationConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#id EfsReplicationConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#source_file_system_id EfsReplicationConfiguration#source_file_system_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#source_file_system_id EfsReplicationConfiguration#source_file_system_id}
+   */
   readonly sourceFileSystemId: string;
   /**
-  * destination block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#destination EfsReplicationConfiguration#destination}
-  */
+   * destination block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#destination EfsReplicationConfiguration#destination}
+   */
   readonly destination: EfsReplicationConfigurationDestination;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#timeouts EfsReplicationConfiguration#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#timeouts EfsReplicationConfiguration#timeouts}
+   */
   readonly timeouts?: EfsReplicationConfigurationTimeouts;
 }
 export interface EfsReplicationConfigurationDestination {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#availability_zone_name EfsReplicationConfiguration#availability_zone_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#availability_zone_name EfsReplicationConfiguration#availability_zone_name}
+   */
   readonly availabilityZoneName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#kms_key_id EfsReplicationConfiguration#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#kms_key_id EfsReplicationConfiguration#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#region EfsReplicationConfiguration#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#region EfsReplicationConfiguration#region}
+   */
   readonly region?: string;
 }
 
-export function efsReplicationConfigurationDestinationToTerraform(struct?: EfsReplicationConfigurationDestinationOutputReference | EfsReplicationConfigurationDestination): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function efsReplicationConfigurationDestinationToTerraform(
+  struct?:
+    | EfsReplicationConfigurationDestinationOutputReference
+    | EfsReplicationConfigurationDestination,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    availability_zone_name: cdktf.stringToTerraform(struct!.availabilityZoneName),
+    availability_zone_name: cdktf.stringToTerraform(
+      struct!.availabilityZoneName,
+    ),
     kms_key_id: cdktf.stringToTerraform(struct!.kmsKeyId),
     region: cdktf.stringToTerraform(struct!.region),
-  }
+  };
 }
 
 export class EfsReplicationConfigurationDestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EfsReplicationConfigurationDestination | undefined {
+  public get internalValue():
+    | EfsReplicationConfigurationDestination
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._availabilityZoneName !== undefined) {
@@ -87,14 +103,15 @@ export class EfsReplicationConfigurationDestinationOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EfsReplicationConfigurationDestination | undefined) {
+  public set internalValue(
+    value: EfsReplicationConfigurationDestination | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._availabilityZoneName = undefined;
       this._kmsKeyId = undefined;
       this._region = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._availabilityZoneName = value.availabilityZoneName;
       this._kmsKeyId = value.kmsKeyId;
@@ -162,24 +179,33 @@ export class EfsReplicationConfigurationDestinationOutputReference extends cdktf
 }
 export interface EfsReplicationConfigurationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#create EfsReplicationConfiguration#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#create EfsReplicationConfiguration#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#delete EfsReplicationConfiguration#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration#delete EfsReplicationConfiguration#delete}
+   */
   readonly delete?: string;
 }
 
-export function efsReplicationConfigurationTimeoutsToTerraform(struct?: EfsReplicationConfigurationTimeoutsOutputReference | EfsReplicationConfigurationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function efsReplicationConfigurationTimeoutsToTerraform(
+  struct?:
+    | EfsReplicationConfigurationTimeoutsOutputReference
+    | EfsReplicationConfigurationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class EfsReplicationConfigurationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -187,14 +213,20 @@ export class EfsReplicationConfigurationTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EfsReplicationConfigurationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EfsReplicationConfigurationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -211,18 +243,18 @@ export class EfsReplicationConfigurationTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EfsReplicationConfigurationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EfsReplicationConfigurationTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -264,33 +296,36 @@ export class EfsReplicationConfigurationTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration aws_efs_replication_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration aws_efs_replication_configuration}
+ */
 export class EfsReplicationConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_efs_replication_configuration";
+  public static readonly tfResourceType = 'aws_efs_replication_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration aws_efs_replication_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EfsReplicationConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: EfsReplicationConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/efs_replication_configuration aws_efs_replication_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EfsReplicationConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: EfsReplicationConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_efs_replication_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -298,7 +333,7 @@ export class EfsReplicationConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._sourceFileSystemId = config.sourceFileSystemId;
@@ -360,7 +395,11 @@ export class EfsReplicationConfiguration extends cdktf.TerraformResource {
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination = new EfsReplicationConfigurationDestinationOutputReference(this, "destination");
+  private _destination =
+    new EfsReplicationConfigurationDestinationOutputReference(
+      this,
+      'destination',
+    );
   public get destination() {
     return this._destination;
   }
@@ -373,7 +412,10 @@ export class EfsReplicationConfiguration extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EfsReplicationConfigurationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new EfsReplicationConfigurationTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -396,8 +438,12 @@ export class EfsReplicationConfiguration extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       source_file_system_id: cdktf.stringToTerraform(this._sourceFileSystemId),
-      destination: efsReplicationConfigurationDestinationToTerraform(this._destination.internalValue),
-      timeouts: efsReplicationConfigurationTimeoutsToTerraform(this._timeouts.internalValue),
+      destination: efsReplicationConfigurationDestinationToTerraform(
+        this._destination.internalValue,
+      ),
+      timeouts: efsReplicationConfigurationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

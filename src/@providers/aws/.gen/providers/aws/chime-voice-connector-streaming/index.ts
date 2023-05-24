@@ -2,64 +2,68 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface ChimeVoiceConnectorStreamingConfig extends cdktf.TerraformMetaArguments {
+export interface ChimeVoiceConnectorStreamingConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#data_retention ChimeVoiceConnectorStreaming#data_retention}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#data_retention ChimeVoiceConnectorStreaming#data_retention}
+   */
   readonly dataRetention: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#disabled ChimeVoiceConnectorStreaming#disabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#disabled ChimeVoiceConnectorStreaming#disabled}
+   */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#id ChimeVoiceConnectorStreaming#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#id ChimeVoiceConnectorStreaming#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#streaming_notification_targets ChimeVoiceConnectorStreaming#streaming_notification_targets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#streaming_notification_targets ChimeVoiceConnectorStreaming#streaming_notification_targets}
+   */
   readonly streamingNotificationTargets?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#voice_connector_id ChimeVoiceConnectorStreaming#voice_connector_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming#voice_connector_id ChimeVoiceConnectorStreaming#voice_connector_id}
+   */
   readonly voiceConnectorId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming aws_chime_voice_connector_streaming}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming aws_chime_voice_connector_streaming}
+ */
 export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_chime_voice_connector_streaming";
+  public static readonly tfResourceType = 'aws_chime_voice_connector_streaming';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming aws_chime_voice_connector_streaming} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ChimeVoiceConnectorStreamingConfig
-  */
-  public constructor(scope: Construct, id: string, config: ChimeVoiceConnectorStreamingConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_streaming aws_chime_voice_connector_streaming} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ChimeVoiceConnectorStreamingConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ChimeVoiceConnectorStreamingConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_chime_voice_connector_streaming',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +71,7 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dataRetention = config.dataRetention;
     this._disabled = config.disabled;
@@ -128,7 +132,9 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
   // streaming_notification_targets - computed: false, optional: true, required: false
   private _streamingNotificationTargets?: string[];
   public get streamingNotificationTargets() {
-    return cdktf.Fn.tolist(this.getListAttribute('streaming_notification_targets'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('streaming_notification_targets'),
+    );
   }
   public set streamingNotificationTargets(value: string[]) {
     this._streamingNotificationTargets = value;
@@ -163,7 +169,10 @@ export class ChimeVoiceConnectorStreaming extends cdktf.TerraformResource {
       data_retention: cdktf.numberToTerraform(this._dataRetention),
       disabled: cdktf.booleanToTerraform(this._disabled),
       id: cdktf.stringToTerraform(this._id),
-      streaming_notification_targets: cdktf.listMapper(cdktf.stringToTerraform, false)(this._streamingNotificationTargets),
+      streaming_notification_targets: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._streamingNotificationTargets),
       voice_connector_id: cdktf.stringToTerraform(this._voiceConnectorId),
     };
   }

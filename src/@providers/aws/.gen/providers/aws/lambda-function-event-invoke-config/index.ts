@@ -2,70 +2,84 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface LambdaFunctionEventInvokeConfigConfig extends cdktf.TerraformMetaArguments {
+export interface LambdaFunctionEventInvokeConfigConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#function_name LambdaFunctionEventInvokeConfig#function_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#function_name LambdaFunctionEventInvokeConfig#function_name}
+   */
   readonly functionName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#id LambdaFunctionEventInvokeConfig#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#id LambdaFunctionEventInvokeConfig#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#maximum_event_age_in_seconds LambdaFunctionEventInvokeConfig#maximum_event_age_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#maximum_event_age_in_seconds LambdaFunctionEventInvokeConfig#maximum_event_age_in_seconds}
+   */
   readonly maximumEventAgeInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#maximum_retry_attempts LambdaFunctionEventInvokeConfig#maximum_retry_attempts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#maximum_retry_attempts LambdaFunctionEventInvokeConfig#maximum_retry_attempts}
+   */
   readonly maximumRetryAttempts?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#qualifier LambdaFunctionEventInvokeConfig#qualifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#qualifier LambdaFunctionEventInvokeConfig#qualifier}
+   */
   readonly qualifier?: string;
   /**
-  * destination_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination_config LambdaFunctionEventInvokeConfig#destination_config}
-  */
+   * destination_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination_config LambdaFunctionEventInvokeConfig#destination_config}
+   */
   readonly destinationConfig?: LambdaFunctionEventInvokeConfigDestinationConfig;
 }
 export interface LambdaFunctionEventInvokeConfigDestinationConfigOnFailure {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination LambdaFunctionEventInvokeConfig#destination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination LambdaFunctionEventInvokeConfig#destination}
+   */
   readonly destination: string;
 }
 
-export function lambdaFunctionEventInvokeConfigDestinationConfigOnFailureToTerraform(struct?: LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputReference | LambdaFunctionEventInvokeConfigDestinationConfigOnFailure): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionEventInvokeConfigDestinationConfigOnFailureToTerraform(
+  struct?:
+    | LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputReference
+    | LambdaFunctionEventInvokeConfigDestinationConfigOnFailure,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     destination: cdktf.stringToTerraform(struct!.destination),
-  }
+  };
 }
 
 export class LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaFunctionEventInvokeConfigDestinationConfigOnFailure | undefined {
+  public get internalValue():
+    | LambdaFunctionEventInvokeConfigDestinationConfigOnFailure
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._destination !== undefined) {
@@ -75,12 +89,15 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaFunctionEventInvokeConfigDestinationConfigOnFailure | undefined) {
+  public set internalValue(
+    value:
+      | LambdaFunctionEventInvokeConfigDestinationConfigOnFailure
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._destination = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._destination = value.destination;
     }
@@ -101,33 +118,46 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputRefe
 }
 export interface LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination LambdaFunctionEventInvokeConfig#destination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#destination LambdaFunctionEventInvokeConfig#destination}
+   */
   readonly destination: string;
 }
 
-export function lambdaFunctionEventInvokeConfigDestinationConfigOnSuccessToTerraform(struct?: LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputReference | LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionEventInvokeConfigDestinationConfigOnSuccessToTerraform(
+  struct?:
+    | LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputReference
+    | LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     destination: cdktf.stringToTerraform(struct!.destination),
-  }
+  };
 }
 
 export class LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess | undefined {
+  public get internalValue():
+    | LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._destination !== undefined) {
@@ -137,12 +167,15 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess | undefined) {
+  public set internalValue(
+    value:
+      | LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._destination = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._destination = value.destination;
     }
@@ -163,42 +196,61 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputRefe
 }
 export interface LambdaFunctionEventInvokeConfigDestinationConfig {
   /**
-  * on_failure block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#on_failure LambdaFunctionEventInvokeConfig#on_failure}
-  */
+   * on_failure block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#on_failure LambdaFunctionEventInvokeConfig#on_failure}
+   */
   readonly onFailure?: LambdaFunctionEventInvokeConfigDestinationConfigOnFailure;
   /**
-  * on_success block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#on_success LambdaFunctionEventInvokeConfig#on_success}
-  */
+   * on_success block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config#on_success LambdaFunctionEventInvokeConfig#on_success}
+   */
   readonly onSuccess?: LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess;
 }
 
-export function lambdaFunctionEventInvokeConfigDestinationConfigToTerraform(struct?: LambdaFunctionEventInvokeConfigDestinationConfigOutputReference | LambdaFunctionEventInvokeConfigDestinationConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionEventInvokeConfigDestinationConfigToTerraform(
+  struct?:
+    | LambdaFunctionEventInvokeConfigDestinationConfigOutputReference
+    | LambdaFunctionEventInvokeConfigDestinationConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    on_failure: lambdaFunctionEventInvokeConfigDestinationConfigOnFailureToTerraform(struct!.onFailure),
-    on_success: lambdaFunctionEventInvokeConfigDestinationConfigOnSuccessToTerraform(struct!.onSuccess),
-  }
+    on_failure:
+      lambdaFunctionEventInvokeConfigDestinationConfigOnFailureToTerraform(
+        struct!.onFailure,
+      ),
+    on_success:
+      lambdaFunctionEventInvokeConfigDestinationConfigOnSuccessToTerraform(
+        struct!.onSuccess,
+      ),
+  };
 }
 
 export class LambdaFunctionEventInvokeConfigDestinationConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaFunctionEventInvokeConfigDestinationConfig | undefined {
+  public get internalValue():
+    | LambdaFunctionEventInvokeConfigDestinationConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._onFailure?.internalValue !== undefined) {
@@ -212,13 +264,14 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaFunctionEventInvokeConfigDestinationConfig | undefined) {
+  public set internalValue(
+    value: LambdaFunctionEventInvokeConfigDestinationConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._onFailure.internalValue = undefined;
       this._onSuccess.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._onFailure.internalValue = value.onFailure;
       this._onSuccess.internalValue = value.onSuccess;
@@ -226,11 +279,17 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOutputReference ext
   }
 
   // on_failure - computed: false, optional: true, required: false
-  private _onFailure = new LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputReference(this, "on_failure");
+  private _onFailure =
+    new LambdaFunctionEventInvokeConfigDestinationConfigOnFailureOutputReference(
+      this,
+      'on_failure',
+    );
   public get onFailure() {
     return this._onFailure;
   }
-  public putOnFailure(value: LambdaFunctionEventInvokeConfigDestinationConfigOnFailure) {
+  public putOnFailure(
+    value: LambdaFunctionEventInvokeConfigDestinationConfigOnFailure,
+  ) {
     this._onFailure.internalValue = value;
   }
   public resetOnFailure() {
@@ -242,11 +301,17 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOutputReference ext
   }
 
   // on_success - computed: false, optional: true, required: false
-  private _onSuccess = new LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputReference(this, "on_success");
+  private _onSuccess =
+    new LambdaFunctionEventInvokeConfigDestinationConfigOnSuccessOutputReference(
+      this,
+      'on_success',
+    );
   public get onSuccess() {
     return this._onSuccess;
   }
-  public putOnSuccess(value: LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess) {
+  public putOnSuccess(
+    value: LambdaFunctionEventInvokeConfigDestinationConfigOnSuccess,
+  ) {
     this._onSuccess.internalValue = value;
   }
   public resetOnSuccess() {
@@ -259,33 +324,37 @@ export class LambdaFunctionEventInvokeConfigDestinationConfigOutputReference ext
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config aws_lambda_function_event_invoke_config}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config aws_lambda_function_event_invoke_config}
+ */
 export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lambda_function_event_invoke_config";
+  public static readonly tfResourceType =
+    'aws_lambda_function_event_invoke_config';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config aws_lambda_function_event_invoke_config} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LambdaFunctionEventInvokeConfigConfig
-  */
-  public constructor(scope: Construct, id: string, config: LambdaFunctionEventInvokeConfigConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_function_event_invoke_config aws_lambda_function_event_invoke_config} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LambdaFunctionEventInvokeConfigConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LambdaFunctionEventInvokeConfigConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_function_event_invoke_config',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -293,7 +362,7 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._functionName = config.functionName;
     this._id = config.id;
@@ -385,11 +454,17 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
   }
 
   // destination_config - computed: false, optional: true, required: false
-  private _destinationConfig = new LambdaFunctionEventInvokeConfigDestinationConfigOutputReference(this, "destination_config");
+  private _destinationConfig =
+    new LambdaFunctionEventInvokeConfigDestinationConfigOutputReference(
+      this,
+      'destination_config',
+    );
   public get destinationConfig() {
     return this._destinationConfig;
   }
-  public putDestinationConfig(value: LambdaFunctionEventInvokeConfigDestinationConfig) {
+  public putDestinationConfig(
+    value: LambdaFunctionEventInvokeConfigDestinationConfig,
+  ) {
     this._destinationConfig.internalValue = value;
   }
   public resetDestinationConfig() {
@@ -408,10 +483,17 @@ export class LambdaFunctionEventInvokeConfig extends cdktf.TerraformResource {
     return {
       function_name: cdktf.stringToTerraform(this._functionName),
       id: cdktf.stringToTerraform(this._id),
-      maximum_event_age_in_seconds: cdktf.numberToTerraform(this._maximumEventAgeInSeconds),
-      maximum_retry_attempts: cdktf.numberToTerraform(this._maximumRetryAttempts),
+      maximum_event_age_in_seconds: cdktf.numberToTerraform(
+        this._maximumEventAgeInSeconds,
+      ),
+      maximum_retry_attempts: cdktf.numberToTerraform(
+        this._maximumRetryAttempts,
+      ),
       qualifier: cdktf.stringToTerraform(this._qualifier),
-      destination_config: lambdaFunctionEventInvokeConfigDestinationConfigToTerraform(this._destinationConfig.internalValue),
+      destination_config:
+        lambdaFunctionEventInvokeConfigDestinationConfigToTerraform(
+          this._destinationConfig.internalValue,
+        ),
     };
   }
 }

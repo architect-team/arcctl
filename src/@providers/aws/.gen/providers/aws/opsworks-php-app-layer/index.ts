@@ -2,172 +2,181 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface OpsworksPhpAppLayerConfig extends cdktf.TerraformMetaArguments {
+export interface OpsworksPhpAppLayerConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#auto_assign_elastic_ips OpsworksPhpAppLayer#auto_assign_elastic_ips}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#auto_assign_elastic_ips OpsworksPhpAppLayer#auto_assign_elastic_ips}
+   */
   readonly autoAssignElasticIps?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#auto_assign_public_ips OpsworksPhpAppLayer#auto_assign_public_ips}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#auto_assign_public_ips OpsworksPhpAppLayer#auto_assign_public_ips}
+   */
   readonly autoAssignPublicIps?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#auto_healing OpsworksPhpAppLayer#auto_healing}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#auto_healing OpsworksPhpAppLayer#auto_healing}
+   */
   readonly autoHealing?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_configure_recipes OpsworksPhpAppLayer#custom_configure_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_configure_recipes OpsworksPhpAppLayer#custom_configure_recipes}
+   */
   readonly customConfigureRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_deploy_recipes OpsworksPhpAppLayer#custom_deploy_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_deploy_recipes OpsworksPhpAppLayer#custom_deploy_recipes}
+   */
   readonly customDeployRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_instance_profile_arn OpsworksPhpAppLayer#custom_instance_profile_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_instance_profile_arn OpsworksPhpAppLayer#custom_instance_profile_arn}
+   */
   readonly customInstanceProfileArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_json OpsworksPhpAppLayer#custom_json}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_json OpsworksPhpAppLayer#custom_json}
+   */
   readonly customJson?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_security_group_ids OpsworksPhpAppLayer#custom_security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_security_group_ids OpsworksPhpAppLayer#custom_security_group_ids}
+   */
   readonly customSecurityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_setup_recipes OpsworksPhpAppLayer#custom_setup_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_setup_recipes OpsworksPhpAppLayer#custom_setup_recipes}
+   */
   readonly customSetupRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_shutdown_recipes OpsworksPhpAppLayer#custom_shutdown_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_shutdown_recipes OpsworksPhpAppLayer#custom_shutdown_recipes}
+   */
   readonly customShutdownRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_undeploy_recipes OpsworksPhpAppLayer#custom_undeploy_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#custom_undeploy_recipes OpsworksPhpAppLayer#custom_undeploy_recipes}
+   */
   readonly customUndeployRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#drain_elb_on_shutdown OpsworksPhpAppLayer#drain_elb_on_shutdown}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#drain_elb_on_shutdown OpsworksPhpAppLayer#drain_elb_on_shutdown}
+   */
   readonly drainElbOnShutdown?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#elastic_load_balancer OpsworksPhpAppLayer#elastic_load_balancer}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#elastic_load_balancer OpsworksPhpAppLayer#elastic_load_balancer}
+   */
   readonly elasticLoadBalancer?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#id OpsworksPhpAppLayer#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#id OpsworksPhpAppLayer#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#install_updates_on_boot OpsworksPhpAppLayer#install_updates_on_boot}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#install_updates_on_boot OpsworksPhpAppLayer#install_updates_on_boot}
+   */
   readonly installUpdatesOnBoot?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#instance_shutdown_timeout OpsworksPhpAppLayer#instance_shutdown_timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#instance_shutdown_timeout OpsworksPhpAppLayer#instance_shutdown_timeout}
+   */
   readonly instanceShutdownTimeout?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#name OpsworksPhpAppLayer#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#name OpsworksPhpAppLayer#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#stack_id OpsworksPhpAppLayer#stack_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#stack_id OpsworksPhpAppLayer#stack_id}
+   */
   readonly stackId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#system_packages OpsworksPhpAppLayer#system_packages}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#system_packages OpsworksPhpAppLayer#system_packages}
+   */
   readonly systemPackages?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#tags OpsworksPhpAppLayer#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#tags OpsworksPhpAppLayer#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#tags_all OpsworksPhpAppLayer#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#tags_all OpsworksPhpAppLayer#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#use_ebs_optimized_instances OpsworksPhpAppLayer#use_ebs_optimized_instances}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#use_ebs_optimized_instances OpsworksPhpAppLayer#use_ebs_optimized_instances}
+   */
   readonly useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
   /**
-  * cloudwatch_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#cloudwatch_configuration OpsworksPhpAppLayer#cloudwatch_configuration}
-  */
+   * cloudwatch_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#cloudwatch_configuration OpsworksPhpAppLayer#cloudwatch_configuration}
+   */
   readonly cloudwatchConfiguration?: OpsworksPhpAppLayerCloudwatchConfiguration;
   /**
-  * ebs_volume block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#ebs_volume OpsworksPhpAppLayer#ebs_volume}
-  */
+   * ebs_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#ebs_volume OpsworksPhpAppLayer#ebs_volume}
+   */
   readonly ebsVolume?: OpsworksPhpAppLayerEbsVolume[] | cdktf.IResolvable;
   /**
-  * load_based_auto_scaling block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#load_based_auto_scaling OpsworksPhpAppLayer#load_based_auto_scaling}
-  */
+   * load_based_auto_scaling block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#load_based_auto_scaling OpsworksPhpAppLayer#load_based_auto_scaling}
+   */
   readonly loadBasedAutoScaling?: OpsworksPhpAppLayerLoadBasedAutoScaling;
 }
 export interface OpsworksPhpAppLayerCloudwatchConfigurationLogStreams {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#batch_count OpsworksPhpAppLayer#batch_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#batch_count OpsworksPhpAppLayer#batch_count}
+   */
   readonly batchCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#batch_size OpsworksPhpAppLayer#batch_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#batch_size OpsworksPhpAppLayer#batch_size}
+   */
   readonly batchSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#buffer_duration OpsworksPhpAppLayer#buffer_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#buffer_duration OpsworksPhpAppLayer#buffer_duration}
+   */
   readonly bufferDuration?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#datetime_format OpsworksPhpAppLayer#datetime_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#datetime_format OpsworksPhpAppLayer#datetime_format}
+   */
   readonly datetimeFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#encoding OpsworksPhpAppLayer#encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#encoding OpsworksPhpAppLayer#encoding}
+   */
   readonly encoding?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#file OpsworksPhpAppLayer#file}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#file OpsworksPhpAppLayer#file}
+   */
   readonly file: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#file_fingerprint_lines OpsworksPhpAppLayer#file_fingerprint_lines}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#file_fingerprint_lines OpsworksPhpAppLayer#file_fingerprint_lines}
+   */
   readonly fileFingerprintLines?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#initial_position OpsworksPhpAppLayer#initial_position}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#initial_position OpsworksPhpAppLayer#initial_position}
+   */
   readonly initialPosition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#log_group_name OpsworksPhpAppLayer#log_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#log_group_name OpsworksPhpAppLayer#log_group_name}
+   */
   readonly logGroupName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#multiline_start_pattern OpsworksPhpAppLayer#multiline_start_pattern}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#multiline_start_pattern OpsworksPhpAppLayer#multiline_start_pattern}
+   */
   readonly multilineStartPattern?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#time_zone OpsworksPhpAppLayer#time_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#time_zone OpsworksPhpAppLayer#time_zone}
+   */
   readonly timeZone?: string;
 }
 
-export function opsworksPhpAppLayerCloudwatchConfigurationLogStreamsToTerraform(struct?: OpsworksPhpAppLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksPhpAppLayerCloudwatchConfigurationLogStreamsToTerraform(
+  struct?:
+    | OpsworksPhpAppLayerCloudwatchConfigurationLogStreams
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     batch_count: cdktf.numberToTerraform(struct!.batchCount),
@@ -176,12 +185,16 @@ export function opsworksPhpAppLayerCloudwatchConfigurationLogStreamsToTerraform(
     datetime_format: cdktf.stringToTerraform(struct!.datetimeFormat),
     encoding: cdktf.stringToTerraform(struct!.encoding),
     file: cdktf.stringToTerraform(struct!.file),
-    file_fingerprint_lines: cdktf.stringToTerraform(struct!.fileFingerprintLines),
+    file_fingerprint_lines: cdktf.stringToTerraform(
+      struct!.fileFingerprintLines,
+    ),
     initial_position: cdktf.stringToTerraform(struct!.initialPosition),
     log_group_name: cdktf.stringToTerraform(struct!.logGroupName),
-    multiline_start_pattern: cdktf.stringToTerraform(struct!.multilineStartPattern),
+    multiline_start_pattern: cdktf.stringToTerraform(
+      struct!.multilineStartPattern,
+    ),
     time_zone: cdktf.stringToTerraform(struct!.timeZone),
-  }
+  };
 }
 
 export class OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference extends cdktf.ComplexObject {
@@ -189,16 +202,29 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksPhpAppLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksPhpAppLayerCloudwatchConfigurationLogStreams
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -251,7 +277,12 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksPhpAppLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | OpsworksPhpAppLayerCloudwatchConfigurationLogStreams
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -266,12 +297,10 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference
       this._logGroupName = undefined;
       this._multilineStartPattern = undefined;
       this._timeZone = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._batchCount = value.batchCount;
@@ -460,60 +489,91 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference
 }
 
 export class OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsList extends cdktf.ComplexList {
-  public internalValue? : OpsworksPhpAppLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable
+  public internalValue?:
+    | OpsworksPhpAppLayerCloudwatchConfigurationLogStreams[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference {
-    return new OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference {
+    return new OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface OpsworksPhpAppLayerCloudwatchConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#enabled OpsworksPhpAppLayer#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#enabled OpsworksPhpAppLayer#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * log_streams block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#log_streams OpsworksPhpAppLayer#log_streams}
-  */
-  readonly logStreams?: OpsworksPhpAppLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable;
+   * log_streams block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#log_streams OpsworksPhpAppLayer#log_streams}
+   */
+  readonly logStreams?:
+    | OpsworksPhpAppLayerCloudwatchConfigurationLogStreams[]
+    | cdktf.IResolvable;
 }
 
-export function opsworksPhpAppLayerCloudwatchConfigurationToTerraform(struct?: OpsworksPhpAppLayerCloudwatchConfigurationOutputReference | OpsworksPhpAppLayerCloudwatchConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksPhpAppLayerCloudwatchConfigurationToTerraform(
+  struct?:
+    | OpsworksPhpAppLayerCloudwatchConfigurationOutputReference
+    | OpsworksPhpAppLayerCloudwatchConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    log_streams: cdktf.listMapper(opsworksPhpAppLayerCloudwatchConfigurationLogStreamsToTerraform, true)(struct!.logStreams),
-  }
+    log_streams: cdktf.listMapper(
+      opsworksPhpAppLayerCloudwatchConfigurationLogStreamsToTerraform,
+      true,
+    )(struct!.logStreams),
+  };
 }
 
 export class OpsworksPhpAppLayerCloudwatchConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksPhpAppLayerCloudwatchConfiguration | undefined {
+  public get internalValue():
+    | OpsworksPhpAppLayerCloudwatchConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -527,13 +587,14 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksPhpAppLayerCloudwatchConfiguration | undefined) {
+  public set internalValue(
+    value: OpsworksPhpAppLayerCloudwatchConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._logStreams.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._logStreams.internalValue = value.logStreams;
@@ -557,11 +618,20 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationOutputReference extends c
   }
 
   // log_streams - computed: false, optional: true, required: false
-  private _logStreams = new OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsList(this, "log_streams", false);
+  private _logStreams =
+    new OpsworksPhpAppLayerCloudwatchConfigurationLogStreamsList(
+      this,
+      'log_streams',
+      false,
+    );
   public get logStreams() {
     return this._logStreams;
   }
-  public putLogStreams(value: OpsworksPhpAppLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable) {
+  public putLogStreams(
+    value:
+      | OpsworksPhpAppLayerCloudwatchConfigurationLogStreams[]
+      | cdktf.IResolvable,
+  ) {
     this._logStreams.internalValue = value;
   }
   public resetLogStreams() {
@@ -574,39 +644,45 @@ export class OpsworksPhpAppLayerCloudwatchConfigurationOutputReference extends c
 }
 export interface OpsworksPhpAppLayerEbsVolume {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#encrypted OpsworksPhpAppLayer#encrypted}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#encrypted OpsworksPhpAppLayer#encrypted}
+   */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#iops OpsworksPhpAppLayer#iops}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#iops OpsworksPhpAppLayer#iops}
+   */
   readonly iops?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#mount_point OpsworksPhpAppLayer#mount_point}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#mount_point OpsworksPhpAppLayer#mount_point}
+   */
   readonly mountPoint: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#number_of_disks OpsworksPhpAppLayer#number_of_disks}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#number_of_disks OpsworksPhpAppLayer#number_of_disks}
+   */
   readonly numberOfDisks: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#raid_level OpsworksPhpAppLayer#raid_level}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#raid_level OpsworksPhpAppLayer#raid_level}
+   */
   readonly raidLevel?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#size OpsworksPhpAppLayer#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#size OpsworksPhpAppLayer#size}
+   */
   readonly size: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#type OpsworksPhpAppLayer#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#type OpsworksPhpAppLayer#type}
+   */
   readonly type?: string;
 }
 
-export function opsworksPhpAppLayerEbsVolumeToTerraform(struct?: OpsworksPhpAppLayerEbsVolume | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksPhpAppLayerEbsVolumeToTerraform(
+  struct?: OpsworksPhpAppLayerEbsVolume | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
@@ -616,7 +692,7 @@ export function opsworksPhpAppLayerEbsVolumeToTerraform(struct?: OpsworksPhpAppL
     raid_level: cdktf.stringToTerraform(struct!.raidLevel),
     size: cdktf.numberToTerraform(struct!.size),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class OpsworksPhpAppLayerEbsVolumeOutputReference extends cdktf.ComplexObject {
@@ -624,16 +700,29 @@ export class OpsworksPhpAppLayerEbsVolumeOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksPhpAppLayerEbsVolume | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksPhpAppLayerEbsVolume
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -670,7 +759,9 @@ export class OpsworksPhpAppLayerEbsVolumeOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksPhpAppLayerEbsVolume | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpsworksPhpAppLayerEbsVolume | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -681,12 +772,10 @@ export class OpsworksPhpAppLayerEbsVolumeOutputReference extends cdktf.ComplexOb
       this._raidLevel = undefined;
       this._size = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._encrypted = value.encrypted;
@@ -804,59 +893,76 @@ export class OpsworksPhpAppLayerEbsVolumeOutputReference extends cdktf.ComplexOb
 }
 
 export class OpsworksPhpAppLayerEbsVolumeList extends cdktf.ComplexList {
-  public internalValue? : OpsworksPhpAppLayerEbsVolume[] | cdktf.IResolvable
+  public internalValue?: OpsworksPhpAppLayerEbsVolume[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): OpsworksPhpAppLayerEbsVolumeOutputReference {
-    return new OpsworksPhpAppLayerEbsVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new OpsworksPhpAppLayerEbsVolumeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#alarms OpsworksPhpAppLayer#alarms}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#alarms OpsworksPhpAppLayer#alarms}
+   */
   readonly alarms?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#cpu_threshold OpsworksPhpAppLayer#cpu_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#cpu_threshold OpsworksPhpAppLayer#cpu_threshold}
+   */
   readonly cpuThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#ignore_metrics_time OpsworksPhpAppLayer#ignore_metrics_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#ignore_metrics_time OpsworksPhpAppLayer#ignore_metrics_time}
+   */
   readonly ignoreMetricsTime?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#instance_count OpsworksPhpAppLayer#instance_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#instance_count OpsworksPhpAppLayer#instance_count}
+   */
   readonly instanceCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#load_threshold OpsworksPhpAppLayer#load_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#load_threshold OpsworksPhpAppLayer#load_threshold}
+   */
   readonly loadThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#memory_threshold OpsworksPhpAppLayer#memory_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#memory_threshold OpsworksPhpAppLayer#memory_threshold}
+   */
   readonly memoryThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#thresholds_wait_time OpsworksPhpAppLayer#thresholds_wait_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#thresholds_wait_time OpsworksPhpAppLayer#thresholds_wait_time}
+   */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksPhpAppLayerLoadBasedAutoScalingDownscalingToTerraform(struct?: OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference | OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksPhpAppLayerLoadBasedAutoScalingDownscalingToTerraform(
+  struct?:
+    | OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference
+    | OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -866,21 +972,26 @@ export function opsworksPhpAppLayerLoadBasedAutoScalingDownscalingToTerraform(st
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  }
+  };
 }
 
 export class OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling | undefined {
+  public get internalValue():
+    | OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -914,7 +1025,9 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling | undefined) {
+  public set internalValue(
+    value: OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -924,8 +1037,7 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference e
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1051,39 +1163,47 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference e
 }
 export interface OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#alarms OpsworksPhpAppLayer#alarms}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#alarms OpsworksPhpAppLayer#alarms}
+   */
   readonly alarms?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#cpu_threshold OpsworksPhpAppLayer#cpu_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#cpu_threshold OpsworksPhpAppLayer#cpu_threshold}
+   */
   readonly cpuThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#ignore_metrics_time OpsworksPhpAppLayer#ignore_metrics_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#ignore_metrics_time OpsworksPhpAppLayer#ignore_metrics_time}
+   */
   readonly ignoreMetricsTime?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#instance_count OpsworksPhpAppLayer#instance_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#instance_count OpsworksPhpAppLayer#instance_count}
+   */
   readonly instanceCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#load_threshold OpsworksPhpAppLayer#load_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#load_threshold OpsworksPhpAppLayer#load_threshold}
+   */
   readonly loadThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#memory_threshold OpsworksPhpAppLayer#memory_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#memory_threshold OpsworksPhpAppLayer#memory_threshold}
+   */
   readonly memoryThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#thresholds_wait_time OpsworksPhpAppLayer#thresholds_wait_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#thresholds_wait_time OpsworksPhpAppLayer#thresholds_wait_time}
+   */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksPhpAppLayerLoadBasedAutoScalingUpscalingToTerraform(struct?: OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference | OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksPhpAppLayerLoadBasedAutoScalingUpscalingToTerraform(
+  struct?:
+    | OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference
+    | OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -1093,21 +1213,26 @@ export function opsworksPhpAppLayerLoadBasedAutoScalingUpscalingToTerraform(stru
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  }
+  };
 }
 
 export class OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling | undefined {
+  public get internalValue():
+    | OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -1141,7 +1266,9 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling | undefined) {
+  public set internalValue(
+    value: OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -1151,8 +1278,7 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference ext
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1278,47 +1404,64 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference ext
 }
 export interface OpsworksPhpAppLayerLoadBasedAutoScaling {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#enable OpsworksPhpAppLayer#enable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#enable OpsworksPhpAppLayer#enable}
+   */
   readonly enable?: boolean | cdktf.IResolvable;
   /**
-  * downscaling block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#downscaling OpsworksPhpAppLayer#downscaling}
-  */
+   * downscaling block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#downscaling OpsworksPhpAppLayer#downscaling}
+   */
   readonly downscaling?: OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling;
   /**
-  * upscaling block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#upscaling OpsworksPhpAppLayer#upscaling}
-  */
+   * upscaling block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer#upscaling OpsworksPhpAppLayer#upscaling}
+   */
   readonly upscaling?: OpsworksPhpAppLayerLoadBasedAutoScalingUpscaling;
 }
 
-export function opsworksPhpAppLayerLoadBasedAutoScalingToTerraform(struct?: OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference | OpsworksPhpAppLayerLoadBasedAutoScaling): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksPhpAppLayerLoadBasedAutoScalingToTerraform(
+  struct?:
+    | OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference
+    | OpsworksPhpAppLayerLoadBasedAutoScaling,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-    downscaling: opsworksPhpAppLayerLoadBasedAutoScalingDownscalingToTerraform(struct!.downscaling),
-    upscaling: opsworksPhpAppLayerLoadBasedAutoScalingUpscalingToTerraform(struct!.upscaling),
-  }
+    downscaling: opsworksPhpAppLayerLoadBasedAutoScalingDownscalingToTerraform(
+      struct!.downscaling,
+    ),
+    upscaling: opsworksPhpAppLayerLoadBasedAutoScalingUpscalingToTerraform(
+      struct!.upscaling,
+    ),
+  };
 }
 
 export class OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksPhpAppLayerLoadBasedAutoScaling | undefined {
+  public get internalValue():
+    | OpsworksPhpAppLayerLoadBasedAutoScaling
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -1336,14 +1479,15 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksPhpAppLayerLoadBasedAutoScaling | undefined) {
+  public set internalValue(
+    value: OpsworksPhpAppLayerLoadBasedAutoScaling | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
       this._downscaling.internalValue = undefined;
       this._upscaling.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
       this._downscaling.internalValue = value.downscaling;
@@ -1368,11 +1512,17 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference extends cdkt
   }
 
   // downscaling - computed: false, optional: true, required: false
-  private _downscaling = new OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference(this, "downscaling");
+  private _downscaling =
+    new OpsworksPhpAppLayerLoadBasedAutoScalingDownscalingOutputReference(
+      this,
+      'downscaling',
+    );
   public get downscaling() {
     return this._downscaling;
   }
-  public putDownscaling(value: OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling) {
+  public putDownscaling(
+    value: OpsworksPhpAppLayerLoadBasedAutoScalingDownscaling,
+  ) {
     this._downscaling.internalValue = value;
   }
   public resetDownscaling() {
@@ -1384,7 +1534,11 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference extends cdkt
   }
 
   // upscaling - computed: false, optional: true, required: false
-  private _upscaling = new OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference(this, "upscaling");
+  private _upscaling =
+    new OpsworksPhpAppLayerLoadBasedAutoScalingUpscalingOutputReference(
+      this,
+      'upscaling',
+    );
   public get upscaling() {
     return this._upscaling;
   }
@@ -1401,33 +1555,36 @@ export class OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference extends cdkt
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer aws_opsworks_php_app_layer}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer aws_opsworks_php_app_layer}
+ */
 export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_opsworks_php_app_layer";
+  public static readonly tfResourceType = 'aws_opsworks_php_app_layer';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer aws_opsworks_php_app_layer} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options OpsworksPhpAppLayerConfig
-  */
-  public constructor(scope: Construct, id: string, config: OpsworksPhpAppLayerConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_php_app_layer aws_opsworks_php_app_layer} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options OpsworksPhpAppLayerConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: OpsworksPhpAppLayerConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_opsworks_php_app_layer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1435,7 +1592,7 @@ export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoAssignElasticIps = config.autoAssignElasticIps;
     this._autoAssignPublicIps = config.autoAssignPublicIps;
@@ -1459,7 +1616,8 @@ export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._useEbsOptimizedInstances = config.useEbsOptimizedInstances;
-    this._cloudwatchConfiguration.internalValue = config.cloudwatchConfiguration;
+    this._cloudwatchConfiguration.internalValue =
+      config.cloudwatchConfiguration;
     this._ebsVolume.internalValue = config.ebsVolume;
     this._loadBasedAutoScaling.internalValue = config.loadBasedAutoScaling;
   }
@@ -1823,11 +1981,17 @@ export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
   }
 
   // cloudwatch_configuration - computed: false, optional: true, required: false
-  private _cloudwatchConfiguration = new OpsworksPhpAppLayerCloudwatchConfigurationOutputReference(this, "cloudwatch_configuration");
+  private _cloudwatchConfiguration =
+    new OpsworksPhpAppLayerCloudwatchConfigurationOutputReference(
+      this,
+      'cloudwatch_configuration',
+    );
   public get cloudwatchConfiguration() {
     return this._cloudwatchConfiguration;
   }
-  public putCloudwatchConfiguration(value: OpsworksPhpAppLayerCloudwatchConfiguration) {
+  public putCloudwatchConfiguration(
+    value: OpsworksPhpAppLayerCloudwatchConfiguration,
+  ) {
     this._cloudwatchConfiguration.internalValue = value;
   }
   public resetCloudwatchConfiguration() {
@@ -1839,11 +2003,17 @@ export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
   }
 
   // ebs_volume - computed: false, optional: true, required: false
-  private _ebsVolume = new OpsworksPhpAppLayerEbsVolumeList(this, "ebs_volume", true);
+  private _ebsVolume = new OpsworksPhpAppLayerEbsVolumeList(
+    this,
+    'ebs_volume',
+    true,
+  );
   public get ebsVolume() {
     return this._ebsVolume;
   }
-  public putEbsVolume(value: OpsworksPhpAppLayerEbsVolume[] | cdktf.IResolvable) {
+  public putEbsVolume(
+    value: OpsworksPhpAppLayerEbsVolume[] | cdktf.IResolvable,
+  ) {
     this._ebsVolume.internalValue = value;
   }
   public resetEbsVolume() {
@@ -1855,11 +2025,17 @@ export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
   }
 
   // load_based_auto_scaling - computed: false, optional: true, required: false
-  private _loadBasedAutoScaling = new OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference(this, "load_based_auto_scaling");
+  private _loadBasedAutoScaling =
+    new OpsworksPhpAppLayerLoadBasedAutoScalingOutputReference(
+      this,
+      'load_based_auto_scaling',
+    );
   public get loadBasedAutoScaling() {
     return this._loadBasedAutoScaling;
   }
-  public putLoadBasedAutoScaling(value: OpsworksPhpAppLayerLoadBasedAutoScaling) {
+  public putLoadBasedAutoScaling(
+    value: OpsworksPhpAppLayerLoadBasedAutoScaling,
+  ) {
     this._loadBasedAutoScaling.internalValue = value;
   }
   public resetLoadBasedAutoScaling() {
@@ -1876,31 +2052,73 @@ export class OpsworksPhpAppLayer extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      auto_assign_elastic_ips: cdktf.booleanToTerraform(this._autoAssignElasticIps),
-      auto_assign_public_ips: cdktf.booleanToTerraform(this._autoAssignPublicIps),
+      auto_assign_elastic_ips: cdktf.booleanToTerraform(
+        this._autoAssignElasticIps,
+      ),
+      auto_assign_public_ips: cdktf.booleanToTerraform(
+        this._autoAssignPublicIps,
+      ),
       auto_healing: cdktf.booleanToTerraform(this._autoHealing),
-      custom_configure_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customConfigureRecipes),
-      custom_deploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customDeployRecipes),
-      custom_instance_profile_arn: cdktf.stringToTerraform(this._customInstanceProfileArn),
+      custom_configure_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customConfigureRecipes),
+      custom_deploy_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customDeployRecipes),
+      custom_instance_profile_arn: cdktf.stringToTerraform(
+        this._customInstanceProfileArn,
+      ),
       custom_json: cdktf.stringToTerraform(this._customJson),
-      custom_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSecurityGroupIds),
-      custom_setup_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSetupRecipes),
-      custom_shutdown_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customShutdownRecipes),
-      custom_undeploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customUndeployRecipes),
+      custom_security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customSecurityGroupIds),
+      custom_setup_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customSetupRecipes),
+      custom_shutdown_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customShutdownRecipes),
+      custom_undeploy_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customUndeployRecipes),
       drain_elb_on_shutdown: cdktf.booleanToTerraform(this._drainElbOnShutdown),
       elastic_load_balancer: cdktf.stringToTerraform(this._elasticLoadBalancer),
       id: cdktf.stringToTerraform(this._id),
-      install_updates_on_boot: cdktf.booleanToTerraform(this._installUpdatesOnBoot),
-      instance_shutdown_timeout: cdktf.numberToTerraform(this._instanceShutdownTimeout),
+      install_updates_on_boot: cdktf.booleanToTerraform(
+        this._installUpdatesOnBoot,
+      ),
+      instance_shutdown_timeout: cdktf.numberToTerraform(
+        this._instanceShutdownTimeout,
+      ),
       name: cdktf.stringToTerraform(this._name),
       stack_id: cdktf.stringToTerraform(this._stackId),
-      system_packages: cdktf.listMapper(cdktf.stringToTerraform, false)(this._systemPackages),
+      system_packages: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._systemPackages),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      use_ebs_optimized_instances: cdktf.booleanToTerraform(this._useEbsOptimizedInstances),
-      cloudwatch_configuration: opsworksPhpAppLayerCloudwatchConfigurationToTerraform(this._cloudwatchConfiguration.internalValue),
-      ebs_volume: cdktf.listMapper(opsworksPhpAppLayerEbsVolumeToTerraform, true)(this._ebsVolume.internalValue),
-      load_based_auto_scaling: opsworksPhpAppLayerLoadBasedAutoScalingToTerraform(this._loadBasedAutoScaling.internalValue),
+      use_ebs_optimized_instances: cdktf.booleanToTerraform(
+        this._useEbsOptimizedInstances,
+      ),
+      cloudwatch_configuration:
+        opsworksPhpAppLayerCloudwatchConfigurationToTerraform(
+          this._cloudwatchConfiguration.internalValue,
+        ),
+      ebs_volume: cdktf.listMapper(
+        opsworksPhpAppLayerEbsVolumeToTerraform,
+        true,
+      )(this._ebsVolume.internalValue),
+      load_based_auto_scaling:
+        opsworksPhpAppLayerLoadBasedAutoScalingToTerraform(
+          this._loadBasedAutoScaling.internalValue,
+        ),
     };
   }
 }

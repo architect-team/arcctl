@@ -2,90 +2,107 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface CloudformationStackSetInstanceConfig extends cdktf.TerraformMetaArguments {
+export interface CloudformationStackSetInstanceConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#account_id CloudformationStackSetInstance#account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#account_id CloudformationStackSetInstance#account_id}
+   */
   readonly accountId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#call_as CloudformationStackSetInstance#call_as}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#call_as CloudformationStackSetInstance#call_as}
+   */
   readonly callAs?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#id CloudformationStackSetInstance#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#id CloudformationStackSetInstance#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#parameter_overrides CloudformationStackSetInstance#parameter_overrides}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#parameter_overrides CloudformationStackSetInstance#parameter_overrides}
+   */
   readonly parameterOverrides?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#region CloudformationStackSetInstance#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#region CloudformationStackSetInstance#region}
+   */
   readonly region?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#retain_stack CloudformationStackSetInstance#retain_stack}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#retain_stack CloudformationStackSetInstance#retain_stack}
+   */
   readonly retainStack?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#stack_set_name CloudformationStackSetInstance#stack_set_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#stack_set_name CloudformationStackSetInstance#stack_set_name}
+   */
   readonly stackSetName: string;
   /**
-  * deployment_targets block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#deployment_targets CloudformationStackSetInstance#deployment_targets}
-  */
+   * deployment_targets block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#deployment_targets CloudformationStackSetInstance#deployment_targets}
+   */
   readonly deploymentTargets?: CloudformationStackSetInstanceDeploymentTargets;
   /**
-  * operation_preferences block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#operation_preferences CloudformationStackSetInstance#operation_preferences}
-  */
+   * operation_preferences block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#operation_preferences CloudformationStackSetInstance#operation_preferences}
+   */
   readonly operationPreferences?: CloudformationStackSetInstanceOperationPreferences;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#timeouts CloudformationStackSetInstance#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#timeouts CloudformationStackSetInstance#timeouts}
+   */
   readonly timeouts?: CloudformationStackSetInstanceTimeouts;
 }
 export interface CloudformationStackSetInstanceDeploymentTargets {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#organizational_unit_ids CloudformationStackSetInstance#organizational_unit_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#organizational_unit_ids CloudformationStackSetInstance#organizational_unit_ids}
+   */
   readonly organizationalUnitIds?: string[];
 }
 
-export function cloudformationStackSetInstanceDeploymentTargetsToTerraform(struct?: CloudformationStackSetInstanceDeploymentTargetsOutputReference | CloudformationStackSetInstanceDeploymentTargets): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudformationStackSetInstanceDeploymentTargetsToTerraform(
+  struct?:
+    | CloudformationStackSetInstanceDeploymentTargetsOutputReference
+    | CloudformationStackSetInstanceDeploymentTargets,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    organizational_unit_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.organizationalUnitIds),
-  }
+    organizational_unit_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.organizationalUnitIds),
+  };
 }
 
 export class CloudformationStackSetInstanceDeploymentTargetsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudformationStackSetInstanceDeploymentTargets | undefined {
+  public get internalValue():
+    | CloudformationStackSetInstanceDeploymentTargets
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._organizationalUnitIds !== undefined) {
@@ -95,12 +112,13 @@ export class CloudformationStackSetInstanceDeploymentTargetsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudformationStackSetInstanceDeploymentTargets | undefined) {
+  public set internalValue(
+    value: CloudformationStackSetInstanceDeploymentTargets | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._organizationalUnitIds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._organizationalUnitIds = value.organizationalUnitIds;
     }
@@ -124,58 +142,82 @@ export class CloudformationStackSetInstanceDeploymentTargetsOutputReference exte
 }
 export interface CloudformationStackSetInstanceOperationPreferences {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#failure_tolerance_count CloudformationStackSetInstance#failure_tolerance_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#failure_tolerance_count CloudformationStackSetInstance#failure_tolerance_count}
+   */
   readonly failureToleranceCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#failure_tolerance_percentage CloudformationStackSetInstance#failure_tolerance_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#failure_tolerance_percentage CloudformationStackSetInstance#failure_tolerance_percentage}
+   */
   readonly failureTolerancePercentage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#max_concurrent_count CloudformationStackSetInstance#max_concurrent_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#max_concurrent_count CloudformationStackSetInstance#max_concurrent_count}
+   */
   readonly maxConcurrentCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#max_concurrent_percentage CloudformationStackSetInstance#max_concurrent_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#max_concurrent_percentage CloudformationStackSetInstance#max_concurrent_percentage}
+   */
   readonly maxConcurrentPercentage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#region_concurrency_type CloudformationStackSetInstance#region_concurrency_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#region_concurrency_type CloudformationStackSetInstance#region_concurrency_type}
+   */
   readonly regionConcurrencyType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#region_order CloudformationStackSetInstance#region_order}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#region_order CloudformationStackSetInstance#region_order}
+   */
   readonly regionOrder?: string[];
 }
 
-export function cloudformationStackSetInstanceOperationPreferencesToTerraform(struct?: CloudformationStackSetInstanceOperationPreferencesOutputReference | CloudformationStackSetInstanceOperationPreferences): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudformationStackSetInstanceOperationPreferencesToTerraform(
+  struct?:
+    | CloudformationStackSetInstanceOperationPreferencesOutputReference
+    | CloudformationStackSetInstanceOperationPreferences,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    failure_tolerance_count: cdktf.numberToTerraform(struct!.failureToleranceCount),
-    failure_tolerance_percentage: cdktf.numberToTerraform(struct!.failureTolerancePercentage),
+    failure_tolerance_count: cdktf.numberToTerraform(
+      struct!.failureToleranceCount,
+    ),
+    failure_tolerance_percentage: cdktf.numberToTerraform(
+      struct!.failureTolerancePercentage,
+    ),
     max_concurrent_count: cdktf.numberToTerraform(struct!.maxConcurrentCount),
-    max_concurrent_percentage: cdktf.numberToTerraform(struct!.maxConcurrentPercentage),
-    region_concurrency_type: cdktf.stringToTerraform(struct!.regionConcurrencyType),
-    region_order: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.regionOrder),
-  }
+    max_concurrent_percentage: cdktf.numberToTerraform(
+      struct!.maxConcurrentPercentage,
+    ),
+    region_concurrency_type: cdktf.stringToTerraform(
+      struct!.regionConcurrencyType,
+    ),
+    region_order: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.regionOrder),
+  };
 }
 
 export class CloudformationStackSetInstanceOperationPreferencesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudformationStackSetInstanceOperationPreferences | undefined {
+  public get internalValue():
+    | CloudformationStackSetInstanceOperationPreferences
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureToleranceCount !== undefined) {
@@ -184,7 +226,8 @@ export class CloudformationStackSetInstanceOperationPreferencesOutputReference e
     }
     if (this._failureTolerancePercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failureTolerancePercentage = this._failureTolerancePercentage;
+      internalValueResult.failureTolerancePercentage =
+        this._failureTolerancePercentage;
     }
     if (this._maxConcurrentCount !== undefined) {
       hasAnyValues = true;
@@ -192,7 +235,8 @@ export class CloudformationStackSetInstanceOperationPreferencesOutputReference e
     }
     if (this._maxConcurrentPercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.maxConcurrentPercentage = this._maxConcurrentPercentage;
+      internalValueResult.maxConcurrentPercentage =
+        this._maxConcurrentPercentage;
     }
     if (this._regionConcurrencyType !== undefined) {
       hasAnyValues = true;
@@ -205,7 +249,9 @@ export class CloudformationStackSetInstanceOperationPreferencesOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudformationStackSetInstanceOperationPreferences | undefined) {
+  public set internalValue(
+    value: CloudformationStackSetInstanceOperationPreferences | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureToleranceCount = undefined;
@@ -214,8 +260,7 @@ export class CloudformationStackSetInstanceOperationPreferencesOutputReference e
       this._maxConcurrentPercentage = undefined;
       this._regionConcurrencyType = undefined;
       this._regionOrder = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureToleranceCount = value.failureToleranceCount;
       this._failureTolerancePercentage = value.failureTolerancePercentage;
@@ -324,29 +369,38 @@ export class CloudformationStackSetInstanceOperationPreferencesOutputReference e
 }
 export interface CloudformationStackSetInstanceTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#create CloudformationStackSetInstance#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#create CloudformationStackSetInstance#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#delete CloudformationStackSetInstance#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#delete CloudformationStackSetInstance#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#update CloudformationStackSetInstance#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance#update CloudformationStackSetInstance#update}
+   */
   readonly update?: string;
 }
 
-export function cloudformationStackSetInstanceTimeoutsToTerraform(struct?: CloudformationStackSetInstanceTimeoutsOutputReference | CloudformationStackSetInstanceTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudformationStackSetInstanceTimeoutsToTerraform(
+  struct?:
+    | CloudformationStackSetInstanceTimeoutsOutputReference
+    | CloudformationStackSetInstanceTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class CloudformationStackSetInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -354,14 +408,20 @@ export class CloudformationStackSetInstanceTimeoutsOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudformationStackSetInstanceTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CloudformationStackSetInstanceTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -382,19 +442,22 @@ export class CloudformationStackSetInstanceTimeoutsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudformationStackSetInstanceTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | CloudformationStackSetInstanceTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -453,33 +516,37 @@ export class CloudformationStackSetInstanceTimeoutsOutputReference extends cdktf
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance aws_cloudformation_stack_set_instance}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance aws_cloudformation_stack_set_instance}
+ */
 export class CloudformationStackSetInstance extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudformation_stack_set_instance";
+  public static readonly tfResourceType =
+    'aws_cloudformation_stack_set_instance';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance aws_cloudformation_stack_set_instance} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudformationStackSetInstanceConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudformationStackSetInstanceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance aws_cloudformation_stack_set_instance} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudformationStackSetInstanceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudformationStackSetInstanceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudformation_stack_set_instance',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -487,7 +554,7 @@ export class CloudformationStackSetInstance extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accountId = config.accountId;
     this._callAs = config.callAs;
@@ -625,11 +692,17 @@ export class CloudformationStackSetInstance extends cdktf.TerraformResource {
   }
 
   // deployment_targets - computed: false, optional: true, required: false
-  private _deploymentTargets = new CloudformationStackSetInstanceDeploymentTargetsOutputReference(this, "deployment_targets");
+  private _deploymentTargets =
+    new CloudformationStackSetInstanceDeploymentTargetsOutputReference(
+      this,
+      'deployment_targets',
+    );
   public get deploymentTargets() {
     return this._deploymentTargets;
   }
-  public putDeploymentTargets(value: CloudformationStackSetInstanceDeploymentTargets) {
+  public putDeploymentTargets(
+    value: CloudformationStackSetInstanceDeploymentTargets,
+  ) {
     this._deploymentTargets.internalValue = value;
   }
   public resetDeploymentTargets() {
@@ -641,11 +714,17 @@ export class CloudformationStackSetInstance extends cdktf.TerraformResource {
   }
 
   // operation_preferences - computed: false, optional: true, required: false
-  private _operationPreferences = new CloudformationStackSetInstanceOperationPreferencesOutputReference(this, "operation_preferences");
+  private _operationPreferences =
+    new CloudformationStackSetInstanceOperationPreferencesOutputReference(
+      this,
+      'operation_preferences',
+    );
   public get operationPreferences() {
     return this._operationPreferences;
   }
-  public putOperationPreferences(value: CloudformationStackSetInstanceOperationPreferences) {
+  public putOperationPreferences(
+    value: CloudformationStackSetInstanceOperationPreferences,
+  ) {
     this._operationPreferences.internalValue = value;
   }
   public resetOperationPreferences() {
@@ -657,7 +736,10 @@ export class CloudformationStackSetInstance extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new CloudformationStackSetInstanceTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new CloudformationStackSetInstanceTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -681,13 +763,23 @@ export class CloudformationStackSetInstance extends cdktf.TerraformResource {
       account_id: cdktf.stringToTerraform(this._accountId),
       call_as: cdktf.stringToTerraform(this._callAs),
       id: cdktf.stringToTerraform(this._id),
-      parameter_overrides: cdktf.hashMapper(cdktf.stringToTerraform)(this._parameterOverrides),
+      parameter_overrides: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._parameterOverrides,
+      ),
       region: cdktf.stringToTerraform(this._region),
       retain_stack: cdktf.booleanToTerraform(this._retainStack),
       stack_set_name: cdktf.stringToTerraform(this._stackSetName),
-      deployment_targets: cloudformationStackSetInstanceDeploymentTargetsToTerraform(this._deploymentTargets.internalValue),
-      operation_preferences: cloudformationStackSetInstanceOperationPreferencesToTerraform(this._operationPreferences.internalValue),
-      timeouts: cloudformationStackSetInstanceTimeoutsToTerraform(this._timeouts.internalValue),
+      deployment_targets:
+        cloudformationStackSetInstanceDeploymentTargetsToTerraform(
+          this._deploymentTargets.internalValue,
+        ),
+      operation_preferences:
+        cloudformationStackSetInstanceOperationPreferencesToTerraform(
+          this._operationPreferences.internalValue,
+        ),
+      timeouts: cloudformationStackSetInstanceTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

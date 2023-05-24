@@ -1,15 +1,15 @@
-import { Provider, ProviderResources } from '../provider.js';
-import { HelmProvider as TerraformHelmProvider } from './.gen/providers/helm/provider/index.js';
-import { KubernetesProvider as TerraformKubernetesProvider } from './.gen/providers/kubernetes/provider/index.js';
+import { Provider, ProviderResources } from '../provider.ts';
+import { HelmProvider as TerraformHelmProvider } from './.gen/providers/helm/provider/index.ts';
+import { KubernetesProvider as TerraformKubernetesProvider } from './.gen/providers/kubernetes/provider/index.ts';
 import {
   KubernetesCredentials,
   KubernetesCredentialsSchema,
-} from './credentials.js';
-import { KubernetesDeploymentService } from './services/deployment.js';
-import { KubernetesHelmChartService } from './services/helm-chart.js';
-import { KubernetesIngressRuleService } from './services/ingress-rule.js';
-import { KubernetesNamespaceService } from './services/namespace.js';
-import { KubernetesServiceService } from './services/service.js';
+} from './credentials.ts';
+import { KubernetesDeploymentService } from './services/deployment.ts';
+import { KubernetesHelmChartService } from './services/helm-chart.ts';
+import { KubernetesIngressRuleService } from './services/ingress-rule.ts';
+import { KubernetesNamespaceService } from './services/namespace.ts';
+import { KubernetesServiceService } from './services/service.ts';
 import k8s from '@kubernetes/client-node';
 import { Construct } from 'npm:constructs';
 

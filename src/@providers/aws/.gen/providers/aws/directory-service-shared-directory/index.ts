@@ -2,80 +2,94 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DirectoryServiceSharedDirectoryConfig extends cdktf.TerraformMetaArguments {
+export interface DirectoryServiceSharedDirectoryConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#directory_id DirectoryServiceSharedDirectory#directory_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#directory_id DirectoryServiceSharedDirectory#directory_id}
+   */
   readonly directoryId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#id DirectoryServiceSharedDirectory#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#id DirectoryServiceSharedDirectory#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#method DirectoryServiceSharedDirectory#method}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#method DirectoryServiceSharedDirectory#method}
+   */
   readonly method?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#notes DirectoryServiceSharedDirectory#notes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#notes DirectoryServiceSharedDirectory#notes}
+   */
   readonly notes?: string;
   /**
-  * target block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#target DirectoryServiceSharedDirectory#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#target DirectoryServiceSharedDirectory#target}
+   */
   readonly target: DirectoryServiceSharedDirectoryTarget;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#timeouts DirectoryServiceSharedDirectory#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#timeouts DirectoryServiceSharedDirectory#timeouts}
+   */
   readonly timeouts?: DirectoryServiceSharedDirectoryTimeouts;
 }
 export interface DirectoryServiceSharedDirectoryTarget {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#id DirectoryServiceSharedDirectory#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#id DirectoryServiceSharedDirectory#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#type DirectoryServiceSharedDirectory#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#type DirectoryServiceSharedDirectory#type}
+   */
   readonly type?: string;
 }
 
-export function directoryServiceSharedDirectoryTargetToTerraform(struct?: DirectoryServiceSharedDirectoryTargetOutputReference | DirectoryServiceSharedDirectoryTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function directoryServiceSharedDirectoryTargetToTerraform(
+  struct?:
+    | DirectoryServiceSharedDirectoryTargetOutputReference
+    | DirectoryServiceSharedDirectoryTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class DirectoryServiceSharedDirectoryTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DirectoryServiceSharedDirectoryTarget | undefined {
+  public get internalValue():
+    | DirectoryServiceSharedDirectoryTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -89,13 +103,14 @@ export class DirectoryServiceSharedDirectoryTargetOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DirectoryServiceSharedDirectoryTarget | undefined) {
+  public set internalValue(
+    value: DirectoryServiceSharedDirectoryTarget | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._type = value.type;
@@ -133,19 +148,28 @@ export class DirectoryServiceSharedDirectoryTargetOutputReference extends cdktf.
 }
 export interface DirectoryServiceSharedDirectoryTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#delete DirectoryServiceSharedDirectory#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory#delete DirectoryServiceSharedDirectory#delete}
+   */
   readonly delete?: string;
 }
 
-export function directoryServiceSharedDirectoryTimeoutsToTerraform(struct?: DirectoryServiceSharedDirectoryTimeoutsOutputReference | DirectoryServiceSharedDirectoryTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function directoryServiceSharedDirectoryTimeoutsToTerraform(
+  struct?:
+    | DirectoryServiceSharedDirectoryTimeoutsOutputReference
+    | DirectoryServiceSharedDirectoryTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class DirectoryServiceSharedDirectoryTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -153,14 +177,20 @@ export class DirectoryServiceSharedDirectoryTimeoutsOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DirectoryServiceSharedDirectoryTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DirectoryServiceSharedDirectoryTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -173,17 +203,20 @@ export class DirectoryServiceSharedDirectoryTimeoutsOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DirectoryServiceSharedDirectoryTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DirectoryServiceSharedDirectoryTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -208,33 +241,37 @@ export class DirectoryServiceSharedDirectoryTimeoutsOutputReference extends cdkt
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory aws_directory_service_shared_directory}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory aws_directory_service_shared_directory}
+ */
 export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_directory_service_shared_directory";
+  public static readonly tfResourceType =
+    'aws_directory_service_shared_directory';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory aws_directory_service_shared_directory} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DirectoryServiceSharedDirectoryConfig
-  */
-  public constructor(scope: Construct, id: string, config: DirectoryServiceSharedDirectoryConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory aws_directory_service_shared_directory} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DirectoryServiceSharedDirectoryConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DirectoryServiceSharedDirectoryConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_directory_service_shared_directory',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -242,7 +279,7 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._directoryId = config.directoryId;
     this._id = config.id;
@@ -323,7 +360,10 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
   }
 
   // target - computed: false, optional: false, required: true
-  private _target = new DirectoryServiceSharedDirectoryTargetOutputReference(this, "target");
+  private _target = new DirectoryServiceSharedDirectoryTargetOutputReference(
+    this,
+    'target',
+  );
   public get target() {
     return this._target;
   }
@@ -336,7 +376,11 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DirectoryServiceSharedDirectoryTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new DirectoryServiceSharedDirectoryTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -361,8 +405,12 @@ export class DirectoryServiceSharedDirectory extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       method: cdktf.stringToTerraform(this._method),
       notes: cdktf.stringToTerraform(this._notes),
-      target: directoryServiceSharedDirectoryTargetToTerraform(this._target.internalValue),
-      timeouts: directoryServiceSharedDirectoryTimeoutsToTerraform(this._timeouts.internalValue),
+      target: directoryServiceSharedDirectoryTargetToTerraform(
+        this._target.internalValue,
+      ),
+      timeouts: directoryServiceSharedDirectoryTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

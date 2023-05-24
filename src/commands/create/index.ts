@@ -2,16 +2,16 @@ import {
   ResourceOutputs,
   ResourceType,
   ResourceTypeList,
-} from '../../@resources/index.js';
-import { BaseCommand } from '../../base-command.js';
-import CloudCtlConfig from '../../utils/config.js';
-import { CldCtlTerraformStack } from '../../utils/stack.js';
-import TaskManager from '../../utils/task-manager.js';
-import Terraform from '../../utils/terraform.js';
+} from '../../@resources/index.ts';
+import { BaseCommand } from '../../base-command.ts';
+import CloudCtlConfig from '../../utils/config.ts';
+import { CldCtlTerraformStack } from '../../utils/stack.ts';
+import TaskManager from '../../utils/task-manager.ts';
+import Terraform from '../../utils/terraform.ts';
 import { Flags } from '@oclif/core';
-import { ResourceModule } from '@providers/module.js';
-import { ResourceStatus } from '@providers/status.js';
-import { App } from 'cdktf';
+import { ResourceModule } from '@providers/module.ts';
+import { ResourceStatus } from '@providers/status.ts';
+import { App } from 'npm:cdktf';
 import chalk from 'chalk';
 import * as fs from 'fs';
 import inquirer from 'inquirer';

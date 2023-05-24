@@ -2,135 +2,156 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface SagemakerNotebookInstanceConfig extends cdktf.TerraformMetaArguments {
+export interface SagemakerNotebookInstanceConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#accelerator_types SagemakerNotebookInstance#accelerator_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#accelerator_types SagemakerNotebookInstance#accelerator_types}
+   */
   readonly acceleratorTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#additional_code_repositories SagemakerNotebookInstance#additional_code_repositories}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#additional_code_repositories SagemakerNotebookInstance#additional_code_repositories}
+   */
   readonly additionalCodeRepositories?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#default_code_repository SagemakerNotebookInstance#default_code_repository}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#default_code_repository SagemakerNotebookInstance#default_code_repository}
+   */
   readonly defaultCodeRepository?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#direct_internet_access SagemakerNotebookInstance#direct_internet_access}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#direct_internet_access SagemakerNotebookInstance#direct_internet_access}
+   */
   readonly directInternetAccess?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#id SagemakerNotebookInstance#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#id SagemakerNotebookInstance#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#instance_type SagemakerNotebookInstance#instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#instance_type SagemakerNotebookInstance#instance_type}
+   */
   readonly instanceType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#kms_key_id SagemakerNotebookInstance#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#kms_key_id SagemakerNotebookInstance#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#lifecycle_config_name SagemakerNotebookInstance#lifecycle_config_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#lifecycle_config_name SagemakerNotebookInstance#lifecycle_config_name}
+   */
   readonly lifecycleConfigName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#name SagemakerNotebookInstance#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#name SagemakerNotebookInstance#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#platform_identifier SagemakerNotebookInstance#platform_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#platform_identifier SagemakerNotebookInstance#platform_identifier}
+   */
   readonly platformIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#role_arn SagemakerNotebookInstance#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#role_arn SagemakerNotebookInstance#role_arn}
+   */
   readonly roleArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#root_access SagemakerNotebookInstance#root_access}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#root_access SagemakerNotebookInstance#root_access}
+   */
   readonly rootAccess?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#security_groups SagemakerNotebookInstance#security_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#security_groups SagemakerNotebookInstance#security_groups}
+   */
   readonly securityGroups?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#subnet_id SagemakerNotebookInstance#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#subnet_id SagemakerNotebookInstance#subnet_id}
+   */
   readonly subnetId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#tags SagemakerNotebookInstance#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#tags SagemakerNotebookInstance#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#tags_all SagemakerNotebookInstance#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#tags_all SagemakerNotebookInstance#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#volume_size SagemakerNotebookInstance#volume_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#volume_size SagemakerNotebookInstance#volume_size}
+   */
   readonly volumeSize?: number;
   /**
-  * instance_metadata_service_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#instance_metadata_service_configuration SagemakerNotebookInstance#instance_metadata_service_configuration}
-  */
+   * instance_metadata_service_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#instance_metadata_service_configuration SagemakerNotebookInstance#instance_metadata_service_configuration}
+   */
   readonly instanceMetadataServiceConfiguration?: SagemakerNotebookInstanceInstanceMetadataServiceConfiguration;
 }
 export interface SagemakerNotebookInstanceInstanceMetadataServiceConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#minimum_instance_metadata_service_version SagemakerNotebookInstance#minimum_instance_metadata_service_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance#minimum_instance_metadata_service_version SagemakerNotebookInstance#minimum_instance_metadata_service_version}
+   */
   readonly minimumInstanceMetadataServiceVersion?: string;
 }
 
-export function sagemakerNotebookInstanceInstanceMetadataServiceConfigurationToTerraform(struct?: SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutputReference | SagemakerNotebookInstanceInstanceMetadataServiceConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerNotebookInstanceInstanceMetadataServiceConfigurationToTerraform(
+  struct?:
+    | SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutputReference
+    | SagemakerNotebookInstanceInstanceMetadataServiceConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    minimum_instance_metadata_service_version: cdktf.stringToTerraform(struct!.minimumInstanceMetadataServiceVersion),
-  }
+    minimum_instance_metadata_service_version: cdktf.stringToTerraform(
+      struct!.minimumInstanceMetadataServiceVersion,
+    ),
+  };
 }
 
 export class SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SagemakerNotebookInstanceInstanceMetadataServiceConfiguration | undefined {
+  public get internalValue():
+    | SagemakerNotebookInstanceInstanceMetadataServiceConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._minimumInstanceMetadataServiceVersion !== undefined) {
       hasAnyValues = true;
-      internalValueResult.minimumInstanceMetadataServiceVersion = this._minimumInstanceMetadataServiceVersion;
+      internalValueResult.minimumInstanceMetadataServiceVersion =
+        this._minimumInstanceMetadataServiceVersion;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerNotebookInstanceInstanceMetadataServiceConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | SagemakerNotebookInstanceInstanceMetadataServiceConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._minimumInstanceMetadataServiceVersion = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._minimumInstanceMetadataServiceVersion = value.minimumInstanceMetadataServiceVersion;
+      this._minimumInstanceMetadataServiceVersion =
+        value.minimumInstanceMetadataServiceVersion;
     }
   }
 
@@ -152,33 +173,36 @@ export class SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutput
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance aws_sagemaker_notebook_instance}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance aws_sagemaker_notebook_instance}
+ */
 export class SagemakerNotebookInstance extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sagemaker_notebook_instance";
+  public static readonly tfResourceType = 'aws_sagemaker_notebook_instance';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance aws_sagemaker_notebook_instance} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SagemakerNotebookInstanceConfig
-  */
-  public constructor(scope: Construct, id: string, config: SagemakerNotebookInstanceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_notebook_instance aws_sagemaker_notebook_instance} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SagemakerNotebookInstanceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SagemakerNotebookInstanceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sagemaker_notebook_instance',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -186,7 +210,7 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acceleratorTypes = config.acceleratorTypes;
     this._additionalCodeRepositories = config.additionalCodeRepositories;
@@ -205,7 +229,8 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._volumeSize = config.volumeSize;
-    this._instanceMetadataServiceConfiguration.internalValue = config.instanceMetadataServiceConfiguration;
+    this._instanceMetadataServiceConfiguration.internalValue =
+      config.instanceMetadataServiceConfiguration;
   }
 
   // ==========
@@ -231,7 +256,9 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   // additional_code_repositories - computed: false, optional: true, required: false
   private _additionalCodeRepositories?: string[];
   public get additionalCodeRepositories() {
-    return cdktf.Fn.tolist(this.getListAttribute('additional_code_repositories'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('additional_code_repositories'),
+    );
   }
   public set additionalCodeRepositories(value: string[]) {
     this._additionalCodeRepositories = value;
@@ -491,11 +518,17 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
   }
 
   // instance_metadata_service_configuration - computed: false, optional: true, required: false
-  private _instanceMetadataServiceConfiguration = new SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutputReference(this, "instance_metadata_service_configuration");
+  private _instanceMetadataServiceConfiguration =
+    new SagemakerNotebookInstanceInstanceMetadataServiceConfigurationOutputReference(
+      this,
+      'instance_metadata_service_configuration',
+    );
   public get instanceMetadataServiceConfiguration() {
     return this._instanceMetadataServiceConfiguration;
   }
-  public putInstanceMetadataServiceConfiguration(value: SagemakerNotebookInstanceInstanceMetadataServiceConfiguration) {
+  public putInstanceMetadataServiceConfiguration(
+    value: SagemakerNotebookInstanceInstanceMetadataServiceConfiguration,
+  ) {
     this._instanceMetadataServiceConfiguration.internalValue = value;
   }
   public resetInstanceMetadataServiceConfiguration() {
@@ -512,10 +545,20 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      accelerator_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._acceleratorTypes),
-      additional_code_repositories: cdktf.listMapper(cdktf.stringToTerraform, false)(this._additionalCodeRepositories),
-      default_code_repository: cdktf.stringToTerraform(this._defaultCodeRepository),
-      direct_internet_access: cdktf.stringToTerraform(this._directInternetAccess),
+      accelerator_types: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._acceleratorTypes),
+      additional_code_repositories: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._additionalCodeRepositories),
+      default_code_repository: cdktf.stringToTerraform(
+        this._defaultCodeRepository,
+      ),
+      direct_internet_access: cdktf.stringToTerraform(
+        this._directInternetAccess,
+      ),
       id: cdktf.stringToTerraform(this._id),
       instance_type: cdktf.stringToTerraform(this._instanceType),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
@@ -524,12 +567,18 @@ export class SagemakerNotebookInstance extends cdktf.TerraformResource {
       platform_identifier: cdktf.stringToTerraform(this._platformIdentifier),
       role_arn: cdktf.stringToTerraform(this._roleArn),
       root_access: cdktf.stringToTerraform(this._rootAccess),
-      security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroups),
+      security_groups: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroups),
       subnet_id: cdktf.stringToTerraform(this._subnetId),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       volume_size: cdktf.numberToTerraform(this._volumeSize),
-      instance_metadata_service_configuration: sagemakerNotebookInstanceInstanceMetadataServiceConfigurationToTerraform(this._instanceMetadataServiceConfiguration.internalValue),
+      instance_metadata_service_configuration:
+        sagemakerNotebookInstanceInstanceMetadataServiceConfigurationToTerraform(
+          this._instanceMetadataServiceConfiguration.internalValue,
+        ),
     };
   }
 }

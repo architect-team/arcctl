@@ -1,79 +1,80 @@
 // generated from terraform resource schema
 
-import { DeploymentMetadata,
-deploymentMetadataToTerraform,
-DeploymentMetadataOutputReference,
-DeploymentSpec,
-deploymentSpecToTerraform,
-DeploymentSpecOutputReference,
-DeploymentTimeouts,
-deploymentTimeoutsToTerraform,
-DeploymentTimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
+import {
+  DeploymentMetadata,
+  deploymentMetadataToTerraform,
+  DeploymentMetadataOutputReference,
+  DeploymentSpec,
+  deploymentSpecToTerraform,
+  DeploymentSpecOutputReference,
+  DeploymentTimeouts,
+  deploymentTimeoutsToTerraform,
+  DeploymentTimeoutsOutputReference,
+} from './index-structs';
+export * from './index-structs';
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 export interface DeploymentConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#id Deployment#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#id Deployment#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Wait for the rollout of the deployment to complete. Defaults to true.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#wait_for_rollout Deployment#wait_for_rollout}
-  */
+   * Wait for the rollout of the deployment to complete. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#wait_for_rollout Deployment#wait_for_rollout}
+   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#metadata Deployment#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#metadata Deployment#metadata}
+   */
   readonly metadata: DeploymentMetadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#spec Deployment#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#spec Deployment#spec}
+   */
   readonly spec: DeploymentSpec;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#timeouts Deployment#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment#timeouts Deployment#timeouts}
+   */
   readonly timeouts?: DeploymentTimeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment kubernetes_deployment}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment kubernetes_deployment}
+ */
 export class Deployment extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_deployment";
+  public static readonly tfResourceType = 'kubernetes_deployment';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment kubernetes_deployment} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DeploymentConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment kubernetes_deployment} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DeploymentConfig
+   */
   public constructor(scope: Construct, id: string, config: DeploymentConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_deployment',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -81,7 +82,7 @@ export class Deployment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._waitForRollout = config.waitForRollout;
@@ -127,7 +128,7 @@ export class Deployment extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new DeploymentMetadataOutputReference(this, "metadata");
+  private _metadata = new DeploymentMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -140,7 +141,7 @@ export class Deployment extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new DeploymentSpecOutputReference(this, "spec");
+  private _spec = new DeploymentSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -153,7 +154,7 @@ export class Deployment extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DeploymentTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DeploymentTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }

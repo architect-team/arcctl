@@ -2,63 +2,81 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsCognitoUserPoolClientConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsCognitoUserPoolClientConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client#client_id DataAwsCognitoUserPoolClient#client_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client#client_id DataAwsCognitoUserPoolClient#client_id}
+   */
   readonly clientId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client#id DataAwsCognitoUserPoolClient#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client#id DataAwsCognitoUserPoolClient#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client#user_pool_id DataAwsCognitoUserPoolClient#user_pool_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client#user_pool_id DataAwsCognitoUserPoolClient#user_pool_id}
+   */
   readonly userPoolId: string;
 }
-export interface DataAwsCognitoUserPoolClientAnalyticsConfiguration {
-}
+export interface DataAwsCognitoUserPoolClientAnalyticsConfiguration {}
 
-export function dataAwsCognitoUserPoolClientAnalyticsConfigurationToTerraform(struct?: DataAwsCognitoUserPoolClientAnalyticsConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsCognitoUserPoolClientAnalyticsConfigurationToTerraform(
+  struct?: DataAwsCognitoUserPoolClientAnalyticsConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsCognitoUserPoolClientAnalyticsConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsCognitoUserPoolClientAnalyticsConfiguration | undefined {
+  public get internalValue():
+    | DataAwsCognitoUserPoolClientAnalyticsConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsCognitoUserPoolClientAnalyticsConfiguration | undefined) {
+  public set internalValue(
+    value: DataAwsCognitoUserPoolClientAnalyticsConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -90,59 +108,86 @@ export class DataAwsCognitoUserPoolClientAnalyticsConfigurationOutputReference e
 }
 
 export class DataAwsCognitoUserPoolClientAnalyticsConfigurationList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsCognitoUserPoolClientAnalyticsConfigurationOutputReference {
-    return new DataAwsCognitoUserPoolClientAnalyticsConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsCognitoUserPoolClientAnalyticsConfigurationOutputReference {
+    return new DataAwsCognitoUserPoolClientAnalyticsConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsCognitoUserPoolClientTokenValidityUnits {
-}
+export interface DataAwsCognitoUserPoolClientTokenValidityUnits {}
 
-export function dataAwsCognitoUserPoolClientTokenValidityUnitsToTerraform(struct?: DataAwsCognitoUserPoolClientTokenValidityUnits): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsCognitoUserPoolClientTokenValidityUnitsToTerraform(
+  struct?: DataAwsCognitoUserPoolClientTokenValidityUnits,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsCognitoUserPoolClientTokenValidityUnitsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsCognitoUserPoolClientTokenValidityUnits | undefined {
+  public get internalValue():
+    | DataAwsCognitoUserPoolClientTokenValidityUnits
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsCognitoUserPoolClientTokenValidityUnits | undefined) {
+  public set internalValue(
+    value: DataAwsCognitoUserPoolClientTokenValidityUnits | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -164,52 +209,65 @@ export class DataAwsCognitoUserPoolClientTokenValidityUnitsOutputReference exten
 }
 
 export class DataAwsCognitoUserPoolClientTokenValidityUnitsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsCognitoUserPoolClientTokenValidityUnitsOutputReference {
-    return new DataAwsCognitoUserPoolClientTokenValidityUnitsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsCognitoUserPoolClientTokenValidityUnitsOutputReference {
+    return new DataAwsCognitoUserPoolClientTokenValidityUnitsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client aws_cognito_user_pool_client}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client aws_cognito_user_pool_client}
+ */
 export class DataAwsCognitoUserPoolClient extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cognito_user_pool_client";
+  public static readonly tfResourceType = 'aws_cognito_user_pool_client';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client aws_cognito_user_pool_client} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsCognitoUserPoolClientConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsCognitoUserPoolClientConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/cognito_user_pool_client aws_cognito_user_pool_client} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsCognitoUserPoolClientConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsCognitoUserPoolClientConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cognito_user_pool_client',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -217,7 +275,7 @@ export class DataAwsCognitoUserPoolClient extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clientId = config.clientId;
     this._id = config.id;
@@ -249,7 +307,12 @@ export class DataAwsCognitoUserPoolClient extends cdktf.TerraformDataSource {
   }
 
   // analytics_configuration - computed: true, optional: false, required: false
-  private _analyticsConfiguration = new DataAwsCognitoUserPoolClientAnalyticsConfigurationList(this, "analytics_configuration", false);
+  private _analyticsConfiguration =
+    new DataAwsCognitoUserPoolClientAnalyticsConfigurationList(
+      this,
+      'analytics_configuration',
+      false,
+    );
   public get analyticsConfiguration() {
     return this._analyticsConfiguration;
   }
@@ -284,7 +347,9 @@ export class DataAwsCognitoUserPoolClient extends cdktf.TerraformDataSource {
 
   // enable_propagate_additional_user_context_data - computed: true, optional: false, required: false
   public get enablePropagateAdditionalUserContextData() {
-    return this.getBooleanAttribute('enable_propagate_additional_user_context_data');
+    return this.getBooleanAttribute(
+      'enable_propagate_additional_user_context_data',
+    );
   }
 
   // enable_token_revocation - computed: true, optional: false, required: false
@@ -350,11 +415,18 @@ export class DataAwsCognitoUserPoolClient extends cdktf.TerraformDataSource {
 
   // supported_identity_providers - computed: true, optional: false, required: false
   public get supportedIdentityProviders() {
-    return cdktf.Fn.tolist(this.getListAttribute('supported_identity_providers'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('supported_identity_providers'),
+    );
   }
 
   // token_validity_units - computed: true, optional: false, required: false
-  private _tokenValidityUnits = new DataAwsCognitoUserPoolClientTokenValidityUnitsList(this, "token_validity_units", false);
+  private _tokenValidityUnits =
+    new DataAwsCognitoUserPoolClientTokenValidityUnitsList(
+      this,
+      'token_validity_units',
+      false,
+    );
   public get tokenValidityUnits() {
     return this._tokenValidityUnits;
   }

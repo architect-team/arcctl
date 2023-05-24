@@ -2,103 +2,125 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface NetworkfirewallFirewallConfig extends cdktf.TerraformMetaArguments {
+export interface NetworkfirewallFirewallConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#delete_protection NetworkfirewallFirewall#delete_protection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#delete_protection NetworkfirewallFirewall#delete_protection}
+   */
   readonly deleteProtection?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#description NetworkfirewallFirewall#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#description NetworkfirewallFirewall#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#firewall_policy_arn NetworkfirewallFirewall#firewall_policy_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#firewall_policy_arn NetworkfirewallFirewall#firewall_policy_arn}
+   */
   readonly firewallPolicyArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#firewall_policy_change_protection NetworkfirewallFirewall#firewall_policy_change_protection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#firewall_policy_change_protection NetworkfirewallFirewall#firewall_policy_change_protection}
+   */
   readonly firewallPolicyChangeProtection?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#id NetworkfirewallFirewall#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#id NetworkfirewallFirewall#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#name NetworkfirewallFirewall#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#name NetworkfirewallFirewall#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_change_protection NetworkfirewallFirewall#subnet_change_protection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_change_protection NetworkfirewallFirewall#subnet_change_protection}
+   */
   readonly subnetChangeProtection?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#tags NetworkfirewallFirewall#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#tags NetworkfirewallFirewall#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#tags_all NetworkfirewallFirewall#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#tags_all NetworkfirewallFirewall#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#vpc_id NetworkfirewallFirewall#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#vpc_id NetworkfirewallFirewall#vpc_id}
+   */
   readonly vpcId: string;
   /**
-  * encryption_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#encryption_configuration NetworkfirewallFirewall#encryption_configuration}
-  */
+   * encryption_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#encryption_configuration NetworkfirewallFirewall#encryption_configuration}
+   */
   readonly encryptionConfiguration?: NetworkfirewallFirewallEncryptionConfiguration;
   /**
-  * subnet_mapping block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_mapping NetworkfirewallFirewall#subnet_mapping}
-  */
-  readonly subnetMapping: NetworkfirewallFirewallSubnetMapping[] | cdktf.IResolvable;
+   * subnet_mapping block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_mapping NetworkfirewallFirewall#subnet_mapping}
+   */
+  readonly subnetMapping:
+    | NetworkfirewallFirewallSubnetMapping[]
+    | cdktf.IResolvable;
 }
-export interface NetworkfirewallFirewallFirewallStatusSyncStatesAttachment {
-}
+export interface NetworkfirewallFirewallFirewallStatusSyncStatesAttachment {}
 
-export function networkfirewallFirewallFirewallStatusSyncStatesAttachmentToTerraform(struct?: NetworkfirewallFirewallFirewallStatusSyncStatesAttachment): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallFirewallFirewallStatusSyncStatesAttachmentToTerraform(
+  struct?: NetworkfirewallFirewallFirewallStatusSyncStatesAttachment,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): NetworkfirewallFirewallFirewallStatusSyncStatesAttachment | undefined {
+  public get internalValue():
+    | NetworkfirewallFirewallFirewallStatusSyncStatesAttachment
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallFirewallFirewallStatusSyncStatesAttachment | undefined) {
+  public set internalValue(
+    value:
+      | NetworkfirewallFirewallFirewallStatusSyncStatesAttachment
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -115,65 +137,97 @@ export class NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentOutputRefe
 }
 
 export class NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentOutputReference {
-    return new NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentOutputReference {
+    return new NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface NetworkfirewallFirewallFirewallStatusSyncStates {
-}
+export interface NetworkfirewallFirewallFirewallStatusSyncStates {}
 
-export function networkfirewallFirewallFirewallStatusSyncStatesToTerraform(struct?: NetworkfirewallFirewallFirewallStatusSyncStates): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallFirewallFirewallStatusSyncStatesToTerraform(
+  struct?: NetworkfirewallFirewallFirewallStatusSyncStates,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class NetworkfirewallFirewallFirewallStatusSyncStatesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): NetworkfirewallFirewallFirewallStatusSyncStates | undefined {
+  public get internalValue():
+    | NetworkfirewallFirewallFirewallStatusSyncStates
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallFirewallFirewallStatusSyncStates | undefined) {
+  public set internalValue(
+    value: NetworkfirewallFirewallFirewallStatusSyncStates | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // attachment - computed: true, optional: false, required: false
-  private _attachment = new NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentList(this, "attachment", false);
+  private _attachment =
+    new NetworkfirewallFirewallFirewallStatusSyncStatesAttachmentList(
+      this,
+      'attachment',
+      false,
+    );
   public get attachment() {
     return this._attachment;
   }
@@ -185,122 +239,176 @@ export class NetworkfirewallFirewallFirewallStatusSyncStatesOutputReference exte
 }
 
 export class NetworkfirewallFirewallFirewallStatusSyncStatesList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): NetworkfirewallFirewallFirewallStatusSyncStatesOutputReference {
-    return new NetworkfirewallFirewallFirewallStatusSyncStatesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): NetworkfirewallFirewallFirewallStatusSyncStatesOutputReference {
+    return new NetworkfirewallFirewallFirewallStatusSyncStatesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface NetworkfirewallFirewallFirewallStatus {
-}
+export interface NetworkfirewallFirewallFirewallStatus {}
 
-export function networkfirewallFirewallFirewallStatusToTerraform(struct?: NetworkfirewallFirewallFirewallStatus): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallFirewallFirewallStatusToTerraform(
+  struct?: NetworkfirewallFirewallFirewallStatus,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class NetworkfirewallFirewallFirewallStatusOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): NetworkfirewallFirewallFirewallStatus | undefined {
+  public get internalValue():
+    | NetworkfirewallFirewallFirewallStatus
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallFirewallFirewallStatus | undefined) {
+  public set internalValue(
+    value: NetworkfirewallFirewallFirewallStatus | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // sync_states - computed: true, optional: false, required: false
-  private _syncStates = new NetworkfirewallFirewallFirewallStatusSyncStatesList(this, "sync_states", true);
+  private _syncStates = new NetworkfirewallFirewallFirewallStatusSyncStatesList(
+    this,
+    'sync_states',
+    true,
+  );
   public get syncStates() {
     return this._syncStates;
   }
 }
 
 export class NetworkfirewallFirewallFirewallStatusList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): NetworkfirewallFirewallFirewallStatusOutputReference {
-    return new NetworkfirewallFirewallFirewallStatusOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): NetworkfirewallFirewallFirewallStatusOutputReference {
+    return new NetworkfirewallFirewallFirewallStatusOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface NetworkfirewallFirewallEncryptionConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#key_id NetworkfirewallFirewall#key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#key_id NetworkfirewallFirewall#key_id}
+   */
   readonly keyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#type NetworkfirewallFirewall#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#type NetworkfirewallFirewall#type}
+   */
   readonly type: string;
 }
 
-export function networkfirewallFirewallEncryptionConfigurationToTerraform(struct?: NetworkfirewallFirewallEncryptionConfigurationOutputReference | NetworkfirewallFirewallEncryptionConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallFirewallEncryptionConfigurationToTerraform(
+  struct?:
+    | NetworkfirewallFirewallEncryptionConfigurationOutputReference
+    | NetworkfirewallFirewallEncryptionConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key_id: cdktf.stringToTerraform(struct!.keyId),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class NetworkfirewallFirewallEncryptionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): NetworkfirewallFirewallEncryptionConfiguration | undefined {
+  public get internalValue():
+    | NetworkfirewallFirewallEncryptionConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._keyId !== undefined) {
@@ -314,13 +422,14 @@ export class NetworkfirewallFirewallEncryptionConfigurationOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallFirewallEncryptionConfiguration | undefined) {
+  public set internalValue(
+    value: NetworkfirewallFirewallEncryptionConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._keyId = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._keyId = value.keyId;
       this._type = value.type;
@@ -358,24 +467,30 @@ export class NetworkfirewallFirewallEncryptionConfigurationOutputReference exten
 }
 export interface NetworkfirewallFirewallSubnetMapping {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#ip_address_type NetworkfirewallFirewall#ip_address_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#ip_address_type NetworkfirewallFirewall#ip_address_type}
+   */
   readonly ipAddressType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_id NetworkfirewallFirewall#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall#subnet_id NetworkfirewallFirewall#subnet_id}
+   */
   readonly subnetId: string;
 }
 
-export function networkfirewallFirewallSubnetMappingToTerraform(struct?: NetworkfirewallFirewallSubnetMapping | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallFirewallSubnetMappingToTerraform(
+  struct?: NetworkfirewallFirewallSubnetMapping | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     ip_address_type: cdktf.stringToTerraform(struct!.ipAddressType),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
-  }
+  };
 }
 
 export class NetworkfirewallFirewallSubnetMappingOutputReference extends cdktf.ComplexObject {
@@ -383,16 +498,29 @@ export class NetworkfirewallFirewallSubnetMappingOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): NetworkfirewallFirewallSubnetMapping | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | NetworkfirewallFirewallSubnetMapping
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -409,18 +537,18 @@ export class NetworkfirewallFirewallSubnetMappingOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallFirewallSubnetMapping | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: NetworkfirewallFirewallSubnetMapping | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._ipAddressType = undefined;
       this._subnetId = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._ipAddressType = value.ipAddressType;
@@ -459,53 +587,69 @@ export class NetworkfirewallFirewallSubnetMappingOutputReference extends cdktf.C
 }
 
 export class NetworkfirewallFirewallSubnetMappingList extends cdktf.ComplexList {
-  public internalValue? : NetworkfirewallFirewallSubnetMapping[] | cdktf.IResolvable
+  public internalValue?:
+    | NetworkfirewallFirewallSubnetMapping[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): NetworkfirewallFirewallSubnetMappingOutputReference {
-    return new NetworkfirewallFirewallSubnetMappingOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): NetworkfirewallFirewallSubnetMappingOutputReference {
+    return new NetworkfirewallFirewallSubnetMappingOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall aws_networkfirewall_firewall}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall aws_networkfirewall_firewall}
+ */
 export class NetworkfirewallFirewall extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_networkfirewall_firewall";
+  public static readonly tfResourceType = 'aws_networkfirewall_firewall';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall aws_networkfirewall_firewall} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options NetworkfirewallFirewallConfig
-  */
-  public constructor(scope: Construct, id: string, config: NetworkfirewallFirewallConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_firewall aws_networkfirewall_firewall} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options NetworkfirewallFirewallConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: NetworkfirewallFirewallConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_networkfirewall_firewall',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -513,19 +657,21 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._deleteProtection = config.deleteProtection;
     this._description = config.description;
     this._firewallPolicyArn = config.firewallPolicyArn;
-    this._firewallPolicyChangeProtection = config.firewallPolicyChangeProtection;
+    this._firewallPolicyChangeProtection =
+      config.firewallPolicyChangeProtection;
     this._id = config.id;
     this._name = config.name;
     this._subnetChangeProtection = config.subnetChangeProtection;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._vpcId = config.vpcId;
-    this._encryptionConfiguration.internalValue = config.encryptionConfiguration;
+    this._encryptionConfiguration.internalValue =
+      config.encryptionConfiguration;
     this._subnetMapping.internalValue = config.subnetMapping;
   }
 
@@ -588,7 +734,9 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   public get firewallPolicyChangeProtection() {
     return this.getBooleanAttribute('firewall_policy_change_protection');
   }
-  public set firewallPolicyChangeProtection(value: boolean | cdktf.IResolvable) {
+  public set firewallPolicyChangeProtection(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._firewallPolicyChangeProtection = value;
   }
   public resetFirewallPolicyChangeProtection() {
@@ -600,7 +748,11 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // firewall_status - computed: true, optional: false, required: false
-  private _firewallStatus = new NetworkfirewallFirewallFirewallStatusList(this, "firewall_status", false);
+  private _firewallStatus = new NetworkfirewallFirewallFirewallStatusList(
+    this,
+    'firewall_status',
+    false,
+  );
   public get firewallStatus() {
     return this._firewallStatus;
   }
@@ -701,11 +853,17 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // encryption_configuration - computed: false, optional: true, required: false
-  private _encryptionConfiguration = new NetworkfirewallFirewallEncryptionConfigurationOutputReference(this, "encryption_configuration");
+  private _encryptionConfiguration =
+    new NetworkfirewallFirewallEncryptionConfigurationOutputReference(
+      this,
+      'encryption_configuration',
+    );
   public get encryptionConfiguration() {
     return this._encryptionConfiguration;
   }
-  public putEncryptionConfiguration(value: NetworkfirewallFirewallEncryptionConfiguration) {
+  public putEncryptionConfiguration(
+    value: NetworkfirewallFirewallEncryptionConfiguration,
+  ) {
     this._encryptionConfiguration.internalValue = value;
   }
   public resetEncryptionConfiguration() {
@@ -717,11 +875,17 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
   }
 
   // subnet_mapping - computed: false, optional: false, required: true
-  private _subnetMapping = new NetworkfirewallFirewallSubnetMappingList(this, "subnet_mapping", true);
+  private _subnetMapping = new NetworkfirewallFirewallSubnetMappingList(
+    this,
+    'subnet_mapping',
+    true,
+  );
   public get subnetMapping() {
     return this._subnetMapping;
   }
-  public putSubnetMapping(value: NetworkfirewallFirewallSubnetMapping[] | cdktf.IResolvable) {
+  public putSubnetMapping(
+    value: NetworkfirewallFirewallSubnetMapping[] | cdktf.IResolvable,
+  ) {
     this._subnetMapping.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -738,15 +902,25 @@ export class NetworkfirewallFirewall extends cdktf.TerraformResource {
       delete_protection: cdktf.booleanToTerraform(this._deleteProtection),
       description: cdktf.stringToTerraform(this._description),
       firewall_policy_arn: cdktf.stringToTerraform(this._firewallPolicyArn),
-      firewall_policy_change_protection: cdktf.booleanToTerraform(this._firewallPolicyChangeProtection),
+      firewall_policy_change_protection: cdktf.booleanToTerraform(
+        this._firewallPolicyChangeProtection,
+      ),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      subnet_change_protection: cdktf.booleanToTerraform(this._subnetChangeProtection),
+      subnet_change_protection: cdktf.booleanToTerraform(
+        this._subnetChangeProtection,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
-      encryption_configuration: networkfirewallFirewallEncryptionConfigurationToTerraform(this._encryptionConfiguration.internalValue),
-      subnet_mapping: cdktf.listMapper(networkfirewallFirewallSubnetMappingToTerraform, true)(this._subnetMapping.internalValue),
+      encryption_configuration:
+        networkfirewallFirewallEncryptionConfigurationToTerraform(
+          this._encryptionConfiguration.internalValue,
+        ),
+      subnet_mapping: cdktf.listMapper(
+        networkfirewallFirewallSubnetMappingToTerraform,
+        true,
+      )(this._subnetMapping.internalValue),
     };
   }
 }

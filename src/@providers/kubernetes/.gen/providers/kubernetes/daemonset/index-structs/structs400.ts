@@ -1,104 +1,119 @@
-import * as cdktf from 'cdktf';
-import { DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilities,
-daemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
-DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference,
-DaemonsetSpecTemplateSpecInitContainerEnv,
-daemonsetSpecTemplateSpecInitContainerEnvToTerraform,
-DaemonsetSpecTemplateSpecInitContainerEnvList,
-DaemonsetSpecTemplateSpecInitContainerEnvFrom,
-daemonsetSpecTemplateSpecInitContainerEnvFromToTerraform,
-DaemonsetSpecTemplateSpecInitContainerEnvFromList,
-DaemonsetSpecTemplateSpecInitContainerLifecycle,
-daemonsetSpecTemplateSpecInitContainerLifecycleToTerraform,
-DaemonsetSpecTemplateSpecInitContainerLifecycleOutputReference,
-DaemonsetSpecTemplateSpecInitContainerLivenessProbe,
-daemonsetSpecTemplateSpecInitContainerLivenessProbeToTerraform,
-DaemonsetSpecTemplateSpecInitContainerLivenessProbeOutputReference,
-DaemonsetSpecTemplateSpecInitContainerPort,
-daemonsetSpecTemplateSpecInitContainerPortToTerraform,
-DaemonsetSpecTemplateSpecInitContainerPortList,
-DaemonsetSpecTemplateSpecInitContainerReadinessProbe,
-daemonsetSpecTemplateSpecInitContainerReadinessProbeToTerraform,
-DaemonsetSpecTemplateSpecInitContainerReadinessProbeOutputReference,
-DaemonsetSpecTemplateSpecInitContainerResources,
-daemonsetSpecTemplateSpecInitContainerResourcesToTerraform,
-DaemonsetSpecTemplateSpecInitContainerResourcesOutputReference,
-DaemonsetSpecTemplateSpecAffinity,
-daemonsetSpecTemplateSpecAffinityToTerraform,
-DaemonsetSpecTemplateSpecAffinityOutputReference,
-DaemonsetSpecTemplateSpecContainer,
-daemonsetSpecTemplateSpecContainerToTerraform,
-DaemonsetSpecTemplateSpecContainerList,
-DaemonsetSpecTemplateSpecDnsConfig,
-daemonsetSpecTemplateSpecDnsConfigToTerraform,
-DaemonsetSpecTemplateSpecDnsConfigOutputReference,
-DaemonsetSpecTemplateSpecHostAliases,
-daemonsetSpecTemplateSpecHostAliasesToTerraform,
-DaemonsetSpecTemplateSpecHostAliasesList,
-DaemonsetSpecTemplateSpecImagePullSecrets,
-daemonsetSpecTemplateSpecImagePullSecretsToTerraform,
-DaemonsetSpecTemplateSpecImagePullSecretsList,
-DaemonsetSpecTemplateMetadata,
-daemonsetSpecTemplateMetadataToTerraform,
-DaemonsetSpecTemplateMetadataOutputReference,
-DaemonsetSpecSelector,
-daemonsetSpecSelectorToTerraform,
-DaemonsetSpecSelectorOutputReference,
-DaemonsetSpecStrategy,
-daemonsetSpecStrategyToTerraform,
-DaemonsetSpecStrategyOutputReference } from './structs0'
+import * as cdktf from 'npm:cdktf';
+import {
+  DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilities,
+  daemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference,
+  DaemonsetSpecTemplateSpecInitContainerEnv,
+  daemonsetSpecTemplateSpecInitContainerEnvToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerEnvList,
+  DaemonsetSpecTemplateSpecInitContainerEnvFrom,
+  daemonsetSpecTemplateSpecInitContainerEnvFromToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerEnvFromList,
+  DaemonsetSpecTemplateSpecInitContainerLifecycle,
+  daemonsetSpecTemplateSpecInitContainerLifecycleToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerLifecycleOutputReference,
+  DaemonsetSpecTemplateSpecInitContainerLivenessProbe,
+  daemonsetSpecTemplateSpecInitContainerLivenessProbeToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerLivenessProbeOutputReference,
+  DaemonsetSpecTemplateSpecInitContainerPort,
+  daemonsetSpecTemplateSpecInitContainerPortToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerPortList,
+  DaemonsetSpecTemplateSpecInitContainerReadinessProbe,
+  daemonsetSpecTemplateSpecInitContainerReadinessProbeToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerReadinessProbeOutputReference,
+  DaemonsetSpecTemplateSpecInitContainerResources,
+  daemonsetSpecTemplateSpecInitContainerResourcesToTerraform,
+  DaemonsetSpecTemplateSpecInitContainerResourcesOutputReference,
+  DaemonsetSpecTemplateSpecAffinity,
+  daemonsetSpecTemplateSpecAffinityToTerraform,
+  DaemonsetSpecTemplateSpecAffinityOutputReference,
+  DaemonsetSpecTemplateSpecContainer,
+  daemonsetSpecTemplateSpecContainerToTerraform,
+  DaemonsetSpecTemplateSpecContainerList,
+  DaemonsetSpecTemplateSpecDnsConfig,
+  daemonsetSpecTemplateSpecDnsConfigToTerraform,
+  DaemonsetSpecTemplateSpecDnsConfigOutputReference,
+  DaemonsetSpecTemplateSpecHostAliases,
+  daemonsetSpecTemplateSpecHostAliasesToTerraform,
+  DaemonsetSpecTemplateSpecHostAliasesList,
+  DaemonsetSpecTemplateSpecImagePullSecrets,
+  daemonsetSpecTemplateSpecImagePullSecretsToTerraform,
+  DaemonsetSpecTemplateSpecImagePullSecretsList,
+  DaemonsetSpecTemplateMetadata,
+  daemonsetSpecTemplateMetadataToTerraform,
+  DaemonsetSpecTemplateMetadataOutputReference,
+  DaemonsetSpecSelector,
+  daemonsetSpecSelectorToTerraform,
+  DaemonsetSpecSelectorOutputReference,
+  DaemonsetSpecStrategy,
+  daemonsetSpecStrategyToTerraform,
+  DaemonsetSpecStrategyOutputReference,
+} from './structs0';
 export interface DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions {
   /**
-  * Level is SELinux level label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#level Daemonset#level}
-  */
+   * Level is SELinux level label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#level Daemonset#level}
+   */
   readonly level?: string;
   /**
-  * Role is a SELinux role label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#role Daemonset#role}
-  */
+   * Role is a SELinux role label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#role Daemonset#role}
+   */
   readonly role?: string;
   /**
-  * Type is a SELinux type label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
-  */
+   * Type is a SELinux type label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
+   */
   readonly type?: string;
   /**
-  * User is a SELinux user label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
-  */
+   * User is a SELinux user label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
+   */
   readonly user?: string;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._level !== undefined) {
@@ -120,15 +135,18 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._level = undefined;
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._level = value.level;
       this._role = value.role;
@@ -138,7 +156,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -154,7 +172,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -170,7 +188,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -186,7 +204,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -203,42 +221,55 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
 }
 export interface DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile {
   /**
-  * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#localhost_profile Daemonset#localhost_profile}
-  */
+   * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#localhost_profile Daemonset#localhost_profile}
+   */
   readonly localhostProfile?: string;
   /**
-  * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
-  */
+   * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
+   */
   readonly type?: string;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     localhost_profile: cdktf.stringToTerraform(struct!.localhostProfile),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._localhostProfile !== undefined) {
@@ -252,13 +283,16 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._localhostProfile = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._localhostProfile = value.localhostProfile;
       this._type = value.type;
@@ -266,7 +300,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile
   }
 
   // localhost_profile - computed: false, optional: true, required: false
-  private _localhostProfile?: string; 
+  private _localhostProfile?: string;
   public get localhostProfile() {
     return this.getStringAttribute('localhost_profile');
   }
@@ -282,7 +316,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -299,96 +333,123 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile
 }
 export interface DaemonsetSpecTemplateSpecInitContainerSecurityContext {
   /**
-  * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#allow_privilege_escalation Daemonset#allow_privilege_escalation}
-  */
+   * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#allow_privilege_escalation Daemonset#allow_privilege_escalation}
+   */
   readonly allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   /**
-  * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#privileged Daemonset#privileged}
-  */
+   * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#privileged Daemonset#privileged}
+   */
   readonly privileged?: boolean | cdktf.IResolvable;
   /**
-  * Whether this container has a read-only root filesystem. Default is false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only_root_filesystem Daemonset#read_only_root_filesystem}
-  */
+   * Whether this container has a read-only root filesystem. Default is false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only_root_filesystem Daemonset#read_only_root_filesystem}
+   */
   readonly readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   /**
-  * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_group Daemonset#run_as_group}
-  */
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_group Daemonset#run_as_group}
+   */
   readonly runAsGroup?: string;
   /**
-  * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_non_root Daemonset#run_as_non_root}
-  */
+   * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_non_root Daemonset#run_as_non_root}
+   */
   readonly runAsNonRoot?: boolean | cdktf.IResolvable;
   /**
-  * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_user Daemonset#run_as_user}
-  */
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_user Daemonset#run_as_user}
+   */
   readonly runAsUser?: string;
   /**
-  * capabilities block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#capabilities Daemonset#capabilities}
-  */
+   * capabilities block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#capabilities Daemonset#capabilities}
+   */
   readonly capabilities?: DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilities;
   /**
-  * se_linux_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#se_linux_options Daemonset#se_linux_options}
-  */
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#se_linux_options Daemonset#se_linux_options}
+   */
   readonly seLinuxOptions?: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions;
   /**
-  * seccomp_profile block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#seccomp_profile Daemonset#seccomp_profile}
-  */
+   * seccomp_profile block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#seccomp_profile Daemonset#seccomp_profile}
+   */
   readonly seccompProfile?: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerSecurityContextToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReference | DaemonsetSpecTemplateSpecInitContainerSecurityContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerSecurityContextToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReference
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    allow_privilege_escalation: cdktf.booleanToTerraform(struct!.allowPrivilegeEscalation),
+    allow_privilege_escalation: cdktf.booleanToTerraform(
+      struct!.allowPrivilegeEscalation,
+    ),
     privileged: cdktf.booleanToTerraform(struct!.privileged),
-    read_only_root_filesystem: cdktf.booleanToTerraform(struct!.readOnlyRootFilesystem),
+    read_only_root_filesystem: cdktf.booleanToTerraform(
+      struct!.readOnlyRootFilesystem,
+    ),
     run_as_group: cdktf.stringToTerraform(struct!.runAsGroup),
     run_as_non_root: cdktf.booleanToTerraform(struct!.runAsNonRoot),
     run_as_user: cdktf.stringToTerraform(struct!.runAsUser),
-    capabilities: daemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform(struct!.capabilities),
-    se_linux_options: daemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(struct!.seLinuxOptions),
-    seccomp_profile: daemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(struct!.seccompProfile),
-  }
+    capabilities:
+      daemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform(
+        struct!.capabilities,
+      ),
+    se_linux_options:
+      daemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(
+        struct!.seLinuxOptions,
+      ),
+    seccomp_profile:
+      daemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(
+        struct!.seccompProfile,
+      ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerSecurityContext | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerSecurityContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._allowPrivilegeEscalation !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allowPrivilegeEscalation = this._allowPrivilegeEscalation;
+      internalValueResult.allowPrivilegeEscalation =
+        this._allowPrivilegeEscalation;
     }
     if (this._privileged !== undefined) {
       hasAnyValues = true;
@@ -425,7 +486,9 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerSecurityContext | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecInitContainerSecurityContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._allowPrivilegeEscalation = undefined;
@@ -437,8 +500,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
       this._capabilities.internalValue = undefined;
       this._seLinuxOptions.internalValue = undefined;
       this._seccompProfile.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowPrivilegeEscalation = value.allowPrivilegeEscalation;
       this._privileged = value.privileged;
@@ -453,7 +515,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // allow_privilege_escalation - computed: false, optional: true, required: false
-  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable; 
+  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   public get allowPrivilegeEscalation() {
     return this.getBooleanAttribute('allow_privilege_escalation');
   }
@@ -469,7 +531,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // privileged - computed: false, optional: true, required: false
-  private _privileged?: boolean | cdktf.IResolvable; 
+  private _privileged?: boolean | cdktf.IResolvable;
   public get privileged() {
     return this.getBooleanAttribute('privileged');
   }
@@ -485,7 +547,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // read_only_root_filesystem - computed: false, optional: true, required: false
-  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable; 
+  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   public get readOnlyRootFilesystem() {
     return this.getBooleanAttribute('read_only_root_filesystem');
   }
@@ -501,7 +563,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup?: string; 
+  private _runAsGroup?: string;
   public get runAsGroup() {
     return this.getStringAttribute('run_as_group');
   }
@@ -517,7 +579,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // run_as_non_root - computed: false, optional: true, required: false
-  private _runAsNonRoot?: boolean | cdktf.IResolvable; 
+  private _runAsNonRoot?: boolean | cdktf.IResolvable;
   public get runAsNonRoot() {
     return this.getBooleanAttribute('run_as_non_root');
   }
@@ -533,7 +595,7 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // run_as_user - computed: false, optional: true, required: false
-  private _runAsUser?: string; 
+  private _runAsUser?: string;
   public get runAsUser() {
     return this.getStringAttribute('run_as_user');
   }
@@ -549,11 +611,17 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // capabilities - computed: false, optional: true, required: false
-  private _capabilities = new DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference(this, "capabilities");
+  private _capabilities =
+    new DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference(
+      this,
+      'capabilities',
+    );
   public get capabilities() {
     return this._capabilities;
   }
-  public putCapabilities(value: DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilities) {
+  public putCapabilities(
+    value: DaemonsetSpecTemplateSpecInitContainerSecurityContextCapabilities,
+  ) {
     this._capabilities.internalValue = value;
   }
   public resetCapabilities() {
@@ -565,11 +633,17 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference(this, "se_linux_options");
+  private _seLinuxOptions =
+    new DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference(
+      this,
+      'se_linux_options',
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions) {
+  public putSeLinuxOptions(
+    value: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeLinuxOptions,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -581,11 +655,17 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
   }
 
   // seccomp_profile - computed: false, optional: true, required: false
-  private _seccompProfile = new DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference(this, "seccomp_profile");
+  private _seccompProfile =
+    new DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference(
+      this,
+      'seccomp_profile',
+    );
   public get seccompProfile() {
     return this._seccompProfile;
   }
-  public putSeccompProfile(value: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile) {
+  public putSeccompProfile(
+    value: DaemonsetSpecTemplateSpecInitContainerSecurityContextSeccompProfile,
+  ) {
     this._seccompProfile.internalValue = value;
   }
   public resetSeccompProfile() {
@@ -598,35 +678,48 @@ export class DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReferenc
 }
 export interface DaemonsetSpecTemplateSpecInitContainerStartupProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#command Daemonset#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#command Daemonset#command}
+   */
   readonly command?: string[];
 }
 
-export function daemonsetSpecTemplateSpecInitContainerStartupProbeExecToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReference | DaemonsetSpecTemplateSpecInitContainerStartupProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerStartupProbeExecToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReference
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerStartupProbeExec | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -636,19 +729,20 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeExec | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecInitContainerStartupProbeExec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -665,28 +759,36 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReferen
 }
 export interface DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#service Daemonset#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#service Daemonset#service}
+   */
   readonly service?: string;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerStartupProbeGrpcToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerStartupProbeGrpcToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -694,16 +796,29 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -720,18 +835,21 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -740,7 +858,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReferen
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -753,7 +871,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReferen
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -770,48 +888,69 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReferen
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReference {
-    return new DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReference {
+    return new DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#value Daemonset#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#value Daemonset#value}
+   */
   readonly value?: string;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -819,16 +958,29 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -845,18 +997,21 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -865,7 +1020,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -881,7 +1036,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -898,83 +1053,114 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference {
-    return new DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference {
+    return new DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host Daemonset#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host Daemonset#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#scheme Daemonset#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#scheme Daemonset#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#http_header Daemonset#http_header}
-  */
-  readonly httpHeader?: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#http_header Daemonset#http_header}
+   */
+  readonly httpHeader?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -1000,7 +1186,11 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -1008,8 +1198,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -1020,7 +1209,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1036,7 +1225,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -1052,7 +1241,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -1068,7 +1257,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -1084,11 +1273,20 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -1101,21 +1299,29 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputRefe
 }
 export interface DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
+   */
   readonly port: string;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -1123,16 +1329,29 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputRe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1145,17 +1364,20 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -1163,7 +1385,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputRe
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -1177,85 +1399,110 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputRe
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference {
-    return new DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference {
+    return new DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecInitContainerStartupProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#failure_threshold Daemonset#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#failure_threshold Daemonset#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#initial_delay_seconds Daemonset#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#initial_delay_seconds Daemonset#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#period_seconds Daemonset#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#period_seconds Daemonset#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#success_threshold Daemonset#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#success_threshold Daemonset#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#timeout_seconds Daemonset#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#timeout_seconds Daemonset#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#exec Daemonset#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#exec Daemonset#exec}
+   */
   readonly exec?: DaemonsetSpecTemplateSpecInitContainerStartupProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#grpc Daemonset#grpc}
-  */
-  readonly grpc?: DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#grpc Daemonset#grpc}
+   */
+  readonly grpc?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#http_get Daemonset#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#http_get Daemonset#http_get}
+   */
   readonly httpGet?: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#tcp_socket Daemonset#tcp_socket}
-  */
-  readonly tcpSocket?: DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#tcp_socket Daemonset#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerStartupProbeToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference | DaemonsetSpecTemplateSpecInitContainerStartupProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerStartupProbeToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -1263,25 +1510,41 @@ export function daemonsetSpecTemplateSpecInitContainerStartupProbeToTerraform(st
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: daemonsetSpecTemplateSpecInitContainerStartupProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerStartupProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: daemonsetSpecTemplateSpecInitContainerStartupProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerStartupProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      daemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerStartupProbe | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerStartupProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -1323,7 +1586,9 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerStartupProbe | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecInitContainerStartupProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -1335,8 +1600,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -1351,7 +1615,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -1367,7 +1631,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -1383,7 +1647,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -1399,7 +1663,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -1415,7 +1679,7 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -1431,11 +1695,17 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReference(this, "exec");
+  private _exec =
+    new DaemonsetSpecTemplateSpecInitContainerStartupProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeExec) {
+  public putExec(
+    value: DaemonsetSpecTemplateSpecInitContainerStartupProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -1447,11 +1717,20 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -1463,11 +1742,17 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet) {
+  public putHttpGet(
+    value: DaemonsetSpecTemplateSpecInitContainerStartupProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -1479,11 +1764,20 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -1496,41 +1790,49 @@ export class DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference e
 }
 export interface DaemonsetSpecTemplateSpecInitContainerVolumeMount {
   /**
-  * Path within the container at which the volume should be mounted. Must not contain ':'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mount_path Daemonset#mount_path}
-  */
+   * Path within the container at which the volume should be mounted. Must not contain ':'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mount_path Daemonset#mount_path}
+   */
   readonly mountPath: string;
   /**
-  * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mount_propagation Daemonset#mount_propagation}
-  */
+   * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mount_propagation Daemonset#mount_propagation}
+   */
   readonly mountPropagation?: string;
   /**
-  * This must match the Name of a Volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * This must match the Name of a Volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name: string;
   /**
-  * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#sub_path Daemonset#sub_path}
-  */
+   * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#sub_path Daemonset#sub_path}
+   */
   readonly subPath?: string;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerVolumeMountToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerVolumeMountToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecInitContainerVolumeMount
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mount_path: cdktf.stringToTerraform(struct!.mountPath),
@@ -1538,7 +1840,7 @@ export function daemonsetSpecTemplateSpecInitContainerVolumeMountToTerraform(str
     name: cdktf.stringToTerraform(struct!.name),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     sub_path: cdktf.stringToTerraform(struct!.subPath),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference extends cdktf.ComplexObject {
@@ -1546,16 +1848,29 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainerVolumeMount
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1584,7 +1899,12 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerVolumeMount
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1593,12 +1913,10 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
       this._name = undefined;
       this._readOnly = undefined;
       this._subPath = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mountPath = value.mountPath;
@@ -1610,7 +1928,7 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
   }
 
   // mount_path - computed: false, optional: false, required: true
-  private _mountPath?: string; 
+  private _mountPath?: string;
   public get mountPath() {
     return this.getStringAttribute('mount_path');
   }
@@ -1623,7 +1941,7 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
   }
 
   // mount_propagation - computed: false, optional: true, required: false
-  private _mountPropagation?: string; 
+  private _mountPropagation?: string;
   public get mountPropagation() {
     return this.getStringAttribute('mount_propagation');
   }
@@ -1639,7 +1957,7 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1652,7 +1970,7 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1668,7 +1986,7 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
   }
 
   // sub_path - computed: false, optional: true, required: false
-  private _subPath?: string; 
+  private _subPath?: string;
   public get subPath() {
     return this.getStringAttribute('sub_path');
   }
@@ -1685,157 +2003,184 @@ export class DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference ex
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerVolumeMountList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecInitContainerVolumeMount[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference {
-    return new DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference {
+    return new DaemonsetSpecTemplateSpecInitContainerVolumeMountOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecInitContainer {
   /**
-  * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#args Daemonset#args}
-  */
+   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#args Daemonset#args}
+   */
   readonly args?: string[];
   /**
-  * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#command Daemonset#command}
-  */
+   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#command Daemonset#command}
+   */
   readonly command?: string[];
   /**
-  * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#image Daemonset#image}
-  */
+   * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#image Daemonset#image}
+   */
   readonly image?: string;
   /**
-  * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#image_pull_policy Daemonset#image_pull_policy}
-  */
+   * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#image_pull_policy Daemonset#image_pull_policy}
+   */
   readonly imagePullPolicy?: string;
   /**
-  * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name: string;
   /**
-  * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#stdin Daemonset#stdin}
-  */
+   * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#stdin Daemonset#stdin}
+   */
   readonly stdin?: boolean | cdktf.IResolvable;
   /**
-  * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#stdin_once Daemonset#stdin_once}
-  */
+   * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#stdin_once Daemonset#stdin_once}
+   */
   readonly stdinOnce?: boolean | cdktf.IResolvable;
   /**
-  * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#termination_message_path Daemonset#termination_message_path}
-  */
+   * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#termination_message_path Daemonset#termination_message_path}
+   */
   readonly terminationMessagePath?: string;
   /**
-  * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#termination_message_policy Daemonset#termination_message_policy}
-  */
+   * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#termination_message_policy Daemonset#termination_message_policy}
+   */
   readonly terminationMessagePolicy?: string;
   /**
-  * Whether this container should allocate a TTY for itself
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#tty Daemonset#tty}
-  */
+   * Whether this container should allocate a TTY for itself
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#tty Daemonset#tty}
+   */
   readonly tty?: boolean | cdktf.IResolvable;
   /**
-  * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#working_dir Daemonset#working_dir}
-  */
+   * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#working_dir Daemonset#working_dir}
+   */
   readonly workingDir?: string;
   /**
-  * env block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#env Daemonset#env}
-  */
-  readonly env?: DaemonsetSpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable;
+   * env block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#env Daemonset#env}
+   */
+  readonly env?:
+    | DaemonsetSpecTemplateSpecInitContainerEnv[]
+    | cdktf.IResolvable;
   /**
-  * env_from block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#env_from Daemonset#env_from}
-  */
-  readonly envFrom?: DaemonsetSpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable;
+   * env_from block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#env_from Daemonset#env_from}
+   */
+  readonly envFrom?:
+    | DaemonsetSpecTemplateSpecInitContainerEnvFrom[]
+    | cdktf.IResolvable;
   /**
-  * lifecycle block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#lifecycle Daemonset#lifecycle}
-  */
+   * lifecycle block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#lifecycle Daemonset#lifecycle}
+   */
   readonly lifecycle?: DaemonsetSpecTemplateSpecInitContainerLifecycle;
   /**
-  * liveness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#liveness_probe Daemonset#liveness_probe}
-  */
+   * liveness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#liveness_probe Daemonset#liveness_probe}
+   */
   readonly livenessProbe?: DaemonsetSpecTemplateSpecInitContainerLivenessProbe;
   /**
-  * port block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
-  */
-  readonly port?: DaemonsetSpecTemplateSpecInitContainerPort[] | cdktf.IResolvable;
+   * port block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#port Daemonset#port}
+   */
+  readonly port?:
+    | DaemonsetSpecTemplateSpecInitContainerPort[]
+    | cdktf.IResolvable;
   /**
-  * readiness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#readiness_probe Daemonset#readiness_probe}
-  */
+   * readiness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#readiness_probe Daemonset#readiness_probe}
+   */
   readonly readinessProbe?: DaemonsetSpecTemplateSpecInitContainerReadinessProbe;
   /**
-  * resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resources Daemonset#resources}
-  */
+   * resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resources Daemonset#resources}
+   */
   readonly resources?: DaemonsetSpecTemplateSpecInitContainerResources;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#security_context Daemonset#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#security_context Daemonset#security_context}
+   */
   readonly securityContext?: DaemonsetSpecTemplateSpecInitContainerSecurityContext;
   /**
-  * startup_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#startup_probe Daemonset#startup_probe}
-  */
+   * startup_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#startup_probe Daemonset#startup_probe}
+   */
   readonly startupProbe?: DaemonsetSpecTemplateSpecInitContainerStartupProbe;
   /**
-  * volume_mount block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_mount Daemonset#volume_mount}
-  */
-  readonly volumeMount?: DaemonsetSpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable;
+   * volume_mount block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_mount Daemonset#volume_mount}
+   */
+  readonly volumeMount?:
+    | DaemonsetSpecTemplateSpecInitContainerVolumeMount[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecInitContainerToTerraform(struct?: DaemonsetSpecTemplateSpecInitContainer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecInitContainerToTerraform(
+  struct?: DaemonsetSpecTemplateSpecInitContainer | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     args: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.args),
@@ -1845,21 +2190,53 @@ export function daemonsetSpecTemplateSpecInitContainerToTerraform(struct?: Daemo
     name: cdktf.stringToTerraform(struct!.name),
     stdin: cdktf.booleanToTerraform(struct!.stdin),
     stdin_once: cdktf.booleanToTerraform(struct!.stdinOnce),
-    termination_message_path: cdktf.stringToTerraform(struct!.terminationMessagePath),
-    termination_message_policy: cdktf.stringToTerraform(struct!.terminationMessagePolicy),
+    termination_message_path: cdktf.stringToTerraform(
+      struct!.terminationMessagePath,
+    ),
+    termination_message_policy: cdktf.stringToTerraform(
+      struct!.terminationMessagePolicy,
+    ),
     tty: cdktf.booleanToTerraform(struct!.tty),
     working_dir: cdktf.stringToTerraform(struct!.workingDir),
-    env: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerEnvToTerraform, true)(struct!.env),
-    env_from: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerEnvFromToTerraform, true)(struct!.envFrom),
-    lifecycle: daemonsetSpecTemplateSpecInitContainerLifecycleToTerraform(struct!.lifecycle),
-    liveness_probe: daemonsetSpecTemplateSpecInitContainerLivenessProbeToTerraform(struct!.livenessProbe),
-    port: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerPortToTerraform, true)(struct!.port),
-    readiness_probe: daemonsetSpecTemplateSpecInitContainerReadinessProbeToTerraform(struct!.readinessProbe),
-    resources: daemonsetSpecTemplateSpecInitContainerResourcesToTerraform(struct!.resources),
-    security_context: daemonsetSpecTemplateSpecInitContainerSecurityContextToTerraform(struct!.securityContext),
-    startup_probe: daemonsetSpecTemplateSpecInitContainerStartupProbeToTerraform(struct!.startupProbe),
-    volume_mount: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerVolumeMountToTerraform, true)(struct!.volumeMount),
-  }
+    env: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerEnvToTerraform,
+      true,
+    )(struct!.env),
+    env_from: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerEnvFromToTerraform,
+      true,
+    )(struct!.envFrom),
+    lifecycle: daemonsetSpecTemplateSpecInitContainerLifecycleToTerraform(
+      struct!.lifecycle,
+    ),
+    liveness_probe:
+      daemonsetSpecTemplateSpecInitContainerLivenessProbeToTerraform(
+        struct!.livenessProbe,
+      ),
+    port: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerPortToTerraform,
+      true,
+    )(struct!.port),
+    readiness_probe:
+      daemonsetSpecTemplateSpecInitContainerReadinessProbeToTerraform(
+        struct!.readinessProbe,
+      ),
+    resources: daemonsetSpecTemplateSpecInitContainerResourcesToTerraform(
+      struct!.resources,
+    ),
+    security_context:
+      daemonsetSpecTemplateSpecInitContainerSecurityContextToTerraform(
+        struct!.securityContext,
+      ),
+    startup_probe:
+      daemonsetSpecTemplateSpecInitContainerStartupProbeToTerraform(
+        struct!.startupProbe,
+      ),
+    volume_mount: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerVolumeMountToTerraform,
+      true,
+    )(struct!.volumeMount),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf.ComplexObject {
@@ -1867,16 +2244,29 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecInitContainer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecInitContainer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1916,7 +2306,8 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
     }
     if (this._terminationMessagePolicy !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationMessagePolicy = this._terminationMessagePolicy;
+      internalValueResult.terminationMessagePolicy =
+        this._terminationMessagePolicy;
     }
     if (this._tty !== undefined) {
       hasAnyValues = true;
@@ -1956,7 +2347,8 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._startupProbe?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1969,7 +2361,12 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecInitContainer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainer
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1994,12 +2391,10 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
       this._securityContext.internalValue = undefined;
       this._startupProbe.internalValue = undefined;
       this._volumeMount.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._args = value.args;
@@ -2027,7 +2422,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // args - computed: false, optional: true, required: false
-  private _args?: string[]; 
+  private _args?: string[];
   public get args() {
     return this.getListAttribute('args');
   }
@@ -2043,7 +2438,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -2059,7 +2454,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // image - computed: false, optional: true, required: false
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -2075,7 +2470,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // image_pull_policy - computed: true, optional: true, required: false
-  private _imagePullPolicy?: string; 
+  private _imagePullPolicy?: string;
   public get imagePullPolicy() {
     return this.getStringAttribute('image_pull_policy');
   }
@@ -2091,7 +2486,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2104,7 +2499,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // stdin - computed: false, optional: true, required: false
-  private _stdin?: boolean | cdktf.IResolvable; 
+  private _stdin?: boolean | cdktf.IResolvable;
   public get stdin() {
     return this.getBooleanAttribute('stdin');
   }
@@ -2120,7 +2515,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // stdin_once - computed: false, optional: true, required: false
-  private _stdinOnce?: boolean | cdktf.IResolvable; 
+  private _stdinOnce?: boolean | cdktf.IResolvable;
   public get stdinOnce() {
     return this.getBooleanAttribute('stdin_once');
   }
@@ -2136,7 +2531,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // termination_message_path - computed: false, optional: true, required: false
-  private _terminationMessagePath?: string; 
+  private _terminationMessagePath?: string;
   public get terminationMessagePath() {
     return this.getStringAttribute('termination_message_path');
   }
@@ -2152,7 +2547,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // termination_message_policy - computed: true, optional: true, required: false
-  private _terminationMessagePolicy?: string; 
+  private _terminationMessagePolicy?: string;
   public get terminationMessagePolicy() {
     return this.getStringAttribute('termination_message_policy');
   }
@@ -2168,7 +2563,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // tty - computed: false, optional: true, required: false
-  private _tty?: boolean | cdktf.IResolvable; 
+  private _tty?: boolean | cdktf.IResolvable;
   public get tty() {
     return this.getBooleanAttribute('tty');
   }
@@ -2184,7 +2579,7 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // working_dir - computed: false, optional: true, required: false
-  private _workingDir?: string; 
+  private _workingDir?: string;
   public get workingDir() {
     return this.getStringAttribute('working_dir');
   }
@@ -2200,11 +2595,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new DaemonsetSpecTemplateSpecInitContainerEnvList(this, "env", false);
+  private _env = new DaemonsetSpecTemplateSpecInitContainerEnvList(
+    this,
+    'env',
+    false,
+  );
   public get env() {
     return this._env;
   }
-  public putEnv(value: DaemonsetSpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable) {
+  public putEnv(
+    value: DaemonsetSpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable,
+  ) {
     this._env.internalValue = value;
   }
   public resetEnv() {
@@ -2216,11 +2617,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // env_from - computed: false, optional: true, required: false
-  private _envFrom = new DaemonsetSpecTemplateSpecInitContainerEnvFromList(this, "env_from", false);
+  private _envFrom = new DaemonsetSpecTemplateSpecInitContainerEnvFromList(
+    this,
+    'env_from',
+    false,
+  );
   public get envFrom() {
     return this._envFrom;
   }
-  public putEnvFrom(value: DaemonsetSpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable) {
+  public putEnvFrom(
+    value: DaemonsetSpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable,
+  ) {
     this._envFrom.internalValue = value;
   }
   public resetEnvFrom() {
@@ -2232,7 +2639,11 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // lifecycle - computed: false, optional: true, required: false
-  private _lifecycle = new DaemonsetSpecTemplateSpecInitContainerLifecycleOutputReference(this, "lifecycle");
+  private _lifecycle =
+    new DaemonsetSpecTemplateSpecInitContainerLifecycleOutputReference(
+      this,
+      'lifecycle',
+    );
   public get lifecycle() {
     return this._lifecycle;
   }
@@ -2248,11 +2659,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // liveness_probe - computed: false, optional: true, required: false
-  private _livenessProbe = new DaemonsetSpecTemplateSpecInitContainerLivenessProbeOutputReference(this, "liveness_probe");
+  private _livenessProbe =
+    new DaemonsetSpecTemplateSpecInitContainerLivenessProbeOutputReference(
+      this,
+      'liveness_probe',
+    );
   public get livenessProbe() {
     return this._livenessProbe;
   }
-  public putLivenessProbe(value: DaemonsetSpecTemplateSpecInitContainerLivenessProbe) {
+  public putLivenessProbe(
+    value: DaemonsetSpecTemplateSpecInitContainerLivenessProbe,
+  ) {
     this._livenessProbe.internalValue = value;
   }
   public resetLivenessProbe() {
@@ -2264,11 +2681,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // port - computed: false, optional: true, required: false
-  private _port = new DaemonsetSpecTemplateSpecInitContainerPortList(this, "port", false);
+  private _port = new DaemonsetSpecTemplateSpecInitContainerPortList(
+    this,
+    'port',
+    false,
+  );
   public get port() {
     return this._port;
   }
-  public putPort(value: DaemonsetSpecTemplateSpecInitContainerPort[] | cdktf.IResolvable) {
+  public putPort(
+    value: DaemonsetSpecTemplateSpecInitContainerPort[] | cdktf.IResolvable,
+  ) {
     this._port.internalValue = value;
   }
   public resetPort() {
@@ -2280,11 +2703,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // readiness_probe - computed: false, optional: true, required: false
-  private _readinessProbe = new DaemonsetSpecTemplateSpecInitContainerReadinessProbeOutputReference(this, "readiness_probe");
+  private _readinessProbe =
+    new DaemonsetSpecTemplateSpecInitContainerReadinessProbeOutputReference(
+      this,
+      'readiness_probe',
+    );
   public get readinessProbe() {
     return this._readinessProbe;
   }
-  public putReadinessProbe(value: DaemonsetSpecTemplateSpecInitContainerReadinessProbe) {
+  public putReadinessProbe(
+    value: DaemonsetSpecTemplateSpecInitContainerReadinessProbe,
+  ) {
     this._readinessProbe.internalValue = value;
   }
   public resetReadinessProbe() {
@@ -2296,7 +2725,11 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources = new DaemonsetSpecTemplateSpecInitContainerResourcesOutputReference(this, "resources");
+  private _resources =
+    new DaemonsetSpecTemplateSpecInitContainerResourcesOutputReference(
+      this,
+      'resources',
+    );
   public get resources() {
     return this._resources;
   }
@@ -2312,11 +2745,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new DaemonsetSpecTemplateSpecInitContainerSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
-  public putSecurityContext(value: DaemonsetSpecTemplateSpecInitContainerSecurityContext) {
+  public putSecurityContext(
+    value: DaemonsetSpecTemplateSpecInitContainerSecurityContext,
+  ) {
     this._securityContext.internalValue = value;
   }
   public resetSecurityContext() {
@@ -2328,11 +2767,17 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // startup_probe - computed: false, optional: true, required: false
-  private _startupProbe = new DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference(this, "startup_probe");
+  private _startupProbe =
+    new DaemonsetSpecTemplateSpecInitContainerStartupProbeOutputReference(
+      this,
+      'startup_probe',
+    );
   public get startupProbe() {
     return this._startupProbe;
   }
-  public putStartupProbe(value: DaemonsetSpecTemplateSpecInitContainerStartupProbe) {
+  public putStartupProbe(
+    value: DaemonsetSpecTemplateSpecInitContainerStartupProbe,
+  ) {
     this._startupProbe.internalValue = value;
   }
   public resetStartupProbe() {
@@ -2344,11 +2789,20 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
   }
 
   // volume_mount - computed: false, optional: true, required: false
-  private _volumeMount = new DaemonsetSpecTemplateSpecInitContainerVolumeMountList(this, "volume_mount", false);
+  private _volumeMount =
+    new DaemonsetSpecTemplateSpecInitContainerVolumeMountList(
+      this,
+      'volume_mount',
+      false,
+    );
   public get volumeMount() {
     return this._volumeMount;
   }
-  public putVolumeMount(value: DaemonsetSpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable) {
+  public putVolumeMount(
+    value:
+      | DaemonsetSpecTemplateSpecInitContainerVolumeMount[]
+      | cdktf.IResolvable,
+  ) {
     this._volumeMount.internalValue = value;
   }
   public resetVolumeMount() {
@@ -2361,41 +2815,60 @@ export class DaemonsetSpecTemplateSpecInitContainerOutputReference extends cdktf
 }
 
 export class DaemonsetSpecTemplateSpecInitContainerList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecInitContainer[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecInitContainer[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecInitContainerOutputReference {
-    return new DaemonsetSpecTemplateSpecInitContainerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecInitContainerOutputReference {
+    return new DaemonsetSpecTemplateSpecInitContainerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecReadinessGate {
   /**
-  * refers to a condition in the pod's condition list with matching type.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#condition_type Daemonset#condition_type}
-  */
+   * refers to a condition in the pod's condition list with matching type.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#condition_type Daemonset#condition_type}
+   */
   readonly conditionType: string;
 }
 
-export function daemonsetSpecTemplateSpecReadinessGateToTerraform(struct?: DaemonsetSpecTemplateSpecReadinessGate | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecReadinessGateToTerraform(
+  struct?: DaemonsetSpecTemplateSpecReadinessGate | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     condition_type: cdktf.stringToTerraform(struct!.conditionType),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecReadinessGateOutputReference extends cdktf.ComplexObject {
@@ -2403,16 +2876,29 @@ export class DaemonsetSpecTemplateSpecReadinessGateOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecReadinessGate | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecReadinessGate
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2425,17 +2911,20 @@ export class DaemonsetSpecTemplateSpecReadinessGateOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecReadinessGate | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecReadinessGate
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._conditionType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._conditionType = value.conditionType;
@@ -2443,7 +2932,7 @@ export class DaemonsetSpecTemplateSpecReadinessGateOutputReference extends cdktf
   }
 
   // condition_type - computed: false, optional: false, required: true
-  private _conditionType?: string; 
+  private _conditionType?: string;
   public get conditionType() {
     return this.getStringAttribute('condition_type');
   }
@@ -2457,76 +2946,102 @@ export class DaemonsetSpecTemplateSpecReadinessGateOutputReference extends cdktf
 }
 
 export class DaemonsetSpecTemplateSpecReadinessGateList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecReadinessGate[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecReadinessGate[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecReadinessGateOutputReference {
-    return new DaemonsetSpecTemplateSpecReadinessGateOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecReadinessGateOutputReference {
+    return new DaemonsetSpecTemplateSpecReadinessGateOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions {
   /**
-  * Level is SELinux level label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#level Daemonset#level}
-  */
+   * Level is SELinux level label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#level Daemonset#level}
+   */
   readonly level?: string;
   /**
-  * Role is a SELinux role label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#role Daemonset#role}
-  */
+   * Role is a SELinux role label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#role Daemonset#role}
+   */
   readonly role?: string;
   /**
-  * Type is a SELinux type label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
-  */
+   * Type is a SELinux type label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
+   */
   readonly type?: string;
   /**
-  * User is a SELinux user label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
-  */
+   * User is a SELinux user label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
+   */
   readonly user?: string;
 }
 
-export function daemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(struct?: DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference | DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference
+    | DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._level !== undefined) {
@@ -2548,15 +3063,16 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._level = undefined;
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._level = value.level;
       this._role = value.role;
@@ -2566,7 +3082,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReferen
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -2582,7 +3098,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReferen
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -2598,7 +3114,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReferen
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2614,7 +3130,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReferen
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -2631,42 +3147,55 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReferen
 }
 export interface DaemonsetSpecTemplateSpecSecurityContextSeccompProfile {
   /**
-  * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#localhost_profile Daemonset#localhost_profile}
-  */
+   * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#localhost_profile Daemonset#localhost_profile}
+   */
   readonly localhostProfile?: string;
   /**
-  * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
-  */
+   * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
+   */
   readonly type?: string;
 }
 
-export function daemonsetSpecTemplateSpecSecurityContextSeccompProfileToTerraform(struct?: DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReference | DaemonsetSpecTemplateSpecSecurityContextSeccompProfile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecSecurityContextSeccompProfileToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReference
+    | DaemonsetSpecTemplateSpecSecurityContextSeccompProfile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     localhost_profile: cdktf.stringToTerraform(struct!.localhostProfile),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecSecurityContextSeccompProfile | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecSecurityContextSeccompProfile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._localhostProfile !== undefined) {
@@ -2680,13 +3209,14 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecSecurityContextSeccompProfile | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecSecurityContextSeccompProfile | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._localhostProfile = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._localhostProfile = value.localhostProfile;
       this._type = value.type;
@@ -2694,7 +3224,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReferen
   }
 
   // localhost_profile - computed: false, optional: true, required: false
-  private _localhostProfile?: string; 
+  private _localhostProfile?: string;
   public get localhostProfile() {
     return this.getStringAttribute('localhost_profile');
   }
@@ -2710,7 +3240,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReferen
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2727,28 +3257,34 @@ export class DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReferen
 }
 export interface DaemonsetSpecTemplateSpecSecurityContextSysctl {
   /**
-  * Name of a property to set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of a property to set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name: string;
   /**
-  * Value of a property to set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#value Daemonset#value}
-  */
+   * Value of a property to set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#value Daemonset#value}
+   */
   readonly value: string;
 }
 
-export function daemonsetSpecTemplateSpecSecurityContextSysctlToTerraform(struct?: DaemonsetSpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecSecurityContextSysctlToTerraform(
+  struct?: DaemonsetSpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference extends cdktf.ComplexObject {
@@ -2756,16 +3292,29 @@ export class DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecSecurityContextSysctl
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2782,18 +3331,21 @@ export class DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecSecurityContextSysctl
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -2802,7 +3354,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference exten
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2815,7 +3367,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference exten
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2829,111 +3381,153 @@ export class DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference exten
 }
 
 export class DaemonsetSpecTemplateSpecSecurityContextSysctlList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecSecurityContextSysctl[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference {
-    return new DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference {
+    return new DaemonsetSpecTemplateSpecSecurityContextSysctlOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecSecurityContext {
   /**
-  * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- If unset, the Kubelet will not modify the ownership and permissions of any volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_group Daemonset#fs_group}
-  */
+   * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- If unset, the Kubelet will not modify the ownership and permissions of any volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_group Daemonset#fs_group}
+   */
   readonly fsGroup?: string;
   /**
-  * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_group_change_policy Daemonset#fs_group_change_policy}
-  */
+   * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_group_change_policy Daemonset#fs_group_change_policy}
+   */
   readonly fsGroupChangePolicy?: string;
   /**
-  * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_group Daemonset#run_as_group}
-  */
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_group Daemonset#run_as_group}
+   */
   readonly runAsGroup?: string;
   /**
-  * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_non_root Daemonset#run_as_non_root}
-  */
+   * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_non_root Daemonset#run_as_non_root}
+   */
   readonly runAsNonRoot?: boolean | cdktf.IResolvable;
   /**
-  * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_user Daemonset#run_as_user}
-  */
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#run_as_user Daemonset#run_as_user}
+   */
   readonly runAsUser?: string;
   /**
-  * A list of groups applied to the first process run in each container, in addition to the container's primary GID. If unspecified, no groups will be added to any container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#supplemental_groups Daemonset#supplemental_groups}
-  */
+   * A list of groups applied to the first process run in each container, in addition to the container's primary GID. If unspecified, no groups will be added to any container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#supplemental_groups Daemonset#supplemental_groups}
+   */
   readonly supplementalGroups?: number[];
   /**
-  * se_linux_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#se_linux_options Daemonset#se_linux_options}
-  */
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#se_linux_options Daemonset#se_linux_options}
+   */
   readonly seLinuxOptions?: DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions;
   /**
-  * seccomp_profile block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#seccomp_profile Daemonset#seccomp_profile}
-  */
+   * seccomp_profile block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#seccomp_profile Daemonset#seccomp_profile}
+   */
   readonly seccompProfile?: DaemonsetSpecTemplateSpecSecurityContextSeccompProfile;
   /**
-  * sysctl block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#sysctl Daemonset#sysctl}
-  */
-  readonly sysctl?: DaemonsetSpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable;
+   * sysctl block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#sysctl Daemonset#sysctl}
+   */
+  readonly sysctl?:
+    | DaemonsetSpecTemplateSpecSecurityContextSysctl[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecSecurityContextToTerraform(struct?: DaemonsetSpecTemplateSpecSecurityContextOutputReference | DaemonsetSpecTemplateSpecSecurityContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecSecurityContextToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecSecurityContextOutputReference
+    | DaemonsetSpecTemplateSpecSecurityContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_group: cdktf.stringToTerraform(struct!.fsGroup),
-    fs_group_change_policy: cdktf.stringToTerraform(struct!.fsGroupChangePolicy),
+    fs_group_change_policy: cdktf.stringToTerraform(
+      struct!.fsGroupChangePolicy,
+    ),
     run_as_group: cdktf.stringToTerraform(struct!.runAsGroup),
     run_as_non_root: cdktf.booleanToTerraform(struct!.runAsNonRoot),
     run_as_user: cdktf.stringToTerraform(struct!.runAsUser),
-    supplemental_groups: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.supplementalGroups),
-    se_linux_options: daemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(struct!.seLinuxOptions),
-    seccomp_profile: daemonsetSpecTemplateSpecSecurityContextSeccompProfileToTerraform(struct!.seccompProfile),
-    sysctl: cdktf.listMapper(daemonsetSpecTemplateSpecSecurityContextSysctlToTerraform, true)(struct!.sysctl),
-  }
+    supplemental_groups: cdktf.listMapper(
+      cdktf.numberToTerraform,
+      false,
+    )(struct!.supplementalGroups),
+    se_linux_options:
+      daemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(
+        struct!.seLinuxOptions,
+      ),
+    seccomp_profile:
+      daemonsetSpecTemplateSpecSecurityContextSeccompProfileToTerraform(
+        struct!.seccompProfile,
+      ),
+    sysctl: cdktf.listMapper(
+      daemonsetSpecTemplateSpecSecurityContextSysctlToTerraform,
+      true,
+    )(struct!.sysctl),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecSecurityContext | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecSecurityContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsGroup !== undefined) {
@@ -2975,7 +3569,9 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecSecurityContext | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecSecurityContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsGroup = undefined;
@@ -2987,8 +3583,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
       this._seLinuxOptions.internalValue = undefined;
       this._seccompProfile.internalValue = undefined;
       this._sysctl.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsGroup = value.fsGroup;
       this._fsGroupChangePolicy = value.fsGroupChangePolicy;
@@ -3003,7 +3598,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // fs_group - computed: false, optional: true, required: false
-  private _fsGroup?: string; 
+  private _fsGroup?: string;
   public get fsGroup() {
     return this.getStringAttribute('fs_group');
   }
@@ -3019,7 +3614,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // fs_group_change_policy - computed: false, optional: true, required: false
-  private _fsGroupChangePolicy?: string; 
+  private _fsGroupChangePolicy?: string;
   public get fsGroupChangePolicy() {
     return this.getStringAttribute('fs_group_change_policy');
   }
@@ -3035,7 +3630,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup?: string; 
+  private _runAsGroup?: string;
   public get runAsGroup() {
     return this.getStringAttribute('run_as_group');
   }
@@ -3051,7 +3646,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // run_as_non_root - computed: false, optional: true, required: false
-  private _runAsNonRoot?: boolean | cdktf.IResolvable; 
+  private _runAsNonRoot?: boolean | cdktf.IResolvable;
   public get runAsNonRoot() {
     return this.getBooleanAttribute('run_as_non_root');
   }
@@ -3067,7 +3662,7 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // run_as_user - computed: false, optional: true, required: false
-  private _runAsUser?: string; 
+  private _runAsUser?: string;
   public get runAsUser() {
     return this.getStringAttribute('run_as_user');
   }
@@ -3083,9 +3678,11 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // supplemental_groups - computed: false, optional: true, required: false
-  private _supplementalGroups?: number[]; 
+  private _supplementalGroups?: number[];
   public get supplementalGroups() {
-    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('supplemental_groups')));
+    return cdktf.Token.asNumberList(
+      cdktf.Fn.tolist(this.getNumberListAttribute('supplemental_groups')),
+    );
   }
   public set supplementalGroups(value: number[]) {
     this._supplementalGroups = value;
@@ -3099,11 +3696,17 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference(this, "se_linux_options");
+  private _seLinuxOptions =
+    new DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference(
+      this,
+      'se_linux_options',
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions) {
+  public putSeLinuxOptions(
+    value: DaemonsetSpecTemplateSpecSecurityContextSeLinuxOptions,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -3115,11 +3718,17 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // seccomp_profile - computed: false, optional: true, required: false
-  private _seccompProfile = new DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReference(this, "seccomp_profile");
+  private _seccompProfile =
+    new DaemonsetSpecTemplateSpecSecurityContextSeccompProfileOutputReference(
+      this,
+      'seccomp_profile',
+    );
   public get seccompProfile() {
     return this._seccompProfile;
   }
-  public putSeccompProfile(value: DaemonsetSpecTemplateSpecSecurityContextSeccompProfile) {
+  public putSeccompProfile(
+    value: DaemonsetSpecTemplateSpecSecurityContextSeccompProfile,
+  ) {
     this._seccompProfile.internalValue = value;
   }
   public resetSeccompProfile() {
@@ -3131,11 +3740,17 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
   }
 
   // sysctl - computed: false, optional: true, required: false
-  private _sysctl = new DaemonsetSpecTemplateSpecSecurityContextSysctlList(this, "sysctl", false);
+  private _sysctl = new DaemonsetSpecTemplateSpecSecurityContextSysctlList(
+    this,
+    'sysctl',
+    false,
+  );
   public get sysctl() {
     return this._sysctl;
   }
-  public putSysctl(value: DaemonsetSpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable) {
+  public putSysctl(
+    value: DaemonsetSpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable,
+  ) {
     this._sysctl.internalValue = value;
   }
   public resetSysctl() {
@@ -3148,41 +3763,47 @@ export class DaemonsetSpecTemplateSpecSecurityContextOutputReference extends cdk
 }
 export interface DaemonsetSpecTemplateSpecToleration {
   /**
-  * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#effect Daemonset#effect}
-  */
+   * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#effect Daemonset#effect}
+   */
   readonly effect?: string;
   /**
-  * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
-  */
+   * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
+   */
   readonly key?: string;
   /**
-  * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#operator Daemonset#operator}
-  */
+   * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#operator Daemonset#operator}
+   */
   readonly operator?: string;
   /**
-  * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#toleration_seconds Daemonset#toleration_seconds}
-  */
+   * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#toleration_seconds Daemonset#toleration_seconds}
+   */
   readonly tolerationSeconds?: string;
   /**
-  * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#value Daemonset#value}
-  */
+   * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#value Daemonset#value}
+   */
   readonly value?: string;
 }
 
-export function daemonsetSpecTemplateSpecTolerationToTerraform(struct?: DaemonsetSpecTemplateSpecToleration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecTolerationToTerraform(
+  struct?: DaemonsetSpecTemplateSpecToleration | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     effect: cdktf.stringToTerraform(struct!.effect),
@@ -3190,7 +3811,7 @@ export function daemonsetSpecTemplateSpecTolerationToTerraform(struct?: Daemonse
     operator: cdktf.stringToTerraform(struct!.operator),
     toleration_seconds: cdktf.stringToTerraform(struct!.tolerationSeconds),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.ComplexObject {
@@ -3198,16 +3819,29 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecToleration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecToleration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3236,7 +3870,9 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecToleration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecToleration | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3245,12 +3881,10 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
       this._operator = undefined;
       this._tolerationSeconds = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._effect = value.effect;
@@ -3262,7 +3896,7 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
   }
 
   // effect - computed: false, optional: true, required: false
-  private _effect?: string; 
+  private _effect?: string;
   public get effect() {
     return this.getStringAttribute('effect');
   }
@@ -3278,7 +3912,7 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3294,7 +3928,7 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -3310,7 +3944,7 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
   }
 
   // toleration_seconds - computed: false, optional: true, required: false
-  private _tolerationSeconds?: string; 
+  private _tolerationSeconds?: string;
   public get tolerationSeconds() {
     return this.getStringAttribute('toleration_seconds');
   }
@@ -3326,7 +3960,7 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3343,55 +3977,76 @@ export class DaemonsetSpecTemplateSpecTolerationOutputReference extends cdktf.Co
 }
 
 export class DaemonsetSpecTemplateSpecTolerationList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecToleration[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecToleration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecTolerationOutputReference {
-    return new DaemonsetSpecTemplateSpecTolerationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecTolerationOutputReference {
+    return new DaemonsetSpecTemplateSpecTolerationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#operator Daemonset#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#operator Daemonset#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#values Daemonset#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#values Daemonset#values}
+   */
   readonly values?: string[];
 }
 
-export function daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform(struct?: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -3399,16 +4054,29 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatch
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3429,19 +4097,22 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatch
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -3451,7 +4122,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatch
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3467,7 +4138,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatch
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -3483,7 +4154,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatch
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -3500,48 +4171,76 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatch
 }
 
 export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference {
-    return new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference {
+    return new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#match_labels Daemonset#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#match_labels Daemonset#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#match_expressions Daemonset#match_expressions}
-  */
-  readonly matchExpressions?: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#match_expressions Daemonset#match_expressions}
+   */
+  readonly matchExpressions?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform(struct?: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -3549,16 +4248,29 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutpu
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3570,23 +4282,27 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutpu
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -3595,7 +4311,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutpu
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -3611,11 +4327,20 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutpu
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -3628,62 +4353,88 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutpu
 }
 
 export class DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference {
-    return new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference {
+    return new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecTopologySpreadConstraint {
   /**
-  * describes the degree to which pods may be unevenly distributed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#max_skew Daemonset#max_skew}
-  */
+   * describes the degree to which pods may be unevenly distributed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#max_skew Daemonset#max_skew}
+   */
   readonly maxSkew?: number;
   /**
-  * the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#topology_key Daemonset#topology_key}
-  */
+   * the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#topology_key Daemonset#topology_key}
+   */
   readonly topologyKey?: string;
   /**
-  * indicates how to deal with a pod if it doesn't satisfy the spread constraint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#when_unsatisfiable Daemonset#when_unsatisfiable}
-  */
+   * indicates how to deal with a pod if it doesn't satisfy the spread constraint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#when_unsatisfiable Daemonset#when_unsatisfiable}
+   */
   readonly whenUnsatisfiable?: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#label_selector Daemonset#label_selector}
-  */
-  readonly labelSelector?: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#label_selector Daemonset#label_selector}
+   */
+  readonly labelSelector?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecTopologySpreadConstraintToTerraform(struct?: DaemonsetSpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecTopologySpreadConstraintToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraint
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max_skew: cdktf.numberToTerraform(struct!.maxSkew),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
     when_unsatisfiable: cdktf.stringToTerraform(struct!.whenUnsatisfiable),
-    label_selector: cdktf.listMapper(daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      daemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference extends cdktf.ComplexObject {
@@ -3691,16 +4442,29 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraint
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3725,7 +4489,12 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecTopologySpreadConstraint
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3733,12 +4502,10 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
       this._topologyKey = undefined;
       this._whenUnsatisfiable = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._maxSkew = value.maxSkew;
@@ -3749,7 +4516,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
   }
 
   // max_skew - computed: false, optional: true, required: false
-  private _maxSkew?: number; 
+  private _maxSkew?: number;
   public get maxSkew() {
     return this.getNumberAttribute('max_skew');
   }
@@ -3765,7 +4532,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
   }
 
   // topology_key - computed: false, optional: true, required: false
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -3781,7 +4548,7 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
   }
 
   // when_unsatisfiable - computed: false, optional: true, required: false
-  private _whenUnsatisfiable?: string; 
+  private _whenUnsatisfiable?: string;
   public get whenUnsatisfiable() {
     return this.getStringAttribute('when_unsatisfiable');
   }
@@ -3797,11 +4564,20 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | DaemonsetSpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -3814,76 +4590,102 @@ export class DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference ex
 }
 
 export class DaemonsetSpecTemplateSpecTopologySpreadConstraintList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraint[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference {
-    return new DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference {
+    return new DaemonsetSpecTemplateSpecTopologySpreadConstraintOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#partition Daemonset#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#partition Daemonset#partition}
+   */
   readonly partition?: number;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_id Daemonset#volume_id}
-  */
+   * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_id Daemonset#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference | DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference
+    | DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -3905,15 +4707,16 @@ export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -3923,7 +4726,7 @@ export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference 
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3939,7 +4742,7 @@ export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference 
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -3955,7 +4758,7 @@ export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3971,7 +4774,7 @@ export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference 
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -3985,47 +4788,55 @@ export class DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference 
 }
 export interface DaemonsetSpecTemplateSpecVolumeAzureDisk {
   /**
-  * Host Caching mode: None, Read Only, Read Write.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#caching_mode Daemonset#caching_mode}
-  */
+   * Host Caching mode: None, Read Only, Read Write.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#caching_mode Daemonset#caching_mode}
+   */
   readonly cachingMode: string;
   /**
-  * The URI the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#data_disk_uri Daemonset#data_disk_uri}
-  */
+   * The URI the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#data_disk_uri Daemonset#data_disk_uri}
+   */
   readonly dataDiskUri: string;
   /**
-  * The Name of the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#disk_name Daemonset#disk_name}
-  */
+   * The Name of the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#disk_name Daemonset#disk_name}
+   */
   readonly diskName: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#kind Daemonset#kind}
-  */
+   * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#kind Daemonset#kind}
+   */
   readonly kind?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeAzureDiskToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference | DaemonsetSpecTemplateSpecVolumeAzureDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeAzureDiskToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference
+    | DaemonsetSpecTemplateSpecVolumeAzureDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     caching_mode: cdktf.stringToTerraform(struct!.cachingMode),
@@ -4034,21 +4845,26 @@ export function daemonsetSpecTemplateSpecVolumeAzureDiskToTerraform(struct?: Dae
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     kind: cdktf.stringToTerraform(struct!.kind),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeAzureDisk | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeAzureDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cachingMode !== undefined) {
@@ -4078,7 +4894,9 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeAzureDisk | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeAzureDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cachingMode = undefined;
@@ -4087,8 +4905,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
       this._fsType = undefined;
       this._kind = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cachingMode = value.cachingMode;
       this._dataDiskUri = value.dataDiskUri;
@@ -4100,7 +4917,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
   }
 
   // caching_mode - computed: false, optional: false, required: true
-  private _cachingMode?: string; 
+  private _cachingMode?: string;
   public get cachingMode() {
     return this.getStringAttribute('caching_mode');
   }
@@ -4113,7 +4930,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
   }
 
   // data_disk_uri - computed: false, optional: false, required: true
-  private _dataDiskUri?: string; 
+  private _dataDiskUri?: string;
   public get dataDiskUri() {
     return this.getStringAttribute('data_disk_uri');
   }
@@ -4126,7 +4943,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
   }
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string; 
+  private _diskName?: string;
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -4139,7 +4956,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4155,7 +4972,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
   }
 
   // kind - computed: true, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -4171,7 +4988,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4188,56 +5005,69 @@ export class DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference extends cdk
 }
 export interface DaemonsetSpecTemplateSpecVolumeAzureFile {
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The name of secret that contains Azure Storage Account Name and Key
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_name Daemonset#secret_name}
-  */
+   * The name of secret that contains Azure Storage Account Name and Key
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_name Daemonset#secret_name}
+   */
   readonly secretName: string;
   /**
-  * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_namespace Daemonset#secret_namespace}
-  */
+   * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_namespace Daemonset#secret_namespace}
+   */
   readonly secretNamespace?: string;
   /**
-  * Share Name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#share_name Daemonset#share_name}
-  */
+   * Share Name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#share_name Daemonset#share_name}
+   */
   readonly shareName: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeAzureFileToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference | DaemonsetSpecTemplateSpecVolumeAzureFile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeAzureFileToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference
+    | DaemonsetSpecTemplateSpecVolumeAzureFile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
     secret_namespace: cdktf.stringToTerraform(struct!.secretNamespace),
     share_name: cdktf.stringToTerraform(struct!.shareName),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeAzureFile | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeAzureFile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._readOnly !== undefined) {
@@ -4259,15 +5089,16 @@ export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeAzureFile | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeAzureFile | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._readOnly = undefined;
       this._secretName = undefined;
       this._secretNamespace = undefined;
       this._shareName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._readOnly = value.readOnly;
       this._secretName = value.secretName;
@@ -4277,7 +5108,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdk
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4293,7 +5124,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdk
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -4306,7 +5137,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdk
   }
 
   // secret_namespace - computed: false, optional: true, required: false
-  private _secretNamespace?: string; 
+  private _secretNamespace?: string;
   public get secretNamespace() {
     return this.getStringAttribute('secret_namespace');
   }
@@ -4322,7 +5153,7 @@ export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdk
   }
 
   // share_name - computed: false, optional: false, required: true
-  private _shareName?: string; 
+  private _shareName?: string;
   public get shareName() {
     return this.getStringAttribute('share_name');
   }
@@ -4336,42 +5167,55 @@ export class DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference extends cdk
 }
 export interface DaemonsetSpecTemplateSpecVolumeCephFsSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#namespace Daemonset#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#namespace Daemonset#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeCephFsSecretRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference | DaemonsetSpecTemplateSpecVolumeCephFsSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeCephFsSecretRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeCephFsSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeCephFsSecretRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeCephFsSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4385,13 +5229,14 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeCephFsSecretRef | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeCephFsSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -4399,7 +5244,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference exten
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4415,7 +5260,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference exten
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -4432,70 +5277,88 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference exten
 }
 export interface DaemonsetSpecTemplateSpecVolumeCephFs {
   /**
-  * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#monitors Daemonset#monitors}
-  */
+   * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#monitors Daemonset#monitors}
+   */
   readonly monitors: string[];
   /**
-  * Used as the mounted root, rather than the full Ceph tree, default is /
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Used as the mounted root, rather than the full Ceph tree, default is /
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_file Daemonset#secret_file}
-  */
+   * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_file Daemonset#secret_file}
+   */
   readonly secretFile?: string;
   /**
-  * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
-  */
+   * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
+   */
   readonly user?: string;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_ref Daemonset#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_ref Daemonset#secret_ref}
+   */
   readonly secretRef?: DaemonsetSpecTemplateSpecVolumeCephFsSecretRef;
 }
 
-export function daemonsetSpecTemplateSpecVolumeCephFsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeCephFsOutputReference | DaemonsetSpecTemplateSpecVolumeCephFs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeCephFsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeCephFsOutputReference
+    | DaemonsetSpecTemplateSpecVolumeCephFs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.monitors),
+    monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.monitors),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_file: cdktf.stringToTerraform(struct!.secretFile),
     user: cdktf.stringToTerraform(struct!.user),
-    secret_ref: daemonsetSpecTemplateSpecVolumeCephFsSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref: daemonsetSpecTemplateSpecVolumeCephFsSecretRefToTerraform(
+      struct!.secretRef,
+    ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeCephFs | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeCephFs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._monitors !== undefined) {
@@ -4525,7 +5388,9 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeCephFs | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeCephFs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._monitors = undefined;
@@ -4534,8 +5399,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
       this._secretFile = undefined;
       this._user = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._monitors = value.monitors;
       this._path = value.path;
@@ -4547,7 +5411,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
   }
 
   // monitors - computed: false, optional: false, required: true
-  private _monitors?: string[]; 
+  private _monitors?: string[];
   public get monitors() {
     return cdktf.Fn.tolist(this.getListAttribute('monitors'));
   }
@@ -4560,7 +5424,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -4576,7 +5440,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4592,7 +5456,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
   }
 
   // secret_file - computed: false, optional: true, required: false
-  private _secretFile?: string; 
+  private _secretFile?: string;
   public get secretFile() {
     return this.getStringAttribute('secret_file');
   }
@@ -4608,7 +5472,7 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -4624,7 +5488,11 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new DaemonsetSpecTemplateSpecVolumeCephFsSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
@@ -4641,49 +5509,62 @@ export class DaemonsetSpecTemplateSpecVolumeCephFsOutputReference extends cdktf.
 }
 export interface DaemonsetSpecTemplateSpecVolumeCinder {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_id Daemonset#volume_id}
-  */
+   * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_id Daemonset#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeCinderToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeCinderOutputReference | DaemonsetSpecTemplateSpecVolumeCinder): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeCinderToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeCinderOutputReference
+    | DaemonsetSpecTemplateSpecVolumeCinder,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeCinderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeCinder | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeCinder
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -4701,14 +5582,15 @@ export class DaemonsetSpecTemplateSpecVolumeCinderOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeCinder | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeCinder | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._readOnly = value.readOnly;
@@ -4717,7 +5599,7 @@ export class DaemonsetSpecTemplateSpecVolumeCinderOutputReference extends cdktf.
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4733,7 +5615,7 @@ export class DaemonsetSpecTemplateSpecVolumeCinderOutputReference extends cdktf.
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4749,7 +5631,7 @@ export class DaemonsetSpecTemplateSpecVolumeCinderOutputReference extends cdktf.
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -4763,35 +5645,41 @@ export class DaemonsetSpecTemplateSpecVolumeCinderOutputReference extends cdktf.
 }
 export interface DaemonsetSpecTemplateSpecVolumeConfigMapItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeConfigMapItemsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeConfigMapItemsToTerraform(
+  struct?: DaemonsetSpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extends cdktf.ComplexObject {
@@ -4799,16 +5687,29 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeConfigMapItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4829,19 +5730,22 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeConfigMapItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -4851,7 +5755,7 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extend
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -4867,7 +5771,7 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extend
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -4883,7 +5787,7 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extend
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -4900,76 +5804,107 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference extend
 }
 
 export class DaemonsetSpecTemplateSpecVolumeConfigMapItemsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeConfigMapItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeConfigMapItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeConfigMap {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the ConfigMap or its keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
-  */
+   * Optional: Specify whether the ConfigMap or its keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
-  */
-  readonly items?: DaemonsetSpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
+   */
+  readonly items?:
+    | DaemonsetSpecTemplateSpecVolumeConfigMapItems[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeConfigMapToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference | DaemonsetSpecTemplateSpecVolumeConfigMap): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeConfigMapToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference
+    | DaemonsetSpecTemplateSpecVolumeConfigMap,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeConfigMapItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeConfigMapItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeConfigMap | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeConfigMap
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -4991,15 +5926,16 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeConfigMap | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeConfigMap | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._name = value.name;
@@ -5009,7 +5945,7 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdk
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -5025,7 +5961,7 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdk
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5041,7 +5977,7 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdk
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -5057,11 +5993,17 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdk
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new DaemonsetSpecTemplateSpecVolumeConfigMapItemsList(this, "items", false);
+  private _items = new DaemonsetSpecTemplateSpecVolumeConfigMapItemsList(
+    this,
+    'items',
+    false,
+  );
   public get items() {
     return this._items;
   }
-  public putItems(value: DaemonsetSpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable) {
+  public putItems(
+    value: DaemonsetSpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -5074,35 +6016,48 @@ export class DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference extends cdk
 }
 export interface DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference | DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -5112,19 +6067,20 @@ export class DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5141,59 +6097,75 @@ export class DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReferen
 }
 export interface DaemonsetSpecTemplateSpecVolumeCsi {
   /**
-  * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#driver Daemonset#driver}
-  */
+   * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#driver Daemonset#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Attributes of the volume to publish.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_attributes Daemonset#volume_attributes}
-  */
+   * Attributes of the volume to publish.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_attributes Daemonset#volume_attributes}
+   */
   readonly volumeAttributes?: { [key: string]: string };
   /**
-  * node_publish_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#node_publish_secret_ref Daemonset#node_publish_secret_ref}
-  */
+   * node_publish_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#node_publish_secret_ref Daemonset#node_publish_secret_ref}
+   */
   readonly nodePublishSecretRef?: DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef;
 }
 
-export function daemonsetSpecTemplateSpecVolumeCsiToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeCsiOutputReference | DaemonsetSpecTemplateSpecVolumeCsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeCsiToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeCsiOutputReference
+    | DaemonsetSpecTemplateSpecVolumeCsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.volumeAttributes),
-    node_publish_secret_ref: daemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(struct!.nodePublishSecretRef),
-  }
+    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.volumeAttributes,
+    ),
+    node_publish_secret_ref:
+      daemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(
+        struct!.nodePublishSecretRef,
+      ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5218,12 +6190,15 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
     }
     if (this._nodePublishSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodePublishSecretRef = this._nodePublishSecretRef?.internalValue;
+      internalValueResult.nodePublishSecretRef =
+        this._nodePublishSecretRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeCsi | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeCsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -5231,8 +6206,7 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
       this._readOnly = undefined;
       this._volumeAttributes = undefined;
       this._nodePublishSecretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -5243,7 +6217,7 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -5256,7 +6230,7 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -5272,7 +6246,7 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -5288,7 +6262,7 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
   }
 
   // volume_attributes - computed: false, optional: true, required: false
-  private _volumeAttributes?: { [key: string]: string }; 
+  private _volumeAttributes?: { [key: string]: string };
   public get volumeAttributes() {
     return this.getStringMapAttribute('volume_attributes');
   }
@@ -5304,11 +6278,17 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
   }
 
   // node_publish_secret_ref - computed: false, optional: true, required: false
-  private _nodePublishSecretRef = new DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference(this, "node_publish_secret_ref");
+  private _nodePublishSecretRef =
+    new DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference(
+      this,
+      'node_publish_secret_ref',
+    );
   public get nodePublishSecretRef() {
     return this._nodePublishSecretRef;
   }
-  public putNodePublishSecretRef(value: DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef) {
+  public putNodePublishSecretRef(
+    value: DaemonsetSpecTemplateSpecVolumeCsiNodePublishSecretRef,
+  ) {
     this._nodePublishSecretRef.internalValue = value;
   }
   public resetNodePublishSecretRef() {
@@ -5321,42 +6301,55 @@ export class DaemonsetSpecTemplateSpecVolumeCsiOutputReference extends cdktf.Com
 }
 export interface DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#api_version Daemonset#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#api_version Daemonset#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_path Daemonset#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_path Daemonset#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -5370,13 +6363,14 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -5384,7 +6378,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRefere
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -5400,7 +6394,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRefere
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -5417,45 +6411,58 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRefere
 }
 export interface DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#container_name Daemonset#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#container_name Daemonset#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#divisor Daemonset#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#divisor Daemonset#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource Daemonset#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource Daemonset#resource}
+   */
   readonly resource: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -5473,14 +6480,17 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -5489,7 +6499,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutp
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -5502,7 +6512,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutp
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -5518,7 +6528,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutp
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -5532,42 +6542,54 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutp
 }
 export interface DaemonsetSpecTemplateSpecVolumeDownwardApiItems {
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
+   */
   readonly mode?: string;
   /**
-  * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path: string;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_ref Daemonset#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_ref Daemonset#field_ref}
+   */
   readonly fieldRef: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource_field_ref Daemonset#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource_field_ref Daemonset#resource_field_ref}
+   */
   readonly resourceFieldRef?: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef;
 }
 
-export function daemonsetSpecTemplateSpecVolumeDownwardApiItemsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeDownwardApiItemsToTerraform(
+  struct?: DaemonsetSpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-    field_ref: daemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: daemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(struct!.resourceFieldRef),
-  }
+    field_ref:
+      daemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      daemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference extends cdktf.ComplexObject {
@@ -5575,16 +6597,29 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5604,12 +6639,18 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeDownwardApiItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -5617,12 +6658,10 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
       this._path = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mode = value.mode;
@@ -5633,7 +6672,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -5649,7 +6688,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -5662,11 +6701,17 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
   }
 
   // field_ref - computed: false, optional: false, required: true
-  private _fieldRef = new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef) {
+  public putFieldRef(
+    value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -5675,11 +6720,17 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef) {
+  public putResourceFieldRef(
+    value: DaemonsetSpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -5692,62 +6743,93 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference exte
 }
 
 export class DaemonsetSpecTemplateSpecVolumeDownwardApiItemsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeDownwardApi {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
-  */
-  readonly items?: DaemonsetSpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
+   */
+  readonly items?:
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiItems[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeDownwardApiToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference | DaemonsetSpecTemplateSpecVolumeDownwardApi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeDownwardApiToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference
+    | DaemonsetSpecTemplateSpecVolumeDownwardApi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
-    items: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeDownwardApiItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeDownwardApiItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeDownwardApi | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeDownwardApi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -5761,13 +6843,14 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeDownwardApi | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeDownwardApi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._items.internalValue = value.items;
@@ -5775,7 +6858,7 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference extends c
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -5791,11 +6874,19 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference extends c
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsList(this, "items", false);
+  private _items = new DaemonsetSpecTemplateSpecVolumeDownwardApiItemsList(
+    this,
+    'items',
+    false,
+  );
   public get items() {
     return this._items;
   }
-  public putItems(value: DaemonsetSpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeDownwardApiItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -5808,42 +6899,55 @@ export class DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference extends c
 }
 export interface DaemonsetSpecTemplateSpecVolumeEmptyDir {
   /**
-  * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#medium Daemonset#medium}
-  */
+   * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#medium Daemonset#medium}
+   */
   readonly medium?: string;
   /**
-  * Total amount of local storage required for this EmptyDir volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#size_limit Daemonset#size_limit}
-  */
+   * Total amount of local storage required for this EmptyDir volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#size_limit Daemonset#size_limit}
+   */
   readonly sizeLimit?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeEmptyDirToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference | DaemonsetSpecTemplateSpecVolumeEmptyDir): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeEmptyDirToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference
+    | DaemonsetSpecTemplateSpecVolumeEmptyDir,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     medium: cdktf.stringToTerraform(struct!.medium),
     size_limit: cdktf.stringToTerraform(struct!.sizeLimit),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeEmptyDir | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeEmptyDir
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._medium !== undefined) {
@@ -5857,13 +6961,14 @@ export class DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeEmptyDir | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeEmptyDir | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._medium = undefined;
       this._sizeLimit = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._medium = value.medium;
       this._sizeLimit = value.sizeLimit;
@@ -5871,7 +6976,7 @@ export class DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference extends cdkt
   }
 
   // medium - computed: false, optional: true, required: false
-  private _medium?: string; 
+  private _medium?: string;
   public get medium() {
     return this.getStringAttribute('medium');
   }
@@ -5887,7 +6992,7 @@ export class DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference extends cdkt
   }
 
   // size_limit - computed: false, optional: true, required: false
-  private _sizeLimit?: string; 
+  private _sizeLimit?: string;
   public get sizeLimit() {
     return this.getStringAttribute('size_limit');
   }
@@ -5904,52 +7009,66 @@ export class DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference extends cdkt
 }
 export interface DaemonsetSpecTemplateSpecVolumeFc {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * FC target lun number
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#lun Daemonset#lun}
-  */
+   * FC target lun number
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#lun Daemonset#lun}
+   */
   readonly lun: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * FC target worldwide names (WWNs)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#target_ww_ns Daemonset#target_ww_ns}
-  */
+   * FC target worldwide names (WWNs)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#target_ww_ns Daemonset#target_ww_ns}
+   */
   readonly targetWwNs: string[];
 }
 
-export function daemonsetSpecTemplateSpecVolumeFcToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeFcOutputReference | DaemonsetSpecTemplateSpecVolumeFc): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeFcToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeFcOutputReference
+    | DaemonsetSpecTemplateSpecVolumeFc,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    target_ww_ns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.targetWwNs),
-  }
+    target_ww_ns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.targetWwNs),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5975,15 +7094,16 @@ export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeFc | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeFc | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetWwNs = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._lun = value.lun;
@@ -5993,7 +7113,7 @@ export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.Comp
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6009,7 +7129,7 @@ export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.Comp
   }
 
   // lun - computed: false, optional: false, required: true
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -6022,7 +7142,7 @@ export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.Comp
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6038,7 +7158,7 @@ export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.Comp
   }
 
   // target_ww_ns - computed: false, optional: false, required: true
-  private _targetWwNs?: string[]; 
+  private _targetWwNs?: string[];
   public get targetWwNs() {
     return cdktf.Fn.tolist(this.getListAttribute('target_ww_ns'));
   }
@@ -6052,42 +7172,55 @@ export class DaemonsetSpecTemplateSpecVolumeFcOutputReference extends cdktf.Comp
 }
 export interface DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#namespace Daemonset#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#namespace Daemonset#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference | DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -6101,13 +7234,14 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -6115,7 +7249,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference e
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -6131,7 +7265,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference e
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -6148,63 +7282,78 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference e
 }
 export interface DaemonsetSpecTemplateSpecVolumeFlexVolume {
   /**
-  * Driver is the name of the driver to use for this volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#driver Daemonset#driver}
-  */
+   * Driver is the name of the driver to use for this volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#driver Daemonset#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Extra command options if any.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#options Daemonset#options}
-  */
+   * Extra command options if any.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#options Daemonset#options}
+   */
   readonly options?: { [key: string]: string };
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_ref Daemonset#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_ref Daemonset#secret_ref}
+   */
   readonly secretRef?: DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef;
 }
 
-export function daemonsetSpecTemplateSpecVolumeFlexVolumeToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference | DaemonsetSpecTemplateSpecVolumeFlexVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeFlexVolumeToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference
+    | DaemonsetSpecTemplateSpecVolumeFlexVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     options: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.options),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: daemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref: daemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(
+      struct!.secretRef,
+    ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeFlexVolume | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeFlexVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -6230,7 +7379,9 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeFlexVolume | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeFlexVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -6238,8 +7389,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
       this._options = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -6250,7 +7400,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -6263,7 +7413,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6279,7 +7429,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -6295,7 +7445,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6311,11 +7461,17 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef) {
+  public putSecretRef(
+    value: DaemonsetSpecTemplateSpecVolumeFlexVolumeSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -6328,42 +7484,55 @@ export class DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference extends cd
 }
 export interface DaemonsetSpecTemplateSpecVolumeFlocker {
   /**
-  * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dataset_name Daemonset#dataset_name}
-  */
+   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dataset_name Daemonset#dataset_name}
+   */
   readonly datasetName?: string;
   /**
-  * UUID of the dataset. This is unique identifier of a Flocker dataset
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dataset_uuid Daemonset#dataset_uuid}
-  */
+   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dataset_uuid Daemonset#dataset_uuid}
+   */
   readonly datasetUuid?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeFlockerToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeFlockerOutputReference | DaemonsetSpecTemplateSpecVolumeFlocker): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeFlockerToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeFlockerOutputReference
+    | DaemonsetSpecTemplateSpecVolumeFlocker,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dataset_name: cdktf.stringToTerraform(struct!.datasetName),
     dataset_uuid: cdktf.stringToTerraform(struct!.datasetUuid),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeFlockerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeFlocker | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeFlocker
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._datasetName !== undefined) {
@@ -6377,13 +7546,14 @@ export class DaemonsetSpecTemplateSpecVolumeFlockerOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeFlocker | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeFlocker | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._datasetName = undefined;
       this._datasetUuid = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._datasetName = value.datasetName;
       this._datasetUuid = value.datasetUuid;
@@ -6391,7 +7561,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlockerOutputReference extends cdktf
   }
 
   // dataset_name - computed: false, optional: true, required: false
-  private _datasetName?: string; 
+  private _datasetName?: string;
   public get datasetName() {
     return this.getStringAttribute('dataset_name');
   }
@@ -6407,7 +7577,7 @@ export class DaemonsetSpecTemplateSpecVolumeFlockerOutputReference extends cdktf
   }
 
   // dataset_uuid - computed: false, optional: true, required: false
-  private _datasetUuid?: string; 
+  private _datasetUuid?: string;
   public get datasetUuid() {
     return this.getStringAttribute('dataset_uuid');
   }
@@ -6424,56 +7594,69 @@ export class DaemonsetSpecTemplateSpecVolumeFlockerOutputReference extends cdktf
 }
 export interface DaemonsetSpecTemplateSpecVolumeGcePersistentDisk {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#partition Daemonset#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#partition Daemonset#partition}
+   */
   readonly partition?: number;
   /**
-  * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#pd_name Daemonset#pd_name}
-  */
+   * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#pd_name Daemonset#pd_name}
+   */
   readonly pdName: string;
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeGcePersistentDiskToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference | DaemonsetSpecTemplateSpecVolumeGcePersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeGcePersistentDiskToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference
+    | DaemonsetSpecTemplateSpecVolumeGcePersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     pd_name: cdktf.stringToTerraform(struct!.pdName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeGcePersistentDisk | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeGcePersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -6495,15 +7678,16 @@ export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeGcePersistentDisk | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeGcePersistentDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._pdName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -6513,7 +7697,7 @@ export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference ext
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6529,7 +7713,7 @@ export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference ext
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -6545,7 +7729,7 @@ export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference ext
   }
 
   // pd_name - computed: false, optional: false, required: true
-  private _pdName?: string; 
+  private _pdName?: string;
   public get pdName() {
     return this.getStringAttribute('pd_name');
   }
@@ -6558,7 +7742,7 @@ export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference ext
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6575,49 +7759,62 @@ export class DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference ext
 }
 export interface DaemonsetSpecTemplateSpecVolumeGitRepo {
   /**
-  * Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#directory Daemonset#directory}
-  */
+   * Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#directory Daemonset#directory}
+   */
   readonly directory?: string;
   /**
-  * Repository URL
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#repository Daemonset#repository}
-  */
+   * Repository URL
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#repository Daemonset#repository}
+   */
   readonly repository?: string;
   /**
-  * Commit hash for the specified revision.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#revision Daemonset#revision}
-  */
+   * Commit hash for the specified revision.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#revision Daemonset#revision}
+   */
   readonly revision?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeGitRepoToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference | DaemonsetSpecTemplateSpecVolumeGitRepo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeGitRepoToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference
+    | DaemonsetSpecTemplateSpecVolumeGitRepo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     directory: cdktf.stringToTerraform(struct!.directory),
     repository: cdktf.stringToTerraform(struct!.repository),
     revision: cdktf.stringToTerraform(struct!.revision),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeGitRepo | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeGitRepo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._directory !== undefined) {
@@ -6635,14 +7832,15 @@ export class DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeGitRepo | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeGitRepo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._directory = undefined;
       this._repository = undefined;
       this._revision = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._directory = value.directory;
       this._repository = value.repository;
@@ -6651,7 +7849,7 @@ export class DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference extends cdktf
   }
 
   // directory - computed: false, optional: true, required: false
-  private _directory?: string; 
+  private _directory?: string;
   public get directory() {
     return this.getStringAttribute('directory');
   }
@@ -6667,7 +7865,7 @@ export class DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference extends cdktf
   }
 
   // repository - computed: false, optional: true, required: false
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -6683,7 +7881,7 @@ export class DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference extends cdktf
   }
 
   // revision - computed: false, optional: true, required: false
-  private _revision?: string; 
+  private _revision?: string;
   public get revision() {
     return this.getStringAttribute('revision');
   }
@@ -6700,49 +7898,62 @@ export class DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference extends cdktf
 }
 export interface DaemonsetSpecTemplateSpecVolumeGlusterfs {
   /**
-  * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#endpoints_name Daemonset#endpoints_name}
-  */
+   * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#endpoints_name Daemonset#endpoints_name}
+   */
   readonly endpointsName: string;
   /**
-  * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeGlusterfsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference | DaemonsetSpecTemplateSpecVolumeGlusterfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeGlusterfsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference
+    | DaemonsetSpecTemplateSpecVolumeGlusterfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     endpoints_name: cdktf.stringToTerraform(struct!.endpointsName),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeGlusterfs | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeGlusterfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpointsName !== undefined) {
@@ -6760,14 +7971,15 @@ export class DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeGlusterfs | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeGlusterfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpointsName = undefined;
       this._path = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpointsName = value.endpointsName;
       this._path = value.path;
@@ -6776,7 +7988,7 @@ export class DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference extends cdk
   }
 
   // endpoints_name - computed: false, optional: false, required: true
-  private _endpointsName?: string; 
+  private _endpointsName?: string;
   public get endpointsName() {
     return this.getStringAttribute('endpoints_name');
   }
@@ -6789,7 +8001,7 @@ export class DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference extends cdk
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6802,7 +8014,7 @@ export class DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference extends cdk
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6819,42 +8031,55 @@ export class DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference extends cdk
 }
 export interface DaemonsetSpecTemplateSpecVolumeHostPath {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
   /**
-  * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
-  */
+   * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#type Daemonset#type}
+   */
   readonly type?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeHostPathToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeHostPathOutputReference | DaemonsetSpecTemplateSpecVolumeHostPath): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeHostPathToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeHostPathOutputReference
+    | DaemonsetSpecTemplateSpecVolumeHostPath,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeHostPathOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeHostPath | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeHostPath
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -6868,13 +8093,14 @@ export class DaemonsetSpecTemplateSpecVolumeHostPathOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeHostPath | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeHostPath | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._type = value.type;
@@ -6882,7 +8108,7 @@ export class DaemonsetSpecTemplateSpecVolumeHostPathOutputReference extends cdkt
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6898,7 +8124,7 @@ export class DaemonsetSpecTemplateSpecVolumeHostPathOutputReference extends cdkt
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -6915,47 +8141,55 @@ export class DaemonsetSpecTemplateSpecVolumeHostPathOutputReference extends cdkt
 }
 export interface DaemonsetSpecTemplateSpecVolumeIscsi {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Target iSCSI Qualified Name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#iqn Daemonset#iqn}
-  */
+   * Target iSCSI Qualified Name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#iqn Daemonset#iqn}
+   */
   readonly iqn: string;
   /**
-  * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#iscsi_interface Daemonset#iscsi_interface}
-  */
+   * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#iscsi_interface Daemonset#iscsi_interface}
+   */
   readonly iscsiInterface?: string;
   /**
-  * iSCSI target lun number.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#lun Daemonset#lun}
-  */
+   * iSCSI target lun number.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#lun Daemonset#lun}
+   */
   readonly lun?: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#target_portal Daemonset#target_portal}
-  */
+   * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#target_portal Daemonset#target_portal}
+   */
   readonly targetPortal: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeIscsiToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeIscsiOutputReference | DaemonsetSpecTemplateSpecVolumeIscsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeIscsiToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeIscsiOutputReference
+    | DaemonsetSpecTemplateSpecVolumeIscsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
@@ -6964,17 +8198,20 @@ export function daemonsetSpecTemplateSpecVolumeIscsiToTerraform(struct?: Daemons
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     target_portal: cdktf.stringToTerraform(struct!.targetPortal),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -7008,7 +8245,9 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeIscsi | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeIscsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
@@ -7017,8 +8256,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetPortal = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._iqn = value.iqn;
@@ -7030,7 +8268,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -7046,7 +8284,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
   }
 
   // iqn - computed: false, optional: false, required: true
-  private _iqn?: string; 
+  private _iqn?: string;
   public get iqn() {
     return this.getStringAttribute('iqn');
   }
@@ -7059,7 +8297,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
   }
 
   // iscsi_interface - computed: false, optional: true, required: false
-  private _iscsiInterface?: string; 
+  private _iscsiInterface?: string;
   public get iscsiInterface() {
     return this.getStringAttribute('iscsi_interface');
   }
@@ -7075,7 +8313,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
   }
 
   // lun - computed: false, optional: true, required: false
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -7091,7 +8329,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -7107,7 +8345,7 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
   }
 
   // target_portal - computed: false, optional: false, required: true
-  private _targetPortal?: string; 
+  private _targetPortal?: string;
   public get targetPortal() {
     return this.getStringAttribute('target_portal');
   }
@@ -7121,31 +8359,42 @@ export class DaemonsetSpecTemplateSpecVolumeIscsiOutputReference extends cdktf.C
 }
 export interface DaemonsetSpecTemplateSpecVolumeLocal {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeLocalToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeLocalOutputReference | DaemonsetSpecTemplateSpecVolumeLocal): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeLocalToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeLocalOutputReference
+    | DaemonsetSpecTemplateSpecVolumeLocal,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeLocalOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -7159,19 +8408,20 @@ export class DaemonsetSpecTemplateSpecVolumeLocalOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeLocal | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeLocal | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
     }
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7188,45 +8438,56 @@ export class DaemonsetSpecTemplateSpecVolumeLocalOutputReference extends cdktf.C
 }
 export interface DaemonsetSpecTemplateSpecVolumeNfs {
   /**
-  * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#server Daemonset#server}
-  */
+   * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#server Daemonset#server}
+   */
   readonly server: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeNfsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeNfsOutputReference | DaemonsetSpecTemplateSpecVolumeNfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeNfsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeNfsOutputReference
+    | DaemonsetSpecTemplateSpecVolumeNfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     server: cdktf.stringToTerraform(struct!.server),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeNfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -7248,14 +8509,15 @@ export class DaemonsetSpecTemplateSpecVolumeNfsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeNfs | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeNfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._readOnly = undefined;
       this._server = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._readOnly = value.readOnly;
@@ -7264,7 +8526,7 @@ export class DaemonsetSpecTemplateSpecVolumeNfsOutputReference extends cdktf.Com
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7277,7 +8539,7 @@ export class DaemonsetSpecTemplateSpecVolumeNfsOutputReference extends cdktf.Com
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -7293,7 +8555,7 @@ export class DaemonsetSpecTemplateSpecVolumeNfsOutputReference extends cdktf.Com
   }
 
   // server - computed: false, optional: false, required: true
-  private _server?: string; 
+  private _server?: string;
   public get server() {
     return this.getStringAttribute('server');
   }
@@ -7307,42 +8569,55 @@ export class DaemonsetSpecTemplateSpecVolumeNfsOutputReference extends cdktf.Com
 }
 export interface DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim {
   /**
-  * ClaimName is the name of a PersistentVolumeClaim in the same 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#claim_name Daemonset#claim_name}
-  */
+   * ClaimName is the name of a PersistentVolumeClaim in the same
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#claim_name Daemonset#claim_name}
+   */
   readonly claimName?: string;
   /**
-  * Will force the ReadOnly setting in VolumeMounts.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Will force the ReadOnly setting in VolumeMounts.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumePersistentVolumeClaimToTerraform(struct?: DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference | DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumePersistentVolumeClaimToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference
+    | DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     claim_name: cdktf.stringToTerraform(struct!.claimName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._claimName !== undefined) {
@@ -7356,13 +8631,14 @@ export class DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._claimName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._claimName = value.claimName;
       this._readOnly = value.readOnly;
@@ -7370,7 +8646,7 @@ export class DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference
   }
 
   // claim_name - computed: false, optional: true, required: false
-  private _claimName?: string; 
+  private _claimName?: string;
   public get claimName() {
     return this.getStringAttribute('claim_name');
   }
@@ -7386,7 +8662,7 @@ export class DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -7403,42 +8679,55 @@ export class DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference
 }
 export interface DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * ID that identifies Photon Controller persistent disk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#pd_id Daemonset#pd_id}
-  */
+   * ID that identifies Photon Controller persistent disk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#pd_id Daemonset#pd_id}
+   */
   readonly pdId: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumePhotonPersistentDiskToTerraform(struct?: DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference | DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumePhotonPersistentDiskToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference
+    | DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     pd_id: cdktf.stringToTerraform(struct!.pdId),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -7452,13 +8741,14 @@ export class DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._pdId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._pdId = value.pdId;
@@ -7466,7 +8756,7 @@ export class DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference 
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -7482,7 +8772,7 @@ export class DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference 
   }
 
   // pd_id - computed: false, optional: false, required: true
-  private _pdId?: string; 
+  private _pdId?: string;
   public get pdId() {
     return this.getStringAttribute('pd_id');
   }
@@ -7496,35 +8786,43 @@ export class DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference 
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference extends cdktf.ComplexObject {
@@ -7532,16 +8830,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7562,19 +8873,22 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -7584,7 +8898,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutput
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -7600,7 +8914,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutput
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -7616,7 +8930,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutput
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7633,55 +8947,81 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutput
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the ConfigMap or it's keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
-  */
+   * Optional: Specify whether the ConfigMap or it's keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
-  */
-  readonly items?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
+   */
+  readonly items?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference extends cdktf.ComplexObject {
@@ -7689,16 +9029,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7719,19 +9072,22 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -7741,7 +9097,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputRefer
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7757,7 +9113,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputRefer
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -7773,11 +9129,20 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputRefer
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList(this, "items", false);
+  private _items =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -7790,62 +9155,88 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputRefer
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to 'v1'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#api_version Daemonset#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to 'v1'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#api_version Daemonset#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_path Daemonset#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_path Daemonset#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -7859,13 +9250,16 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFiel
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -7873,7 +9267,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFiel
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -7889,7 +9283,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFiel
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -7906,45 +9300,58 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFiel
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#container_name Daemonset#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#container_name Daemonset#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#divisor Daemonset#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#divisor Daemonset#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource Daemonset#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource Daemonset#resource}
+   */
   readonly resource: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -7962,14 +9369,17 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsReso
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -7978,7 +9388,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsReso
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -7991,7 +9401,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsReso
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -8007,7 +9417,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsReso
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -8021,42 +9431,56 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsReso
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems {
   /**
-  * Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
-  */
+   * Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
+   */
   readonly mode?: string;
   /**
-  * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path: string;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_ref Daemonset#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#field_ref Daemonset#field_ref}
+   */
   readonly fieldRef?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource_field_ref Daemonset#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#resource_field_ref Daemonset#resource_field_ref}
+   */
   readonly resourceFieldRef?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-    field_ref: daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(struct!.resourceFieldRef),
-  }
+    field_ref:
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference extends cdktf.ComplexObject {
@@ -8064,16 +9488,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8093,12 +9530,18 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -8106,12 +9549,10 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
       this._path = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mode = value.mode;
@@ -8122,7 +9563,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -8138,7 +9579,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8151,11 +9592,17 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
   }
 
   // field_ref - computed: false, optional: true, required: false
-  private _fieldRef = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef) {
+  public putFieldRef(
+    value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   public resetFieldRef() {
@@ -8167,11 +9614,17 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef) {
+  public putResourceFieldRef(
+    value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -8184,55 +9637,86 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutp
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi {
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
-  */
-  readonly items?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
+   */
+  readonly items?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    items: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items?.internalValue !== undefined) {
@@ -8242,23 +9726,35 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items.internalValue = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList(this, "items", false);
+  private _items =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -8271,35 +9767,43 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputRef
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference extends cdktf.ComplexObject {
@@ -8307,16 +9811,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputRef
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8337,19 +9854,22 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -8359,7 +9879,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputRef
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -8375,7 +9895,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputRef
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -8391,7 +9911,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputRef
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8408,55 +9928,81 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputRef
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret {
   /**
-  * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the Secret or it's keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
-  */
+   * Optional: Specify whether the Secret or it's keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
-  */
-  readonly items?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
+   */
+  readonly items?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReference extends cdktf.ComplexObject {
@@ -8464,16 +10010,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8494,19 +10053,22 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -8516,7 +10078,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReferenc
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -8532,7 +10094,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReferenc
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -8548,11 +10110,20 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReferenc
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsList(this, "items", false);
+  private _items =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -8565,69 +10136,95 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReferenc
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken {
   /**
-  * Audience is the intended audience of the token
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#audience Daemonset#audience}
-  */
+   * Audience is the intended audience of the token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#audience Daemonset#audience}
+   */
   readonly audience?: string;
   /**
-  * ExpirationSeconds is the expected duration of validity of the service account token. It defaults to 1 hour and must be at least 10 minutes (600 seconds).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#expiration_seconds Daemonset#expiration_seconds}
-  */
+   * ExpirationSeconds is the expected duration of validity of the service account token. It defaults to 1 hour and must be at least 10 minutes (600 seconds).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#expiration_seconds Daemonset#expiration_seconds}
+   */
   readonly expirationSeconds?: number;
   /**
-  * Path specifies a relative path to the mount point of the projected volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * Path specifies a relative path to the mount point of the projected volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference | DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     audience: cdktf.stringToTerraform(struct!.audience),
     expiration_seconds: cdktf.numberToTerraform(struct!.expirationSeconds),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._audience !== undefined) {
@@ -8645,14 +10242,17 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._audience = undefined;
       this._expirationSeconds = undefined;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._audience = value.audience;
       this._expirationSeconds = value.expirationSeconds;
@@ -8661,7 +10261,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenO
   }
 
   // audience - computed: false, optional: true, required: false
-  private _audience?: string; 
+  private _audience?: string;
   public get audience() {
     return this.getStringAttribute('audience');
   }
@@ -8677,7 +10277,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenO
   }
 
   // expiration_seconds - computed: false, optional: true, required: false
-  private _expirationSeconds?: number; 
+  private _expirationSeconds?: number;
   public get expirationSeconds() {
     return this.getNumberAttribute('expiration_seconds');
   }
@@ -8693,7 +10293,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenO
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8707,42 +10307,64 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenO
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjectedSources {
   /**
-  * config_map block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#config_map Daemonset#config_map}
-  */
-  readonly configMap?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable;
+   * config_map block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#config_map Daemonset#config_map}
+   */
+  readonly configMap?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+    | cdktf.IResolvable;
   /**
-  * downward_api block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#downward_api Daemonset#downward_api}
-  */
+   * downward_api block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#downward_api Daemonset#downward_api}
+   */
   readonly downwardApi?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret Daemonset#secret}
-  */
-  readonly secret?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable;
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret Daemonset#secret}
+   */
+  readonly secret?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret[]
+    | cdktf.IResolvable;
   /**
-  * service_account_token block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#service_account_token Daemonset#service_account_token}
-  */
+   * service_account_token block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#service_account_token Daemonset#service_account_token}
+   */
   readonly serviceAccountToken?: DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedSourcesToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedSourcesToTerraform(
+  struct?: DaemonsetSpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    config_map: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform, true)(struct!.configMap),
-    downward_api: daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(struct!.downwardApi),
-    secret: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretToTerraform, true)(struct!.secret),
-    service_account_token: daemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(struct!.serviceAccountToken),
-  }
+    config_map: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform,
+      true,
+    )(struct!.configMap),
+    downward_api:
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(
+        struct!.downwardApi,
+      ),
+    secret: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesSecretToTerraform,
+      true,
+    )(struct!.secret),
+    service_account_token:
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(
+        struct!.serviceAccountToken,
+      ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference extends cdktf.ComplexObject {
@@ -8750,16 +10372,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjectedSources
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8779,12 +10414,18 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
     }
     if (this._serviceAccountToken?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.serviceAccountToken = this._serviceAccountToken?.internalValue;
+      internalValueResult.serviceAccountToken =
+        this._serviceAccountToken?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSources
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -8792,12 +10433,10 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
       this._downwardApi.internalValue = undefined;
       this._secret.internalValue = undefined;
       this._serviceAccountToken.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._configMap.internalValue = value.configMap;
@@ -8808,11 +10447,20 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
   }
 
   // config_map - computed: false, optional: true, required: false
-  private _configMap = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapList(this, "config_map", false);
+  private _configMap =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMapList(
+      this,
+      'config_map',
+      false,
+    );
   public get configMap() {
     return this._configMap;
   }
-  public putConfigMap(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable) {
+  public putConfigMap(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+      | cdktf.IResolvable,
+  ) {
     this._configMap.internalValue = value;
   }
   public resetConfigMap() {
@@ -8824,11 +10472,17 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
   }
 
   // downward_api - computed: false, optional: true, required: false
-  private _downwardApi = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference(this, "downward_api");
+  private _downwardApi =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference(
+      this,
+      'downward_api',
+    );
   public get downwardApi() {
     return this._downwardApi;
   }
-  public putDownwardApi(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi) {
+  public putDownwardApi(
+    value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesDownwardApi,
+  ) {
     this._downwardApi.internalValue = value;
   }
   public resetDownwardApi() {
@@ -8840,11 +10494,20 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretList(this, "secret", false);
+  private _secret =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecretList(
+      this,
+      'secret',
+      false,
+    );
   public get secret() {
     return this._secret;
   }
-  public putSecret(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable) {
+  public putSecret(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSourcesSecret[]
+      | cdktf.IResolvable,
+  ) {
     this._secret.internalValue = value;
   }
   public resetSecret() {
@@ -8856,11 +10519,17 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
   }
 
   // service_account_token - computed: false, optional: true, required: false
-  private _serviceAccountToken = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference(this, "service_account_token");
+  private _serviceAccountToken =
+    new DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference(
+      this,
+      'service_account_token',
+    );
   public get serviceAccountToken() {
     return this._serviceAccountToken;
   }
-  public putServiceAccountToken(value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken) {
+  public putServiceAccountToken(
+    value: DaemonsetSpecTemplateSpecVolumeProjectedSourcesServiceAccountToken,
+  ) {
     this._serviceAccountToken.internalValue = value;
   }
   public resetServiceAccountToken() {
@@ -8873,48 +10542,72 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference exte
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedSourcesList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSources[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedSourcesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeProjected {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * sources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#sources Daemonset#sources}
-  */
-  readonly sources: DaemonsetSpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable;
+   * sources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#sources Daemonset#sources}
+   */
+  readonly sources:
+    | DaemonsetSpecTemplateSpecVolumeProjectedSources[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeProjectedToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeProjected | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeProjectedToTerraform(
+  struct?: DaemonsetSpecTemplateSpecVolumeProjected | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
-    sources: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedSourcesToTerraform, true)(struct!.sources),
-  }
+    sources: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedSourcesToTerraform,
+      true,
+    )(struct!.sources),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedOutputReference extends cdktf.ComplexObject {
@@ -8922,16 +10615,29 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeProjected | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeProjected
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8948,18 +10654,21 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeProjected | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjected
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._defaultMode = undefined;
       this._sources.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._defaultMode = value.defaultMode;
@@ -8968,7 +10677,7 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedOutputReference extends cdk
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -8984,11 +10693,19 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedOutputReference extends cdk
   }
 
   // sources - computed: false, optional: false, required: true
-  private _sources = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesList(this, "sources", false);
+  private _sources = new DaemonsetSpecTemplateSpecVolumeProjectedSourcesList(
+    this,
+    'sources',
+    false,
+  );
   public get sources() {
     return this._sources;
   }
-  public putSources(value: DaemonsetSpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable) {
+  public putSources(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeProjectedSources[]
+      | cdktf.IResolvable,
+  ) {
     this._sources.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -8998,61 +10715,82 @@ export class DaemonsetSpecTemplateSpecVolumeProjectedOutputReference extends cdk
 }
 
 export class DaemonsetSpecTemplateSpecVolumeProjectedList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeProjected[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeProjected[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeProjectedOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeProjectedOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeProjectedOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeProjectedOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeQuobyte {
   /**
-  * Group to map volume access to Default is no group
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#group Daemonset#group}
-  */
+   * Group to map volume access to Default is no group
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#group Daemonset#group}
+   */
   readonly group?: string;
   /**
-  * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#registry Daemonset#registry}
-  */
+   * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#registry Daemonset#registry}
+   */
   readonly registry: string;
   /**
-  * User to map volume access to Defaults to serivceaccount user
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
-  */
+   * User to map volume access to Defaults to serivceaccount user
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#user Daemonset#user}
+   */
   readonly user?: string;
   /**
-  * Volume is a string that references an already created Quobyte volume by name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume Daemonset#volume}
-  */
+   * Volume is a string that references an already created Quobyte volume by name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume Daemonset#volume}
+   */
   readonly volume: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeQuobyteToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference | DaemonsetSpecTemplateSpecVolumeQuobyte): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeQuobyteToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference
+    | DaemonsetSpecTemplateSpecVolumeQuobyte,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     group: cdktf.stringToTerraform(struct!.group),
@@ -9060,21 +10798,26 @@ export function daemonsetSpecTemplateSpecVolumeQuobyteToTerraform(struct?: Daemo
     registry: cdktf.stringToTerraform(struct!.registry),
     user: cdktf.stringToTerraform(struct!.user),
     volume: cdktf.stringToTerraform(struct!.volume),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeQuobyte | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeQuobyte
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._group !== undefined) {
@@ -9100,7 +10843,9 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeQuobyte | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeQuobyte | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._group = undefined;
@@ -9108,8 +10853,7 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
       this._registry = undefined;
       this._user = undefined;
       this._volume = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._group = value.group;
       this._readOnly = value.readOnly;
@@ -9120,7 +10864,7 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -9136,7 +10880,7 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -9152,7 +10896,7 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
   }
 
   // registry - computed: false, optional: false, required: true
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -9165,7 +10909,7 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -9181,7 +10925,7 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
   }
 
   // volume - computed: false, optional: false, required: true
-  private _volume?: string; 
+  private _volume?: string;
   public get volume() {
     return this.getStringAttribute('volume');
   }
@@ -9195,42 +10939,55 @@ export class DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference extends cdktf
 }
 export interface DaemonsetSpecTemplateSpecVolumeRbdSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#namespace Daemonset#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#namespace Daemonset#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeRbdSecretRefToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference | DaemonsetSpecTemplateSpecVolumeRbdSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeRbdSecretRefToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference
+    | DaemonsetSpecTemplateSpecVolumeRbdSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeRbdSecretRef | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeRbdSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -9244,13 +11001,14 @@ export class DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeRbdSecretRef | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeRbdSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -9258,7 +11016,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference extends 
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -9274,7 +11032,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference extends 
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -9291,80 +11049,96 @@ export class DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference extends 
 }
 export interface DaemonsetSpecTemplateSpecVolumeRbd {
   /**
-  * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#ceph_monitors Daemonset#ceph_monitors}
-  */
+   * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#ceph_monitors Daemonset#ceph_monitors}
+   */
   readonly cephMonitors: string[];
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#keyring Daemonset#keyring}
-  */
+   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#keyring Daemonset#keyring}
+   */
   readonly keyring?: string;
   /**
-  * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rados_user Daemonset#rados_user}
-  */
+   * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rados_user Daemonset#rados_user}
+   */
   readonly radosUser?: string;
   /**
-  * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rbd_image Daemonset#rbd_image}
-  */
+   * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rbd_image Daemonset#rbd_image}
+   */
   readonly rbdImage: string;
   /**
-  * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rbd_pool Daemonset#rbd_pool}
-  */
+   * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rbd_pool Daemonset#rbd_pool}
+   */
   readonly rbdPool?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#read_only Daemonset#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_ref Daemonset#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_ref Daemonset#secret_ref}
+   */
   readonly secretRef?: DaemonsetSpecTemplateSpecVolumeRbdSecretRef;
 }
 
-export function daemonsetSpecTemplateSpecVolumeRbdToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeRbdOutputReference | DaemonsetSpecTemplateSpecVolumeRbd): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeRbdToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeRbdOutputReference
+    | DaemonsetSpecTemplateSpecVolumeRbd,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ceph_monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cephMonitors),
+    ceph_monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cephMonitors),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     keyring: cdktf.stringToTerraform(struct!.keyring),
     rados_user: cdktf.stringToTerraform(struct!.radosUser),
     rbd_image: cdktf.stringToTerraform(struct!.rbdImage),
     rbd_pool: cdktf.stringToTerraform(struct!.rbdPool),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: daemonsetSpecTemplateSpecVolumeRbdSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref: daemonsetSpecTemplateSpecVolumeRbdSecretRefToTerraform(
+      struct!.secretRef,
+    ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -9406,7 +11180,9 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeRbd | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeRbd | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cephMonitors = undefined;
@@ -9417,8 +11193,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
       this._rbdPool = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cephMonitors = value.cephMonitors;
       this._fsType = value.fsType;
@@ -9432,7 +11207,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // ceph_monitors - computed: false, optional: false, required: true
-  private _cephMonitors?: string[]; 
+  private _cephMonitors?: string[];
   public get cephMonitors() {
     return cdktf.Fn.tolist(this.getListAttribute('ceph_monitors'));
   }
@@ -9445,7 +11220,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -9461,7 +11236,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // keyring - computed: true, optional: true, required: false
-  private _keyring?: string; 
+  private _keyring?: string;
   public get keyring() {
     return this.getStringAttribute('keyring');
   }
@@ -9477,7 +11252,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // rados_user - computed: false, optional: true, required: false
-  private _radosUser?: string; 
+  private _radosUser?: string;
   public get radosUser() {
     return this.getStringAttribute('rados_user');
   }
@@ -9493,7 +11268,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // rbd_image - computed: false, optional: false, required: true
-  private _rbdImage?: string; 
+  private _rbdImage?: string;
   public get rbdImage() {
     return this.getStringAttribute('rbd_image');
   }
@@ -9506,7 +11281,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // rbd_pool - computed: false, optional: true, required: false
-  private _rbdPool?: string; 
+  private _rbdPool?: string;
   public get rbdPool() {
     return this.getStringAttribute('rbd_pool');
   }
@@ -9522,7 +11297,7 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -9538,7 +11313,11 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new DaemonsetSpecTemplateSpecVolumeRbdSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
@@ -9555,35 +11334,41 @@ export class DaemonsetSpecTemplateSpecVolumeRbdOutputReference extends cdktf.Com
 }
 export interface DaemonsetSpecTemplateSpecVolumeSecretItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#key Daemonset#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#mode Daemonset#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#path Daemonset#path}
+   */
   readonly path?: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeSecretItemsToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeSecretItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeSecretItemsToTerraform(
+  struct?: DaemonsetSpecTemplateSpecVolumeSecretItems | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends cdktf.ComplexObject {
@@ -9591,16 +11376,29 @@ export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeSecretItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeSecretItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9621,19 +11419,22 @@ export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeSecretItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DaemonsetSpecTemplateSpecVolumeSecretItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -9643,7 +11444,7 @@ export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends c
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -9659,7 +11460,7 @@ export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends c
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -9675,7 +11476,7 @@ export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends c
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -9692,76 +11493,107 @@ export class DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference extends c
 }
 
 export class DaemonsetSpecTemplateSpecVolumeSecretItemsList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable
+  public internalValue?:
+    | DaemonsetSpecTemplateSpecVolumeSecretItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference {
+    return new DaemonsetSpecTemplateSpecVolumeSecretItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpecVolumeSecret {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#default_mode Daemonset#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * Optional: Specify whether the Secret or its keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
-  */
+   * Optional: Specify whether the Secret or its keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#optional Daemonset#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_name Daemonset#secret_name}
-  */
+   * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret_name Daemonset#secret_name}
+   */
   readonly secretName?: string;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
-  */
-  readonly items?: DaemonsetSpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#items Daemonset#items}
+   */
+  readonly items?:
+    | DaemonsetSpecTemplateSpecVolumeSecretItems[]
+    | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecVolumeSecretToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeSecretOutputReference | DaemonsetSpecTemplateSpecVolumeSecret): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeSecretToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeSecretOutputReference
+    | DaemonsetSpecTemplateSpecVolumeSecret,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
     optional: cdktf.booleanToTerraform(struct!.optional),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
-    items: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeSecretItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeSecretItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeSecret | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeSecret
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -9783,15 +11615,16 @@ export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeSecret | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeSecret | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._optional = undefined;
       this._secretName = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._optional = value.optional;
@@ -9801,7 +11634,7 @@ export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -9817,7 +11650,7 @@ export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -9833,7 +11666,7 @@ export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.
   }
 
   // secret_name - computed: false, optional: true, required: false
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -9849,11 +11682,17 @@ export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new DaemonsetSpecTemplateSpecVolumeSecretItemsList(this, "items", false);
+  private _items = new DaemonsetSpecTemplateSpecVolumeSecretItemsList(
+    this,
+    'items',
+    false,
+  );
   public get items() {
     return this._items;
   }
-  public putItems(value: DaemonsetSpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable) {
+  public putItems(
+    value: DaemonsetSpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -9866,42 +11705,55 @@ export class DaemonsetSpecTemplateSpecVolumeSecretOutputReference extends cdktf.
 }
 export interface DaemonsetSpecTemplateSpecVolumeVsphereVolume {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fs_type Daemonset#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Path that identifies vSphere volume vmdk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_path Daemonset#volume_path}
-  */
+   * Path that identifies vSphere volume vmdk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume_path Daemonset#volume_path}
+   */
   readonly volumePath: string;
 }
 
-export function daemonsetSpecTemplateSpecVolumeVsphereVolumeToTerraform(struct?: DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference | DaemonsetSpecTemplateSpecVolumeVsphereVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeVsphereVolumeToTerraform(
+  struct?:
+    | DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference
+    | DaemonsetSpecTemplateSpecVolumeVsphereVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     volume_path: cdktf.stringToTerraform(struct!.volumePath),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolumeVsphereVolume | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolumeVsphereVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -9915,13 +11767,14 @@ export class DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolumeVsphereVolume | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolumeVsphereVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._volumePath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._volumePath = value.volumePath;
@@ -9929,7 +11782,7 @@ export class DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference extends
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -9945,7 +11798,7 @@ export class DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference extends
   }
 
   // volume_path - computed: false, optional: false, required: true
-  private _volumePath?: string; 
+  private _volumePath?: string;
   public get volumePath() {
     return this.getStringAttribute('volume_path');
   }
@@ -9959,203 +11812,246 @@ export class DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference extends
 }
 export interface DaemonsetSpecTemplateSpecVolume {
   /**
-  * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
-  */
+   * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#name Daemonset#name}
+   */
   readonly name?: string;
   /**
-  * aws_elastic_block_store block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#aws_elastic_block_store Daemonset#aws_elastic_block_store}
-  */
+   * aws_elastic_block_store block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#aws_elastic_block_store Daemonset#aws_elastic_block_store}
+   */
   readonly awsElasticBlockStore?: DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore;
   /**
-  * azure_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#azure_disk Daemonset#azure_disk}
-  */
+   * azure_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#azure_disk Daemonset#azure_disk}
+   */
   readonly azureDisk?: DaemonsetSpecTemplateSpecVolumeAzureDisk;
   /**
-  * azure_file block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#azure_file Daemonset#azure_file}
-  */
+   * azure_file block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#azure_file Daemonset#azure_file}
+   */
   readonly azureFile?: DaemonsetSpecTemplateSpecVolumeAzureFile;
   /**
-  * ceph_fs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#ceph_fs Daemonset#ceph_fs}
-  */
+   * ceph_fs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#ceph_fs Daemonset#ceph_fs}
+   */
   readonly cephFs?: DaemonsetSpecTemplateSpecVolumeCephFs;
   /**
-  * cinder block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#cinder Daemonset#cinder}
-  */
+   * cinder block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#cinder Daemonset#cinder}
+   */
   readonly cinder?: DaemonsetSpecTemplateSpecVolumeCinder;
   /**
-  * config_map block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#config_map Daemonset#config_map}
-  */
+   * config_map block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#config_map Daemonset#config_map}
+   */
   readonly configMap?: DaemonsetSpecTemplateSpecVolumeConfigMap;
   /**
-  * csi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#csi Daemonset#csi}
-  */
+   * csi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#csi Daemonset#csi}
+   */
   readonly csi?: DaemonsetSpecTemplateSpecVolumeCsi;
   /**
-  * downward_api block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#downward_api Daemonset#downward_api}
-  */
+   * downward_api block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#downward_api Daemonset#downward_api}
+   */
   readonly downwardApi?: DaemonsetSpecTemplateSpecVolumeDownwardApi;
   /**
-  * empty_dir block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#empty_dir Daemonset#empty_dir}
-  */
+   * empty_dir block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#empty_dir Daemonset#empty_dir}
+   */
   readonly emptyDir?: DaemonsetSpecTemplateSpecVolumeEmptyDir;
   /**
-  * fc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fc Daemonset#fc}
-  */
+   * fc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#fc Daemonset#fc}
+   */
   readonly fc?: DaemonsetSpecTemplateSpecVolumeFc;
   /**
-  * flex_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#flex_volume Daemonset#flex_volume}
-  */
+   * flex_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#flex_volume Daemonset#flex_volume}
+   */
   readonly flexVolume?: DaemonsetSpecTemplateSpecVolumeFlexVolume;
   /**
-  * flocker block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#flocker Daemonset#flocker}
-  */
+   * flocker block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#flocker Daemonset#flocker}
+   */
   readonly flocker?: DaemonsetSpecTemplateSpecVolumeFlocker;
   /**
-  * gce_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#gce_persistent_disk Daemonset#gce_persistent_disk}
-  */
+   * gce_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#gce_persistent_disk Daemonset#gce_persistent_disk}
+   */
   readonly gcePersistentDisk?: DaemonsetSpecTemplateSpecVolumeGcePersistentDisk;
   /**
-  * git_repo block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#git_repo Daemonset#git_repo}
-  */
+   * git_repo block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#git_repo Daemonset#git_repo}
+   */
   readonly gitRepo?: DaemonsetSpecTemplateSpecVolumeGitRepo;
   /**
-  * glusterfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#glusterfs Daemonset#glusterfs}
-  */
+   * glusterfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#glusterfs Daemonset#glusterfs}
+   */
   readonly glusterfs?: DaemonsetSpecTemplateSpecVolumeGlusterfs;
   /**
-  * host_path block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_path Daemonset#host_path}
-  */
+   * host_path block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_path Daemonset#host_path}
+   */
   readonly hostPath?: DaemonsetSpecTemplateSpecVolumeHostPath;
   /**
-  * iscsi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#iscsi Daemonset#iscsi}
-  */
+   * iscsi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#iscsi Daemonset#iscsi}
+   */
   readonly iscsi?: DaemonsetSpecTemplateSpecVolumeIscsi;
   /**
-  * local block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#local Daemonset#local}
-  */
+   * local block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#local Daemonset#local}
+   */
   readonly local?: DaemonsetSpecTemplateSpecVolumeLocal;
   /**
-  * nfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#nfs Daemonset#nfs}
-  */
+   * nfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#nfs Daemonset#nfs}
+   */
   readonly nfs?: DaemonsetSpecTemplateSpecVolumeNfs;
   /**
-  * persistent_volume_claim block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#persistent_volume_claim Daemonset#persistent_volume_claim}
-  */
+   * persistent_volume_claim block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#persistent_volume_claim Daemonset#persistent_volume_claim}
+   */
   readonly persistentVolumeClaim?: DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim;
   /**
-  * photon_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#photon_persistent_disk Daemonset#photon_persistent_disk}
-  */
+   * photon_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#photon_persistent_disk Daemonset#photon_persistent_disk}
+   */
   readonly photonPersistentDisk?: DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk;
   /**
-  * projected block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#projected Daemonset#projected}
-  */
-  readonly projected?: DaemonsetSpecTemplateSpecVolumeProjected[] | cdktf.IResolvable;
+   * projected block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#projected Daemonset#projected}
+   */
+  readonly projected?:
+    | DaemonsetSpecTemplateSpecVolumeProjected[]
+    | cdktf.IResolvable;
   /**
-  * quobyte block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#quobyte Daemonset#quobyte}
-  */
+   * quobyte block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#quobyte Daemonset#quobyte}
+   */
   readonly quobyte?: DaemonsetSpecTemplateSpecVolumeQuobyte;
   /**
-  * rbd block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rbd Daemonset#rbd}
-  */
+   * rbd block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#rbd Daemonset#rbd}
+   */
   readonly rbd?: DaemonsetSpecTemplateSpecVolumeRbd;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret Daemonset#secret}
-  */
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#secret Daemonset#secret}
+   */
   readonly secret?: DaemonsetSpecTemplateSpecVolumeSecret;
   /**
-  * vsphere_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#vsphere_volume Daemonset#vsphere_volume}
-  */
+   * vsphere_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#vsphere_volume Daemonset#vsphere_volume}
+   */
   readonly vsphereVolume?: DaemonsetSpecTemplateSpecVolumeVsphereVolume;
 }
 
-export function daemonsetSpecTemplateSpecVolumeToTerraform(struct?: DaemonsetSpecTemplateSpecVolume | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecVolumeToTerraform(
+  struct?: DaemonsetSpecTemplateSpecVolume | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    aws_elastic_block_store: daemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(struct!.awsElasticBlockStore),
-    azure_disk: daemonsetSpecTemplateSpecVolumeAzureDiskToTerraform(struct!.azureDisk),
-    azure_file: daemonsetSpecTemplateSpecVolumeAzureFileToTerraform(struct!.azureFile),
+    aws_elastic_block_store:
+      daemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(
+        struct!.awsElasticBlockStore,
+      ),
+    azure_disk: daemonsetSpecTemplateSpecVolumeAzureDiskToTerraform(
+      struct!.azureDisk,
+    ),
+    azure_file: daemonsetSpecTemplateSpecVolumeAzureFileToTerraform(
+      struct!.azureFile,
+    ),
     ceph_fs: daemonsetSpecTemplateSpecVolumeCephFsToTerraform(struct!.cephFs),
     cinder: daemonsetSpecTemplateSpecVolumeCinderToTerraform(struct!.cinder),
-    config_map: daemonsetSpecTemplateSpecVolumeConfigMapToTerraform(struct!.configMap),
+    config_map: daemonsetSpecTemplateSpecVolumeConfigMapToTerraform(
+      struct!.configMap,
+    ),
     csi: daemonsetSpecTemplateSpecVolumeCsiToTerraform(struct!.csi),
-    downward_api: daemonsetSpecTemplateSpecVolumeDownwardApiToTerraform(struct!.downwardApi),
-    empty_dir: daemonsetSpecTemplateSpecVolumeEmptyDirToTerraform(struct!.emptyDir),
+    downward_api: daemonsetSpecTemplateSpecVolumeDownwardApiToTerraform(
+      struct!.downwardApi,
+    ),
+    empty_dir: daemonsetSpecTemplateSpecVolumeEmptyDirToTerraform(
+      struct!.emptyDir,
+    ),
     fc: daemonsetSpecTemplateSpecVolumeFcToTerraform(struct!.fc),
-    flex_volume: daemonsetSpecTemplateSpecVolumeFlexVolumeToTerraform(struct!.flexVolume),
+    flex_volume: daemonsetSpecTemplateSpecVolumeFlexVolumeToTerraform(
+      struct!.flexVolume,
+    ),
     flocker: daemonsetSpecTemplateSpecVolumeFlockerToTerraform(struct!.flocker),
-    gce_persistent_disk: daemonsetSpecTemplateSpecVolumeGcePersistentDiskToTerraform(struct!.gcePersistentDisk),
-    git_repo: daemonsetSpecTemplateSpecVolumeGitRepoToTerraform(struct!.gitRepo),
-    glusterfs: daemonsetSpecTemplateSpecVolumeGlusterfsToTerraform(struct!.glusterfs),
-    host_path: daemonsetSpecTemplateSpecVolumeHostPathToTerraform(struct!.hostPath),
+    gce_persistent_disk:
+      daemonsetSpecTemplateSpecVolumeGcePersistentDiskToTerraform(
+        struct!.gcePersistentDisk,
+      ),
+    git_repo: daemonsetSpecTemplateSpecVolumeGitRepoToTerraform(
+      struct!.gitRepo,
+    ),
+    glusterfs: daemonsetSpecTemplateSpecVolumeGlusterfsToTerraform(
+      struct!.glusterfs,
+    ),
+    host_path: daemonsetSpecTemplateSpecVolumeHostPathToTerraform(
+      struct!.hostPath,
+    ),
     iscsi: daemonsetSpecTemplateSpecVolumeIscsiToTerraform(struct!.iscsi),
     local: daemonsetSpecTemplateSpecVolumeLocalToTerraform(struct!.local),
     nfs: daemonsetSpecTemplateSpecVolumeNfsToTerraform(struct!.nfs),
-    persistent_volume_claim: daemonsetSpecTemplateSpecVolumePersistentVolumeClaimToTerraform(struct!.persistentVolumeClaim),
-    photon_persistent_disk: daemonsetSpecTemplateSpecVolumePhotonPersistentDiskToTerraform(struct!.photonPersistentDisk),
-    projected: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeProjectedToTerraform, true)(struct!.projected),
+    persistent_volume_claim:
+      daemonsetSpecTemplateSpecVolumePersistentVolumeClaimToTerraform(
+        struct!.persistentVolumeClaim,
+      ),
+    photon_persistent_disk:
+      daemonsetSpecTemplateSpecVolumePhotonPersistentDiskToTerraform(
+        struct!.photonPersistentDisk,
+      ),
+    projected: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeProjectedToTerraform,
+      true,
+    )(struct!.projected),
     quobyte: daemonsetSpecTemplateSpecVolumeQuobyteToTerraform(struct!.quobyte),
     rbd: daemonsetSpecTemplateSpecVolumeRbdToTerraform(struct!.rbd),
     secret: daemonsetSpecTemplateSpecVolumeSecretToTerraform(struct!.secret),
-    vsphere_volume: daemonsetSpecTemplateSpecVolumeVsphereVolumeToTerraform(struct!.vsphereVolume),
-  }
+    vsphere_volume: daemonsetSpecTemplateSpecVolumeVsphereVolumeToTerraform(
+      struct!.vsphereVolume,
+    ),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.ComplexObject {
@@ -10163,16 +12059,29 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DaemonsetSpecTemplateSpecVolume | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetSpecTemplateSpecVolume
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -10184,7 +12093,8 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
     }
     if (this._awsElasticBlockStore?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.awsElasticBlockStore = this._awsElasticBlockStore?.internalValue;
+      internalValueResult.awsElasticBlockStore =
+        this._awsElasticBlockStore?.internalValue;
     }
     if (this._azureDisk?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10232,7 +12142,8 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
     }
     if (this._gcePersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.gcePersistentDisk = this._gcePersistentDisk?.internalValue;
+      internalValueResult.gcePersistentDisk =
+        this._gcePersistentDisk?.internalValue;
     }
     if (this._gitRepo?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10260,11 +12171,13 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
     }
     if (this._persistentVolumeClaim?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.persistentVolumeClaim = this._persistentVolumeClaim?.internalValue;
+      internalValueResult.persistentVolumeClaim =
+        this._persistentVolumeClaim?.internalValue;
     }
     if (this._photonPersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.photonPersistentDisk = this._photonPersistentDisk?.internalValue;
+      internalValueResult.photonPersistentDisk =
+        this._photonPersistentDisk?.internalValue;
     }
     if (this._projected?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10289,7 +12202,9 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetSpecTemplateSpecVolume | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DaemonsetSpecTemplateSpecVolume | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -10320,12 +12235,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
       this._rbd.internalValue = undefined;
       this._secret.internalValue = undefined;
       this._vsphereVolume.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -10359,7 +12272,7 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -10375,11 +12288,17 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // aws_elastic_block_store - computed: false, optional: true, required: false
-  private _awsElasticBlockStore = new DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference(this, "aws_elastic_block_store");
+  private _awsElasticBlockStore =
+    new DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference(
+      this,
+      'aws_elastic_block_store',
+    );
   public get awsElasticBlockStore() {
     return this._awsElasticBlockStore;
   }
-  public putAwsElasticBlockStore(value: DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore) {
+  public putAwsElasticBlockStore(
+    value: DaemonsetSpecTemplateSpecVolumeAwsElasticBlockStore,
+  ) {
     this._awsElasticBlockStore.internalValue = value;
   }
   public resetAwsElasticBlockStore() {
@@ -10391,7 +12310,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // azure_disk - computed: false, optional: true, required: false
-  private _azureDisk = new DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference(this, "azure_disk");
+  private _azureDisk =
+    new DaemonsetSpecTemplateSpecVolumeAzureDiskOutputReference(
+      this,
+      'azure_disk',
+    );
   public get azureDisk() {
     return this._azureDisk;
   }
@@ -10407,7 +12330,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // azure_file - computed: false, optional: true, required: false
-  private _azureFile = new DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference(this, "azure_file");
+  private _azureFile =
+    new DaemonsetSpecTemplateSpecVolumeAzureFileOutputReference(
+      this,
+      'azure_file',
+    );
   public get azureFile() {
     return this._azureFile;
   }
@@ -10423,7 +12350,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // ceph_fs - computed: false, optional: true, required: false
-  private _cephFs = new DaemonsetSpecTemplateSpecVolumeCephFsOutputReference(this, "ceph_fs");
+  private _cephFs = new DaemonsetSpecTemplateSpecVolumeCephFsOutputReference(
+    this,
+    'ceph_fs',
+  );
   public get cephFs() {
     return this._cephFs;
   }
@@ -10439,7 +12369,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // cinder - computed: false, optional: true, required: false
-  private _cinder = new DaemonsetSpecTemplateSpecVolumeCinderOutputReference(this, "cinder");
+  private _cinder = new DaemonsetSpecTemplateSpecVolumeCinderOutputReference(
+    this,
+    'cinder',
+  );
   public get cinder() {
     return this._cinder;
   }
@@ -10455,7 +12388,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // config_map - computed: false, optional: true, required: false
-  private _configMap = new DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference(this, "config_map");
+  private _configMap =
+    new DaemonsetSpecTemplateSpecVolumeConfigMapOutputReference(
+      this,
+      'config_map',
+    );
   public get configMap() {
     return this._configMap;
   }
@@ -10471,7 +12408,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // csi - computed: false, optional: true, required: false
-  private _csi = new DaemonsetSpecTemplateSpecVolumeCsiOutputReference(this, "csi");
+  private _csi = new DaemonsetSpecTemplateSpecVolumeCsiOutputReference(
+    this,
+    'csi',
+  );
   public get csi() {
     return this._csi;
   }
@@ -10487,7 +12427,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // downward_api - computed: false, optional: true, required: false
-  private _downwardApi = new DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference(this, "downward_api");
+  private _downwardApi =
+    new DaemonsetSpecTemplateSpecVolumeDownwardApiOutputReference(
+      this,
+      'downward_api',
+    );
   public get downwardApi() {
     return this._downwardApi;
   }
@@ -10503,7 +12447,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // empty_dir - computed: false, optional: true, required: false
-  private _emptyDir = new DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference(this, "empty_dir");
+  private _emptyDir =
+    new DaemonsetSpecTemplateSpecVolumeEmptyDirOutputReference(
+      this,
+      'empty_dir',
+    );
   public get emptyDir() {
     return this._emptyDir;
   }
@@ -10519,7 +12467,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // fc - computed: false, optional: true, required: false
-  private _fc = new DaemonsetSpecTemplateSpecVolumeFcOutputReference(this, "fc");
+  private _fc = new DaemonsetSpecTemplateSpecVolumeFcOutputReference(
+    this,
+    'fc',
+  );
   public get fc() {
     return this._fc;
   }
@@ -10535,7 +12486,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // flex_volume - computed: false, optional: true, required: false
-  private _flexVolume = new DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference(this, "flex_volume");
+  private _flexVolume =
+    new DaemonsetSpecTemplateSpecVolumeFlexVolumeOutputReference(
+      this,
+      'flex_volume',
+    );
   public get flexVolume() {
     return this._flexVolume;
   }
@@ -10551,7 +12506,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // flocker - computed: false, optional: true, required: false
-  private _flocker = new DaemonsetSpecTemplateSpecVolumeFlockerOutputReference(this, "flocker");
+  private _flocker = new DaemonsetSpecTemplateSpecVolumeFlockerOutputReference(
+    this,
+    'flocker',
+  );
   public get flocker() {
     return this._flocker;
   }
@@ -10567,11 +12525,17 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // gce_persistent_disk - computed: false, optional: true, required: false
-  private _gcePersistentDisk = new DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference(this, "gce_persistent_disk");
+  private _gcePersistentDisk =
+    new DaemonsetSpecTemplateSpecVolumeGcePersistentDiskOutputReference(
+      this,
+      'gce_persistent_disk',
+    );
   public get gcePersistentDisk() {
     return this._gcePersistentDisk;
   }
-  public putGcePersistentDisk(value: DaemonsetSpecTemplateSpecVolumeGcePersistentDisk) {
+  public putGcePersistentDisk(
+    value: DaemonsetSpecTemplateSpecVolumeGcePersistentDisk,
+  ) {
     this._gcePersistentDisk.internalValue = value;
   }
   public resetGcePersistentDisk() {
@@ -10583,7 +12547,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // git_repo - computed: false, optional: true, required: false
-  private _gitRepo = new DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference(this, "git_repo");
+  private _gitRepo = new DaemonsetSpecTemplateSpecVolumeGitRepoOutputReference(
+    this,
+    'git_repo',
+  );
   public get gitRepo() {
     return this._gitRepo;
   }
@@ -10599,7 +12566,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // glusterfs - computed: false, optional: true, required: false
-  private _glusterfs = new DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference(this, "glusterfs");
+  private _glusterfs =
+    new DaemonsetSpecTemplateSpecVolumeGlusterfsOutputReference(
+      this,
+      'glusterfs',
+    );
   public get glusterfs() {
     return this._glusterfs;
   }
@@ -10615,7 +12586,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // host_path - computed: false, optional: true, required: false
-  private _hostPath = new DaemonsetSpecTemplateSpecVolumeHostPathOutputReference(this, "host_path");
+  private _hostPath =
+    new DaemonsetSpecTemplateSpecVolumeHostPathOutputReference(
+      this,
+      'host_path',
+    );
   public get hostPath() {
     return this._hostPath;
   }
@@ -10631,7 +12606,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // iscsi - computed: false, optional: true, required: false
-  private _iscsi = new DaemonsetSpecTemplateSpecVolumeIscsiOutputReference(this, "iscsi");
+  private _iscsi = new DaemonsetSpecTemplateSpecVolumeIscsiOutputReference(
+    this,
+    'iscsi',
+  );
   public get iscsi() {
     return this._iscsi;
   }
@@ -10647,7 +12625,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // local - computed: false, optional: true, required: false
-  private _local = new DaemonsetSpecTemplateSpecVolumeLocalOutputReference(this, "local");
+  private _local = new DaemonsetSpecTemplateSpecVolumeLocalOutputReference(
+    this,
+    'local',
+  );
   public get local() {
     return this._local;
   }
@@ -10663,7 +12644,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // nfs - computed: false, optional: true, required: false
-  private _nfs = new DaemonsetSpecTemplateSpecVolumeNfsOutputReference(this, "nfs");
+  private _nfs = new DaemonsetSpecTemplateSpecVolumeNfsOutputReference(
+    this,
+    'nfs',
+  );
   public get nfs() {
     return this._nfs;
   }
@@ -10679,11 +12663,17 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // persistent_volume_claim - computed: false, optional: true, required: false
-  private _persistentVolumeClaim = new DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference(this, "persistent_volume_claim");
+  private _persistentVolumeClaim =
+    new DaemonsetSpecTemplateSpecVolumePersistentVolumeClaimOutputReference(
+      this,
+      'persistent_volume_claim',
+    );
   public get persistentVolumeClaim() {
     return this._persistentVolumeClaim;
   }
-  public putPersistentVolumeClaim(value: DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim) {
+  public putPersistentVolumeClaim(
+    value: DaemonsetSpecTemplateSpecVolumePersistentVolumeClaim,
+  ) {
     this._persistentVolumeClaim.internalValue = value;
   }
   public resetPersistentVolumeClaim() {
@@ -10695,11 +12685,17 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // photon_persistent_disk - computed: false, optional: true, required: false
-  private _photonPersistentDisk = new DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference(this, "photon_persistent_disk");
+  private _photonPersistentDisk =
+    new DaemonsetSpecTemplateSpecVolumePhotonPersistentDiskOutputReference(
+      this,
+      'photon_persistent_disk',
+    );
   public get photonPersistentDisk() {
     return this._photonPersistentDisk;
   }
-  public putPhotonPersistentDisk(value: DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk) {
+  public putPhotonPersistentDisk(
+    value: DaemonsetSpecTemplateSpecVolumePhotonPersistentDisk,
+  ) {
     this._photonPersistentDisk.internalValue = value;
   }
   public resetPhotonPersistentDisk() {
@@ -10711,11 +12707,17 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // projected - computed: false, optional: true, required: false
-  private _projected = new DaemonsetSpecTemplateSpecVolumeProjectedList(this, "projected", false);
+  private _projected = new DaemonsetSpecTemplateSpecVolumeProjectedList(
+    this,
+    'projected',
+    false,
+  );
   public get projected() {
     return this._projected;
   }
-  public putProjected(value: DaemonsetSpecTemplateSpecVolumeProjected[] | cdktf.IResolvable) {
+  public putProjected(
+    value: DaemonsetSpecTemplateSpecVolumeProjected[] | cdktf.IResolvable,
+  ) {
     this._projected.internalValue = value;
   }
   public resetProjected() {
@@ -10727,7 +12729,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // quobyte - computed: false, optional: true, required: false
-  private _quobyte = new DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference(this, "quobyte");
+  private _quobyte = new DaemonsetSpecTemplateSpecVolumeQuobyteOutputReference(
+    this,
+    'quobyte',
+  );
   public get quobyte() {
     return this._quobyte;
   }
@@ -10743,7 +12748,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // rbd - computed: false, optional: true, required: false
-  private _rbd = new DaemonsetSpecTemplateSpecVolumeRbdOutputReference(this, "rbd");
+  private _rbd = new DaemonsetSpecTemplateSpecVolumeRbdOutputReference(
+    this,
+    'rbd',
+  );
   public get rbd() {
     return this._rbd;
   }
@@ -10759,7 +12767,10 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new DaemonsetSpecTemplateSpecVolumeSecretOutputReference(this, "secret");
+  private _secret = new DaemonsetSpecTemplateSpecVolumeSecretOutputReference(
+    this,
+    'secret',
+  );
   public get secret() {
     return this._secret;
   }
@@ -10775,7 +12786,11 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
   }
 
   // vsphere_volume - computed: false, optional: true, required: false
-  private _vsphereVolume = new DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference(this, "vsphere_volume");
+  private _vsphereVolume =
+    new DaemonsetSpecTemplateSpecVolumeVsphereVolumeOutputReference(
+      this,
+      'vsphere_volume',
+    );
   public get vsphereVolume() {
     return this._vsphereVolume;
   }
@@ -10792,203 +12807,234 @@ export class DaemonsetSpecTemplateSpecVolumeOutputReference extends cdktf.Comple
 }
 
 export class DaemonsetSpecTemplateSpecVolumeList extends cdktf.ComplexList {
-  public internalValue? : DaemonsetSpecTemplateSpecVolume[] | cdktf.IResolvable
+  public internalValue?: DaemonsetSpecTemplateSpecVolume[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DaemonsetSpecTemplateSpecVolumeOutputReference {
-    return new DaemonsetSpecTemplateSpecVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DaemonsetSpecTemplateSpecVolumeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DaemonsetSpecTemplateSpec {
   /**
-  * Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#active_deadline_seconds Daemonset#active_deadline_seconds}
-  */
+   * Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#active_deadline_seconds Daemonset#active_deadline_seconds}
+   */
   readonly activeDeadlineSeconds?: number;
   /**
-  * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#automount_service_account_token Daemonset#automount_service_account_token}
-  */
+   * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#automount_service_account_token Daemonset#automount_service_account_token}
+   */
   readonly automountServiceAccountToken?: boolean | cdktf.IResolvable;
   /**
-  * Set DNS policy for containers within the pod. Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'. Optional: Defaults to 'ClusterFirst', see [Kubernetes reference](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dns_policy Daemonset#dns_policy}
-  */
+   * Set DNS policy for containers within the pod. Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'. Optional: Defaults to 'ClusterFirst', see [Kubernetes reference](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dns_policy Daemonset#dns_policy}
+   */
   readonly dnsPolicy?: string;
   /**
-  * Enables generating environment variables for service discovery. Defaults to true.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#enable_service_links Daemonset#enable_service_links}
-  */
+   * Enables generating environment variables for service discovery. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#enable_service_links Daemonset#enable_service_links}
+   */
   readonly enableServiceLinks?: boolean | cdktf.IResolvable;
   /**
-  * Use the host's ipc namespace. Optional: Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_ipc Daemonset#host_ipc}
-  */
+   * Use the host's ipc namespace. Optional: Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_ipc Daemonset#host_ipc}
+   */
   readonly hostIpc?: boolean | cdktf.IResolvable;
   /**
-  * Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_network Daemonset#host_network}
-  */
+   * Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_network Daemonset#host_network}
+   */
   readonly hostNetwork?: boolean | cdktf.IResolvable;
   /**
-  * Use the host's pid namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_pid Daemonset#host_pid}
-  */
+   * Use the host's pid namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_pid Daemonset#host_pid}
+   */
   readonly hostPid?: boolean | cdktf.IResolvable;
   /**
-  * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#hostname Daemonset#hostname}
-  */
+   * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#hostname Daemonset#hostname}
+   */
   readonly hostname?: string;
   /**
-  * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#node_name Daemonset#node_name}
-  */
+   * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#node_name Daemonset#node_name}
+   */
   readonly nodeName?: string;
   /**
-  * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#node_selector Daemonset#node_selector}
-  */
+   * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#node_selector Daemonset#node_selector}
+   */
   readonly nodeSelector?: { [key: string]: string };
   /**
-  * If specified, indicates the pod's priority. "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#priority_class_name Daemonset#priority_class_name}
-  */
+   * If specified, indicates the pod's priority. "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#priority_class_name Daemonset#priority_class_name}
+   */
   readonly priorityClassName?: string;
   /**
-  * Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#restart_policy Daemonset#restart_policy}
-  */
+   * Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#restart_policy Daemonset#restart_policy}
+   */
   readonly restartPolicy?: string;
   /**
-  * RuntimeClassName is a feature for selecting the container runtime configuration. The container runtime configuration is used to run a Pod's containers. More info: https://kubernetes.io/docs/concepts/containers/runtime-class
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#runtime_class_name Daemonset#runtime_class_name}
-  */
+   * RuntimeClassName is a feature for selecting the container runtime configuration. The container runtime configuration is used to run a Pod's containers. More info: https://kubernetes.io/docs/concepts/containers/runtime-class
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#runtime_class_name Daemonset#runtime_class_name}
+   */
   readonly runtimeClassName?: string;
   /**
-  * ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#service_account_name Daemonset#service_account_name}
-  */
+   * ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#service_account_name Daemonset#service_account_name}
+   */
   readonly serviceAccountName?: string;
   /**
-  * Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#share_process_namespace Daemonset#share_process_namespace}
-  */
+   * Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#share_process_namespace Daemonset#share_process_namespace}
+   */
   readonly shareProcessNamespace?: boolean | cdktf.IResolvable;
   /**
-  * If specified, the fully qualified Pod hostname will be "...svc.". If not specified, the pod will not have a domainname at all..
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#subdomain Daemonset#subdomain}
-  */
+   * If specified, the fully qualified Pod hostname will be "...svc.". If not specified, the pod will not have a domainname at all..
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#subdomain Daemonset#subdomain}
+   */
   readonly subdomain?: string;
   /**
-  * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#termination_grace_period_seconds Daemonset#termination_grace_period_seconds}
-  */
+   * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#termination_grace_period_seconds Daemonset#termination_grace_period_seconds}
+   */
   readonly terminationGracePeriodSeconds?: number;
   /**
-  * affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#affinity Daemonset#affinity}
-  */
+   * affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#affinity Daemonset#affinity}
+   */
   readonly affinity?: DaemonsetSpecTemplateSpecAffinity;
   /**
-  * container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#container Daemonset#container}
-  */
+   * container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#container Daemonset#container}
+   */
   readonly container?: DaemonsetSpecTemplateSpecContainer[] | cdktf.IResolvable;
   /**
-  * dns_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dns_config Daemonset#dns_config}
-  */
+   * dns_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#dns_config Daemonset#dns_config}
+   */
   readonly dnsConfig?: DaemonsetSpecTemplateSpecDnsConfig;
   /**
-  * host_aliases block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_aliases Daemonset#host_aliases}
-  */
-  readonly hostAliases?: DaemonsetSpecTemplateSpecHostAliases[] | cdktf.IResolvable;
+   * host_aliases block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#host_aliases Daemonset#host_aliases}
+   */
+  readonly hostAliases?:
+    | DaemonsetSpecTemplateSpecHostAliases[]
+    | cdktf.IResolvable;
   /**
-  * image_pull_secrets block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#image_pull_secrets Daemonset#image_pull_secrets}
-  */
-  readonly imagePullSecrets?: DaemonsetSpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable;
+   * image_pull_secrets block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#image_pull_secrets Daemonset#image_pull_secrets}
+   */
+  readonly imagePullSecrets?:
+    | DaemonsetSpecTemplateSpecImagePullSecrets[]
+    | cdktf.IResolvable;
   /**
-  * init_container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#init_container Daemonset#init_container}
-  */
-  readonly initContainer?: DaemonsetSpecTemplateSpecInitContainer[] | cdktf.IResolvable;
+   * init_container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#init_container Daemonset#init_container}
+   */
+  readonly initContainer?:
+    | DaemonsetSpecTemplateSpecInitContainer[]
+    | cdktf.IResolvable;
   /**
-  * readiness_gate block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#readiness_gate Daemonset#readiness_gate}
-  */
-  readonly readinessGate?: DaemonsetSpecTemplateSpecReadinessGate[] | cdktf.IResolvable;
+   * readiness_gate block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#readiness_gate Daemonset#readiness_gate}
+   */
+  readonly readinessGate?:
+    | DaemonsetSpecTemplateSpecReadinessGate[]
+    | cdktf.IResolvable;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#security_context Daemonset#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#security_context Daemonset#security_context}
+   */
   readonly securityContext?: DaemonsetSpecTemplateSpecSecurityContext;
   /**
-  * toleration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#toleration Daemonset#toleration}
-  */
-  readonly toleration?: DaemonsetSpecTemplateSpecToleration[] | cdktf.IResolvable;
+   * toleration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#toleration Daemonset#toleration}
+   */
+  readonly toleration?:
+    | DaemonsetSpecTemplateSpecToleration[]
+    | cdktf.IResolvable;
   /**
-  * topology_spread_constraint block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#topology_spread_constraint Daemonset#topology_spread_constraint}
-  */
-  readonly topologySpreadConstraint?: DaemonsetSpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable;
+   * topology_spread_constraint block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#topology_spread_constraint Daemonset#topology_spread_constraint}
+   */
+  readonly topologySpreadConstraint?:
+    | DaemonsetSpecTemplateSpecTopologySpreadConstraint[]
+    | cdktf.IResolvable;
   /**
-  * volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume Daemonset#volume}
-  */
+   * volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#volume Daemonset#volume}
+   */
   readonly volume?: DaemonsetSpecTemplateSpecVolume[] | cdktf.IResolvable;
 }
 
-export function daemonsetSpecTemplateSpecToTerraform(struct?: DaemonsetSpecTemplateSpecOutputReference | DaemonsetSpecTemplateSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateSpecToTerraform(
+  struct?: DaemonsetSpecTemplateSpecOutputReference | DaemonsetSpecTemplateSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    active_deadline_seconds: cdktf.numberToTerraform(struct!.activeDeadlineSeconds),
-    automount_service_account_token: cdktf.booleanToTerraform(struct!.automountServiceAccountToken),
+    active_deadline_seconds: cdktf.numberToTerraform(
+      struct!.activeDeadlineSeconds,
+    ),
+    automount_service_account_token: cdktf.booleanToTerraform(
+      struct!.automountServiceAccountToken,
+    ),
     dns_policy: cdktf.stringToTerraform(struct!.dnsPolicy),
     enable_service_links: cdktf.booleanToTerraform(struct!.enableServiceLinks),
     host_ipc: cdktf.booleanToTerraform(struct!.hostIpc),
@@ -10996,36 +13042,73 @@ export function daemonsetSpecTemplateSpecToTerraform(struct?: DaemonsetSpecTempl
     host_pid: cdktf.booleanToTerraform(struct!.hostPid),
     hostname: cdktf.stringToTerraform(struct!.hostname),
     node_name: cdktf.stringToTerraform(struct!.nodeName),
-    node_selector: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.nodeSelector),
+    node_selector: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.nodeSelector,
+    ),
     priority_class_name: cdktf.stringToTerraform(struct!.priorityClassName),
     restart_policy: cdktf.stringToTerraform(struct!.restartPolicy),
     runtime_class_name: cdktf.stringToTerraform(struct!.runtimeClassName),
     service_account_name: cdktf.stringToTerraform(struct!.serviceAccountName),
-    share_process_namespace: cdktf.booleanToTerraform(struct!.shareProcessNamespace),
+    share_process_namespace: cdktf.booleanToTerraform(
+      struct!.shareProcessNamespace,
+    ),
     subdomain: cdktf.stringToTerraform(struct!.subdomain),
-    termination_grace_period_seconds: cdktf.numberToTerraform(struct!.terminationGracePeriodSeconds),
+    termination_grace_period_seconds: cdktf.numberToTerraform(
+      struct!.terminationGracePeriodSeconds,
+    ),
     affinity: daemonsetSpecTemplateSpecAffinityToTerraform(struct!.affinity),
-    container: cdktf.listMapper(daemonsetSpecTemplateSpecContainerToTerraform, true)(struct!.container),
-    dns_config: daemonsetSpecTemplateSpecDnsConfigToTerraform(struct!.dnsConfig),
-    host_aliases: cdktf.listMapper(daemonsetSpecTemplateSpecHostAliasesToTerraform, true)(struct!.hostAliases),
-    image_pull_secrets: cdktf.listMapper(daemonsetSpecTemplateSpecImagePullSecretsToTerraform, true)(struct!.imagePullSecrets),
-    init_container: cdktf.listMapper(daemonsetSpecTemplateSpecInitContainerToTerraform, true)(struct!.initContainer),
-    readiness_gate: cdktf.listMapper(daemonsetSpecTemplateSpecReadinessGateToTerraform, true)(struct!.readinessGate),
-    security_context: daemonsetSpecTemplateSpecSecurityContextToTerraform(struct!.securityContext),
-    toleration: cdktf.listMapper(daemonsetSpecTemplateSpecTolerationToTerraform, true)(struct!.toleration),
-    topology_spread_constraint: cdktf.listMapper(daemonsetSpecTemplateSpecTopologySpreadConstraintToTerraform, true)(struct!.topologySpreadConstraint),
-    volume: cdktf.listMapper(daemonsetSpecTemplateSpecVolumeToTerraform, true)(struct!.volume),
-  }
+    container: cdktf.listMapper(
+      daemonsetSpecTemplateSpecContainerToTerraform,
+      true,
+    )(struct!.container),
+    dns_config: daemonsetSpecTemplateSpecDnsConfigToTerraform(
+      struct!.dnsConfig,
+    ),
+    host_aliases: cdktf.listMapper(
+      daemonsetSpecTemplateSpecHostAliasesToTerraform,
+      true,
+    )(struct!.hostAliases),
+    image_pull_secrets: cdktf.listMapper(
+      daemonsetSpecTemplateSpecImagePullSecretsToTerraform,
+      true,
+    )(struct!.imagePullSecrets),
+    init_container: cdktf.listMapper(
+      daemonsetSpecTemplateSpecInitContainerToTerraform,
+      true,
+    )(struct!.initContainer),
+    readiness_gate: cdktf.listMapper(
+      daemonsetSpecTemplateSpecReadinessGateToTerraform,
+      true,
+    )(struct!.readinessGate),
+    security_context: daemonsetSpecTemplateSpecSecurityContextToTerraform(
+      struct!.securityContext,
+    ),
+    toleration: cdktf.listMapper(
+      daemonsetSpecTemplateSpecTolerationToTerraform,
+      true,
+    )(struct!.toleration),
+    topology_spread_constraint: cdktf.listMapper(
+      daemonsetSpecTemplateSpecTopologySpreadConstraintToTerraform,
+      true,
+    )(struct!.topologySpreadConstraint),
+    volume: cdktf.listMapper(
+      daemonsetSpecTemplateSpecVolumeToTerraform,
+      true,
+    )(struct!.volume),
+  };
 }
 
 export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11038,7 +13121,8 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
     }
     if (this._automountServiceAccountToken !== undefined) {
       hasAnyValues = true;
-      internalValueResult.automountServiceAccountToken = this._automountServiceAccountToken;
+      internalValueResult.automountServiceAccountToken =
+        this._automountServiceAccountToken;
     }
     if (this._dnsPolicy !== undefined) {
       hasAnyValues = true;
@@ -11098,7 +13182,8 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
     }
     if (this._terminationGracePeriodSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationGracePeriodSeconds = this._terminationGracePeriodSeconds;
+      internalValueResult.terminationGracePeriodSeconds =
+        this._terminationGracePeriodSeconds;
     }
     if (this._affinity?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -11118,7 +13203,8 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
     }
     if (this._imagePullSecrets?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.imagePullSecrets = this._imagePullSecrets?.internalValue;
+      internalValueResult.imagePullSecrets =
+        this._imagePullSecrets?.internalValue;
     }
     if (this._initContainer?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -11130,7 +13216,8 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._toleration?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -11138,7 +13225,8 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
     }
     if (this._topologySpreadConstraint?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.topologySpreadConstraint = this._topologySpreadConstraint?.internalValue;
+      internalValueResult.topologySpreadConstraint =
+        this._topologySpreadConstraint?.internalValue;
     }
     if (this._volume?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -11178,8 +13266,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
       this._toleration.internalValue = undefined;
       this._topologySpreadConstraint.internalValue = undefined;
       this._volume.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._activeDeadlineSeconds = value.activeDeadlineSeconds;
       this._automountServiceAccountToken = value.automountServiceAccountToken;
@@ -11207,13 +13294,14 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
       this._readinessGate.internalValue = value.readinessGate;
       this._securityContext.internalValue = value.securityContext;
       this._toleration.internalValue = value.toleration;
-      this._topologySpreadConstraint.internalValue = value.topologySpreadConstraint;
+      this._topologySpreadConstraint.internalValue =
+        value.topologySpreadConstraint;
       this._volume.internalValue = value.volume;
     }
   }
 
   // active_deadline_seconds - computed: false, optional: true, required: false
-  private _activeDeadlineSeconds?: number; 
+  private _activeDeadlineSeconds?: number;
   public get activeDeadlineSeconds() {
     return this.getNumberAttribute('active_deadline_seconds');
   }
@@ -11229,7 +13317,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // automount_service_account_token - computed: false, optional: true, required: false
-  private _automountServiceAccountToken?: boolean | cdktf.IResolvable; 
+  private _automountServiceAccountToken?: boolean | cdktf.IResolvable;
   public get automountServiceAccountToken() {
     return this.getBooleanAttribute('automount_service_account_token');
   }
@@ -11245,7 +13333,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // dns_policy - computed: false, optional: true, required: false
-  private _dnsPolicy?: string; 
+  private _dnsPolicy?: string;
   public get dnsPolicy() {
     return this.getStringAttribute('dns_policy');
   }
@@ -11261,7 +13349,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // enable_service_links - computed: false, optional: true, required: false
-  private _enableServiceLinks?: boolean | cdktf.IResolvable; 
+  private _enableServiceLinks?: boolean | cdktf.IResolvable;
   public get enableServiceLinks() {
     return this.getBooleanAttribute('enable_service_links');
   }
@@ -11277,7 +13365,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // host_ipc - computed: false, optional: true, required: false
-  private _hostIpc?: boolean | cdktf.IResolvable; 
+  private _hostIpc?: boolean | cdktf.IResolvable;
   public get hostIpc() {
     return this.getBooleanAttribute('host_ipc');
   }
@@ -11293,7 +13381,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // host_network - computed: false, optional: true, required: false
-  private _hostNetwork?: boolean | cdktf.IResolvable; 
+  private _hostNetwork?: boolean | cdktf.IResolvable;
   public get hostNetwork() {
     return this.getBooleanAttribute('host_network');
   }
@@ -11309,7 +13397,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // host_pid - computed: false, optional: true, required: false
-  private _hostPid?: boolean | cdktf.IResolvable; 
+  private _hostPid?: boolean | cdktf.IResolvable;
   public get hostPid() {
     return this.getBooleanAttribute('host_pid');
   }
@@ -11325,7 +13413,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // hostname - computed: true, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -11341,7 +13429,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // node_name - computed: true, optional: true, required: false
-  private _nodeName?: string; 
+  private _nodeName?: string;
   public get nodeName() {
     return this.getStringAttribute('node_name');
   }
@@ -11357,7 +13445,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // node_selector - computed: false, optional: true, required: false
-  private _nodeSelector?: { [key: string]: string }; 
+  private _nodeSelector?: { [key: string]: string };
   public get nodeSelector() {
     return this.getStringMapAttribute('node_selector');
   }
@@ -11373,7 +13461,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // priority_class_name - computed: false, optional: true, required: false
-  private _priorityClassName?: string; 
+  private _priorityClassName?: string;
   public get priorityClassName() {
     return this.getStringAttribute('priority_class_name');
   }
@@ -11389,7 +13477,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // restart_policy - computed: false, optional: true, required: false
-  private _restartPolicy?: string; 
+  private _restartPolicy?: string;
   public get restartPolicy() {
     return this.getStringAttribute('restart_policy');
   }
@@ -11405,7 +13493,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // runtime_class_name - computed: false, optional: true, required: false
-  private _runtimeClassName?: string; 
+  private _runtimeClassName?: string;
   public get runtimeClassName() {
     return this.getStringAttribute('runtime_class_name');
   }
@@ -11421,7 +13509,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // service_account_name - computed: true, optional: true, required: false
-  private _serviceAccountName?: string; 
+  private _serviceAccountName?: string;
   public get serviceAccountName() {
     return this.getStringAttribute('service_account_name');
   }
@@ -11437,7 +13525,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // share_process_namespace - computed: false, optional: true, required: false
-  private _shareProcessNamespace?: boolean | cdktf.IResolvable; 
+  private _shareProcessNamespace?: boolean | cdktf.IResolvable;
   public get shareProcessNamespace() {
     return this.getBooleanAttribute('share_process_namespace');
   }
@@ -11453,7 +13541,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // subdomain - computed: false, optional: true, required: false
-  private _subdomain?: string; 
+  private _subdomain?: string;
   public get subdomain() {
     return this.getStringAttribute('subdomain');
   }
@@ -11469,7 +13557,7 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // termination_grace_period_seconds - computed: false, optional: true, required: false
-  private _terminationGracePeriodSeconds?: number; 
+  private _terminationGracePeriodSeconds?: number;
   public get terminationGracePeriodSeconds() {
     return this.getNumberAttribute('termination_grace_period_seconds');
   }
@@ -11485,7 +13573,10 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // affinity - computed: false, optional: true, required: false
-  private _affinity = new DaemonsetSpecTemplateSpecAffinityOutputReference(this, "affinity");
+  private _affinity = new DaemonsetSpecTemplateSpecAffinityOutputReference(
+    this,
+    'affinity',
+  );
   public get affinity() {
     return this._affinity;
   }
@@ -11501,11 +13592,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // container - computed: false, optional: true, required: false
-  private _container = new DaemonsetSpecTemplateSpecContainerList(this, "container", false);
+  private _container = new DaemonsetSpecTemplateSpecContainerList(
+    this,
+    'container',
+    false,
+  );
   public get container() {
     return this._container;
   }
-  public putContainer(value: DaemonsetSpecTemplateSpecContainer[] | cdktf.IResolvable) {
+  public putContainer(
+    value: DaemonsetSpecTemplateSpecContainer[] | cdktf.IResolvable,
+  ) {
     this._container.internalValue = value;
   }
   public resetContainer() {
@@ -11517,7 +13614,10 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // dns_config - computed: false, optional: true, required: false
-  private _dnsConfig = new DaemonsetSpecTemplateSpecDnsConfigOutputReference(this, "dns_config");
+  private _dnsConfig = new DaemonsetSpecTemplateSpecDnsConfigOutputReference(
+    this,
+    'dns_config',
+  );
   public get dnsConfig() {
     return this._dnsConfig;
   }
@@ -11533,11 +13633,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // host_aliases - computed: false, optional: true, required: false
-  private _hostAliases = new DaemonsetSpecTemplateSpecHostAliasesList(this, "host_aliases", false);
+  private _hostAliases = new DaemonsetSpecTemplateSpecHostAliasesList(
+    this,
+    'host_aliases',
+    false,
+  );
   public get hostAliases() {
     return this._hostAliases;
   }
-  public putHostAliases(value: DaemonsetSpecTemplateSpecHostAliases[] | cdktf.IResolvable) {
+  public putHostAliases(
+    value: DaemonsetSpecTemplateSpecHostAliases[] | cdktf.IResolvable,
+  ) {
     this._hostAliases.internalValue = value;
   }
   public resetHostAliases() {
@@ -11549,11 +13655,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // image_pull_secrets - computed: false, optional: true, required: false
-  private _imagePullSecrets = new DaemonsetSpecTemplateSpecImagePullSecretsList(this, "image_pull_secrets", false);
+  private _imagePullSecrets = new DaemonsetSpecTemplateSpecImagePullSecretsList(
+    this,
+    'image_pull_secrets',
+    false,
+  );
   public get imagePullSecrets() {
     return this._imagePullSecrets;
   }
-  public putImagePullSecrets(value: DaemonsetSpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable) {
+  public putImagePullSecrets(
+    value: DaemonsetSpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable,
+  ) {
     this._imagePullSecrets.internalValue = value;
   }
   public resetImagePullSecrets() {
@@ -11565,11 +13677,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // init_container - computed: false, optional: true, required: false
-  private _initContainer = new DaemonsetSpecTemplateSpecInitContainerList(this, "init_container", false);
+  private _initContainer = new DaemonsetSpecTemplateSpecInitContainerList(
+    this,
+    'init_container',
+    false,
+  );
   public get initContainer() {
     return this._initContainer;
   }
-  public putInitContainer(value: DaemonsetSpecTemplateSpecInitContainer[] | cdktf.IResolvable) {
+  public putInitContainer(
+    value: DaemonsetSpecTemplateSpecInitContainer[] | cdktf.IResolvable,
+  ) {
     this._initContainer.internalValue = value;
   }
   public resetInitContainer() {
@@ -11581,11 +13699,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // readiness_gate - computed: false, optional: true, required: false
-  private _readinessGate = new DaemonsetSpecTemplateSpecReadinessGateList(this, "readiness_gate", false);
+  private _readinessGate = new DaemonsetSpecTemplateSpecReadinessGateList(
+    this,
+    'readiness_gate',
+    false,
+  );
   public get readinessGate() {
     return this._readinessGate;
   }
-  public putReadinessGate(value: DaemonsetSpecTemplateSpecReadinessGate[] | cdktf.IResolvable) {
+  public putReadinessGate(
+    value: DaemonsetSpecTemplateSpecReadinessGate[] | cdktf.IResolvable,
+  ) {
     this._readinessGate.internalValue = value;
   }
   public resetReadinessGate() {
@@ -11597,7 +13721,11 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new DaemonsetSpecTemplateSpecSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new DaemonsetSpecTemplateSpecSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
@@ -11613,11 +13741,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // toleration - computed: false, optional: true, required: false
-  private _toleration = new DaemonsetSpecTemplateSpecTolerationList(this, "toleration", false);
+  private _toleration = new DaemonsetSpecTemplateSpecTolerationList(
+    this,
+    'toleration',
+    false,
+  );
   public get toleration() {
     return this._toleration;
   }
-  public putToleration(value: DaemonsetSpecTemplateSpecToleration[] | cdktf.IResolvable) {
+  public putToleration(
+    value: DaemonsetSpecTemplateSpecToleration[] | cdktf.IResolvable,
+  ) {
     this._toleration.internalValue = value;
   }
   public resetToleration() {
@@ -11629,11 +13763,20 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // topology_spread_constraint - computed: false, optional: true, required: false
-  private _topologySpreadConstraint = new DaemonsetSpecTemplateSpecTopologySpreadConstraintList(this, "topology_spread_constraint", false);
+  private _topologySpreadConstraint =
+    new DaemonsetSpecTemplateSpecTopologySpreadConstraintList(
+      this,
+      'topology_spread_constraint',
+      false,
+    );
   public get topologySpreadConstraint() {
     return this._topologySpreadConstraint;
   }
-  public putTopologySpreadConstraint(value: DaemonsetSpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable) {
+  public putTopologySpreadConstraint(
+    value:
+      | DaemonsetSpecTemplateSpecTopologySpreadConstraint[]
+      | cdktf.IResolvable,
+  ) {
     this._topologySpreadConstraint.internalValue = value;
   }
   public resetTopologySpreadConstraint() {
@@ -11645,11 +13788,17 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
   }
 
   // volume - computed: false, optional: true, required: false
-  private _volume = new DaemonsetSpecTemplateSpecVolumeList(this, "volume", false);
+  private _volume = new DaemonsetSpecTemplateSpecVolumeList(
+    this,
+    'volume',
+    false,
+  );
   public get volume() {
     return this._volume;
   }
-  public putVolume(value: DaemonsetSpecTemplateSpecVolume[] | cdktf.IResolvable) {
+  public putVolume(
+    value: DaemonsetSpecTemplateSpecVolume[] | cdktf.IResolvable,
+  ) {
     this._volume.internalValue = value;
   }
   public resetVolume() {
@@ -11662,38 +13811,47 @@ export class DaemonsetSpecTemplateSpecOutputReference extends cdktf.ComplexObjec
 }
 export interface DaemonsetSpecTemplate {
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#metadata Daemonset#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#metadata Daemonset#metadata}
+   */
   readonly metadata: DaemonsetSpecTemplateMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#spec Daemonset#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#spec Daemonset#spec}
+   */
   readonly spec?: DaemonsetSpecTemplateSpec;
 }
 
-export function daemonsetSpecTemplateToTerraform(struct?: DaemonsetSpecTemplateOutputReference | DaemonsetSpecTemplate): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecTemplateToTerraform(
+  struct?: DaemonsetSpecTemplateOutputReference | DaemonsetSpecTemplate,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     metadata: daemonsetSpecTemplateMetadataToTerraform(struct!.metadata),
     spec: daemonsetSpecTemplateSpecToTerraform(struct!.spec),
-  }
+  };
 }
 
 export class DaemonsetSpecTemplateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11716,8 +13874,7 @@ export class DaemonsetSpecTemplateOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._metadata.internalValue = undefined;
       this._spec.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._metadata.internalValue = value.metadata;
       this._spec.internalValue = value.spec;
@@ -11725,7 +13882,10 @@ export class DaemonsetSpecTemplateOutputReference extends cdktf.ComplexObject {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new DaemonsetSpecTemplateMetadataOutputReference(this, "metadata");
+  private _metadata = new DaemonsetSpecTemplateMetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -11738,7 +13898,7 @@ export class DaemonsetSpecTemplateOutputReference extends cdktf.ComplexObject {
   }
 
   // spec - computed: false, optional: true, required: false
-  private _spec = new DaemonsetSpecTemplateSpecOutputReference(this, "spec");
+  private _spec = new DaemonsetSpecTemplateSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -11755,59 +13915,70 @@ export class DaemonsetSpecTemplateOutputReference extends cdktf.ComplexObject {
 }
 export interface DaemonsetSpec {
   /**
-  * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#min_ready_seconds Daemonset#min_ready_seconds}
-  */
+   * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#min_ready_seconds Daemonset#min_ready_seconds}
+   */
   readonly minReadySeconds?: number;
   /**
-  * The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#revision_history_limit Daemonset#revision_history_limit}
-  */
+   * The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#revision_history_limit Daemonset#revision_history_limit}
+   */
   readonly revisionHistoryLimit?: number;
   /**
-  * selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#selector Daemonset#selector}
-  */
+   * selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#selector Daemonset#selector}
+   */
   readonly selector?: DaemonsetSpecSelector;
   /**
-  * strategy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#strategy Daemonset#strategy}
-  */
+   * strategy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#strategy Daemonset#strategy}
+   */
   readonly strategy?: DaemonsetSpecStrategy;
   /**
-  * template block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#template Daemonset#template}
-  */
+   * template block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#template Daemonset#template}
+   */
   readonly template: DaemonsetSpecTemplate;
 }
 
-export function daemonsetSpecToTerraform(struct?: DaemonsetSpecOutputReference | DaemonsetSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetSpecToTerraform(
+  struct?: DaemonsetSpecOutputReference | DaemonsetSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     min_ready_seconds: cdktf.numberToTerraform(struct!.minReadySeconds),
-    revision_history_limit: cdktf.numberToTerraform(struct!.revisionHistoryLimit),
+    revision_history_limit: cdktf.numberToTerraform(
+      struct!.revisionHistoryLimit,
+    ),
     selector: daemonsetSpecSelectorToTerraform(struct!.selector),
     strategy: daemonsetSpecStrategyToTerraform(struct!.strategy),
     template: daemonsetSpecTemplateToTerraform(struct!.template),
-  }
+  };
 }
 
 export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11845,8 +14016,7 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
       this._selector.internalValue = undefined;
       this._strategy.internalValue = undefined;
       this._template.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._minReadySeconds = value.minReadySeconds;
       this._revisionHistoryLimit = value.revisionHistoryLimit;
@@ -11857,7 +14027,7 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // min_ready_seconds - computed: false, optional: true, required: false
-  private _minReadySeconds?: number; 
+  private _minReadySeconds?: number;
   public get minReadySeconds() {
     return this.getNumberAttribute('min_ready_seconds');
   }
@@ -11873,7 +14043,7 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // revision_history_limit - computed: false, optional: true, required: false
-  private _revisionHistoryLimit?: number; 
+  private _revisionHistoryLimit?: number;
   public get revisionHistoryLimit() {
     return this.getNumberAttribute('revision_history_limit');
   }
@@ -11889,7 +14059,10 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // selector - computed: false, optional: true, required: false
-  private _selector = new DaemonsetSpecSelectorOutputReference(this, "selector");
+  private _selector = new DaemonsetSpecSelectorOutputReference(
+    this,
+    'selector',
+  );
   public get selector() {
     return this._selector;
   }
@@ -11905,7 +14078,10 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // strategy - computed: false, optional: true, required: false
-  private _strategy = new DaemonsetSpecStrategyOutputReference(this, "strategy");
+  private _strategy = new DaemonsetSpecStrategyOutputReference(
+    this,
+    'strategy',
+  );
   public get strategy() {
     return this._strategy;
   }
@@ -11921,7 +14097,10 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // template - computed: false, optional: false, required: true
-  private _template = new DaemonsetSpecTemplateOutputReference(this, "template");
+  private _template = new DaemonsetSpecTemplateOutputReference(
+    this,
+    'template',
+  );
   public get template() {
     return this._template;
   }
@@ -11935,29 +14114,38 @@ export class DaemonsetSpecOutputReference extends cdktf.ComplexObject {
 }
 export interface DaemonsetTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#create Daemonset#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#create Daemonset#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#delete Daemonset#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#delete Daemonset#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#update Daemonset#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#update Daemonset#update}
+   */
   readonly update?: string;
 }
 
-export function daemonsetTimeoutsToTerraform(struct?: DaemonsetTimeoutsOutputReference | DaemonsetTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function daemonsetTimeoutsToTerraform(
+  struct?:
+    | DaemonsetTimeoutsOutputReference
+    | DaemonsetTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class DaemonsetTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -11965,14 +14153,20 @@ export class DaemonsetTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DaemonsetTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DaemonsetTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11993,19 +14187,19 @@ export class DaemonsetTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DaemonsetTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DaemonsetTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -12015,7 +14209,7 @@ export class DaemonsetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -12031,7 +14225,7 @@ export class DaemonsetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -12047,7 +14241,7 @@ export class DaemonsetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }

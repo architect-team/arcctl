@@ -2,56 +2,60 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsLbHostedZoneIdConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsLbHostedZoneIdConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id#id DataAwsLbHostedZoneId#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id#id DataAwsLbHostedZoneId#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id#load_balancer_type DataAwsLbHostedZoneId#load_balancer_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id#load_balancer_type DataAwsLbHostedZoneId#load_balancer_type}
+   */
   readonly loadBalancerType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id#region DataAwsLbHostedZoneId#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id#region DataAwsLbHostedZoneId#region}
+   */
   readonly region?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id aws_lb_hosted_zone_id}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id aws_lb_hosted_zone_id}
+ */
 export class DataAwsLbHostedZoneId extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lb_hosted_zone_id";
+  public static readonly tfResourceType = 'aws_lb_hosted_zone_id';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id aws_lb_hosted_zone_id} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsLbHostedZoneIdConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsLbHostedZoneIdConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/lb_hosted_zone_id aws_lb_hosted_zone_id} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsLbHostedZoneIdConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsLbHostedZoneIdConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lb_hosted_zone_id',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +63,7 @@ export class DataAwsLbHostedZoneId extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._loadBalancerType = config.loadBalancerType;

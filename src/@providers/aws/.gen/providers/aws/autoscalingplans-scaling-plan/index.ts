@@ -2,55 +2,66 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface AutoscalingplansScalingPlanConfig extends cdktf.TerraformMetaArguments {
+export interface AutoscalingplansScalingPlanConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#id AutoscalingplansScalingPlan#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#id AutoscalingplansScalingPlan#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#name AutoscalingplansScalingPlan#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#name AutoscalingplansScalingPlan#name}
+   */
   readonly name: string;
   /**
-  * application_source block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#application_source AutoscalingplansScalingPlan#application_source}
-  */
+   * application_source block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#application_source AutoscalingplansScalingPlan#application_source}
+   */
   readonly applicationSource: AutoscalingplansScalingPlanApplicationSource;
   /**
-  * scaling_instruction block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scaling_instruction AutoscalingplansScalingPlan#scaling_instruction}
-  */
-  readonly scalingInstruction: AutoscalingplansScalingPlanScalingInstruction[] | cdktf.IResolvable;
+   * scaling_instruction block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scaling_instruction AutoscalingplansScalingPlan#scaling_instruction}
+   */
+  readonly scalingInstruction:
+    | AutoscalingplansScalingPlanScalingInstruction[]
+    | cdktf.IResolvable;
 }
 export interface AutoscalingplansScalingPlanApplicationSourceTagFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#key AutoscalingplansScalingPlan#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#key AutoscalingplansScalingPlan#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#values AutoscalingplansScalingPlan#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#values AutoscalingplansScalingPlan#values}
+   */
   readonly values?: string[];
 }
 
-export function autoscalingplansScalingPlanApplicationSourceTagFilterToTerraform(struct?: AutoscalingplansScalingPlanApplicationSourceTagFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanApplicationSourceTagFilterToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanApplicationSourceTagFilter
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReference extends cdktf.ComplexObject {
@@ -58,16 +69,29 @@ export class AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanApplicationSourceTagFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanApplicationSourceTagFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -84,18 +108,21 @@ export class AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanApplicationSourceTagFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanApplicationSourceTagFilter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -134,60 +161,93 @@ export class AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReferenc
 }
 
 export class AutoscalingplansScalingPlanApplicationSourceTagFilterList extends cdktf.ComplexList {
-  public internalValue? : AutoscalingplansScalingPlanApplicationSourceTagFilter[] | cdktf.IResolvable
+  public internalValue?:
+    | AutoscalingplansScalingPlanApplicationSourceTagFilter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReference {
-    return new AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReference {
+    return new AutoscalingplansScalingPlanApplicationSourceTagFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface AutoscalingplansScalingPlanApplicationSource {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#cloudformation_stack_arn AutoscalingplansScalingPlan#cloudformation_stack_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#cloudformation_stack_arn AutoscalingplansScalingPlan#cloudformation_stack_arn}
+   */
   readonly cloudformationStackArn?: string;
   /**
-  * tag_filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#tag_filter AutoscalingplansScalingPlan#tag_filter}
-  */
-  readonly tagFilter?: AutoscalingplansScalingPlanApplicationSourceTagFilter[] | cdktf.IResolvable;
+   * tag_filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#tag_filter AutoscalingplansScalingPlan#tag_filter}
+   */
+  readonly tagFilter?:
+    | AutoscalingplansScalingPlanApplicationSourceTagFilter[]
+    | cdktf.IResolvable;
 }
 
-export function autoscalingplansScalingPlanApplicationSourceToTerraform(struct?: AutoscalingplansScalingPlanApplicationSourceOutputReference | AutoscalingplansScalingPlanApplicationSource): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanApplicationSourceToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanApplicationSourceOutputReference
+    | AutoscalingplansScalingPlanApplicationSource,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cloudformation_stack_arn: cdktf.stringToTerraform(struct!.cloudformationStackArn),
-    tag_filter: cdktf.listMapper(autoscalingplansScalingPlanApplicationSourceTagFilterToTerraform, true)(struct!.tagFilter),
-  }
+    cloudformation_stack_arn: cdktf.stringToTerraform(
+      struct!.cloudformationStackArn,
+    ),
+    tag_filter: cdktf.listMapper(
+      autoscalingplansScalingPlanApplicationSourceTagFilterToTerraform,
+      true,
+    )(struct!.tagFilter),
+  };
 }
 
 export class AutoscalingplansScalingPlanApplicationSourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanApplicationSource | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanApplicationSource
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cloudformationStackArn !== undefined) {
@@ -201,13 +261,14 @@ export class AutoscalingplansScalingPlanApplicationSourceOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanApplicationSource | undefined) {
+  public set internalValue(
+    value: AutoscalingplansScalingPlanApplicationSource | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cloudformationStackArn = undefined;
       this._tagFilter.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudformationStackArn = value.cloudformationStackArn;
       this._tagFilter.internalValue = value.tagFilter;
@@ -231,11 +292,20 @@ export class AutoscalingplansScalingPlanApplicationSourceOutputReference extends
   }
 
   // tag_filter - computed: false, optional: true, required: false
-  private _tagFilter = new AutoscalingplansScalingPlanApplicationSourceTagFilterList(this, "tag_filter", true);
+  private _tagFilter =
+    new AutoscalingplansScalingPlanApplicationSourceTagFilterList(
+      this,
+      'tag_filter',
+      true,
+    );
   public get tagFilter() {
     return this._tagFilter;
   }
-  public putTagFilter(value: AutoscalingplansScalingPlanApplicationSourceTagFilter[] | cdktf.IResolvable) {
+  public putTagFilter(
+    value:
+      | AutoscalingplansScalingPlanApplicationSourceTagFilter[]
+      | cdktf.IResolvable,
+  ) {
     this._tagFilter.internalValue = value;
   }
   public resetTagFilter() {
@@ -248,31 +318,39 @@ export class AutoscalingplansScalingPlanApplicationSourceOutputReference extends
 }
 export interface AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#dimensions AutoscalingplansScalingPlan#dimensions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#dimensions AutoscalingplansScalingPlan#dimensions}
+   */
   readonly dimensions?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#metric_name AutoscalingplansScalingPlan#metric_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#metric_name AutoscalingplansScalingPlan#metric_name}
+   */
   readonly metricName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#namespace AutoscalingplansScalingPlan#namespace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#namespace AutoscalingplansScalingPlan#namespace}
+   */
   readonly namespace: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#statistic AutoscalingplansScalingPlan#statistic}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#statistic AutoscalingplansScalingPlan#statistic}
+   */
   readonly statistic: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#unit AutoscalingplansScalingPlan#unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#unit AutoscalingplansScalingPlan#unit}
+   */
   readonly unit?: string;
 }
 
-export function autoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationToTerraform(struct?: AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutputReference | AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutputReference
+    | AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dimensions: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.dimensions),
@@ -280,21 +358,26 @@ export function autoscalingplansScalingPlanScalingInstructionCustomizedLoadMetri
     namespace: cdktf.stringToTerraform(struct!.namespace),
     statistic: cdktf.stringToTerraform(struct!.statistic),
     unit: cdktf.stringToTerraform(struct!.unit),
-  }
+  };
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dimensions !== undefined) {
@@ -320,7 +403,11 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dimensions = undefined;
@@ -328,8 +415,7 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
       this._namespace = undefined;
       this._statistic = undefined;
       this._unit = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dimensions = value.dimensions;
       this._metricName = value.metricName;
@@ -412,43 +498,59 @@ export class AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSp
 }
 export interface AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_load_metric_type AutoscalingplansScalingPlan#predefined_load_metric_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_load_metric_type AutoscalingplansScalingPlan#predefined_load_metric_type}
+   */
   readonly predefinedLoadMetricType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#resource_label AutoscalingplansScalingPlan#resource_label}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#resource_label AutoscalingplansScalingPlan#resource_label}
+   */
   readonly resourceLabel?: string;
 }
 
-export function autoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationToTerraform(struct?: AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutputReference | AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutputReference
+    | AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    predefined_load_metric_type: cdktf.stringToTerraform(struct!.predefinedLoadMetricType),
+    predefined_load_metric_type: cdktf.stringToTerraform(
+      struct!.predefinedLoadMetricType,
+    ),
     resource_label: cdktf.stringToTerraform(struct!.resourceLabel),
-  }
+  };
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._predefinedLoadMetricType !== undefined) {
       hasAnyValues = true;
-      internalValueResult.predefinedLoadMetricType = this._predefinedLoadMetricType;
+      internalValueResult.predefinedLoadMetricType =
+        this._predefinedLoadMetricType;
     }
     if (this._resourceLabel !== undefined) {
       hasAnyValues = true;
@@ -457,13 +559,16 @@ export class AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._predefinedLoadMetricType = undefined;
       this._resourceLabel = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._predefinedLoadMetricType = value.predefinedLoadMetricType;
       this._resourceLabel = value.resourceLabel;
@@ -501,31 +606,39 @@ export class AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSp
 }
 export interface AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#dimensions AutoscalingplansScalingPlan#dimensions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#dimensions AutoscalingplansScalingPlan#dimensions}
+   */
   readonly dimensions?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#metric_name AutoscalingplansScalingPlan#metric_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#metric_name AutoscalingplansScalingPlan#metric_name}
+   */
   readonly metricName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#namespace AutoscalingplansScalingPlan#namespace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#namespace AutoscalingplansScalingPlan#namespace}
+   */
   readonly namespace: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#statistic AutoscalingplansScalingPlan#statistic}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#statistic AutoscalingplansScalingPlan#statistic}
+   */
   readonly statistic: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#unit AutoscalingplansScalingPlan#unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#unit AutoscalingplansScalingPlan#unit}
+   */
   readonly unit?: string;
 }
 
-export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationToTerraform(struct?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutputReference | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutputReference
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dimensions: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.dimensions),
@@ -533,21 +646,26 @@ export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfi
     namespace: cdktf.stringToTerraform(struct!.namespace),
     statistic: cdktf.stringToTerraform(struct!.statistic),
     unit: cdktf.stringToTerraform(struct!.unit),
-  }
+  };
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dimensions !== undefined) {
@@ -573,7 +691,11 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dimensions = undefined;
@@ -581,8 +703,7 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
       this._namespace = undefined;
       this._statistic = undefined;
       this._unit = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dimensions = value.dimensions;
       this._metricName = value.metricName;
@@ -665,43 +786,59 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
 }
 export interface AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_scaling_metric_type AutoscalingplansScalingPlan#predefined_scaling_metric_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_scaling_metric_type AutoscalingplansScalingPlan#predefined_scaling_metric_type}
+   */
   readonly predefinedScalingMetricType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#resource_label AutoscalingplansScalingPlan#resource_label}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#resource_label AutoscalingplansScalingPlan#resource_label}
+   */
   readonly resourceLabel?: string;
 }
 
-export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationToTerraform(struct?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutputReference | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutputReference
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    predefined_scaling_metric_type: cdktf.stringToTerraform(struct!.predefinedScalingMetricType),
+    predefined_scaling_metric_type: cdktf.stringToTerraform(
+      struct!.predefinedScalingMetricType,
+    ),
     resource_label: cdktf.stringToTerraform(struct!.resourceLabel),
-  }
+  };
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._predefinedScalingMetricType !== undefined) {
       hasAnyValues = true;
-      internalValueResult.predefinedScalingMetricType = this._predefinedScalingMetricType;
+      internalValueResult.predefinedScalingMetricType =
+        this._predefinedScalingMetricType;
     }
     if (this._resourceLabel !== undefined) {
       hasAnyValues = true;
@@ -710,13 +847,16 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._predefinedScalingMetricType = undefined;
       this._resourceLabel = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._predefinedScalingMetricType = value.predefinedScalingMetricType;
       this._resourceLabel = value.resourceLabel;
@@ -754,53 +894,69 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
 }
 export interface AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#disable_scale_in AutoscalingplansScalingPlan#disable_scale_in}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#disable_scale_in AutoscalingplansScalingPlan#disable_scale_in}
+   */
   readonly disableScaleIn?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#estimated_instance_warmup AutoscalingplansScalingPlan#estimated_instance_warmup}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#estimated_instance_warmup AutoscalingplansScalingPlan#estimated_instance_warmup}
+   */
   readonly estimatedInstanceWarmup?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scale_in_cooldown AutoscalingplansScalingPlan#scale_in_cooldown}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scale_in_cooldown AutoscalingplansScalingPlan#scale_in_cooldown}
+   */
   readonly scaleInCooldown?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scale_out_cooldown AutoscalingplansScalingPlan#scale_out_cooldown}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scale_out_cooldown AutoscalingplansScalingPlan#scale_out_cooldown}
+   */
   readonly scaleOutCooldown?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#target_value AutoscalingplansScalingPlan#target_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#target_value AutoscalingplansScalingPlan#target_value}
+   */
   readonly targetValue: number;
   /**
-  * customized_scaling_metric_specification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#customized_scaling_metric_specification AutoscalingplansScalingPlan#customized_scaling_metric_specification}
-  */
+   * customized_scaling_metric_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#customized_scaling_metric_specification AutoscalingplansScalingPlan#customized_scaling_metric_specification}
+   */
   readonly customizedScalingMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification;
   /**
-  * predefined_scaling_metric_specification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_scaling_metric_specification AutoscalingplansScalingPlan#predefined_scaling_metric_specification}
-  */
+   * predefined_scaling_metric_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_scaling_metric_specification AutoscalingplansScalingPlan#predefined_scaling_metric_specification}
+   */
   readonly predefinedScalingMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification;
 }
 
-export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationToTerraform(struct?: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationToTerraform(
+  struct?:
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     disable_scale_in: cdktf.booleanToTerraform(struct!.disableScaleIn),
-    estimated_instance_warmup: cdktf.numberToTerraform(struct!.estimatedInstanceWarmup),
+    estimated_instance_warmup: cdktf.numberToTerraform(
+      struct!.estimatedInstanceWarmup,
+    ),
     scale_in_cooldown: cdktf.numberToTerraform(struct!.scaleInCooldown),
     scale_out_cooldown: cdktf.numberToTerraform(struct!.scaleOutCooldown),
     target_value: cdktf.numberToTerraform(struct!.targetValue),
-    customized_scaling_metric_specification: autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationToTerraform(struct!.customizedScalingMetricSpecification),
-    predefined_scaling_metric_specification: autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationToTerraform(struct!.predefinedScalingMetricSpecification),
-  }
+    customized_scaling_metric_specification:
+      autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationToTerraform(
+        struct!.customizedScalingMetricSpecification,
+      ),
+    predefined_scaling_metric_specification:
+      autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationToTerraform(
+        struct!.predefinedScalingMetricSpecification,
+      ),
+  };
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationOutputReference extends cdktf.ComplexObject {
@@ -808,16 +964,29 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -829,7 +998,8 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
     }
     if (this._estimatedInstanceWarmup !== undefined) {
       hasAnyValues = true;
-      internalValueResult.estimatedInstanceWarmup = this._estimatedInstanceWarmup;
+      internalValueResult.estimatedInstanceWarmup =
+        this._estimatedInstanceWarmup;
     }
     if (this._scaleInCooldown !== undefined) {
       hasAnyValues = true;
@@ -843,18 +1013,29 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
       hasAnyValues = true;
       internalValueResult.targetValue = this._targetValue;
     }
-    if (this._customizedScalingMetricSpecification?.internalValue !== undefined) {
+    if (
+      this._customizedScalingMetricSpecification?.internalValue !== undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.customizedScalingMetricSpecification = this._customizedScalingMetricSpecification?.internalValue;
+      internalValueResult.customizedScalingMetricSpecification =
+        this._customizedScalingMetricSpecification?.internalValue;
     }
-    if (this._predefinedScalingMetricSpecification?.internalValue !== undefined) {
+    if (
+      this._predefinedScalingMetricSpecification?.internalValue !== undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.predefinedScalingMetricSpecification = this._predefinedScalingMetricSpecification?.internalValue;
+      internalValueResult.predefinedScalingMetricSpecification =
+        this._predefinedScalingMetricSpecification?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -865,12 +1046,10 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
       this._targetValue = undefined;
       this._customizedScalingMetricSpecification.internalValue = undefined;
       this._predefinedScalingMetricSpecification.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disableScaleIn = value.disableScaleIn;
@@ -878,8 +1057,10 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
       this._scaleInCooldown = value.scaleInCooldown;
       this._scaleOutCooldown = value.scaleOutCooldown;
       this._targetValue = value.targetValue;
-      this._customizedScalingMetricSpecification.internalValue = value.customizedScalingMetricSpecification;
-      this._predefinedScalingMetricSpecification.internalValue = value.predefinedScalingMetricSpecification;
+      this._customizedScalingMetricSpecification.internalValue =
+        value.customizedScalingMetricSpecification;
+      this._predefinedScalingMetricSpecification.internalValue =
+        value.predefinedScalingMetricSpecification;
     }
   }
 
@@ -961,11 +1142,17 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // customized_scaling_metric_specification - computed: false, optional: true, required: false
-  private _customizedScalingMetricSpecification = new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutputReference(this, "customized_scaling_metric_specification");
+  private _customizedScalingMetricSpecification =
+    new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutputReference(
+      this,
+      'customized_scaling_metric_specification',
+    );
   public get customizedScalingMetricSpecification() {
     return this._customizedScalingMetricSpecification;
   }
-  public putCustomizedScalingMetricSpecification(value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) {
+  public putCustomizedScalingMetricSpecification(
+    value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification,
+  ) {
     this._customizedScalingMetricSpecification.internalValue = value;
   }
   public resetCustomizedScalingMetricSpecification() {
@@ -977,11 +1164,17 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
   }
 
   // predefined_scaling_metric_specification - computed: false, optional: true, required: false
-  private _predefinedScalingMetricSpecification = new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutputReference(this, "predefined_scaling_metric_specification");
+  private _predefinedScalingMetricSpecification =
+    new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutputReference(
+      this,
+      'predefined_scaling_metric_specification',
+    );
   public get predefinedScalingMetricSpecification() {
     return this._predefinedScalingMetricSpecification;
   }
-  public putPredefinedScalingMetricSpecification(value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification) {
+  public putPredefinedScalingMetricSpecification(
+    value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification,
+  ) {
     this._predefinedScalingMetricSpecification.internalValue = value;
   }
   public resetPredefinedScalingMetricSpecification() {
@@ -994,110 +1187,152 @@ export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigur
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationList extends cdktf.ComplexList {
-  public internalValue? : AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[] | cdktf.IResolvable
+  public internalValue?:
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationOutputReference {
-    return new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationOutputReference {
+    return new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface AutoscalingplansScalingPlanScalingInstruction {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#disable_dynamic_scaling AutoscalingplansScalingPlan#disable_dynamic_scaling}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#disable_dynamic_scaling AutoscalingplansScalingPlan#disable_dynamic_scaling}
+   */
   readonly disableDynamicScaling?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#max_capacity AutoscalingplansScalingPlan#max_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#max_capacity AutoscalingplansScalingPlan#max_capacity}
+   */
   readonly maxCapacity: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#min_capacity AutoscalingplansScalingPlan#min_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#min_capacity AutoscalingplansScalingPlan#min_capacity}
+   */
   readonly minCapacity: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predictive_scaling_max_capacity_behavior AutoscalingplansScalingPlan#predictive_scaling_max_capacity_behavior}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predictive_scaling_max_capacity_behavior AutoscalingplansScalingPlan#predictive_scaling_max_capacity_behavior}
+   */
   readonly predictiveScalingMaxCapacityBehavior?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predictive_scaling_max_capacity_buffer AutoscalingplansScalingPlan#predictive_scaling_max_capacity_buffer}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predictive_scaling_max_capacity_buffer AutoscalingplansScalingPlan#predictive_scaling_max_capacity_buffer}
+   */
   readonly predictiveScalingMaxCapacityBuffer?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predictive_scaling_mode AutoscalingplansScalingPlan#predictive_scaling_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predictive_scaling_mode AutoscalingplansScalingPlan#predictive_scaling_mode}
+   */
   readonly predictiveScalingMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#resource_id AutoscalingplansScalingPlan#resource_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#resource_id AutoscalingplansScalingPlan#resource_id}
+   */
   readonly resourceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scalable_dimension AutoscalingplansScalingPlan#scalable_dimension}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scalable_dimension AutoscalingplansScalingPlan#scalable_dimension}
+   */
   readonly scalableDimension: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scaling_policy_update_behavior AutoscalingplansScalingPlan#scaling_policy_update_behavior}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scaling_policy_update_behavior AutoscalingplansScalingPlan#scaling_policy_update_behavior}
+   */
   readonly scalingPolicyUpdateBehavior?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scheduled_action_buffer_time AutoscalingplansScalingPlan#scheduled_action_buffer_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#scheduled_action_buffer_time AutoscalingplansScalingPlan#scheduled_action_buffer_time}
+   */
   readonly scheduledActionBufferTime?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#service_namespace AutoscalingplansScalingPlan#service_namespace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#service_namespace AutoscalingplansScalingPlan#service_namespace}
+   */
   readonly serviceNamespace: string;
   /**
-  * customized_load_metric_specification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#customized_load_metric_specification AutoscalingplansScalingPlan#customized_load_metric_specification}
-  */
+   * customized_load_metric_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#customized_load_metric_specification AutoscalingplansScalingPlan#customized_load_metric_specification}
+   */
   readonly customizedLoadMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification;
   /**
-  * predefined_load_metric_specification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_load_metric_specification AutoscalingplansScalingPlan#predefined_load_metric_specification}
-  */
+   * predefined_load_metric_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#predefined_load_metric_specification AutoscalingplansScalingPlan#predefined_load_metric_specification}
+   */
   readonly predefinedLoadMetricSpecification?: AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification;
   /**
-  * target_tracking_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#target_tracking_configuration AutoscalingplansScalingPlan#target_tracking_configuration}
-  */
-  readonly targetTrackingConfiguration: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[] | cdktf.IResolvable;
+   * target_tracking_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan#target_tracking_configuration AutoscalingplansScalingPlan#target_tracking_configuration}
+   */
+  readonly targetTrackingConfiguration:
+    | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[]
+    | cdktf.IResolvable;
 }
 
-export function autoscalingplansScalingPlanScalingInstructionToTerraform(struct?: AutoscalingplansScalingPlanScalingInstruction | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function autoscalingplansScalingPlanScalingInstructionToTerraform(
+  struct?: AutoscalingplansScalingPlanScalingInstruction | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    disable_dynamic_scaling: cdktf.booleanToTerraform(struct!.disableDynamicScaling),
+    disable_dynamic_scaling: cdktf.booleanToTerraform(
+      struct!.disableDynamicScaling,
+    ),
     max_capacity: cdktf.numberToTerraform(struct!.maxCapacity),
     min_capacity: cdktf.numberToTerraform(struct!.minCapacity),
-    predictive_scaling_max_capacity_behavior: cdktf.stringToTerraform(struct!.predictiveScalingMaxCapacityBehavior),
-    predictive_scaling_max_capacity_buffer: cdktf.numberToTerraform(struct!.predictiveScalingMaxCapacityBuffer),
-    predictive_scaling_mode: cdktf.stringToTerraform(struct!.predictiveScalingMode),
+    predictive_scaling_max_capacity_behavior: cdktf.stringToTerraform(
+      struct!.predictiveScalingMaxCapacityBehavior,
+    ),
+    predictive_scaling_max_capacity_buffer: cdktf.numberToTerraform(
+      struct!.predictiveScalingMaxCapacityBuffer,
+    ),
+    predictive_scaling_mode: cdktf.stringToTerraform(
+      struct!.predictiveScalingMode,
+    ),
     resource_id: cdktf.stringToTerraform(struct!.resourceId),
     scalable_dimension: cdktf.stringToTerraform(struct!.scalableDimension),
-    scaling_policy_update_behavior: cdktf.stringToTerraform(struct!.scalingPolicyUpdateBehavior),
-    scheduled_action_buffer_time: cdktf.numberToTerraform(struct!.scheduledActionBufferTime),
+    scaling_policy_update_behavior: cdktf.stringToTerraform(
+      struct!.scalingPolicyUpdateBehavior,
+    ),
+    scheduled_action_buffer_time: cdktf.numberToTerraform(
+      struct!.scheduledActionBufferTime,
+    ),
     service_namespace: cdktf.stringToTerraform(struct!.serviceNamespace),
-    customized_load_metric_specification: autoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationToTerraform(struct!.customizedLoadMetricSpecification),
-    predefined_load_metric_specification: autoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationToTerraform(struct!.predefinedLoadMetricSpecification),
-    target_tracking_configuration: cdktf.listMapper(autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationToTerraform, true)(struct!.targetTrackingConfiguration),
-  }
+    customized_load_metric_specification:
+      autoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationToTerraform(
+        struct!.customizedLoadMetricSpecification,
+      ),
+    predefined_load_metric_specification:
+      autoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationToTerraform(
+        struct!.predefinedLoadMetricSpecification,
+      ),
+    target_tracking_configuration: cdktf.listMapper(
+      autoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationToTerraform,
+      true,
+    )(struct!.targetTrackingConfiguration),
+  };
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionOutputReference extends cdktf.ComplexObject {
@@ -1105,16 +1340,29 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AutoscalingplansScalingPlanScalingInstruction | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AutoscalingplansScalingPlanScalingInstruction
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1134,11 +1382,13 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
     }
     if (this._predictiveScalingMaxCapacityBehavior !== undefined) {
       hasAnyValues = true;
-      internalValueResult.predictiveScalingMaxCapacityBehavior = this._predictiveScalingMaxCapacityBehavior;
+      internalValueResult.predictiveScalingMaxCapacityBehavior =
+        this._predictiveScalingMaxCapacityBehavior;
     }
     if (this._predictiveScalingMaxCapacityBuffer !== undefined) {
       hasAnyValues = true;
-      internalValueResult.predictiveScalingMaxCapacityBuffer = this._predictiveScalingMaxCapacityBuffer;
+      internalValueResult.predictiveScalingMaxCapacityBuffer =
+        this._predictiveScalingMaxCapacityBuffer;
     }
     if (this._predictiveScalingMode !== undefined) {
       hasAnyValues = true;
@@ -1154,11 +1404,13 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
     }
     if (this._scalingPolicyUpdateBehavior !== undefined) {
       hasAnyValues = true;
-      internalValueResult.scalingPolicyUpdateBehavior = this._scalingPolicyUpdateBehavior;
+      internalValueResult.scalingPolicyUpdateBehavior =
+        this._scalingPolicyUpdateBehavior;
     }
     if (this._scheduledActionBufferTime !== undefined) {
       hasAnyValues = true;
-      internalValueResult.scheduledActionBufferTime = this._scheduledActionBufferTime;
+      internalValueResult.scheduledActionBufferTime =
+        this._scheduledActionBufferTime;
     }
     if (this._serviceNamespace !== undefined) {
       hasAnyValues = true;
@@ -1166,20 +1418,28 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
     }
     if (this._customizedLoadMetricSpecification?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.customizedLoadMetricSpecification = this._customizedLoadMetricSpecification?.internalValue;
+      internalValueResult.customizedLoadMetricSpecification =
+        this._customizedLoadMetricSpecification?.internalValue;
     }
     if (this._predefinedLoadMetricSpecification?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.predefinedLoadMetricSpecification = this._predefinedLoadMetricSpecification?.internalValue;
+      internalValueResult.predefinedLoadMetricSpecification =
+        this._predefinedLoadMetricSpecification?.internalValue;
     }
     if (this._targetTrackingConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.targetTrackingConfiguration = this._targetTrackingConfiguration?.internalValue;
+      internalValueResult.targetTrackingConfiguration =
+        this._targetTrackingConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AutoscalingplansScalingPlanScalingInstruction | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | AutoscalingplansScalingPlanScalingInstruction
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1197,28 +1457,31 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
       this._customizedLoadMetricSpecification.internalValue = undefined;
       this._predefinedLoadMetricSpecification.internalValue = undefined;
       this._targetTrackingConfiguration.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disableDynamicScaling = value.disableDynamicScaling;
       this._maxCapacity = value.maxCapacity;
       this._minCapacity = value.minCapacity;
-      this._predictiveScalingMaxCapacityBehavior = value.predictiveScalingMaxCapacityBehavior;
-      this._predictiveScalingMaxCapacityBuffer = value.predictiveScalingMaxCapacityBuffer;
+      this._predictiveScalingMaxCapacityBehavior =
+        value.predictiveScalingMaxCapacityBehavior;
+      this._predictiveScalingMaxCapacityBuffer =
+        value.predictiveScalingMaxCapacityBuffer;
       this._predictiveScalingMode = value.predictiveScalingMode;
       this._resourceId = value.resourceId;
       this._scalableDimension = value.scalableDimension;
       this._scalingPolicyUpdateBehavior = value.scalingPolicyUpdateBehavior;
       this._scheduledActionBufferTime = value.scheduledActionBufferTime;
       this._serviceNamespace = value.serviceNamespace;
-      this._customizedLoadMetricSpecification.internalValue = value.customizedLoadMetricSpecification;
-      this._predefinedLoadMetricSpecification.internalValue = value.predefinedLoadMetricSpecification;
-      this._targetTrackingConfiguration.internalValue = value.targetTrackingConfiguration;
+      this._customizedLoadMetricSpecification.internalValue =
+        value.customizedLoadMetricSpecification;
+      this._predefinedLoadMetricSpecification.internalValue =
+        value.predefinedLoadMetricSpecification;
+      this._targetTrackingConfiguration.internalValue =
+        value.targetTrackingConfiguration;
     }
   }
 
@@ -1384,11 +1647,17 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // customized_load_metric_specification - computed: false, optional: true, required: false
-  private _customizedLoadMetricSpecification = new AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutputReference(this, "customized_load_metric_specification");
+  private _customizedLoadMetricSpecification =
+    new AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutputReference(
+      this,
+      'customized_load_metric_specification',
+    );
   public get customizedLoadMetricSpecification() {
     return this._customizedLoadMetricSpecification;
   }
-  public putCustomizedLoadMetricSpecification(value: AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification) {
+  public putCustomizedLoadMetricSpecification(
+    value: AutoscalingplansScalingPlanScalingInstructionCustomizedLoadMetricSpecification,
+  ) {
     this._customizedLoadMetricSpecification.internalValue = value;
   }
   public resetCustomizedLoadMetricSpecification() {
@@ -1400,11 +1669,17 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // predefined_load_metric_specification - computed: false, optional: true, required: false
-  private _predefinedLoadMetricSpecification = new AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutputReference(this, "predefined_load_metric_specification");
+  private _predefinedLoadMetricSpecification =
+    new AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutputReference(
+      this,
+      'predefined_load_metric_specification',
+    );
   public get predefinedLoadMetricSpecification() {
     return this._predefinedLoadMetricSpecification;
   }
-  public putPredefinedLoadMetricSpecification(value: AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification) {
+  public putPredefinedLoadMetricSpecification(
+    value: AutoscalingplansScalingPlanScalingInstructionPredefinedLoadMetricSpecification,
+  ) {
     this._predefinedLoadMetricSpecification.internalValue = value;
   }
   public resetPredefinedLoadMetricSpecification() {
@@ -1416,11 +1691,20 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
   }
 
   // target_tracking_configuration - computed: false, optional: false, required: true
-  private _targetTrackingConfiguration = new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationList(this, "target_tracking_configuration", true);
+  private _targetTrackingConfiguration =
+    new AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfigurationList(
+      this,
+      'target_tracking_configuration',
+      true,
+    );
   public get targetTrackingConfiguration() {
     return this._targetTrackingConfiguration;
   }
-  public putTargetTrackingConfiguration(value: AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[] | cdktf.IResolvable) {
+  public putTargetTrackingConfiguration(
+    value:
+      | AutoscalingplansScalingPlanScalingInstructionTargetTrackingConfiguration[]
+      | cdktf.IResolvable,
+  ) {
     this._targetTrackingConfiguration.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1430,53 +1714,69 @@ export class AutoscalingplansScalingPlanScalingInstructionOutputReference extend
 }
 
 export class AutoscalingplansScalingPlanScalingInstructionList extends cdktf.ComplexList {
-  public internalValue? : AutoscalingplansScalingPlanScalingInstruction[] | cdktf.IResolvable
+  public internalValue?:
+    | AutoscalingplansScalingPlanScalingInstruction[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): AutoscalingplansScalingPlanScalingInstructionOutputReference {
-    return new AutoscalingplansScalingPlanScalingInstructionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): AutoscalingplansScalingPlanScalingInstructionOutputReference {
+    return new AutoscalingplansScalingPlanScalingInstructionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan aws_autoscalingplans_scaling_plan}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan aws_autoscalingplans_scaling_plan}
+ */
 export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_autoscalingplans_scaling_plan";
+  public static readonly tfResourceType = 'aws_autoscalingplans_scaling_plan';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan aws_autoscalingplans_scaling_plan} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AutoscalingplansScalingPlanConfig
-  */
-  public constructor(scope: Construct, id: string, config: AutoscalingplansScalingPlanConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/autoscalingplans_scaling_plan aws_autoscalingplans_scaling_plan} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AutoscalingplansScalingPlanConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AutoscalingplansScalingPlanConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_autoscalingplans_scaling_plan',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1484,7 +1784,7 @@ export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -1531,11 +1831,17 @@ export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
   }
 
   // application_source - computed: false, optional: false, required: true
-  private _applicationSource = new AutoscalingplansScalingPlanApplicationSourceOutputReference(this, "application_source");
+  private _applicationSource =
+    new AutoscalingplansScalingPlanApplicationSourceOutputReference(
+      this,
+      'application_source',
+    );
   public get applicationSource() {
     return this._applicationSource;
   }
-  public putApplicationSource(value: AutoscalingplansScalingPlanApplicationSource) {
+  public putApplicationSource(
+    value: AutoscalingplansScalingPlanApplicationSource,
+  ) {
     this._applicationSource.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1544,11 +1850,18 @@ export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
   }
 
   // scaling_instruction - computed: false, optional: false, required: true
-  private _scalingInstruction = new AutoscalingplansScalingPlanScalingInstructionList(this, "scaling_instruction", true);
+  private _scalingInstruction =
+    new AutoscalingplansScalingPlanScalingInstructionList(
+      this,
+      'scaling_instruction',
+      true,
+    );
   public get scalingInstruction() {
     return this._scalingInstruction;
   }
-  public putScalingInstruction(value: AutoscalingplansScalingPlanScalingInstruction[] | cdktf.IResolvable) {
+  public putScalingInstruction(
+    value: AutoscalingplansScalingPlanScalingInstruction[] | cdktf.IResolvable,
+  ) {
     this._scalingInstruction.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1564,8 +1877,14 @@ export class AutoscalingplansScalingPlan extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      application_source: autoscalingplansScalingPlanApplicationSourceToTerraform(this._applicationSource.internalValue),
-      scaling_instruction: cdktf.listMapper(autoscalingplansScalingPlanScalingInstructionToTerraform, true)(this._scalingInstruction.internalValue),
+      application_source:
+        autoscalingplansScalingPlanApplicationSourceToTerraform(
+          this._applicationSource.internalValue,
+        ),
+      scaling_instruction: cdktf.listMapper(
+        autoscalingplansScalingPlanScalingInstructionToTerraform,
+        true,
+      )(this._scalingInstruction.internalValue),
     };
   }
 }

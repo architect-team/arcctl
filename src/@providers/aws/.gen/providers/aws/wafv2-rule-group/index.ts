@@ -1,97 +1,104 @@
 // generated from terraform resource schema
 
-import { Wafv2RuleGroupCustomResponseBody,
-wafv2RuleGroupCustomResponseBodyToTerraform,
-Wafv2RuleGroupCustomResponseBodyList,
-Wafv2RuleGroupRule,
-wafv2RuleGroupRuleToTerraform,
-Wafv2RuleGroupRuleList,
-Wafv2RuleGroupVisibilityConfig,
-wafv2RuleGroupVisibilityConfigToTerraform,
-Wafv2RuleGroupVisibilityConfigOutputReference} from './index-structs'
-export * from './index-structs'
+import {
+  Wafv2RuleGroupCustomResponseBody,
+  wafv2RuleGroupCustomResponseBodyToTerraform,
+  Wafv2RuleGroupCustomResponseBodyList,
+  Wafv2RuleGroupRule,
+  wafv2RuleGroupRuleToTerraform,
+  Wafv2RuleGroupRuleList,
+  Wafv2RuleGroupVisibilityConfig,
+  wafv2RuleGroupVisibilityConfigToTerraform,
+  Wafv2RuleGroupVisibilityConfigOutputReference,
+} from './index-structs';
+export * from './index-structs';
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 export interface Wafv2RuleGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#capacity Wafv2RuleGroup#capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#capacity Wafv2RuleGroup#capacity}
+   */
   readonly capacity: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#description Wafv2RuleGroup#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#description Wafv2RuleGroup#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#id Wafv2RuleGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#id Wafv2RuleGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#name Wafv2RuleGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#name Wafv2RuleGroup#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#scope Wafv2RuleGroup#scope}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#scope Wafv2RuleGroup#scope}
+   */
   readonly scope: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#tags Wafv2RuleGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#tags Wafv2RuleGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#tags_all Wafv2RuleGroup#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#tags_all Wafv2RuleGroup#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * custom_response_body block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#custom_response_body Wafv2RuleGroup#custom_response_body}
-  */
-  readonly customResponseBody?: Wafv2RuleGroupCustomResponseBody[] | cdktf.IResolvable;
+   * custom_response_body block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#custom_response_body Wafv2RuleGroup#custom_response_body}
+   */
+  readonly customResponseBody?:
+    | Wafv2RuleGroupCustomResponseBody[]
+    | cdktf.IResolvable;
   /**
-  * rule block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#rule Wafv2RuleGroup#rule}
-  */
+   * rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#rule Wafv2RuleGroup#rule}
+   */
   readonly rule?: Wafv2RuleGroupRule[] | cdktf.IResolvable;
   /**
-  * visibility_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#visibility_config Wafv2RuleGroup#visibility_config}
-  */
+   * visibility_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#visibility_config Wafv2RuleGroup#visibility_config}
+   */
   readonly visibilityConfig: Wafv2RuleGroupVisibilityConfig;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group aws_wafv2_rule_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group aws_wafv2_rule_group}
+ */
 export class Wafv2RuleGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_wafv2_rule_group";
+  public static readonly tfResourceType = 'aws_wafv2_rule_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group aws_wafv2_rule_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Wafv2RuleGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: Wafv2RuleGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group aws_wafv2_rule_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Wafv2RuleGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Wafv2RuleGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_wafv2_rule_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -99,7 +106,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._capacity = config.capacity;
     this._description = config.description;
@@ -231,11 +238,17 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // custom_response_body - computed: false, optional: true, required: false
-  private _customResponseBody = new Wafv2RuleGroupCustomResponseBodyList(this, "custom_response_body", true);
+  private _customResponseBody = new Wafv2RuleGroupCustomResponseBodyList(
+    this,
+    'custom_response_body',
+    true,
+  );
   public get customResponseBody() {
     return this._customResponseBody;
   }
-  public putCustomResponseBody(value: Wafv2RuleGroupCustomResponseBody[] | cdktf.IResolvable) {
+  public putCustomResponseBody(
+    value: Wafv2RuleGroupCustomResponseBody[] | cdktf.IResolvable,
+  ) {
     this._customResponseBody.internalValue = value;
   }
   public resetCustomResponseBody() {
@@ -247,7 +260,7 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // rule - computed: false, optional: true, required: false
-  private _rule = new Wafv2RuleGroupRuleList(this, "rule", true);
+  private _rule = new Wafv2RuleGroupRuleList(this, 'rule', true);
   public get rule() {
     return this._rule;
   }
@@ -263,7 +276,10 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
   }
 
   // visibility_config - computed: false, optional: false, required: true
-  private _visibilityConfig = new Wafv2RuleGroupVisibilityConfigOutputReference(this, "visibility_config");
+  private _visibilityConfig = new Wafv2RuleGroupVisibilityConfigOutputReference(
+    this,
+    'visibility_config',
+  );
   public get visibilityConfig() {
     return this._visibilityConfig;
   }
@@ -288,9 +304,17 @@ export class Wafv2RuleGroup extends cdktf.TerraformResource {
       scope: cdktf.stringToTerraform(this._scope),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      custom_response_body: cdktf.listMapper(wafv2RuleGroupCustomResponseBodyToTerraform, true)(this._customResponseBody.internalValue),
-      rule: cdktf.listMapper(wafv2RuleGroupRuleToTerraform, true)(this._rule.internalValue),
-      visibility_config: wafv2RuleGroupVisibilityConfigToTerraform(this._visibilityConfig.internalValue),
+      custom_response_body: cdktf.listMapper(
+        wafv2RuleGroupCustomResponseBodyToTerraform,
+        true,
+      )(this._customResponseBody.internalValue),
+      rule: cdktf.listMapper(
+        wafv2RuleGroupRuleToTerraform,
+        true,
+      )(this._rule.internalValue),
+      visibility_config: wafv2RuleGroupVisibilityConfigToTerraform(
+        this._visibilityConfig.internalValue,
+      ),
     };
   }
 }

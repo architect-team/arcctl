@@ -2,126 +2,137 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface Route53RecordConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#allow_overwrite Route53Record#allow_overwrite}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#allow_overwrite Route53Record#allow_overwrite}
+   */
   readonly allowOverwrite?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#health_check_id Route53Record#health_check_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#health_check_id Route53Record#health_check_id}
+   */
   readonly healthCheckId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#id Route53Record#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#id Route53Record#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#multivalue_answer_routing_policy Route53Record#multivalue_answer_routing_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#multivalue_answer_routing_policy Route53Record#multivalue_answer_routing_policy}
+   */
   readonly multivalueAnswerRoutingPolicy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#name Route53Record#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#name Route53Record#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#records Route53Record#records}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#records Route53Record#records}
+   */
   readonly records?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#set_identifier Route53Record#set_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#set_identifier Route53Record#set_identifier}
+   */
   readonly setIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#ttl Route53Record#ttl}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#ttl Route53Record#ttl}
+   */
   readonly ttl?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#type Route53Record#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#type Route53Record#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#zone_id Route53Record#zone_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#zone_id Route53Record#zone_id}
+   */
   readonly zoneId: string;
   /**
-  * alias block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#alias Route53Record#alias}
-  */
+   * alias block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#alias Route53Record#alias}
+   */
   readonly alias?: Route53RecordAlias;
   /**
-  * cidr_routing_policy block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#cidr_routing_policy Route53Record#cidr_routing_policy}
-  */
+   * cidr_routing_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#cidr_routing_policy Route53Record#cidr_routing_policy}
+   */
   readonly cidrRoutingPolicy?: Route53RecordCidrRoutingPolicy;
   /**
-  * failover_routing_policy block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#failover_routing_policy Route53Record#failover_routing_policy}
-  */
+   * failover_routing_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#failover_routing_policy Route53Record#failover_routing_policy}
+   */
   readonly failoverRoutingPolicy?: Route53RecordFailoverRoutingPolicy;
   /**
-  * geolocation_routing_policy block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#geolocation_routing_policy Route53Record#geolocation_routing_policy}
-  */
+   * geolocation_routing_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#geolocation_routing_policy Route53Record#geolocation_routing_policy}
+   */
   readonly geolocationRoutingPolicy?: Route53RecordGeolocationRoutingPolicy;
   /**
-  * latency_routing_policy block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#latency_routing_policy Route53Record#latency_routing_policy}
-  */
+   * latency_routing_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#latency_routing_policy Route53Record#latency_routing_policy}
+   */
   readonly latencyRoutingPolicy?: Route53RecordLatencyRoutingPolicy;
   /**
-  * weighted_routing_policy block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#weighted_routing_policy Route53Record#weighted_routing_policy}
-  */
+   * weighted_routing_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#weighted_routing_policy Route53Record#weighted_routing_policy}
+   */
   readonly weightedRoutingPolicy?: Route53RecordWeightedRoutingPolicy;
 }
 export interface Route53RecordAlias {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#evaluate_target_health Route53Record#evaluate_target_health}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#evaluate_target_health Route53Record#evaluate_target_health}
+   */
   readonly evaluateTargetHealth: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#name Route53Record#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#name Route53Record#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#zone_id Route53Record#zone_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#zone_id Route53Record#zone_id}
+   */
   readonly zoneId: string;
 }
 
-export function route53RecordAliasToTerraform(struct?: Route53RecordAliasOutputReference | Route53RecordAlias): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecordAliasToTerraform(
+  struct?: Route53RecordAliasOutputReference | Route53RecordAlias,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    evaluate_target_health: cdktf.booleanToTerraform(struct!.evaluateTargetHealth),
+    evaluate_target_health: cdktf.booleanToTerraform(
+      struct!.evaluateTargetHealth,
+    ),
     name: cdktf.stringToTerraform(struct!.name),
     zone_id: cdktf.stringToTerraform(struct!.zoneId),
-  }
+  };
 }
 
 export class Route53RecordAliasOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -149,8 +160,7 @@ export class Route53RecordAliasOutputReference extends cdktf.ComplexObject {
       this._evaluateTargetHealth = undefined;
       this._name = undefined;
       this._zoneId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._evaluateTargetHealth = value.evaluateTargetHealth;
       this._name = value.name;
@@ -199,34 +209,45 @@ export class Route53RecordAliasOutputReference extends cdktf.ComplexObject {
 }
 export interface Route53RecordCidrRoutingPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#collection_id Route53Record#collection_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#collection_id Route53Record#collection_id}
+   */
   readonly collectionId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#location_name Route53Record#location_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#location_name Route53Record#location_name}
+   */
   readonly locationName: string;
 }
 
-export function route53RecordCidrRoutingPolicyToTerraform(struct?: Route53RecordCidrRoutingPolicyOutputReference | Route53RecordCidrRoutingPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecordCidrRoutingPolicyToTerraform(
+  struct?:
+    | Route53RecordCidrRoutingPolicyOutputReference
+    | Route53RecordCidrRoutingPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     collection_id: cdktf.stringToTerraform(struct!.collectionId),
     location_name: cdktf.stringToTerraform(struct!.locationName),
-  }
+  };
 }
 
 export class Route53RecordCidrRoutingPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -249,8 +270,7 @@ export class Route53RecordCidrRoutingPolicyOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._collectionId = undefined;
       this._locationName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._collectionId = value.collectionId;
       this._locationName = value.locationName;
@@ -285,29 +305,40 @@ export class Route53RecordCidrRoutingPolicyOutputReference extends cdktf.Complex
 }
 export interface Route53RecordFailoverRoutingPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#type Route53Record#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#type Route53Record#type}
+   */
   readonly type: string;
 }
 
-export function route53RecordFailoverRoutingPolicyToTerraform(struct?: Route53RecordFailoverRoutingPolicyOutputReference | Route53RecordFailoverRoutingPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecordFailoverRoutingPolicyToTerraform(
+  struct?:
+    | Route53RecordFailoverRoutingPolicyOutputReference
+    | Route53RecordFailoverRoutingPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class Route53RecordFailoverRoutingPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -321,12 +352,13 @@ export class Route53RecordFailoverRoutingPolicyOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Route53RecordFailoverRoutingPolicy | undefined) {
+  public set internalValue(
+    value: Route53RecordFailoverRoutingPolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._type = value.type;
     }
@@ -347,43 +379,56 @@ export class Route53RecordFailoverRoutingPolicyOutputReference extends cdktf.Com
 }
 export interface Route53RecordGeolocationRoutingPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#continent Route53Record#continent}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#continent Route53Record#continent}
+   */
   readonly continent?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#country Route53Record#country}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#country Route53Record#country}
+   */
   readonly country?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#subdivision Route53Record#subdivision}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#subdivision Route53Record#subdivision}
+   */
   readonly subdivision?: string;
 }
 
-export function route53RecordGeolocationRoutingPolicyToTerraform(struct?: Route53RecordGeolocationRoutingPolicyOutputReference | Route53RecordGeolocationRoutingPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecordGeolocationRoutingPolicyToTerraform(
+  struct?:
+    | Route53RecordGeolocationRoutingPolicyOutputReference
+    | Route53RecordGeolocationRoutingPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     continent: cdktf.stringToTerraform(struct!.continent),
     country: cdktf.stringToTerraform(struct!.country),
     subdivision: cdktf.stringToTerraform(struct!.subdivision),
-  }
+  };
 }
 
 export class Route53RecordGeolocationRoutingPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Route53RecordGeolocationRoutingPolicy | undefined {
+  public get internalValue():
+    | Route53RecordGeolocationRoutingPolicy
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._continent !== undefined) {
@@ -401,14 +446,15 @@ export class Route53RecordGeolocationRoutingPolicyOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Route53RecordGeolocationRoutingPolicy | undefined) {
+  public set internalValue(
+    value: Route53RecordGeolocationRoutingPolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._continent = undefined;
       this._country = undefined;
       this._subdivision = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._continent = value.continent;
       this._country = value.country;
@@ -466,29 +512,40 @@ export class Route53RecordGeolocationRoutingPolicyOutputReference extends cdktf.
 }
 export interface Route53RecordLatencyRoutingPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#region Route53Record#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#region Route53Record#region}
+   */
   readonly region: string;
 }
 
-export function route53RecordLatencyRoutingPolicyToTerraform(struct?: Route53RecordLatencyRoutingPolicyOutputReference | Route53RecordLatencyRoutingPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecordLatencyRoutingPolicyToTerraform(
+  struct?:
+    | Route53RecordLatencyRoutingPolicyOutputReference
+    | Route53RecordLatencyRoutingPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     region: cdktf.stringToTerraform(struct!.region),
-  }
+  };
 }
 
 export class Route53RecordLatencyRoutingPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -502,12 +559,13 @@ export class Route53RecordLatencyRoutingPolicyOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Route53RecordLatencyRoutingPolicy | undefined) {
+  public set internalValue(
+    value: Route53RecordLatencyRoutingPolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._region = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._region = value.region;
     }
@@ -528,29 +586,40 @@ export class Route53RecordLatencyRoutingPolicyOutputReference extends cdktf.Comp
 }
 export interface Route53RecordWeightedRoutingPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#weight Route53Record#weight}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_record#weight Route53Record#weight}
+   */
   readonly weight: number;
 }
 
-export function route53RecordWeightedRoutingPolicyToTerraform(struct?: Route53RecordWeightedRoutingPolicyOutputReference | Route53RecordWeightedRoutingPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecordWeightedRoutingPolicyToTerraform(
+  struct?:
+    | Route53RecordWeightedRoutingPolicyOutputReference
+    | Route53RecordWeightedRoutingPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     weight: cdktf.numberToTerraform(struct!.weight),
-  }
+  };
 }
 
 export class Route53RecordWeightedRoutingPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -564,12 +633,13 @@ export class Route53RecordWeightedRoutingPolicyOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Route53RecordWeightedRoutingPolicy | undefined) {
+  public set internalValue(
+    value: Route53RecordWeightedRoutingPolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._weight = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._weight = value.weight;
     }
@@ -590,33 +660,36 @@ export class Route53RecordWeightedRoutingPolicyOutputReference extends cdktf.Com
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_record aws_route53_record}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_record aws_route53_record}
+ */
 export class Route53Record extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53_record";
+  public static readonly tfResourceType = 'aws_route53_record';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_record aws_route53_record} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Route53RecordConfig
-  */
-  public constructor(scope: Construct, id: string, config: Route53RecordConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_record aws_route53_record} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Route53RecordConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Route53RecordConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_record',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -624,7 +697,7 @@ export class Route53Record extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._allowOverwrite = config.allowOverwrite;
     this._healthCheckId = config.healthCheckId;
@@ -639,7 +712,8 @@ export class Route53Record extends cdktf.TerraformResource {
     this._alias.internalValue = config.alias;
     this._cidrRoutingPolicy.internalValue = config.cidrRoutingPolicy;
     this._failoverRoutingPolicy.internalValue = config.failoverRoutingPolicy;
-    this._geolocationRoutingPolicy.internalValue = config.geolocationRoutingPolicy;
+    this._geolocationRoutingPolicy.internalValue =
+      config.geolocationRoutingPolicy;
     this._latencyRoutingPolicy.internalValue = config.latencyRoutingPolicy;
     this._weightedRoutingPolicy.internalValue = config.weightedRoutingPolicy;
   }
@@ -805,7 +879,7 @@ export class Route53Record extends cdktf.TerraformResource {
   }
 
   // alias - computed: false, optional: true, required: false
-  private _alias = new Route53RecordAliasOutputReference(this, "alias");
+  private _alias = new Route53RecordAliasOutputReference(this, 'alias');
   public get alias() {
     return this._alias;
   }
@@ -821,7 +895,11 @@ export class Route53Record extends cdktf.TerraformResource {
   }
 
   // cidr_routing_policy - computed: false, optional: true, required: false
-  private _cidrRoutingPolicy = new Route53RecordCidrRoutingPolicyOutputReference(this, "cidr_routing_policy");
+  private _cidrRoutingPolicy =
+    new Route53RecordCidrRoutingPolicyOutputReference(
+      this,
+      'cidr_routing_policy',
+    );
   public get cidrRoutingPolicy() {
     return this._cidrRoutingPolicy;
   }
@@ -837,7 +915,11 @@ export class Route53Record extends cdktf.TerraformResource {
   }
 
   // failover_routing_policy - computed: false, optional: true, required: false
-  private _failoverRoutingPolicy = new Route53RecordFailoverRoutingPolicyOutputReference(this, "failover_routing_policy");
+  private _failoverRoutingPolicy =
+    new Route53RecordFailoverRoutingPolicyOutputReference(
+      this,
+      'failover_routing_policy',
+    );
   public get failoverRoutingPolicy() {
     return this._failoverRoutingPolicy;
   }
@@ -853,11 +935,17 @@ export class Route53Record extends cdktf.TerraformResource {
   }
 
   // geolocation_routing_policy - computed: false, optional: true, required: false
-  private _geolocationRoutingPolicy = new Route53RecordGeolocationRoutingPolicyOutputReference(this, "geolocation_routing_policy");
+  private _geolocationRoutingPolicy =
+    new Route53RecordGeolocationRoutingPolicyOutputReference(
+      this,
+      'geolocation_routing_policy',
+    );
   public get geolocationRoutingPolicy() {
     return this._geolocationRoutingPolicy;
   }
-  public putGeolocationRoutingPolicy(value: Route53RecordGeolocationRoutingPolicy) {
+  public putGeolocationRoutingPolicy(
+    value: Route53RecordGeolocationRoutingPolicy,
+  ) {
     this._geolocationRoutingPolicy.internalValue = value;
   }
   public resetGeolocationRoutingPolicy() {
@@ -869,7 +957,11 @@ export class Route53Record extends cdktf.TerraformResource {
   }
 
   // latency_routing_policy - computed: false, optional: true, required: false
-  private _latencyRoutingPolicy = new Route53RecordLatencyRoutingPolicyOutputReference(this, "latency_routing_policy");
+  private _latencyRoutingPolicy =
+    new Route53RecordLatencyRoutingPolicyOutputReference(
+      this,
+      'latency_routing_policy',
+    );
   public get latencyRoutingPolicy() {
     return this._latencyRoutingPolicy;
   }
@@ -885,7 +977,11 @@ export class Route53Record extends cdktf.TerraformResource {
   }
 
   // weighted_routing_policy - computed: false, optional: true, required: false
-  private _weightedRoutingPolicy = new Route53RecordWeightedRoutingPolicyOutputReference(this, "weighted_routing_policy");
+  private _weightedRoutingPolicy =
+    new Route53RecordWeightedRoutingPolicyOutputReference(
+      this,
+      'weighted_routing_policy',
+    );
   public get weightedRoutingPolicy() {
     return this._weightedRoutingPolicy;
   }
@@ -909,7 +1005,9 @@ export class Route53Record extends cdktf.TerraformResource {
       allow_overwrite: cdktf.booleanToTerraform(this._allowOverwrite),
       health_check_id: cdktf.stringToTerraform(this._healthCheckId),
       id: cdktf.stringToTerraform(this._id),
-      multivalue_answer_routing_policy: cdktf.booleanToTerraform(this._multivalueAnswerRoutingPolicy),
+      multivalue_answer_routing_policy: cdktf.booleanToTerraform(
+        this._multivalueAnswerRoutingPolicy,
+      ),
       name: cdktf.stringToTerraform(this._name),
       records: cdktf.listMapper(cdktf.stringToTerraform, false)(this._records),
       set_identifier: cdktf.stringToTerraform(this._setIdentifier),
@@ -917,11 +1015,22 @@ export class Route53Record extends cdktf.TerraformResource {
       type: cdktf.stringToTerraform(this._type),
       zone_id: cdktf.stringToTerraform(this._zoneId),
       alias: route53RecordAliasToTerraform(this._alias.internalValue),
-      cidr_routing_policy: route53RecordCidrRoutingPolicyToTerraform(this._cidrRoutingPolicy.internalValue),
-      failover_routing_policy: route53RecordFailoverRoutingPolicyToTerraform(this._failoverRoutingPolicy.internalValue),
-      geolocation_routing_policy: route53RecordGeolocationRoutingPolicyToTerraform(this._geolocationRoutingPolicy.internalValue),
-      latency_routing_policy: route53RecordLatencyRoutingPolicyToTerraform(this._latencyRoutingPolicy.internalValue),
-      weighted_routing_policy: route53RecordWeightedRoutingPolicyToTerraform(this._weightedRoutingPolicy.internalValue),
+      cidr_routing_policy: route53RecordCidrRoutingPolicyToTerraform(
+        this._cidrRoutingPolicy.internalValue,
+      ),
+      failover_routing_policy: route53RecordFailoverRoutingPolicyToTerraform(
+        this._failoverRoutingPolicy.internalValue,
+      ),
+      geolocation_routing_policy:
+        route53RecordGeolocationRoutingPolicyToTerraform(
+          this._geolocationRoutingPolicy.internalValue,
+        ),
+      latency_routing_policy: route53RecordLatencyRoutingPolicyToTerraform(
+        this._latencyRoutingPolicy.internalValue,
+      ),
+      weighted_routing_policy: route53RecordWeightedRoutingPolicyToTerraform(
+        this._weightedRoutingPolicy.internalValue,
+      ),
     };
   }
 }

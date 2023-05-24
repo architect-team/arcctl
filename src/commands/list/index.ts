@@ -1,6 +1,6 @@
-import { ResourceType, ResourceTypeList } from '../../@resources/index.js';
-import { BaseCommand } from '../../base-command.js';
-import { createTable } from '../../utils/table.js';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { BaseCommand } from '../../base-command.ts';
+import { createTable } from '../../utils/table.ts';
 import { Flags } from '@oclif/core';
 
 export default class ListResourcesCommand extends BaseCommand {

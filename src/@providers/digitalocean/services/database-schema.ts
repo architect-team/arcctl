@@ -1,8 +1,8 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDatabaseSchemaModule } from '../modules/database-schema.js';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDatabaseSchemaModule } from '../modules/database-schema.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDatabaseSchemaService extends ResourceService<

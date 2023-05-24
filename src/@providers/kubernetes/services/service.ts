@@ -1,9 +1,9 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesServiceModule } from '../modules/service.js';
-import { KubernetesNamespaceService } from './namespace.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesServiceModule } from '../modules/service.ts';
+import { KubernetesNamespaceService } from './namespace.ts';
 import k8s from '@kubernetes/client-node';
 
 export class KubernetesServiceService extends ResourceService<

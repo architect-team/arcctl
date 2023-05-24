@@ -1,6 +1,6 @@
-import { BaseCommand } from '../../base-command.js';
-import { getProviders } from '../../utils/providers.js';
-import { createTable } from '../../utils/table.js';
+import { BaseCommand } from '../../base-command.ts';
+import { getProviders } from '../../utils/providers.ts';
+import { createTable } from '../../utils/table.ts';
 
 export default class ListAccountsCommand extends BaseCommand {
   static description = 'List the accounts registered with the CLI';

@@ -2,70 +2,84 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface KendraExperienceConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#description KendraExperience#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#description KendraExperience#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#id KendraExperience#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#id KendraExperience#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#index_id KendraExperience#index_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#index_id KendraExperience#index_id}
+   */
   readonly indexId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#name KendraExperience#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#name KendraExperience#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#role_arn KendraExperience#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#role_arn KendraExperience#role_arn}
+   */
   readonly roleArn: string;
   /**
-  * configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#configuration KendraExperience#configuration}
-  */
+   * configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#configuration KendraExperience#configuration}
+   */
   readonly configuration?: KendraExperienceConfiguration;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#timeouts KendraExperience#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#timeouts KendraExperience#timeouts}
+   */
   readonly timeouts?: KendraExperienceTimeouts;
 }
-export interface KendraExperienceEndpoints {
-}
+export interface KendraExperienceEndpoints {}
 
-export function kendraExperienceEndpointsToTerraform(struct?: KendraExperienceEndpoints): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kendraExperienceEndpointsToTerraform(
+  struct?: KendraExperienceEndpoints,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class KendraExperienceEndpointsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): KendraExperienceEndpoints | undefined {
@@ -77,8 +91,7 @@ export class KendraExperienceEndpointsOutputReference extends cdktf.ComplexObjec
   public set internalValue(value: KendraExperienceEndpoints | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -95,62 +108,86 @@ export class KendraExperienceEndpointsOutputReference extends cdktf.ComplexObjec
 }
 
 export class KendraExperienceEndpointsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): KendraExperienceEndpointsOutputReference {
-    return new KendraExperienceEndpointsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new KendraExperienceEndpointsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KendraExperienceConfigurationContentSourceConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#data_source_ids KendraExperience#data_source_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#data_source_ids KendraExperience#data_source_ids}
+   */
   readonly dataSourceIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#direct_put_content KendraExperience#direct_put_content}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#direct_put_content KendraExperience#direct_put_content}
+   */
   readonly directPutContent?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#faq_ids KendraExperience#faq_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#faq_ids KendraExperience#faq_ids}
+   */
   readonly faqIds?: string[];
 }
 
-export function kendraExperienceConfigurationContentSourceConfigurationToTerraform(struct?: KendraExperienceConfigurationContentSourceConfigurationOutputReference | KendraExperienceConfigurationContentSourceConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kendraExperienceConfigurationContentSourceConfigurationToTerraform(
+  struct?:
+    | KendraExperienceConfigurationContentSourceConfigurationOutputReference
+    | KendraExperienceConfigurationContentSourceConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    data_source_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.dataSourceIds),
+    data_source_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.dataSourceIds),
     direct_put_content: cdktf.booleanToTerraform(struct!.directPutContent),
     faq_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.faqIds),
-  }
+  };
 }
 
 export class KendraExperienceConfigurationContentSourceConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KendraExperienceConfigurationContentSourceConfiguration | undefined {
+  public get internalValue():
+    | KendraExperienceConfigurationContentSourceConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dataSourceIds !== undefined) {
@@ -168,14 +205,15 @@ export class KendraExperienceConfigurationContentSourceConfigurationOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KendraExperienceConfigurationContentSourceConfiguration | undefined) {
+  public set internalValue(
+    value: KendraExperienceConfigurationContentSourceConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dataSourceIds = undefined;
       this._directPutContent = undefined;
       this._faqIds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dataSourceIds = value.dataSourceIds;
       this._directPutContent = value.directPutContent;
@@ -233,33 +271,48 @@ export class KendraExperienceConfigurationContentSourceConfigurationOutputRefere
 }
 export interface KendraExperienceConfigurationUserIdentityConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#identity_attribute_name KendraExperience#identity_attribute_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#identity_attribute_name KendraExperience#identity_attribute_name}
+   */
   readonly identityAttributeName: string;
 }
 
-export function kendraExperienceConfigurationUserIdentityConfigurationToTerraform(struct?: KendraExperienceConfigurationUserIdentityConfigurationOutputReference | KendraExperienceConfigurationUserIdentityConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kendraExperienceConfigurationUserIdentityConfigurationToTerraform(
+  struct?:
+    | KendraExperienceConfigurationUserIdentityConfigurationOutputReference
+    | KendraExperienceConfigurationUserIdentityConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    identity_attribute_name: cdktf.stringToTerraform(struct!.identityAttributeName),
-  }
+    identity_attribute_name: cdktf.stringToTerraform(
+      struct!.identityAttributeName,
+    ),
+  };
 }
 
 export class KendraExperienceConfigurationUserIdentityConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KendraExperienceConfigurationUserIdentityConfiguration | undefined {
+  public get internalValue():
+    | KendraExperienceConfigurationUserIdentityConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._identityAttributeName !== undefined) {
@@ -269,12 +322,13 @@ export class KendraExperienceConfigurationUserIdentityConfigurationOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KendraExperienceConfigurationUserIdentityConfiguration | undefined) {
+  public set internalValue(
+    value: KendraExperienceConfigurationUserIdentityConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._identityAttributeName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._identityAttributeName = value.identityAttributeName;
     }
@@ -295,38 +349,55 @@ export class KendraExperienceConfigurationUserIdentityConfigurationOutputReferen
 }
 export interface KendraExperienceConfiguration {
   /**
-  * content_source_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#content_source_configuration KendraExperience#content_source_configuration}
-  */
+   * content_source_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#content_source_configuration KendraExperience#content_source_configuration}
+   */
   readonly contentSourceConfiguration?: KendraExperienceConfigurationContentSourceConfiguration;
   /**
-  * user_identity_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#user_identity_configuration KendraExperience#user_identity_configuration}
-  */
+   * user_identity_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#user_identity_configuration KendraExperience#user_identity_configuration}
+   */
   readonly userIdentityConfiguration?: KendraExperienceConfigurationUserIdentityConfiguration;
 }
 
-export function kendraExperienceConfigurationToTerraform(struct?: KendraExperienceConfigurationOutputReference | KendraExperienceConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kendraExperienceConfigurationToTerraform(
+  struct?:
+    | KendraExperienceConfigurationOutputReference
+    | KendraExperienceConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    content_source_configuration: kendraExperienceConfigurationContentSourceConfigurationToTerraform(struct!.contentSourceConfiguration),
-    user_identity_configuration: kendraExperienceConfigurationUserIdentityConfigurationToTerraform(struct!.userIdentityConfiguration),
-  }
+    content_source_configuration:
+      kendraExperienceConfigurationContentSourceConfigurationToTerraform(
+        struct!.contentSourceConfiguration,
+      ),
+    user_identity_configuration:
+      kendraExperienceConfigurationUserIdentityConfigurationToTerraform(
+        struct!.userIdentityConfiguration,
+      ),
+  };
 }
 
 export class KendraExperienceConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -335,11 +406,13 @@ export class KendraExperienceConfigurationOutputReference extends cdktf.ComplexO
     const internalValueResult: any = {};
     if (this._contentSourceConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.contentSourceConfiguration = this._contentSourceConfiguration?.internalValue;
+      internalValueResult.contentSourceConfiguration =
+        this._contentSourceConfiguration?.internalValue;
     }
     if (this._userIdentityConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.userIdentityConfiguration = this._userIdentityConfiguration?.internalValue;
+      internalValueResult.userIdentityConfiguration =
+        this._userIdentityConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -349,20 +422,27 @@ export class KendraExperienceConfigurationOutputReference extends cdktf.ComplexO
       this.isEmptyObject = false;
       this._contentSourceConfiguration.internalValue = undefined;
       this._userIdentityConfiguration.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._contentSourceConfiguration.internalValue = value.contentSourceConfiguration;
-      this._userIdentityConfiguration.internalValue = value.userIdentityConfiguration;
+      this._contentSourceConfiguration.internalValue =
+        value.contentSourceConfiguration;
+      this._userIdentityConfiguration.internalValue =
+        value.userIdentityConfiguration;
     }
   }
 
   // content_source_configuration - computed: false, optional: true, required: false
-  private _contentSourceConfiguration = new KendraExperienceConfigurationContentSourceConfigurationOutputReference(this, "content_source_configuration");
+  private _contentSourceConfiguration =
+    new KendraExperienceConfigurationContentSourceConfigurationOutputReference(
+      this,
+      'content_source_configuration',
+    );
   public get contentSourceConfiguration() {
     return this._contentSourceConfiguration;
   }
-  public putContentSourceConfiguration(value: KendraExperienceConfigurationContentSourceConfiguration) {
+  public putContentSourceConfiguration(
+    value: KendraExperienceConfigurationContentSourceConfiguration,
+  ) {
     this._contentSourceConfiguration.internalValue = value;
   }
   public resetContentSourceConfiguration() {
@@ -374,11 +454,17 @@ export class KendraExperienceConfigurationOutputReference extends cdktf.ComplexO
   }
 
   // user_identity_configuration - computed: false, optional: true, required: false
-  private _userIdentityConfiguration = new KendraExperienceConfigurationUserIdentityConfigurationOutputReference(this, "user_identity_configuration");
+  private _userIdentityConfiguration =
+    new KendraExperienceConfigurationUserIdentityConfigurationOutputReference(
+      this,
+      'user_identity_configuration',
+    );
   public get userIdentityConfiguration() {
     return this._userIdentityConfiguration;
   }
-  public putUserIdentityConfiguration(value: KendraExperienceConfigurationUserIdentityConfiguration) {
+  public putUserIdentityConfiguration(
+    value: KendraExperienceConfigurationUserIdentityConfiguration,
+  ) {
     this._userIdentityConfiguration.internalValue = value;
   }
   public resetUserIdentityConfiguration() {
@@ -391,29 +477,38 @@ export class KendraExperienceConfigurationOutputReference extends cdktf.ComplexO
 }
 export interface KendraExperienceTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#create KendraExperience#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#create KendraExperience#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#delete KendraExperience#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#delete KendraExperience#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#update KendraExperience#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience#update KendraExperience#update}
+   */
   readonly update?: string;
 }
 
-export function kendraExperienceTimeoutsToTerraform(struct?: KendraExperienceTimeoutsOutputReference | KendraExperienceTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kendraExperienceTimeoutsToTerraform(
+  struct?:
+    | KendraExperienceTimeoutsOutputReference
+    | KendraExperienceTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class KendraExperienceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -421,14 +516,20 @@ export class KendraExperienceTimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KendraExperienceTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KendraExperienceTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -449,19 +550,19 @@ export class KendraExperienceTimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KendraExperienceTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: KendraExperienceTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -520,33 +621,36 @@ export class KendraExperienceTimeoutsOutputReference extends cdktf.ComplexObject
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience aws_kendra_experience}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience aws_kendra_experience}
+ */
 export class KendraExperience extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_kendra_experience";
+  public static readonly tfResourceType = 'aws_kendra_experience';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience aws_kendra_experience} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options KendraExperienceConfig
-  */
-  public constructor(scope: Construct, id: string, config: KendraExperienceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kendra_experience aws_kendra_experience} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options KendraExperienceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: KendraExperienceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_kendra_experience',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -554,7 +658,7 @@ export class KendraExperience extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -591,7 +695,11 @@ export class KendraExperience extends cdktf.TerraformResource {
   }
 
   // endpoints - computed: true, optional: false, required: false
-  private _endpoints = new KendraExperienceEndpointsList(this, "endpoints", true);
+  private _endpoints = new KendraExperienceEndpointsList(
+    this,
+    'endpoints',
+    true,
+  );
   public get endpoints() {
     return this._endpoints;
   }
@@ -662,7 +770,10 @@ export class KendraExperience extends cdktf.TerraformResource {
   }
 
   // configuration - computed: false, optional: true, required: false
-  private _configuration = new KendraExperienceConfigurationOutputReference(this, "configuration");
+  private _configuration = new KendraExperienceConfigurationOutputReference(
+    this,
+    'configuration',
+  );
   public get configuration() {
     return this._configuration;
   }
@@ -678,7 +789,10 @@ export class KendraExperience extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new KendraExperienceTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new KendraExperienceTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -704,8 +818,12 @@ export class KendraExperience extends cdktf.TerraformResource {
       index_id: cdktf.stringToTerraform(this._indexId),
       name: cdktf.stringToTerraform(this._name),
       role_arn: cdktf.stringToTerraform(this._roleArn),
-      configuration: kendraExperienceConfigurationToTerraform(this._configuration.internalValue),
-      timeouts: kendraExperienceTimeoutsToTerraform(this._timeouts.internalValue),
+      configuration: kendraExperienceConfigurationToTerraform(
+        this._configuration.internalValue,
+      ),
+      timeouts: kendraExperienceTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

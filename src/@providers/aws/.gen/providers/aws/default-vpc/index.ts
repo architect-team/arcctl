@@ -2,100 +2,103 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface DefaultVpcConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#assign_generated_ipv6_cidr_block DefaultVpc#assign_generated_ipv6_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#assign_generated_ipv6_cidr_block DefaultVpc#assign_generated_ipv6_cidr_block}
+   */
   readonly assignGeneratedIpv6CidrBlock?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_classiclink DefaultVpc#enable_classiclink}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_classiclink DefaultVpc#enable_classiclink}
+   */
   readonly enableClassiclink?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_classiclink_dns_support DefaultVpc#enable_classiclink_dns_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_classiclink_dns_support DefaultVpc#enable_classiclink_dns_support}
+   */
   readonly enableClassiclinkDnsSupport?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_dns_hostnames DefaultVpc#enable_dns_hostnames}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_dns_hostnames DefaultVpc#enable_dns_hostnames}
+   */
   readonly enableDnsHostnames?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_dns_support DefaultVpc#enable_dns_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_dns_support DefaultVpc#enable_dns_support}
+   */
   readonly enableDnsSupport?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_network_address_usage_metrics DefaultVpc#enable_network_address_usage_metrics}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#enable_network_address_usage_metrics DefaultVpc#enable_network_address_usage_metrics}
+   */
   readonly enableNetworkAddressUsageMetrics?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#force_destroy DefaultVpc#force_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#force_destroy DefaultVpc#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#id DefaultVpc#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#id DefaultVpc#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_cidr_block DefaultVpc#ipv6_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_cidr_block DefaultVpc#ipv6_cidr_block}
+   */
   readonly ipv6CidrBlock?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_cidr_block_network_border_group DefaultVpc#ipv6_cidr_block_network_border_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_cidr_block_network_border_group DefaultVpc#ipv6_cidr_block_network_border_group}
+   */
   readonly ipv6CidrBlockNetworkBorderGroup?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_ipam_pool_id DefaultVpc#ipv6_ipam_pool_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_ipam_pool_id DefaultVpc#ipv6_ipam_pool_id}
+   */
   readonly ipv6IpamPoolId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_netmask_length DefaultVpc#ipv6_netmask_length}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#ipv6_netmask_length DefaultVpc#ipv6_netmask_length}
+   */
   readonly ipv6NetmaskLength?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#tags DefaultVpc#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#tags DefaultVpc#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#tags_all DefaultVpc#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_vpc#tags_all DefaultVpc#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/default_vpc aws_default_vpc}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/default_vpc aws_default_vpc}
+ */
 export class DefaultVpc extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_default_vpc";
+  public static readonly tfResourceType = 'aws_default_vpc';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/default_vpc aws_default_vpc} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DefaultVpcConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DefaultVpcConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/default_vpc aws_default_vpc} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DefaultVpcConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DefaultVpcConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_default_vpc',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -103,18 +106,20 @@ export class DefaultVpc extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._assignGeneratedIpv6CidrBlock = config.assignGeneratedIpv6CidrBlock;
     this._enableClassiclink = config.enableClassiclink;
     this._enableClassiclinkDnsSupport = config.enableClassiclinkDnsSupport;
     this._enableDnsHostnames = config.enableDnsHostnames;
     this._enableDnsSupport = config.enableDnsSupport;
-    this._enableNetworkAddressUsageMetrics = config.enableNetworkAddressUsageMetrics;
+    this._enableNetworkAddressUsageMetrics =
+      config.enableNetworkAddressUsageMetrics;
     this._forceDestroy = config.forceDestroy;
     this._id = config.id;
     this._ipv6CidrBlock = config.ipv6CidrBlock;
-    this._ipv6CidrBlockNetworkBorderGroup = config.ipv6CidrBlockNetworkBorderGroup;
+    this._ipv6CidrBlockNetworkBorderGroup =
+      config.ipv6CidrBlockNetworkBorderGroup;
     this._ipv6IpamPoolId = config.ipv6IpamPoolId;
     this._ipv6NetmaskLength = config.ipv6NetmaskLength;
     this._tags = config.tags;
@@ -240,7 +245,9 @@ export class DefaultVpc extends cdktf.TerraformResource {
   public get enableNetworkAddressUsageMetrics() {
     return this.getBooleanAttribute('enable_network_address_usage_metrics');
   }
-  public set enableNetworkAddressUsageMetrics(value: boolean | cdktf.IResolvable) {
+  public set enableNetworkAddressUsageMetrics(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._enableNetworkAddressUsageMetrics = value;
   }
   public resetEnableNetworkAddressUsageMetrics() {
@@ -410,16 +417,24 @@ export class DefaultVpc extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      assign_generated_ipv6_cidr_block: cdktf.booleanToTerraform(this._assignGeneratedIpv6CidrBlock),
+      assign_generated_ipv6_cidr_block: cdktf.booleanToTerraform(
+        this._assignGeneratedIpv6CidrBlock,
+      ),
       enable_classiclink: cdktf.booleanToTerraform(this._enableClassiclink),
-      enable_classiclink_dns_support: cdktf.booleanToTerraform(this._enableClassiclinkDnsSupport),
+      enable_classiclink_dns_support: cdktf.booleanToTerraform(
+        this._enableClassiclinkDnsSupport,
+      ),
       enable_dns_hostnames: cdktf.booleanToTerraform(this._enableDnsHostnames),
       enable_dns_support: cdktf.booleanToTerraform(this._enableDnsSupport),
-      enable_network_address_usage_metrics: cdktf.booleanToTerraform(this._enableNetworkAddressUsageMetrics),
+      enable_network_address_usage_metrics: cdktf.booleanToTerraform(
+        this._enableNetworkAddressUsageMetrics,
+      ),
       force_destroy: cdktf.booleanToTerraform(this._forceDestroy),
       id: cdktf.stringToTerraform(this._id),
       ipv6_cidr_block: cdktf.stringToTerraform(this._ipv6CidrBlock),
-      ipv6_cidr_block_network_border_group: cdktf.stringToTerraform(this._ipv6CidrBlockNetworkBorderGroup),
+      ipv6_cidr_block_network_border_group: cdktf.stringToTerraform(
+        this._ipv6CidrBlockNetworkBorderGroup,
+      ),
       ipv6_ipam_pool_id: cdktf.stringToTerraform(this._ipv6IpamPoolId),
       ipv6_netmask_length: cdktf.numberToTerraform(this._ipv6NetmaskLength),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),

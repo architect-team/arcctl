@@ -1,5 +1,5 @@
-import { Datacenter } from '../datacenters/datacenter.js';
-import { parseDatacenter } from '../datacenters/parser.js';
+import { Datacenter } from '../datacenters/datacenter.ts';
+import { parseDatacenter } from '../datacenters/parser.ts';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';

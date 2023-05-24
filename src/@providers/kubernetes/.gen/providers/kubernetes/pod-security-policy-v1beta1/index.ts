@@ -2,72 +2,84 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface PodSecurityPolicyV1Beta1Config extends cdktf.TerraformMetaArguments {
+export interface PodSecurityPolicyV1Beta1Config
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#id PodSecurityPolicyV1Beta1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#id PodSecurityPolicyV1Beta1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#metadata PodSecurityPolicyV1Beta1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#metadata PodSecurityPolicyV1Beta1#metadata}
+   */
   readonly metadata: PodSecurityPolicyV1Beta1Metadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#spec PodSecurityPolicyV1Beta1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#spec PodSecurityPolicyV1Beta1#spec}
+   */
   readonly spec: PodSecurityPolicyV1Beta1Spec;
 }
 export interface PodSecurityPolicyV1Beta1Metadata {
   /**
-  * An unstructured key value map stored with the podsecuritypolicy that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#annotations PodSecurityPolicyV1Beta1#annotations}
-  */
+   * An unstructured key value map stored with the podsecuritypolicy that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#annotations PodSecurityPolicyV1Beta1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the podsecuritypolicy. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#labels PodSecurityPolicyV1Beta1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the podsecuritypolicy. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#labels PodSecurityPolicyV1Beta1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the podsecuritypolicy, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#name PodSecurityPolicyV1Beta1#name}
-  */
+   * Name of the podsecuritypolicy, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#name PodSecurityPolicyV1Beta1#name}
+   */
   readonly name?: string;
 }
 
-export function podSecurityPolicyV1Beta1MetadataToTerraform(struct?: PodSecurityPolicyV1Beta1MetadataOutputReference | PodSecurityPolicyV1Beta1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1MetadataToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1MetadataOutputReference
+    | PodSecurityPolicyV1Beta1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -89,14 +101,15 @@ export class PodSecurityPolicyV1Beta1MetadataOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1Metadata | undefined) {
+  public set internalValue(
+    value: PodSecurityPolicyV1Beta1Metadata | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._annotations = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._labels = value.labels;
@@ -169,21 +182,27 @@ export class PodSecurityPolicyV1Beta1MetadataOutputReference extends cdktf.Compl
 }
 export interface PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes {
   /**
-  * driver is the name of the Flexvolume driver.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#driver PodSecurityPolicyV1Beta1#driver}
-  */
+   * driver is the name of the Flexvolume driver.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#driver PodSecurityPolicyV1Beta1#driver}
+   */
   readonly driver: string;
 }
 
-export function podSecurityPolicyV1Beta1SpecAllowedFlexVolumesToTerraform(struct?: PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecAllowedFlexVolumesToTerraform(
+  struct?: PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference extends cdktf.ComplexObject {
@@ -191,16 +210,29 @@ export class PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -213,17 +245,20 @@ export class PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._driver = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._driver = value.driver;
@@ -245,22 +280,35 @@ export class PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference exten
 }
 
 export class PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecAllowedHostPaths {
@@ -273,22 +321,28 @@ Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not all
   */
   readonly pathPrefix: string;
   /**
-  * when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#read_only PodSecurityPolicyV1Beta1#read_only}
-  */
+   * when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#read_only PodSecurityPolicyV1Beta1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function podSecurityPolicyV1Beta1SpecAllowedHostPathsToTerraform(struct?: PodSecurityPolicyV1Beta1SpecAllowedHostPaths | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecAllowedHostPathsToTerraform(
+  struct?: PodSecurityPolicyV1Beta1SpecAllowedHostPaths | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path_prefix: cdktf.stringToTerraform(struct!.pathPrefix),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference extends cdktf.ComplexObject {
@@ -296,16 +350,29 @@ export class PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecAllowedHostPaths | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecAllowedHostPaths
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -322,18 +389,21 @@ export class PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecAllowedHostPaths | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecAllowedHostPaths
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._pathPrefix = undefined;
       this._readOnly = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._pathPrefix = value.pathPrefix;
@@ -372,48 +442,67 @@ export class PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference extends
 }
 
 export class PodSecurityPolicyV1Beta1SpecAllowedHostPathsList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecAllowedHostPaths[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecAllowedHostPaths[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecAllowedHostPathsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecFsGroupRange {
   /**
-  * max is the end of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
-  */
+   * max is the end of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
+   */
   readonly max: number;
   /**
-  * min is the start of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
-  */
+   * min is the start of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
+   */
   readonly min: number;
 }
 
-export function podSecurityPolicyV1Beta1SpecFsGroupRangeToTerraform(struct?: PodSecurityPolicyV1Beta1SpecFsGroupRange | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecFsGroupRangeToTerraform(
+  struct?: PodSecurityPolicyV1Beta1SpecFsGroupRange | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference extends cdktf.ComplexObject {
@@ -421,16 +510,29 @@ export class PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecFsGroupRange | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecFsGroupRange
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -447,18 +549,21 @@ export class PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecFsGroupRange | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecFsGroupRange
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._max = undefined;
       this._min = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._max = value.max;
@@ -494,58 +599,87 @@ export class PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference extends cdk
 }
 
 export class PodSecurityPolicyV1Beta1SpecFsGroupRangeList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecFsGroupRange[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecFsGroupRange[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecFsGroupRangeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecFsGroup {
   /**
-  * rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
-  */
+   * rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
+   */
   readonly rule: string;
   /**
-  * range block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
-  */
-  readonly range?: PodSecurityPolicyV1Beta1SpecFsGroupRange[] | cdktf.IResolvable;
+   * range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
+   */
+  readonly range?:
+    | PodSecurityPolicyV1Beta1SpecFsGroupRange[]
+    | cdktf.IResolvable;
 }
 
-export function podSecurityPolicyV1Beta1SpecFsGroupToTerraform(struct?: PodSecurityPolicyV1Beta1SpecFsGroupOutputReference | PodSecurityPolicyV1Beta1SpecFsGroup): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecFsGroupToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecFsGroupOutputReference
+    | PodSecurityPolicyV1Beta1SpecFsGroup,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     rule: cdktf.stringToTerraform(struct!.rule),
-    range: cdktf.listMapper(podSecurityPolicyV1Beta1SpecFsGroupRangeToTerraform, true)(struct!.range),
-  }
+    range: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecFsGroupRangeToTerraform,
+      true,
+    )(struct!.range),
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecFsGroupOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -563,13 +697,14 @@ export class PodSecurityPolicyV1Beta1SpecFsGroupOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecFsGroup | undefined) {
+  public set internalValue(
+    value: PodSecurityPolicyV1Beta1SpecFsGroup | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._rule = undefined;
       this._range.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._rule = value.rule;
       this._range.internalValue = value.range;
@@ -590,11 +725,17 @@ export class PodSecurityPolicyV1Beta1SpecFsGroupOutputReference extends cdktf.Co
   }
 
   // range - computed: false, optional: true, required: false
-  private _range = new PodSecurityPolicyV1Beta1SpecFsGroupRangeList(this, "range", false);
+  private _range = new PodSecurityPolicyV1Beta1SpecFsGroupRangeList(
+    this,
+    'range',
+    false,
+  );
   public get range() {
     return this._range;
   }
-  public putRange(value: PodSecurityPolicyV1Beta1SpecFsGroupRange[] | cdktf.IResolvable) {
+  public putRange(
+    value: PodSecurityPolicyV1Beta1SpecFsGroupRange[] | cdktf.IResolvable,
+  ) {
     this._range.internalValue = value;
   }
   public resetRange() {
@@ -607,28 +748,34 @@ export class PodSecurityPolicyV1Beta1SpecFsGroupOutputReference extends cdktf.Co
 }
 export interface PodSecurityPolicyV1Beta1SpecHostPorts {
   /**
-  * max is the end of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
-  */
+   * max is the end of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
+   */
   readonly max: number;
   /**
-  * min is the start of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
-  */
+   * min is the start of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
+   */
   readonly min: number;
 }
 
-export function podSecurityPolicyV1Beta1SpecHostPortsToTerraform(struct?: PodSecurityPolicyV1Beta1SpecHostPorts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecHostPortsToTerraform(
+  struct?: PodSecurityPolicyV1Beta1SpecHostPorts | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecHostPortsOutputReference extends cdktf.ComplexObject {
@@ -636,16 +783,29 @@ export class PodSecurityPolicyV1Beta1SpecHostPortsOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecHostPorts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecHostPorts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -662,18 +822,21 @@ export class PodSecurityPolicyV1Beta1SpecHostPortsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecHostPorts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecHostPorts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._max = undefined;
       this._min = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._max = value.max;
@@ -709,48 +872,67 @@ export class PodSecurityPolicyV1Beta1SpecHostPortsOutputReference extends cdktf.
 }
 
 export class PodSecurityPolicyV1Beta1SpecHostPortsList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecHostPorts[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecHostPorts[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecHostPortsOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecHostPortsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecHostPortsOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecHostPortsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecRunAsGroupRange {
   /**
-  * max is the end of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
-  */
+   * max is the end of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
+   */
   readonly max: number;
   /**
-  * min is the start of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
-  */
+   * min is the start of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
+   */
   readonly min: number;
 }
 
-export function podSecurityPolicyV1Beta1SpecRunAsGroupRangeToTerraform(struct?: PodSecurityPolicyV1Beta1SpecRunAsGroupRange | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecRunAsGroupRangeToTerraform(
+  struct?: PodSecurityPolicyV1Beta1SpecRunAsGroupRange | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference extends cdktf.ComplexObject {
@@ -758,16 +940,29 @@ export class PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference extends 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecRunAsGroupRange | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecRunAsGroupRange
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -784,18 +979,21 @@ export class PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecRunAsGroupRange | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecRunAsGroupRange
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._max = undefined;
       this._min = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._max = value.max;
@@ -831,62 +1029,93 @@ export class PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference extends 
 }
 
 export class PodSecurityPolicyV1Beta1SpecRunAsGroupRangeList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecRunAsGroupRange[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecRunAsGroupRange[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecRunAsGroupRangeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecRunAsGroup {
   /**
-  * rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
-  */
+   * rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
+   */
   readonly rule: string;
   /**
-  * range block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
-  */
-  readonly range?: PodSecurityPolicyV1Beta1SpecRunAsGroupRange[] | cdktf.IResolvable;
+   * range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
+   */
+  readonly range?:
+    | PodSecurityPolicyV1Beta1SpecRunAsGroupRange[]
+    | cdktf.IResolvable;
 }
 
-export function podSecurityPolicyV1Beta1SpecRunAsGroupToTerraform(struct?: PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference | PodSecurityPolicyV1Beta1SpecRunAsGroup): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecRunAsGroupToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference
+    | PodSecurityPolicyV1Beta1SpecRunAsGroup,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     rule: cdktf.stringToTerraform(struct!.rule),
-    range: cdktf.listMapper(podSecurityPolicyV1Beta1SpecRunAsGroupRangeToTerraform, true)(struct!.range),
-  }
+    range: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecRunAsGroupRangeToTerraform,
+      true,
+    )(struct!.range),
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecRunAsGroup | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecRunAsGroup
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._rule !== undefined) {
@@ -900,13 +1129,14 @@ export class PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecRunAsGroup | undefined) {
+  public set internalValue(
+    value: PodSecurityPolicyV1Beta1SpecRunAsGroup | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._rule = undefined;
       this._range.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._rule = value.rule;
       this._range.internalValue = value.range;
@@ -927,11 +1157,17 @@ export class PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference extends cdktf
   }
 
   // range - computed: false, optional: true, required: false
-  private _range = new PodSecurityPolicyV1Beta1SpecRunAsGroupRangeList(this, "range", false);
+  private _range = new PodSecurityPolicyV1Beta1SpecRunAsGroupRangeList(
+    this,
+    'range',
+    false,
+  );
   public get range() {
     return this._range;
   }
-  public putRange(value: PodSecurityPolicyV1Beta1SpecRunAsGroupRange[] | cdktf.IResolvable) {
+  public putRange(
+    value: PodSecurityPolicyV1Beta1SpecRunAsGroupRange[] | cdktf.IResolvable,
+  ) {
     this._range.internalValue = value;
   }
   public resetRange() {
@@ -944,28 +1180,34 @@ export class PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference extends cdktf
 }
 export interface PodSecurityPolicyV1Beta1SpecRunAsUserRange {
   /**
-  * max is the end of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
-  */
+   * max is the end of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
+   */
   readonly max: number;
   /**
-  * min is the start of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
-  */
+   * min is the start of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
+   */
   readonly min: number;
 }
 
-export function podSecurityPolicyV1Beta1SpecRunAsUserRangeToTerraform(struct?: PodSecurityPolicyV1Beta1SpecRunAsUserRange | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecRunAsUserRangeToTerraform(
+  struct?: PodSecurityPolicyV1Beta1SpecRunAsUserRange | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference extends cdktf.ComplexObject {
@@ -973,16 +1215,29 @@ export class PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecRunAsUserRange | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecRunAsUserRange
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -999,18 +1254,21 @@ export class PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecRunAsUserRange | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecRunAsUserRange
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._max = undefined;
       this._min = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._max = value.max;
@@ -1046,62 +1304,93 @@ export class PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference extends c
 }
 
 export class PodSecurityPolicyV1Beta1SpecRunAsUserRangeList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecRunAsUserRange[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecRunAsUserRange[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecRunAsUserRangeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecRunAsUser {
   /**
-  * rule is the strategy that will dictate the allowable RunAsUser values that may be set.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
-  */
+   * rule is the strategy that will dictate the allowable RunAsUser values that may be set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
+   */
   readonly rule: string;
   /**
-  * range block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
-  */
-  readonly range?: PodSecurityPolicyV1Beta1SpecRunAsUserRange[] | cdktf.IResolvable;
+   * range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
+   */
+  readonly range?:
+    | PodSecurityPolicyV1Beta1SpecRunAsUserRange[]
+    | cdktf.IResolvable;
 }
 
-export function podSecurityPolicyV1Beta1SpecRunAsUserToTerraform(struct?: PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference | PodSecurityPolicyV1Beta1SpecRunAsUser): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecRunAsUserToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference
+    | PodSecurityPolicyV1Beta1SpecRunAsUser,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     rule: cdktf.stringToTerraform(struct!.rule),
-    range: cdktf.listMapper(podSecurityPolicyV1Beta1SpecRunAsUserRangeToTerraform, true)(struct!.range),
-  }
+    range: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecRunAsUserRangeToTerraform,
+      true,
+    )(struct!.range),
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecRunAsUser | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecRunAsUser
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._rule !== undefined) {
@@ -1115,13 +1404,14 @@ export class PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecRunAsUser | undefined) {
+  public set internalValue(
+    value: PodSecurityPolicyV1Beta1SpecRunAsUser | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._rule = undefined;
       this._range.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._rule = value.rule;
       this._range.internalValue = value.range;
@@ -1142,11 +1432,17 @@ export class PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference extends cdktf.
   }
 
   // range - computed: false, optional: true, required: false
-  private _range = new PodSecurityPolicyV1Beta1SpecRunAsUserRangeList(this, "range", false);
+  private _range = new PodSecurityPolicyV1Beta1SpecRunAsUserRangeList(
+    this,
+    'range',
+    false,
+  );
   public get range() {
     return this._range;
   }
-  public putRange(value: PodSecurityPolicyV1Beta1SpecRunAsUserRange[] | cdktf.IResolvable) {
+  public putRange(
+    value: PodSecurityPolicyV1Beta1SpecRunAsUserRange[] | cdktf.IResolvable,
+  ) {
     this._range.internalValue = value;
   }
   public resetRange() {
@@ -1159,34 +1455,42 @@ export class PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference extends cdktf.
 }
 export interface PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#level PodSecurityPolicyV1Beta1#level}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#level PodSecurityPolicyV1Beta1#level}
+   */
   readonly level: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#role PodSecurityPolicyV1Beta1#role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#role PodSecurityPolicyV1Beta1#role}
+   */
   readonly role: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#type PodSecurityPolicyV1Beta1#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#type PodSecurityPolicyV1Beta1#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#user PodSecurityPolicyV1Beta1#user}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#user PodSecurityPolicyV1Beta1#user}
+   */
   readonly user: string;
 }
 
-export function podSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsToTerraform(struct?: PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
@@ -1194,16 +1498,29 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1228,7 +1545,12 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1236,12 +1558,10 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference ex
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._level = value.level;
@@ -1305,58 +1625,87 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference ex
 }
 
 export class PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecSeLinux {
   /**
-  * rule is the strategy that will dictate the allowable labels that may be set.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
-  */
+   * rule is the strategy that will dictate the allowable labels that may be set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
+   */
   readonly rule: string;
   /**
-  * se_linux_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#se_linux_options PodSecurityPolicyV1Beta1#se_linux_options}
-  */
-  readonly seLinuxOptions?: PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions[] | cdktf.IResolvable;
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#se_linux_options PodSecurityPolicyV1Beta1#se_linux_options}
+   */
+  readonly seLinuxOptions?:
+    | PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions[]
+    | cdktf.IResolvable;
 }
 
-export function podSecurityPolicyV1Beta1SpecSeLinuxToTerraform(struct?: PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference | PodSecurityPolicyV1Beta1SpecSeLinux): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecSeLinuxToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference
+    | PodSecurityPolicyV1Beta1SpecSeLinux,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     rule: cdktf.stringToTerraform(struct!.rule),
-    se_linux_options: cdktf.listMapper(podSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsToTerraform, true)(struct!.seLinuxOptions),
-  }
+    se_linux_options: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsToTerraform,
+      true,
+    )(struct!.seLinuxOptions),
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1374,13 +1723,14 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecSeLinux | undefined) {
+  public set internalValue(
+    value: PodSecurityPolicyV1Beta1SpecSeLinux | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._rule = undefined;
       this._seLinuxOptions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._rule = value.rule;
       this._seLinuxOptions.internalValue = value.seLinuxOptions;
@@ -1401,11 +1751,20 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference extends cdktf.Co
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsList(this, "se_linux_options", false);
+  private _seLinuxOptions =
+    new PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptionsList(
+      this,
+      'se_linux_options',
+      false,
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions[] | cdktf.IResolvable) {
+  public putSeLinuxOptions(
+    value:
+      | PodSecurityPolicyV1Beta1SpecSeLinuxSeLinuxOptions[]
+      | cdktf.IResolvable,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -1418,28 +1777,36 @@ export class PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference extends cdktf.Co
 }
 export interface PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange {
   /**
-  * max is the end of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
-  */
+   * max is the end of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#max PodSecurityPolicyV1Beta1#max}
+   */
   readonly max: number;
   /**
-  * min is the start of the range, inclusive.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
-  */
+   * min is the start of the range, inclusive.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#min PodSecurityPolicyV1Beta1#min}
+   */
   readonly min: number;
 }
 
-export function podSecurityPolicyV1Beta1SpecSupplementalGroupsRangeToTerraform(struct?: PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecSupplementalGroupsRangeToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference extends cdktf.ComplexObject {
@@ -1447,16 +1814,29 @@ export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1473,18 +1853,21 @@ export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._max = undefined;
       this._min = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._max = value.max;
@@ -1520,62 +1903,93 @@ export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference 
 }
 
 export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeList extends cdktf.ComplexList {
-  public internalValue? : PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange[] | cdktf.IResolvable
+  public internalValue?:
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference {
-    return new PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference {
+    return new PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PodSecurityPolicyV1Beta1SpecSupplementalGroups {
   /**
-  * rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
-  */
+   * rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#rule PodSecurityPolicyV1Beta1#rule}
+   */
   readonly rule: string;
   /**
-  * range block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
-  */
-  readonly range?: PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange[] | cdktf.IResolvable;
+   * range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#range PodSecurityPolicyV1Beta1#range}
+   */
+  readonly range?:
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange[]
+    | cdktf.IResolvable;
 }
 
-export function podSecurityPolicyV1Beta1SpecSupplementalGroupsToTerraform(struct?: PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference | PodSecurityPolicyV1Beta1SpecSupplementalGroups): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecSupplementalGroupsToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroups,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     rule: cdktf.stringToTerraform(struct!.rule),
-    range: cdktf.listMapper(podSecurityPolicyV1Beta1SpecSupplementalGroupsRangeToTerraform, true)(struct!.range),
-  }
+    range: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecSupplementalGroupsRangeToTerraform,
+      true,
+    )(struct!.range),
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PodSecurityPolicyV1Beta1SpecSupplementalGroups | undefined {
+  public get internalValue():
+    | PodSecurityPolicyV1Beta1SpecSupplementalGroups
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._rule !== undefined) {
@@ -1589,13 +2003,14 @@ export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PodSecurityPolicyV1Beta1SpecSupplementalGroups | undefined) {
+  public set internalValue(
+    value: PodSecurityPolicyV1Beta1SpecSupplementalGroups | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._rule = undefined;
       this._range.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._rule = value.rule;
       this._range.internalValue = value.range;
@@ -1616,11 +2031,19 @@ export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference exten
   }
 
   // range - computed: false, optional: true, required: false
-  private _range = new PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeList(this, "range", false);
+  private _range = new PodSecurityPolicyV1Beta1SpecSupplementalGroupsRangeList(
+    this,
+    'range',
+    false,
+  );
   public get range() {
     return this._range;
   }
-  public putRange(value: PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange[] | cdktf.IResolvable) {
+  public putRange(
+    value:
+      | PodSecurityPolicyV1Beta1SpecSupplementalGroupsRange[]
+      | cdktf.IResolvable,
+  ) {
     this._range.internalValue = value;
   }
   public resetRange() {
@@ -1633,22 +2056,22 @@ export class PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference exten
 }
 export interface PodSecurityPolicyV1Beta1Spec {
   /**
-  * allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allow_privilege_escalation PodSecurityPolicyV1Beta1#allow_privilege_escalation}
-  */
+   * allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allow_privilege_escalation PodSecurityPolicyV1Beta1#allow_privilege_escalation}
+   */
   readonly allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   /**
-  * allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_capabilities PodSecurityPolicyV1Beta1#allowed_capabilities}
-  */
+   * allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_capabilities PodSecurityPolicyV1Beta1#allowed_capabilities}
+   */
   readonly allowedCapabilities?: string[];
   /**
-  * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes. Empty or nil indicates that only the DefaultProcMountType may be used. This requires the ProcMountType feature flag to be enabled.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_proc_mount_types PodSecurityPolicyV1Beta1#allowed_proc_mount_types}
-  */
+   * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes. Empty or nil indicates that only the DefaultProcMountType may be used. This requires the ProcMountType feature flag to be enabled.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_proc_mount_types PodSecurityPolicyV1Beta1#allowed_proc_mount_types}
+   */
   readonly allowedProcMountTypes?: string[];
   /**
   * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed. Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
@@ -1659,16 +2082,16 @@ Examples: e.g. "foo/*" allows "foo/bar", "foo/baz", etc. e.g. "foo.*" allows "fo
   */
   readonly allowedUnsafeSysctls?: string[];
   /**
-  * defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#default_add_capabilities PodSecurityPolicyV1Beta1#default_add_capabilities}
-  */
+   * defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#default_add_capabilities PodSecurityPolicyV1Beta1#default_add_capabilities}
+   */
   readonly defaultAddCapabilities?: string[];
   /**
-  * defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#default_allow_privilege_escalation PodSecurityPolicyV1Beta1#default_allow_privilege_escalation}
-  */
+   * defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#default_allow_privilege_escalation PodSecurityPolicyV1Beta1#default_allow_privilege_escalation}
+   */
   readonly defaultAllowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   /**
   * forbiddenSysctls is a list of explicitly forbidden sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of forbidden sysctls. Single * means all sysctls are forbidden.
@@ -1679,136 +2102,193 @@ Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "
   */
   readonly forbiddenSysctls?: string[];
   /**
-  * hostIPC determines if the policy allows the use of HostIPC in the pod spec.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_ipc PodSecurityPolicyV1Beta1#host_ipc}
-  */
+   * hostIPC determines if the policy allows the use of HostIPC in the pod spec.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_ipc PodSecurityPolicyV1Beta1#host_ipc}
+   */
   readonly hostIpc?: boolean | cdktf.IResolvable;
   /**
-  * hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_network PodSecurityPolicyV1Beta1#host_network}
-  */
+   * hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_network PodSecurityPolicyV1Beta1#host_network}
+   */
   readonly hostNetwork?: boolean | cdktf.IResolvable;
   /**
-  * hostPID determines if the policy allows the use of HostPID in the pod spec.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_pid PodSecurityPolicyV1Beta1#host_pid}
-  */
+   * hostPID determines if the policy allows the use of HostPID in the pod spec.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_pid PodSecurityPolicyV1Beta1#host_pid}
+   */
   readonly hostPid?: boolean | cdktf.IResolvable;
   /**
-  * privileged determines if a pod can request to be run as privileged.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#privileged PodSecurityPolicyV1Beta1#privileged}
-  */
+   * privileged determines if a pod can request to be run as privileged.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#privileged PodSecurityPolicyV1Beta1#privileged}
+   */
   readonly privileged?: boolean | cdktf.IResolvable;
   /**
-  * readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#read_only_root_filesystem PodSecurityPolicyV1Beta1#read_only_root_filesystem}
-  */
+   * readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#read_only_root_filesystem PodSecurityPolicyV1Beta1#read_only_root_filesystem}
+   */
   readonly readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   /**
-  * requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#required_drop_capabilities PodSecurityPolicyV1Beta1#required_drop_capabilities}
-  */
+   * requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#required_drop_capabilities PodSecurityPolicyV1Beta1#required_drop_capabilities}
+   */
   readonly requiredDropCapabilities?: string[];
   /**
-  * volumes is an allowlist of volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#volumes PodSecurityPolicyV1Beta1#volumes}
-  */
+   * volumes is an allowlist of volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#volumes PodSecurityPolicyV1Beta1#volumes}
+   */
   readonly volumes?: string[];
   /**
-  * allowed_flex_volumes block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_flex_volumes PodSecurityPolicyV1Beta1#allowed_flex_volumes}
-  */
-  readonly allowedFlexVolumes?: PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes[] | cdktf.IResolvable;
+   * allowed_flex_volumes block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_flex_volumes PodSecurityPolicyV1Beta1#allowed_flex_volumes}
+   */
+  readonly allowedFlexVolumes?:
+    | PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes[]
+    | cdktf.IResolvable;
   /**
-  * allowed_host_paths block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_host_paths PodSecurityPolicyV1Beta1#allowed_host_paths}
-  */
-  readonly allowedHostPaths?: PodSecurityPolicyV1Beta1SpecAllowedHostPaths[] | cdktf.IResolvable;
+   * allowed_host_paths block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#allowed_host_paths PodSecurityPolicyV1Beta1#allowed_host_paths}
+   */
+  readonly allowedHostPaths?:
+    | PodSecurityPolicyV1Beta1SpecAllowedHostPaths[]
+    | cdktf.IResolvable;
   /**
-  * fs_group block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#fs_group PodSecurityPolicyV1Beta1#fs_group}
-  */
+   * fs_group block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#fs_group PodSecurityPolicyV1Beta1#fs_group}
+   */
   readonly fsGroup: PodSecurityPolicyV1Beta1SpecFsGroup;
   /**
-  * host_ports block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_ports PodSecurityPolicyV1Beta1#host_ports}
-  */
-  readonly hostPorts?: PodSecurityPolicyV1Beta1SpecHostPorts[] | cdktf.IResolvable;
+   * host_ports block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#host_ports PodSecurityPolicyV1Beta1#host_ports}
+   */
+  readonly hostPorts?:
+    | PodSecurityPolicyV1Beta1SpecHostPorts[]
+    | cdktf.IResolvable;
   /**
-  * run_as_group block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#run_as_group PodSecurityPolicyV1Beta1#run_as_group}
-  */
+   * run_as_group block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#run_as_group PodSecurityPolicyV1Beta1#run_as_group}
+   */
   readonly runAsGroup?: PodSecurityPolicyV1Beta1SpecRunAsGroup;
   /**
-  * run_as_user block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#run_as_user PodSecurityPolicyV1Beta1#run_as_user}
-  */
+   * run_as_user block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#run_as_user PodSecurityPolicyV1Beta1#run_as_user}
+   */
   readonly runAsUser: PodSecurityPolicyV1Beta1SpecRunAsUser;
   /**
-  * se_linux block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#se_linux PodSecurityPolicyV1Beta1#se_linux}
-  */
+   * se_linux block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#se_linux PodSecurityPolicyV1Beta1#se_linux}
+   */
   readonly seLinux?: PodSecurityPolicyV1Beta1SpecSeLinux;
   /**
-  * supplemental_groups block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#supplemental_groups PodSecurityPolicyV1Beta1#supplemental_groups}
-  */
+   * supplemental_groups block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1#supplemental_groups PodSecurityPolicyV1Beta1#supplemental_groups}
+   */
   readonly supplementalGroups: PodSecurityPolicyV1Beta1SpecSupplementalGroups;
 }
 
-export function podSecurityPolicyV1Beta1SpecToTerraform(struct?: PodSecurityPolicyV1Beta1SpecOutputReference | PodSecurityPolicyV1Beta1Spec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function podSecurityPolicyV1Beta1SpecToTerraform(
+  struct?:
+    | PodSecurityPolicyV1Beta1SpecOutputReference
+    | PodSecurityPolicyV1Beta1Spec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    allow_privilege_escalation: cdktf.booleanToTerraform(struct!.allowPrivilegeEscalation),
-    allowed_capabilities: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedCapabilities),
-    allowed_proc_mount_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedProcMountTypes),
-    allowed_unsafe_sysctls: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedUnsafeSysctls),
-    default_add_capabilities: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.defaultAddCapabilities),
-    default_allow_privilege_escalation: cdktf.booleanToTerraform(struct!.defaultAllowPrivilegeEscalation),
-    forbidden_sysctls: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.forbiddenSysctls),
+    allow_privilege_escalation: cdktf.booleanToTerraform(
+      struct!.allowPrivilegeEscalation,
+    ),
+    allowed_capabilities: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedCapabilities),
+    allowed_proc_mount_types: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedProcMountTypes),
+    allowed_unsafe_sysctls: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedUnsafeSysctls),
+    default_add_capabilities: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.defaultAddCapabilities),
+    default_allow_privilege_escalation: cdktf.booleanToTerraform(
+      struct!.defaultAllowPrivilegeEscalation,
+    ),
+    forbidden_sysctls: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.forbiddenSysctls),
     host_ipc: cdktf.booleanToTerraform(struct!.hostIpc),
     host_network: cdktf.booleanToTerraform(struct!.hostNetwork),
     host_pid: cdktf.booleanToTerraform(struct!.hostPid),
     privileged: cdktf.booleanToTerraform(struct!.privileged),
-    read_only_root_filesystem: cdktf.booleanToTerraform(struct!.readOnlyRootFilesystem),
-    required_drop_capabilities: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.requiredDropCapabilities),
+    read_only_root_filesystem: cdktf.booleanToTerraform(
+      struct!.readOnlyRootFilesystem,
+    ),
+    required_drop_capabilities: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.requiredDropCapabilities),
     volumes: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.volumes),
-    allowed_flex_volumes: cdktf.listMapper(podSecurityPolicyV1Beta1SpecAllowedFlexVolumesToTerraform, true)(struct!.allowedFlexVolumes),
-    allowed_host_paths: cdktf.listMapper(podSecurityPolicyV1Beta1SpecAllowedHostPathsToTerraform, true)(struct!.allowedHostPaths),
+    allowed_flex_volumes: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecAllowedFlexVolumesToTerraform,
+      true,
+    )(struct!.allowedFlexVolumes),
+    allowed_host_paths: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecAllowedHostPathsToTerraform,
+      true,
+    )(struct!.allowedHostPaths),
     fs_group: podSecurityPolicyV1Beta1SpecFsGroupToTerraform(struct!.fsGroup),
-    host_ports: cdktf.listMapper(podSecurityPolicyV1Beta1SpecHostPortsToTerraform, true)(struct!.hostPorts),
-    run_as_group: podSecurityPolicyV1Beta1SpecRunAsGroupToTerraform(struct!.runAsGroup),
-    run_as_user: podSecurityPolicyV1Beta1SpecRunAsUserToTerraform(struct!.runAsUser),
+    host_ports: cdktf.listMapper(
+      podSecurityPolicyV1Beta1SpecHostPortsToTerraform,
+      true,
+    )(struct!.hostPorts),
+    run_as_group: podSecurityPolicyV1Beta1SpecRunAsGroupToTerraform(
+      struct!.runAsGroup,
+    ),
+    run_as_user: podSecurityPolicyV1Beta1SpecRunAsUserToTerraform(
+      struct!.runAsUser,
+    ),
     se_linux: podSecurityPolicyV1Beta1SpecSeLinuxToTerraform(struct!.seLinux),
-    supplemental_groups: podSecurityPolicyV1Beta1SpecSupplementalGroupsToTerraform(struct!.supplementalGroups),
-  }
+    supplemental_groups:
+      podSecurityPolicyV1Beta1SpecSupplementalGroupsToTerraform(
+        struct!.supplementalGroups,
+      ),
+  };
 }
 
 export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1817,7 +2297,8 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
     const internalValueResult: any = {};
     if (this._allowPrivilegeEscalation !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allowPrivilegeEscalation = this._allowPrivilegeEscalation;
+      internalValueResult.allowPrivilegeEscalation =
+        this._allowPrivilegeEscalation;
     }
     if (this._allowedCapabilities !== undefined) {
       hasAnyValues = true;
@@ -1837,7 +2318,8 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
     }
     if (this._defaultAllowPrivilegeEscalation !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultAllowPrivilegeEscalation = this._defaultAllowPrivilegeEscalation;
+      internalValueResult.defaultAllowPrivilegeEscalation =
+        this._defaultAllowPrivilegeEscalation;
     }
     if (this._forbiddenSysctls !== undefined) {
       hasAnyValues = true;
@@ -1865,7 +2347,8 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
     }
     if (this._requiredDropCapabilities !== undefined) {
       hasAnyValues = true;
-      internalValueResult.requiredDropCapabilities = this._requiredDropCapabilities;
+      internalValueResult.requiredDropCapabilities =
+        this._requiredDropCapabilities;
     }
     if (this._volumes !== undefined) {
       hasAnyValues = true;
@@ -1873,11 +2356,13 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
     }
     if (this._allowedFlexVolumes?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allowedFlexVolumes = this._allowedFlexVolumes?.internalValue;
+      internalValueResult.allowedFlexVolumes =
+        this._allowedFlexVolumes?.internalValue;
     }
     if (this._allowedHostPaths?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allowedHostPaths = this._allowedHostPaths?.internalValue;
+      internalValueResult.allowedHostPaths =
+        this._allowedHostPaths?.internalValue;
     }
     if (this._fsGroup?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1901,7 +2386,8 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
     }
     if (this._supplementalGroups?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.supplementalGroups = this._supplementalGroups?.internalValue;
+      internalValueResult.supplementalGroups =
+        this._supplementalGroups?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -1931,15 +2417,15 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
       this._runAsUser.internalValue = undefined;
       this._seLinux.internalValue = undefined;
       this._supplementalGroups.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowPrivilegeEscalation = value.allowPrivilegeEscalation;
       this._allowedCapabilities = value.allowedCapabilities;
       this._allowedProcMountTypes = value.allowedProcMountTypes;
       this._allowedUnsafeSysctls = value.allowedUnsafeSysctls;
       this._defaultAddCapabilities = value.defaultAddCapabilities;
-      this._defaultAllowPrivilegeEscalation = value.defaultAllowPrivilegeEscalation;
+      this._defaultAllowPrivilegeEscalation =
+        value.defaultAllowPrivilegeEscalation;
       this._forbiddenSysctls = value.forbiddenSysctls;
       this._hostIpc = value.hostIpc;
       this._hostNetwork = value.hostNetwork;
@@ -2044,7 +2530,9 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   public get defaultAllowPrivilegeEscalation() {
     return this.getBooleanAttribute('default_allow_privilege_escalation');
   }
-  public set defaultAllowPrivilegeEscalation(value: boolean | cdktf.IResolvable) {
+  public set defaultAllowPrivilegeEscalation(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._defaultAllowPrivilegeEscalation = value;
   }
   public resetDefaultAllowPrivilegeEscalation() {
@@ -2184,11 +2672,18 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // allowed_flex_volumes - computed: false, optional: true, required: false
-  private _allowedFlexVolumes = new PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesList(this, "allowed_flex_volumes", false);
+  private _allowedFlexVolumes =
+    new PodSecurityPolicyV1Beta1SpecAllowedFlexVolumesList(
+      this,
+      'allowed_flex_volumes',
+      false,
+    );
   public get allowedFlexVolumes() {
     return this._allowedFlexVolumes;
   }
-  public putAllowedFlexVolumes(value: PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes[] | cdktf.IResolvable) {
+  public putAllowedFlexVolumes(
+    value: PodSecurityPolicyV1Beta1SpecAllowedFlexVolumes[] | cdktf.IResolvable,
+  ) {
     this._allowedFlexVolumes.internalValue = value;
   }
   public resetAllowedFlexVolumes() {
@@ -2200,11 +2695,18 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // allowed_host_paths - computed: false, optional: true, required: false
-  private _allowedHostPaths = new PodSecurityPolicyV1Beta1SpecAllowedHostPathsList(this, "allowed_host_paths", false);
+  private _allowedHostPaths =
+    new PodSecurityPolicyV1Beta1SpecAllowedHostPathsList(
+      this,
+      'allowed_host_paths',
+      false,
+    );
   public get allowedHostPaths() {
     return this._allowedHostPaths;
   }
-  public putAllowedHostPaths(value: PodSecurityPolicyV1Beta1SpecAllowedHostPaths[] | cdktf.IResolvable) {
+  public putAllowedHostPaths(
+    value: PodSecurityPolicyV1Beta1SpecAllowedHostPaths[] | cdktf.IResolvable,
+  ) {
     this._allowedHostPaths.internalValue = value;
   }
   public resetAllowedHostPaths() {
@@ -2216,7 +2718,10 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // fs_group - computed: false, optional: false, required: true
-  private _fsGroup = new PodSecurityPolicyV1Beta1SpecFsGroupOutputReference(this, "fs_group");
+  private _fsGroup = new PodSecurityPolicyV1Beta1SpecFsGroupOutputReference(
+    this,
+    'fs_group',
+  );
   public get fsGroup() {
     return this._fsGroup;
   }
@@ -2229,11 +2734,17 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // host_ports - computed: false, optional: true, required: false
-  private _hostPorts = new PodSecurityPolicyV1Beta1SpecHostPortsList(this, "host_ports", false);
+  private _hostPorts = new PodSecurityPolicyV1Beta1SpecHostPortsList(
+    this,
+    'host_ports',
+    false,
+  );
   public get hostPorts() {
     return this._hostPorts;
   }
-  public putHostPorts(value: PodSecurityPolicyV1Beta1SpecHostPorts[] | cdktf.IResolvable) {
+  public putHostPorts(
+    value: PodSecurityPolicyV1Beta1SpecHostPorts[] | cdktf.IResolvable,
+  ) {
     this._hostPorts.internalValue = value;
   }
   public resetHostPorts() {
@@ -2245,7 +2756,11 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup = new PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference(this, "run_as_group");
+  private _runAsGroup =
+    new PodSecurityPolicyV1Beta1SpecRunAsGroupOutputReference(
+      this,
+      'run_as_group',
+    );
   public get runAsGroup() {
     return this._runAsGroup;
   }
@@ -2261,7 +2776,10 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // run_as_user - computed: false, optional: false, required: true
-  private _runAsUser = new PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference(this, "run_as_user");
+  private _runAsUser = new PodSecurityPolicyV1Beta1SpecRunAsUserOutputReference(
+    this,
+    'run_as_user',
+  );
   public get runAsUser() {
     return this._runAsUser;
   }
@@ -2274,7 +2792,10 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // se_linux - computed: false, optional: true, required: false
-  private _seLinux = new PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference(this, "se_linux");
+  private _seLinux = new PodSecurityPolicyV1Beta1SpecSeLinuxOutputReference(
+    this,
+    'se_linux',
+  );
   public get seLinux() {
     return this._seLinux;
   }
@@ -2290,11 +2811,17 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
   }
 
   // supplemental_groups - computed: false, optional: false, required: true
-  private _supplementalGroups = new PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference(this, "supplemental_groups");
+  private _supplementalGroups =
+    new PodSecurityPolicyV1Beta1SpecSupplementalGroupsOutputReference(
+      this,
+      'supplemental_groups',
+    );
   public get supplementalGroups() {
     return this._supplementalGroups;
   }
-  public putSupplementalGroups(value: PodSecurityPolicyV1Beta1SpecSupplementalGroups) {
+  public putSupplementalGroups(
+    value: PodSecurityPolicyV1Beta1SpecSupplementalGroups,
+  ) {
     this._supplementalGroups.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2304,33 +2831,37 @@ export class PodSecurityPolicyV1Beta1SpecOutputReference extends cdktf.ComplexOb
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1 kubernetes_pod_security_policy_v1beta1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1 kubernetes_pod_security_policy_v1beta1}
+ */
 export class PodSecurityPolicyV1Beta1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_pod_security_policy_v1beta1";
+  public static readonly tfResourceType =
+    'kubernetes_pod_security_policy_v1beta1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1 kubernetes_pod_security_policy_v1beta1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options PodSecurityPolicyV1Beta1Config
-  */
-  public constructor(scope: Construct, id: string, config: PodSecurityPolicyV1Beta1Config) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/pod_security_policy_v1beta1 kubernetes_pod_security_policy_v1beta1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options PodSecurityPolicyV1Beta1Config
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: PodSecurityPolicyV1Beta1Config,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_pod_security_policy_v1beta1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2338,7 +2869,7 @@ export class PodSecurityPolicyV1Beta1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -2366,7 +2897,10 @@ export class PodSecurityPolicyV1Beta1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new PodSecurityPolicyV1Beta1MetadataOutputReference(this, "metadata");
+  private _metadata = new PodSecurityPolicyV1Beta1MetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -2379,7 +2913,7 @@ export class PodSecurityPolicyV1Beta1 extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new PodSecurityPolicyV1Beta1SpecOutputReference(this, "spec");
+  private _spec = new PodSecurityPolicyV1Beta1SpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -2398,7 +2932,9 @@ export class PodSecurityPolicyV1Beta1 extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      metadata: podSecurityPolicyV1Beta1MetadataToTerraform(this._metadata.internalValue),
+      metadata: podSecurityPolicyV1Beta1MetadataToTerraform(
+        this._metadata.internalValue,
+      ),
       spec: podSecurityPolicyV1Beta1SpecToTerraform(this._spec.internalValue),
     };
   }

@@ -1,5 +1,5 @@
-import { BaseCommand } from '../../base-command.js';
-import { createTable } from '../../utils/table.js';
+import { BaseCommand } from '../../base-command.ts';
+import { createTable } from '../../utils/table.ts';
 
 export class ListEnvironmentsCmd extends BaseCommand {
   static description = 'List registered environments';

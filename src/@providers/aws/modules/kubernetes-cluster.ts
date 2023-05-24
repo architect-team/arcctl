@@ -1,18 +1,18 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import KubernetesUtils from '../../kubernetes.js';
-import { ResourceModule } from '../../module.js';
-import { ProviderStore } from '../../store.js';
-import { SupportedProviders } from '../../supported-providers.js';
-import { SaveFileFn } from '../../types.js';
-import { Eks } from '../.gen/modules/eks.js';
-import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.js';
-import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.js';
-import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.js';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
-import { Sleep } from '../.gen/providers/time/sleep/index.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
-import { TerraformOutput } from 'cdktf';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import KubernetesUtils from '../../kubernetes.ts';
+import { ResourceModule } from '../../module.ts';
+import { ProviderStore } from '../../store.ts';
+import { SupportedProviders } from '../../supported-providers.ts';
+import { SaveFileFn } from '../../types.ts';
+import { Eks } from '../.gen/modules/eks.ts';
+import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.ts';
+import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.ts';
+import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.ts';
+import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { Sleep } from '../.gen/providers/time/sleep/index.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
+import { TerraformOutput } from 'npm:cdktf';
 import { Construct } from 'npm:constructs';
 
 export class AwsKubernetesClusterModule extends ResourceModule<
@@ -89,7 +89,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
           name: nodePool.name,
         }))
       : [];
-    const managedNodeGroups: Record<string, typeof nodeGroups[number]> = {};
+    const managedNodeGroups: Record<string, (typeof nodeGroups)[number]> = {};
     for (const nodeGroup of nodeGroups) {
       managedNodeGroups[nodeGroup.name] = nodeGroup;
     }

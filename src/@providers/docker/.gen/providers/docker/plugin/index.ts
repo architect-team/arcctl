@@ -2,97 +2,103 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface PluginConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docker Plugin alias
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#alias Plugin#alias}
-  */
+   * Docker Plugin alias
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#alias Plugin#alias}
+   */
   readonly alias?: string;
   /**
-  * HTTP client timeout to enable the plugin
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#enable_timeout Plugin#enable_timeout}
-  */
+   * HTTP client timeout to enable the plugin
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#enable_timeout Plugin#enable_timeout}
+   */
   readonly enableTimeout?: number;
   /**
-  * If `true` the plugin is enabled. Defaults to `true`
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#enabled Plugin#enabled}
-  */
+   * If `true` the plugin is enabled. Defaults to `true`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#enabled Plugin#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * The environment variables in the form of `KEY=VALUE`, e.g. `DEBUG=0`
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#env Plugin#env}
-  */
+   * The environment variables in the form of `KEY=VALUE`, e.g. `DEBUG=0`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#env Plugin#env}
+   */
   readonly env?: string[];
   /**
-  * If true, then the plugin is destroyed forcibly
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#force_destroy Plugin#force_destroy}
-  */
+   * If true, then the plugin is destroyed forcibly
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#force_destroy Plugin#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * If true, then the plugin is disabled forcibly
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#force_disable Plugin#force_disable}
-  */
+   * If true, then the plugin is disabled forcibly
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#force_disable Plugin#force_disable}
+   */
   readonly forceDisable?: boolean | cdktf.IResolvable;
   /**
-  * If true, grant all permissions necessary to run the plugin
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#grant_all_permissions Plugin#grant_all_permissions}
-  */
+   * If true, grant all permissions necessary to run the plugin
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#grant_all_permissions Plugin#grant_all_permissions}
+   */
   readonly grantAllPermissions?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#id Plugin#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#id Plugin#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docker Plugin name
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#name Plugin#name}
-  */
+   * Docker Plugin name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#name Plugin#name}
+   */
   readonly name: string;
   /**
-  * grant_permissions block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#grant_permissions Plugin#grant_permissions}
-  */
+   * grant_permissions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#grant_permissions Plugin#grant_permissions}
+   */
   readonly grantPermissions?: PluginGrantPermissions[] | cdktf.IResolvable;
 }
 export interface PluginGrantPermissions {
   /**
-  * The name of the permission
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#name Plugin#name}
-  */
+   * The name of the permission
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#name Plugin#name}
+   */
   readonly name: string;
   /**
-  * The value of the permission
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#value Plugin#value}
-  */
+   * The value of the permission
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/plugin#value Plugin#value}
+   */
   readonly value: string[];
 }
 
-export function pluginGrantPermissionsToTerraform(struct?: PluginGrantPermissions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function pluginGrantPermissionsToTerraform(
+  struct?: PluginGrantPermissions | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.value),
-  }
+  };
 }
 
 export class PluginGrantPermissionsOutputReference extends cdktf.ComplexObject {
@@ -100,16 +106,29 @@ export class PluginGrantPermissionsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PluginGrantPermissions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PluginGrantPermissions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -126,18 +145,18 @@ export class PluginGrantPermissionsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PluginGrantPermissions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: PluginGrantPermissions | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -173,53 +192,61 @@ export class PluginGrantPermissionsOutputReference extends cdktf.ComplexObject {
 }
 
 export class PluginGrantPermissionsList extends cdktf.ComplexList {
-  public internalValue? : PluginGrantPermissions[] | cdktf.IResolvable
+  public internalValue?: PluginGrantPermissions[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): PluginGrantPermissionsOutputReference {
-    return new PluginGrantPermissionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new PluginGrantPermissionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/r/plugin docker_plugin}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/r/plugin docker_plugin}
+ */
 export class Plugin extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_plugin";
+  public static readonly tfResourceType = 'docker_plugin';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/r/plugin docker_plugin} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options PluginConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/r/plugin docker_plugin} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options PluginConfig
+   */
   public constructor(scope: Construct, id: string, config: PluginConfig) {
     super(scope, id, {
       terraformResourceType: 'docker_plugin',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -227,7 +254,7 @@ export class Plugin extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._alias = config.alias;
     this._enableTimeout = config.enableTimeout;
@@ -392,11 +419,17 @@ export class Plugin extends cdktf.TerraformResource {
   }
 
   // grant_permissions - computed: false, optional: true, required: false
-  private _grantPermissions = new PluginGrantPermissionsList(this, "grant_permissions", true);
+  private _grantPermissions = new PluginGrantPermissionsList(
+    this,
+    'grant_permissions',
+    true,
+  );
   public get grantPermissions() {
     return this._grantPermissions;
   }
-  public putGrantPermissions(value: PluginGrantPermissions[] | cdktf.IResolvable) {
+  public putGrantPermissions(
+    value: PluginGrantPermissions[] | cdktf.IResolvable,
+  ) {
     this._grantPermissions.internalValue = value;
   }
   public resetGrantPermissions() {
@@ -419,10 +452,15 @@ export class Plugin extends cdktf.TerraformResource {
       env: cdktf.listMapper(cdktf.stringToTerraform, false)(this._env),
       force_destroy: cdktf.booleanToTerraform(this._forceDestroy),
       force_disable: cdktf.booleanToTerraform(this._forceDisable),
-      grant_all_permissions: cdktf.booleanToTerraform(this._grantAllPermissions),
+      grant_all_permissions: cdktf.booleanToTerraform(
+        this._grantAllPermissions,
+      ),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      grant_permissions: cdktf.listMapper(pluginGrantPermissionsToTerraform, true)(this._grantPermissions.internalValue),
+      grant_permissions: cdktf.listMapper(
+        pluginGrantPermissionsToTerraform,
+        true,
+      )(this._grantPermissions.internalValue),
     };
   }
 }

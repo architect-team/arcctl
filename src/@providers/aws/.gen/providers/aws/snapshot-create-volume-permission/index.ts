@@ -2,53 +2,63 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface SnapshotCreateVolumePermissionConfig extends cdktf.TerraformMetaArguments {
+export interface SnapshotCreateVolumePermissionConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#account_id SnapshotCreateVolumePermission#account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#account_id SnapshotCreateVolumePermission#account_id}
+   */
   readonly accountId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#id SnapshotCreateVolumePermission#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#id SnapshotCreateVolumePermission#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#snapshot_id SnapshotCreateVolumePermission#snapshot_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#snapshot_id SnapshotCreateVolumePermission#snapshot_id}
+   */
   readonly snapshotId: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#timeouts SnapshotCreateVolumePermission#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#timeouts SnapshotCreateVolumePermission#timeouts}
+   */
   readonly timeouts?: SnapshotCreateVolumePermissionTimeouts;
 }
 export interface SnapshotCreateVolumePermissionTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#create SnapshotCreateVolumePermission#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#create SnapshotCreateVolumePermission#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#delete SnapshotCreateVolumePermission#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission#delete SnapshotCreateVolumePermission#delete}
+   */
   readonly delete?: string;
 }
 
-export function snapshotCreateVolumePermissionTimeoutsToTerraform(struct?: SnapshotCreateVolumePermissionTimeoutsOutputReference | SnapshotCreateVolumePermissionTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function snapshotCreateVolumePermissionTimeoutsToTerraform(
+  struct?:
+    | SnapshotCreateVolumePermissionTimeoutsOutputReference
+    | SnapshotCreateVolumePermissionTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class SnapshotCreateVolumePermissionTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -56,14 +66,20 @@ export class SnapshotCreateVolumePermissionTimeoutsOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SnapshotCreateVolumePermissionTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SnapshotCreateVolumePermissionTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -80,18 +96,21 @@ export class SnapshotCreateVolumePermissionTimeoutsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SnapshotCreateVolumePermissionTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | SnapshotCreateVolumePermissionTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -133,33 +152,37 @@ export class SnapshotCreateVolumePermissionTimeoutsOutputReference extends cdktf
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission aws_snapshot_create_volume_permission}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission aws_snapshot_create_volume_permission}
+ */
 export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_snapshot_create_volume_permission";
+  public static readonly tfResourceType =
+    'aws_snapshot_create_volume_permission';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission aws_snapshot_create_volume_permission} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SnapshotCreateVolumePermissionConfig
-  */
-  public constructor(scope: Construct, id: string, config: SnapshotCreateVolumePermissionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/snapshot_create_volume_permission aws_snapshot_create_volume_permission} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SnapshotCreateVolumePermissionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SnapshotCreateVolumePermissionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_snapshot_create_volume_permission',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -167,7 +190,7 @@ export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accountId = config.accountId;
     this._id = config.id;
@@ -222,7 +245,10 @@ export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new SnapshotCreateVolumePermissionTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new SnapshotCreateVolumePermissionTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -246,7 +272,9 @@ export class SnapshotCreateVolumePermission extends cdktf.TerraformResource {
       account_id: cdktf.stringToTerraform(this._accountId),
       id: cdktf.stringToTerraform(this._id),
       snapshot_id: cdktf.stringToTerraform(this._snapshotId),
-      timeouts: snapshotCreateVolumePermissionTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: snapshotCreateVolumePermissionTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

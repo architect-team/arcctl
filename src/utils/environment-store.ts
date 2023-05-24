@@ -1,6 +1,6 @@
-import { Environment } from '../environments/environment.js';
-import { parseEnvironment } from '../environments/parser.js';
-import { ExecutableGraph, ExecutableNode } from '../executable-graph/index.js';
+import { Environment } from '../environments/environment.ts';
+import { parseEnvironment } from '../environments/parser.ts';
+import { ExecutableGraph, ExecutableNode } from '../executable-graph/index.ts';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';

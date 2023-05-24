@@ -1,4 +1,4 @@
-import { BaseCommand } from '../../base-command.js';
+import { BaseCommand } from '../../base-command.ts';
 import yaml from 'js-yaml';
 
 export class GetComponentManifestCmd extends BaseCommand {

@@ -2,72 +2,81 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface CodebuildReportGroupConfig extends cdktf.TerraformMetaArguments {
+export interface CodebuildReportGroupConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#delete_reports CodebuildReportGroup#delete_reports}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#delete_reports CodebuildReportGroup#delete_reports}
+   */
   readonly deleteReports?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#id CodebuildReportGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#id CodebuildReportGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#name CodebuildReportGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#name CodebuildReportGroup#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#tags CodebuildReportGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#tags CodebuildReportGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#tags_all CodebuildReportGroup#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#tags_all CodebuildReportGroup#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#type CodebuildReportGroup#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#type CodebuildReportGroup#type}
+   */
   readonly type: string;
   /**
-  * export_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#export_config CodebuildReportGroup#export_config}
-  */
+   * export_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#export_config CodebuildReportGroup#export_config}
+   */
   readonly exportConfig: CodebuildReportGroupExportConfig;
 }
 export interface CodebuildReportGroupExportConfigS3Destination {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#bucket CodebuildReportGroup#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#bucket CodebuildReportGroup#bucket}
+   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#encryption_disabled CodebuildReportGroup#encryption_disabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#encryption_disabled CodebuildReportGroup#encryption_disabled}
+   */
   readonly encryptionDisabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#encryption_key CodebuildReportGroup#encryption_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#encryption_key CodebuildReportGroup#encryption_key}
+   */
   readonly encryptionKey: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#packaging CodebuildReportGroup#packaging}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#packaging CodebuildReportGroup#packaging}
+   */
   readonly packaging?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#path CodebuildReportGroup#path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#path CodebuildReportGroup#path}
+   */
   readonly path?: string;
 }
 
-export function codebuildReportGroupExportConfigS3DestinationToTerraform(struct?: CodebuildReportGroupExportConfigS3DestinationOutputReference | CodebuildReportGroupExportConfigS3Destination): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function codebuildReportGroupExportConfigS3DestinationToTerraform(
+  struct?:
+    | CodebuildReportGroupExportConfigS3DestinationOutputReference
+    | CodebuildReportGroupExportConfigS3Destination,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
@@ -75,21 +84,26 @@ export function codebuildReportGroupExportConfigS3DestinationToTerraform(struct?
     encryption_key: cdktf.stringToTerraform(struct!.encryptionKey),
     packaging: cdktf.stringToTerraform(struct!.packaging),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class CodebuildReportGroupExportConfigS3DestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CodebuildReportGroupExportConfigS3Destination | undefined {
+  public get internalValue():
+    | CodebuildReportGroupExportConfigS3Destination
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucket !== undefined) {
@@ -115,7 +129,9 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CodebuildReportGroupExportConfigS3Destination | undefined) {
+  public set internalValue(
+    value: CodebuildReportGroupExportConfigS3Destination | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
@@ -123,8 +139,7 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
       this._encryptionKey = undefined;
       this._packaging = undefined;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._encryptionDisabled = value.encryptionDisabled;
@@ -210,36 +225,49 @@ export class CodebuildReportGroupExportConfigS3DestinationOutputReference extend
 }
 export interface CodebuildReportGroupExportConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#type CodebuildReportGroup#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#type CodebuildReportGroup#type}
+   */
   readonly type: string;
   /**
-  * s3_destination block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#s3_destination CodebuildReportGroup#s3_destination}
-  */
+   * s3_destination block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group#s3_destination CodebuildReportGroup#s3_destination}
+   */
   readonly s3Destination?: CodebuildReportGroupExportConfigS3Destination;
 }
 
-export function codebuildReportGroupExportConfigToTerraform(struct?: CodebuildReportGroupExportConfigOutputReference | CodebuildReportGroupExportConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function codebuildReportGroupExportConfigToTerraform(
+  struct?:
+    | CodebuildReportGroupExportConfigOutputReference
+    | CodebuildReportGroupExportConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-    s3_destination: codebuildReportGroupExportConfigS3DestinationToTerraform(struct!.s3Destination),
-  }
+    s3_destination: codebuildReportGroupExportConfigS3DestinationToTerraform(
+      struct!.s3Destination,
+    ),
+  };
 }
 
 export class CodebuildReportGroupExportConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -257,13 +285,14 @@ export class CodebuildReportGroupExportConfigOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CodebuildReportGroupExportConfig | undefined) {
+  public set internalValue(
+    value: CodebuildReportGroupExportConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._type = undefined;
       this._s3Destination.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._type = value.type;
       this._s3Destination.internalValue = value.s3Destination;
@@ -284,11 +313,17 @@ export class CodebuildReportGroupExportConfigOutputReference extends cdktf.Compl
   }
 
   // s3_destination - computed: false, optional: true, required: false
-  private _s3Destination = new CodebuildReportGroupExportConfigS3DestinationOutputReference(this, "s3_destination");
+  private _s3Destination =
+    new CodebuildReportGroupExportConfigS3DestinationOutputReference(
+      this,
+      's3_destination',
+    );
   public get s3Destination() {
     return this._s3Destination;
   }
-  public putS3Destination(value: CodebuildReportGroupExportConfigS3Destination) {
+  public putS3Destination(
+    value: CodebuildReportGroupExportConfigS3Destination,
+  ) {
     this._s3Destination.internalValue = value;
   }
   public resetS3Destination() {
@@ -301,33 +336,36 @@ export class CodebuildReportGroupExportConfigOutputReference extends cdktf.Compl
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group aws_codebuild_report_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group aws_codebuild_report_group}
+ */
 export class CodebuildReportGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_codebuild_report_group";
+  public static readonly tfResourceType = 'aws_codebuild_report_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group aws_codebuild_report_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CodebuildReportGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: CodebuildReportGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codebuild_report_group aws_codebuild_report_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CodebuildReportGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CodebuildReportGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_codebuild_report_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -335,7 +373,7 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._deleteReports = config.deleteReports;
     this._id = config.id;
@@ -451,7 +489,10 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
   }
 
   // export_config - computed: false, optional: false, required: true
-  private _exportConfig = new CodebuildReportGroupExportConfigOutputReference(this, "export_config");
+  private _exportConfig = new CodebuildReportGroupExportConfigOutputReference(
+    this,
+    'export_config',
+  );
   public get exportConfig() {
     return this._exportConfig;
   }
@@ -475,7 +516,9 @@ export class CodebuildReportGroup extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       type: cdktf.stringToTerraform(this._type),
-      export_config: codebuildReportGroupExportConfigToTerraform(this._exportConfig.internalValue),
+      export_config: codebuildReportGroupExportConfigToTerraform(
+        this._exportConfig.internalValue,
+      ),
     };
   }
 }

@@ -1,6 +1,6 @@
-import { Provider } from '../@providers/provider.js';
-import { SupportedProviders } from '../@providers/supported-providers.js';
-import CloudCtlConfig from './config.js';
+import { Provider } from '../@providers/provider.ts';
+import { SupportedProviders } from '../@providers/supported-providers.ts';
+import CloudCtlConfig from './config.ts';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import path from 'path';

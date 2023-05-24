@@ -2,96 +2,111 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface ConnectQueueConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#description ConnectQueue#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#description ConnectQueue#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#hours_of_operation_id ConnectQueue#hours_of_operation_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#hours_of_operation_id ConnectQueue#hours_of_operation_id}
+   */
   readonly hoursOfOperationId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#id ConnectQueue#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#id ConnectQueue#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#instance_id ConnectQueue#instance_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#instance_id ConnectQueue#instance_id}
+   */
   readonly instanceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#max_contacts ConnectQueue#max_contacts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#max_contacts ConnectQueue#max_contacts}
+   */
   readonly maxContacts?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#name ConnectQueue#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#name ConnectQueue#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#quick_connect_ids ConnectQueue#quick_connect_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#quick_connect_ids ConnectQueue#quick_connect_ids}
+   */
   readonly quickConnectIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#status ConnectQueue#status}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#status ConnectQueue#status}
+   */
   readonly status?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#tags ConnectQueue#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#tags ConnectQueue#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#tags_all ConnectQueue#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#tags_all ConnectQueue#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * outbound_caller_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_caller_config ConnectQueue#outbound_caller_config}
-  */
+   * outbound_caller_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_caller_config ConnectQueue#outbound_caller_config}
+   */
   readonly outboundCallerConfig?: ConnectQueueOutboundCallerConfig;
 }
 export interface ConnectQueueOutboundCallerConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_caller_id_name ConnectQueue#outbound_caller_id_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_caller_id_name ConnectQueue#outbound_caller_id_name}
+   */
   readonly outboundCallerIdName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_caller_id_number_id ConnectQueue#outbound_caller_id_number_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_caller_id_number_id ConnectQueue#outbound_caller_id_number_id}
+   */
   readonly outboundCallerIdNumberId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_flow_id ConnectQueue#outbound_flow_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_queue#outbound_flow_id ConnectQueue#outbound_flow_id}
+   */
   readonly outboundFlowId?: string;
 }
 
-export function connectQueueOutboundCallerConfigToTerraform(struct?: ConnectQueueOutboundCallerConfigOutputReference | ConnectQueueOutboundCallerConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function connectQueueOutboundCallerConfigToTerraform(
+  struct?:
+    | ConnectQueueOutboundCallerConfigOutputReference
+    | ConnectQueueOutboundCallerConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    outbound_caller_id_name: cdktf.stringToTerraform(struct!.outboundCallerIdName),
-    outbound_caller_id_number_id: cdktf.stringToTerraform(struct!.outboundCallerIdNumberId),
+    outbound_caller_id_name: cdktf.stringToTerraform(
+      struct!.outboundCallerIdName,
+    ),
+    outbound_caller_id_number_id: cdktf.stringToTerraform(
+      struct!.outboundCallerIdNumberId,
+    ),
     outbound_flow_id: cdktf.stringToTerraform(struct!.outboundFlowId),
-  }
+  };
 }
 
 export class ConnectQueueOutboundCallerConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -104,7 +119,8 @@ export class ConnectQueueOutboundCallerConfigOutputReference extends cdktf.Compl
     }
     if (this._outboundCallerIdNumberId !== undefined) {
       hasAnyValues = true;
-      internalValueResult.outboundCallerIdNumberId = this._outboundCallerIdNumberId;
+      internalValueResult.outboundCallerIdNumberId =
+        this._outboundCallerIdNumberId;
     }
     if (this._outboundFlowId !== undefined) {
       hasAnyValues = true;
@@ -113,14 +129,15 @@ export class ConnectQueueOutboundCallerConfigOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ConnectQueueOutboundCallerConfig | undefined) {
+  public set internalValue(
+    value: ConnectQueueOutboundCallerConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._outboundCallerIdName = undefined;
       this._outboundCallerIdNumberId = undefined;
       this._outboundFlowId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._outboundCallerIdName = value.outboundCallerIdName;
       this._outboundCallerIdNumberId = value.outboundCallerIdNumberId;
@@ -178,33 +195,32 @@ export class ConnectQueueOutboundCallerConfigOutputReference extends cdktf.Compl
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/connect_queue aws_connect_queue}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/connect_queue aws_connect_queue}
+ */
 export class ConnectQueue extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_connect_queue";
+  public static readonly tfResourceType = 'aws_connect_queue';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/connect_queue aws_connect_queue} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ConnectQueueConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/connect_queue aws_connect_queue} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ConnectQueueConfig
+   */
   public constructor(scope: Construct, id: string, config: ConnectQueueConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_connect_queue',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -212,7 +228,7 @@ export class ConnectQueue extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._hoursOfOperationId = config.hoursOfOperationId;
@@ -346,7 +362,9 @@ export class ConnectQueue extends cdktf.TerraformResource {
 
   // quick_connect_ids_associated - computed: true, optional: false, required: false
   public get quickConnectIdsAssociated() {
-    return cdktf.Fn.tolist(this.getListAttribute('quick_connect_ids_associated'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('quick_connect_ids_associated'),
+    );
   }
 
   // status - computed: true, optional: true, required: false
@@ -398,7 +416,11 @@ export class ConnectQueue extends cdktf.TerraformResource {
   }
 
   // outbound_caller_config - computed: false, optional: true, required: false
-  private _outboundCallerConfig = new ConnectQueueOutboundCallerConfigOutputReference(this, "outbound_caller_config");
+  private _outboundCallerConfig =
+    new ConnectQueueOutboundCallerConfigOutputReference(
+      this,
+      'outbound_caller_config',
+    );
   public get outboundCallerConfig() {
     return this._outboundCallerConfig;
   }
@@ -425,11 +447,16 @@ export class ConnectQueue extends cdktf.TerraformResource {
       instance_id: cdktf.stringToTerraform(this._instanceId),
       max_contacts: cdktf.numberToTerraform(this._maxContacts),
       name: cdktf.stringToTerraform(this._name),
-      quick_connect_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._quickConnectIds),
+      quick_connect_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._quickConnectIds),
       status: cdktf.stringToTerraform(this._status),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      outbound_caller_config: connectQueueOutboundCallerConfigToTerraform(this._outboundCallerConfig.internalValue),
+      outbound_caller_config: connectQueueOutboundCallerConfigToTerraform(
+        this._outboundCallerConfig.internalValue,
+      ),
     };
   }
 }

@@ -1,8 +1,8 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Route53Zone } from '../.gen/providers/aws/route53-zone/index.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsDnsZoneService } from '../services/dns-zone.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Route53Zone } from '../.gen/providers/aws/route53-zone/index.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsDnsZoneService } from '../services/dns-zone.ts';
 import { Construct } from 'npm:constructs';
 
 export class AwsDnsZoneModule extends ResourceModule<

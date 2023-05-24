@@ -2,60 +2,59 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface FloatingIpConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#droplet_id FloatingIp#droplet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#droplet_id FloatingIp#droplet_id}
+   */
   readonly dropletId?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#id FloatingIp#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#id FloatingIp#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#ip_address FloatingIp#ip_address}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#ip_address FloatingIp#ip_address}
+   */
   readonly ipAddress?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#region FloatingIp#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip#region FloatingIp#region}
+   */
   readonly region: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip digitalocean_floating_ip}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip digitalocean_floating_ip}
+ */
 export class FloatingIp extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_floating_ip";
+  public static readonly tfResourceType = 'digitalocean_floating_ip';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip digitalocean_floating_ip} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options FloatingIpConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/floating_ip digitalocean_floating_ip} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options FloatingIpConfig
+   */
   public constructor(scope: Construct, id: string, config: FloatingIpConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_floating_ip',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +62,7 @@ export class FloatingIp extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dropletId = config.dropletId;
     this._id = config.id;

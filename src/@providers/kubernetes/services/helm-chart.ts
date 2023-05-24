@@ -1,8 +1,8 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesHelmChartModule } from '../modules/helm-chart.js';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesHelmChartModule } from '../modules/helm-chart.ts';
 
 export class KubernetesHelmChartService extends ResourceService<
   'helmChart',

@@ -2,70 +2,84 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface S3ControlStorageLensConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface S3ControlStorageLensConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_id S3ControlStorageLensConfiguration#account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_id S3ControlStorageLensConfiguration#account_id}
+   */
   readonly accountId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#config_id S3ControlStorageLensConfiguration#config_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#config_id S3ControlStorageLensConfiguration#config_id}
+   */
   readonly configId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#id S3ControlStorageLensConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#id S3ControlStorageLensConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#tags S3ControlStorageLensConfiguration#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#tags S3ControlStorageLensConfiguration#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#tags_all S3ControlStorageLensConfiguration#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#tags_all S3ControlStorageLensConfiguration#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * storage_lens_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#storage_lens_configuration S3ControlStorageLensConfiguration#storage_lens_configuration}
-  */
+   * storage_lens_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#storage_lens_configuration S3ControlStorageLensConfiguration#storage_lens_configuration}
+   */
   readonly storageLensConfiguration: S3ControlStorageLensConfigurationStorageLensConfiguration;
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -75,12 +89,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -104,33 +121,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -140,12 +170,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -169,33 +202,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -205,12 +251,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -234,33 +283,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -270,12 +332,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -299,33 +364,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -335,12 +413,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -364,33 +445,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -400,12 +494,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -429,33 +526,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -465,12 +575,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -494,43 +607,58 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#delimiter S3ControlStorageLensConfiguration#delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#delimiter S3ControlStorageLensConfiguration#delimiter}
+   */
   readonly delimiter?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#max_depth S3ControlStorageLensConfiguration#max_depth}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#max_depth S3ControlStorageLensConfiguration#max_depth}
+   */
   readonly maxDepth?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#min_storage_bytes_percentage S3ControlStorageLensConfiguration#min_storage_bytes_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#min_storage_bytes_percentage S3ControlStorageLensConfiguration#min_storage_bytes_percentage}
+   */
   readonly minStorageBytesPercentage?: number;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delimiter: cdktf.stringToTerraform(struct!.delimiter),
     max_depth: cdktf.numberToTerraform(struct!.maxDepth),
-    min_storage_bytes_percentage: cdktf.numberToTerraform(struct!.minStorageBytesPercentage),
-  }
+    min_storage_bytes_percentage: cdktf.numberToTerraform(
+      struct!.minStorageBytesPercentage,
+    ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._delimiter !== undefined) {
@@ -543,19 +671,23 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     }
     if (this._minStorageBytesPercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.minStorageBytesPercentage = this._minStorageBytesPercentage;
+      internalValueResult.minStorageBytesPercentage =
+        this._minStorageBytesPercentage;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._delimiter = undefined;
       this._maxDepth = undefined;
       this._minStorageBytesPercentage = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._delimiter = value.delimiter;
       this._maxDepth = value.maxDepth;
@@ -613,40 +745,56 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * selection_criteria block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#selection_criteria S3ControlStorageLensConfiguration#selection_criteria}
-  */
+   * selection_criteria block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#selection_criteria S3ControlStorageLensConfiguration#selection_criteria}
+   */
   readonly selectionCriteria?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    selection_criteria: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaToTerraform(struct!.selectionCriteria),
-  }
+    selection_criteria:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaToTerraform(
+        struct!.selectionCriteria,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -655,18 +803,22 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     }
     if (this._selectionCriteria?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.selectionCriteria = this._selectionCriteria?.internalValue;
+      internalValueResult.selectionCriteria =
+        this._selectionCriteria?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._selectionCriteria.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._selectionCriteria.internalValue = value.selectionCriteria;
@@ -690,11 +842,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // selection_criteria - computed: false, optional: true, required: false
-  private _selectionCriteria = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputReference(this, "selection_criteria");
+  private _selectionCriteria =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputReference(
+      this,
+      'selection_criteria',
+    );
   public get selectionCriteria() {
     return this._selectionCriteria;
   }
-  public putSelectionCriteria(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) {
+  public putSelectionCriteria(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria,
+  ) {
     this._selectionCriteria.internalValue = value;
   }
   public resetSelectionCriteria() {
@@ -707,35 +865,51 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
   /**
-  * storage_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#storage_metrics S3ControlStorageLensConfiguration#storage_metrics}
-  */
+   * storage_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#storage_metrics S3ControlStorageLensConfiguration#storage_metrics}
+   */
   readonly storageMetrics: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    storage_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsToTerraform(struct!.storageMetrics),
-  }
+    storage_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsToTerraform(
+        struct!.storageMetrics,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._storageMetrics?.internalValue !== undefined) {
@@ -745,23 +919,32 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._storageMetrics.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._storageMetrics.internalValue = value.storageMetrics;
     }
   }
 
   // storage_metrics - computed: false, optional: false, required: true
-  private _storageMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputReference(this, "storage_metrics");
+  private _storageMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputReference(
+      this,
+      'storage_metrics',
+    );
   public get storageMetrics() {
     return this._storageMetrics;
   }
-  public putStorageMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) {
+  public putStorageMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics,
+  ) {
     this._storageMetrics.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -771,80 +954,112 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
   /**
-  * activity_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#activity_metrics S3ControlStorageLensConfiguration#activity_metrics}
-  */
+   * activity_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#activity_metrics S3ControlStorageLensConfiguration#activity_metrics}
+   */
   readonly activityMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics;
   /**
-  * advanced_cost_optimization_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_cost_optimization_metrics S3ControlStorageLensConfiguration#advanced_cost_optimization_metrics}
-  */
+   * advanced_cost_optimization_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_cost_optimization_metrics S3ControlStorageLensConfiguration#advanced_cost_optimization_metrics}
+   */
   readonly advancedCostOptimizationMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics;
   /**
-  * advanced_data_protection_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_data_protection_metrics S3ControlStorageLensConfiguration#advanced_data_protection_metrics}
-  */
+   * advanced_data_protection_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_data_protection_metrics S3ControlStorageLensConfiguration#advanced_data_protection_metrics}
+   */
   readonly advancedDataProtectionMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics;
   /**
-  * detailed_status_code_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#detailed_status_code_metrics S3ControlStorageLensConfiguration#detailed_status_code_metrics}
-  */
+   * detailed_status_code_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#detailed_status_code_metrics S3ControlStorageLensConfiguration#detailed_status_code_metrics}
+   */
   readonly detailedStatusCodeMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics;
   /**
-  * prefix_level block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#prefix_level S3ControlStorageLensConfiguration#prefix_level}
-  */
+   * prefix_level block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#prefix_level S3ControlStorageLensConfiguration#prefix_level}
+   */
   readonly prefixLevel?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    activity_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsToTerraform(struct!.activityMetrics),
-    advanced_cost_optimization_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsToTerraform(struct!.advancedCostOptimizationMetrics),
-    advanced_data_protection_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsToTerraform(struct!.advancedDataProtectionMetrics),
-    detailed_status_code_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsToTerraform(struct!.detailedStatusCodeMetrics),
-    prefix_level: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelToTerraform(struct!.prefixLevel),
-  }
+    activity_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsToTerraform(
+        struct!.activityMetrics,
+      ),
+    advanced_cost_optimization_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsToTerraform(
+        struct!.advancedCostOptimizationMetrics,
+      ),
+    advanced_data_protection_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsToTerraform(
+        struct!.advancedDataProtectionMetrics,
+      ),
+    detailed_status_code_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsToTerraform(
+        struct!.detailedStatusCodeMetrics,
+      ),
+    prefix_level:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelToTerraform(
+        struct!.prefixLevel,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._activityMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.activityMetrics = this._activityMetrics?.internalValue;
+      internalValueResult.activityMetrics =
+        this._activityMetrics?.internalValue;
     }
     if (this._advancedCostOptimizationMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.advancedCostOptimizationMetrics = this._advancedCostOptimizationMetrics?.internalValue;
+      internalValueResult.advancedCostOptimizationMetrics =
+        this._advancedCostOptimizationMetrics?.internalValue;
     }
     if (this._advancedDataProtectionMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.advancedDataProtectionMetrics = this._advancedDataProtectionMetrics?.internalValue;
+      internalValueResult.advancedDataProtectionMetrics =
+        this._advancedDataProtectionMetrics?.internalValue;
     }
     if (this._detailedStatusCodeMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.detailedStatusCodeMetrics = this._detailedStatusCodeMetrics?.internalValue;
+      internalValueResult.detailedStatusCodeMetrics =
+        this._detailedStatusCodeMetrics?.internalValue;
     }
     if (this._prefixLevel?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -853,7 +1068,11 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._activityMetrics.internalValue = undefined;
@@ -861,23 +1080,31 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
       this._advancedDataProtectionMetrics.internalValue = undefined;
       this._detailedStatusCodeMetrics.internalValue = undefined;
       this._prefixLevel.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._activityMetrics.internalValue = value.activityMetrics;
-      this._advancedCostOptimizationMetrics.internalValue = value.advancedCostOptimizationMetrics;
-      this._advancedDataProtectionMetrics.internalValue = value.advancedDataProtectionMetrics;
-      this._detailedStatusCodeMetrics.internalValue = value.detailedStatusCodeMetrics;
+      this._advancedCostOptimizationMetrics.internalValue =
+        value.advancedCostOptimizationMetrics;
+      this._advancedDataProtectionMetrics.internalValue =
+        value.advancedDataProtectionMetrics;
+      this._detailedStatusCodeMetrics.internalValue =
+        value.detailedStatusCodeMetrics;
       this._prefixLevel.internalValue = value.prefixLevel;
     }
   }
 
   // activity_metrics - computed: false, optional: true, required: false
-  private _activityMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputReference(this, "activity_metrics");
+  private _activityMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputReference(
+      this,
+      'activity_metrics',
+    );
   public get activityMetrics() {
     return this._activityMetrics;
   }
-  public putActivityMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) {
+  public putActivityMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics,
+  ) {
     this._activityMetrics.internalValue = value;
   }
   public resetActivityMetrics() {
@@ -889,11 +1116,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // advanced_cost_optimization_metrics - computed: false, optional: true, required: false
-  private _advancedCostOptimizationMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutputReference(this, "advanced_cost_optimization_metrics");
+  private _advancedCostOptimizationMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutputReference(
+      this,
+      'advanced_cost_optimization_metrics',
+    );
   public get advancedCostOptimizationMetrics() {
     return this._advancedCostOptimizationMetrics;
   }
-  public putAdvancedCostOptimizationMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics) {
+  public putAdvancedCostOptimizationMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics,
+  ) {
     this._advancedCostOptimizationMetrics.internalValue = value;
   }
   public resetAdvancedCostOptimizationMetrics() {
@@ -905,11 +1138,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // advanced_data_protection_metrics - computed: false, optional: true, required: false
-  private _advancedDataProtectionMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutputReference(this, "advanced_data_protection_metrics");
+  private _advancedDataProtectionMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutputReference(
+      this,
+      'advanced_data_protection_metrics',
+    );
   public get advancedDataProtectionMetrics() {
     return this._advancedDataProtectionMetrics;
   }
-  public putAdvancedDataProtectionMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics) {
+  public putAdvancedDataProtectionMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics,
+  ) {
     this._advancedDataProtectionMetrics.internalValue = value;
   }
   public resetAdvancedDataProtectionMetrics() {
@@ -921,11 +1160,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // detailed_status_code_metrics - computed: false, optional: true, required: false
-  private _detailedStatusCodeMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutputReference(this, "detailed_status_code_metrics");
+  private _detailedStatusCodeMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutputReference(
+      this,
+      'detailed_status_code_metrics',
+    );
   public get detailedStatusCodeMetrics() {
     return this._detailedStatusCodeMetrics;
   }
-  public putDetailedStatusCodeMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics) {
+  public putDetailedStatusCodeMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics,
+  ) {
     this._detailedStatusCodeMetrics.internalValue = value;
   }
   public resetDetailedStatusCodeMetrics() {
@@ -937,11 +1182,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // prefix_level - computed: false, optional: true, required: false
-  private _prefixLevel = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputReference(this, "prefix_level");
+  private _prefixLevel =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputReference(
+      this,
+      'prefix_level',
+    );
   public get prefixLevel() {
     return this._prefixLevel;
   }
-  public putPrefixLevel(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) {
+  public putPrefixLevel(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel,
+  ) {
     this._prefixLevel.internalValue = value;
   }
   public resetPrefixLevel() {
@@ -954,33 +1205,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -990,12 +1254,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -1019,76 +1286,107 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel {
   /**
-  * activity_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#activity_metrics S3ControlStorageLensConfiguration#activity_metrics}
-  */
+   * activity_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#activity_metrics S3ControlStorageLensConfiguration#activity_metrics}
+   */
   readonly activityMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics;
   /**
-  * advanced_cost_optimization_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_cost_optimization_metrics S3ControlStorageLensConfiguration#advanced_cost_optimization_metrics}
-  */
+   * advanced_cost_optimization_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_cost_optimization_metrics S3ControlStorageLensConfiguration#advanced_cost_optimization_metrics}
+   */
   readonly advancedCostOptimizationMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics;
   /**
-  * advanced_data_protection_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_data_protection_metrics S3ControlStorageLensConfiguration#advanced_data_protection_metrics}
-  */
+   * advanced_data_protection_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#advanced_data_protection_metrics S3ControlStorageLensConfiguration#advanced_data_protection_metrics}
+   */
   readonly advancedDataProtectionMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics;
   /**
-  * bucket_level block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#bucket_level S3ControlStorageLensConfiguration#bucket_level}
-  */
+   * bucket_level block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#bucket_level S3ControlStorageLensConfiguration#bucket_level}
+   */
   readonly bucketLevel: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel;
   /**
-  * detailed_status_code_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#detailed_status_code_metrics S3ControlStorageLensConfiguration#detailed_status_code_metrics}
-  */
+   * detailed_status_code_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#detailed_status_code_metrics S3ControlStorageLensConfiguration#detailed_status_code_metrics}
+   */
   readonly detailedStatusCodeMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    activity_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsToTerraform(struct!.activityMetrics),
-    advanced_cost_optimization_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsToTerraform(struct!.advancedCostOptimizationMetrics),
-    advanced_data_protection_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsToTerraform(struct!.advancedDataProtectionMetrics),
-    bucket_level: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelToTerraform(struct!.bucketLevel),
-    detailed_status_code_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsToTerraform(struct!.detailedStatusCodeMetrics),
-  }
+    activity_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsToTerraform(
+        struct!.activityMetrics,
+      ),
+    advanced_cost_optimization_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsToTerraform(
+        struct!.advancedCostOptimizationMetrics,
+      ),
+    advanced_data_protection_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsToTerraform(
+        struct!.advancedDataProtectionMetrics,
+      ),
+    bucket_level:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelToTerraform(
+        struct!.bucketLevel,
+      ),
+    detailed_status_code_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsToTerraform(
+        struct!.detailedStatusCodeMetrics,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._activityMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.activityMetrics = this._activityMetrics?.internalValue;
+      internalValueResult.activityMetrics =
+        this._activityMetrics?.internalValue;
     }
     if (this._advancedCostOptimizationMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.advancedCostOptimizationMetrics = this._advancedCostOptimizationMetrics?.internalValue;
+      internalValueResult.advancedCostOptimizationMetrics =
+        this._advancedCostOptimizationMetrics?.internalValue;
     }
     if (this._advancedDataProtectionMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.advancedDataProtectionMetrics = this._advancedDataProtectionMetrics?.internalValue;
+      internalValueResult.advancedDataProtectionMetrics =
+        this._advancedDataProtectionMetrics?.internalValue;
     }
     if (this._bucketLevel?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1096,12 +1394,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
     }
     if (this._detailedStatusCodeMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.detailedStatusCodeMetrics = this._detailedStatusCodeMetrics?.internalValue;
+      internalValueResult.detailedStatusCodeMetrics =
+        this._detailedStatusCodeMetrics?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._activityMetrics.internalValue = undefined;
@@ -1109,23 +1412,31 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
       this._advancedDataProtectionMetrics.internalValue = undefined;
       this._bucketLevel.internalValue = undefined;
       this._detailedStatusCodeMetrics.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._activityMetrics.internalValue = value.activityMetrics;
-      this._advancedCostOptimizationMetrics.internalValue = value.advancedCostOptimizationMetrics;
-      this._advancedDataProtectionMetrics.internalValue = value.advancedDataProtectionMetrics;
+      this._advancedCostOptimizationMetrics.internalValue =
+        value.advancedCostOptimizationMetrics;
+      this._advancedDataProtectionMetrics.internalValue =
+        value.advancedDataProtectionMetrics;
       this._bucketLevel.internalValue = value.bucketLevel;
-      this._detailedStatusCodeMetrics.internalValue = value.detailedStatusCodeMetrics;
+      this._detailedStatusCodeMetrics.internalValue =
+        value.detailedStatusCodeMetrics;
     }
   }
 
   // activity_metrics - computed: false, optional: true, required: false
-  private _activityMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputReference(this, "activity_metrics");
+  private _activityMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputReference(
+      this,
+      'activity_metrics',
+    );
   public get activityMetrics() {
     return this._activityMetrics;
   }
-  public putActivityMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) {
+  public putActivityMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics,
+  ) {
     this._activityMetrics.internalValue = value;
   }
   public resetActivityMetrics() {
@@ -1137,11 +1448,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // advanced_cost_optimization_metrics - computed: false, optional: true, required: false
-  private _advancedCostOptimizationMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutputReference(this, "advanced_cost_optimization_metrics");
+  private _advancedCostOptimizationMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutputReference(
+      this,
+      'advanced_cost_optimization_metrics',
+    );
   public get advancedCostOptimizationMetrics() {
     return this._advancedCostOptimizationMetrics;
   }
-  public putAdvancedCostOptimizationMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics) {
+  public putAdvancedCostOptimizationMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics,
+  ) {
     this._advancedCostOptimizationMetrics.internalValue = value;
   }
   public resetAdvancedCostOptimizationMetrics() {
@@ -1153,11 +1470,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // advanced_data_protection_metrics - computed: false, optional: true, required: false
-  private _advancedDataProtectionMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutputReference(this, "advanced_data_protection_metrics");
+  private _advancedDataProtectionMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutputReference(
+      this,
+      'advanced_data_protection_metrics',
+    );
   public get advancedDataProtectionMetrics() {
     return this._advancedDataProtectionMetrics;
   }
-  public putAdvancedDataProtectionMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics) {
+  public putAdvancedDataProtectionMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics,
+  ) {
     this._advancedDataProtectionMetrics.internalValue = value;
   }
   public resetAdvancedDataProtectionMetrics() {
@@ -1169,11 +1492,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // bucket_level - computed: false, optional: false, required: true
-  private _bucketLevel = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputReference(this, "bucket_level");
+  private _bucketLevel =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputReference(
+      this,
+      'bucket_level',
+    );
   public get bucketLevel() {
     return this._bucketLevel;
   }
-  public putBucketLevel(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) {
+  public putBucketLevel(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel,
+  ) {
     this._bucketLevel.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1182,11 +1511,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
   }
 
   // detailed_status_code_metrics - computed: false, optional: true, required: false
-  private _detailedStatusCodeMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutputReference(this, "detailed_status_code_metrics");
+  private _detailedStatusCodeMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutputReference(
+      this,
+      'detailed_status_code_metrics',
+    );
   public get detailedStatusCodeMetrics() {
     return this._detailedStatusCodeMetrics;
   }
-  public putDetailedStatusCodeMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics) {
+  public putDetailedStatusCodeMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics,
+  ) {
     this._detailedStatusCodeMetrics.internalValue = value;
   }
   public resetDetailedStatusCodeMetrics() {
@@ -1199,33 +1534,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAccountLev
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#arn S3ControlStorageLensConfiguration#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#arn S3ControlStorageLensConfiguration#arn}
+   */
   readonly arn: string;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._arn !== undefined) {
@@ -1235,12 +1583,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._arn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
     }
@@ -1261,33 +1612,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutp
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -1297,12 +1661,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -1323,33 +1690,46 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#key_id S3ControlStorageLensConfiguration#key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#key_id S3ControlStorageLensConfiguration#key_id}
+   */
   readonly keyId: string;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key_id: cdktf.stringToTerraform(struct!.keyId),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._keyId !== undefined) {
@@ -1359,12 +1739,15 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._keyId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._keyId = value.keyId;
     }
@@ -1383,16 +1766,22 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
     return this._keyId;
   }
 }
-export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {
-}
+export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {}
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputReference extends cdktf.ComplexObject {
@@ -1400,16 +1789,29 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1418,16 +1820,19 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
     }
@@ -1435,62 +1840,96 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3List extends cdktf.ComplexList {
-  public internalValue? : S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[] | cdktf.IResolvable
+  public internalValue?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputReference {
-    return new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputReference {
+    return new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
   /**
-  * sse_kms block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#sse_kms S3ControlStorageLensConfiguration#sse_kms}
-  */
+   * sse_kms block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#sse_kms S3ControlStorageLensConfiguration#sse_kms}
+   */
   readonly sseKms?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms;
   /**
-  * sse_s3 block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#sse_s3 S3ControlStorageLensConfiguration#sse_s3}
-  */
-  readonly sseS3?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[] | cdktf.IResolvable;
+   * sse_s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#sse_s3 S3ControlStorageLensConfiguration#sse_s3}
+   */
+  readonly sseS3?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[]
+    | cdktf.IResolvable;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    sse_kms: s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsToTerraform(struct!.sseKms),
-    sse_s3: cdktf.listMapper(s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ToTerraform, true)(struct!.sseS3),
-  }
+    sse_kms:
+      s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsToTerraform(
+        struct!.sseKms,
+      ),
+    sse_s3: cdktf.listMapper(
+      s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ToTerraform,
+      true,
+    )(struct!.sseS3),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._sseKms?.internalValue !== undefined) {
@@ -1504,13 +1943,16 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._sseKms.internalValue = undefined;
       this._sseS3.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._sseKms.internalValue = value.sseKms;
       this._sseS3.internalValue = value.sseS3;
@@ -1518,11 +1960,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // sse_kms - computed: false, optional: true, required: false
-  private _sseKms = new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputReference(this, "sse_kms");
+  private _sseKms =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputReference(
+      this,
+      'sse_kms',
+    );
   public get sseKms() {
     return this._sseKms;
   }
-  public putSseKms(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) {
+  public putSseKms(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms,
+  ) {
     this._sseKms.internalValue = value;
   }
   public resetSseKms() {
@@ -1534,11 +1982,20 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // sse_s3 - computed: false, optional: true, required: false
-  private _sseS3 = new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3List(this, "sse_s3", false);
+  private _sseS3 =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3List(
+      this,
+      'sse_s3',
+      false,
+    );
   public get sseS3() {
     return this._sseS3;
   }
-  public putSseS3(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[] | cdktf.IResolvable) {
+  public putSseS3(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3[]
+      | cdktf.IResolvable,
+  ) {
     this._sseS3.internalValue = value;
   }
   public resetSseS3() {
@@ -1551,37 +2008,45 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_id S3ControlStorageLensConfiguration#account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_id S3ControlStorageLensConfiguration#account_id}
+   */
   readonly accountId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#arn S3ControlStorageLensConfiguration#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#arn S3ControlStorageLensConfiguration#arn}
+   */
   readonly arn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#format S3ControlStorageLensConfiguration#format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#format S3ControlStorageLensConfiguration#format}
+   */
   readonly format: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#output_schema_version S3ControlStorageLensConfiguration#output_schema_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#output_schema_version S3ControlStorageLensConfiguration#output_schema_version}
+   */
   readonly outputSchemaVersion: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#prefix S3ControlStorageLensConfiguration#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#prefix S3ControlStorageLensConfiguration#prefix}
+   */
   readonly prefix?: string;
   /**
-  * encryption block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#encryption S3ControlStorageLensConfiguration#encryption}
-  */
+   * encryption block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#encryption S3ControlStorageLensConfiguration#encryption}
+   */
   readonly encryption?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     account_id: cdktf.stringToTerraform(struct!.accountId),
@@ -1589,22 +2054,30 @@ export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExp
     format: cdktf.stringToTerraform(struct!.format),
     output_schema_version: cdktf.stringToTerraform(struct!.outputSchemaVersion),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-    encryption: s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionToTerraform(struct!.encryption),
-  }
+    encryption:
+      s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionToTerraform(
+        struct!.encryption,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accountId !== undefined) {
@@ -1634,7 +2107,11 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accountId = undefined;
@@ -1643,8 +2120,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
       this._outputSchemaVersion = undefined;
       this._prefix = undefined;
       this._encryption.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accountId = value.accountId;
       this._arn = value.arn;
@@ -1724,11 +2200,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // encryption - computed: false, optional: true, required: false
-  private _encryption = new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputReference(this, "encryption");
+  private _encryption =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputReference(
+      this,
+      'encryption',
+    );
   public get encryption() {
     return this._encryption;
   }
-  public putEncryption(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) {
+  public putEncryption(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption,
+  ) {
     this._encryption.internalValue = value;
   }
   public resetEncryption() {
@@ -1741,62 +2223,86 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationDataExport {
   /**
-  * cloud_watch_metrics block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#cloud_watch_metrics S3ControlStorageLensConfiguration#cloud_watch_metrics}
-  */
+   * cloud_watch_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#cloud_watch_metrics S3ControlStorageLensConfiguration#cloud_watch_metrics}
+   */
   readonly cloudWatchMetrics?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics;
   /**
-  * s3_bucket_destination block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#s3_bucket_destination S3ControlStorageLensConfiguration#s3_bucket_destination}
-  */
+   * s3_bucket_destination block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#s3_bucket_destination S3ControlStorageLensConfiguration#s3_bucket_destination}
+   */
   readonly s3BucketDestination?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationDataExport): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationDataExportToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExportOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExport,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cloud_watch_metrics: s3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsToTerraform(struct!.cloudWatchMetrics),
-    s3_bucket_destination: s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationToTerraform(struct!.s3BucketDestination),
-  }
+    cloud_watch_metrics:
+      s3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsToTerraform(
+        struct!.cloudWatchMetrics,
+      ),
+    s3_bucket_destination:
+      s3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationToTerraform(
+        struct!.s3BucketDestination,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExportOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationDataExport | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cloudWatchMetrics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.cloudWatchMetrics = this._cloudWatchMetrics?.internalValue;
+      internalValueResult.cloudWatchMetrics =
+        this._cloudWatchMetrics?.internalValue;
     }
     if (this._s3BucketDestination?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.s3BucketDestination = this._s3BucketDestination?.internalValue;
+      internalValueResult.s3BucketDestination =
+        this._s3BucketDestination?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExport | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cloudWatchMetrics.internalValue = undefined;
       this._s3BucketDestination.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudWatchMetrics.internalValue = value.cloudWatchMetrics;
       this._s3BucketDestination.internalValue = value.s3BucketDestination;
@@ -1804,11 +2310,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // cloud_watch_metrics - computed: false, optional: true, required: false
-  private _cloudWatchMetrics = new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputReference(this, "cloud_watch_metrics");
+  private _cloudWatchMetrics =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputReference(
+      this,
+      'cloud_watch_metrics',
+    );
   public get cloudWatchMetrics() {
     return this._cloudWatchMetrics;
   }
-  public putCloudWatchMetrics(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) {
+  public putCloudWatchMetrics(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics,
+  ) {
     this._cloudWatchMetrics.internalValue = value;
   }
   public resetCloudWatchMetrics() {
@@ -1820,11 +2332,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
   }
 
   // s3_bucket_destination - computed: false, optional: true, required: false
-  private _s3BucketDestination = new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputReference(this, "s3_bucket_destination");
+  private _s3BucketDestination =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputReference(
+      this,
+      's3_bucket_destination',
+    );
   public get s3BucketDestination() {
     return this._s3BucketDestination;
   }
-  public putS3BucketDestination(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) {
+  public putS3BucketDestination(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination,
+  ) {
     this._s3BucketDestination.internalValue = value;
   }
   public resetS3BucketDestination() {
@@ -1837,38 +2355,51 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationDataExport
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationExclude {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#buckets S3ControlStorageLensConfiguration#buckets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#buckets S3ControlStorageLensConfiguration#buckets}
+   */
   readonly buckets?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#regions S3ControlStorageLensConfiguration#regions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#regions S3ControlStorageLensConfiguration#regions}
+   */
   readonly regions?: string[];
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationExcludeToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationExclude): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationExcludeToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationExclude,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     buckets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.buckets),
     regions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.regions),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationExclude | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationExclude
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._buckets !== undefined) {
@@ -1882,13 +2413,16 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationExclude | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationExclude
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._buckets = undefined;
       this._regions = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._buckets = value.buckets;
       this._regions = value.regions;
@@ -1929,38 +2463,51 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOut
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfigurationInclude {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#buckets S3ControlStorageLensConfiguration#buckets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#buckets S3ControlStorageLensConfiguration#buckets}
+   */
   readonly buckets?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#regions S3ControlStorageLensConfiguration#regions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#regions S3ControlStorageLensConfiguration#regions}
+   */
   readonly regions?: string[];
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationIncludeToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOutputReference | S3ControlStorageLensConfigurationStorageLensConfigurationInclude): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationIncludeToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfigurationInclude,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     buckets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.buckets),
     regions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.regions),
-  }
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfigurationInclude | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfigurationInclude
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._buckets !== undefined) {
@@ -1974,13 +2521,16 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfigurationInclude | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfigurationInclude
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._buckets = undefined;
       this._regions = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._buckets = value.buckets;
       this._regions = value.regions;
@@ -2021,68 +2571,96 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOut
 }
 export interface S3ControlStorageLensConfigurationStorageLensConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#enabled S3ControlStorageLensConfiguration#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * account_level block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_level S3ControlStorageLensConfiguration#account_level}
-  */
+   * account_level block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#account_level S3ControlStorageLensConfiguration#account_level}
+   */
   readonly accountLevel: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel;
   /**
-  * aws_org block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#aws_org S3ControlStorageLensConfiguration#aws_org}
-  */
+   * aws_org block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#aws_org S3ControlStorageLensConfiguration#aws_org}
+   */
   readonly awsOrg?: S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg;
   /**
-  * data_export block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#data_export S3ControlStorageLensConfiguration#data_export}
-  */
+   * data_export block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#data_export S3ControlStorageLensConfiguration#data_export}
+   */
   readonly dataExport?: S3ControlStorageLensConfigurationStorageLensConfigurationDataExport;
   /**
-  * exclude block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#exclude S3ControlStorageLensConfiguration#exclude}
-  */
+   * exclude block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#exclude S3ControlStorageLensConfiguration#exclude}
+   */
   readonly exclude?: S3ControlStorageLensConfigurationStorageLensConfigurationExclude;
   /**
-  * include block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#include S3ControlStorageLensConfiguration#include}
-  */
+   * include block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration#include S3ControlStorageLensConfiguration#include}
+   */
   readonly include?: S3ControlStorageLensConfigurationStorageLensConfigurationInclude;
 }
 
-export function s3ControlStorageLensConfigurationStorageLensConfigurationToTerraform(struct?: S3ControlStorageLensConfigurationStorageLensConfigurationOutputReference | S3ControlStorageLensConfigurationStorageLensConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3ControlStorageLensConfigurationStorageLensConfigurationToTerraform(
+  struct?:
+    | S3ControlStorageLensConfigurationStorageLensConfigurationOutputReference
+    | S3ControlStorageLensConfigurationStorageLensConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    account_level: s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelToTerraform(struct!.accountLevel),
-    aws_org: s3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgToTerraform(struct!.awsOrg),
-    data_export: s3ControlStorageLensConfigurationStorageLensConfigurationDataExportToTerraform(struct!.dataExport),
-    exclude: s3ControlStorageLensConfigurationStorageLensConfigurationExcludeToTerraform(struct!.exclude),
-    include: s3ControlStorageLensConfigurationStorageLensConfigurationIncludeToTerraform(struct!.include),
-  }
+    account_level:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelToTerraform(
+        struct!.accountLevel,
+      ),
+    aws_org:
+      s3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgToTerraform(
+        struct!.awsOrg,
+      ),
+    data_export:
+      s3ControlStorageLensConfigurationStorageLensConfigurationDataExportToTerraform(
+        struct!.dataExport,
+      ),
+    exclude:
+      s3ControlStorageLensConfigurationStorageLensConfigurationExcludeToTerraform(
+        struct!.exclude,
+      ),
+    include:
+      s3ControlStorageLensConfigurationStorageLensConfigurationIncludeToTerraform(
+        struct!.include,
+      ),
+  };
 }
 
 export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3ControlStorageLensConfigurationStorageLensConfiguration | undefined {
+  public get internalValue():
+    | S3ControlStorageLensConfigurationStorageLensConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -2112,7 +2690,11 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3ControlStorageLensConfigurationStorageLensConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | S3ControlStorageLensConfigurationStorageLensConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
@@ -2121,8 +2703,7 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
       this._dataExport.internalValue = undefined;
       this._exclude.internalValue = undefined;
       this._include.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._accountLevel.internalValue = value.accountLevel;
@@ -2147,11 +2728,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
   }
 
   // account_level - computed: false, optional: false, required: true
-  private _accountLevel = new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelOutputReference(this, "account_level");
+  private _accountLevel =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevelOutputReference(
+      this,
+      'account_level',
+    );
   public get accountLevel() {
     return this._accountLevel;
   }
-  public putAccountLevel(value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel) {
+  public putAccountLevel(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAccountLevel,
+  ) {
     this._accountLevel.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2160,11 +2747,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
   }
 
   // aws_org - computed: false, optional: true, required: false
-  private _awsOrg = new S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutputReference(this, "aws_org");
+  private _awsOrg =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrgOutputReference(
+      this,
+      'aws_org',
+    );
   public get awsOrg() {
     return this._awsOrg;
   }
-  public putAwsOrg(value: S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg) {
+  public putAwsOrg(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationAwsOrg,
+  ) {
     this._awsOrg.internalValue = value;
   }
   public resetAwsOrg() {
@@ -2176,11 +2769,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
   }
 
   // data_export - computed: false, optional: true, required: false
-  private _dataExport = new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportOutputReference(this, "data_export");
+  private _dataExport =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationDataExportOutputReference(
+      this,
+      'data_export',
+    );
   public get dataExport() {
     return this._dataExport;
   }
-  public putDataExport(value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExport) {
+  public putDataExport(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationDataExport,
+  ) {
     this._dataExport.internalValue = value;
   }
   public resetDataExport() {
@@ -2192,11 +2791,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
   }
 
   // exclude - computed: false, optional: true, required: false
-  private _exclude = new S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOutputReference(this, "exclude");
+  private _exclude =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationExcludeOutputReference(
+      this,
+      'exclude',
+    );
   public get exclude() {
     return this._exclude;
   }
-  public putExclude(value: S3ControlStorageLensConfigurationStorageLensConfigurationExclude) {
+  public putExclude(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationExclude,
+  ) {
     this._exclude.internalValue = value;
   }
   public resetExclude() {
@@ -2208,11 +2813,17 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
   }
 
   // include - computed: false, optional: true, required: false
-  private _include = new S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOutputReference(this, "include");
+  private _include =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationIncludeOutputReference(
+      this,
+      'include',
+    );
   public get include() {
     return this._include;
   }
-  public putInclude(value: S3ControlStorageLensConfigurationStorageLensConfigurationInclude) {
+  public putInclude(
+    value: S3ControlStorageLensConfigurationStorageLensConfigurationInclude,
+  ) {
     this._include.internalValue = value;
   }
   public resetInclude() {
@@ -2225,33 +2836,37 @@ export class S3ControlStorageLensConfigurationStorageLensConfigurationOutputRefe
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration aws_s3control_storage_lens_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration aws_s3control_storage_lens_configuration}
+ */
 export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_s3control_storage_lens_configuration";
+  public static readonly tfResourceType =
+    'aws_s3control_storage_lens_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration aws_s3control_storage_lens_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options S3ControlStorageLensConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: S3ControlStorageLensConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3control_storage_lens_configuration aws_s3control_storage_lens_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options S3ControlStorageLensConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: S3ControlStorageLensConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_s3control_storage_lens_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2259,14 +2874,15 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accountId = config.accountId;
     this._configId = config.configId;
     this._id = config.id;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._storageLensConfiguration.internalValue = config.storageLensConfiguration;
+    this._storageLensConfiguration.internalValue =
+      config.storageLensConfiguration;
   }
 
   // ==========
@@ -2356,11 +2972,17 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
   }
 
   // storage_lens_configuration - computed: false, optional: false, required: true
-  private _storageLensConfiguration = new S3ControlStorageLensConfigurationStorageLensConfigurationOutputReference(this, "storage_lens_configuration");
+  private _storageLensConfiguration =
+    new S3ControlStorageLensConfigurationStorageLensConfigurationOutputReference(
+      this,
+      'storage_lens_configuration',
+    );
   public get storageLensConfiguration() {
     return this._storageLensConfiguration;
   }
-  public putStorageLensConfiguration(value: S3ControlStorageLensConfigurationStorageLensConfiguration) {
+  public putStorageLensConfiguration(
+    value: S3ControlStorageLensConfigurationStorageLensConfiguration,
+  ) {
     this._storageLensConfiguration.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2379,7 +3001,10 @@ export class S3ControlStorageLensConfiguration extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      storage_lens_configuration: s3ControlStorageLensConfigurationStorageLensConfigurationToTerraform(this._storageLensConfiguration.internalValue),
+      storage_lens_configuration:
+        s3ControlStorageLensConfigurationStorageLensConfigurationToTerraform(
+          this._storageLensConfiguration.internalValue,
+        ),
     };
   }
 }

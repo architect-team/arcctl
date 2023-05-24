@@ -2,72 +2,76 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanSpacesBucketObjectsConfig extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanSpacesBucketObjectsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#bucket DataDigitaloceanSpacesBucketObjects#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#bucket DataDigitaloceanSpacesBucketObjects#bucket}
+   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#delimiter DataDigitaloceanSpacesBucketObjects#delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#delimiter DataDigitaloceanSpacesBucketObjects#delimiter}
+   */
   readonly delimiter?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#encoding_type DataDigitaloceanSpacesBucketObjects#encoding_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#encoding_type DataDigitaloceanSpacesBucketObjects#encoding_type}
+   */
   readonly encodingType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#id DataDigitaloceanSpacesBucketObjects#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#id DataDigitaloceanSpacesBucketObjects#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#max_keys DataDigitaloceanSpacesBucketObjects#max_keys}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#max_keys DataDigitaloceanSpacesBucketObjects#max_keys}
+   */
   readonly maxKeys?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#prefix DataDigitaloceanSpacesBucketObjects#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#prefix DataDigitaloceanSpacesBucketObjects#prefix}
+   */
   readonly prefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#region DataDigitaloceanSpacesBucketObjects#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#region DataDigitaloceanSpacesBucketObjects#region}
+   */
   readonly region: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects}
+ */
 export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_spaces_bucket_objects";
+  public static readonly tfResourceType = 'digitalocean_spaces_bucket_objects';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataDigitaloceanSpacesBucketObjectsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataDigitaloceanSpacesBucketObjectsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataDigitaloceanSpacesBucketObjectsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataDigitaloceanSpacesBucketObjectsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_spaces_bucket_objects',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +79,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._bucket = config.bucket;
     this._delimiter = config.delimiter;

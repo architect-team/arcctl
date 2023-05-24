@@ -2,71 +2,70 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface UptimeCheckConfig extends cdktf.TerraformMetaArguments {
   /**
-  * A boolean value indicating whether the check is enabled/disabled.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#enabled UptimeCheck#enabled}
-  */
+   * A boolean value indicating whether the check is enabled/disabled.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#enabled UptimeCheck#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * A human-friendly display name for the check.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#name UptimeCheck#name}
-  */
+   * A human-friendly display name for the check.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#name UptimeCheck#name}
+   */
   readonly name: string;
   /**
-  * An array containing the selected regions to perform healthchecks from.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#regions UptimeCheck#regions}
-  */
+   * An array containing the selected regions to perform healthchecks from.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#regions UptimeCheck#regions}
+   */
   readonly regions?: string[];
   /**
-  * The endpoint to perform healthchecks on.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#target UptimeCheck#target}
-  */
+   * The endpoint to perform healthchecks on.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#target UptimeCheck#target}
+   */
   readonly target: string;
   /**
-  * The type of health check to perform. Enum: 'ping' 'http' 'https'
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#type UptimeCheck#type}
-  */
+   * The type of health check to perform. Enum: 'ping' 'http' 'https'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#type UptimeCheck#type}
+   */
   readonly type?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check digitalocean_uptime_check}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check digitalocean_uptime_check}
+ */
 export class UptimeCheck extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_uptime_check";
+  public static readonly tfResourceType = 'digitalocean_uptime_check';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check digitalocean_uptime_check} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options UptimeCheckConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check digitalocean_uptime_check} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options UptimeCheckConfig
+   */
   public constructor(scope: Construct, id: string, config: UptimeCheckConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_uptime_check',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -74,7 +73,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._enabled = config.enabled;
     this._name = config.name;

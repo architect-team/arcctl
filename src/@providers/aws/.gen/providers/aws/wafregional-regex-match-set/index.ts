@@ -2,63 +2,79 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface WafregionalRegexMatchSetConfig extends cdktf.TerraformMetaArguments {
+export interface WafregionalRegexMatchSetConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#id WafregionalRegexMatchSet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#id WafregionalRegexMatchSet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#name WafregionalRegexMatchSet#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#name WafregionalRegexMatchSet#name}
+   */
   readonly name: string;
   /**
-  * regex_match_tuple block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#regex_match_tuple WafregionalRegexMatchSet#regex_match_tuple}
-  */
-  readonly regexMatchTuple?: WafregionalRegexMatchSetRegexMatchTuple[] | cdktf.IResolvable;
+   * regex_match_tuple block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#regex_match_tuple WafregionalRegexMatchSet#regex_match_tuple}
+   */
+  readonly regexMatchTuple?:
+    | WafregionalRegexMatchSetRegexMatchTuple[]
+    | cdktf.IResolvable;
 }
 export interface WafregionalRegexMatchSetRegexMatchTupleFieldToMatch {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#data WafregionalRegexMatchSet#data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#data WafregionalRegexMatchSet#data}
+   */
   readonly data?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#type WafregionalRegexMatchSet#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#type WafregionalRegexMatchSet#type}
+   */
   readonly type: string;
 }
 
-export function wafregionalRegexMatchSetRegexMatchTupleFieldToMatchToTerraform(struct?: WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference | WafregionalRegexMatchSetRegexMatchTupleFieldToMatch): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafregionalRegexMatchSetRegexMatchTupleFieldToMatchToTerraform(
+  struct?:
+    | WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference
+    | WafregionalRegexMatchSetRegexMatchTupleFieldToMatch,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     data: cdktf.stringToTerraform(struct!.data),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): WafregionalRegexMatchSetRegexMatchTupleFieldToMatch | undefined {
+  public get internalValue():
+    | WafregionalRegexMatchSetRegexMatchTupleFieldToMatch
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._data !== undefined) {
@@ -72,13 +88,14 @@ export class WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WafregionalRegexMatchSetRegexMatchTupleFieldToMatch | undefined) {
+  public set internalValue(
+    value: WafregionalRegexMatchSetRegexMatchTupleFieldToMatch | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._data = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._data = value.data;
       this._type = value.type;
@@ -116,31 +133,40 @@ export class WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference 
 }
 export interface WafregionalRegexMatchSetRegexMatchTuple {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#regex_pattern_set_id WafregionalRegexMatchSet#regex_pattern_set_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#regex_pattern_set_id WafregionalRegexMatchSet#regex_pattern_set_id}
+   */
   readonly regexPatternSetId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#text_transformation WafregionalRegexMatchSet#text_transformation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#text_transformation WafregionalRegexMatchSet#text_transformation}
+   */
   readonly textTransformation: string;
   /**
-  * field_to_match block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#field_to_match WafregionalRegexMatchSet#field_to_match}
-  */
+   * field_to_match block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set#field_to_match WafregionalRegexMatchSet#field_to_match}
+   */
   readonly fieldToMatch: WafregionalRegexMatchSetRegexMatchTupleFieldToMatch;
 }
 
-export function wafregionalRegexMatchSetRegexMatchTupleToTerraform(struct?: WafregionalRegexMatchSetRegexMatchTuple | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafregionalRegexMatchSetRegexMatchTupleToTerraform(
+  struct?: WafregionalRegexMatchSetRegexMatchTuple | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     regex_pattern_set_id: cdktf.stringToTerraform(struct!.regexPatternSetId),
     text_transformation: cdktf.stringToTerraform(struct!.textTransformation),
-    field_to_match: wafregionalRegexMatchSetRegexMatchTupleFieldToMatchToTerraform(struct!.fieldToMatch),
-  }
+    field_to_match:
+      wafregionalRegexMatchSetRegexMatchTupleFieldToMatchToTerraform(
+        struct!.fieldToMatch,
+      ),
+  };
 }
 
 export class WafregionalRegexMatchSetRegexMatchTupleOutputReference extends cdktf.ComplexObject {
@@ -148,16 +174,29 @@ export class WafregionalRegexMatchSetRegexMatchTupleOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): WafregionalRegexMatchSetRegexMatchTuple | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | WafregionalRegexMatchSetRegexMatchTuple
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -178,19 +217,22 @@ export class WafregionalRegexMatchSetRegexMatchTupleOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WafregionalRegexMatchSetRegexMatchTuple | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | WafregionalRegexMatchSetRegexMatchTuple
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._regexPatternSetId = undefined;
       this._textTransformation = undefined;
       this._fieldToMatch.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._regexPatternSetId = value.regexPatternSetId;
@@ -226,11 +268,17 @@ export class WafregionalRegexMatchSetRegexMatchTupleOutputReference extends cdkt
   }
 
   // field_to_match - computed: false, optional: false, required: true
-  private _fieldToMatch = new WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference(this, "field_to_match");
+  private _fieldToMatch =
+    new WafregionalRegexMatchSetRegexMatchTupleFieldToMatchOutputReference(
+      this,
+      'field_to_match',
+    );
   public get fieldToMatch() {
     return this._fieldToMatch;
   }
-  public putFieldToMatch(value: WafregionalRegexMatchSetRegexMatchTupleFieldToMatch) {
+  public putFieldToMatch(
+    value: WafregionalRegexMatchSetRegexMatchTupleFieldToMatch,
+  ) {
     this._fieldToMatch.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -240,53 +288,69 @@ export class WafregionalRegexMatchSetRegexMatchTupleOutputReference extends cdkt
 }
 
 export class WafregionalRegexMatchSetRegexMatchTupleList extends cdktf.ComplexList {
-  public internalValue? : WafregionalRegexMatchSetRegexMatchTuple[] | cdktf.IResolvable
+  public internalValue?:
+    | WafregionalRegexMatchSetRegexMatchTuple[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): WafregionalRegexMatchSetRegexMatchTupleOutputReference {
-    return new WafregionalRegexMatchSetRegexMatchTupleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): WafregionalRegexMatchSetRegexMatchTupleOutputReference {
+    return new WafregionalRegexMatchSetRegexMatchTupleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set aws_wafregional_regex_match_set}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set aws_wafregional_regex_match_set}
+ */
 export class WafregionalRegexMatchSet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_wafregional_regex_match_set";
+  public static readonly tfResourceType = 'aws_wafregional_regex_match_set';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set aws_wafregional_regex_match_set} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options WafregionalRegexMatchSetConfig
-  */
-  public constructor(scope: Construct, id: string, config: WafregionalRegexMatchSetConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafregional_regex_match_set aws_wafregional_regex_match_set} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options WafregionalRegexMatchSetConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: WafregionalRegexMatchSetConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_wafregional_regex_match_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -294,7 +358,7 @@ export class WafregionalRegexMatchSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -335,11 +399,17 @@ export class WafregionalRegexMatchSet extends cdktf.TerraformResource {
   }
 
   // regex_match_tuple - computed: false, optional: true, required: false
-  private _regexMatchTuple = new WafregionalRegexMatchSetRegexMatchTupleList(this, "regex_match_tuple", true);
+  private _regexMatchTuple = new WafregionalRegexMatchSetRegexMatchTupleList(
+    this,
+    'regex_match_tuple',
+    true,
+  );
   public get regexMatchTuple() {
     return this._regexMatchTuple;
   }
-  public putRegexMatchTuple(value: WafregionalRegexMatchSetRegexMatchTuple[] | cdktf.IResolvable) {
+  public putRegexMatchTuple(
+    value: WafregionalRegexMatchSetRegexMatchTuple[] | cdktf.IResolvable,
+  ) {
     this._regexMatchTuple.internalValue = value;
   }
   public resetRegexMatchTuple() {
@@ -358,7 +428,10 @@ export class WafregionalRegexMatchSet extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      regex_match_tuple: cdktf.listMapper(wafregionalRegexMatchSetRegexMatchTupleToTerraform, true)(this._regexMatchTuple.internalValue),
+      regex_match_tuple: cdktf.listMapper(
+        wafregionalRegexMatchSetRegexMatchTupleToTerraform,
+        true,
+      )(this._regexMatchTuple.internalValue),
     };
   }
 }

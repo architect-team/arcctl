@@ -2,60 +2,64 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsRedshiftserverlessCredentialsConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsRedshiftserverlessCredentialsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#db_name DataAwsRedshiftserverlessCredentials#db_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#db_name DataAwsRedshiftserverlessCredentials#db_name}
+   */
   readonly dbName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#duration_seconds DataAwsRedshiftserverlessCredentials#duration_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#duration_seconds DataAwsRedshiftserverlessCredentials#duration_seconds}
+   */
   readonly durationSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#id DataAwsRedshiftserverlessCredentials#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#id DataAwsRedshiftserverlessCredentials#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#workgroup_name DataAwsRedshiftserverlessCredentials#workgroup_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials#workgroup_name DataAwsRedshiftserverlessCredentials#workgroup_name}
+   */
   readonly workgroupName: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials aws_redshiftserverless_credentials}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials aws_redshiftserverless_credentials}
+ */
 export class DataAwsRedshiftserverlessCredentials extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_redshiftserverless_credentials";
+  public static readonly tfResourceType = 'aws_redshiftserverless_credentials';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials aws_redshiftserverless_credentials} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsRedshiftserverlessCredentialsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsRedshiftserverlessCredentialsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/redshiftserverless_credentials aws_redshiftserverless_credentials} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsRedshiftserverlessCredentialsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsRedshiftserverlessCredentialsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_redshiftserverless_credentials',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class DataAwsRedshiftserverlessCredentials extends cdktf.TerraformDataSou
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dbName = config.dbName;
     this._durationSeconds = config.durationSeconds;

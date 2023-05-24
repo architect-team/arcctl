@@ -2,118 +2,133 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface BudgetsBudgetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#account_id BudgetsBudget#account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#account_id BudgetsBudget#account_id}
+   */
   readonly accountId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#budget_type BudgetsBudget#budget_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#budget_type BudgetsBudget#budget_type}
+   */
   readonly budgetType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_filters BudgetsBudget#cost_filters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_filters BudgetsBudget#cost_filters}
+   */
   readonly costFilters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#id BudgetsBudget#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#id BudgetsBudget#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#limit_amount BudgetsBudget#limit_amount}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#limit_amount BudgetsBudget#limit_amount}
+   */
   readonly limitAmount?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#limit_unit BudgetsBudget#limit_unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#limit_unit BudgetsBudget#limit_unit}
+   */
   readonly limitUnit?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#name BudgetsBudget#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#name BudgetsBudget#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#name_prefix BudgetsBudget#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#name_prefix BudgetsBudget#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#time_period_end BudgetsBudget#time_period_end}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#time_period_end BudgetsBudget#time_period_end}
+   */
   readonly timePeriodEnd?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#time_period_start BudgetsBudget#time_period_start}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#time_period_start BudgetsBudget#time_period_start}
+   */
   readonly timePeriodStart?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#time_unit BudgetsBudget#time_unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#time_unit BudgetsBudget#time_unit}
+   */
   readonly timeUnit: string;
   /**
-  * auto_adjust_data block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#auto_adjust_data BudgetsBudget#auto_adjust_data}
-  */
+   * auto_adjust_data block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#auto_adjust_data BudgetsBudget#auto_adjust_data}
+   */
   readonly autoAdjustData?: BudgetsBudgetAutoAdjustData;
   /**
-  * cost_filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_filter BudgetsBudget#cost_filter}
-  */
+   * cost_filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_filter BudgetsBudget#cost_filter}
+   */
   readonly costFilter?: BudgetsBudgetCostFilter[] | cdktf.IResolvable;
   /**
-  * cost_types block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_types BudgetsBudget#cost_types}
-  */
+   * cost_types block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#cost_types BudgetsBudget#cost_types}
+   */
   readonly costTypes?: BudgetsBudgetCostTypes;
   /**
-  * notification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#notification BudgetsBudget#notification}
-  */
+   * notification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#notification BudgetsBudget#notification}
+   */
   readonly notification?: BudgetsBudgetNotification[] | cdktf.IResolvable;
   /**
-  * planned_limit block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#planned_limit BudgetsBudget#planned_limit}
-  */
+   * planned_limit block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#planned_limit BudgetsBudget#planned_limit}
+   */
   readonly plannedLimit?: BudgetsBudgetPlannedLimit[] | cdktf.IResolvable;
 }
 export interface BudgetsBudgetAutoAdjustDataHistoricalOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#budget_adjustment_period BudgetsBudget#budget_adjustment_period}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#budget_adjustment_period BudgetsBudget#budget_adjustment_period}
+   */
   readonly budgetAdjustmentPeriod: number;
 }
 
-export function budgetsBudgetAutoAdjustDataHistoricalOptionsToTerraform(struct?: BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference | BudgetsBudgetAutoAdjustDataHistoricalOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function budgetsBudgetAutoAdjustDataHistoricalOptionsToTerraform(
+  struct?:
+    | BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference
+    | BudgetsBudgetAutoAdjustDataHistoricalOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    budget_adjustment_period: cdktf.numberToTerraform(struct!.budgetAdjustmentPeriod),
-  }
+    budget_adjustment_period: cdktf.numberToTerraform(
+      struct!.budgetAdjustmentPeriod,
+    ),
+  };
 }
 
 export class BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): BudgetsBudgetAutoAdjustDataHistoricalOptions | undefined {
+  public get internalValue():
+    | BudgetsBudgetAutoAdjustDataHistoricalOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._budgetAdjustmentPeriod !== undefined) {
@@ -123,12 +138,13 @@ export class BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BudgetsBudgetAutoAdjustDataHistoricalOptions | undefined) {
+  public set internalValue(
+    value: BudgetsBudgetAutoAdjustDataHistoricalOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._budgetAdjustmentPeriod = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._budgetAdjustmentPeriod = value.budgetAdjustmentPeriod;
     }
@@ -154,36 +170,49 @@ export class BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference extends
 }
 export interface BudgetsBudgetAutoAdjustData {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#auto_adjust_type BudgetsBudget#auto_adjust_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#auto_adjust_type BudgetsBudget#auto_adjust_type}
+   */
   readonly autoAdjustType: string;
   /**
-  * historical_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#historical_options BudgetsBudget#historical_options}
-  */
+   * historical_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#historical_options BudgetsBudget#historical_options}
+   */
   readonly historicalOptions?: BudgetsBudgetAutoAdjustDataHistoricalOptions;
 }
 
-export function budgetsBudgetAutoAdjustDataToTerraform(struct?: BudgetsBudgetAutoAdjustDataOutputReference | BudgetsBudgetAutoAdjustData): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function budgetsBudgetAutoAdjustDataToTerraform(
+  struct?:
+    | BudgetsBudgetAutoAdjustDataOutputReference
+    | BudgetsBudgetAutoAdjustData,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     auto_adjust_type: cdktf.stringToTerraform(struct!.autoAdjustType),
-    historical_options: budgetsBudgetAutoAdjustDataHistoricalOptionsToTerraform(struct!.historicalOptions),
-  }
+    historical_options: budgetsBudgetAutoAdjustDataHistoricalOptionsToTerraform(
+      struct!.historicalOptions,
+    ),
+  };
 }
 
 export class BudgetsBudgetAutoAdjustDataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -196,7 +225,8 @@ export class BudgetsBudgetAutoAdjustDataOutputReference extends cdktf.ComplexObj
     }
     if (this._historicalOptions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.historicalOptions = this._historicalOptions?.internalValue;
+      internalValueResult.historicalOptions =
+        this._historicalOptions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -206,8 +236,7 @@ export class BudgetsBudgetAutoAdjustDataOutputReference extends cdktf.ComplexObj
       this.isEmptyObject = false;
       this._autoAdjustType = undefined;
       this._historicalOptions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._autoAdjustType = value.autoAdjustType;
       this._historicalOptions.internalValue = value.historicalOptions;
@@ -233,11 +262,17 @@ export class BudgetsBudgetAutoAdjustDataOutputReference extends cdktf.ComplexObj
   }
 
   // historical_options - computed: false, optional: true, required: false
-  private _historicalOptions = new BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference(this, "historical_options");
+  private _historicalOptions =
+    new BudgetsBudgetAutoAdjustDataHistoricalOptionsOutputReference(
+      this,
+      'historical_options',
+    );
   public get historicalOptions() {
     return this._historicalOptions;
   }
-  public putHistoricalOptions(value: BudgetsBudgetAutoAdjustDataHistoricalOptions) {
+  public putHistoricalOptions(
+    value: BudgetsBudgetAutoAdjustDataHistoricalOptions,
+  ) {
     this._historicalOptions.internalValue = value;
   }
   public resetHistoricalOptions() {
@@ -250,24 +285,30 @@ export class BudgetsBudgetAutoAdjustDataOutputReference extends cdktf.ComplexObj
 }
 export interface BudgetsBudgetCostFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#name BudgetsBudget#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#name BudgetsBudget#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#values BudgetsBudget#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#values BudgetsBudget#values}
+   */
   readonly values: string[];
 }
 
-export function budgetsBudgetCostFilterToTerraform(struct?: BudgetsBudgetCostFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function budgetsBudgetCostFilterToTerraform(
+  struct?: BudgetsBudgetCostFilter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class BudgetsBudgetCostFilterOutputReference extends cdktf.ComplexObject {
@@ -275,16 +316,29 @@ export class BudgetsBudgetCostFilterOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): BudgetsBudgetCostFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | BudgetsBudgetCostFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -301,18 +355,18 @@ export class BudgetsBudgetCostFilterOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BudgetsBudgetCostFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: BudgetsBudgetCostFilter | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -348,80 +402,97 @@ export class BudgetsBudgetCostFilterOutputReference extends cdktf.ComplexObject 
 }
 
 export class BudgetsBudgetCostFilterList extends cdktf.ComplexList {
-  public internalValue? : BudgetsBudgetCostFilter[] | cdktf.IResolvable
+  public internalValue?: BudgetsBudgetCostFilter[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): BudgetsBudgetCostFilterOutputReference {
-    return new BudgetsBudgetCostFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new BudgetsBudgetCostFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface BudgetsBudgetCostTypes {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_credit BudgetsBudget#include_credit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_credit BudgetsBudget#include_credit}
+   */
   readonly includeCredit?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_discount BudgetsBudget#include_discount}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_discount BudgetsBudget#include_discount}
+   */
   readonly includeDiscount?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_other_subscription BudgetsBudget#include_other_subscription}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_other_subscription BudgetsBudget#include_other_subscription}
+   */
   readonly includeOtherSubscription?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_recurring BudgetsBudget#include_recurring}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_recurring BudgetsBudget#include_recurring}
+   */
   readonly includeRecurring?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_refund BudgetsBudget#include_refund}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_refund BudgetsBudget#include_refund}
+   */
   readonly includeRefund?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_subscription BudgetsBudget#include_subscription}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_subscription BudgetsBudget#include_subscription}
+   */
   readonly includeSubscription?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_support BudgetsBudget#include_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_support BudgetsBudget#include_support}
+   */
   readonly includeSupport?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_tax BudgetsBudget#include_tax}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_tax BudgetsBudget#include_tax}
+   */
   readonly includeTax?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_upfront BudgetsBudget#include_upfront}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#include_upfront BudgetsBudget#include_upfront}
+   */
   readonly includeUpfront?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#use_amortized BudgetsBudget#use_amortized}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#use_amortized BudgetsBudget#use_amortized}
+   */
   readonly useAmortized?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#use_blended BudgetsBudget#use_blended}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#use_blended BudgetsBudget#use_blended}
+   */
   readonly useBlended?: boolean | cdktf.IResolvable;
 }
 
-export function budgetsBudgetCostTypesToTerraform(struct?: BudgetsBudgetCostTypesOutputReference | BudgetsBudgetCostTypes): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function budgetsBudgetCostTypesToTerraform(
+  struct?: BudgetsBudgetCostTypesOutputReference | BudgetsBudgetCostTypes,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     include_credit: cdktf.booleanToTerraform(struct!.includeCredit),
     include_discount: cdktf.booleanToTerraform(struct!.includeDiscount),
-    include_other_subscription: cdktf.booleanToTerraform(struct!.includeOtherSubscription),
+    include_other_subscription: cdktf.booleanToTerraform(
+      struct!.includeOtherSubscription,
+    ),
     include_recurring: cdktf.booleanToTerraform(struct!.includeRecurring),
     include_refund: cdktf.booleanToTerraform(struct!.includeRefund),
     include_subscription: cdktf.booleanToTerraform(struct!.includeSubscription),
@@ -430,17 +501,20 @@ export function budgetsBudgetCostTypesToTerraform(struct?: BudgetsBudgetCostType
     include_upfront: cdktf.booleanToTerraform(struct!.includeUpfront),
     use_amortized: cdktf.booleanToTerraform(struct!.useAmortized),
     use_blended: cdktf.booleanToTerraform(struct!.useBlended),
-  }
+  };
 }
 
 export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -457,7 +531,8 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
     }
     if (this._includeOtherSubscription !== undefined) {
       hasAnyValues = true;
-      internalValueResult.includeOtherSubscription = this._includeOtherSubscription;
+      internalValueResult.includeOtherSubscription =
+        this._includeOtherSubscription;
     }
     if (this._includeRecurring !== undefined) {
       hasAnyValues = true;
@@ -508,8 +583,7 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
       this._includeUpfront = undefined;
       this._useAmortized = undefined;
       this._useBlended = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._includeCredit = value.includeCredit;
       this._includeDiscount = value.includeDiscount;
@@ -703,44 +777,56 @@ export class BudgetsBudgetCostTypesOutputReference extends cdktf.ComplexObject {
 }
 export interface BudgetsBudgetNotification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#comparison_operator BudgetsBudget#comparison_operator}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#comparison_operator BudgetsBudget#comparison_operator}
+   */
   readonly comparisonOperator: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#notification_type BudgetsBudget#notification_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#notification_type BudgetsBudget#notification_type}
+   */
   readonly notificationType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#subscriber_email_addresses BudgetsBudget#subscriber_email_addresses}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#subscriber_email_addresses BudgetsBudget#subscriber_email_addresses}
+   */
   readonly subscriberEmailAddresses?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#subscriber_sns_topic_arns BudgetsBudget#subscriber_sns_topic_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#subscriber_sns_topic_arns BudgetsBudget#subscriber_sns_topic_arns}
+   */
   readonly subscriberSnsTopicArns?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#threshold BudgetsBudget#threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#threshold BudgetsBudget#threshold}
+   */
   readonly threshold: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#threshold_type BudgetsBudget#threshold_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#threshold_type BudgetsBudget#threshold_type}
+   */
   readonly thresholdType: string;
 }
 
-export function budgetsBudgetNotificationToTerraform(struct?: BudgetsBudgetNotification | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function budgetsBudgetNotificationToTerraform(
+  struct?: BudgetsBudgetNotification | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     comparison_operator: cdktf.stringToTerraform(struct!.comparisonOperator),
     notification_type: cdktf.stringToTerraform(struct!.notificationType),
-    subscriber_email_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subscriberEmailAddresses),
-    subscriber_sns_topic_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subscriberSnsTopicArns),
+    subscriber_email_addresses: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.subscriberEmailAddresses),
+    subscriber_sns_topic_arns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.subscriberSnsTopicArns),
     threshold: cdktf.numberToTerraform(struct!.threshold),
     threshold_type: cdktf.stringToTerraform(struct!.thresholdType),
-  }
+  };
 }
 
 export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObject {
@@ -748,16 +834,29 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): BudgetsBudgetNotification | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | BudgetsBudgetNotification
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -773,7 +872,8 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
     }
     if (this._subscriberEmailAddresses !== undefined) {
       hasAnyValues = true;
-      internalValueResult.subscriberEmailAddresses = this._subscriberEmailAddresses;
+      internalValueResult.subscriberEmailAddresses =
+        this._subscriberEmailAddresses;
     }
     if (this._subscriberSnsTopicArns !== undefined) {
       hasAnyValues = true;
@@ -790,7 +890,9 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BudgetsBudgetNotification | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: BudgetsBudgetNotification | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -800,12 +902,10 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
       this._subscriberSnsTopicArns = undefined;
       this._threshold = undefined;
       this._thresholdType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._comparisonOperator = value.comparisonOperator;
@@ -903,49 +1003,64 @@ export class BudgetsBudgetNotificationOutputReference extends cdktf.ComplexObjec
 }
 
 export class BudgetsBudgetNotificationList extends cdktf.ComplexList {
-  public internalValue? : BudgetsBudgetNotification[] | cdktf.IResolvable
+  public internalValue?: BudgetsBudgetNotification[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): BudgetsBudgetNotificationOutputReference {
-    return new BudgetsBudgetNotificationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new BudgetsBudgetNotificationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface BudgetsBudgetPlannedLimit {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#amount BudgetsBudget#amount}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#amount BudgetsBudget#amount}
+   */
   readonly amount: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#start_time BudgetsBudget#start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#start_time BudgetsBudget#start_time}
+   */
   readonly startTime: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#unit BudgetsBudget#unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget#unit BudgetsBudget#unit}
+   */
   readonly unit: string;
 }
 
-export function budgetsBudgetPlannedLimitToTerraform(struct?: BudgetsBudgetPlannedLimit | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function budgetsBudgetPlannedLimitToTerraform(
+  struct?: BudgetsBudgetPlannedLimit | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     amount: cdktf.stringToTerraform(struct!.amount),
     start_time: cdktf.stringToTerraform(struct!.startTime),
     unit: cdktf.stringToTerraform(struct!.unit),
-  }
+  };
 }
 
 export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObject {
@@ -953,16 +1068,29 @@ export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): BudgetsBudgetPlannedLimit | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | BudgetsBudgetPlannedLimit
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -983,19 +1111,19 @@ export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BudgetsBudgetPlannedLimit | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: BudgetsBudgetPlannedLimit | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._amount = undefined;
       this._startTime = undefined;
       this._unit = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._amount = value.amount;
@@ -1045,53 +1173,65 @@ export class BudgetsBudgetPlannedLimitOutputReference extends cdktf.ComplexObjec
 }
 
 export class BudgetsBudgetPlannedLimitList extends cdktf.ComplexList {
-  public internalValue? : BudgetsBudgetPlannedLimit[] | cdktf.IResolvable
+  public internalValue?: BudgetsBudgetPlannedLimit[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): BudgetsBudgetPlannedLimitOutputReference {
-    return new BudgetsBudgetPlannedLimitOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new BudgetsBudgetPlannedLimitOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget aws_budgets_budget}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget aws_budgets_budget}
+ */
 export class BudgetsBudget extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_budgets_budget";
+  public static readonly tfResourceType = 'aws_budgets_budget';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget aws_budgets_budget} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options BudgetsBudgetConfig
-  */
-  public constructor(scope: Construct, id: string, config: BudgetsBudgetConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/budgets_budget aws_budgets_budget} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options BudgetsBudgetConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: BudgetsBudgetConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_budgets_budget',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1099,7 +1239,7 @@ export class BudgetsBudget extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accountId = config.accountId;
     this._budgetType = config.budgetType;
@@ -1299,7 +1439,10 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // auto_adjust_data - computed: false, optional: true, required: false
-  private _autoAdjustData = new BudgetsBudgetAutoAdjustDataOutputReference(this, "auto_adjust_data");
+  private _autoAdjustData = new BudgetsBudgetAutoAdjustDataOutputReference(
+    this,
+    'auto_adjust_data',
+  );
   public get autoAdjustData() {
     return this._autoAdjustData;
   }
@@ -1315,7 +1458,11 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // cost_filter - computed: false, optional: true, required: false
-  private _costFilter = new BudgetsBudgetCostFilterList(this, "cost_filter", true);
+  private _costFilter = new BudgetsBudgetCostFilterList(
+    this,
+    'cost_filter',
+    true,
+  );
   public get costFilter() {
     return this._costFilter;
   }
@@ -1331,7 +1478,10 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // cost_types - computed: false, optional: true, required: false
-  private _costTypes = new BudgetsBudgetCostTypesOutputReference(this, "cost_types");
+  private _costTypes = new BudgetsBudgetCostTypesOutputReference(
+    this,
+    'cost_types',
+  );
   public get costTypes() {
     return this._costTypes;
   }
@@ -1347,11 +1497,17 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // notification - computed: false, optional: true, required: false
-  private _notification = new BudgetsBudgetNotificationList(this, "notification", true);
+  private _notification = new BudgetsBudgetNotificationList(
+    this,
+    'notification',
+    true,
+  );
   public get notification() {
     return this._notification;
   }
-  public putNotification(value: BudgetsBudgetNotification[] | cdktf.IResolvable) {
+  public putNotification(
+    value: BudgetsBudgetNotification[] | cdktf.IResolvable,
+  ) {
     this._notification.internalValue = value;
   }
   public resetNotification() {
@@ -1363,11 +1519,17 @@ export class BudgetsBudget extends cdktf.TerraformResource {
   }
 
   // planned_limit - computed: false, optional: true, required: false
-  private _plannedLimit = new BudgetsBudgetPlannedLimitList(this, "planned_limit", true);
+  private _plannedLimit = new BudgetsBudgetPlannedLimitList(
+    this,
+    'planned_limit',
+    true,
+  );
   public get plannedLimit() {
     return this._plannedLimit;
   }
-  public putPlannedLimit(value: BudgetsBudgetPlannedLimit[] | cdktf.IResolvable) {
+  public putPlannedLimit(
+    value: BudgetsBudgetPlannedLimit[] | cdktf.IResolvable,
+  ) {
     this._plannedLimit.internalValue = value;
   }
   public resetPlannedLimit() {
@@ -1386,7 +1548,9 @@ export class BudgetsBudget extends cdktf.TerraformResource {
     return {
       account_id: cdktf.stringToTerraform(this._accountId),
       budget_type: cdktf.stringToTerraform(this._budgetType),
-      cost_filters: cdktf.hashMapper(cdktf.stringToTerraform)(this._costFilters),
+      cost_filters: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._costFilters,
+      ),
       id: cdktf.stringToTerraform(this._id),
       limit_amount: cdktf.stringToTerraform(this._limitAmount),
       limit_unit: cdktf.stringToTerraform(this._limitUnit),
@@ -1395,11 +1559,24 @@ export class BudgetsBudget extends cdktf.TerraformResource {
       time_period_end: cdktf.stringToTerraform(this._timePeriodEnd),
       time_period_start: cdktf.stringToTerraform(this._timePeriodStart),
       time_unit: cdktf.stringToTerraform(this._timeUnit),
-      auto_adjust_data: budgetsBudgetAutoAdjustDataToTerraform(this._autoAdjustData.internalValue),
-      cost_filter: cdktf.listMapper(budgetsBudgetCostFilterToTerraform, true)(this._costFilter.internalValue),
-      cost_types: budgetsBudgetCostTypesToTerraform(this._costTypes.internalValue),
-      notification: cdktf.listMapper(budgetsBudgetNotificationToTerraform, true)(this._notification.internalValue),
-      planned_limit: cdktf.listMapper(budgetsBudgetPlannedLimitToTerraform, true)(this._plannedLimit.internalValue),
+      auto_adjust_data: budgetsBudgetAutoAdjustDataToTerraform(
+        this._autoAdjustData.internalValue,
+      ),
+      cost_filter: cdktf.listMapper(
+        budgetsBudgetCostFilterToTerraform,
+        true,
+      )(this._costFilter.internalValue),
+      cost_types: budgetsBudgetCostTypesToTerraform(
+        this._costTypes.internalValue,
+      ),
+      notification: cdktf.listMapper(
+        budgetsBudgetNotificationToTerraform,
+        true,
+      )(this._notification.internalValue),
+      planned_limit: cdktf.listMapper(
+        budgetsBudgetPlannedLimitToTerraform,
+        true,
+      )(this._plannedLimit.internalValue),
     };
   }
 }

@@ -2,40 +2,50 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsEc2SerialConsoleAccessConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsEc2SerialConsoleAccessConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#id DataAwsEc2SerialConsoleAccess#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#id DataAwsEc2SerialConsoleAccess#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#timeouts DataAwsEc2SerialConsoleAccess#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#timeouts DataAwsEc2SerialConsoleAccess#timeouts}
+   */
   readonly timeouts?: DataAwsEc2SerialConsoleAccessTimeouts;
 }
 export interface DataAwsEc2SerialConsoleAccessTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#read DataAwsEc2SerialConsoleAccess#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access#read DataAwsEc2SerialConsoleAccess#read}
+   */
   readonly read?: string;
 }
 
-export function dataAwsEc2SerialConsoleAccessTimeoutsToTerraform(struct?: DataAwsEc2SerialConsoleAccessTimeoutsOutputReference | DataAwsEc2SerialConsoleAccessTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsEc2SerialConsoleAccessTimeoutsToTerraform(
+  struct?:
+    | DataAwsEc2SerialConsoleAccessTimeoutsOutputReference
+    | DataAwsEc2SerialConsoleAccessTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class DataAwsEc2SerialConsoleAccessTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -43,14 +53,20 @@ export class DataAwsEc2SerialConsoleAccessTimeoutsOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsEc2SerialConsoleAccessTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsEc2SerialConsoleAccessTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -63,17 +79,20 @@ export class DataAwsEc2SerialConsoleAccessTimeoutsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsEc2SerialConsoleAccessTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsEc2SerialConsoleAccessTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -98,33 +117,36 @@ export class DataAwsEc2SerialConsoleAccessTimeoutsOutputReference extends cdktf.
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access aws_ec2_serial_console_access}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access aws_ec2_serial_console_access}
+ */
 export class DataAwsEc2SerialConsoleAccess extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_serial_console_access";
+  public static readonly tfResourceType = 'aws_ec2_serial_console_access';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access aws_ec2_serial_console_access} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsEc2SerialConsoleAccessConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsEc2SerialConsoleAccessConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_serial_console_access aws_ec2_serial_console_access} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsEc2SerialConsoleAccessConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsEc2SerialConsoleAccessConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_serial_console_access',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -132,7 +154,7 @@ export class DataAwsEc2SerialConsoleAccess extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._timeouts.internalValue = config.timeouts;
@@ -164,7 +186,10 @@ export class DataAwsEc2SerialConsoleAccess extends cdktf.TerraformDataSource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsEc2SerialConsoleAccessTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DataAwsEc2SerialConsoleAccessTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -186,7 +211,9 @@ export class DataAwsEc2SerialConsoleAccess extends cdktf.TerraformDataSource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      timeouts: dataAwsEc2SerialConsoleAccessTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: dataAwsEc2SerialConsoleAccessTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

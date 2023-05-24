@@ -2,68 +2,74 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface EndpointsV1Config extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#id EndpointsV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#id EndpointsV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#metadata EndpointsV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#metadata EndpointsV1#metadata}
+   */
   readonly metadata: EndpointsV1Metadata;
   /**
-  * subset block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#subset EndpointsV1#subset}
-  */
+   * subset block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#subset EndpointsV1#subset}
+   */
   readonly subset?: EndpointsV1Subset[] | cdktf.IResolvable;
 }
 export interface EndpointsV1Metadata {
   /**
-  * An unstructured key value map stored with the endpoints that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#annotations EndpointsV1#annotations}
-  */
+   * An unstructured key value map stored with the endpoints that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#annotations EndpointsV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#generate_name EndpointsV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#generate_name EndpointsV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the endpoints. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#labels EndpointsV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the endpoints. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#labels EndpointsV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the endpoints, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#name EndpointsV1#name}
-  */
+   * Name of the endpoints, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#name EndpointsV1#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the endpoints must be unique.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#namespace EndpointsV1#namespace}
-  */
+   * Namespace defines the space within which name of the endpoints must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#namespace EndpointsV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function endpointsV1MetadataToTerraform(struct?: EndpointsV1MetadataOutputReference | EndpointsV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function endpointsV1MetadataToTerraform(
+  struct?: EndpointsV1MetadataOutputReference | EndpointsV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -71,17 +77,20 @@ export function endpointsV1MetadataToTerraform(struct?: EndpointsV1MetadataOutpu
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class EndpointsV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -119,8 +128,7 @@ export class EndpointsV1MetadataOutputReference extends cdktf.ComplexObject {
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -227,35 +235,41 @@ export class EndpointsV1MetadataOutputReference extends cdktf.ComplexObject {
 }
 export interface EndpointsV1SubsetAddress {
   /**
-  * The Hostname of this endpoint.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#hostname EndpointsV1#hostname}
-  */
+   * The Hostname of this endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#hostname EndpointsV1#hostname}
+   */
   readonly hostname?: string;
   /**
-  * The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#ip EndpointsV1#ip}
-  */
+   * The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#ip EndpointsV1#ip}
+   */
   readonly ip: string;
   /**
-  * Node hosting this endpoint. This can be used to determine endpoints local to a node.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#node_name EndpointsV1#node_name}
-  */
+   * Node hosting this endpoint. This can be used to determine endpoints local to a node.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#node_name EndpointsV1#node_name}
+   */
   readonly nodeName?: string;
 }
 
-export function endpointsV1SubsetAddressToTerraform(struct?: EndpointsV1SubsetAddress | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function endpointsV1SubsetAddressToTerraform(
+  struct?: EndpointsV1SubsetAddress | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     hostname: cdktf.stringToTerraform(struct!.hostname),
     ip: cdktf.stringToTerraform(struct!.ip),
     node_name: cdktf.stringToTerraform(struct!.nodeName),
-  }
+  };
 }
 
 export class EndpointsV1SubsetAddressOutputReference extends cdktf.ComplexObject {
@@ -263,16 +277,29 @@ export class EndpointsV1SubsetAddressOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EndpointsV1SubsetAddress | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EndpointsV1SubsetAddress
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -293,19 +320,19 @@ export class EndpointsV1SubsetAddressOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EndpointsV1SubsetAddress | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EndpointsV1SubsetAddress | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._hostname = undefined;
       this._ip = undefined;
       this._nodeName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._hostname = value.hostname;
@@ -361,55 +388,70 @@ export class EndpointsV1SubsetAddressOutputReference extends cdktf.ComplexObject
 }
 
 export class EndpointsV1SubsetAddressList extends cdktf.ComplexList {
-  public internalValue? : EndpointsV1SubsetAddress[] | cdktf.IResolvable
+  public internalValue?: EndpointsV1SubsetAddress[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): EndpointsV1SubsetAddressOutputReference {
-    return new EndpointsV1SubsetAddressOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new EndpointsV1SubsetAddressOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface EndpointsV1SubsetNotReadyAddress {
   /**
-  * The Hostname of this endpoint.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#hostname EndpointsV1#hostname}
-  */
+   * The Hostname of this endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#hostname EndpointsV1#hostname}
+   */
   readonly hostname?: string;
   /**
-  * The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#ip EndpointsV1#ip}
-  */
+   * The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#ip EndpointsV1#ip}
+   */
   readonly ip: string;
   /**
-  * Node hosting this endpoint. This can be used to determine endpoints local to a node.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#node_name EndpointsV1#node_name}
-  */
+   * Node hosting this endpoint. This can be used to determine endpoints local to a node.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#node_name EndpointsV1#node_name}
+   */
   readonly nodeName?: string;
 }
 
-export function endpointsV1SubsetNotReadyAddressToTerraform(struct?: EndpointsV1SubsetNotReadyAddress | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function endpointsV1SubsetNotReadyAddressToTerraform(
+  struct?: EndpointsV1SubsetNotReadyAddress | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     hostname: cdktf.stringToTerraform(struct!.hostname),
     ip: cdktf.stringToTerraform(struct!.ip),
     node_name: cdktf.stringToTerraform(struct!.nodeName),
-  }
+  };
 }
 
 export class EndpointsV1SubsetNotReadyAddressOutputReference extends cdktf.ComplexObject {
@@ -417,16 +459,29 @@ export class EndpointsV1SubsetNotReadyAddressOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EndpointsV1SubsetNotReadyAddress | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EndpointsV1SubsetNotReadyAddress
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -447,19 +502,19 @@ export class EndpointsV1SubsetNotReadyAddressOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EndpointsV1SubsetNotReadyAddress | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EndpointsV1SubsetNotReadyAddress | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._hostname = undefined;
       this._ip = undefined;
       this._nodeName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._hostname = value.hostname;
@@ -515,55 +570,70 @@ export class EndpointsV1SubsetNotReadyAddressOutputReference extends cdktf.Compl
 }
 
 export class EndpointsV1SubsetNotReadyAddressList extends cdktf.ComplexList {
-  public internalValue? : EndpointsV1SubsetNotReadyAddress[] | cdktf.IResolvable
+  public internalValue?: EndpointsV1SubsetNotReadyAddress[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): EndpointsV1SubsetNotReadyAddressOutputReference {
-    return new EndpointsV1SubsetNotReadyAddressOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new EndpointsV1SubsetNotReadyAddressOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface EndpointsV1SubsetPort {
   /**
-  * The name of this port within the endpoint. Must be a DNS_LABEL. Optional if only one Port is defined on this endpoint.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#name EndpointsV1#name}
-  */
+   * The name of this port within the endpoint. Must be a DNS_LABEL. Optional if only one Port is defined on this endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#name EndpointsV1#name}
+   */
   readonly name?: string;
   /**
-  * The port that will be exposed by this endpoint.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#port EndpointsV1#port}
-  */
+   * The port that will be exposed by this endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#port EndpointsV1#port}
+   */
   readonly port: number;
   /**
-  * The IP protocol for this port. Supports `TCP` and `UDP`. Default is `TCP`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#protocol EndpointsV1#protocol}
-  */
+   * The IP protocol for this port. Supports `TCP` and `UDP`. Default is `TCP`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#protocol EndpointsV1#protocol}
+   */
   readonly protocol?: string;
 }
 
-export function endpointsV1SubsetPortToTerraform(struct?: EndpointsV1SubsetPort | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function endpointsV1SubsetPortToTerraform(
+  struct?: EndpointsV1SubsetPort | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     port: cdktf.numberToTerraform(struct!.port),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-  }
+  };
 }
 
 export class EndpointsV1SubsetPortOutputReference extends cdktf.ComplexObject {
@@ -571,16 +641,29 @@ export class EndpointsV1SubsetPortOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EndpointsV1SubsetPort | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EndpointsV1SubsetPort
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -601,19 +684,19 @@ export class EndpointsV1SubsetPortOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EndpointsV1SubsetPort | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EndpointsV1SubsetPort | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._port = undefined;
       this._protocol = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -669,55 +752,81 @@ export class EndpointsV1SubsetPortOutputReference extends cdktf.ComplexObject {
 }
 
 export class EndpointsV1SubsetPortList extends cdktf.ComplexList {
-  public internalValue? : EndpointsV1SubsetPort[] | cdktf.IResolvable
+  public internalValue?: EndpointsV1SubsetPort[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): EndpointsV1SubsetPortOutputReference {
-    return new EndpointsV1SubsetPortOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new EndpointsV1SubsetPortOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface EndpointsV1Subset {
   /**
-  * address block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#address EndpointsV1#address}
-  */
+   * address block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#address EndpointsV1#address}
+   */
   readonly address?: EndpointsV1SubsetAddress[] | cdktf.IResolvable;
   /**
-  * not_ready_address block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#not_ready_address EndpointsV1#not_ready_address}
-  */
-  readonly notReadyAddress?: EndpointsV1SubsetNotReadyAddress[] | cdktf.IResolvable;
+   * not_ready_address block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#not_ready_address EndpointsV1#not_ready_address}
+   */
+  readonly notReadyAddress?:
+    | EndpointsV1SubsetNotReadyAddress[]
+    | cdktf.IResolvable;
   /**
-  * port block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#port EndpointsV1#port}
-  */
+   * port block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1#port EndpointsV1#port}
+   */
   readonly port?: EndpointsV1SubsetPort[] | cdktf.IResolvable;
 }
 
-export function endpointsV1SubsetToTerraform(struct?: EndpointsV1Subset | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function endpointsV1SubsetToTerraform(
+  struct?: EndpointsV1Subset | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    address: cdktf.listMapper(endpointsV1SubsetAddressToTerraform, true)(struct!.address),
-    not_ready_address: cdktf.listMapper(endpointsV1SubsetNotReadyAddressToTerraform, true)(struct!.notReadyAddress),
-    port: cdktf.listMapper(endpointsV1SubsetPortToTerraform, true)(struct!.port),
-  }
+    address: cdktf.listMapper(
+      endpointsV1SubsetAddressToTerraform,
+      true,
+    )(struct!.address),
+    not_ready_address: cdktf.listMapper(
+      endpointsV1SubsetNotReadyAddressToTerraform,
+      true,
+    )(struct!.notReadyAddress),
+    port: cdktf.listMapper(
+      endpointsV1SubsetPortToTerraform,
+      true,
+    )(struct!.port),
+  };
 }
 
 export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
@@ -725,16 +834,29 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EndpointsV1Subset | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EndpointsV1Subset
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -746,7 +868,8 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
     }
     if (this._notReadyAddress?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.notReadyAddress = this._notReadyAddress?.internalValue;
+      internalValueResult.notReadyAddress =
+        this._notReadyAddress?.internalValue;
     }
     if (this._port?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -755,19 +878,19 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EndpointsV1Subset | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EndpointsV1Subset | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._address.internalValue = undefined;
       this._notReadyAddress.internalValue = undefined;
       this._port.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._address.internalValue = value.address;
@@ -777,7 +900,7 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
   }
 
   // address - computed: false, optional: true, required: false
-  private _address = new EndpointsV1SubsetAddressList(this, "address", true);
+  private _address = new EndpointsV1SubsetAddressList(this, 'address', true);
   public get address() {
     return this._address;
   }
@@ -793,11 +916,17 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
   }
 
   // not_ready_address - computed: false, optional: true, required: false
-  private _notReadyAddress = new EndpointsV1SubsetNotReadyAddressList(this, "not_ready_address", true);
+  private _notReadyAddress = new EndpointsV1SubsetNotReadyAddressList(
+    this,
+    'not_ready_address',
+    true,
+  );
   public get notReadyAddress() {
     return this._notReadyAddress;
   }
-  public putNotReadyAddress(value: EndpointsV1SubsetNotReadyAddress[] | cdktf.IResolvable) {
+  public putNotReadyAddress(
+    value: EndpointsV1SubsetNotReadyAddress[] | cdktf.IResolvable,
+  ) {
     this._notReadyAddress.internalValue = value;
   }
   public resetNotReadyAddress() {
@@ -809,7 +938,7 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port = new EndpointsV1SubsetPortList(this, "port", true);
+  private _port = new EndpointsV1SubsetPortList(this, 'port', true);
   public get port() {
     return this._port;
   }
@@ -826,53 +955,61 @@ export class EndpointsV1SubsetOutputReference extends cdktf.ComplexObject {
 }
 
 export class EndpointsV1SubsetList extends cdktf.ComplexList {
-  public internalValue? : EndpointsV1Subset[] | cdktf.IResolvable
+  public internalValue?: EndpointsV1Subset[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): EndpointsV1SubsetOutputReference {
-    return new EndpointsV1SubsetOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new EndpointsV1SubsetOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1 kubernetes_endpoints_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1 kubernetes_endpoints_v1}
+ */
 export class EndpointsV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_endpoints_v1";
+  public static readonly tfResourceType = 'kubernetes_endpoints_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1 kubernetes_endpoints_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EndpointsV1Config
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/endpoints_v1 kubernetes_endpoints_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EndpointsV1Config
+   */
   public constructor(scope: Construct, id: string, config: EndpointsV1Config) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_endpoints_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -880,7 +1017,7 @@ export class EndpointsV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -908,7 +1045,7 @@ export class EndpointsV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new EndpointsV1MetadataOutputReference(this, "metadata");
+  private _metadata = new EndpointsV1MetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -921,7 +1058,7 @@ export class EndpointsV1 extends cdktf.TerraformResource {
   }
 
   // subset - computed: false, optional: true, required: false
-  private _subset = new EndpointsV1SubsetList(this, "subset", true);
+  private _subset = new EndpointsV1SubsetList(this, 'subset', true);
   public get subset() {
     return this._subset;
   }
@@ -944,7 +1081,10 @@ export class EndpointsV1 extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       metadata: endpointsV1MetadataToTerraform(this._metadata.internalValue),
-      subset: cdktf.listMapper(endpointsV1SubsetToTerraform, true)(this._subset.internalValue),
+      subset: cdktf.listMapper(
+        endpointsV1SubsetToTerraform,
+        true,
+      )(this._subset.internalValue),
     };
   }
 }

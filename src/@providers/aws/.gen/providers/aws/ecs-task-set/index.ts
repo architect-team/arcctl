@@ -2,118 +2,126 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface EcsTaskSetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#cluster EcsTaskSet#cluster}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#cluster EcsTaskSet#cluster}
+   */
   readonly cluster: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#external_id EcsTaskSet#external_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#external_id EcsTaskSet#external_id}
+   */
   readonly externalId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#force_delete EcsTaskSet#force_delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#force_delete EcsTaskSet#force_delete}
+   */
   readonly forceDelete?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#id EcsTaskSet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#id EcsTaskSet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#launch_type EcsTaskSet#launch_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#launch_type EcsTaskSet#launch_type}
+   */
   readonly launchType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#platform_version EcsTaskSet#platform_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#platform_version EcsTaskSet#platform_version}
+   */
   readonly platformVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#service EcsTaskSet#service}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#service EcsTaskSet#service}
+   */
   readonly service: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#tags EcsTaskSet#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#tags EcsTaskSet#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#tags_all EcsTaskSet#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#tags_all EcsTaskSet#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#task_definition EcsTaskSet#task_definition}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#task_definition EcsTaskSet#task_definition}
+   */
   readonly taskDefinition: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#wait_until_stable EcsTaskSet#wait_until_stable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#wait_until_stable EcsTaskSet#wait_until_stable}
+   */
   readonly waitUntilStable?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#wait_until_stable_timeout EcsTaskSet#wait_until_stable_timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#wait_until_stable_timeout EcsTaskSet#wait_until_stable_timeout}
+   */
   readonly waitUntilStableTimeout?: string;
   /**
-  * capacity_provider_strategy block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#capacity_provider_strategy EcsTaskSet#capacity_provider_strategy}
-  */
-  readonly capacityProviderStrategy?: EcsTaskSetCapacityProviderStrategy[] | cdktf.IResolvable;
+   * capacity_provider_strategy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#capacity_provider_strategy EcsTaskSet#capacity_provider_strategy}
+   */
+  readonly capacityProviderStrategy?:
+    | EcsTaskSetCapacityProviderStrategy[]
+    | cdktf.IResolvable;
   /**
-  * load_balancer block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#load_balancer EcsTaskSet#load_balancer}
-  */
+   * load_balancer block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#load_balancer EcsTaskSet#load_balancer}
+   */
   readonly loadBalancer?: EcsTaskSetLoadBalancer[] | cdktf.IResolvable;
   /**
-  * network_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#network_configuration EcsTaskSet#network_configuration}
-  */
+   * network_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#network_configuration EcsTaskSet#network_configuration}
+   */
   readonly networkConfiguration?: EcsTaskSetNetworkConfiguration;
   /**
-  * scale block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#scale EcsTaskSet#scale}
-  */
+   * scale block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#scale EcsTaskSet#scale}
+   */
   readonly scale?: EcsTaskSetScale;
   /**
-  * service_registries block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#service_registries EcsTaskSet#service_registries}
-  */
+   * service_registries block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#service_registries EcsTaskSet#service_registries}
+   */
   readonly serviceRegistries?: EcsTaskSetServiceRegistries;
 }
 export interface EcsTaskSetCapacityProviderStrategy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#base EcsTaskSet#base}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#base EcsTaskSet#base}
+   */
   readonly base?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#capacity_provider EcsTaskSet#capacity_provider}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#capacity_provider EcsTaskSet#capacity_provider}
+   */
   readonly capacityProvider: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#weight EcsTaskSet#weight}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#weight EcsTaskSet#weight}
+   */
   readonly weight: number;
 }
 
-export function ecsTaskSetCapacityProviderStrategyToTerraform(struct?: EcsTaskSetCapacityProviderStrategy | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecsTaskSetCapacityProviderStrategyToTerraform(
+  struct?: EcsTaskSetCapacityProviderStrategy | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     base: cdktf.numberToTerraform(struct!.base),
     capacity_provider: cdktf.stringToTerraform(struct!.capacityProvider),
     weight: cdktf.numberToTerraform(struct!.weight),
-  }
+  };
 }
 
 export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.ComplexObject {
@@ -121,16 +129,29 @@ export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EcsTaskSetCapacityProviderStrategy | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EcsTaskSetCapacityProviderStrategy
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -151,19 +172,19 @@ export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EcsTaskSetCapacityProviderStrategy | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EcsTaskSetCapacityProviderStrategy | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._base = undefined;
       this._capacityProvider = undefined;
       this._weight = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._base = value.base;
@@ -216,54 +237,71 @@ export class EcsTaskSetCapacityProviderStrategyOutputReference extends cdktf.Com
 }
 
 export class EcsTaskSetCapacityProviderStrategyList extends cdktf.ComplexList {
-  public internalValue? : EcsTaskSetCapacityProviderStrategy[] | cdktf.IResolvable
+  public internalValue?:
+    | EcsTaskSetCapacityProviderStrategy[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): EcsTaskSetCapacityProviderStrategyOutputReference {
-    return new EcsTaskSetCapacityProviderStrategyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new EcsTaskSetCapacityProviderStrategyOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface EcsTaskSetLoadBalancer {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_name EcsTaskSet#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_name EcsTaskSet#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_port EcsTaskSet#container_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_port EcsTaskSet#container_port}
+   */
   readonly containerPort?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#load_balancer_name EcsTaskSet#load_balancer_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#load_balancer_name EcsTaskSet#load_balancer_name}
+   */
   readonly loadBalancerName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#target_group_arn EcsTaskSet#target_group_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#target_group_arn EcsTaskSet#target_group_arn}
+   */
   readonly targetGroupArn?: string;
 }
 
-export function ecsTaskSetLoadBalancerToTerraform(struct?: EcsTaskSetLoadBalancer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecsTaskSetLoadBalancerToTerraform(
+  struct?: EcsTaskSetLoadBalancer | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     container_port: cdktf.numberToTerraform(struct!.containerPort),
     load_balancer_name: cdktf.stringToTerraform(struct!.loadBalancerName),
     target_group_arn: cdktf.stringToTerraform(struct!.targetGroupArn),
-  }
+  };
 }
 
 export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
@@ -271,16 +309,29 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EcsTaskSetLoadBalancer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EcsTaskSetLoadBalancer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -305,7 +356,9 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EcsTaskSetLoadBalancer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EcsTaskSetLoadBalancer | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -313,12 +366,10 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
       this._containerPort = undefined;
       this._loadBalancerName = undefined;
       this._targetGroupArn = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._containerName = value.containerName;
@@ -391,59 +442,82 @@ export class EcsTaskSetLoadBalancerOutputReference extends cdktf.ComplexObject {
 }
 
 export class EcsTaskSetLoadBalancerList extends cdktf.ComplexList {
-  public internalValue? : EcsTaskSetLoadBalancer[] | cdktf.IResolvable
+  public internalValue?: EcsTaskSetLoadBalancer[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): EcsTaskSetLoadBalancerOutputReference {
-    return new EcsTaskSetLoadBalancerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new EcsTaskSetLoadBalancerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface EcsTaskSetNetworkConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#assign_public_ip EcsTaskSet#assign_public_ip}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#assign_public_ip EcsTaskSet#assign_public_ip}
+   */
   readonly assignPublicIp?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#security_groups EcsTaskSet#security_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#security_groups EcsTaskSet#security_groups}
+   */
   readonly securityGroups?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#subnets EcsTaskSet#subnets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#subnets EcsTaskSet#subnets}
+   */
   readonly subnets: string[];
 }
 
-export function ecsTaskSetNetworkConfigurationToTerraform(struct?: EcsTaskSetNetworkConfigurationOutputReference | EcsTaskSetNetworkConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecsTaskSetNetworkConfigurationToTerraform(
+  struct?:
+    | EcsTaskSetNetworkConfigurationOutputReference
+    | EcsTaskSetNetworkConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     assign_public_ip: cdktf.booleanToTerraform(struct!.assignPublicIp),
-    security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroups),
+    security_groups: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroups),
     subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnets),
-  }
+  };
 }
 
 export class EcsTaskSetNetworkConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -471,8 +545,7 @@ export class EcsTaskSetNetworkConfigurationOutputReference extends cdktf.Complex
       this._assignPublicIp = undefined;
       this._securityGroups = undefined;
       this._subnets = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._assignPublicIp = value.assignPublicIp;
       this._securityGroups = value.securityGroups;
@@ -527,34 +600,43 @@ export class EcsTaskSetNetworkConfigurationOutputReference extends cdktf.Complex
 }
 export interface EcsTaskSetScale {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#unit EcsTaskSet#unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#unit EcsTaskSet#unit}
+   */
   readonly unit?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#value EcsTaskSet#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#value EcsTaskSet#value}
+   */
   readonly value?: number;
 }
 
-export function ecsTaskSetScaleToTerraform(struct?: EcsTaskSetScaleOutputReference | EcsTaskSetScale): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecsTaskSetScaleToTerraform(
+  struct?: EcsTaskSetScaleOutputReference | EcsTaskSetScale,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     unit: cdktf.stringToTerraform(struct!.unit),
     value: cdktf.numberToTerraform(struct!.value),
-  }
+  };
 }
 
 export class EcsTaskSetScaleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -577,8 +659,7 @@ export class EcsTaskSetScaleOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._unit = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._unit = value.unit;
       this._value = value.value;
@@ -619,44 +700,55 @@ export class EcsTaskSetScaleOutputReference extends cdktf.ComplexObject {
 }
 export interface EcsTaskSetServiceRegistries {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_name EcsTaskSet#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_name EcsTaskSet#container_name}
+   */
   readonly containerName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_port EcsTaskSet#container_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#container_port EcsTaskSet#container_port}
+   */
   readonly containerPort?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#port EcsTaskSet#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#port EcsTaskSet#port}
+   */
   readonly port?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#registry_arn EcsTaskSet#registry_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set#registry_arn EcsTaskSet#registry_arn}
+   */
   readonly registryArn: string;
 }
 
-export function ecsTaskSetServiceRegistriesToTerraform(struct?: EcsTaskSetServiceRegistriesOutputReference | EcsTaskSetServiceRegistries): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecsTaskSetServiceRegistriesToTerraform(
+  struct?:
+    | EcsTaskSetServiceRegistriesOutputReference
+    | EcsTaskSetServiceRegistries,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     container_port: cdktf.numberToTerraform(struct!.containerPort),
     port: cdktf.numberToTerraform(struct!.port),
     registry_arn: cdktf.stringToTerraform(struct!.registryArn),
-  }
+  };
 }
 
 export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -689,8 +781,7 @@ export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObj
       this._containerPort = undefined;
       this._port = undefined;
       this._registryArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._containerPort = value.containerPort;
@@ -762,33 +853,32 @@ export class EcsTaskSetServiceRegistriesOutputReference extends cdktf.ComplexObj
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set aws_ecs_task_set}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set aws_ecs_task_set}
+ */
 export class EcsTaskSet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ecs_task_set";
+  public static readonly tfResourceType = 'aws_ecs_task_set';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set aws_ecs_task_set} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EcsTaskSetConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ecs_task_set aws_ecs_task_set} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EcsTaskSetConfig
+   */
   public constructor(scope: Construct, id: string, config: EcsTaskSetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ecs_task_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -796,7 +886,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cluster = config.cluster;
     this._externalId = config.externalId;
@@ -810,7 +900,8 @@ export class EcsTaskSet extends cdktf.TerraformResource {
     this._taskDefinition = config.taskDefinition;
     this._waitUntilStable = config.waitUntilStable;
     this._waitUntilStableTimeout = config.waitUntilStableTimeout;
-    this._capacityProviderStrategy.internalValue = config.capacityProviderStrategy;
+    this._capacityProviderStrategy.internalValue =
+      config.capacityProviderStrategy;
     this._loadBalancer.internalValue = config.loadBalancer;
     this._networkConfiguration.internalValue = config.networkConfiguration;
     this._scale.internalValue = config.scale;
@@ -1025,11 +1116,18 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // capacity_provider_strategy - computed: false, optional: true, required: false
-  private _capacityProviderStrategy = new EcsTaskSetCapacityProviderStrategyList(this, "capacity_provider_strategy", true);
+  private _capacityProviderStrategy =
+    new EcsTaskSetCapacityProviderStrategyList(
+      this,
+      'capacity_provider_strategy',
+      true,
+    );
   public get capacityProviderStrategy() {
     return this._capacityProviderStrategy;
   }
-  public putCapacityProviderStrategy(value: EcsTaskSetCapacityProviderStrategy[] | cdktf.IResolvable) {
+  public putCapacityProviderStrategy(
+    value: EcsTaskSetCapacityProviderStrategy[] | cdktf.IResolvable,
+  ) {
     this._capacityProviderStrategy.internalValue = value;
   }
   public resetCapacityProviderStrategy() {
@@ -1041,7 +1139,11 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // load_balancer - computed: false, optional: true, required: false
-  private _loadBalancer = new EcsTaskSetLoadBalancerList(this, "load_balancer", true);
+  private _loadBalancer = new EcsTaskSetLoadBalancerList(
+    this,
+    'load_balancer',
+    true,
+  );
   public get loadBalancer() {
     return this._loadBalancer;
   }
@@ -1057,7 +1159,11 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // network_configuration - computed: false, optional: true, required: false
-  private _networkConfiguration = new EcsTaskSetNetworkConfigurationOutputReference(this, "network_configuration");
+  private _networkConfiguration =
+    new EcsTaskSetNetworkConfigurationOutputReference(
+      this,
+      'network_configuration',
+    );
   public get networkConfiguration() {
     return this._networkConfiguration;
   }
@@ -1073,7 +1179,7 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // scale - computed: false, optional: true, required: false
-  private _scale = new EcsTaskSetScaleOutputReference(this, "scale");
+  private _scale = new EcsTaskSetScaleOutputReference(this, 'scale');
   public get scale() {
     return this._scale;
   }
@@ -1089,7 +1195,10 @@ export class EcsTaskSet extends cdktf.TerraformResource {
   }
 
   // service_registries - computed: false, optional: true, required: false
-  private _serviceRegistries = new EcsTaskSetServiceRegistriesOutputReference(this, "service_registries");
+  private _serviceRegistries = new EcsTaskSetServiceRegistriesOutputReference(
+    this,
+    'service_registries',
+  );
   public get serviceRegistries() {
     return this._serviceRegistries;
   }
@@ -1121,12 +1230,24 @@ export class EcsTaskSet extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       task_definition: cdktf.stringToTerraform(this._taskDefinition),
       wait_until_stable: cdktf.booleanToTerraform(this._waitUntilStable),
-      wait_until_stable_timeout: cdktf.stringToTerraform(this._waitUntilStableTimeout),
-      capacity_provider_strategy: cdktf.listMapper(ecsTaskSetCapacityProviderStrategyToTerraform, true)(this._capacityProviderStrategy.internalValue),
-      load_balancer: cdktf.listMapper(ecsTaskSetLoadBalancerToTerraform, true)(this._loadBalancer.internalValue),
-      network_configuration: ecsTaskSetNetworkConfigurationToTerraform(this._networkConfiguration.internalValue),
+      wait_until_stable_timeout: cdktf.stringToTerraform(
+        this._waitUntilStableTimeout,
+      ),
+      capacity_provider_strategy: cdktf.listMapper(
+        ecsTaskSetCapacityProviderStrategyToTerraform,
+        true,
+      )(this._capacityProviderStrategy.internalValue),
+      load_balancer: cdktf.listMapper(
+        ecsTaskSetLoadBalancerToTerraform,
+        true,
+      )(this._loadBalancer.internalValue),
+      network_configuration: ecsTaskSetNetworkConfigurationToTerraform(
+        this._networkConfiguration.internalValue,
+      ),
       scale: ecsTaskSetScaleToTerraform(this._scale.internalValue),
-      service_registries: ecsTaskSetServiceRegistriesToTerraform(this._serviceRegistries.internalValue),
+      service_registries: ecsTaskSetServiceRegistriesToTerraform(
+        this._serviceRegistries.internalValue,
+      ),
     };
   }
 }

@@ -1,10 +1,10 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDatabaseModule } from '../modules/database.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDatabaseModule } from '../modules/database.ts';
 import { createApiClient } from 'dots-wrapper';
-import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.js';
+import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.ts';
 
 export class DigitaloceanDatabaseService extends ResourceService<
   'database',

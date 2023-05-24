@@ -5,7 +5,7 @@ import {
   PluginBundleType,
   PluginOptions,
   PluginPlatform,
-} from '../plugins/plugin-types.js';
+} from '../plugins/plugin-types.ts';
 import { ExecaChildProcess, execa } from 'execa';
 import path from 'path';
 

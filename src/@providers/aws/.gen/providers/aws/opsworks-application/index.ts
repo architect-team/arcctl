@@ -2,124 +2,133 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface OpsworksApplicationConfig extends cdktf.TerraformMetaArguments {
+export interface OpsworksApplicationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#auto_bundle_on_deploy OpsworksApplication#auto_bundle_on_deploy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#auto_bundle_on_deploy OpsworksApplication#auto_bundle_on_deploy}
+   */
   readonly autoBundleOnDeploy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#aws_flow_ruby_settings OpsworksApplication#aws_flow_ruby_settings}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#aws_flow_ruby_settings OpsworksApplication#aws_flow_ruby_settings}
+   */
   readonly awsFlowRubySettings?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#data_source_arn OpsworksApplication#data_source_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#data_source_arn OpsworksApplication#data_source_arn}
+   */
   readonly dataSourceArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#data_source_database_name OpsworksApplication#data_source_database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#data_source_database_name OpsworksApplication#data_source_database_name}
+   */
   readonly dataSourceDatabaseName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#data_source_type OpsworksApplication#data_source_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#data_source_type OpsworksApplication#data_source_type}
+   */
   readonly dataSourceType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#description OpsworksApplication#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#description OpsworksApplication#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#document_root OpsworksApplication#document_root}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#document_root OpsworksApplication#document_root}
+   */
   readonly documentRoot?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#domains OpsworksApplication#domains}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#domains OpsworksApplication#domains}
+   */
   readonly domains?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#enable_ssl OpsworksApplication#enable_ssl}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#enable_ssl OpsworksApplication#enable_ssl}
+   */
   readonly enableSsl?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#id OpsworksApplication#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#id OpsworksApplication#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#name OpsworksApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#name OpsworksApplication#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#rails_env OpsworksApplication#rails_env}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#rails_env OpsworksApplication#rails_env}
+   */
   readonly railsEnv?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#short_name OpsworksApplication#short_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#short_name OpsworksApplication#short_name}
+   */
   readonly shortName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#stack_id OpsworksApplication#stack_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#stack_id OpsworksApplication#stack_id}
+   */
   readonly stackId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#type OpsworksApplication#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#type OpsworksApplication#type}
+   */
   readonly type: string;
   /**
-  * app_source block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#app_source OpsworksApplication#app_source}
-  */
+   * app_source block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#app_source OpsworksApplication#app_source}
+   */
   readonly appSource?: OpsworksApplicationAppSource[] | cdktf.IResolvable;
   /**
-  * environment block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#environment OpsworksApplication#environment}
-  */
+   * environment block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#environment OpsworksApplication#environment}
+   */
   readonly environment?: OpsworksApplicationEnvironment[] | cdktf.IResolvable;
   /**
-  * ssl_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#ssl_configuration OpsworksApplication#ssl_configuration}
-  */
-  readonly sslConfiguration?: OpsworksApplicationSslConfiguration[] | cdktf.IResolvable;
+   * ssl_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#ssl_configuration OpsworksApplication#ssl_configuration}
+   */
+  readonly sslConfiguration?:
+    | OpsworksApplicationSslConfiguration[]
+    | cdktf.IResolvable;
 }
 export interface OpsworksApplicationAppSource {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#password OpsworksApplication#password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#password OpsworksApplication#password}
+   */
   readonly password?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#revision OpsworksApplication#revision}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#revision OpsworksApplication#revision}
+   */
   readonly revision?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#ssh_key OpsworksApplication#ssh_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#ssh_key OpsworksApplication#ssh_key}
+   */
   readonly sshKey?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#type OpsworksApplication#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#type OpsworksApplication#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#url OpsworksApplication#url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#url OpsworksApplication#url}
+   */
   readonly url?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#username OpsworksApplication#username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#username OpsworksApplication#username}
+   */
   readonly username?: string;
 }
 
-export function opsworksApplicationAppSourceToTerraform(struct?: OpsworksApplicationAppSource | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksApplicationAppSourceToTerraform(
+  struct?: OpsworksApplicationAppSource | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     password: cdktf.stringToTerraform(struct!.password),
@@ -128,7 +137,7 @@ export function opsworksApplicationAppSourceToTerraform(struct?: OpsworksApplica
     type: cdktf.stringToTerraform(struct!.type),
     url: cdktf.stringToTerraform(struct!.url),
     username: cdktf.stringToTerraform(struct!.username),
-  }
+  };
 }
 
 export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexObject {
@@ -136,16 +145,29 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksApplicationAppSource | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksApplicationAppSource
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -178,7 +200,9 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksApplicationAppSource | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpsworksApplicationAppSource | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -188,12 +212,10 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
       this._type = undefined;
       this._url = undefined;
       this._username = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._password = value.password;
@@ -300,49 +322,64 @@ export class OpsworksApplicationAppSourceOutputReference extends cdktf.ComplexOb
 }
 
 export class OpsworksApplicationAppSourceList extends cdktf.ComplexList {
-  public internalValue? : OpsworksApplicationAppSource[] | cdktf.IResolvable
+  public internalValue?: OpsworksApplicationAppSource[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): OpsworksApplicationAppSourceOutputReference {
-    return new OpsworksApplicationAppSourceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new OpsworksApplicationAppSourceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface OpsworksApplicationEnvironment {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#key OpsworksApplication#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#key OpsworksApplication#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#secure OpsworksApplication#secure}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#secure OpsworksApplication#secure}
+   */
   readonly secure?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#value OpsworksApplication#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#value OpsworksApplication#value}
+   */
   readonly value: string;
 }
 
-export function opsworksApplicationEnvironmentToTerraform(struct?: OpsworksApplicationEnvironment | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksApplicationEnvironmentToTerraform(
+  struct?: OpsworksApplicationEnvironment | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     secure: cdktf.booleanToTerraform(struct!.secure),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class OpsworksApplicationEnvironmentOutputReference extends cdktf.ComplexObject {
@@ -350,16 +387,29 @@ export class OpsworksApplicationEnvironmentOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksApplicationEnvironment | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksApplicationEnvironment
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -380,19 +430,19 @@ export class OpsworksApplicationEnvironmentOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksApplicationEnvironment | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpsworksApplicationEnvironment | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._secure = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -445,49 +495,64 @@ export class OpsworksApplicationEnvironmentOutputReference extends cdktf.Complex
 }
 
 export class OpsworksApplicationEnvironmentList extends cdktf.ComplexList {
-  public internalValue? : OpsworksApplicationEnvironment[] | cdktf.IResolvable
+  public internalValue?: OpsworksApplicationEnvironment[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): OpsworksApplicationEnvironmentOutputReference {
-    return new OpsworksApplicationEnvironmentOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new OpsworksApplicationEnvironmentOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface OpsworksApplicationSslConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#certificate OpsworksApplication#certificate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#certificate OpsworksApplication#certificate}
+   */
   readonly certificate: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#chain OpsworksApplication#chain}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#chain OpsworksApplication#chain}
+   */
   readonly chain?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#private_key OpsworksApplication#private_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application#private_key OpsworksApplication#private_key}
+   */
   readonly privateKey: string;
 }
 
-export function opsworksApplicationSslConfigurationToTerraform(struct?: OpsworksApplicationSslConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksApplicationSslConfigurationToTerraform(
+  struct?: OpsworksApplicationSslConfiguration | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     certificate: cdktf.stringToTerraform(struct!.certificate),
     chain: cdktf.stringToTerraform(struct!.chain),
     private_key: cdktf.stringToTerraform(struct!.privateKey),
-  }
+  };
 }
 
 export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.ComplexObject {
@@ -495,16 +560,29 @@ export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksApplicationSslConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksApplicationSslConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -525,19 +603,19 @@ export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksApplicationSslConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpsworksApplicationSslConfiguration | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._certificate = undefined;
       this._chain = undefined;
       this._privateKey = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._certificate = value.certificate;
@@ -590,53 +668,69 @@ export class OpsworksApplicationSslConfigurationOutputReference extends cdktf.Co
 }
 
 export class OpsworksApplicationSslConfigurationList extends cdktf.ComplexList {
-  public internalValue? : OpsworksApplicationSslConfiguration[] | cdktf.IResolvable
+  public internalValue?:
+    | OpsworksApplicationSslConfiguration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): OpsworksApplicationSslConfigurationOutputReference {
-    return new OpsworksApplicationSslConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): OpsworksApplicationSslConfigurationOutputReference {
+    return new OpsworksApplicationSslConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application aws_opsworks_application}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application aws_opsworks_application}
+ */
 export class OpsworksApplication extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_opsworks_application";
+  public static readonly tfResourceType = 'aws_opsworks_application';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application aws_opsworks_application} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options OpsworksApplicationConfig
-  */
-  public constructor(scope: Construct, id: string, config: OpsworksApplicationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_application aws_opsworks_application} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options OpsworksApplicationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: OpsworksApplicationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_opsworks_application',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -644,7 +738,7 @@ export class OpsworksApplication extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoBundleOnDeploy = config.autoBundleOnDeploy;
     this._awsFlowRubySettings = config.awsFlowRubySettings;
@@ -902,11 +996,17 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // app_source - computed: false, optional: true, required: false
-  private _appSource = new OpsworksApplicationAppSourceList(this, "app_source", false);
+  private _appSource = new OpsworksApplicationAppSourceList(
+    this,
+    'app_source',
+    false,
+  );
   public get appSource() {
     return this._appSource;
   }
-  public putAppSource(value: OpsworksApplicationAppSource[] | cdktf.IResolvable) {
+  public putAppSource(
+    value: OpsworksApplicationAppSource[] | cdktf.IResolvable,
+  ) {
     this._appSource.internalValue = value;
   }
   public resetAppSource() {
@@ -918,11 +1018,17 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment = new OpsworksApplicationEnvironmentList(this, "environment", true);
+  private _environment = new OpsworksApplicationEnvironmentList(
+    this,
+    'environment',
+    true,
+  );
   public get environment() {
     return this._environment;
   }
-  public putEnvironment(value: OpsworksApplicationEnvironment[] | cdktf.IResolvable) {
+  public putEnvironment(
+    value: OpsworksApplicationEnvironment[] | cdktf.IResolvable,
+  ) {
     this._environment.internalValue = value;
   }
   public resetEnvironment() {
@@ -934,11 +1040,17 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   }
 
   // ssl_configuration - computed: false, optional: true, required: false
-  private _sslConfiguration = new OpsworksApplicationSslConfigurationList(this, "ssl_configuration", false);
+  private _sslConfiguration = new OpsworksApplicationSslConfigurationList(
+    this,
+    'ssl_configuration',
+    false,
+  );
   public get sslConfiguration() {
     return this._sslConfiguration;
   }
-  public putSslConfiguration(value: OpsworksApplicationSslConfiguration[] | cdktf.IResolvable) {
+  public putSslConfiguration(
+    value: OpsworksApplicationSslConfiguration[] | cdktf.IResolvable,
+  ) {
     this._sslConfiguration.internalValue = value;
   }
   public resetSslConfiguration() {
@@ -956,9 +1068,13 @@ export class OpsworksApplication extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       auto_bundle_on_deploy: cdktf.stringToTerraform(this._autoBundleOnDeploy),
-      aws_flow_ruby_settings: cdktf.stringToTerraform(this._awsFlowRubySettings),
+      aws_flow_ruby_settings: cdktf.stringToTerraform(
+        this._awsFlowRubySettings,
+      ),
       data_source_arn: cdktf.stringToTerraform(this._dataSourceArn),
-      data_source_database_name: cdktf.stringToTerraform(this._dataSourceDatabaseName),
+      data_source_database_name: cdktf.stringToTerraform(
+        this._dataSourceDatabaseName,
+      ),
       data_source_type: cdktf.stringToTerraform(this._dataSourceType),
       description: cdktf.stringToTerraform(this._description),
       document_root: cdktf.stringToTerraform(this._documentRoot),
@@ -970,9 +1086,18 @@ export class OpsworksApplication extends cdktf.TerraformResource {
       short_name: cdktf.stringToTerraform(this._shortName),
       stack_id: cdktf.stringToTerraform(this._stackId),
       type: cdktf.stringToTerraform(this._type),
-      app_source: cdktf.listMapper(opsworksApplicationAppSourceToTerraform, true)(this._appSource.internalValue),
-      environment: cdktf.listMapper(opsworksApplicationEnvironmentToTerraform, true)(this._environment.internalValue),
-      ssl_configuration: cdktf.listMapper(opsworksApplicationSslConfigurationToTerraform, true)(this._sslConfiguration.internalValue),
+      app_source: cdktf.listMapper(
+        opsworksApplicationAppSourceToTerraform,
+        true,
+      )(this._appSource.internalValue),
+      environment: cdktf.listMapper(
+        opsworksApplicationEnvironmentToTerraform,
+        true,
+      )(this._environment.internalValue),
+      ssl_configuration: cdktf.listMapper(
+        opsworksApplicationSslConfigurationToTerraform,
+        true,
+      )(this._sslConfiguration.internalValue),
     };
   }
 }

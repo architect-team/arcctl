@@ -2,100 +2,113 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface ApprunnerServiceConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#auto_scaling_configuration_arn ApprunnerService#auto_scaling_configuration_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#auto_scaling_configuration_arn ApprunnerService#auto_scaling_configuration_arn}
+   */
   readonly autoScalingConfigurationArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#id ApprunnerService#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#id ApprunnerService#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#service_name ApprunnerService#service_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#service_name ApprunnerService#service_name}
+   */
   readonly serviceName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#tags ApprunnerService#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#tags ApprunnerService#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#tags_all ApprunnerService#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#tags_all ApprunnerService#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * encryption_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#encryption_configuration ApprunnerService#encryption_configuration}
-  */
+   * encryption_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#encryption_configuration ApprunnerService#encryption_configuration}
+   */
   readonly encryptionConfiguration?: ApprunnerServiceEncryptionConfiguration;
   /**
-  * health_check_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#health_check_configuration ApprunnerService#health_check_configuration}
-  */
+   * health_check_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#health_check_configuration ApprunnerService#health_check_configuration}
+   */
   readonly healthCheckConfiguration?: ApprunnerServiceHealthCheckConfiguration;
   /**
-  * instance_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#instance_configuration ApprunnerService#instance_configuration}
-  */
+   * instance_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#instance_configuration ApprunnerService#instance_configuration}
+   */
   readonly instanceConfiguration?: ApprunnerServiceInstanceConfiguration;
   /**
-  * network_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#network_configuration ApprunnerService#network_configuration}
-  */
+   * network_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#network_configuration ApprunnerService#network_configuration}
+   */
   readonly networkConfiguration?: ApprunnerServiceNetworkConfiguration;
   /**
-  * observability_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_configuration ApprunnerService#observability_configuration}
-  */
+   * observability_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_configuration ApprunnerService#observability_configuration}
+   */
   readonly observabilityConfiguration?: ApprunnerServiceObservabilityConfiguration;
   /**
-  * source_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#source_configuration ApprunnerService#source_configuration}
-  */
+   * source_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#source_configuration ApprunnerService#source_configuration}
+   */
   readonly sourceConfiguration: ApprunnerServiceSourceConfiguration;
 }
 export interface ApprunnerServiceEncryptionConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#kms_key ApprunnerService#kms_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#kms_key ApprunnerService#kms_key}
+   */
   readonly kmsKey: string;
 }
 
-export function apprunnerServiceEncryptionConfigurationToTerraform(struct?: ApprunnerServiceEncryptionConfigurationOutputReference | ApprunnerServiceEncryptionConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceEncryptionConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceEncryptionConfigurationOutputReference
+    | ApprunnerServiceEncryptionConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     kms_key: cdktf.stringToTerraform(struct!.kmsKey),
-  }
+  };
 }
 
 export class ApprunnerServiceEncryptionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceEncryptionConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceEncryptionConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._kmsKey !== undefined) {
@@ -105,12 +118,13 @@ export class ApprunnerServiceEncryptionConfigurationOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceEncryptionConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceEncryptionConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._kmsKey = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._kmsKey = value.kmsKey;
     }
@@ -131,35 +145,43 @@ export class ApprunnerServiceEncryptionConfigurationOutputReference extends cdkt
 }
 export interface ApprunnerServiceHealthCheckConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#healthy_threshold ApprunnerService#healthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#healthy_threshold ApprunnerService#healthy_threshold}
+   */
   readonly healthyThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#interval ApprunnerService#interval}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#interval ApprunnerService#interval}
+   */
   readonly interval?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#path ApprunnerService#path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#path ApprunnerService#path}
+   */
   readonly path?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#protocol ApprunnerService#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#protocol ApprunnerService#protocol}
+   */
   readonly protocol?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#timeout ApprunnerService#timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#timeout ApprunnerService#timeout}
+   */
   readonly timeout?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#unhealthy_threshold ApprunnerService#unhealthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#unhealthy_threshold ApprunnerService#unhealthy_threshold}
+   */
   readonly unhealthyThreshold?: number;
 }
 
-export function apprunnerServiceHealthCheckConfigurationToTerraform(struct?: ApprunnerServiceHealthCheckConfigurationOutputReference | ApprunnerServiceHealthCheckConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceHealthCheckConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceHealthCheckConfigurationOutputReference
+    | ApprunnerServiceHealthCheckConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     healthy_threshold: cdktf.numberToTerraform(struct!.healthyThreshold),
@@ -168,21 +190,26 @@ export function apprunnerServiceHealthCheckConfigurationToTerraform(struct?: App
     protocol: cdktf.stringToTerraform(struct!.protocol),
     timeout: cdktf.numberToTerraform(struct!.timeout),
     unhealthy_threshold: cdktf.numberToTerraform(struct!.unhealthyThreshold),
-  }
+  };
 }
 
 export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceHealthCheckConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceHealthCheckConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._healthyThreshold !== undefined) {
@@ -212,7 +239,9 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceHealthCheckConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceHealthCheckConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._healthyThreshold = undefined;
@@ -221,8 +250,7 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
       this._protocol = undefined;
       this._timeout = undefined;
       this._unhealthyThreshold = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._healthyThreshold = value.healthyThreshold;
       this._interval = value.interval;
@@ -331,43 +359,56 @@ export class ApprunnerServiceHealthCheckConfigurationOutputReference extends cdk
 }
 export interface ApprunnerServiceInstanceConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#cpu ApprunnerService#cpu}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#cpu ApprunnerService#cpu}
+   */
   readonly cpu?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#instance_role_arn ApprunnerService#instance_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#instance_role_arn ApprunnerService#instance_role_arn}
+   */
   readonly instanceRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#memory ApprunnerService#memory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#memory ApprunnerService#memory}
+   */
   readonly memory?: string;
 }
 
-export function apprunnerServiceInstanceConfigurationToTerraform(struct?: ApprunnerServiceInstanceConfigurationOutputReference | ApprunnerServiceInstanceConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceInstanceConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceInstanceConfigurationOutputReference
+    | ApprunnerServiceInstanceConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cpu: cdktf.stringToTerraform(struct!.cpu),
     instance_role_arn: cdktf.stringToTerraform(struct!.instanceRoleArn),
     memory: cdktf.stringToTerraform(struct!.memory),
-  }
+  };
 }
 
 export class ApprunnerServiceInstanceConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceInstanceConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceInstanceConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cpu !== undefined) {
@@ -385,14 +426,15 @@ export class ApprunnerServiceInstanceConfigurationOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceInstanceConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceInstanceConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cpu = undefined;
       this._instanceRoleArn = undefined;
       this._memory = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cpu = value.cpu;
       this._instanceRoleArn = value.instanceRoleArn;
@@ -450,38 +492,51 @@ export class ApprunnerServiceInstanceConfigurationOutputReference extends cdktf.
 }
 export interface ApprunnerServiceNetworkConfigurationEgressConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#egress_type ApprunnerService#egress_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#egress_type ApprunnerService#egress_type}
+   */
   readonly egressType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#vpc_connector_arn ApprunnerService#vpc_connector_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#vpc_connector_arn ApprunnerService#vpc_connector_arn}
+   */
   readonly vpcConnectorArn?: string;
 }
 
-export function apprunnerServiceNetworkConfigurationEgressConfigurationToTerraform(struct?: ApprunnerServiceNetworkConfigurationEgressConfigurationOutputReference | ApprunnerServiceNetworkConfigurationEgressConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceNetworkConfigurationEgressConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceNetworkConfigurationEgressConfigurationOutputReference
+    | ApprunnerServiceNetworkConfigurationEgressConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     egress_type: cdktf.stringToTerraform(struct!.egressType),
     vpc_connector_arn: cdktf.stringToTerraform(struct!.vpcConnectorArn),
-  }
+  };
 }
 
 export class ApprunnerServiceNetworkConfigurationEgressConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceNetworkConfigurationEgressConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceNetworkConfigurationEgressConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._egressType !== undefined) {
@@ -495,13 +550,14 @@ export class ApprunnerServiceNetworkConfigurationEgressConfigurationOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceNetworkConfigurationEgressConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceNetworkConfigurationEgressConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._egressType = undefined;
       this._vpcConnectorArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._egressType = value.egressType;
       this._vpcConnectorArn = value.vpcConnectorArn;
@@ -542,33 +598,48 @@ export class ApprunnerServiceNetworkConfigurationEgressConfigurationOutputRefere
 }
 export interface ApprunnerServiceNetworkConfigurationIngressConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#is_publicly_accessible ApprunnerService#is_publicly_accessible}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#is_publicly_accessible ApprunnerService#is_publicly_accessible}
+   */
   readonly isPubliclyAccessible?: boolean | cdktf.IResolvable;
 }
 
-export function apprunnerServiceNetworkConfigurationIngressConfigurationToTerraform(struct?: ApprunnerServiceNetworkConfigurationIngressConfigurationOutputReference | ApprunnerServiceNetworkConfigurationIngressConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceNetworkConfigurationIngressConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceNetworkConfigurationIngressConfigurationOutputReference
+    | ApprunnerServiceNetworkConfigurationIngressConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    is_publicly_accessible: cdktf.booleanToTerraform(struct!.isPubliclyAccessible),
-  }
+    is_publicly_accessible: cdktf.booleanToTerraform(
+      struct!.isPubliclyAccessible,
+    ),
+  };
 }
 
 export class ApprunnerServiceNetworkConfigurationIngressConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceNetworkConfigurationIngressConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceNetworkConfigurationIngressConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._isPubliclyAccessible !== undefined) {
@@ -578,12 +649,13 @@ export class ApprunnerServiceNetworkConfigurationIngressConfigurationOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceNetworkConfigurationIngressConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceNetworkConfigurationIngressConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._isPubliclyAccessible = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._isPubliclyAccessible = value.isPubliclyAccessible;
     }
@@ -607,38 +679,55 @@ export class ApprunnerServiceNetworkConfigurationIngressConfigurationOutputRefer
 }
 export interface ApprunnerServiceNetworkConfiguration {
   /**
-  * egress_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#egress_configuration ApprunnerService#egress_configuration}
-  */
+   * egress_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#egress_configuration ApprunnerService#egress_configuration}
+   */
   readonly egressConfiguration?: ApprunnerServiceNetworkConfigurationEgressConfiguration;
   /**
-  * ingress_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#ingress_configuration ApprunnerService#ingress_configuration}
-  */
+   * ingress_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#ingress_configuration ApprunnerService#ingress_configuration}
+   */
   readonly ingressConfiguration?: ApprunnerServiceNetworkConfigurationIngressConfiguration;
 }
 
-export function apprunnerServiceNetworkConfigurationToTerraform(struct?: ApprunnerServiceNetworkConfigurationOutputReference | ApprunnerServiceNetworkConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceNetworkConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceNetworkConfigurationOutputReference
+    | ApprunnerServiceNetworkConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    egress_configuration: apprunnerServiceNetworkConfigurationEgressConfigurationToTerraform(struct!.egressConfiguration),
-    ingress_configuration: apprunnerServiceNetworkConfigurationIngressConfigurationToTerraform(struct!.ingressConfiguration),
-  }
+    egress_configuration:
+      apprunnerServiceNetworkConfigurationEgressConfigurationToTerraform(
+        struct!.egressConfiguration,
+      ),
+    ingress_configuration:
+      apprunnerServiceNetworkConfigurationIngressConfigurationToTerraform(
+        struct!.ingressConfiguration,
+      ),
+  };
 }
 
 export class ApprunnerServiceNetworkConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -647,22 +736,25 @@ export class ApprunnerServiceNetworkConfigurationOutputReference extends cdktf.C
     const internalValueResult: any = {};
     if (this._egressConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.egressConfiguration = this._egressConfiguration?.internalValue;
+      internalValueResult.egressConfiguration =
+        this._egressConfiguration?.internalValue;
     }
     if (this._ingressConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.ingressConfiguration = this._ingressConfiguration?.internalValue;
+      internalValueResult.ingressConfiguration =
+        this._ingressConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceNetworkConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceNetworkConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._egressConfiguration.internalValue = undefined;
       this._ingressConfiguration.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._egressConfiguration.internalValue = value.egressConfiguration;
       this._ingressConfiguration.internalValue = value.ingressConfiguration;
@@ -670,11 +762,17 @@ export class ApprunnerServiceNetworkConfigurationOutputReference extends cdktf.C
   }
 
   // egress_configuration - computed: false, optional: true, required: false
-  private _egressConfiguration = new ApprunnerServiceNetworkConfigurationEgressConfigurationOutputReference(this, "egress_configuration");
+  private _egressConfiguration =
+    new ApprunnerServiceNetworkConfigurationEgressConfigurationOutputReference(
+      this,
+      'egress_configuration',
+    );
   public get egressConfiguration() {
     return this._egressConfiguration;
   }
-  public putEgressConfiguration(value: ApprunnerServiceNetworkConfigurationEgressConfiguration) {
+  public putEgressConfiguration(
+    value: ApprunnerServiceNetworkConfigurationEgressConfiguration,
+  ) {
     this._egressConfiguration.internalValue = value;
   }
   public resetEgressConfiguration() {
@@ -686,11 +784,17 @@ export class ApprunnerServiceNetworkConfigurationOutputReference extends cdktf.C
   }
 
   // ingress_configuration - computed: false, optional: true, required: false
-  private _ingressConfiguration = new ApprunnerServiceNetworkConfigurationIngressConfigurationOutputReference(this, "ingress_configuration");
+  private _ingressConfiguration =
+    new ApprunnerServiceNetworkConfigurationIngressConfigurationOutputReference(
+      this,
+      'ingress_configuration',
+    );
   public get ingressConfiguration() {
     return this._ingressConfiguration;
   }
-  public putIngressConfiguration(value: ApprunnerServiceNetworkConfigurationIngressConfiguration) {
+  public putIngressConfiguration(
+    value: ApprunnerServiceNetworkConfigurationIngressConfiguration,
+  ) {
     this._ingressConfiguration.internalValue = value;
   }
   public resetIngressConfiguration() {
@@ -703,43 +807,61 @@ export class ApprunnerServiceNetworkConfigurationOutputReference extends cdktf.C
 }
 export interface ApprunnerServiceObservabilityConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_configuration_arn ApprunnerService#observability_configuration_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_configuration_arn ApprunnerService#observability_configuration_arn}
+   */
   readonly observabilityConfigurationArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_enabled ApprunnerService#observability_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#observability_enabled ApprunnerService#observability_enabled}
+   */
   readonly observabilityEnabled: boolean | cdktf.IResolvable;
 }
 
-export function apprunnerServiceObservabilityConfigurationToTerraform(struct?: ApprunnerServiceObservabilityConfigurationOutputReference | ApprunnerServiceObservabilityConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceObservabilityConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceObservabilityConfigurationOutputReference
+    | ApprunnerServiceObservabilityConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    observability_configuration_arn: cdktf.stringToTerraform(struct!.observabilityConfigurationArn),
-    observability_enabled: cdktf.booleanToTerraform(struct!.observabilityEnabled),
-  }
+    observability_configuration_arn: cdktf.stringToTerraform(
+      struct!.observabilityConfigurationArn,
+    ),
+    observability_enabled: cdktf.booleanToTerraform(
+      struct!.observabilityEnabled,
+    ),
+  };
 }
 
 export class ApprunnerServiceObservabilityConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceObservabilityConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceObservabilityConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._observabilityConfigurationArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.observabilityConfigurationArn = this._observabilityConfigurationArn;
+      internalValueResult.observabilityConfigurationArn =
+        this._observabilityConfigurationArn;
     }
     if (this._observabilityEnabled !== undefined) {
       hasAnyValues = true;
@@ -748,13 +870,14 @@ export class ApprunnerServiceObservabilityConfigurationOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceObservabilityConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceObservabilityConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._observabilityConfigurationArn = undefined;
       this._observabilityEnabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._observabilityConfigurationArn = value.observabilityConfigurationArn;
       this._observabilityEnabled = value.observabilityEnabled;
@@ -792,38 +915,51 @@ export class ApprunnerServiceObservabilityConfigurationOutputReference extends c
 }
 export interface ApprunnerServiceSourceConfigurationAuthenticationConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#access_role_arn ApprunnerService#access_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#access_role_arn ApprunnerService#access_role_arn}
+   */
   readonly accessRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#connection_arn ApprunnerService#connection_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#connection_arn ApprunnerService#connection_arn}
+   */
   readonly connectionArn?: string;
 }
 
-export function apprunnerServiceSourceConfigurationAuthenticationConfigurationToTerraform(struct?: ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutputReference | ApprunnerServiceSourceConfigurationAuthenticationConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationAuthenticationConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutputReference
+    | ApprunnerServiceSourceConfigurationAuthenticationConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     access_role_arn: cdktf.stringToTerraform(struct!.accessRoleArn),
     connection_arn: cdktf.stringToTerraform(struct!.connectionArn),
-  }
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationAuthenticationConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationAuthenticationConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accessRoleArn !== undefined) {
@@ -837,13 +973,16 @@ export class ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationAuthenticationConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | ApprunnerServiceSourceConfigurationAuthenticationConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accessRoleArn = undefined;
       this._connectionArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accessRoleArn = value.accessRoleArn;
       this._connectionArn = value.connectionArn;
@@ -884,58 +1023,75 @@ export class ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutpu
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#build_command ApprunnerService#build_command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#build_command ApprunnerService#build_command}
+   */
   readonly buildCommand?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#port ApprunnerService#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#port ApprunnerService#port}
+   */
   readonly port?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime ApprunnerService#runtime}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime ApprunnerService#runtime}
+   */
   readonly runtime: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
+   */
   readonly runtimeEnvironmentSecrets?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
+   */
   readonly runtimeEnvironmentVariables?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#start_command ApprunnerService#start_command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#start_command ApprunnerService#start_command}
+   */
   readonly startCommand?: string;
 }
 
-export function apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesToTerraform(struct?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutputReference | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutputReference
+    | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     build_command: cdktf.stringToTerraform(struct!.buildCommand),
     port: cdktf.stringToTerraform(struct!.port),
     runtime: cdktf.stringToTerraform(struct!.runtime),
-    runtime_environment_secrets: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.runtimeEnvironmentSecrets),
-    runtime_environment_variables: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.runtimeEnvironmentVariables),
+    runtime_environment_secrets: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.runtimeEnvironmentSecrets,
+    ),
+    runtime_environment_variables: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.runtimeEnvironmentVariables,
+    ),
     start_command: cdktf.stringToTerraform(struct!.startCommand),
-  }
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._buildCommand !== undefined) {
@@ -952,11 +1108,13 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
     }
     if (this._runtimeEnvironmentSecrets !== undefined) {
       hasAnyValues = true;
-      internalValueResult.runtimeEnvironmentSecrets = this._runtimeEnvironmentSecrets;
+      internalValueResult.runtimeEnvironmentSecrets =
+        this._runtimeEnvironmentSecrets;
     }
     if (this._runtimeEnvironmentVariables !== undefined) {
       hasAnyValues = true;
-      internalValueResult.runtimeEnvironmentVariables = this._runtimeEnvironmentVariables;
+      internalValueResult.runtimeEnvironmentVariables =
+        this._runtimeEnvironmentVariables;
     }
     if (this._startCommand !== undefined) {
       hasAnyValues = true;
@@ -965,7 +1123,11 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues | undefined) {
+  public set internalValue(
+    value:
+      | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._buildCommand = undefined;
@@ -974,8 +1136,7 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
       this._runtimeEnvironmentSecrets = undefined;
       this._runtimeEnvironmentVariables = undefined;
       this._startCommand = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._buildCommand = value.buildCommand;
       this._port = value.port;
@@ -1081,40 +1242,56 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationC
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#configuration_source ApprunnerService#configuration_source}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#configuration_source ApprunnerService#configuration_source}
+   */
   readonly configurationSource: string;
   /**
-  * code_configuration_values block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_configuration_values ApprunnerService#code_configuration_values}
-  */
+   * code_configuration_values block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_configuration_values ApprunnerService#code_configuration_values}
+   */
   readonly codeConfigurationValues?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
 }
 
-export function apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationToTerraform(struct?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationOutputReference | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationOutputReference
+    | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     configuration_source: cdktf.stringToTerraform(struct!.configurationSource),
-    code_configuration_values: apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesToTerraform(struct!.codeConfigurationValues),
-  }
+    code_configuration_values:
+      apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesToTerraform(
+        struct!.codeConfigurationValues,
+      ),
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._configurationSource !== undefined) {
@@ -1123,21 +1300,26 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationO
     }
     if (this._codeConfigurationValues?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.codeConfigurationValues = this._codeConfigurationValues?.internalValue;
+      internalValueResult.codeConfigurationValues =
+        this._codeConfigurationValues?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._configurationSource = undefined;
       this._codeConfigurationValues.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._configurationSource = value.configurationSource;
-      this._codeConfigurationValues.internalValue = value.codeConfigurationValues;
+      this._codeConfigurationValues.internalValue =
+        value.codeConfigurationValues;
     }
   }
 
@@ -1155,11 +1337,17 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationO
   }
 
   // code_configuration_values - computed: false, optional: true, required: false
-  private _codeConfigurationValues = new ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutputReference(this, "code_configuration_values");
+  private _codeConfigurationValues =
+    new ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutputReference(
+      this,
+      'code_configuration_values',
+    );
   public get codeConfigurationValues() {
     return this._codeConfigurationValues;
   }
-  public putCodeConfigurationValues(value: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) {
+  public putCodeConfigurationValues(
+    value: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues,
+  ) {
     this._codeConfigurationValues.internalValue = value;
   }
   public resetCodeConfigurationValues() {
@@ -1172,38 +1360,51 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationO
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#type ApprunnerService#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#type ApprunnerService#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#value ApprunnerService#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#value ApprunnerService#value}
+   */
   readonly value: string;
 }
 
-export function apprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionToTerraform(struct?: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionOutputReference | ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionOutputReference
+    | ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._type !== undefined) {
@@ -1217,13 +1418,16 @@ export class ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion | undefined) {
+  public set internalValue(
+    value:
+      | ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._type = value.type;
       this._value = value.value;
@@ -1258,47 +1462,66 @@ export class ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionO
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepository {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#repository_url ApprunnerService#repository_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#repository_url ApprunnerService#repository_url}
+   */
   readonly repositoryUrl: string;
   /**
-  * code_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_configuration ApprunnerService#code_configuration}
-  */
+   * code_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_configuration ApprunnerService#code_configuration}
+   */
   readonly codeConfiguration?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration;
   /**
-  * source_code_version block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#source_code_version ApprunnerService#source_code_version}
-  */
+   * source_code_version block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#source_code_version ApprunnerService#source_code_version}
+   */
   readonly sourceCodeVersion: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion;
 }
 
-export function apprunnerServiceSourceConfigurationCodeRepositoryToTerraform(struct?: ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference | ApprunnerServiceSourceConfigurationCodeRepository): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationCodeRepositoryToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference
+    | ApprunnerServiceSourceConfigurationCodeRepository,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     repository_url: cdktf.stringToTerraform(struct!.repositoryUrl),
-    code_configuration: apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationToTerraform(struct!.codeConfiguration),
-    source_code_version: apprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionToTerraform(struct!.sourceCodeVersion),
-  }
+    code_configuration:
+      apprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationToTerraform(
+        struct!.codeConfiguration,
+      ),
+    source_code_version:
+      apprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionToTerraform(
+        struct!.sourceCodeVersion,
+      ),
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationCodeRepository | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationCodeRepository
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._repositoryUrl !== undefined) {
@@ -1307,23 +1530,26 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference ex
     }
     if (this._codeConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.codeConfiguration = this._codeConfiguration?.internalValue;
+      internalValueResult.codeConfiguration =
+        this._codeConfiguration?.internalValue;
     }
     if (this._sourceCodeVersion?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sourceCodeVersion = this._sourceCodeVersion?.internalValue;
+      internalValueResult.sourceCodeVersion =
+        this._sourceCodeVersion?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationCodeRepository | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceSourceConfigurationCodeRepository | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._repositoryUrl = undefined;
       this._codeConfiguration.internalValue = undefined;
       this._sourceCodeVersion.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._repositoryUrl = value.repositoryUrl;
       this._codeConfiguration.internalValue = value.codeConfiguration;
@@ -1345,11 +1571,17 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference ex
   }
 
   // code_configuration - computed: false, optional: true, required: false
-  private _codeConfiguration = new ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationOutputReference(this, "code_configuration");
+  private _codeConfiguration =
+    new ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationOutputReference(
+      this,
+      'code_configuration',
+    );
   public get codeConfiguration() {
     return this._codeConfiguration;
   }
-  public putCodeConfiguration(value: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration) {
+  public putCodeConfiguration(
+    value: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration,
+  ) {
     this._codeConfiguration.internalValue = value;
   }
   public resetCodeConfiguration() {
@@ -1361,11 +1593,17 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference ex
   }
 
   // source_code_version - computed: false, optional: false, required: true
-  private _sourceCodeVersion = new ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionOutputReference(this, "source_code_version");
+  private _sourceCodeVersion =
+    new ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersionOutputReference(
+      this,
+      'source_code_version',
+    );
   public get sourceCodeVersion() {
     return this._sourceCodeVersion;
   }
-  public putSourceCodeVersion(value: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion) {
+  public putSourceCodeVersion(
+    value: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion,
+  ) {
     this._sourceCodeVersion.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1375,48 +1613,65 @@ export class ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference ex
 }
 export interface ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#port ApprunnerService#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#port ApprunnerService#port}
+   */
   readonly port?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
+   */
   readonly runtimeEnvironmentSecrets?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
+   */
   readonly runtimeEnvironmentVariables?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#start_command ApprunnerService#start_command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#start_command ApprunnerService#start_command}
+   */
   readonly startCommand?: string;
 }
 
-export function apprunnerServiceSourceConfigurationImageRepositoryImageConfigurationToTerraform(struct?: ApprunnerServiceSourceConfigurationImageRepositoryImageConfigurationOutputReference | ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationImageRepositoryImageConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationImageRepositoryImageConfigurationOutputReference
+    | ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-    runtime_environment_secrets: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.runtimeEnvironmentSecrets),
-    runtime_environment_variables: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.runtimeEnvironmentVariables),
+    runtime_environment_secrets: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.runtimeEnvironmentSecrets,
+    ),
+    runtime_environment_variables: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.runtimeEnvironmentVariables,
+    ),
     start_command: cdktf.stringToTerraform(struct!.startCommand),
-  }
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._port !== undefined) {
@@ -1425,11 +1680,13 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
     }
     if (this._runtimeEnvironmentSecrets !== undefined) {
       hasAnyValues = true;
-      internalValueResult.runtimeEnvironmentSecrets = this._runtimeEnvironmentSecrets;
+      internalValueResult.runtimeEnvironmentSecrets =
+        this._runtimeEnvironmentSecrets;
     }
     if (this._runtimeEnvironmentVariables !== undefined) {
       hasAnyValues = true;
-      internalValueResult.runtimeEnvironmentVariables = this._runtimeEnvironmentVariables;
+      internalValueResult.runtimeEnvironmentVariables =
+        this._runtimeEnvironmentVariables;
     }
     if (this._startCommand !== undefined) {
       hasAnyValues = true;
@@ -1438,15 +1695,18 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._port = undefined;
       this._runtimeEnvironmentSecrets = undefined;
       this._runtimeEnvironmentVariables = undefined;
       this._startCommand = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._port = value.port;
       this._runtimeEnvironmentSecrets = value.runtimeEnvironmentSecrets;
@@ -1521,45 +1781,61 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguratio
 }
 export interface ApprunnerServiceSourceConfigurationImageRepository {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_identifier ApprunnerService#image_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_identifier ApprunnerService#image_identifier}
+   */
   readonly imageIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_repository_type ApprunnerService#image_repository_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_repository_type ApprunnerService#image_repository_type}
+   */
   readonly imageRepositoryType: string;
   /**
-  * image_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_configuration ApprunnerService#image_configuration}
-  */
+   * image_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_configuration ApprunnerService#image_configuration}
+   */
   readonly imageConfiguration?: ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration;
 }
 
-export function apprunnerServiceSourceConfigurationImageRepositoryToTerraform(struct?: ApprunnerServiceSourceConfigurationImageRepositoryOutputReference | ApprunnerServiceSourceConfigurationImageRepository): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationImageRepositoryToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationImageRepositoryOutputReference
+    | ApprunnerServiceSourceConfigurationImageRepository,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     image_identifier: cdktf.stringToTerraform(struct!.imageIdentifier),
     image_repository_type: cdktf.stringToTerraform(struct!.imageRepositoryType),
-    image_configuration: apprunnerServiceSourceConfigurationImageRepositoryImageConfigurationToTerraform(struct!.imageConfiguration),
-  }
+    image_configuration:
+      apprunnerServiceSourceConfigurationImageRepositoryImageConfigurationToTerraform(
+        struct!.imageConfiguration,
+      ),
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationImageRepositoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApprunnerServiceSourceConfigurationImageRepository | undefined {
+  public get internalValue():
+    | ApprunnerServiceSourceConfigurationImageRepository
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._imageIdentifier !== undefined) {
@@ -1572,19 +1848,21 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryOutputReference e
     }
     if (this._imageConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.imageConfiguration = this._imageConfiguration?.internalValue;
+      internalValueResult.imageConfiguration =
+        this._imageConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfigurationImageRepository | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceSourceConfigurationImageRepository | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._imageIdentifier = undefined;
       this._imageRepositoryType = undefined;
       this._imageConfiguration.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._imageIdentifier = value.imageIdentifier;
       this._imageRepositoryType = value.imageRepositoryType;
@@ -1619,11 +1897,17 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryOutputReference e
   }
 
   // image_configuration - computed: false, optional: true, required: false
-  private _imageConfiguration = new ApprunnerServiceSourceConfigurationImageRepositoryImageConfigurationOutputReference(this, "image_configuration");
+  private _imageConfiguration =
+    new ApprunnerServiceSourceConfigurationImageRepositoryImageConfigurationOutputReference(
+      this,
+      'image_configuration',
+    );
   public get imageConfiguration() {
     return this._imageConfiguration;
   }
-  public putImageConfiguration(value: ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration) {
+  public putImageConfiguration(
+    value: ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration,
+  ) {
     this._imageConfiguration.internalValue = value;
   }
   public resetImageConfiguration() {
@@ -1636,50 +1920,72 @@ export class ApprunnerServiceSourceConfigurationImageRepositoryOutputReference e
 }
 export interface ApprunnerServiceSourceConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#auto_deployments_enabled ApprunnerService#auto_deployments_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#auto_deployments_enabled ApprunnerService#auto_deployments_enabled}
+   */
   readonly autoDeploymentsEnabled?: boolean | cdktf.IResolvable;
   /**
-  * authentication_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#authentication_configuration ApprunnerService#authentication_configuration}
-  */
+   * authentication_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#authentication_configuration ApprunnerService#authentication_configuration}
+   */
   readonly authenticationConfiguration?: ApprunnerServiceSourceConfigurationAuthenticationConfiguration;
   /**
-  * code_repository block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_repository ApprunnerService#code_repository}
-  */
+   * code_repository block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#code_repository ApprunnerService#code_repository}
+   */
   readonly codeRepository?: ApprunnerServiceSourceConfigurationCodeRepository;
   /**
-  * image_repository block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_repository ApprunnerService#image_repository}
-  */
+   * image_repository block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service#image_repository ApprunnerService#image_repository}
+   */
   readonly imageRepository?: ApprunnerServiceSourceConfigurationImageRepository;
 }
 
-export function apprunnerServiceSourceConfigurationToTerraform(struct?: ApprunnerServiceSourceConfigurationOutputReference | ApprunnerServiceSourceConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apprunnerServiceSourceConfigurationToTerraform(
+  struct?:
+    | ApprunnerServiceSourceConfigurationOutputReference
+    | ApprunnerServiceSourceConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    auto_deployments_enabled: cdktf.booleanToTerraform(struct!.autoDeploymentsEnabled),
-    authentication_configuration: apprunnerServiceSourceConfigurationAuthenticationConfigurationToTerraform(struct!.authenticationConfiguration),
-    code_repository: apprunnerServiceSourceConfigurationCodeRepositoryToTerraform(struct!.codeRepository),
-    image_repository: apprunnerServiceSourceConfigurationImageRepositoryToTerraform(struct!.imageRepository),
-  }
+    auto_deployments_enabled: cdktf.booleanToTerraform(
+      struct!.autoDeploymentsEnabled,
+    ),
+    authentication_configuration:
+      apprunnerServiceSourceConfigurationAuthenticationConfigurationToTerraform(
+        struct!.authenticationConfiguration,
+      ),
+    code_repository:
+      apprunnerServiceSourceConfigurationCodeRepositoryToTerraform(
+        struct!.codeRepository,
+      ),
+    image_repository:
+      apprunnerServiceSourceConfigurationImageRepositoryToTerraform(
+        struct!.imageRepository,
+      ),
+  };
 }
 
 export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1692,7 +1998,8 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
     }
     if (this._authenticationConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.authenticationConfiguration = this._authenticationConfiguration?.internalValue;
+      internalValueResult.authenticationConfiguration =
+        this._authenticationConfiguration?.internalValue;
     }
     if (this._codeRepository?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1700,23 +2007,26 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
     }
     if (this._imageRepository?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.imageRepository = this._imageRepository?.internalValue;
+      internalValueResult.imageRepository =
+        this._imageRepository?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApprunnerServiceSourceConfiguration | undefined) {
+  public set internalValue(
+    value: ApprunnerServiceSourceConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._autoDeploymentsEnabled = undefined;
       this._authenticationConfiguration.internalValue = undefined;
       this._codeRepository.internalValue = undefined;
       this._imageRepository.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._autoDeploymentsEnabled = value.autoDeploymentsEnabled;
-      this._authenticationConfiguration.internalValue = value.authenticationConfiguration;
+      this._authenticationConfiguration.internalValue =
+        value.authenticationConfiguration;
       this._codeRepository.internalValue = value.codeRepository;
       this._imageRepository.internalValue = value.imageRepository;
     }
@@ -1739,11 +2049,17 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
   }
 
   // authentication_configuration - computed: false, optional: true, required: false
-  private _authenticationConfiguration = new ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutputReference(this, "authentication_configuration");
+  private _authenticationConfiguration =
+    new ApprunnerServiceSourceConfigurationAuthenticationConfigurationOutputReference(
+      this,
+      'authentication_configuration',
+    );
   public get authenticationConfiguration() {
     return this._authenticationConfiguration;
   }
-  public putAuthenticationConfiguration(value: ApprunnerServiceSourceConfigurationAuthenticationConfiguration) {
+  public putAuthenticationConfiguration(
+    value: ApprunnerServiceSourceConfigurationAuthenticationConfiguration,
+  ) {
     this._authenticationConfiguration.internalValue = value;
   }
   public resetAuthenticationConfiguration() {
@@ -1755,11 +2071,17 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
   }
 
   // code_repository - computed: false, optional: true, required: false
-  private _codeRepository = new ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference(this, "code_repository");
+  private _codeRepository =
+    new ApprunnerServiceSourceConfigurationCodeRepositoryOutputReference(
+      this,
+      'code_repository',
+    );
   public get codeRepository() {
     return this._codeRepository;
   }
-  public putCodeRepository(value: ApprunnerServiceSourceConfigurationCodeRepository) {
+  public putCodeRepository(
+    value: ApprunnerServiceSourceConfigurationCodeRepository,
+  ) {
     this._codeRepository.internalValue = value;
   }
   public resetCodeRepository() {
@@ -1771,11 +2093,17 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
   }
 
   // image_repository - computed: false, optional: true, required: false
-  private _imageRepository = new ApprunnerServiceSourceConfigurationImageRepositoryOutputReference(this, "image_repository");
+  private _imageRepository =
+    new ApprunnerServiceSourceConfigurationImageRepositoryOutputReference(
+      this,
+      'image_repository',
+    );
   public get imageRepository() {
     return this._imageRepository;
   }
-  public putImageRepository(value: ApprunnerServiceSourceConfigurationImageRepository) {
+  public putImageRepository(
+    value: ApprunnerServiceSourceConfigurationImageRepository,
+  ) {
     this._imageRepository.internalValue = value;
   }
   public resetImageRepository() {
@@ -1788,33 +2116,36 @@ export class ApprunnerServiceSourceConfigurationOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service aws_apprunner_service}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service aws_apprunner_service}
+ */
 export class ApprunnerService extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_apprunner_service";
+  public static readonly tfResourceType = 'aws_apprunner_service';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service aws_apprunner_service} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ApprunnerServiceConfig
-  */
-  public constructor(scope: Construct, id: string, config: ApprunnerServiceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/apprunner_service aws_apprunner_service} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ApprunnerServiceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ApprunnerServiceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_apprunner_service',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1822,18 +2153,21 @@ export class ApprunnerService extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoScalingConfigurationArn = config.autoScalingConfigurationArn;
     this._id = config.id;
     this._serviceName = config.serviceName;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._encryptionConfiguration.internalValue = config.encryptionConfiguration;
-    this._healthCheckConfiguration.internalValue = config.healthCheckConfiguration;
+    this._encryptionConfiguration.internalValue =
+      config.encryptionConfiguration;
+    this._healthCheckConfiguration.internalValue =
+      config.healthCheckConfiguration;
     this._instanceConfiguration.internalValue = config.instanceConfiguration;
     this._networkConfiguration.internalValue = config.networkConfiguration;
-    this._observabilityConfiguration.internalValue = config.observabilityConfiguration;
+    this._observabilityConfiguration.internalValue =
+      config.observabilityConfiguration;
     this._sourceConfiguration.internalValue = config.sourceConfiguration;
   }
 
@@ -1939,11 +2273,17 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // encryption_configuration - computed: false, optional: true, required: false
-  private _encryptionConfiguration = new ApprunnerServiceEncryptionConfigurationOutputReference(this, "encryption_configuration");
+  private _encryptionConfiguration =
+    new ApprunnerServiceEncryptionConfigurationOutputReference(
+      this,
+      'encryption_configuration',
+    );
   public get encryptionConfiguration() {
     return this._encryptionConfiguration;
   }
-  public putEncryptionConfiguration(value: ApprunnerServiceEncryptionConfiguration) {
+  public putEncryptionConfiguration(
+    value: ApprunnerServiceEncryptionConfiguration,
+  ) {
     this._encryptionConfiguration.internalValue = value;
   }
   public resetEncryptionConfiguration() {
@@ -1955,11 +2295,17 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // health_check_configuration - computed: false, optional: true, required: false
-  private _healthCheckConfiguration = new ApprunnerServiceHealthCheckConfigurationOutputReference(this, "health_check_configuration");
+  private _healthCheckConfiguration =
+    new ApprunnerServiceHealthCheckConfigurationOutputReference(
+      this,
+      'health_check_configuration',
+    );
   public get healthCheckConfiguration() {
     return this._healthCheckConfiguration;
   }
-  public putHealthCheckConfiguration(value: ApprunnerServiceHealthCheckConfiguration) {
+  public putHealthCheckConfiguration(
+    value: ApprunnerServiceHealthCheckConfiguration,
+  ) {
     this._healthCheckConfiguration.internalValue = value;
   }
   public resetHealthCheckConfiguration() {
@@ -1971,11 +2317,17 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // instance_configuration - computed: false, optional: true, required: false
-  private _instanceConfiguration = new ApprunnerServiceInstanceConfigurationOutputReference(this, "instance_configuration");
+  private _instanceConfiguration =
+    new ApprunnerServiceInstanceConfigurationOutputReference(
+      this,
+      'instance_configuration',
+    );
   public get instanceConfiguration() {
     return this._instanceConfiguration;
   }
-  public putInstanceConfiguration(value: ApprunnerServiceInstanceConfiguration) {
+  public putInstanceConfiguration(
+    value: ApprunnerServiceInstanceConfiguration,
+  ) {
     this._instanceConfiguration.internalValue = value;
   }
   public resetInstanceConfiguration() {
@@ -1987,7 +2339,11 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // network_configuration - computed: false, optional: true, required: false
-  private _networkConfiguration = new ApprunnerServiceNetworkConfigurationOutputReference(this, "network_configuration");
+  private _networkConfiguration =
+    new ApprunnerServiceNetworkConfigurationOutputReference(
+      this,
+      'network_configuration',
+    );
   public get networkConfiguration() {
     return this._networkConfiguration;
   }
@@ -2003,11 +2359,17 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // observability_configuration - computed: false, optional: true, required: false
-  private _observabilityConfiguration = new ApprunnerServiceObservabilityConfigurationOutputReference(this, "observability_configuration");
+  private _observabilityConfiguration =
+    new ApprunnerServiceObservabilityConfigurationOutputReference(
+      this,
+      'observability_configuration',
+    );
   public get observabilityConfiguration() {
     return this._observabilityConfiguration;
   }
-  public putObservabilityConfiguration(value: ApprunnerServiceObservabilityConfiguration) {
+  public putObservabilityConfiguration(
+    value: ApprunnerServiceObservabilityConfiguration,
+  ) {
     this._observabilityConfiguration.internalValue = value;
   }
   public resetObservabilityConfiguration() {
@@ -2019,7 +2381,11 @@ export class ApprunnerService extends cdktf.TerraformResource {
   }
 
   // source_configuration - computed: false, optional: false, required: true
-  private _sourceConfiguration = new ApprunnerServiceSourceConfigurationOutputReference(this, "source_configuration");
+  private _sourceConfiguration =
+    new ApprunnerServiceSourceConfigurationOutputReference(
+      this,
+      'source_configuration',
+    );
   public get sourceConfiguration() {
     return this._sourceConfiguration;
   }
@@ -2037,17 +2403,34 @@ export class ApprunnerService extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      auto_scaling_configuration_arn: cdktf.stringToTerraform(this._autoScalingConfigurationArn),
+      auto_scaling_configuration_arn: cdktf.stringToTerraform(
+        this._autoScalingConfigurationArn,
+      ),
       id: cdktf.stringToTerraform(this._id),
       service_name: cdktf.stringToTerraform(this._serviceName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      encryption_configuration: apprunnerServiceEncryptionConfigurationToTerraform(this._encryptionConfiguration.internalValue),
-      health_check_configuration: apprunnerServiceHealthCheckConfigurationToTerraform(this._healthCheckConfiguration.internalValue),
-      instance_configuration: apprunnerServiceInstanceConfigurationToTerraform(this._instanceConfiguration.internalValue),
-      network_configuration: apprunnerServiceNetworkConfigurationToTerraform(this._networkConfiguration.internalValue),
-      observability_configuration: apprunnerServiceObservabilityConfigurationToTerraform(this._observabilityConfiguration.internalValue),
-      source_configuration: apprunnerServiceSourceConfigurationToTerraform(this._sourceConfiguration.internalValue),
+      encryption_configuration:
+        apprunnerServiceEncryptionConfigurationToTerraform(
+          this._encryptionConfiguration.internalValue,
+        ),
+      health_check_configuration:
+        apprunnerServiceHealthCheckConfigurationToTerraform(
+          this._healthCheckConfiguration.internalValue,
+        ),
+      instance_configuration: apprunnerServiceInstanceConfigurationToTerraform(
+        this._instanceConfiguration.internalValue,
+      ),
+      network_configuration: apprunnerServiceNetworkConfigurationToTerraform(
+        this._networkConfiguration.internalValue,
+      ),
+      observability_configuration:
+        apprunnerServiceObservabilityConfigurationToTerraform(
+          this._observabilityConfiguration.internalValue,
+        ),
+      source_configuration: apprunnerServiceSourceConfigurationToTerraform(
+        this._sourceConfiguration.internalValue,
+      ),
     };
   }
 }

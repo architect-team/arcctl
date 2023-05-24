@@ -2,91 +2,109 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface GlobalacceleratorCustomRoutingAcceleratorConfig extends cdktf.TerraformMetaArguments {
+export interface GlobalacceleratorCustomRoutingAcceleratorConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#enabled GlobalacceleratorCustomRoutingAccelerator#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#enabled GlobalacceleratorCustomRoutingAccelerator#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#id GlobalacceleratorCustomRoutingAccelerator#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#id GlobalacceleratorCustomRoutingAccelerator#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#ip_address_type GlobalacceleratorCustomRoutingAccelerator#ip_address_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#ip_address_type GlobalacceleratorCustomRoutingAccelerator#ip_address_type}
+   */
   readonly ipAddressType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#ip_addresses GlobalacceleratorCustomRoutingAccelerator#ip_addresses}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#ip_addresses GlobalacceleratorCustomRoutingAccelerator#ip_addresses}
+   */
   readonly ipAddresses?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#name GlobalacceleratorCustomRoutingAccelerator#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#name GlobalacceleratorCustomRoutingAccelerator#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#tags GlobalacceleratorCustomRoutingAccelerator#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#tags GlobalacceleratorCustomRoutingAccelerator#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#tags_all GlobalacceleratorCustomRoutingAccelerator#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#tags_all GlobalacceleratorCustomRoutingAccelerator#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * attributes block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#attributes GlobalacceleratorCustomRoutingAccelerator#attributes}
-  */
+   * attributes block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#attributes GlobalacceleratorCustomRoutingAccelerator#attributes}
+   */
   readonly attributes?: GlobalacceleratorCustomRoutingAcceleratorAttributes;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#timeouts GlobalacceleratorCustomRoutingAccelerator#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#timeouts GlobalacceleratorCustomRoutingAccelerator#timeouts}
+   */
   readonly timeouts?: GlobalacceleratorCustomRoutingAcceleratorTimeouts;
 }
-export interface GlobalacceleratorCustomRoutingAcceleratorIpSets {
-}
+export interface GlobalacceleratorCustomRoutingAcceleratorIpSets {}
 
-export function globalacceleratorCustomRoutingAcceleratorIpSetsToTerraform(struct?: GlobalacceleratorCustomRoutingAcceleratorIpSets): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorCustomRoutingAcceleratorIpSetsToTerraform(
+  struct?: GlobalacceleratorCustomRoutingAcceleratorIpSets,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class GlobalacceleratorCustomRoutingAcceleratorIpSetsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GlobalacceleratorCustomRoutingAcceleratorIpSets | undefined {
+  public get internalValue():
+    | GlobalacceleratorCustomRoutingAcceleratorIpSets
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorCustomRoutingAcceleratorIpSets | undefined) {
+  public set internalValue(
+    value: GlobalacceleratorCustomRoutingAcceleratorIpSets | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -103,62 +121,85 @@ export class GlobalacceleratorCustomRoutingAcceleratorIpSetsOutputReference exte
 }
 
 export class GlobalacceleratorCustomRoutingAcceleratorIpSetsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GlobalacceleratorCustomRoutingAcceleratorIpSetsOutputReference {
-    return new GlobalacceleratorCustomRoutingAcceleratorIpSetsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GlobalacceleratorCustomRoutingAcceleratorIpSetsOutputReference {
+    return new GlobalacceleratorCustomRoutingAcceleratorIpSetsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GlobalacceleratorCustomRoutingAcceleratorAttributes {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#flow_logs_enabled GlobalacceleratorCustomRoutingAccelerator#flow_logs_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#flow_logs_enabled GlobalacceleratorCustomRoutingAccelerator#flow_logs_enabled}
+   */
   readonly flowLogsEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#flow_logs_s3_bucket GlobalacceleratorCustomRoutingAccelerator#flow_logs_s3_bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#flow_logs_s3_bucket GlobalacceleratorCustomRoutingAccelerator#flow_logs_s3_bucket}
+   */
   readonly flowLogsS3Bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#flow_logs_s3_prefix GlobalacceleratorCustomRoutingAccelerator#flow_logs_s3_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#flow_logs_s3_prefix GlobalacceleratorCustomRoutingAccelerator#flow_logs_s3_prefix}
+   */
   readonly flowLogsS3Prefix?: string;
 }
 
-export function globalacceleratorCustomRoutingAcceleratorAttributesToTerraform(struct?: GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference | GlobalacceleratorCustomRoutingAcceleratorAttributes): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorCustomRoutingAcceleratorAttributesToTerraform(
+  struct?:
+    | GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference
+    | GlobalacceleratorCustomRoutingAcceleratorAttributes,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     flow_logs_enabled: cdktf.booleanToTerraform(struct!.flowLogsEnabled),
     flow_logs_s3_bucket: cdktf.stringToTerraform(struct!.flowLogsS3Bucket),
     flow_logs_s3_prefix: cdktf.stringToTerraform(struct!.flowLogsS3Prefix),
-  }
+  };
 }
 
 export class GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GlobalacceleratorCustomRoutingAcceleratorAttributes | undefined {
+  public get internalValue():
+    | GlobalacceleratorCustomRoutingAcceleratorAttributes
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._flowLogsEnabled !== undefined) {
@@ -176,14 +217,15 @@ export class GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorCustomRoutingAcceleratorAttributes | undefined) {
+  public set internalValue(
+    value: GlobalacceleratorCustomRoutingAcceleratorAttributes | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._flowLogsEnabled = undefined;
       this._flowLogsS3Bucket = undefined;
       this._flowLogsS3Prefix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._flowLogsEnabled = value.flowLogsEnabled;
       this._flowLogsS3Bucket = value.flowLogsS3Bucket;
@@ -241,24 +283,33 @@ export class GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference 
 }
 export interface GlobalacceleratorCustomRoutingAcceleratorTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#create GlobalacceleratorCustomRoutingAccelerator#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#create GlobalacceleratorCustomRoutingAccelerator#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#update GlobalacceleratorCustomRoutingAccelerator#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator#update GlobalacceleratorCustomRoutingAccelerator#update}
+   */
   readonly update?: string;
 }
 
-export function globalacceleratorCustomRoutingAcceleratorTimeoutsToTerraform(struct?: GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference | GlobalacceleratorCustomRoutingAcceleratorTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorCustomRoutingAcceleratorTimeoutsToTerraform(
+  struct?:
+    | GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference
+    | GlobalacceleratorCustomRoutingAcceleratorTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -266,14 +317,20 @@ export class GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GlobalacceleratorCustomRoutingAcceleratorTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlobalacceleratorCustomRoutingAcceleratorTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -290,18 +347,21 @@ export class GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorCustomRoutingAcceleratorTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GlobalacceleratorCustomRoutingAcceleratorTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -343,33 +403,37 @@ export class GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference ex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator aws_globalaccelerator_custom_routing_accelerator}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator aws_globalaccelerator_custom_routing_accelerator}
+ */
 export class GlobalacceleratorCustomRoutingAccelerator extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_globalaccelerator_custom_routing_accelerator";
+  public static readonly tfResourceType =
+    'aws_globalaccelerator_custom_routing_accelerator';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator aws_globalaccelerator_custom_routing_accelerator} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GlobalacceleratorCustomRoutingAcceleratorConfig
-  */
-  public constructor(scope: Construct, id: string, config: GlobalacceleratorCustomRoutingAcceleratorConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_accelerator aws_globalaccelerator_custom_routing_accelerator} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GlobalacceleratorCustomRoutingAcceleratorConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GlobalacceleratorCustomRoutingAcceleratorConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_globalaccelerator_custom_routing_accelerator',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -377,7 +441,7 @@ export class GlobalacceleratorCustomRoutingAccelerator extends cdktf.TerraformRe
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._enabled = config.enabled;
     this._id = config.id;
@@ -469,7 +533,11 @@ export class GlobalacceleratorCustomRoutingAccelerator extends cdktf.TerraformRe
   }
 
   // ip_sets - computed: true, optional: false, required: false
-  private _ipSets = new GlobalacceleratorCustomRoutingAcceleratorIpSetsList(this, "ip_sets", false);
+  private _ipSets = new GlobalacceleratorCustomRoutingAcceleratorIpSetsList(
+    this,
+    'ip_sets',
+    false,
+  );
   public get ipSets() {
     return this._ipSets;
   }
@@ -520,11 +588,17 @@ export class GlobalacceleratorCustomRoutingAccelerator extends cdktf.TerraformRe
   }
 
   // attributes - computed: false, optional: true, required: false
-  private _attributes = new GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference(this, "attributes");
+  private _attributes =
+    new GlobalacceleratorCustomRoutingAcceleratorAttributesOutputReference(
+      this,
+      'attributes',
+    );
   public get attributes() {
     return this._attributes;
   }
-  public putAttributes(value: GlobalacceleratorCustomRoutingAcceleratorAttributes) {
+  public putAttributes(
+    value: GlobalacceleratorCustomRoutingAcceleratorAttributes,
+  ) {
     this._attributes.internalValue = value;
   }
   public resetAttributes() {
@@ -536,7 +610,11 @@ export class GlobalacceleratorCustomRoutingAccelerator extends cdktf.TerraformRe
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new GlobalacceleratorCustomRoutingAcceleratorTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -560,12 +638,20 @@ export class GlobalacceleratorCustomRoutingAccelerator extends cdktf.TerraformRe
       enabled: cdktf.booleanToTerraform(this._enabled),
       id: cdktf.stringToTerraform(this._id),
       ip_address_type: cdktf.stringToTerraform(this._ipAddressType),
-      ip_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(this._ipAddresses),
+      ip_addresses: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._ipAddresses),
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      attributes: globalacceleratorCustomRoutingAcceleratorAttributesToTerraform(this._attributes.internalValue),
-      timeouts: globalacceleratorCustomRoutingAcceleratorTimeoutsToTerraform(this._timeouts.internalValue),
+      attributes:
+        globalacceleratorCustomRoutingAcceleratorAttributesToTerraform(
+          this._attributes.internalValue,
+        ),
+      timeouts: globalacceleratorCustomRoutingAcceleratorTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -2,71 +2,91 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface RedshiftserverlessEndpointAccessConfig extends cdktf.TerraformMetaArguments {
+export interface RedshiftserverlessEndpointAccessConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#endpoint_name RedshiftserverlessEndpointAccess#endpoint_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#endpoint_name RedshiftserverlessEndpointAccess#endpoint_name}
+   */
   readonly endpointName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#id RedshiftserverlessEndpointAccess#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#id RedshiftserverlessEndpointAccess#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#subnet_ids RedshiftserverlessEndpointAccess#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#subnet_ids RedshiftserverlessEndpointAccess#subnet_ids}
+   */
   readonly subnetIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#vpc_security_group_ids RedshiftserverlessEndpointAccess#vpc_security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#vpc_security_group_ids RedshiftserverlessEndpointAccess#vpc_security_group_ids}
+   */
   readonly vpcSecurityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#workgroup_name RedshiftserverlessEndpointAccess#workgroup_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access#workgroup_name RedshiftserverlessEndpointAccess#workgroup_name}
+   */
   readonly workgroupName: string;
 }
-export interface RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface {
-}
+export interface RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface {}
 
-export function redshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceToTerraform(struct?: RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function redshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceToTerraform(
+  struct?: RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface | undefined {
+  public get internalValue():
+    | RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface | undefined) {
+  public set internalValue(
+    value:
+      | RedshiftserverlessEndpointAccessVpcEndpointNetworkInterface
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -93,65 +113,97 @@ export class RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceOutputRe
 }
 
 export class RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceOutputReference {
-    return new RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceOutputReference {
+    return new RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface RedshiftserverlessEndpointAccessVpcEndpoint {
-}
+export interface RedshiftserverlessEndpointAccessVpcEndpoint {}
 
-export function redshiftserverlessEndpointAccessVpcEndpointToTerraform(struct?: RedshiftserverlessEndpointAccessVpcEndpoint): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function redshiftserverlessEndpointAccessVpcEndpointToTerraform(
+  struct?: RedshiftserverlessEndpointAccessVpcEndpoint,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class RedshiftserverlessEndpointAccessVpcEndpointOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): RedshiftserverlessEndpointAccessVpcEndpoint | undefined {
+  public get internalValue():
+    | RedshiftserverlessEndpointAccessVpcEndpoint
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: RedshiftserverlessEndpointAccessVpcEndpoint | undefined) {
+  public set internalValue(
+    value: RedshiftserverlessEndpointAccessVpcEndpoint | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // network_interface - computed: true, optional: false, required: false
-  private _networkInterface = new RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceList(this, "network_interface", false);
+  private _networkInterface =
+    new RedshiftserverlessEndpointAccessVpcEndpointNetworkInterfaceList(
+      this,
+      'network_interface',
+      false,
+    );
   public get networkInterface() {
     return this._networkInterface;
   }
@@ -168,52 +220,66 @@ export class RedshiftserverlessEndpointAccessVpcEndpointOutputReference extends 
 }
 
 export class RedshiftserverlessEndpointAccessVpcEndpointList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): RedshiftserverlessEndpointAccessVpcEndpointOutputReference {
-    return new RedshiftserverlessEndpointAccessVpcEndpointOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): RedshiftserverlessEndpointAccessVpcEndpointOutputReference {
+    return new RedshiftserverlessEndpointAccessVpcEndpointOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access aws_redshiftserverless_endpoint_access}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access aws_redshiftserverless_endpoint_access}
+ */
 export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_redshiftserverless_endpoint_access";
+  public static readonly tfResourceType =
+    'aws_redshiftserverless_endpoint_access';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access aws_redshiftserverless_endpoint_access} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RedshiftserverlessEndpointAccessConfig
-  */
-  public constructor(scope: Construct, id: string, config: RedshiftserverlessEndpointAccessConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_endpoint_access aws_redshiftserverless_endpoint_access} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RedshiftserverlessEndpointAccessConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RedshiftserverlessEndpointAccessConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_redshiftserverless_endpoint_access',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -221,7 +287,7 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._endpointName = config.endpointName;
     this._id = config.id;
@@ -292,7 +358,11 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint - computed: true, optional: false, required: false
-  private _vpcEndpoint = new RedshiftserverlessEndpointAccessVpcEndpointList(this, "vpc_endpoint", false);
+  private _vpcEndpoint = new RedshiftserverlessEndpointAccessVpcEndpointList(
+    this,
+    'vpc_endpoint',
+    false,
+  );
   public get vpcEndpoint() {
     return this._vpcEndpoint;
   }
@@ -334,8 +404,14 @@ export class RedshiftserverlessEndpointAccess extends cdktf.TerraformResource {
     return {
       endpoint_name: cdktf.stringToTerraform(this._endpointName),
       id: cdktf.stringToTerraform(this._id),
-      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
-      vpc_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._vpcSecurityGroupIds),
+      subnet_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetIds),
+      vpc_security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._vpcSecurityGroupIds),
       workgroup_name: cdktf.stringToTerraform(this._workgroupName),
     };
   }

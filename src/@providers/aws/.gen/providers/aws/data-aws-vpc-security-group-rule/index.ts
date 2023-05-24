@@ -2,42 +2,49 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsVpcSecurityGroupRuleConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsVpcSecurityGroupRuleConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#security_group_rule_id DataAwsVpcSecurityGroupRule#security_group_rule_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#security_group_rule_id DataAwsVpcSecurityGroupRule#security_group_rule_id}
+   */
   readonly securityGroupRuleId?: string;
   /**
-  * filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#filter DataAwsVpcSecurityGroupRule#filter}
-  */
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#filter DataAwsVpcSecurityGroupRule#filter}
+   */
   readonly filter?: DataAwsVpcSecurityGroupRuleFilter[] | cdktf.IResolvable;
 }
 export interface DataAwsVpcSecurityGroupRuleFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#name DataAwsVpcSecurityGroupRule#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#name DataAwsVpcSecurityGroupRule#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#values DataAwsVpcSecurityGroupRule#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule#values DataAwsVpcSecurityGroupRule#values}
+   */
   readonly values: string[];
 }
 
-export function dataAwsVpcSecurityGroupRuleFilterToTerraform(struct?: DataAwsVpcSecurityGroupRuleFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsVpcSecurityGroupRuleFilterToTerraform(
+  struct?: DataAwsVpcSecurityGroupRuleFilter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsVpcSecurityGroupRuleFilterOutputReference extends cdktf.ComplexObject {
@@ -45,16 +52,29 @@ export class DataAwsVpcSecurityGroupRuleFilterOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsVpcSecurityGroupRuleFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsVpcSecurityGroupRuleFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -71,18 +91,18 @@ export class DataAwsVpcSecurityGroupRuleFilterOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsVpcSecurityGroupRuleFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DataAwsVpcSecurityGroupRuleFilter | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -118,53 +138,67 @@ export class DataAwsVpcSecurityGroupRuleFilterOutputReference extends cdktf.Comp
 }
 
 export class DataAwsVpcSecurityGroupRuleFilterList extends cdktf.ComplexList {
-  public internalValue? : DataAwsVpcSecurityGroupRuleFilter[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsVpcSecurityGroupRuleFilter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsVpcSecurityGroupRuleFilterOutputReference {
-    return new DataAwsVpcSecurityGroupRuleFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsVpcSecurityGroupRuleFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule aws_vpc_security_group_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule aws_vpc_security_group_rule}
+ */
 export class DataAwsVpcSecurityGroupRule extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_vpc_security_group_rule";
+  public static readonly tfResourceType = 'aws_vpc_security_group_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule aws_vpc_security_group_rule} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsVpcSecurityGroupRuleConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsVpcSecurityGroupRuleConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/vpc_security_group_rule aws_vpc_security_group_rule} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsVpcSecurityGroupRuleConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsVpcSecurityGroupRuleConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_security_group_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -172,7 +206,7 @@ export class DataAwsVpcSecurityGroupRule extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._securityGroupRuleId = config.securityGroupRuleId;
     this._filter.internalValue = config.filter;
@@ -254,7 +288,7 @@ export class DataAwsVpcSecurityGroupRule extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: false, required: false
-  private _tags = new cdktf.StringMap(this, "tags");
+  private _tags = new cdktf.StringMap(this, 'tags');
   public get tags() {
     return this._tags;
   }
@@ -265,11 +299,17 @@ export class DataAwsVpcSecurityGroupRule extends cdktf.TerraformDataSource {
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsVpcSecurityGroupRuleFilterList(this, "filter", true);
+  private _filter = new DataAwsVpcSecurityGroupRuleFilterList(
+    this,
+    'filter',
+    true,
+  );
   public get filter() {
     return this._filter;
   }
-  public putFilter(value: DataAwsVpcSecurityGroupRuleFilter[] | cdktf.IResolvable) {
+  public putFilter(
+    value: DataAwsVpcSecurityGroupRuleFilter[] | cdktf.IResolvable,
+  ) {
     this._filter.internalValue = value;
   }
   public resetFilter() {
@@ -286,8 +326,13 @@ export class DataAwsVpcSecurityGroupRule extends cdktf.TerraformDataSource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      security_group_rule_id: cdktf.stringToTerraform(this._securityGroupRuleId),
-      filter: cdktf.listMapper(dataAwsVpcSecurityGroupRuleFilterToTerraform, true)(this._filter.internalValue),
+      security_group_rule_id: cdktf.stringToTerraform(
+        this._securityGroupRuleId,
+      ),
+      filter: cdktf.listMapper(
+        dataAwsVpcSecurityGroupRuleFilterToTerraform,
+        true,
+      )(this._filter.internalValue),
     };
   }
 }

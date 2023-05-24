@@ -2,76 +2,89 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface EvidentlyProjectConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#description EvidentlyProject#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#description EvidentlyProject#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#id EvidentlyProject#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#id EvidentlyProject#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#name EvidentlyProject#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#name EvidentlyProject#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#tags EvidentlyProject#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#tags EvidentlyProject#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#tags_all EvidentlyProject#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#tags_all EvidentlyProject#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * data_delivery block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#data_delivery EvidentlyProject#data_delivery}
-  */
+   * data_delivery block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#data_delivery EvidentlyProject#data_delivery}
+   */
   readonly dataDelivery?: EvidentlyProjectDataDelivery;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#timeouts EvidentlyProject#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#timeouts EvidentlyProject#timeouts}
+   */
   readonly timeouts?: EvidentlyProjectTimeouts;
 }
 export interface EvidentlyProjectDataDeliveryCloudwatchLogs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#log_group EvidentlyProject#log_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#log_group EvidentlyProject#log_group}
+   */
   readonly logGroup?: string;
 }
 
-export function evidentlyProjectDataDeliveryCloudwatchLogsToTerraform(struct?: EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference | EvidentlyProjectDataDeliveryCloudwatchLogs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function evidentlyProjectDataDeliveryCloudwatchLogsToTerraform(
+  struct?:
+    | EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference
+    | EvidentlyProjectDataDeliveryCloudwatchLogs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     log_group: cdktf.stringToTerraform(struct!.logGroup),
-  }
+  };
 }
 
 export class EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EvidentlyProjectDataDeliveryCloudwatchLogs | undefined {
+  public get internalValue():
+    | EvidentlyProjectDataDeliveryCloudwatchLogs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._logGroup !== undefined) {
@@ -81,12 +94,13 @@ export class EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EvidentlyProjectDataDeliveryCloudwatchLogs | undefined) {
+  public set internalValue(
+    value: EvidentlyProjectDataDeliveryCloudwatchLogs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._logGroup = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._logGroup = value.logGroup;
     }
@@ -110,38 +124,51 @@ export class EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference extends c
 }
 export interface EvidentlyProjectDataDeliveryS3Destination {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#bucket EvidentlyProject#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#bucket EvidentlyProject#bucket}
+   */
   readonly bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#prefix EvidentlyProject#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#prefix EvidentlyProject#prefix}
+   */
   readonly prefix?: string;
 }
 
-export function evidentlyProjectDataDeliveryS3DestinationToTerraform(struct?: EvidentlyProjectDataDeliveryS3DestinationOutputReference | EvidentlyProjectDataDeliveryS3Destination): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function evidentlyProjectDataDeliveryS3DestinationToTerraform(
+  struct?:
+    | EvidentlyProjectDataDeliveryS3DestinationOutputReference
+    | EvidentlyProjectDataDeliveryS3Destination,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-  }
+  };
 }
 
 export class EvidentlyProjectDataDeliveryS3DestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EvidentlyProjectDataDeliveryS3Destination | undefined {
+  public get internalValue():
+    | EvidentlyProjectDataDeliveryS3Destination
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucket !== undefined) {
@@ -155,13 +182,14 @@ export class EvidentlyProjectDataDeliveryS3DestinationOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EvidentlyProjectDataDeliveryS3Destination | undefined) {
+  public set internalValue(
+    value: EvidentlyProjectDataDeliveryS3Destination | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
       this._prefix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._prefix = value.prefix;
@@ -202,38 +230,53 @@ export class EvidentlyProjectDataDeliveryS3DestinationOutputReference extends cd
 }
 export interface EvidentlyProjectDataDelivery {
   /**
-  * cloudwatch_logs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#cloudwatch_logs EvidentlyProject#cloudwatch_logs}
-  */
+   * cloudwatch_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#cloudwatch_logs EvidentlyProject#cloudwatch_logs}
+   */
   readonly cloudwatchLogs?: EvidentlyProjectDataDeliveryCloudwatchLogs;
   /**
-  * s3_destination block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#s3_destination EvidentlyProject#s3_destination}
-  */
+   * s3_destination block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#s3_destination EvidentlyProject#s3_destination}
+   */
   readonly s3Destination?: EvidentlyProjectDataDeliveryS3Destination;
 }
 
-export function evidentlyProjectDataDeliveryToTerraform(struct?: EvidentlyProjectDataDeliveryOutputReference | EvidentlyProjectDataDelivery): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function evidentlyProjectDataDeliveryToTerraform(
+  struct?:
+    | EvidentlyProjectDataDeliveryOutputReference
+    | EvidentlyProjectDataDelivery,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cloudwatch_logs: evidentlyProjectDataDeliveryCloudwatchLogsToTerraform(struct!.cloudwatchLogs),
-    s3_destination: evidentlyProjectDataDeliveryS3DestinationToTerraform(struct!.s3Destination),
-  }
+    cloudwatch_logs: evidentlyProjectDataDeliveryCloudwatchLogsToTerraform(
+      struct!.cloudwatchLogs,
+    ),
+    s3_destination: evidentlyProjectDataDeliveryS3DestinationToTerraform(
+      struct!.s3Destination,
+    ),
+  };
 }
 
 export class EvidentlyProjectDataDeliveryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -256,8 +299,7 @@ export class EvidentlyProjectDataDeliveryOutputReference extends cdktf.ComplexOb
       this.isEmptyObject = false;
       this._cloudwatchLogs.internalValue = undefined;
       this._s3Destination.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchLogs.internalValue = value.cloudwatchLogs;
       this._s3Destination.internalValue = value.s3Destination;
@@ -265,7 +307,11 @@ export class EvidentlyProjectDataDeliveryOutputReference extends cdktf.ComplexOb
   }
 
   // cloudwatch_logs - computed: false, optional: true, required: false
-  private _cloudwatchLogs = new EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference(this, "cloudwatch_logs");
+  private _cloudwatchLogs =
+    new EvidentlyProjectDataDeliveryCloudwatchLogsOutputReference(
+      this,
+      'cloudwatch_logs',
+    );
   public get cloudwatchLogs() {
     return this._cloudwatchLogs;
   }
@@ -281,7 +327,11 @@ export class EvidentlyProjectDataDeliveryOutputReference extends cdktf.ComplexOb
   }
 
   // s3_destination - computed: false, optional: true, required: false
-  private _s3Destination = new EvidentlyProjectDataDeliveryS3DestinationOutputReference(this, "s3_destination");
+  private _s3Destination =
+    new EvidentlyProjectDataDeliveryS3DestinationOutputReference(
+      this,
+      's3_destination',
+    );
   public get s3Destination() {
     return this._s3Destination;
   }
@@ -298,29 +348,38 @@ export class EvidentlyProjectDataDeliveryOutputReference extends cdktf.ComplexOb
 }
 export interface EvidentlyProjectTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#create EvidentlyProject#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#create EvidentlyProject#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#delete EvidentlyProject#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#delete EvidentlyProject#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#update EvidentlyProject#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_project#update EvidentlyProject#update}
+   */
   readonly update?: string;
 }
 
-export function evidentlyProjectTimeoutsToTerraform(struct?: EvidentlyProjectTimeoutsOutputReference | EvidentlyProjectTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function evidentlyProjectTimeoutsToTerraform(
+  struct?:
+    | EvidentlyProjectTimeoutsOutputReference
+    | EvidentlyProjectTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class EvidentlyProjectTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -328,14 +387,20 @@ export class EvidentlyProjectTimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EvidentlyProjectTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EvidentlyProjectTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -356,19 +421,19 @@ export class EvidentlyProjectTimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EvidentlyProjectTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EvidentlyProjectTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -427,33 +492,36 @@ export class EvidentlyProjectTimeoutsOutputReference extends cdktf.ComplexObject
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/evidently_project aws_evidently_project}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/evidently_project aws_evidently_project}
+ */
 export class EvidentlyProject extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_evidently_project";
+  public static readonly tfResourceType = 'aws_evidently_project';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/evidently_project aws_evidently_project} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EvidentlyProjectConfig
-  */
-  public constructor(scope: Construct, id: string, config: EvidentlyProjectConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/evidently_project aws_evidently_project} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EvidentlyProjectConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: EvidentlyProjectConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_evidently_project',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -461,7 +529,7 @@ export class EvidentlyProject extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -599,7 +667,10 @@ export class EvidentlyProject extends cdktf.TerraformResource {
   }
 
   // data_delivery - computed: false, optional: true, required: false
-  private _dataDelivery = new EvidentlyProjectDataDeliveryOutputReference(this, "data_delivery");
+  private _dataDelivery = new EvidentlyProjectDataDeliveryOutputReference(
+    this,
+    'data_delivery',
+  );
   public get dataDelivery() {
     return this._dataDelivery;
   }
@@ -615,7 +686,10 @@ export class EvidentlyProject extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EvidentlyProjectTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new EvidentlyProjectTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -641,8 +715,12 @@ export class EvidentlyProject extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      data_delivery: evidentlyProjectDataDeliveryToTerraform(this._dataDelivery.internalValue),
-      timeouts: evidentlyProjectTimeoutsToTerraform(this._timeouts.internalValue),
+      data_delivery: evidentlyProjectDataDeliveryToTerraform(
+        this._dataDelivery.internalValue,
+      ),
+      timeouts: evidentlyProjectTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -2,198 +2,209 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface LambdaFunctionConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#architectures LambdaFunction#architectures}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#architectures LambdaFunction#architectures}
+   */
   readonly architectures?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#code_signing_config_arn LambdaFunction#code_signing_config_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#code_signing_config_arn LambdaFunction#code_signing_config_arn}
+   */
   readonly codeSigningConfigArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#description LambdaFunction#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#description LambdaFunction#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#filename LambdaFunction#filename}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#filename LambdaFunction#filename}
+   */
   readonly filename?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#function_name LambdaFunction#function_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#function_name LambdaFunction#function_name}
+   */
   readonly functionName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#handler LambdaFunction#handler}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#handler LambdaFunction#handler}
+   */
   readonly handler?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#id LambdaFunction#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#id LambdaFunction#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#image_uri LambdaFunction#image_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#image_uri LambdaFunction#image_uri}
+   */
   readonly imageUri?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#kms_key_arn LambdaFunction#kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#kms_key_arn LambdaFunction#kms_key_arn}
+   */
   readonly kmsKeyArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#layers LambdaFunction#layers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#layers LambdaFunction#layers}
+   */
   readonly layers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#memory_size LambdaFunction#memory_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#memory_size LambdaFunction#memory_size}
+   */
   readonly memorySize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#package_type LambdaFunction#package_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#package_type LambdaFunction#package_type}
+   */
   readonly packageType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#publish LambdaFunction#publish}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#publish LambdaFunction#publish}
+   */
   readonly publish?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#replace_security_groups_on_destroy LambdaFunction#replace_security_groups_on_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#replace_security_groups_on_destroy LambdaFunction#replace_security_groups_on_destroy}
+   */
   readonly replaceSecurityGroupsOnDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#replacement_security_group_ids LambdaFunction#replacement_security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#replacement_security_group_ids LambdaFunction#replacement_security_group_ids}
+   */
   readonly replacementSecurityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#reserved_concurrent_executions LambdaFunction#reserved_concurrent_executions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#reserved_concurrent_executions LambdaFunction#reserved_concurrent_executions}
+   */
   readonly reservedConcurrentExecutions?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#role LambdaFunction#role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#role LambdaFunction#role}
+   */
   readonly role: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#runtime LambdaFunction#runtime}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#runtime LambdaFunction#runtime}
+   */
   readonly runtime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#s3_bucket LambdaFunction#s3_bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#s3_bucket LambdaFunction#s3_bucket}
+   */
   readonly s3Bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#s3_key LambdaFunction#s3_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#s3_key LambdaFunction#s3_key}
+   */
   readonly s3Key?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#s3_object_version LambdaFunction#s3_object_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#s3_object_version LambdaFunction#s3_object_version}
+   */
   readonly s3ObjectVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#skip_destroy LambdaFunction#skip_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#skip_destroy LambdaFunction#skip_destroy}
+   */
   readonly skipDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#source_code_hash LambdaFunction#source_code_hash}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#source_code_hash LambdaFunction#source_code_hash}
+   */
   readonly sourceCodeHash?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#tags LambdaFunction#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#tags LambdaFunction#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#tags_all LambdaFunction#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#tags_all LambdaFunction#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#timeout LambdaFunction#timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#timeout LambdaFunction#timeout}
+   */
   readonly timeout?: number;
   /**
-  * dead_letter_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#dead_letter_config LambdaFunction#dead_letter_config}
-  */
+   * dead_letter_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#dead_letter_config LambdaFunction#dead_letter_config}
+   */
   readonly deadLetterConfig?: LambdaFunctionDeadLetterConfig;
   /**
-  * environment block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#environment LambdaFunction#environment}
-  */
+   * environment block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#environment LambdaFunction#environment}
+   */
   readonly environment?: LambdaFunctionEnvironment;
   /**
-  * ephemeral_storage block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#ephemeral_storage LambdaFunction#ephemeral_storage}
-  */
+   * ephemeral_storage block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#ephemeral_storage LambdaFunction#ephemeral_storage}
+   */
   readonly ephemeralStorage?: LambdaFunctionEphemeralStorage;
   /**
-  * file_system_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#file_system_config LambdaFunction#file_system_config}
-  */
+   * file_system_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#file_system_config LambdaFunction#file_system_config}
+   */
   readonly fileSystemConfig?: LambdaFunctionFileSystemConfig;
   /**
-  * image_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#image_config LambdaFunction#image_config}
-  */
+   * image_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#image_config LambdaFunction#image_config}
+   */
   readonly imageConfig?: LambdaFunctionImageConfig;
   /**
-  * snap_start block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#snap_start LambdaFunction#snap_start}
-  */
+   * snap_start block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#snap_start LambdaFunction#snap_start}
+   */
   readonly snapStart?: LambdaFunctionSnapStart;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#timeouts LambdaFunction#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#timeouts LambdaFunction#timeouts}
+   */
   readonly timeouts?: LambdaFunctionTimeouts;
   /**
-  * tracing_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#tracing_config LambdaFunction#tracing_config}
-  */
+   * tracing_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#tracing_config LambdaFunction#tracing_config}
+   */
   readonly tracingConfig?: LambdaFunctionTracingConfig;
   /**
-  * vpc_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#vpc_config LambdaFunction#vpc_config}
-  */
+   * vpc_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#vpc_config LambdaFunction#vpc_config}
+   */
   readonly vpcConfig?: LambdaFunctionVpcConfig;
 }
 export interface LambdaFunctionDeadLetterConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#target_arn LambdaFunction#target_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#target_arn LambdaFunction#target_arn}
+   */
   readonly targetArn: string;
 }
 
-export function lambdaFunctionDeadLetterConfigToTerraform(struct?: LambdaFunctionDeadLetterConfigOutputReference | LambdaFunctionDeadLetterConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionDeadLetterConfigToTerraform(
+  struct?:
+    | LambdaFunctionDeadLetterConfigOutputReference
+    | LambdaFunctionDeadLetterConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     target_arn: cdktf.stringToTerraform(struct!.targetArn),
-  }
+  };
 }
 
 export class LambdaFunctionDeadLetterConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -211,8 +222,7 @@ export class LambdaFunctionDeadLetterConfigOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._targetArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._targetArn = value.targetArn;
     }
@@ -233,29 +243,38 @@ export class LambdaFunctionDeadLetterConfigOutputReference extends cdktf.Complex
 }
 export interface LambdaFunctionEnvironment {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#variables LambdaFunction#variables}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#variables LambdaFunction#variables}
+   */
   readonly variables?: { [key: string]: string };
 }
 
-export function lambdaFunctionEnvironmentToTerraform(struct?: LambdaFunctionEnvironmentOutputReference | LambdaFunctionEnvironment): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionEnvironmentToTerraform(
+  struct?: LambdaFunctionEnvironmentOutputReference | LambdaFunctionEnvironment,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     variables: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.variables),
-  }
+  };
 }
 
 export class LambdaFunctionEnvironmentOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -273,8 +292,7 @@ export class LambdaFunctionEnvironmentOutputReference extends cdktf.ComplexObjec
     if (value === undefined) {
       this.isEmptyObject = false;
       this._variables = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._variables = value.variables;
     }
@@ -298,29 +316,40 @@ export class LambdaFunctionEnvironmentOutputReference extends cdktf.ComplexObjec
 }
 export interface LambdaFunctionEphemeralStorage {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#size LambdaFunction#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#size LambdaFunction#size}
+   */
   readonly size?: number;
 }
 
-export function lambdaFunctionEphemeralStorageToTerraform(struct?: LambdaFunctionEphemeralStorageOutputReference | LambdaFunctionEphemeralStorage): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionEphemeralStorageToTerraform(
+  struct?:
+    | LambdaFunctionEphemeralStorageOutputReference
+    | LambdaFunctionEphemeralStorage,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     size: cdktf.numberToTerraform(struct!.size),
-  }
+  };
 }
 
 export class LambdaFunctionEphemeralStorageOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -338,8 +367,7 @@ export class LambdaFunctionEphemeralStorageOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._size = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._size = value.size;
     }
@@ -363,34 +391,45 @@ export class LambdaFunctionEphemeralStorageOutputReference extends cdktf.Complex
 }
 export interface LambdaFunctionFileSystemConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#arn LambdaFunction#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#arn LambdaFunction#arn}
+   */
   readonly arn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#local_mount_path LambdaFunction#local_mount_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#local_mount_path LambdaFunction#local_mount_path}
+   */
   readonly localMountPath: string;
 }
 
-export function lambdaFunctionFileSystemConfigToTerraform(struct?: LambdaFunctionFileSystemConfigOutputReference | LambdaFunctionFileSystemConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionFileSystemConfigToTerraform(
+  struct?:
+    | LambdaFunctionFileSystemConfigOutputReference
+    | LambdaFunctionFileSystemConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
     local_mount_path: cdktf.stringToTerraform(struct!.localMountPath),
-  }
+  };
 }
 
 export class LambdaFunctionFileSystemConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -413,8 +452,7 @@ export class LambdaFunctionFileSystemConfigOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._arn = undefined;
       this._localMountPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
       this._localMountPath = value.localMountPath;
@@ -449,39 +487,51 @@ export class LambdaFunctionFileSystemConfigOutputReference extends cdktf.Complex
 }
 export interface LambdaFunctionImageConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#command LambdaFunction#command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#command LambdaFunction#command}
+   */
   readonly command?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#entry_point LambdaFunction#entry_point}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#entry_point LambdaFunction#entry_point}
+   */
   readonly entryPoint?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#working_directory LambdaFunction#working_directory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#working_directory LambdaFunction#working_directory}
+   */
   readonly workingDirectory?: string;
 }
 
-export function lambdaFunctionImageConfigToTerraform(struct?: LambdaFunctionImageConfigOutputReference | LambdaFunctionImageConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionImageConfigToTerraform(
+  struct?: LambdaFunctionImageConfigOutputReference | LambdaFunctionImageConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-    entry_point: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.entryPoint),
+    entry_point: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.entryPoint),
     working_directory: cdktf.stringToTerraform(struct!.workingDirectory),
-  }
+  };
 }
 
 export class LambdaFunctionImageConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -509,8 +559,7 @@ export class LambdaFunctionImageConfigOutputReference extends cdktf.ComplexObjec
       this._command = undefined;
       this._entryPoint = undefined;
       this._workingDirectory = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
       this._entryPoint = value.entryPoint;
@@ -568,29 +617,38 @@ export class LambdaFunctionImageConfigOutputReference extends cdktf.ComplexObjec
 }
 export interface LambdaFunctionSnapStart {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#apply_on LambdaFunction#apply_on}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#apply_on LambdaFunction#apply_on}
+   */
   readonly applyOn: string;
 }
 
-export function lambdaFunctionSnapStartToTerraform(struct?: LambdaFunctionSnapStartOutputReference | LambdaFunctionSnapStart): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionSnapStartToTerraform(
+  struct?: LambdaFunctionSnapStartOutputReference | LambdaFunctionSnapStart,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     apply_on: cdktf.stringToTerraform(struct!.applyOn),
-  }
+  };
 }
 
 export class LambdaFunctionSnapStartOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -608,8 +666,7 @@ export class LambdaFunctionSnapStartOutputReference extends cdktf.ComplexObject 
     if (value === undefined) {
       this.isEmptyObject = false;
       this._applyOn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._applyOn = value.applyOn;
     }
@@ -635,29 +692,38 @@ export class LambdaFunctionSnapStartOutputReference extends cdktf.ComplexObject 
 }
 export interface LambdaFunctionTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#create LambdaFunction#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#create LambdaFunction#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#delete LambdaFunction#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#delete LambdaFunction#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#update LambdaFunction#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#update LambdaFunction#update}
+   */
   readonly update?: string;
 }
 
-export function lambdaFunctionTimeoutsToTerraform(struct?: LambdaFunctionTimeoutsOutputReference | LambdaFunctionTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionTimeoutsToTerraform(
+  struct?:
+    | LambdaFunctionTimeoutsOutputReference
+    | LambdaFunctionTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class LambdaFunctionTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -665,14 +731,20 @@ export class LambdaFunctionTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LambdaFunctionTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LambdaFunctionTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -693,19 +765,19 @@ export class LambdaFunctionTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LambdaFunctionTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: LambdaFunctionTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -764,29 +836,40 @@ export class LambdaFunctionTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 export interface LambdaFunctionTracingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#mode LambdaFunction#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#mode LambdaFunction#mode}
+   */
   readonly mode: string;
 }
 
-export function lambdaFunctionTracingConfigToTerraform(struct?: LambdaFunctionTracingConfigOutputReference | LambdaFunctionTracingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionTracingConfigToTerraform(
+  struct?:
+    | LambdaFunctionTracingConfigOutputReference
+    | LambdaFunctionTracingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
-  }
+  };
 }
 
 export class LambdaFunctionTracingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -804,8 +887,7 @@ export class LambdaFunctionTracingConfigOutputReference extends cdktf.ComplexObj
     if (value === undefined) {
       this.isEmptyObject = false;
       this._mode = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mode = value.mode;
     }
@@ -826,34 +908,49 @@ export class LambdaFunctionTracingConfigOutputReference extends cdktf.ComplexObj
 }
 export interface LambdaFunctionVpcConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#security_group_ids LambdaFunction#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#security_group_ids LambdaFunction#security_group_ids}
+   */
   readonly securityGroupIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#subnet_ids LambdaFunction#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_function#subnet_ids LambdaFunction#subnet_ids}
+   */
   readonly subnetIds: string[];
 }
 
-export function lambdaFunctionVpcConfigToTerraform(struct?: LambdaFunctionVpcConfigOutputReference | LambdaFunctionVpcConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lambdaFunctionVpcConfigToTerraform(
+  struct?: LambdaFunctionVpcConfigOutputReference | LambdaFunctionVpcConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
-  }
+    security_group_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.subnetIds),
+  };
 }
 
 export class LambdaFunctionVpcConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -876,8 +973,7 @@ export class LambdaFunctionVpcConfigOutputReference extends cdktf.ComplexObject 
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnetIds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnetIds = value.subnetIds;
@@ -917,33 +1013,36 @@ export class LambdaFunctionVpcConfigOutputReference extends cdktf.ComplexObject 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_function aws_lambda_function}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_function aws_lambda_function}
+ */
 export class LambdaFunction extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lambda_function";
+  public static readonly tfResourceType = 'aws_lambda_function';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_function aws_lambda_function} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LambdaFunctionConfig
-  */
-  public constructor(scope: Construct, id: string, config: LambdaFunctionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_function aws_lambda_function} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LambdaFunctionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LambdaFunctionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_function',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -951,7 +1050,7 @@ export class LambdaFunction extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._architectures = config.architectures;
     this._codeSigningConfigArn = config.codeSigningConfigArn;
@@ -966,7 +1065,8 @@ export class LambdaFunction extends cdktf.TerraformResource {
     this._memorySize = config.memorySize;
     this._packageType = config.packageType;
     this._publish = config.publish;
-    this._replaceSecurityGroupsOnDestroy = config.replaceSecurityGroupsOnDestroy;
+    this._replaceSecurityGroupsOnDestroy =
+      config.replaceSecurityGroupsOnDestroy;
     this._replacementSecurityGroupIds = config.replacementSecurityGroupIds;
     this._reservedConcurrentExecutions = config.reservedConcurrentExecutions;
     this._role = config.role;
@@ -1229,7 +1329,9 @@ export class LambdaFunction extends cdktf.TerraformResource {
   public get replaceSecurityGroupsOnDestroy() {
     return this.getBooleanAttribute('replace_security_groups_on_destroy');
   }
-  public set replaceSecurityGroupsOnDestroy(value: boolean | cdktf.IResolvable) {
+  public set replaceSecurityGroupsOnDestroy(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._replaceSecurityGroupsOnDestroy = value;
   }
   public resetReplaceSecurityGroupsOnDestroy() {
@@ -1243,7 +1345,9 @@ export class LambdaFunction extends cdktf.TerraformResource {
   // replacement_security_group_ids - computed: false, optional: true, required: false
   private _replacementSecurityGroupIds?: string[];
   public get replacementSecurityGroupIds() {
-    return cdktf.Fn.tolist(this.getListAttribute('replacement_security_group_ids'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('replacement_security_group_ids'),
+    );
   }
   public set replacementSecurityGroupIds(value: string[]) {
     this._replacementSecurityGroupIds = value;
@@ -1450,7 +1554,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // dead_letter_config - computed: false, optional: true, required: false
-  private _deadLetterConfig = new LambdaFunctionDeadLetterConfigOutputReference(this, "dead_letter_config");
+  private _deadLetterConfig = new LambdaFunctionDeadLetterConfigOutputReference(
+    this,
+    'dead_letter_config',
+  );
   public get deadLetterConfig() {
     return this._deadLetterConfig;
   }
@@ -1466,7 +1573,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment = new LambdaFunctionEnvironmentOutputReference(this, "environment");
+  private _environment = new LambdaFunctionEnvironmentOutputReference(
+    this,
+    'environment',
+  );
   public get environment() {
     return this._environment;
   }
@@ -1482,7 +1592,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // ephemeral_storage - computed: false, optional: true, required: false
-  private _ephemeralStorage = new LambdaFunctionEphemeralStorageOutputReference(this, "ephemeral_storage");
+  private _ephemeralStorage = new LambdaFunctionEphemeralStorageOutputReference(
+    this,
+    'ephemeral_storage',
+  );
   public get ephemeralStorage() {
     return this._ephemeralStorage;
   }
@@ -1498,7 +1611,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // file_system_config - computed: false, optional: true, required: false
-  private _fileSystemConfig = new LambdaFunctionFileSystemConfigOutputReference(this, "file_system_config");
+  private _fileSystemConfig = new LambdaFunctionFileSystemConfigOutputReference(
+    this,
+    'file_system_config',
+  );
   public get fileSystemConfig() {
     return this._fileSystemConfig;
   }
@@ -1514,7 +1630,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // image_config - computed: false, optional: true, required: false
-  private _imageConfig = new LambdaFunctionImageConfigOutputReference(this, "image_config");
+  private _imageConfig = new LambdaFunctionImageConfigOutputReference(
+    this,
+    'image_config',
+  );
   public get imageConfig() {
     return this._imageConfig;
   }
@@ -1530,7 +1649,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // snap_start - computed: false, optional: true, required: false
-  private _snapStart = new LambdaFunctionSnapStartOutputReference(this, "snap_start");
+  private _snapStart = new LambdaFunctionSnapStartOutputReference(
+    this,
+    'snap_start',
+  );
   public get snapStart() {
     return this._snapStart;
   }
@@ -1546,7 +1668,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new LambdaFunctionTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new LambdaFunctionTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -1562,7 +1687,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // tracing_config - computed: false, optional: true, required: false
-  private _tracingConfig = new LambdaFunctionTracingConfigOutputReference(this, "tracing_config");
+  private _tracingConfig = new LambdaFunctionTracingConfigOutputReference(
+    this,
+    'tracing_config',
+  );
   public get tracingConfig() {
     return this._tracingConfig;
   }
@@ -1578,7 +1706,10 @@ export class LambdaFunction extends cdktf.TerraformResource {
   }
 
   // vpc_config - computed: false, optional: true, required: false
-  private _vpcConfig = new LambdaFunctionVpcConfigOutputReference(this, "vpc_config");
+  private _vpcConfig = new LambdaFunctionVpcConfigOutputReference(
+    this,
+    'vpc_config',
+  );
   public get vpcConfig() {
     return this._vpcConfig;
   }
@@ -1599,8 +1730,13 @@ export class LambdaFunction extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      architectures: cdktf.listMapper(cdktf.stringToTerraform, false)(this._architectures),
-      code_signing_config_arn: cdktf.stringToTerraform(this._codeSigningConfigArn),
+      architectures: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._architectures),
+      code_signing_config_arn: cdktf.stringToTerraform(
+        this._codeSigningConfigArn,
+      ),
       description: cdktf.stringToTerraform(this._description),
       filename: cdktf.stringToTerraform(this._filename),
       function_name: cdktf.stringToTerraform(this._functionName),
@@ -1612,9 +1748,16 @@ export class LambdaFunction extends cdktf.TerraformResource {
       memory_size: cdktf.numberToTerraform(this._memorySize),
       package_type: cdktf.stringToTerraform(this._packageType),
       publish: cdktf.booleanToTerraform(this._publish),
-      replace_security_groups_on_destroy: cdktf.booleanToTerraform(this._replaceSecurityGroupsOnDestroy),
-      replacement_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._replacementSecurityGroupIds),
-      reserved_concurrent_executions: cdktf.numberToTerraform(this._reservedConcurrentExecutions),
+      replace_security_groups_on_destroy: cdktf.booleanToTerraform(
+        this._replaceSecurityGroupsOnDestroy,
+      ),
+      replacement_security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._replacementSecurityGroupIds),
+      reserved_concurrent_executions: cdktf.numberToTerraform(
+        this._reservedConcurrentExecutions,
+      ),
       role: cdktf.stringToTerraform(this._role),
       runtime: cdktf.stringToTerraform(this._runtime),
       s3_bucket: cdktf.stringToTerraform(this._s3Bucket),
@@ -1625,15 +1768,31 @@ export class LambdaFunction extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       timeout: cdktf.numberToTerraform(this._timeout),
-      dead_letter_config: lambdaFunctionDeadLetterConfigToTerraform(this._deadLetterConfig.internalValue),
-      environment: lambdaFunctionEnvironmentToTerraform(this._environment.internalValue),
-      ephemeral_storage: lambdaFunctionEphemeralStorageToTerraform(this._ephemeralStorage.internalValue),
-      file_system_config: lambdaFunctionFileSystemConfigToTerraform(this._fileSystemConfig.internalValue),
-      image_config: lambdaFunctionImageConfigToTerraform(this._imageConfig.internalValue),
-      snap_start: lambdaFunctionSnapStartToTerraform(this._snapStart.internalValue),
+      dead_letter_config: lambdaFunctionDeadLetterConfigToTerraform(
+        this._deadLetterConfig.internalValue,
+      ),
+      environment: lambdaFunctionEnvironmentToTerraform(
+        this._environment.internalValue,
+      ),
+      ephemeral_storage: lambdaFunctionEphemeralStorageToTerraform(
+        this._ephemeralStorage.internalValue,
+      ),
+      file_system_config: lambdaFunctionFileSystemConfigToTerraform(
+        this._fileSystemConfig.internalValue,
+      ),
+      image_config: lambdaFunctionImageConfigToTerraform(
+        this._imageConfig.internalValue,
+      ),
+      snap_start: lambdaFunctionSnapStartToTerraform(
+        this._snapStart.internalValue,
+      ),
       timeouts: lambdaFunctionTimeoutsToTerraform(this._timeouts.internalValue),
-      tracing_config: lambdaFunctionTracingConfigToTerraform(this._tracingConfig.internalValue),
-      vpc_config: lambdaFunctionVpcConfigToTerraform(this._vpcConfig.internalValue),
+      tracing_config: lambdaFunctionTracingConfigToTerraform(
+        this._tracingConfig.internalValue,
+      ),
+      vpc_config: lambdaFunctionVpcConfigToTerraform(
+        this._vpcConfig.internalValue,
+      ),
     };
   }
 }

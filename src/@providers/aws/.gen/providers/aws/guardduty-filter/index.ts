@@ -2,88 +2,94 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface GuarddutyFilterConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#action GuarddutyFilter#action}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#action GuarddutyFilter#action}
+   */
   readonly action: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#description GuarddutyFilter#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#description GuarddutyFilter#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#detector_id GuarddutyFilter#detector_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#detector_id GuarddutyFilter#detector_id}
+   */
   readonly detectorId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#id GuarddutyFilter#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#id GuarddutyFilter#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#name GuarddutyFilter#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#name GuarddutyFilter#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#rank GuarddutyFilter#rank}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#rank GuarddutyFilter#rank}
+   */
   readonly rank: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#tags GuarddutyFilter#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#tags GuarddutyFilter#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#tags_all GuarddutyFilter#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#tags_all GuarddutyFilter#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * finding_criteria block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#finding_criteria GuarddutyFilter#finding_criteria}
-  */
+   * finding_criteria block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#finding_criteria GuarddutyFilter#finding_criteria}
+   */
   readonly findingCriteria: GuarddutyFilterFindingCriteria;
 }
 export interface GuarddutyFilterFindingCriteriaCriterion {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#equals GuarddutyFilter#equals}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#equals GuarddutyFilter#equals}
+   */
   readonly equalTo?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#field GuarddutyFilter#field}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#field GuarddutyFilter#field}
+   */
   readonly field: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#greater_than GuarddutyFilter#greater_than}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#greater_than GuarddutyFilter#greater_than}
+   */
   readonly greaterThan?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#greater_than_or_equal GuarddutyFilter#greater_than_or_equal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#greater_than_or_equal GuarddutyFilter#greater_than_or_equal}
+   */
   readonly greaterThanOrEqual?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#less_than GuarddutyFilter#less_than}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#less_than GuarddutyFilter#less_than}
+   */
   readonly lessThan?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#less_than_or_equal GuarddutyFilter#less_than_or_equal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#less_than_or_equal GuarddutyFilter#less_than_or_equal}
+   */
   readonly lessThanOrEqual?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#not_equals GuarddutyFilter#not_equals}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#not_equals GuarddutyFilter#not_equals}
+   */
   readonly notEquals?: string[];
 }
 
-export function guarddutyFilterFindingCriteriaCriterionToTerraform(struct?: GuarddutyFilterFindingCriteriaCriterion | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyFilterFindingCriteriaCriterionToTerraform(
+  struct?: GuarddutyFilterFindingCriteriaCriterion | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     equals: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.equalTo),
@@ -92,8 +98,11 @@ export function guarddutyFilterFindingCriteriaCriterionToTerraform(struct?: Guar
     greater_than_or_equal: cdktf.stringToTerraform(struct!.greaterThanOrEqual),
     less_than: cdktf.stringToTerraform(struct!.lessThan),
     less_than_or_equal: cdktf.stringToTerraform(struct!.lessThanOrEqual),
-    not_equals: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.notEquals),
-  }
+    not_equals: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.notEquals),
+  };
 }
 
 export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdktf.ComplexObject {
@@ -101,16 +110,29 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GuarddutyFilterFindingCriteriaCriterion | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GuarddutyFilterFindingCriteriaCriterion
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -147,7 +169,12 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyFilterFindingCriteriaCriterion | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GuarddutyFilterFindingCriteriaCriterion
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -158,12 +185,10 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
       this._lessThan = undefined;
       this._lessThanOrEqual = undefined;
       this._notEquals = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._equals = value.equalTo;
@@ -287,51 +312,80 @@ export class GuarddutyFilterFindingCriteriaCriterionOutputReference extends cdkt
 }
 
 export class GuarddutyFilterFindingCriteriaCriterionList extends cdktf.ComplexList {
-  public internalValue? : GuarddutyFilterFindingCriteriaCriterion[] | cdktf.IResolvable
+  public internalValue?:
+    | GuarddutyFilterFindingCriteriaCriterion[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GuarddutyFilterFindingCriteriaCriterionOutputReference {
-    return new GuarddutyFilterFindingCriteriaCriterionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GuarddutyFilterFindingCriteriaCriterionOutputReference {
+    return new GuarddutyFilterFindingCriteriaCriterionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GuarddutyFilterFindingCriteria {
   /**
-  * criterion block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#criterion GuarddutyFilter#criterion}
-  */
-  readonly criterion: GuarddutyFilterFindingCriteriaCriterion[] | cdktf.IResolvable;
+   * criterion block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter#criterion GuarddutyFilter#criterion}
+   */
+  readonly criterion:
+    | GuarddutyFilterFindingCriteriaCriterion[]
+    | cdktf.IResolvable;
 }
 
-export function guarddutyFilterFindingCriteriaToTerraform(struct?: GuarddutyFilterFindingCriteriaOutputReference | GuarddutyFilterFindingCriteria): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyFilterFindingCriteriaToTerraform(
+  struct?:
+    | GuarddutyFilterFindingCriteriaOutputReference
+    | GuarddutyFilterFindingCriteria,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    criterion: cdktf.listMapper(guarddutyFilterFindingCriteriaCriterionToTerraform, true)(struct!.criterion),
-  }
+    criterion: cdktf.listMapper(
+      guarddutyFilterFindingCriteriaCriterionToTerraform,
+      true,
+    )(struct!.criterion),
+  };
 }
 
 export class GuarddutyFilterFindingCriteriaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -349,19 +403,24 @@ export class GuarddutyFilterFindingCriteriaOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._criterion.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._criterion.internalValue = value.criterion;
     }
   }
 
   // criterion - computed: false, optional: false, required: true
-  private _criterion = new GuarddutyFilterFindingCriteriaCriterionList(this, "criterion", true);
+  private _criterion = new GuarddutyFilterFindingCriteriaCriterionList(
+    this,
+    'criterion',
+    true,
+  );
   public get criterion() {
     return this._criterion;
   }
-  public putCriterion(value: GuarddutyFilterFindingCriteriaCriterion[] | cdktf.IResolvable) {
+  public putCriterion(
+    value: GuarddutyFilterFindingCriteriaCriterion[] | cdktf.IResolvable,
+  ) {
     this._criterion.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -371,33 +430,36 @@ export class GuarddutyFilterFindingCriteriaOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter aws_guardduty_filter}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter aws_guardduty_filter}
+ */
 export class GuarddutyFilter extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_guardduty_filter";
+  public static readonly tfResourceType = 'aws_guardduty_filter';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter aws_guardduty_filter} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GuarddutyFilterConfig
-  */
-  public constructor(scope: Construct, id: string, config: GuarddutyFilterConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_filter aws_guardduty_filter} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GuarddutyFilterConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GuarddutyFilterConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_guardduty_filter',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -405,7 +467,7 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._action = config.action;
     this._description = config.description;
@@ -544,7 +606,10 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
   }
 
   // finding_criteria - computed: false, optional: false, required: true
-  private _findingCriteria = new GuarddutyFilterFindingCriteriaOutputReference(this, "finding_criteria");
+  private _findingCriteria = new GuarddutyFilterFindingCriteriaOutputReference(
+    this,
+    'finding_criteria',
+  );
   public get findingCriteria() {
     return this._findingCriteria;
   }
@@ -570,7 +635,9 @@ export class GuarddutyFilter extends cdktf.TerraformResource {
       rank: cdktf.numberToTerraform(this._rank),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      finding_criteria: guarddutyFilterFindingCriteriaToTerraform(this._findingCriteria.internalValue),
+      finding_criteria: guarddutyFilterFindingCriteriaToTerraform(
+        this._findingCriteria.internalValue,
+      ),
     };
   }
 }

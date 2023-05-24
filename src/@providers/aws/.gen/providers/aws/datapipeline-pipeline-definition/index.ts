@@ -2,61 +2,76 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DatapipelinePipelineDefinitionConfig extends cdktf.TerraformMetaArguments {
+export interface DatapipelinePipelineDefinitionConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#pipeline_id DatapipelinePipelineDefinition#pipeline_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#pipeline_id DatapipelinePipelineDefinition#pipeline_id}
+   */
   readonly pipelineId: string;
   /**
-  * parameter_object block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#parameter_object DatapipelinePipelineDefinition#parameter_object}
-  */
-  readonly parameterObject?: DatapipelinePipelineDefinitionParameterObject[] | cdktf.IResolvable;
+   * parameter_object block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#parameter_object DatapipelinePipelineDefinition#parameter_object}
+   */
+  readonly parameterObject?:
+    | DatapipelinePipelineDefinitionParameterObject[]
+    | cdktf.IResolvable;
   /**
-  * parameter_value block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#parameter_value DatapipelinePipelineDefinition#parameter_value}
-  */
-  readonly parameterValue?: DatapipelinePipelineDefinitionParameterValue[] | cdktf.IResolvable;
+   * parameter_value block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#parameter_value DatapipelinePipelineDefinition#parameter_value}
+   */
+  readonly parameterValue?:
+    | DatapipelinePipelineDefinitionParameterValue[]
+    | cdktf.IResolvable;
   /**
-  * pipeline_object block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#pipeline_object DatapipelinePipelineDefinition#pipeline_object}
-  */
-  readonly pipelineObject: DatapipelinePipelineDefinitionPipelineObject[] | cdktf.IResolvable;
+   * pipeline_object block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#pipeline_object DatapipelinePipelineDefinition#pipeline_object}
+   */
+  readonly pipelineObject:
+    | DatapipelinePipelineDefinitionPipelineObject[]
+    | cdktf.IResolvable;
 }
 export interface DatapipelinePipelineDefinitionParameterObjectAttribute {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#key DatapipelinePipelineDefinition#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#key DatapipelinePipelineDefinition#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#string_value DatapipelinePipelineDefinition#string_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#string_value DatapipelinePipelineDefinition#string_value}
+   */
   readonly stringValue: string;
 }
 
-export function datapipelinePipelineDefinitionParameterObjectAttributeToTerraform(struct?: DatapipelinePipelineDefinitionParameterObjectAttribute | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datapipelinePipelineDefinitionParameterObjectAttributeToTerraform(
+  struct?:
+    | DatapipelinePipelineDefinitionParameterObjectAttribute
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     string_value: cdktf.stringToTerraform(struct!.stringValue),
-  }
+  };
 }
 
 export class DatapipelinePipelineDefinitionParameterObjectAttributeOutputReference extends cdktf.ComplexObject {
@@ -64,16 +79,29 @@ export class DatapipelinePipelineDefinitionParameterObjectAttributeOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DatapipelinePipelineDefinitionParameterObjectAttribute | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DatapipelinePipelineDefinitionParameterObjectAttribute
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -90,18 +118,21 @@ export class DatapipelinePipelineDefinitionParameterObjectAttributeOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatapipelinePipelineDefinitionParameterObjectAttribute | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DatapipelinePipelineDefinitionParameterObjectAttribute
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._stringValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -137,49 +168,73 @@ export class DatapipelinePipelineDefinitionParameterObjectAttributeOutputReferen
 }
 
 export class DatapipelinePipelineDefinitionParameterObjectAttributeList extends cdktf.ComplexList {
-  public internalValue? : DatapipelinePipelineDefinitionParameterObjectAttribute[] | cdktf.IResolvable
+  public internalValue?:
+    | DatapipelinePipelineDefinitionParameterObjectAttribute[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DatapipelinePipelineDefinitionParameterObjectAttributeOutputReference {
-    return new DatapipelinePipelineDefinitionParameterObjectAttributeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DatapipelinePipelineDefinitionParameterObjectAttributeOutputReference {
+    return new DatapipelinePipelineDefinitionParameterObjectAttributeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DatapipelinePipelineDefinitionParameterObject {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * attribute block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#attribute DatapipelinePipelineDefinition#attribute}
-  */
-  readonly attribute?: DatapipelinePipelineDefinitionParameterObjectAttribute[] | cdktf.IResolvable;
+   * attribute block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#attribute DatapipelinePipelineDefinition#attribute}
+   */
+  readonly attribute?:
+    | DatapipelinePipelineDefinitionParameterObjectAttribute[]
+    | cdktf.IResolvable;
 }
 
-export function datapipelinePipelineDefinitionParameterObjectToTerraform(struct?: DatapipelinePipelineDefinitionParameterObject | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datapipelinePipelineDefinitionParameterObjectToTerraform(
+  struct?: DatapipelinePipelineDefinitionParameterObject | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
-    attribute: cdktf.listMapper(datapipelinePipelineDefinitionParameterObjectAttributeToTerraform, true)(struct!.attribute),
-  }
+    attribute: cdktf.listMapper(
+      datapipelinePipelineDefinitionParameterObjectAttributeToTerraform,
+      true,
+    )(struct!.attribute),
+  };
 }
 
 export class DatapipelinePipelineDefinitionParameterObjectOutputReference extends cdktf.ComplexObject {
@@ -187,16 +242,29 @@ export class DatapipelinePipelineDefinitionParameterObjectOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DatapipelinePipelineDefinitionParameterObject | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DatapipelinePipelineDefinitionParameterObject
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -213,18 +281,21 @@ export class DatapipelinePipelineDefinitionParameterObjectOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatapipelinePipelineDefinitionParameterObject | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DatapipelinePipelineDefinitionParameterObject
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._id = undefined;
       this._attribute.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._id = value.id;
@@ -246,11 +317,20 @@ export class DatapipelinePipelineDefinitionParameterObjectOutputReference extend
   }
 
   // attribute - computed: false, optional: true, required: false
-  private _attribute = new DatapipelinePipelineDefinitionParameterObjectAttributeList(this, "attribute", true);
+  private _attribute =
+    new DatapipelinePipelineDefinitionParameterObjectAttributeList(
+      this,
+      'attribute',
+      true,
+    );
   public get attribute() {
     return this._attribute;
   }
-  public putAttribute(value: DatapipelinePipelineDefinitionParameterObjectAttribute[] | cdktf.IResolvable) {
+  public putAttribute(
+    value:
+      | DatapipelinePipelineDefinitionParameterObjectAttribute[]
+      | cdktf.IResolvable,
+  ) {
     this._attribute.internalValue = value;
   }
   public resetAttribute() {
@@ -263,47 +343,66 @@ export class DatapipelinePipelineDefinitionParameterObjectOutputReference extend
 }
 
 export class DatapipelinePipelineDefinitionParameterObjectList extends cdktf.ComplexList {
-  public internalValue? : DatapipelinePipelineDefinitionParameterObject[] | cdktf.IResolvable
+  public internalValue?:
+    | DatapipelinePipelineDefinitionParameterObject[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DatapipelinePipelineDefinitionParameterObjectOutputReference {
-    return new DatapipelinePipelineDefinitionParameterObjectOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DatapipelinePipelineDefinitionParameterObjectOutputReference {
+    return new DatapipelinePipelineDefinitionParameterObjectOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DatapipelinePipelineDefinitionParameterValue {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#string_value DatapipelinePipelineDefinition#string_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#string_value DatapipelinePipelineDefinition#string_value}
+   */
   readonly stringValue: string;
 }
 
-export function datapipelinePipelineDefinitionParameterValueToTerraform(struct?: DatapipelinePipelineDefinitionParameterValue | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datapipelinePipelineDefinitionParameterValueToTerraform(
+  struct?: DatapipelinePipelineDefinitionParameterValue | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     string_value: cdktf.stringToTerraform(struct!.stringValue),
-  }
+  };
 }
 
 export class DatapipelinePipelineDefinitionParameterValueOutputReference extends cdktf.ComplexObject {
@@ -311,16 +410,29 @@ export class DatapipelinePipelineDefinitionParameterValueOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DatapipelinePipelineDefinitionParameterValue | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DatapipelinePipelineDefinitionParameterValue
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -337,18 +449,21 @@ export class DatapipelinePipelineDefinitionParameterValueOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatapipelinePipelineDefinitionParameterValue | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DatapipelinePipelineDefinitionParameterValue
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._id = undefined;
       this._stringValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._id = value.id;
@@ -384,49 +499,70 @@ export class DatapipelinePipelineDefinitionParameterValueOutputReference extends
 }
 
 export class DatapipelinePipelineDefinitionParameterValueList extends cdktf.ComplexList {
-  public internalValue? : DatapipelinePipelineDefinitionParameterValue[] | cdktf.IResolvable
+  public internalValue?:
+    | DatapipelinePipelineDefinitionParameterValue[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DatapipelinePipelineDefinitionParameterValueOutputReference {
-    return new DatapipelinePipelineDefinitionParameterValueOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DatapipelinePipelineDefinitionParameterValueOutputReference {
+    return new DatapipelinePipelineDefinitionParameterValueOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DatapipelinePipelineDefinitionPipelineObjectField {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#key DatapipelinePipelineDefinition#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#key DatapipelinePipelineDefinition#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#ref_value DatapipelinePipelineDefinition#ref_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#ref_value DatapipelinePipelineDefinition#ref_value}
+   */
   readonly refValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#string_value DatapipelinePipelineDefinition#string_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#string_value DatapipelinePipelineDefinition#string_value}
+   */
   readonly stringValue?: string;
 }
 
-export function datapipelinePipelineDefinitionPipelineObjectFieldToTerraform(struct?: DatapipelinePipelineDefinitionPipelineObjectField | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datapipelinePipelineDefinitionPipelineObjectFieldToTerraform(
+  struct?:
+    | DatapipelinePipelineDefinitionPipelineObjectField
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     ref_value: cdktf.stringToTerraform(struct!.refValue),
     string_value: cdktf.stringToTerraform(struct!.stringValue),
-  }
+  };
 }
 
 export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference extends cdktf.ComplexObject {
@@ -434,16 +570,29 @@ export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DatapipelinePipelineDefinitionPipelineObjectField | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DatapipelinePipelineDefinitionPipelineObjectField
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -464,19 +613,22 @@ export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatapipelinePipelineDefinitionPipelineObjectField | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DatapipelinePipelineDefinitionPipelineObjectField
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._refValue = undefined;
       this._stringValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -532,54 +684,78 @@ export class DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference ex
 }
 
 export class DatapipelinePipelineDefinitionPipelineObjectFieldList extends cdktf.ComplexList {
-  public internalValue? : DatapipelinePipelineDefinitionPipelineObjectField[] | cdktf.IResolvable
+  public internalValue?:
+    | DatapipelinePipelineDefinitionPipelineObjectField[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference {
-    return new DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference {
+    return new DatapipelinePipelineDefinitionPipelineObjectFieldOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DatapipelinePipelineDefinitionPipelineObject {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#id DatapipelinePipelineDefinition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#name DatapipelinePipelineDefinition#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#name DatapipelinePipelineDefinition#name}
+   */
   readonly name: string;
   /**
-  * field block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#field DatapipelinePipelineDefinition#field}
-  */
-  readonly field?: DatapipelinePipelineDefinitionPipelineObjectField[] | cdktf.IResolvable;
+   * field block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition#field DatapipelinePipelineDefinition#field}
+   */
+  readonly field?:
+    | DatapipelinePipelineDefinitionPipelineObjectField[]
+    | cdktf.IResolvable;
 }
 
-export function datapipelinePipelineDefinitionPipelineObjectToTerraform(struct?: DatapipelinePipelineDefinitionPipelineObject | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datapipelinePipelineDefinitionPipelineObjectToTerraform(
+  struct?: DatapipelinePipelineDefinitionPipelineObject | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     name: cdktf.stringToTerraform(struct!.name),
-    field: cdktf.listMapper(datapipelinePipelineDefinitionPipelineObjectFieldToTerraform, true)(struct!.field),
-  }
+    field: cdktf.listMapper(
+      datapipelinePipelineDefinitionPipelineObjectFieldToTerraform,
+      true,
+    )(struct!.field),
+  };
 }
 
 export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends cdktf.ComplexObject {
@@ -587,16 +763,29 @@ export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DatapipelinePipelineDefinitionPipelineObject | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DatapipelinePipelineDefinitionPipelineObject
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -617,19 +806,22 @@ export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatapipelinePipelineDefinitionPipelineObject | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DatapipelinePipelineDefinitionPipelineObject
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._id = undefined;
       this._name = undefined;
       this._field.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._id = value.id;
@@ -665,11 +857,19 @@ export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends
   }
 
   // field - computed: false, optional: true, required: false
-  private _field = new DatapipelinePipelineDefinitionPipelineObjectFieldList(this, "field", true);
+  private _field = new DatapipelinePipelineDefinitionPipelineObjectFieldList(
+    this,
+    'field',
+    true,
+  );
   public get field() {
     return this._field;
   }
-  public putField(value: DatapipelinePipelineDefinitionPipelineObjectField[] | cdktf.IResolvable) {
+  public putField(
+    value:
+      | DatapipelinePipelineDefinitionPipelineObjectField[]
+      | cdktf.IResolvable,
+  ) {
     this._field.internalValue = value;
   }
   public resetField() {
@@ -682,53 +882,70 @@ export class DatapipelinePipelineDefinitionPipelineObjectOutputReference extends
 }
 
 export class DatapipelinePipelineDefinitionPipelineObjectList extends cdktf.ComplexList {
-  public internalValue? : DatapipelinePipelineDefinitionPipelineObject[] | cdktf.IResolvable
+  public internalValue?:
+    | DatapipelinePipelineDefinitionPipelineObject[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DatapipelinePipelineDefinitionPipelineObjectOutputReference {
-    return new DatapipelinePipelineDefinitionPipelineObjectOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DatapipelinePipelineDefinitionPipelineObjectOutputReference {
+    return new DatapipelinePipelineDefinitionPipelineObjectOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition aws_datapipeline_pipeline_definition}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition aws_datapipeline_pipeline_definition}
+ */
 export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_datapipeline_pipeline_definition";
+  public static readonly tfResourceType =
+    'aws_datapipeline_pipeline_definition';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition aws_datapipeline_pipeline_definition} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DatapipelinePipelineDefinitionConfig
-  */
-  public constructor(scope: Construct, id: string, config: DatapipelinePipelineDefinitionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datapipeline_pipeline_definition aws_datapipeline_pipeline_definition} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DatapipelinePipelineDefinitionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DatapipelinePipelineDefinitionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_datapipeline_pipeline_definition',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -736,7 +953,7 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._pipelineId = config.pipelineId;
@@ -779,11 +996,18 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
   }
 
   // parameter_object - computed: false, optional: true, required: false
-  private _parameterObject = new DatapipelinePipelineDefinitionParameterObjectList(this, "parameter_object", true);
+  private _parameterObject =
+    new DatapipelinePipelineDefinitionParameterObjectList(
+      this,
+      'parameter_object',
+      true,
+    );
   public get parameterObject() {
     return this._parameterObject;
   }
-  public putParameterObject(value: DatapipelinePipelineDefinitionParameterObject[] | cdktf.IResolvable) {
+  public putParameterObject(
+    value: DatapipelinePipelineDefinitionParameterObject[] | cdktf.IResolvable,
+  ) {
     this._parameterObject.internalValue = value;
   }
   public resetParameterObject() {
@@ -795,11 +1019,18 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
   }
 
   // parameter_value - computed: false, optional: true, required: false
-  private _parameterValue = new DatapipelinePipelineDefinitionParameterValueList(this, "parameter_value", true);
+  private _parameterValue =
+    new DatapipelinePipelineDefinitionParameterValueList(
+      this,
+      'parameter_value',
+      true,
+    );
   public get parameterValue() {
     return this._parameterValue;
   }
-  public putParameterValue(value: DatapipelinePipelineDefinitionParameterValue[] | cdktf.IResolvable) {
+  public putParameterValue(
+    value: DatapipelinePipelineDefinitionParameterValue[] | cdktf.IResolvable,
+  ) {
     this._parameterValue.internalValue = value;
   }
   public resetParameterValue() {
@@ -811,11 +1042,18 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
   }
 
   // pipeline_object - computed: false, optional: false, required: true
-  private _pipelineObject = new DatapipelinePipelineDefinitionPipelineObjectList(this, "pipeline_object", true);
+  private _pipelineObject =
+    new DatapipelinePipelineDefinitionPipelineObjectList(
+      this,
+      'pipeline_object',
+      true,
+    );
   public get pipelineObject() {
     return this._pipelineObject;
   }
-  public putPipelineObject(value: DatapipelinePipelineDefinitionPipelineObject[] | cdktf.IResolvable) {
+  public putPipelineObject(
+    value: DatapipelinePipelineDefinitionPipelineObject[] | cdktf.IResolvable,
+  ) {
     this._pipelineObject.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -831,9 +1069,18 @@ export class DatapipelinePipelineDefinition extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       pipeline_id: cdktf.stringToTerraform(this._pipelineId),
-      parameter_object: cdktf.listMapper(datapipelinePipelineDefinitionParameterObjectToTerraform, true)(this._parameterObject.internalValue),
-      parameter_value: cdktf.listMapper(datapipelinePipelineDefinitionParameterValueToTerraform, true)(this._parameterValue.internalValue),
-      pipeline_object: cdktf.listMapper(datapipelinePipelineDefinitionPipelineObjectToTerraform, true)(this._pipelineObject.internalValue),
+      parameter_object: cdktf.listMapper(
+        datapipelinePipelineDefinitionParameterObjectToTerraform,
+        true,
+      )(this._parameterObject.internalValue),
+      parameter_value: cdktf.listMapper(
+        datapipelinePipelineDefinitionParameterValueToTerraform,
+        true,
+      )(this._parameterValue.internalValue),
+      pipeline_object: cdktf.listMapper(
+        datapipelinePipelineDefinitionPipelineObjectToTerraform,
+        true,
+      )(this._pipelineObject.internalValue),
     };
   }
 }

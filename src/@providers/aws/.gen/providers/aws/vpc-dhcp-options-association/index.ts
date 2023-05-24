@@ -2,56 +2,60 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface VpcDhcpOptionsAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface VpcDhcpOptionsAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association#dhcp_options_id VpcDhcpOptionsAssociation#dhcp_options_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association#dhcp_options_id VpcDhcpOptionsAssociation#dhcp_options_id}
+   */
   readonly dhcpOptionsId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association#id VpcDhcpOptionsAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association#id VpcDhcpOptionsAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association#vpc_id VpcDhcpOptionsAssociation#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association#vpc_id VpcDhcpOptionsAssociation#vpc_id}
+   */
   readonly vpcId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association aws_vpc_dhcp_options_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association aws_vpc_dhcp_options_association}
+ */
 export class VpcDhcpOptionsAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_vpc_dhcp_options_association";
+  public static readonly tfResourceType = 'aws_vpc_dhcp_options_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association aws_vpc_dhcp_options_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options VpcDhcpOptionsAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: VpcDhcpOptionsAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association aws_vpc_dhcp_options_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options VpcDhcpOptionsAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: VpcDhcpOptionsAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_dhcp_options_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +63,7 @@ export class VpcDhcpOptionsAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dhcpOptionsId = config.dhcpOptionsId;
     this._id = config.id;

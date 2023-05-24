@@ -2,101 +2,115 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface KinesisAnalyticsApplicationConfig extends cdktf.TerraformMetaArguments {
+export interface KinesisAnalyticsApplicationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#code KinesisAnalyticsApplication#code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#code KinesisAnalyticsApplication#code}
+   */
   readonly code?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#description KinesisAnalyticsApplication#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#description KinesisAnalyticsApplication#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#id KinesisAnalyticsApplication#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#id KinesisAnalyticsApplication#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#start_application KinesisAnalyticsApplication#start_application}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#start_application KinesisAnalyticsApplication#start_application}
+   */
   readonly startApplication?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#tags KinesisAnalyticsApplication#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#tags KinesisAnalyticsApplication#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#tags_all KinesisAnalyticsApplication#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#tags_all KinesisAnalyticsApplication#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * cloudwatch_logging_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#cloudwatch_logging_options KinesisAnalyticsApplication#cloudwatch_logging_options}
-  */
+   * cloudwatch_logging_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#cloudwatch_logging_options KinesisAnalyticsApplication#cloudwatch_logging_options}
+   */
   readonly cloudwatchLoggingOptions?: KinesisAnalyticsApplicationCloudwatchLoggingOptions;
   /**
-  * inputs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#inputs KinesisAnalyticsApplication#inputs}
-  */
+   * inputs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#inputs KinesisAnalyticsApplication#inputs}
+   */
   readonly inputs?: KinesisAnalyticsApplicationInputs;
   /**
-  * outputs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#outputs KinesisAnalyticsApplication#outputs}
-  */
+   * outputs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#outputs KinesisAnalyticsApplication#outputs}
+   */
   readonly outputs?: KinesisAnalyticsApplicationOutputs[] | cdktf.IResolvable;
   /**
-  * reference_data_sources block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#reference_data_sources KinesisAnalyticsApplication#reference_data_sources}
-  */
+   * reference_data_sources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#reference_data_sources KinesisAnalyticsApplication#reference_data_sources}
+   */
   readonly referenceDataSources?: KinesisAnalyticsApplicationReferenceDataSources;
 }
 export interface KinesisAnalyticsApplicationCloudwatchLoggingOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#log_stream_arn KinesisAnalyticsApplication#log_stream_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#log_stream_arn KinesisAnalyticsApplication#log_stream_arn}
+   */
   readonly logStreamArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationCloudwatchLoggingOptionsToTerraform(struct?: KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference | KinesisAnalyticsApplicationCloudwatchLoggingOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationCloudwatchLoggingOptionsToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference
+    | KinesisAnalyticsApplicationCloudwatchLoggingOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     log_stream_arn: cdktf.stringToTerraform(struct!.logStreamArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationCloudwatchLoggingOptions | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationCloudwatchLoggingOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._logStreamArn !== undefined) {
@@ -110,13 +124,14 @@ export class KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationCloudwatchLoggingOptions | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationCloudwatchLoggingOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._logStreamArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._logStreamArn = value.logStreamArn;
       this._roleArn = value.roleArn;
@@ -156,38 +171,51 @@ export class KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference 
 }
 export interface KinesisAnalyticsApplicationInputsKinesisFirehose {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationInputsKinesisFirehoseToTerraform(struct?: KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference | KinesisAnalyticsApplicationInputsKinesisFirehose): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsKinesisFirehoseToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference
+    | KinesisAnalyticsApplicationInputsKinesisFirehose,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     resource_arn: cdktf.stringToTerraform(struct!.resourceArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsKinesisFirehose | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsKinesisFirehose
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._resourceArn !== undefined) {
@@ -201,13 +229,14 @@ export class KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsKinesisFirehose | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputsKinesisFirehose | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._resourceArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._resourceArn = value.resourceArn;
       this._roleArn = value.roleArn;
@@ -242,38 +271,51 @@ export class KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference ext
 }
 export interface KinesisAnalyticsApplicationInputsKinesisStream {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationInputsKinesisStreamToTerraform(struct?: KinesisAnalyticsApplicationInputsKinesisStreamOutputReference | KinesisAnalyticsApplicationInputsKinesisStream): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsKinesisStreamToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsKinesisStreamOutputReference
+    | KinesisAnalyticsApplicationInputsKinesisStream,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     resource_arn: cdktf.stringToTerraform(struct!.resourceArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsKinesisStreamOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsKinesisStream | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsKinesisStream
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._resourceArn !== undefined) {
@@ -287,13 +329,14 @@ export class KinesisAnalyticsApplicationInputsKinesisStreamOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsKinesisStream | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputsKinesisStream | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._resourceArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._resourceArn = value.resourceArn;
       this._roleArn = value.roleArn;
@@ -328,33 +371,46 @@ export class KinesisAnalyticsApplicationInputsKinesisStreamOutputReference exten
 }
 export interface KinesisAnalyticsApplicationInputsParallelism {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#count KinesisAnalyticsApplication#count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#count KinesisAnalyticsApplication#count}
+   */
   readonly count?: number;
 }
 
-export function kinesisAnalyticsApplicationInputsParallelismToTerraform(struct?: KinesisAnalyticsApplicationInputsParallelismOutputReference | KinesisAnalyticsApplicationInputsParallelism): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsParallelismToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsParallelismOutputReference
+    | KinesisAnalyticsApplicationInputsParallelism,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     count: cdktf.numberToTerraform(struct!.count),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsParallelismOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsParallelism | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsParallelism
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._count !== undefined) {
@@ -364,12 +420,13 @@ export class KinesisAnalyticsApplicationInputsParallelismOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsParallelism | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputsParallelism | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._count = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._count = value.count;
     }
@@ -393,38 +450,51 @@ export class KinesisAnalyticsApplicationInputsParallelismOutputReference extends
 }
 export interface KinesisAnalyticsApplicationInputsProcessingConfigurationLambda {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationInputsProcessingConfigurationLambdaToTerraform(struct?: KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutputReference | KinesisAnalyticsApplicationInputsProcessingConfigurationLambda): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsProcessingConfigurationLambdaToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutputReference
+    | KinesisAnalyticsApplicationInputsProcessingConfigurationLambda,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     resource_arn: cdktf.stringToTerraform(struct!.resourceArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsProcessingConfigurationLambda | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsProcessingConfigurationLambda
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._resourceArn !== undefined) {
@@ -438,13 +508,16 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsProcessingConfigurationLambda | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationInputsProcessingConfigurationLambda
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._resourceArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._resourceArn = value.resourceArn;
       this._roleArn = value.roleArn;
@@ -479,35 +552,51 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutpu
 }
 export interface KinesisAnalyticsApplicationInputsProcessingConfiguration {
   /**
-  * lambda block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#lambda KinesisAnalyticsApplication#lambda}
-  */
+   * lambda block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#lambda KinesisAnalyticsApplication#lambda}
+   */
   readonly lambda: KinesisAnalyticsApplicationInputsProcessingConfigurationLambda;
 }
 
-export function kinesisAnalyticsApplicationInputsProcessingConfigurationToTerraform(struct?: KinesisAnalyticsApplicationInputsProcessingConfigurationOutputReference | KinesisAnalyticsApplicationInputsProcessingConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsProcessingConfigurationToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsProcessingConfigurationOutputReference
+    | KinesisAnalyticsApplicationInputsProcessingConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    lambda: kinesisAnalyticsApplicationInputsProcessingConfigurationLambdaToTerraform(struct!.lambda),
-  }
+    lambda:
+      kinesisAnalyticsApplicationInputsProcessingConfigurationLambdaToTerraform(
+        struct!.lambda,
+      ),
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsProcessingConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsProcessingConfiguration | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsProcessingConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lambda?.internalValue !== undefined) {
@@ -517,23 +606,30 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsProcessingConfiguration | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputsProcessingConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lambda.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lambda.internalValue = value.lambda;
     }
   }
 
   // lambda - computed: false, optional: false, required: true
-  private _lambda = new KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutputReference(this, "lambda");
+  private _lambda =
+    new KinesisAnalyticsApplicationInputsProcessingConfigurationLambdaOutputReference(
+      this,
+      'lambda',
+    );
   public get lambda() {
     return this._lambda;
   }
-  public putLambda(value: KinesisAnalyticsApplicationInputsProcessingConfigurationLambda) {
+  public putLambda(
+    value: KinesisAnalyticsApplicationInputsProcessingConfigurationLambda,
+  ) {
     this._lambda.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -543,29 +639,37 @@ export class KinesisAnalyticsApplicationInputsProcessingConfigurationOutputRefer
 }
 export interface KinesisAnalyticsApplicationInputsSchemaRecordColumns {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping KinesisAnalyticsApplication#mapping}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping KinesisAnalyticsApplication#mapping}
+   */
   readonly mapping?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#sql_type KinesisAnalyticsApplication#sql_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#sql_type KinesisAnalyticsApplication#sql_type}
+   */
   readonly sqlType: string;
 }
 
-export function kinesisAnalyticsApplicationInputsSchemaRecordColumnsToTerraform(struct?: KinesisAnalyticsApplicationInputsSchemaRecordColumns | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsSchemaRecordColumnsToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsSchemaRecordColumns
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mapping: cdktf.stringToTerraform(struct!.mapping),
     name: cdktf.stringToTerraform(struct!.name),
     sql_type: cdktf.stringToTerraform(struct!.sqlType),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference extends cdktf.ComplexObject {
@@ -573,16 +677,29 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsSchemaRecordColumns | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsSchemaRecordColumns
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -603,19 +720,22 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsSchemaRecordColumns | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationInputsSchemaRecordColumns
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._mapping = undefined;
       this._name = undefined;
       this._sqlType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mapping = value.mapping;
@@ -668,58 +788,86 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaRecordColumnsList extends cdktf.ComplexList {
-  public internalValue? : KinesisAnalyticsApplicationInputsSchemaRecordColumns[] | cdktf.IResolvable
+  public internalValue?:
+    | KinesisAnalyticsApplicationInputsSchemaRecordColumns[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference {
-    return new KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference {
+    return new KinesisAnalyticsApplicationInputsSchemaRecordColumnsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_column_delimiter KinesisAnalyticsApplication#record_column_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_column_delimiter KinesisAnalyticsApplication#record_column_delimiter}
+   */
   readonly recordColumnDelimiter: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_delimiter KinesisAnalyticsApplication#record_row_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_delimiter KinesisAnalyticsApplication#record_row_delimiter}
+   */
   readonly recordRowDelimiter: string;
 }
 
-export function kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvToTerraform(struct?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputReference | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputReference
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    record_column_delimiter: cdktf.stringToTerraform(struct!.recordColumnDelimiter),
+    record_column_delimiter: cdktf.stringToTerraform(
+      struct!.recordColumnDelimiter,
+    ),
     record_row_delimiter: cdktf.stringToTerraform(struct!.recordRowDelimiter),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordColumnDelimiter !== undefined) {
@@ -733,13 +881,16 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordColumnDelimiter = undefined;
       this._recordRowDelimiter = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordColumnDelimiter = value.recordColumnDelimiter;
       this._recordRowDelimiter = value.recordRowDelimiter;
@@ -774,33 +925,46 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
 }
 export interface KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_path KinesisAnalyticsApplication#record_row_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_path KinesisAnalyticsApplication#record_row_path}
+   */
   readonly recordRowPath: string;
 }
 
-export function kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonToTerraform(struct?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputReference | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputReference
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     record_row_path: cdktf.stringToTerraform(struct!.recordRowPath),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordRowPath !== undefined) {
@@ -810,12 +974,15 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordRowPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordRowPath = value.recordRowPath;
     }
@@ -836,42 +1003,59 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
 }
 export interface KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
   /**
-  * csv block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#csv KinesisAnalyticsApplication#csv}
-  */
+   * csv block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#csv KinesisAnalyticsApplication#csv}
+   */
   readonly csv?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv;
   /**
-  * json block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#json KinesisAnalyticsApplication#json}
-  */
+   * json block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#json KinesisAnalyticsApplication#json}
+   */
   readonly json?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson;
 }
 
-export function kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersToTerraform(struct?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputReference | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputReference
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    csv: kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvToTerraform(struct!.csv),
-    json: kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonToTerraform(struct!.json),
-  }
+    csv: kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvToTerraform(
+      struct!.csv,
+    ),
+    json: kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonToTerraform(
+      struct!.json,
+    ),
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._csv?.internalValue !== undefined) {
@@ -885,13 +1069,16 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._csv.internalValue = undefined;
       this._json.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._csv.internalValue = value.csv;
       this._json.internalValue = value.json;
@@ -899,11 +1086,17 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
   }
 
   // csv - computed: false, optional: true, required: false
-  private _csv = new KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputReference(this, "csv");
+  private _csv =
+    new KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputReference(
+      this,
+      'csv',
+    );
   public get csv() {
     return this._csv;
   }
-  public putCsv(value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) {
+  public putCsv(
+    value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv,
+  ) {
     this._csv.internalValue = value;
   }
   public resetCsv() {
@@ -915,11 +1108,17 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
   }
 
   // json - computed: false, optional: true, required: false
-  private _json = new KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputReference(this, "json");
+  private _json =
+    new KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputReference(
+      this,
+      'json',
+    );
   public get json() {
     return this._json;
   }
-  public putJson(value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) {
+  public putJson(
+    value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson,
+  ) {
     this._json.internalValue = value;
   }
   public resetJson() {
@@ -932,50 +1131,68 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameter
 }
 export interface KinesisAnalyticsApplicationInputsSchemaRecordFormat {
   /**
-  * mapping_parameters block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping_parameters KinesisAnalyticsApplication#mapping_parameters}
-  */
+   * mapping_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping_parameters KinesisAnalyticsApplication#mapping_parameters}
+   */
   readonly mappingParameters?: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters;
 }
 
-export function kinesisAnalyticsApplicationInputsSchemaRecordFormatToTerraform(struct?: KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference | KinesisAnalyticsApplicationInputsSchemaRecordFormat): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsSchemaRecordFormatToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormat,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    mapping_parameters: kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersToTerraform(struct!.mappingParameters),
-  }
+    mapping_parameters:
+      kinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersToTerraform(
+        struct!.mappingParameters,
+      ),
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsSchemaRecordFormat | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsSchemaRecordFormat
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._mappingParameters?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.mappingParameters = this._mappingParameters?.internalValue;
+      internalValueResult.mappingParameters =
+        this._mappingParameters?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsSchemaRecordFormat | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputsSchemaRecordFormat | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._mappingParameters.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mappingParameters.internalValue = value.mappingParameters;
     }
@@ -987,11 +1204,17 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference 
   }
 
   // mapping_parameters - computed: false, optional: true, required: false
-  private _mappingParameters = new KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputReference(this, "mapping_parameters");
+  private _mappingParameters =
+    new KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputReference(
+      this,
+      'mapping_parameters',
+    );
   public get mappingParameters() {
     return this._mappingParameters;
   }
-  public putMappingParameters(value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters) {
+  public putMappingParameters(
+    value: KinesisAnalyticsApplicationInputsSchemaRecordFormatMappingParameters,
+  ) {
     this._mappingParameters.internalValue = value;
   }
   public resetMappingParameters() {
@@ -1004,47 +1227,68 @@ export class KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference 
 }
 export interface KinesisAnalyticsApplicationInputsSchema {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_encoding KinesisAnalyticsApplication#record_encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_encoding KinesisAnalyticsApplication#record_encoding}
+   */
   readonly recordEncoding?: string;
   /**
-  * record_columns block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_columns KinesisAnalyticsApplication#record_columns}
-  */
-  readonly recordColumns: KinesisAnalyticsApplicationInputsSchemaRecordColumns[] | cdktf.IResolvable;
+   * record_columns block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_columns KinesisAnalyticsApplication#record_columns}
+   */
+  readonly recordColumns:
+    | KinesisAnalyticsApplicationInputsSchemaRecordColumns[]
+    | cdktf.IResolvable;
   /**
-  * record_format block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format KinesisAnalyticsApplication#record_format}
-  */
+   * record_format block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format KinesisAnalyticsApplication#record_format}
+   */
   readonly recordFormat: KinesisAnalyticsApplicationInputsSchemaRecordFormat;
 }
 
-export function kinesisAnalyticsApplicationInputsSchemaToTerraform(struct?: KinesisAnalyticsApplicationInputsSchemaOutputReference | KinesisAnalyticsApplicationInputsSchema): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsSchemaToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsSchemaOutputReference
+    | KinesisAnalyticsApplicationInputsSchema,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     record_encoding: cdktf.stringToTerraform(struct!.recordEncoding),
-    record_columns: cdktf.listMapper(kinesisAnalyticsApplicationInputsSchemaRecordColumnsToTerraform, true)(struct!.recordColumns),
-    record_format: kinesisAnalyticsApplicationInputsSchemaRecordFormatToTerraform(struct!.recordFormat),
-  }
+    record_columns: cdktf.listMapper(
+      kinesisAnalyticsApplicationInputsSchemaRecordColumnsToTerraform,
+      true,
+    )(struct!.recordColumns),
+    record_format:
+      kinesisAnalyticsApplicationInputsSchemaRecordFormatToTerraform(
+        struct!.recordFormat,
+      ),
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsSchemaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsSchema | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsSchema
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordEncoding !== undefined) {
@@ -1062,14 +1306,15 @@ export class KinesisAnalyticsApplicationInputsSchemaOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsSchema | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputsSchema | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordEncoding = undefined;
       this._recordColumns.internalValue = undefined;
       this._recordFormat.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordEncoding = value.recordEncoding;
       this._recordColumns.internalValue = value.recordColumns;
@@ -1094,11 +1339,20 @@ export class KinesisAnalyticsApplicationInputsSchemaOutputReference extends cdkt
   }
 
   // record_columns - computed: false, optional: false, required: true
-  private _recordColumns = new KinesisAnalyticsApplicationInputsSchemaRecordColumnsList(this, "record_columns", false);
+  private _recordColumns =
+    new KinesisAnalyticsApplicationInputsSchemaRecordColumnsList(
+      this,
+      'record_columns',
+      false,
+    );
   public get recordColumns() {
     return this._recordColumns;
   }
-  public putRecordColumns(value: KinesisAnalyticsApplicationInputsSchemaRecordColumns[] | cdktf.IResolvable) {
+  public putRecordColumns(
+    value:
+      | KinesisAnalyticsApplicationInputsSchemaRecordColumns[]
+      | cdktf.IResolvable,
+  ) {
     this._recordColumns.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1107,11 +1361,17 @@ export class KinesisAnalyticsApplicationInputsSchemaOutputReference extends cdkt
   }
 
   // record_format - computed: false, optional: false, required: true
-  private _recordFormat = new KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference(this, "record_format");
+  private _recordFormat =
+    new KinesisAnalyticsApplicationInputsSchemaRecordFormatOutputReference(
+      this,
+      'record_format',
+    );
   public get recordFormat() {
     return this._recordFormat;
   }
-  public putRecordFormat(value: KinesisAnalyticsApplicationInputsSchemaRecordFormat) {
+  public putRecordFormat(
+    value: KinesisAnalyticsApplicationInputsSchemaRecordFormat,
+  ) {
     this._recordFormat.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1121,19 +1381,27 @@ export class KinesisAnalyticsApplicationInputsSchemaOutputReference extends cdkt
 }
 export interface KinesisAnalyticsApplicationInputsStartingPositionConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#starting_position KinesisAnalyticsApplication#starting_position}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#starting_position KinesisAnalyticsApplication#starting_position}
+   */
   readonly startingPosition?: string;
 }
 
-export function kinesisAnalyticsApplicationInputsStartingPositionConfigurationToTerraform(struct?: KinesisAnalyticsApplicationInputsStartingPositionConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsStartingPositionConfigurationToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsStartingPositionConfiguration
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     starting_position: cdktf.stringToTerraform(struct!.startingPosition),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutputReference extends cdktf.ComplexObject {
@@ -1141,16 +1409,29 @@ export class KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutpu
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationInputsStartingPositionConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationInputsStartingPositionConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1163,17 +1444,20 @@ export class KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputsStartingPositionConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationInputsStartingPositionConfiguration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._startingPosition = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._startingPosition = value.startingPosition;
@@ -1198,91 +1482,130 @@ export class KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutpu
 }
 
 export class KinesisAnalyticsApplicationInputsStartingPositionConfigurationList extends cdktf.ComplexList {
-  public internalValue? : KinesisAnalyticsApplicationInputsStartingPositionConfiguration[] | cdktf.IResolvable
+  public internalValue?:
+    | KinesisAnalyticsApplicationInputsStartingPositionConfiguration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutputReference {
-    return new KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutputReference {
+    return new KinesisAnalyticsApplicationInputsStartingPositionConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KinesisAnalyticsApplicationInputs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name_prefix KinesisAnalyticsApplication#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name_prefix KinesisAnalyticsApplication#name_prefix}
+   */
   readonly namePrefix: string;
   /**
-  * kinesis_firehose block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_firehose KinesisAnalyticsApplication#kinesis_firehose}
-  */
+   * kinesis_firehose block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_firehose KinesisAnalyticsApplication#kinesis_firehose}
+   */
   readonly kinesisFirehose?: KinesisAnalyticsApplicationInputsKinesisFirehose;
   /**
-  * kinesis_stream block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_stream KinesisAnalyticsApplication#kinesis_stream}
-  */
+   * kinesis_stream block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_stream KinesisAnalyticsApplication#kinesis_stream}
+   */
   readonly kinesisStream?: KinesisAnalyticsApplicationInputsKinesisStream;
   /**
-  * parallelism block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#parallelism KinesisAnalyticsApplication#parallelism}
-  */
+   * parallelism block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#parallelism KinesisAnalyticsApplication#parallelism}
+   */
   readonly parallelism?: KinesisAnalyticsApplicationInputsParallelism;
   /**
-  * processing_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#processing_configuration KinesisAnalyticsApplication#processing_configuration}
-  */
+   * processing_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#processing_configuration KinesisAnalyticsApplication#processing_configuration}
+   */
   readonly processingConfiguration?: KinesisAnalyticsApplicationInputsProcessingConfiguration;
   /**
-  * schema block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
-  */
+   * schema block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
+   */
   readonly schema: KinesisAnalyticsApplicationInputsSchema;
   /**
-  * starting_position_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#starting_position_configuration KinesisAnalyticsApplication#starting_position_configuration}
-  */
-  readonly startingPositionConfiguration?: KinesisAnalyticsApplicationInputsStartingPositionConfiguration[] | cdktf.IResolvable;
+   * starting_position_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#starting_position_configuration KinesisAnalyticsApplication#starting_position_configuration}
+   */
+  readonly startingPositionConfiguration?:
+    | KinesisAnalyticsApplicationInputsStartingPositionConfiguration[]
+    | cdktf.IResolvable;
 }
 
-export function kinesisAnalyticsApplicationInputsToTerraform(struct?: KinesisAnalyticsApplicationInputsOutputReference | KinesisAnalyticsApplicationInputs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationInputsToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationInputsOutputReference
+    | KinesisAnalyticsApplicationInputs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name_prefix: cdktf.stringToTerraform(struct!.namePrefix),
-    kinesis_firehose: kinesisAnalyticsApplicationInputsKinesisFirehoseToTerraform(struct!.kinesisFirehose),
-    kinesis_stream: kinesisAnalyticsApplicationInputsKinesisStreamToTerraform(struct!.kinesisStream),
-    parallelism: kinesisAnalyticsApplicationInputsParallelismToTerraform(struct!.parallelism),
-    processing_configuration: kinesisAnalyticsApplicationInputsProcessingConfigurationToTerraform(struct!.processingConfiguration),
+    kinesis_firehose:
+      kinesisAnalyticsApplicationInputsKinesisFirehoseToTerraform(
+        struct!.kinesisFirehose,
+      ),
+    kinesis_stream: kinesisAnalyticsApplicationInputsKinesisStreamToTerraform(
+      struct!.kinesisStream,
+    ),
+    parallelism: kinesisAnalyticsApplicationInputsParallelismToTerraform(
+      struct!.parallelism,
+    ),
+    processing_configuration:
+      kinesisAnalyticsApplicationInputsProcessingConfigurationToTerraform(
+        struct!.processingConfiguration,
+      ),
     schema: kinesisAnalyticsApplicationInputsSchemaToTerraform(struct!.schema),
-    starting_position_configuration: cdktf.listMapper(kinesisAnalyticsApplicationInputsStartingPositionConfigurationToTerraform, true)(struct!.startingPositionConfiguration),
-  }
+    starting_position_configuration: cdktf.listMapper(
+      kinesisAnalyticsApplicationInputsStartingPositionConfigurationToTerraform,
+      true,
+    )(struct!.startingPositionConfiguration),
+  };
 }
 
 export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1295,7 +1618,8 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
     }
     if (this._kinesisFirehose?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.kinesisFirehose = this._kinesisFirehose?.internalValue;
+      internalValueResult.kinesisFirehose =
+        this._kinesisFirehose?.internalValue;
     }
     if (this._kinesisStream?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1307,7 +1631,8 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
     }
     if (this._processingConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.processingConfiguration = this._processingConfiguration?.internalValue;
+      internalValueResult.processingConfiguration =
+        this._processingConfiguration?.internalValue;
     }
     if (this._schema?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1315,12 +1640,15 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
     }
     if (this._startingPositionConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.startingPositionConfiguration = this._startingPositionConfiguration?.internalValue;
+      internalValueResult.startingPositionConfiguration =
+        this._startingPositionConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationInputs | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationInputs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._namePrefix = undefined;
@@ -1330,16 +1658,17 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
       this._processingConfiguration.internalValue = undefined;
       this._schema.internalValue = undefined;
       this._startingPositionConfiguration.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._namePrefix = value.namePrefix;
       this._kinesisFirehose.internalValue = value.kinesisFirehose;
       this._kinesisStream.internalValue = value.kinesisStream;
       this._parallelism.internalValue = value.parallelism;
-      this._processingConfiguration.internalValue = value.processingConfiguration;
+      this._processingConfiguration.internalValue =
+        value.processingConfiguration;
       this._schema.internalValue = value.schema;
-      this._startingPositionConfiguration.internalValue = value.startingPositionConfiguration;
+      this._startingPositionConfiguration.internalValue =
+        value.startingPositionConfiguration;
     }
   }
 
@@ -1367,11 +1696,17 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // kinesis_firehose - computed: false, optional: true, required: false
-  private _kinesisFirehose = new KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference(this, "kinesis_firehose");
+  private _kinesisFirehose =
+    new KinesisAnalyticsApplicationInputsKinesisFirehoseOutputReference(
+      this,
+      'kinesis_firehose',
+    );
   public get kinesisFirehose() {
     return this._kinesisFirehose;
   }
-  public putKinesisFirehose(value: KinesisAnalyticsApplicationInputsKinesisFirehose) {
+  public putKinesisFirehose(
+    value: KinesisAnalyticsApplicationInputsKinesisFirehose,
+  ) {
     this._kinesisFirehose.internalValue = value;
   }
   public resetKinesisFirehose() {
@@ -1383,11 +1718,17 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // kinesis_stream - computed: false, optional: true, required: false
-  private _kinesisStream = new KinesisAnalyticsApplicationInputsKinesisStreamOutputReference(this, "kinesis_stream");
+  private _kinesisStream =
+    new KinesisAnalyticsApplicationInputsKinesisStreamOutputReference(
+      this,
+      'kinesis_stream',
+    );
   public get kinesisStream() {
     return this._kinesisStream;
   }
-  public putKinesisStream(value: KinesisAnalyticsApplicationInputsKinesisStream) {
+  public putKinesisStream(
+    value: KinesisAnalyticsApplicationInputsKinesisStream,
+  ) {
     this._kinesisStream.internalValue = value;
   }
   public resetKinesisStream() {
@@ -1399,7 +1740,11 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // parallelism - computed: false, optional: true, required: false
-  private _parallelism = new KinesisAnalyticsApplicationInputsParallelismOutputReference(this, "parallelism");
+  private _parallelism =
+    new KinesisAnalyticsApplicationInputsParallelismOutputReference(
+      this,
+      'parallelism',
+    );
   public get parallelism() {
     return this._parallelism;
   }
@@ -1415,11 +1760,17 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // processing_configuration - computed: false, optional: true, required: false
-  private _processingConfiguration = new KinesisAnalyticsApplicationInputsProcessingConfigurationOutputReference(this, "processing_configuration");
+  private _processingConfiguration =
+    new KinesisAnalyticsApplicationInputsProcessingConfigurationOutputReference(
+      this,
+      'processing_configuration',
+    );
   public get processingConfiguration() {
     return this._processingConfiguration;
   }
-  public putProcessingConfiguration(value: KinesisAnalyticsApplicationInputsProcessingConfiguration) {
+  public putProcessingConfiguration(
+    value: KinesisAnalyticsApplicationInputsProcessingConfiguration,
+  ) {
     this._processingConfiguration.internalValue = value;
   }
   public resetProcessingConfiguration() {
@@ -1431,7 +1782,10 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // schema - computed: false, optional: false, required: true
-  private _schema = new KinesisAnalyticsApplicationInputsSchemaOutputReference(this, "schema");
+  private _schema = new KinesisAnalyticsApplicationInputsSchemaOutputReference(
+    this,
+    'schema',
+  );
   public get schema() {
     return this._schema;
   }
@@ -1444,11 +1798,20 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
   }
 
   // starting_position_configuration - computed: false, optional: true, required: false
-  private _startingPositionConfiguration = new KinesisAnalyticsApplicationInputsStartingPositionConfigurationList(this, "starting_position_configuration", false);
+  private _startingPositionConfiguration =
+    new KinesisAnalyticsApplicationInputsStartingPositionConfigurationList(
+      this,
+      'starting_position_configuration',
+      false,
+    );
   public get startingPositionConfiguration() {
     return this._startingPositionConfiguration;
   }
-  public putStartingPositionConfiguration(value: KinesisAnalyticsApplicationInputsStartingPositionConfiguration[] | cdktf.IResolvable) {
+  public putStartingPositionConfiguration(
+    value:
+      | KinesisAnalyticsApplicationInputsStartingPositionConfiguration[]
+      | cdktf.IResolvable,
+  ) {
     this._startingPositionConfiguration.internalValue = value;
   }
   public resetStartingPositionConfiguration() {
@@ -1461,38 +1824,51 @@ export class KinesisAnalyticsApplicationInputsOutputReference extends cdktf.Comp
 }
 export interface KinesisAnalyticsApplicationOutputsKinesisFirehose {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationOutputsKinesisFirehoseToTerraform(struct?: KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference | KinesisAnalyticsApplicationOutputsKinesisFirehose): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationOutputsKinesisFirehoseToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference
+    | KinesisAnalyticsApplicationOutputsKinesisFirehose,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     resource_arn: cdktf.stringToTerraform(struct!.resourceArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationOutputsKinesisFirehose | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationOutputsKinesisFirehose
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._resourceArn !== undefined) {
@@ -1506,13 +1882,14 @@ export class KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationOutputsKinesisFirehose | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationOutputsKinesisFirehose | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._resourceArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._resourceArn = value.resourceArn;
       this._roleArn = value.roleArn;
@@ -1547,38 +1924,51 @@ export class KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference ex
 }
 export interface KinesisAnalyticsApplicationOutputsKinesisStream {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationOutputsKinesisStreamToTerraform(struct?: KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference | KinesisAnalyticsApplicationOutputsKinesisStream): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationOutputsKinesisStreamToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference
+    | KinesisAnalyticsApplicationOutputsKinesisStream,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     resource_arn: cdktf.stringToTerraform(struct!.resourceArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationOutputsKinesisStream | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationOutputsKinesisStream
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._resourceArn !== undefined) {
@@ -1592,13 +1982,14 @@ export class KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationOutputsKinesisStream | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationOutputsKinesisStream | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._resourceArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._resourceArn = value.resourceArn;
       this._roleArn = value.roleArn;
@@ -1633,38 +2024,51 @@ export class KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference exte
 }
 export interface KinesisAnalyticsApplicationOutputsLambda {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#resource_arn KinesisAnalyticsApplication#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationOutputsLambdaToTerraform(struct?: KinesisAnalyticsApplicationOutputsLambdaOutputReference | KinesisAnalyticsApplicationOutputsLambda): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationOutputsLambdaToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationOutputsLambdaOutputReference
+    | KinesisAnalyticsApplicationOutputsLambda,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     resource_arn: cdktf.stringToTerraform(struct!.resourceArn),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationOutputsLambdaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationOutputsLambda | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationOutputsLambda
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._resourceArn !== undefined) {
@@ -1678,13 +2082,14 @@ export class KinesisAnalyticsApplicationOutputsLambdaOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationOutputsLambda | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationOutputsLambda | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._resourceArn = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._resourceArn = value.resourceArn;
       this._roleArn = value.roleArn;
@@ -1719,33 +2124,46 @@ export class KinesisAnalyticsApplicationOutputsLambdaOutputReference extends cdk
 }
 export interface KinesisAnalyticsApplicationOutputsSchema {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format_type KinesisAnalyticsApplication#record_format_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format_type KinesisAnalyticsApplication#record_format_type}
+   */
   readonly recordFormatType: string;
 }
 
-export function kinesisAnalyticsApplicationOutputsSchemaToTerraform(struct?: KinesisAnalyticsApplicationOutputsSchemaOutputReference | KinesisAnalyticsApplicationOutputsSchema): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationOutputsSchemaToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationOutputsSchemaOutputReference
+    | KinesisAnalyticsApplicationOutputsSchema,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     record_format_type: cdktf.stringToTerraform(struct!.recordFormatType),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationOutputsSchemaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationOutputsSchema | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationOutputsSchema
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordFormatType !== undefined) {
@@ -1755,12 +2173,13 @@ export class KinesisAnalyticsApplicationOutputsSchemaOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationOutputsSchema | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationOutputsSchema | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordFormatType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordFormatType = value.recordFormatType;
     }
@@ -1781,47 +2200,58 @@ export class KinesisAnalyticsApplicationOutputsSchemaOutputReference extends cdk
 }
 export interface KinesisAnalyticsApplicationOutputs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
+   */
   readonly name: string;
   /**
-  * kinesis_firehose block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_firehose KinesisAnalyticsApplication#kinesis_firehose}
-  */
+   * kinesis_firehose block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_firehose KinesisAnalyticsApplication#kinesis_firehose}
+   */
   readonly kinesisFirehose?: KinesisAnalyticsApplicationOutputsKinesisFirehose;
   /**
-  * kinesis_stream block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_stream KinesisAnalyticsApplication#kinesis_stream}
-  */
+   * kinesis_stream block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#kinesis_stream KinesisAnalyticsApplication#kinesis_stream}
+   */
   readonly kinesisStream?: KinesisAnalyticsApplicationOutputsKinesisStream;
   /**
-  * lambda block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#lambda KinesisAnalyticsApplication#lambda}
-  */
+   * lambda block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#lambda KinesisAnalyticsApplication#lambda}
+   */
   readonly lambda?: KinesisAnalyticsApplicationOutputsLambda;
   /**
-  * schema block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
-  */
+   * schema block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
+   */
   readonly schema: KinesisAnalyticsApplicationOutputsSchema;
 }
 
-export function kinesisAnalyticsApplicationOutputsToTerraform(struct?: KinesisAnalyticsApplicationOutputs | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationOutputsToTerraform(
+  struct?: KinesisAnalyticsApplicationOutputs | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    kinesis_firehose: kinesisAnalyticsApplicationOutputsKinesisFirehoseToTerraform(struct!.kinesisFirehose),
-    kinesis_stream: kinesisAnalyticsApplicationOutputsKinesisStreamToTerraform(struct!.kinesisStream),
+    kinesis_firehose:
+      kinesisAnalyticsApplicationOutputsKinesisFirehoseToTerraform(
+        struct!.kinesisFirehose,
+      ),
+    kinesis_stream: kinesisAnalyticsApplicationOutputsKinesisStreamToTerraform(
+      struct!.kinesisStream,
+    ),
     lambda: kinesisAnalyticsApplicationOutputsLambdaToTerraform(struct!.lambda),
     schema: kinesisAnalyticsApplicationOutputsSchemaToTerraform(struct!.schema),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.ComplexObject {
@@ -1829,16 +2259,29 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationOutputs | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationOutputs
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1850,7 +2293,8 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
     }
     if (this._kinesisFirehose?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.kinesisFirehose = this._kinesisFirehose?.internalValue;
+      internalValueResult.kinesisFirehose =
+        this._kinesisFirehose?.internalValue;
     }
     if (this._kinesisStream?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1867,7 +2311,9 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationOutputs | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationOutputs | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1876,12 +2322,10 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
       this._kinesisStream.internalValue = undefined;
       this._lambda.internalValue = undefined;
       this._schema.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -1911,11 +2355,17 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
   }
 
   // kinesis_firehose - computed: false, optional: true, required: false
-  private _kinesisFirehose = new KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference(this, "kinesis_firehose");
+  private _kinesisFirehose =
+    new KinesisAnalyticsApplicationOutputsKinesisFirehoseOutputReference(
+      this,
+      'kinesis_firehose',
+    );
   public get kinesisFirehose() {
     return this._kinesisFirehose;
   }
-  public putKinesisFirehose(value: KinesisAnalyticsApplicationOutputsKinesisFirehose) {
+  public putKinesisFirehose(
+    value: KinesisAnalyticsApplicationOutputsKinesisFirehose,
+  ) {
     this._kinesisFirehose.internalValue = value;
   }
   public resetKinesisFirehose() {
@@ -1927,11 +2377,17 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
   }
 
   // kinesis_stream - computed: false, optional: true, required: false
-  private _kinesisStream = new KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference(this, "kinesis_stream");
+  private _kinesisStream =
+    new KinesisAnalyticsApplicationOutputsKinesisStreamOutputReference(
+      this,
+      'kinesis_stream',
+    );
   public get kinesisStream() {
     return this._kinesisStream;
   }
-  public putKinesisStream(value: KinesisAnalyticsApplicationOutputsKinesisStream) {
+  public putKinesisStream(
+    value: KinesisAnalyticsApplicationOutputsKinesisStream,
+  ) {
     this._kinesisStream.internalValue = value;
   }
   public resetKinesisStream() {
@@ -1943,7 +2399,10 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
   }
 
   // lambda - computed: false, optional: true, required: false
-  private _lambda = new KinesisAnalyticsApplicationOutputsLambdaOutputReference(this, "lambda");
+  private _lambda = new KinesisAnalyticsApplicationOutputsLambdaOutputReference(
+    this,
+    'lambda',
+  );
   public get lambda() {
     return this._lambda;
   }
@@ -1959,7 +2418,10 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
   }
 
   // schema - computed: false, optional: false, required: true
-  private _schema = new KinesisAnalyticsApplicationOutputsSchemaOutputReference(this, "schema");
+  private _schema = new KinesisAnalyticsApplicationOutputsSchemaOutputReference(
+    this,
+    'schema',
+  );
   public get schema() {
     return this._schema;
   }
@@ -1973,63 +2435,87 @@ export class KinesisAnalyticsApplicationOutputsOutputReference extends cdktf.Com
 }
 
 export class KinesisAnalyticsApplicationOutputsList extends cdktf.ComplexList {
-  public internalValue? : KinesisAnalyticsApplicationOutputs[] | cdktf.IResolvable
+  public internalValue?:
+    | KinesisAnalyticsApplicationOutputs[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): KinesisAnalyticsApplicationOutputsOutputReference {
-    return new KinesisAnalyticsApplicationOutputsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new KinesisAnalyticsApplicationOutputsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#bucket_arn KinesisAnalyticsApplication#bucket_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#bucket_arn KinesisAnalyticsApplication#bucket_arn}
+   */
   readonly bucketArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#file_key KinesisAnalyticsApplication#file_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#file_key KinesisAnalyticsApplication#file_key}
+   */
   readonly fileKey: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#role_arn KinesisAnalyticsApplication#role_arn}
+   */
   readonly roleArn: string;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesS3ToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference | KinesisAnalyticsApplicationReferenceDataSourcesS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesS3ToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference
+    | KinesisAnalyticsApplicationReferenceDataSourcesS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_arn: cdktf.stringToTerraform(struct!.bucketArn),
     file_key: cdktf.stringToTerraform(struct!.fileKey),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesS3 | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesS3
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketArn !== undefined) {
@@ -2047,14 +2533,15 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesS3 | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesS3 | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketArn = undefined;
       this._fileKey = undefined;
       this._roleArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketArn = value.bucketArn;
       this._fileKey = value.fileKey;
@@ -2103,29 +2590,37 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference ex
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping KinesisAnalyticsApplication#mapping}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping KinesisAnalyticsApplication#mapping}
+   */
   readonly mapping?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#name KinesisAnalyticsApplication#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#sql_type KinesisAnalyticsApplication#sql_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#sql_type KinesisAnalyticsApplication#sql_type}
+   */
   readonly sqlType: string;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mapping: cdktf.stringToTerraform(struct!.mapping),
     name: cdktf.stringToTerraform(struct!.name),
     sql_type: cdktf.stringToTerraform(struct!.sqlType),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputReference extends cdktf.ComplexObject {
@@ -2133,16 +2628,29 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2163,19 +2671,22 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._mapping = undefined;
       this._name = undefined;
       this._sqlType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mapping = value.mapping;
@@ -2228,58 +2739,86 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsO
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsList extends cdktf.ComplexList {
-  public internalValue? : KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[] | cdktf.IResolvable
+  public internalValue?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputReference {
-    return new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputReference {
+    return new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_column_delimiter KinesisAnalyticsApplication#record_column_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_column_delimiter KinesisAnalyticsApplication#record_column_delimiter}
+   */
   readonly recordColumnDelimiter: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_delimiter KinesisAnalyticsApplication#record_row_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_delimiter KinesisAnalyticsApplication#record_row_delimiter}
+   */
   readonly recordRowDelimiter: string;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputReference | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputReference
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    record_column_delimiter: cdktf.stringToTerraform(struct!.recordColumnDelimiter),
+    record_column_delimiter: cdktf.stringToTerraform(
+      struct!.recordColumnDelimiter,
+    ),
     record_row_delimiter: cdktf.stringToTerraform(struct!.recordRowDelimiter),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordColumnDelimiter !== undefined) {
@@ -2293,13 +2832,16 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordColumnDelimiter = undefined;
       this._recordRowDelimiter = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordColumnDelimiter = value.recordColumnDelimiter;
       this._recordRowDelimiter = value.recordRowDelimiter;
@@ -2334,33 +2876,46 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_path KinesisAnalyticsApplication#record_row_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_row_path KinesisAnalyticsApplication#record_row_path}
+   */
   readonly recordRowPath: string;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputReference | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputReference
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     record_row_path: cdktf.stringToTerraform(struct!.recordRowPath),
-  }
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordRowPath !== undefined) {
@@ -2370,12 +2925,15 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordRowPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordRowPath = value.recordRowPath;
     }
@@ -2396,42 +2954,59 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
   /**
-  * csv block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#csv KinesisAnalyticsApplication#csv}
-  */
+   * csv block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#csv KinesisAnalyticsApplication#csv}
+   */
   readonly csv?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv;
   /**
-  * json block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#json KinesisAnalyticsApplication#json}
-  */
+   * json block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#json KinesisAnalyticsApplication#json}
+   */
   readonly json?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputReference | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputReference
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    csv: kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvToTerraform(struct!.csv),
-    json: kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonToTerraform(struct!.json),
-  }
+    csv: kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvToTerraform(
+      struct!.csv,
+    ),
+    json: kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonToTerraform(
+      struct!.json,
+    ),
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._csv?.internalValue !== undefined) {
@@ -2445,13 +3020,16 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._csv.internalValue = undefined;
       this._json.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._csv.internalValue = value.csv;
       this._json.internalValue = value.json;
@@ -2459,11 +3037,17 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
   }
 
   // csv - computed: false, optional: true, required: false
-  private _csv = new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputReference(this, "csv");
+  private _csv =
+    new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputReference(
+      this,
+      'csv',
+    );
   public get csv() {
     return this._csv;
   }
-  public putCsv(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) {
+  public putCsv(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv,
+  ) {
     this._csv.internalValue = value;
   }
   public resetCsv() {
@@ -2475,11 +3059,17 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
   }
 
   // json - computed: false, optional: true, required: false
-  private _json = new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputReference(this, "json");
+  private _json =
+    new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputReference(
+      this,
+      'json',
+    );
   public get json() {
     return this._json;
   }
-  public putJson(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) {
+  public putJson(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson,
+  ) {
     this._json.internalValue = value;
   }
   public resetJson() {
@@ -2492,50 +3082,70 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMa
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
   /**
-  * mapping_parameters block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping_parameters KinesisAnalyticsApplication#mapping_parameters}
-  */
+   * mapping_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#mapping_parameters KinesisAnalyticsApplication#mapping_parameters}
+   */
   readonly mappingParameters?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputReference | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputReference
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    mapping_parameters: kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersToTerraform(struct!.mappingParameters),
-  }
+    mapping_parameters:
+      kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersToTerraform(
+        struct!.mappingParameters,
+      ),
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._mappingParameters?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.mappingParameters = this._mappingParameters?.internalValue;
+      internalValueResult.mappingParameters =
+        this._mappingParameters?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat | undefined) {
+  public set internalValue(
+    value:
+      | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._mappingParameters.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mappingParameters.internalValue = value.mappingParameters;
     }
@@ -2547,11 +3157,17 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOu
   }
 
   // mapping_parameters - computed: false, optional: true, required: false
-  private _mappingParameters = new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputReference(this, "mapping_parameters");
+  private _mappingParameters =
+    new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputReference(
+      this,
+      'mapping_parameters',
+    );
   public get mappingParameters() {
     return this._mappingParameters;
   }
-  public putMappingParameters(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) {
+  public putMappingParameters(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters,
+  ) {
     this._mappingParameters.internalValue = value;
   }
   public resetMappingParameters() {
@@ -2564,47 +3180,68 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOu
 }
 export interface KinesisAnalyticsApplicationReferenceDataSourcesSchema {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_encoding KinesisAnalyticsApplication#record_encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_encoding KinesisAnalyticsApplication#record_encoding}
+   */
   readonly recordEncoding?: string;
   /**
-  * record_columns block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_columns KinesisAnalyticsApplication#record_columns}
-  */
-  readonly recordColumns: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[] | cdktf.IResolvable;
+   * record_columns block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_columns KinesisAnalyticsApplication#record_columns}
+   */
+  readonly recordColumns:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[]
+    | cdktf.IResolvable;
   /**
-  * record_format block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format KinesisAnalyticsApplication#record_format}
-  */
+   * record_format block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#record_format KinesisAnalyticsApplication#record_format}
+   */
   readonly recordFormat: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReference | KinesisAnalyticsApplicationReferenceDataSourcesSchema): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesSchemaToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReference
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchema,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     record_encoding: cdktf.stringToTerraform(struct!.recordEncoding),
-    record_columns: cdktf.listMapper(kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsToTerraform, true)(struct!.recordColumns),
-    record_format: kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatToTerraform(struct!.recordFormat),
-  }
+    record_columns: cdktf.listMapper(
+      kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsToTerraform,
+      true,
+    )(struct!.recordColumns),
+    record_format:
+      kinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatToTerraform(
+        struct!.recordFormat,
+      ),
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSourcesSchema | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSourcesSchema
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordEncoding !== undefined) {
@@ -2622,14 +3259,15 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSourcesSchema | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesSchema | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordEncoding = undefined;
       this._recordColumns.internalValue = undefined;
       this._recordFormat.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordEncoding = value.recordEncoding;
       this._recordColumns.internalValue = value.recordColumns;
@@ -2654,11 +3292,20 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReferenc
   }
 
   // record_columns - computed: false, optional: false, required: true
-  private _recordColumns = new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsList(this, "record_columns", false);
+  private _recordColumns =
+    new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsList(
+      this,
+      'record_columns',
+      false,
+    );
   public get recordColumns() {
     return this._recordColumns;
   }
-  public putRecordColumns(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[] | cdktf.IResolvable) {
+  public putRecordColumns(
+    value:
+      | KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordColumns[]
+      | cdktf.IResolvable,
+  ) {
     this._recordColumns.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2667,11 +3314,17 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReferenc
   }
 
   // record_format - computed: false, optional: false, required: true
-  private _recordFormat = new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputReference(this, "record_format");
+  private _recordFormat =
+    new KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputReference(
+      this,
+      'record_format',
+    );
   public get recordFormat() {
     return this._recordFormat;
   }
-  public putRecordFormat(value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) {
+  public putRecordFormat(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesSchemaRecordFormat,
+  ) {
     this._recordFormat.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2681,47 +3334,64 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReferenc
 }
 export interface KinesisAnalyticsApplicationReferenceDataSources {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#table_name KinesisAnalyticsApplication#table_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#table_name KinesisAnalyticsApplication#table_name}
+   */
   readonly tableName: string;
   /**
-  * s3 block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#s3 KinesisAnalyticsApplication#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#s3 KinesisAnalyticsApplication#s3}
+   */
   readonly s3: KinesisAnalyticsApplicationReferenceDataSourcesS3;
   /**
-  * schema block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
-  */
+   * schema block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application#schema KinesisAnalyticsApplication#schema}
+   */
   readonly schema: KinesisAnalyticsApplicationReferenceDataSourcesSchema;
 }
 
-export function kinesisAnalyticsApplicationReferenceDataSourcesToTerraform(struct?: KinesisAnalyticsApplicationReferenceDataSourcesOutputReference | KinesisAnalyticsApplicationReferenceDataSources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kinesisAnalyticsApplicationReferenceDataSourcesToTerraform(
+  struct?:
+    | KinesisAnalyticsApplicationReferenceDataSourcesOutputReference
+    | KinesisAnalyticsApplicationReferenceDataSources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     table_name: cdktf.stringToTerraform(struct!.tableName),
-    s3: kinesisAnalyticsApplicationReferenceDataSourcesS3ToTerraform(struct!.s3),
-    schema: kinesisAnalyticsApplicationReferenceDataSourcesSchemaToTerraform(struct!.schema),
-  }
+    s3: kinesisAnalyticsApplicationReferenceDataSourcesS3ToTerraform(
+      struct!.s3,
+    ),
+    schema: kinesisAnalyticsApplicationReferenceDataSourcesSchemaToTerraform(
+      struct!.schema,
+    ),
+  };
 }
 
 export class KinesisAnalyticsApplicationReferenceDataSourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): KinesisAnalyticsApplicationReferenceDataSources | undefined {
+  public get internalValue():
+    | KinesisAnalyticsApplicationReferenceDataSources
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._tableName !== undefined) {
@@ -2739,14 +3409,15 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KinesisAnalyticsApplicationReferenceDataSources | undefined) {
+  public set internalValue(
+    value: KinesisAnalyticsApplicationReferenceDataSources | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._tableName = undefined;
       this._s3.internalValue = undefined;
       this._schema.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._tableName = value.tableName;
       this._s3.internalValue = value.s3;
@@ -2773,7 +3444,11 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesOutputReference exte
   }
 
   // s3 - computed: false, optional: false, required: true
-  private _s3 = new KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference(this, "s3");
+  private _s3 =
+    new KinesisAnalyticsApplicationReferenceDataSourcesS3OutputReference(
+      this,
+      's3',
+    );
   public get s3() {
     return this._s3;
   }
@@ -2786,11 +3461,17 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesOutputReference exte
   }
 
   // schema - computed: false, optional: false, required: true
-  private _schema = new KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReference(this, "schema");
+  private _schema =
+    new KinesisAnalyticsApplicationReferenceDataSourcesSchemaOutputReference(
+      this,
+      'schema',
+    );
   public get schema() {
     return this._schema;
   }
-  public putSchema(value: KinesisAnalyticsApplicationReferenceDataSourcesSchema) {
+  public putSchema(
+    value: KinesisAnalyticsApplicationReferenceDataSourcesSchema,
+  ) {
     this._schema.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2800,33 +3481,36 @@ export class KinesisAnalyticsApplicationReferenceDataSourcesOutputReference exte
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application aws_kinesis_analytics_application}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application aws_kinesis_analytics_application}
+ */
 export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_kinesis_analytics_application";
+  public static readonly tfResourceType = 'aws_kinesis_analytics_application';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application aws_kinesis_analytics_application} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options KinesisAnalyticsApplicationConfig
-  */
-  public constructor(scope: Construct, id: string, config: KinesisAnalyticsApplicationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kinesis_analytics_application aws_kinesis_analytics_application} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options KinesisAnalyticsApplicationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: KinesisAnalyticsApplicationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_kinesis_analytics_application',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2834,7 +3518,7 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._code = config.code;
     this._description = config.description;
@@ -2843,7 +3527,8 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
     this._startApplication = config.startApplication;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._cloudwatchLoggingOptions.internalValue = config.cloudwatchLoggingOptions;
+    this._cloudwatchLoggingOptions.internalValue =
+      config.cloudwatchLoggingOptions;
     this._inputs.internalValue = config.inputs;
     this._outputs.internalValue = config.outputs;
     this._referenceDataSources.internalValue = config.referenceDataSources;
@@ -2988,11 +3673,17 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // cloudwatch_logging_options - computed: false, optional: true, required: false
-  private _cloudwatchLoggingOptions = new KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference(this, "cloudwatch_logging_options");
+  private _cloudwatchLoggingOptions =
+    new KinesisAnalyticsApplicationCloudwatchLoggingOptionsOutputReference(
+      this,
+      'cloudwatch_logging_options',
+    );
   public get cloudwatchLoggingOptions() {
     return this._cloudwatchLoggingOptions;
   }
-  public putCloudwatchLoggingOptions(value: KinesisAnalyticsApplicationCloudwatchLoggingOptions) {
+  public putCloudwatchLoggingOptions(
+    value: KinesisAnalyticsApplicationCloudwatchLoggingOptions,
+  ) {
     this._cloudwatchLoggingOptions.internalValue = value;
   }
   public resetCloudwatchLoggingOptions() {
@@ -3004,7 +3695,10 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // inputs - computed: false, optional: true, required: false
-  private _inputs = new KinesisAnalyticsApplicationInputsOutputReference(this, "inputs");
+  private _inputs = new KinesisAnalyticsApplicationInputsOutputReference(
+    this,
+    'inputs',
+  );
   public get inputs() {
     return this._inputs;
   }
@@ -3020,11 +3714,17 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // outputs - computed: false, optional: true, required: false
-  private _outputs = new KinesisAnalyticsApplicationOutputsList(this, "outputs", true);
+  private _outputs = new KinesisAnalyticsApplicationOutputsList(
+    this,
+    'outputs',
+    true,
+  );
   public get outputs() {
     return this._outputs;
   }
-  public putOutputs(value: KinesisAnalyticsApplicationOutputs[] | cdktf.IResolvable) {
+  public putOutputs(
+    value: KinesisAnalyticsApplicationOutputs[] | cdktf.IResolvable,
+  ) {
     this._outputs.internalValue = value;
   }
   public resetOutputs() {
@@ -3036,11 +3736,17 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
   }
 
   // reference_data_sources - computed: false, optional: true, required: false
-  private _referenceDataSources = new KinesisAnalyticsApplicationReferenceDataSourcesOutputReference(this, "reference_data_sources");
+  private _referenceDataSources =
+    new KinesisAnalyticsApplicationReferenceDataSourcesOutputReference(
+      this,
+      'reference_data_sources',
+    );
   public get referenceDataSources() {
     return this._referenceDataSources;
   }
-  public putReferenceDataSources(value: KinesisAnalyticsApplicationReferenceDataSources) {
+  public putReferenceDataSources(
+    value: KinesisAnalyticsApplicationReferenceDataSources,
+  ) {
     this._referenceDataSources.internalValue = value;
   }
   public resetReferenceDataSources() {
@@ -3064,10 +3770,21 @@ export class KinesisAnalyticsApplication extends cdktf.TerraformResource {
       start_application: cdktf.booleanToTerraform(this._startApplication),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      cloudwatch_logging_options: kinesisAnalyticsApplicationCloudwatchLoggingOptionsToTerraform(this._cloudwatchLoggingOptions.internalValue),
-      inputs: kinesisAnalyticsApplicationInputsToTerraform(this._inputs.internalValue),
-      outputs: cdktf.listMapper(kinesisAnalyticsApplicationOutputsToTerraform, true)(this._outputs.internalValue),
-      reference_data_sources: kinesisAnalyticsApplicationReferenceDataSourcesToTerraform(this._referenceDataSources.internalValue),
+      cloudwatch_logging_options:
+        kinesisAnalyticsApplicationCloudwatchLoggingOptionsToTerraform(
+          this._cloudwatchLoggingOptions.internalValue,
+        ),
+      inputs: kinesisAnalyticsApplicationInputsToTerraform(
+        this._inputs.internalValue,
+      ),
+      outputs: cdktf.listMapper(
+        kinesisAnalyticsApplicationOutputsToTerraform,
+        true,
+      )(this._outputs.internalValue),
+      reference_data_sources:
+        kinesisAnalyticsApplicationReferenceDataSourcesToTerraform(
+          this._referenceDataSources.internalValue,
+        ),
     };
   }
 }

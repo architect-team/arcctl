@@ -1,8 +1,8 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
 
 export class AwsDatabaseTypeService extends ResourceService<
   'databaseType',

@@ -1,10 +1,10 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanVpcModule } from '../modules/vpc.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourceService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanVpcModule } from '../modules/vpc.ts';
 import { createApiClient } from 'dots-wrapper';
-import { IVpc } from 'dots-wrapper/dist/vpc/index.js';
+import { IVpc } from 'dots-wrapper/dist/vpc/index.ts';
 
 export class DigitaloceanVpcService extends ResourceService<
   'vpc',

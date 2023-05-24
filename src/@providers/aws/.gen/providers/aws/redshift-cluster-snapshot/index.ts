@@ -2,68 +2,72 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface RedshiftClusterSnapshotConfig extends cdktf.TerraformMetaArguments {
+export interface RedshiftClusterSnapshotConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#cluster_identifier RedshiftClusterSnapshot#cluster_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#cluster_identifier RedshiftClusterSnapshot#cluster_identifier}
+   */
   readonly clusterIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#id RedshiftClusterSnapshot#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#id RedshiftClusterSnapshot#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#manual_snapshot_retention_period RedshiftClusterSnapshot#manual_snapshot_retention_period}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#manual_snapshot_retention_period RedshiftClusterSnapshot#manual_snapshot_retention_period}
+   */
   readonly manualSnapshotRetentionPeriod?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#snapshot_identifier RedshiftClusterSnapshot#snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#snapshot_identifier RedshiftClusterSnapshot#snapshot_identifier}
+   */
   readonly snapshotIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#tags RedshiftClusterSnapshot#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#tags RedshiftClusterSnapshot#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#tags_all RedshiftClusterSnapshot#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot#tags_all RedshiftClusterSnapshot#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot aws_redshift_cluster_snapshot}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot aws_redshift_cluster_snapshot}
+ */
 export class RedshiftClusterSnapshot extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_redshift_cluster_snapshot";
+  public static readonly tfResourceType = 'aws_redshift_cluster_snapshot';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot aws_redshift_cluster_snapshot} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RedshiftClusterSnapshotConfig
-  */
-  public constructor(scope: Construct, id: string, config: RedshiftClusterSnapshotConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshift_cluster_snapshot aws_redshift_cluster_snapshot} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RedshiftClusterSnapshotConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RedshiftClusterSnapshotConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_redshift_cluster_snapshot',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -71,7 +75,7 @@ export class RedshiftClusterSnapshot extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clusterIdentifier = config.clusterIdentifier;
     this._id = config.id;
@@ -198,7 +202,9 @@ export class RedshiftClusterSnapshot extends cdktf.TerraformResource {
     return {
       cluster_identifier: cdktf.stringToTerraform(this._clusterIdentifier),
       id: cdktf.stringToTerraform(this._id),
-      manual_snapshot_retention_period: cdktf.numberToTerraform(this._manualSnapshotRetentionPeriod),
+      manual_snapshot_retention_period: cdktf.numberToTerraform(
+        this._manualSnapshotRetentionPeriod,
+      ),
       snapshot_identifier: cdktf.stringToTerraform(this._snapshotIdentifier),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),

@@ -1,5 +1,5 @@
 import AWS, { EC2 } from 'aws-sdk';
-import { SecurityGroupRule } from 'aws-sdk/clients/ec2.js';
+import { SecurityGroupRule } from 'aws-sdk/clients/ec2.ts';
 import { ResourceInputs } from '../../@resources';
 import { AwsCredentials } from './credentials';
 
@@ -228,11 +228,11 @@ export default class AwsUtils {
     region: string,
     id: string,
   ): Promise<string> {
-    const vpcs = await AwsUtils.getEC2(credentials, region).describeVpcs({
-      VpcIds: [
-        id
-      ]
-    }).promise();
+    const vpcs = await AwsUtils.getEC2(credentials, region)
+      .describeVpcs({
+        VpcIds: [id],
+      })
+      .promise();
     if (!vpcs.Vpcs) {
       throw new Error(`Unable to find vpc with id ${id}`);
     }
@@ -441,7 +441,7 @@ export default class AwsUtils {
           .promise();
         results.vpcId = clusterData.cluster?.resourcesVpcConfig?.vpcId || '';
         resolve();
-      })
+      }),
     );
 
     promises.push(

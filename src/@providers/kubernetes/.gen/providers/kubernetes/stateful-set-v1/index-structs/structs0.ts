@@ -1,41 +1,47 @@
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 export interface StatefulSetV1Metadata {
   /**
-  * An unstructured key value map stored with the stateful set that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#annotations StatefulSetV1#annotations}
-  */
+   * An unstructured key value map stored with the stateful set that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#annotations StatefulSetV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#generate_name StatefulSetV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#generate_name StatefulSetV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the stateful set. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#labels StatefulSetV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the stateful set. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#labels StatefulSetV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the stateful set, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the stateful set, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the stateful set must be unique.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
-  */
+   * Namespace defines the space within which name of the stateful set must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function statefulSetV1MetadataToTerraform(struct?: StatefulSetV1MetadataOutputReference | StatefulSetV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1MetadataToTerraform(
+  struct?: StatefulSetV1MetadataOutputReference | StatefulSetV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -43,17 +49,20 @@ export function statefulSetV1MetadataToTerraform(struct?: StatefulSetV1MetadataO
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -91,8 +100,7 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -103,7 +111,7 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -119,7 +127,7 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -140,7 +148,7 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -156,7 +164,7 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -172,7 +180,7 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -199,35 +207,41 @@ export class StatefulSetV1MetadataOutputReference extends cdktf.ComplexObject {
 }
 export interface StatefulSetV1SpecSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecSelectorMatchExpressionsToTerraform(
+  struct?: StatefulSetV1SpecSelectorMatchExpressions | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -235,16 +249,29 @@ export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -265,19 +292,22 @@ export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -287,7 +317,7 @@ export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cd
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -303,7 +333,7 @@ export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cd
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -319,7 +349,7 @@ export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cd
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -336,58 +366,87 @@ export class StatefulSetV1SpecSelectorMatchExpressionsOutputReference extends cd
 }
 
 export class StatefulSetV1SpecSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecSelectorToTerraform(struct?: StatefulSetV1SpecSelectorOutputReference | StatefulSetV1SpecSelector): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecSelectorToTerraform(
+  struct?: StatefulSetV1SpecSelectorOutputReference | StatefulSetV1SpecSelector,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecSelectorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -400,7 +459,8 @@ export class StatefulSetV1SpecSelectorOutputReference extends cdktf.ComplexObjec
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -410,8 +470,7 @@ export class StatefulSetV1SpecSelectorOutputReference extends cdktf.ComplexObjec
       this.isEmptyObject = false;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._matchLabels = value.matchLabels;
       this._matchExpressions.internalValue = value.matchExpressions;
@@ -419,7 +478,7 @@ export class StatefulSetV1SpecSelectorOutputReference extends cdktf.ComplexObjec
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -435,11 +494,17 @@ export class StatefulSetV1SpecSelectorOutputReference extends cdktf.ComplexObjec
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions = new StatefulSetV1SpecSelectorMatchExpressionsList(
+    this,
+    'match_expressions',
+    false,
+  );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value: StatefulSetV1SpecSelectorMatchExpressions[] | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -452,52 +517,63 @@ export class StatefulSetV1SpecSelectorOutputReference extends cdktf.ComplexObjec
 }
 export interface StatefulSetV1SpecTemplateMetadata {
   /**
-  * An unstructured key value map stored with the stateful set that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#annotations StatefulSetV1#annotations}
-  */
+   * An unstructured key value map stored with the stateful set that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#annotations StatefulSetV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#generate_name StatefulSetV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#generate_name StatefulSetV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the stateful set. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#labels StatefulSetV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the stateful set. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#labels StatefulSetV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the stateful set, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the stateful set, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
 }
 
-export function statefulSetV1SpecTemplateMetadataToTerraform(struct?: StatefulSetV1SpecTemplateMetadataOutputReference | StatefulSetV1SpecTemplateMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateMetadataToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateMetadataOutputReference
+    | StatefulSetV1SpecTemplateMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     generate_name: cdktf.stringToTerraform(struct!.generateName),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -523,15 +599,16 @@ export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateMetadata | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateMetadata | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._annotations = undefined;
       this._generateName = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -541,7 +618,7 @@ export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.Comp
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -557,7 +634,7 @@ export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.Comp
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -578,7 +655,7 @@ export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.Comp
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -594,7 +671,7 @@ export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.Comp
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -621,35 +698,43 @@ export class StatefulSetV1SpecTemplateMetadataOutputReference extends cdktf.Comp
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * Operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * Values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * Values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -657,16 +742,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -687,19 +785,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -709,7 +810,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -725,7 +826,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -741,7 +842,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -758,81 +859,125 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference {
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceOutputReference | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._matchExpressions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._matchExpressions.internalValue = value.matchExpressions;
     }
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -845,28 +990,39 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution {
   /**
-  * weight is in the range 1-100
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#weight StatefulSetV1#weight}
-  */
+   * weight is in the range 1-100
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#weight StatefulSetV1#weight}
+   */
   readonly weight: number;
   /**
-  * preference block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preference StatefulSetV1#preference}
-  */
+   * preference block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preference StatefulSetV1#preference}
+   */
   readonly preference: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     weight: cdktf.numberToTerraform(struct!.weight),
-    preference: statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceToTerraform(struct!.preference),
-  }
+    preference:
+      statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceToTerraform(
+        struct!.preference,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference extends cdktf.ComplexObject {
@@ -874,16 +1030,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -900,18 +1069,21 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._weight = undefined;
       this._preference.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._weight = value.weight;
@@ -920,7 +1092,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -933,11 +1105,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
   }
 
   // preference - computed: false, optional: false, required: true
-  private _preference = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceOutputReference(this, "preference");
+  private _preference =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceOutputReference(
+      this,
+      'preference',
+    );
   public get preference() {
     return this._preference;
   }
-  public putPreference(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference) {
+  public putPreference(
+    value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference,
+  ) {
     this._preference.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -947,55 +1125,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSch
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * Operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * Values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * Values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -1003,16 +1202,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1033,19 +1245,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -1055,7 +1270,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1071,7 +1286,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1087,7 +1302,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1104,41 +1319,67 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm {
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermOutputReference extends cdktf.ComplexObject {
@@ -1146,16 +1387,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1163,22 +1417,26 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
     const internalValueResult: any = {};
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchExpressions.internalValue = value.matchExpressions;
@@ -1186,11 +1444,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -1203,81 +1470,125 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution {
   /**
-  * node_selector_term block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_selector_term StatefulSetV1#node_selector_term}
-  */
-  readonly nodeSelectorTerm?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm[] | cdktf.IResolvable;
+   * node_selector_term block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_selector_term StatefulSetV1#node_selector_term}
+   */
+  readonly nodeSelectorTerm?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    node_selector_term: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermToTerraform, true)(struct!.nodeSelectorTerm),
-  }
+    node_selector_term: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermToTerraform,
+      true,
+    )(struct!.nodeSelectorTerm),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._nodeSelectorTerm?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodeSelectorTerm = this._nodeSelectorTerm?.internalValue;
+      internalValueResult.nodeSelectorTerm =
+        this._nodeSelectorTerm?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._nodeSelectorTerm.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._nodeSelectorTerm.internalValue = value.nodeSelectorTerm;
     }
   }
 
   // node_selector_term - computed: false, optional: true, required: false
-  private _nodeSelectorTerm = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermList(this, "node_selector_term", false);
+  private _nodeSelectorTerm =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermList(
+      this,
+      'node_selector_term',
+      false,
+    );
   public get nodeSelectorTerm() {
     return this._nodeSelectorTerm;
   }
-  public putNodeSelectorTerm(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm[] | cdktf.IResolvable) {
+  public putNodeSelectorTerm(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerm[]
+      | cdktf.IResolvable,
+  ) {
     this._nodeSelectorTerm.internalValue = value;
   }
   public resetNodeSelectorTerm() {
@@ -1290,78 +1601,122 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSche
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityNodeAffinity {
   /**
-  * preferred_during_scheduling_ignored_during_execution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preferred_during_scheduling_ignored_during_execution StatefulSetV1#preferred_during_scheduling_ignored_during_execution}
-  */
-  readonly preferredDuringSchedulingIgnoredDuringExecution?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable;
+   * preferred_during_scheduling_ignored_during_execution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preferred_during_scheduling_ignored_during_execution StatefulSetV1#preferred_during_scheduling_ignored_during_execution}
+   */
+  readonly preferredDuringSchedulingIgnoredDuringExecution?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
   /**
-  * required_during_scheduling_ignored_during_execution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#required_during_scheduling_ignored_during_execution StatefulSetV1#required_during_scheduling_ignored_during_execution}
-  */
+   * required_during_scheduling_ignored_during_execution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#required_during_scheduling_ignored_during_execution StatefulSetV1#required_during_scheduling_ignored_during_execution}
+   */
   readonly requiredDuringSchedulingIgnoredDuringExecution?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference | StatefulSetV1SpecTemplateSpecAffinityNodeAffinity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityNodeAffinityToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    preferred_during_scheduling_ignored_during_execution: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform, true)(struct!.preferredDuringSchedulingIgnoredDuringExecution),
-    required_during_scheduling_ignored_during_execution: statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(struct!.requiredDuringSchedulingIgnoredDuringExecution),
-  }
+    preferred_during_scheduling_ignored_during_execution: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform,
+      true,
+    )(struct!.preferredDuringSchedulingIgnoredDuringExecution),
+    required_during_scheduling_ignored_during_execution:
+      statefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(
+        struct!.requiredDuringSchedulingIgnoredDuringExecution,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityNodeAffinity | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityNodeAffinity
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
-    if (this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue !== undefined) {
+    if (
+      this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue !==
+      undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.preferredDuringSchedulingIgnoredDuringExecution = this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue;
+      internalValueResult.preferredDuringSchedulingIgnoredDuringExecution =
+        this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue;
     }
-    if (this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue !== undefined) {
+    if (
+      this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue !==
+      undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.requiredDuringSchedulingIgnoredDuringExecution = this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue;
+      internalValueResult.requiredDuringSchedulingIgnoredDuringExecution =
+        this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinity | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinity | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
-      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
-    }
-    else {
+      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+        undefined;
+      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+        undefined;
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = value.preferredDuringSchedulingIgnoredDuringExecution;
-      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = value.requiredDuringSchedulingIgnoredDuringExecution;
+      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+        value.preferredDuringSchedulingIgnoredDuringExecution;
+      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+        value.requiredDuringSchedulingIgnoredDuringExecution;
     }
   }
 
   // preferred_during_scheduling_ignored_during_execution - computed: false, optional: true, required: false
-  private _preferredDuringSchedulingIgnoredDuringExecution = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionList(this, "preferred_during_scheduling_ignored_during_execution", false);
+  private _preferredDuringSchedulingIgnoredDuringExecution =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionList(
+      this,
+      'preferred_during_scheduling_ignored_during_execution',
+      false,
+    );
   public get preferredDuringSchedulingIgnoredDuringExecution() {
     return this._preferredDuringSchedulingIgnoredDuringExecution;
   }
-  public putPreferredDuringSchedulingIgnoredDuringExecution(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable) {
+  public putPreferredDuringSchedulingIgnoredDuringExecution(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+      | cdktf.IResolvable,
+  ) {
     this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = value;
   }
   public resetPreferredDuringSchedulingIgnoredDuringExecution() {
-    this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
+    this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+      undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get preferredDuringSchedulingIgnoredDuringExecutionInput() {
@@ -1369,15 +1724,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference ex
   }
 
   // required_during_scheduling_ignored_during_execution - computed: false, optional: true, required: false
-  private _requiredDuringSchedulingIgnoredDuringExecution = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference(this, "required_during_scheduling_ignored_during_execution");
+  private _requiredDuringSchedulingIgnoredDuringExecution =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference(
+      this,
+      'required_during_scheduling_ignored_during_execution',
+    );
   public get requiredDuringSchedulingIgnoredDuringExecution() {
     return this._requiredDuringSchedulingIgnoredDuringExecution;
   }
-  public putRequiredDuringSchedulingIgnoredDuringExecution(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution) {
+  public putRequiredDuringSchedulingIgnoredDuringExecution(
+    value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution,
+  ) {
     this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = value;
   }
   public resetRequiredDuringSchedulingIgnoredDuringExecution() {
-    this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
+    this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+      undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get requiredDuringSchedulingIgnoredDuringExecutionInput() {
@@ -1386,35 +1748,43 @@ export class StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference ex
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -1422,16 +1792,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1452,19 +1835,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -1474,7 +1860,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1490,7 +1876,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1506,7 +1892,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1523,48 +1909,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -1572,16 +1986,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1593,23 +2020,27 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -1618,7 +2049,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -1634,11 +2065,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -1651,69 +2091,103 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm {
   /**
-  * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
-  */
+   * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
+   */
   readonly namespaces?: string[];
   /**
-  * empty topology key is interpreted by the scheduler as 'all topologies'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
-  */
+   * empty topology key is interpreted by the scheduler as 'all topologies'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
+   */
   readonly topologyKey: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
-  */
-  readonly labelSelector?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
+   */
+  readonly labelSelector?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    namespaces: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.namespaces),
+    namespaces: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.namespaces),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
-    label_selector: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._namespaces !== undefined) {
@@ -1731,14 +2205,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._namespaces = undefined;
       this._topologyKey = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._namespaces = value.namespaces;
       this._topologyKey = value.topologyKey;
@@ -1747,7 +2224,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // namespaces - computed: false, optional: true, required: false
-  private _namespaces?: string[]; 
+  private _namespaces?: string[];
   public get namespaces() {
     return cdktf.Fn.tolist(this.getListAttribute('namespaces'));
   }
@@ -1763,7 +2240,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // topology_key - computed: false, optional: false, required: true
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -1776,11 +2253,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -1793,28 +2279,39 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution {
   /**
-  * weight associated with matching the corresponding podAffinityTerm, in the range 1-100
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#weight StatefulSetV1#weight}
-  */
+   * weight associated with matching the corresponding podAffinityTerm, in the range 1-100
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#weight StatefulSetV1#weight}
+   */
   readonly weight: number;
   /**
-  * pod_affinity_term block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_affinity_term StatefulSetV1#pod_affinity_term}
-  */
+   * pod_affinity_term block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_affinity_term StatefulSetV1#pod_affinity_term}
+   */
   readonly podAffinityTerm: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     weight: cdktf.numberToTerraform(struct!.weight),
-    pod_affinity_term: statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(struct!.podAffinityTerm),
-  }
+    pod_affinity_term:
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(
+        struct!.podAffinityTerm,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference extends cdktf.ComplexObject {
@@ -1822,16 +2319,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1843,23 +2353,27 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
     }
     if (this._podAffinityTerm?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.podAffinityTerm = this._podAffinityTerm?.internalValue;
+      internalValueResult.podAffinityTerm =
+        this._podAffinityTerm?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._weight = undefined;
       this._podAffinityTerm.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._weight = value.weight;
@@ -1868,7 +2382,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -1881,11 +2395,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
   }
 
   // pod_affinity_term - computed: false, optional: false, required: true
-  private _podAffinityTerm = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference(this, "pod_affinity_term");
+  private _podAffinityTerm =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference(
+      this,
+      'pod_affinity_term',
+    );
   public get podAffinityTerm() {
     return this._podAffinityTerm;
   }
-  public putPodAffinityTerm(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm) {
+  public putPodAffinityTerm(
+    value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm,
+  ) {
     this._podAffinityTerm.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1895,55 +2415,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSche
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -1951,16 +2492,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1981,19 +2535,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2003,7 +2560,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2019,7 +2576,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2035,7 +2592,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2052,48 +2609,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -2101,16 +2686,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2122,23 +2720,27 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -2147,7 +2749,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2163,11 +2765,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -2180,55 +2791,84 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution {
   /**
-  * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
-  */
+   * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
+   */
   readonly namespaces?: string[];
   /**
-  * empty topology key is interpreted by the scheduler as 'all topologies'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
-  */
+   * empty topology key is interpreted by the scheduler as 'all topologies'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
+   */
   readonly topologyKey: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
-  */
-  readonly labelSelector?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
+   */
+  readonly labelSelector?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    namespaces: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.namespaces),
+    namespaces: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.namespaces),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
-    label_selector: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference extends cdktf.ComplexObject {
@@ -2236,16 +2876,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2266,19 +2919,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._namespaces = undefined;
       this._topologyKey = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._namespaces = value.namespaces;
@@ -2288,7 +2944,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // namespaces - computed: false, optional: true, required: false
-  private _namespaces?: string[]; 
+  private _namespaces?: string[];
   public get namespaces() {
     return cdktf.Fn.tolist(this.getListAttribute('namespaces'));
   }
@@ -2304,7 +2960,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // topology_key - computed: false, optional: false, required: true
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -2317,11 +2973,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -2334,98 +2999,157 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSched
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAffinity {
   /**
-  * preferred_during_scheduling_ignored_during_execution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preferred_during_scheduling_ignored_during_execution StatefulSetV1#preferred_during_scheduling_ignored_during_execution}
-  */
-  readonly preferredDuringSchedulingIgnoredDuringExecution?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable;
+   * preferred_during_scheduling_ignored_during_execution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preferred_during_scheduling_ignored_during_execution StatefulSetV1#preferred_during_scheduling_ignored_during_execution}
+   */
+  readonly preferredDuringSchedulingIgnoredDuringExecution?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
   /**
-  * required_during_scheduling_ignored_during_execution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#required_during_scheduling_ignored_during_execution StatefulSetV1#required_during_scheduling_ignored_during_execution}
-  */
-  readonly requiredDuringSchedulingIgnoredDuringExecution?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable;
+   * required_during_scheduling_ignored_during_execution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#required_during_scheduling_ignored_during_execution StatefulSetV1#required_during_scheduling_ignored_during_execution}
+   */
+  readonly requiredDuringSchedulingIgnoredDuringExecution?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAffinityToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference | StatefulSetV1SpecTemplateSpecAffinityPodAffinity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAffinityToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    preferred_during_scheduling_ignored_during_execution: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform, true)(struct!.preferredDuringSchedulingIgnoredDuringExecution),
-    required_during_scheduling_ignored_during_execution: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform, true)(struct!.requiredDuringSchedulingIgnoredDuringExecution),
-  }
+    preferred_during_scheduling_ignored_during_execution: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform,
+      true,
+    )(struct!.preferredDuringSchedulingIgnoredDuringExecution),
+    required_during_scheduling_ignored_during_execution: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform,
+      true,
+    )(struct!.requiredDuringSchedulingIgnoredDuringExecution),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAffinity | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAffinity
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
-    if (this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue !== undefined) {
+    if (
+      this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue !==
+      undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.preferredDuringSchedulingIgnoredDuringExecution = this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue;
+      internalValueResult.preferredDuringSchedulingIgnoredDuringExecution =
+        this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue;
     }
-    if (this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue !== undefined) {
+    if (
+      this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue !==
+      undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.requiredDuringSchedulingIgnoredDuringExecution = this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue;
+      internalValueResult.requiredDuringSchedulingIgnoredDuringExecution =
+        this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinity | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecAffinityPodAffinity | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
-      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
-    }
-    else {
+      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+        undefined;
+      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+        undefined;
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = value.preferredDuringSchedulingIgnoredDuringExecution;
-      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = value.requiredDuringSchedulingIgnoredDuringExecution;
+      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+        value.preferredDuringSchedulingIgnoredDuringExecution;
+      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+        value.requiredDuringSchedulingIgnoredDuringExecution;
     }
   }
 
   // preferred_during_scheduling_ignored_during_execution - computed: false, optional: true, required: false
-  private _preferredDuringSchedulingIgnoredDuringExecution = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionList(this, "preferred_during_scheduling_ignored_during_execution", false);
+  private _preferredDuringSchedulingIgnoredDuringExecution =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionList(
+      this,
+      'preferred_during_scheduling_ignored_during_execution',
+      false,
+    );
   public get preferredDuringSchedulingIgnoredDuringExecution() {
     return this._preferredDuringSchedulingIgnoredDuringExecution;
   }
-  public putPreferredDuringSchedulingIgnoredDuringExecution(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable) {
+  public putPreferredDuringSchedulingIgnoredDuringExecution(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+      | cdktf.IResolvable,
+  ) {
     this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = value;
   }
   public resetPreferredDuringSchedulingIgnoredDuringExecution() {
-    this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
+    this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+      undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get preferredDuringSchedulingIgnoredDuringExecutionInput() {
@@ -2433,15 +3157,25 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference ext
   }
 
   // required_during_scheduling_ignored_during_execution - computed: false, optional: true, required: false
-  private _requiredDuringSchedulingIgnoredDuringExecution = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionList(this, "required_during_scheduling_ignored_during_execution", false);
+  private _requiredDuringSchedulingIgnoredDuringExecution =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionList(
+      this,
+      'required_during_scheduling_ignored_during_execution',
+      false,
+    );
   public get requiredDuringSchedulingIgnoredDuringExecution() {
     return this._requiredDuringSchedulingIgnoredDuringExecution;
   }
-  public putRequiredDuringSchedulingIgnoredDuringExecution(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable) {
+  public putRequiredDuringSchedulingIgnoredDuringExecution(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[]
+      | cdktf.IResolvable,
+  ) {
     this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = value;
   }
   public resetRequiredDuringSchedulingIgnoredDuringExecution() {
-    this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
+    this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+      undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get requiredDuringSchedulingIgnoredDuringExecutionInput() {
@@ -2450,35 +3184,43 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference ext
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -2486,16 +3228,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2516,19 +3271,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2538,7 +3296,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2554,7 +3312,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2570,7 +3328,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2587,48 +3345,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -2636,16 +3422,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2657,23 +3456,27 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -2682,7 +3485,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2698,11 +3501,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -2715,69 +3527,103 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm {
   /**
-  * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
-  */
+   * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
+   */
   readonly namespaces?: string[];
   /**
-  * empty topology key is interpreted by the scheduler as 'all topologies'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
-  */
+   * empty topology key is interpreted by the scheduler as 'all topologies'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
+   */
   readonly topologyKey: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
-  */
-  readonly labelSelector?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
+   */
+  readonly labelSelector?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    namespaces: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.namespaces),
+    namespaces: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.namespaces),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
-    label_selector: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._namespaces !== undefined) {
@@ -2795,14 +3641,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._namespaces = undefined;
       this._topologyKey = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._namespaces = value.namespaces;
       this._topologyKey = value.topologyKey;
@@ -2811,7 +3660,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // namespaces - computed: false, optional: true, required: false
-  private _namespaces?: string[]; 
+  private _namespaces?: string[];
   public get namespaces() {
     return cdktf.Fn.tolist(this.getListAttribute('namespaces'));
   }
@@ -2827,7 +3676,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // topology_key - computed: false, optional: false, required: true
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -2840,11 +3689,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -2857,28 +3715,39 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution {
   /**
-  * weight associated with matching the corresponding podAffinityTerm, in the range 1-100
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#weight StatefulSetV1#weight}
-  */
+   * weight associated with matching the corresponding podAffinityTerm, in the range 1-100
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#weight StatefulSetV1#weight}
+   */
   readonly weight: number;
   /**
-  * pod_affinity_term block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_affinity_term StatefulSetV1#pod_affinity_term}
-  */
+   * pod_affinity_term block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_affinity_term StatefulSetV1#pod_affinity_term}
+   */
   readonly podAffinityTerm: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     weight: cdktf.numberToTerraform(struct!.weight),
-    pod_affinity_term: statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(struct!.podAffinityTerm),
-  }
+    pod_affinity_term:
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermToTerraform(
+        struct!.podAffinityTerm,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference extends cdktf.ComplexObject {
@@ -2886,16 +3755,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2907,23 +3789,27 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
     }
     if (this._podAffinityTerm?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.podAffinityTerm = this._podAffinityTerm?.internalValue;
+      internalValueResult.podAffinityTerm =
+        this._podAffinityTerm?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._weight = undefined;
       this._podAffinityTerm.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._weight = value.weight;
@@ -2932,7 +3818,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // weight - computed: false, optional: false, required: true
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -2945,11 +3831,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
   }
 
   // pod_affinity_term - computed: false, optional: false, required: true
-  private _podAffinityTerm = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference(this, "pod_affinity_term");
+  private _podAffinityTerm =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermOutputReference(
+      this,
+      'pod_affinity_term',
+    );
   public get podAffinityTerm() {
     return this._podAffinityTerm;
   }
-  public putPodAffinityTerm(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm) {
+  public putPodAffinityTerm(
+    value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm,
+  ) {
     this._podAffinityTerm.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2959,55 +3851,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuring
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -3015,16 +3928,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3045,19 +3971,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -3067,7 +3996,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3083,7 +4012,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -3099,7 +4028,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -3116,48 +4045,76 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -3165,16 +4122,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3186,23 +4156,27 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -3211,7 +4185,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -3227,11 +4201,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -3244,55 +4227,84 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution {
   /**
-  * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
-  */
+   * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means 'this pod's namespace'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespaces StatefulSetV1#namespaces}
+   */
   readonly namespaces?: string[];
   /**
-  * empty topology key is interpreted by the scheduler as 'all topologies'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
-  */
+   * empty topology key is interpreted by the scheduler as 'all topologies'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
+   */
   readonly topologyKey: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
-  */
-  readonly labelSelector?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
+   */
+  readonly labelSelector?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    namespaces: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.namespaces),
+    namespaces: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.namespaces),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
-    label_selector: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference extends cdktf.ComplexObject {
@@ -3300,16 +4312,29 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3330,19 +4355,22 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._namespaces = undefined;
       this._topologyKey = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._namespaces = value.namespaces;
@@ -3352,7 +4380,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // namespaces - computed: false, optional: true, required: false
-  private _namespaces?: string[]; 
+  private _namespaces?: string[];
   public get namespaces() {
     return cdktf.Fn.tolist(this.getListAttribute('namespaces'));
   }
@@ -3368,7 +4396,7 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // topology_key - computed: false, optional: false, required: true
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -3381,11 +4409,20 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -3398,98 +4435,157 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringS
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference {
-    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference {
+    return new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity {
   /**
-  * preferred_during_scheduling_ignored_during_execution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preferred_during_scheduling_ignored_during_execution StatefulSetV1#preferred_during_scheduling_ignored_during_execution}
-  */
-  readonly preferredDuringSchedulingIgnoredDuringExecution?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable;
+   * preferred_during_scheduling_ignored_during_execution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#preferred_during_scheduling_ignored_during_execution StatefulSetV1#preferred_during_scheduling_ignored_during_execution}
+   */
+  readonly preferredDuringSchedulingIgnoredDuringExecution?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
   /**
-  * required_during_scheduling_ignored_during_execution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#required_during_scheduling_ignored_during_execution StatefulSetV1#required_during_scheduling_ignored_during_execution}
-  */
-  readonly requiredDuringSchedulingIgnoredDuringExecution?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable;
+   * required_during_scheduling_ignored_during_execution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#required_during_scheduling_ignored_during_execution StatefulSetV1#required_during_scheduling_ignored_during_execution}
+   */
+  readonly requiredDuringSchedulingIgnoredDuringExecution?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    preferred_during_scheduling_ignored_during_execution: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform, true)(struct!.preferredDuringSchedulingIgnoredDuringExecution),
-    required_during_scheduling_ignored_during_execution: cdktf.listMapper(statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform, true)(struct!.requiredDuringSchedulingIgnoredDuringExecution),
-  }
+    preferred_during_scheduling_ignored_during_execution: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionToTerraform,
+      true,
+    )(struct!.preferredDuringSchedulingIgnoredDuringExecution),
+    required_during_scheduling_ignored_during_execution: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionToTerraform,
+      true,
+    )(struct!.requiredDuringSchedulingIgnoredDuringExecution),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
-    if (this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue !== undefined) {
+    if (
+      this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue !==
+      undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.preferredDuringSchedulingIgnoredDuringExecution = this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue;
+      internalValueResult.preferredDuringSchedulingIgnoredDuringExecution =
+        this._preferredDuringSchedulingIgnoredDuringExecution?.internalValue;
     }
-    if (this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue !== undefined) {
+    if (
+      this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue !==
+      undefined
+    ) {
       hasAnyValues = true;
-      internalValueResult.requiredDuringSchedulingIgnoredDuringExecution = this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue;
+      internalValueResult.requiredDuringSchedulingIgnoredDuringExecution =
+        this._requiredDuringSchedulingIgnoredDuringExecution?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
-      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
-    }
-    else {
+      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+        undefined;
+      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+        undefined;
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = value.preferredDuringSchedulingIgnoredDuringExecution;
-      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = value.requiredDuringSchedulingIgnoredDuringExecution;
+      this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+        value.preferredDuringSchedulingIgnoredDuringExecution;
+      this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+        value.requiredDuringSchedulingIgnoredDuringExecution;
     }
   }
 
   // preferred_during_scheduling_ignored_during_execution - computed: false, optional: true, required: false
-  private _preferredDuringSchedulingIgnoredDuringExecution = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionList(this, "preferred_during_scheduling_ignored_during_execution", false);
+  private _preferredDuringSchedulingIgnoredDuringExecution =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionList(
+      this,
+      'preferred_during_scheduling_ignored_during_execution',
+      false,
+    );
   public get preferredDuringSchedulingIgnoredDuringExecution() {
     return this._preferredDuringSchedulingIgnoredDuringExecution;
   }
-  public putPreferredDuringSchedulingIgnoredDuringExecution(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable) {
+  public putPreferredDuringSchedulingIgnoredDuringExecution(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[]
+      | cdktf.IResolvable,
+  ) {
     this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = value;
   }
   public resetPreferredDuringSchedulingIgnoredDuringExecution() {
-    this._preferredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
+    this._preferredDuringSchedulingIgnoredDuringExecution.internalValue =
+      undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get preferredDuringSchedulingIgnoredDuringExecutionInput() {
@@ -3497,15 +4593,25 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference
   }
 
   // required_during_scheduling_ignored_during_execution - computed: false, optional: true, required: false
-  private _requiredDuringSchedulingIgnoredDuringExecution = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionList(this, "required_during_scheduling_ignored_during_execution", false);
+  private _requiredDuringSchedulingIgnoredDuringExecution =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionList(
+      this,
+      'required_during_scheduling_ignored_during_execution',
+      false,
+    );
   public get requiredDuringSchedulingIgnoredDuringExecution() {
     return this._requiredDuringSchedulingIgnoredDuringExecution;
   }
-  public putRequiredDuringSchedulingIgnoredDuringExecution(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[] | cdktf.IResolvable) {
+  public putRequiredDuringSchedulingIgnoredDuringExecution(
+    value:
+      | StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[]
+      | cdktf.IResolvable,
+  ) {
     this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = value;
   }
   public resetRequiredDuringSchedulingIgnoredDuringExecution() {
-    this._requiredDuringSchedulingIgnoredDuringExecution.internalValue = undefined;
+    this._requiredDuringSchedulingIgnoredDuringExecution.internalValue =
+      undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get requiredDuringSchedulingIgnoredDuringExecutionInput() {
@@ -3514,49 +4620,69 @@ export class StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference
 }
 export interface StatefulSetV1SpecTemplateSpecAffinity {
   /**
-  * node_affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_affinity StatefulSetV1#node_affinity}
-  */
+   * node_affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_affinity StatefulSetV1#node_affinity}
+   */
   readonly nodeAffinity?: StatefulSetV1SpecTemplateSpecAffinityNodeAffinity;
   /**
-  * pod_affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_affinity StatefulSetV1#pod_affinity}
-  */
+   * pod_affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_affinity StatefulSetV1#pod_affinity}
+   */
   readonly podAffinity?: StatefulSetV1SpecTemplateSpecAffinityPodAffinity;
   /**
-  * pod_anti_affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_anti_affinity StatefulSetV1#pod_anti_affinity}
-  */
+   * pod_anti_affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_anti_affinity StatefulSetV1#pod_anti_affinity}
+   */
   readonly podAntiAffinity?: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity;
 }
 
-export function statefulSetV1SpecTemplateSpecAffinityToTerraform(struct?: StatefulSetV1SpecTemplateSpecAffinityOutputReference | StatefulSetV1SpecTemplateSpecAffinity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecAffinityToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecAffinityOutputReference
+    | StatefulSetV1SpecTemplateSpecAffinity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    node_affinity: statefulSetV1SpecTemplateSpecAffinityNodeAffinityToTerraform(struct!.nodeAffinity),
-    pod_affinity: statefulSetV1SpecTemplateSpecAffinityPodAffinityToTerraform(struct!.podAffinity),
-    pod_anti_affinity: statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityToTerraform(struct!.podAntiAffinity),
-  }
+    node_affinity: statefulSetV1SpecTemplateSpecAffinityNodeAffinityToTerraform(
+      struct!.nodeAffinity,
+    ),
+    pod_affinity: statefulSetV1SpecTemplateSpecAffinityPodAffinityToTerraform(
+      struct!.podAffinity,
+    ),
+    pod_anti_affinity:
+      statefulSetV1SpecTemplateSpecAffinityPodAntiAffinityToTerraform(
+        struct!.podAntiAffinity,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecAffinityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecAffinity | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecAffinity
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._nodeAffinity?.internalValue !== undefined) {
@@ -3569,19 +4695,21 @@ export class StatefulSetV1SpecTemplateSpecAffinityOutputReference extends cdktf.
     }
     if (this._podAntiAffinity?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.podAntiAffinity = this._podAntiAffinity?.internalValue;
+      internalValueResult.podAntiAffinity =
+        this._podAntiAffinity?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecAffinity | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecAffinity | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._nodeAffinity.internalValue = undefined;
       this._podAffinity.internalValue = undefined;
       this._podAntiAffinity.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._nodeAffinity.internalValue = value.nodeAffinity;
       this._podAffinity.internalValue = value.podAffinity;
@@ -3590,11 +4718,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityOutputReference extends cdktf.
   }
 
   // node_affinity - computed: false, optional: true, required: false
-  private _nodeAffinity = new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference(this, "node_affinity");
+  private _nodeAffinity =
+    new StatefulSetV1SpecTemplateSpecAffinityNodeAffinityOutputReference(
+      this,
+      'node_affinity',
+    );
   public get nodeAffinity() {
     return this._nodeAffinity;
   }
-  public putNodeAffinity(value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinity) {
+  public putNodeAffinity(
+    value: StatefulSetV1SpecTemplateSpecAffinityNodeAffinity,
+  ) {
     this._nodeAffinity.internalValue = value;
   }
   public resetNodeAffinity() {
@@ -3606,11 +4740,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityOutputReference extends cdktf.
   }
 
   // pod_affinity - computed: false, optional: true, required: false
-  private _podAffinity = new StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference(this, "pod_affinity");
+  private _podAffinity =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAffinityOutputReference(
+      this,
+      'pod_affinity',
+    );
   public get podAffinity() {
     return this._podAffinity;
   }
-  public putPodAffinity(value: StatefulSetV1SpecTemplateSpecAffinityPodAffinity) {
+  public putPodAffinity(
+    value: StatefulSetV1SpecTemplateSpecAffinityPodAffinity,
+  ) {
     this._podAffinity.internalValue = value;
   }
   public resetPodAffinity() {
@@ -3622,11 +4762,17 @@ export class StatefulSetV1SpecTemplateSpecAffinityOutputReference extends cdktf.
   }
 
   // pod_anti_affinity - computed: false, optional: true, required: false
-  private _podAntiAffinity = new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference(this, "pod_anti_affinity");
+  private _podAntiAffinity =
+    new StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinityOutputReference(
+      this,
+      'pod_anti_affinity',
+    );
   public get podAntiAffinity() {
     return this._podAntiAffinity;
   }
-  public putPodAntiAffinity(value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity) {
+  public putPodAntiAffinity(
+    value: StatefulSetV1SpecTemplateSpecAffinityPodAntiAffinity,
+  ) {
     this._podAntiAffinity.internalValue = value;
   }
   public resetPodAntiAffinity() {
@@ -3639,49 +4785,62 @@ export class StatefulSetV1SpecTemplateSpecAffinityOutputReference extends cdktf.
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef {
   /**
-  * The key to select.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key to select.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Specify whether the ConfigMap or its key must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the ConfigMap or its key must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._key !== undefined) {
@@ -3699,14 +4858,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._name = value.name;
@@ -3715,7 +4877,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOu
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3731,7 +4893,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOu
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3747,7 +4909,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOu
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -3764,42 +4926,55 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOu
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -3813,13 +4988,16 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -3827,7 +5005,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputRef
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -3843,7 +5021,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputRef
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -3860,45 +5038,58 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
+   */
   readonly containerName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
+   */
   readonly resource: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -3916,14 +5107,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -3932,7 +5126,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefO
   }
 
   // container_name - computed: false, optional: true, required: false
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -3948,7 +5142,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefO
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -3964,7 +5158,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefO
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -3978,49 +5172,62 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefO
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef {
   /**
-  * The key of the secret to select from. Must be a valid secret key.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key of the secret to select from. Must be a valid secret key.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Specify whether the Secret or its key must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the Secret or its key must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._key !== undefined) {
@@ -4038,14 +5245,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._name = value.name;
@@ -4054,7 +5264,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutpu
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -4070,7 +5280,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutpu
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4086,7 +5296,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutpu
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -4103,61 +5313,87 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutpu
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvValueFrom {
   /**
-  * config_map_key_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_key_ref StatefulSetV1#config_map_key_ref}
-  */
+   * config_map_key_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_key_ref StatefulSetV1#config_map_key_ref}
+   */
   readonly configMapKeyRef?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
+   */
   readonly fieldRef?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
+   */
   readonly resourceFieldRef?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef;
   /**
-  * secret_key_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_key_ref StatefulSetV1#secret_key_ref}
-  */
+   * secret_key_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_key_ref StatefulSetV1#secret_key_ref}
+   */
   readonly secretKeyRef?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvValueFromToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvValueFrom): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvValueFromToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFrom,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    config_map_key_ref: statefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefToTerraform(struct!.configMapKeyRef),
-    field_ref: statefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: statefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefToTerraform(struct!.resourceFieldRef),
-    secret_key_ref: statefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefToTerraform(struct!.secretKeyRef),
-  }
+    config_map_key_ref:
+      statefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefToTerraform(
+        struct!.configMapKeyRef,
+      ),
+    field_ref:
+      statefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      statefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+    secret_key_ref:
+      statefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefToTerraform(
+        struct!.secretKeyRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvValueFrom | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvValueFrom
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._configMapKeyRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.configMapKeyRef = this._configMapKeyRef?.internalValue;
+      internalValueResult.configMapKeyRef =
+        this._configMapKeyRef?.internalValue;
     }
     if (this._fieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4165,7 +5401,8 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     if (this._secretKeyRef?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4174,15 +5411,16 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFrom | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvValueFrom | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._configMapKeyRef.internalValue = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
       this._secretKeyRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._configMapKeyRef.internalValue = value.configMapKeyRef;
       this._fieldRef.internalValue = value.fieldRef;
@@ -4192,11 +5430,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
   }
 
   // config_map_key_ref - computed: false, optional: true, required: false
-  private _configMapKeyRef = new StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOutputReference(this, "config_map_key_ref");
+  private _configMapKeyRef =
+    new StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRefOutputReference(
+      this,
+      'config_map_key_ref',
+    );
   public get configMapKeyRef() {
     return this._configMapKeyRef;
   }
-  public putConfigMapKeyRef(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef) {
+  public putConfigMapKeyRef(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromConfigMapKeyRef,
+  ) {
     this._configMapKeyRef.internalValue = value;
   }
   public resetConfigMapKeyRef() {
@@ -4208,11 +5452,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
   }
 
   // field_ref - computed: false, optional: true, required: false
-  private _fieldRef = new StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef) {
+  public putFieldRef(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   public resetFieldRef() {
@@ -4224,11 +5474,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef) {
+  public putResourceFieldRef(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -4240,11 +5496,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
   }
 
   // secret_key_ref - computed: false, optional: true, required: false
-  private _secretKeyRef = new StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutputReference(this, "secret_key_ref");
+  private _secretKeyRef =
+    new StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRefOutputReference(
+      this,
+      'secret_key_ref',
+    );
   public get secretKeyRef() {
     return this._secretKeyRef;
   }
-  public putSecretKeyRef(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef) {
+  public putSecretKeyRef(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvValueFromSecretKeyRef,
+  ) {
     this._secretKeyRef.internalValue = value;
   }
   public resetSecretKeyRef() {
@@ -4257,35 +5519,43 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference e
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnv {
   /**
-  * Name of the environment variable. Must be a C_IDENTIFIER
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the environment variable. Must be a C_IDENTIFIER
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
   /**
-  * value_from block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value_from StatefulSetV1#value_from}
-  */
+   * value_from block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value_from StatefulSetV1#value_from}
+   */
   readonly valueFrom?: StatefulSetV1SpecTemplateSpecContainerEnvValueFrom;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnv | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecContainerEnv | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-    value_from: statefulSetV1SpecTemplateSpecContainerEnvValueFromToTerraform(struct!.valueFrom),
-  }
+    value_from: statefulSetV1SpecTemplateSpecContainerEnvValueFromToTerraform(
+      struct!.valueFrom,
+    ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cdktf.ComplexObject {
@@ -4293,16 +5563,29 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnv | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnv
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4323,19 +5606,22 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnv | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnv
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
       this._valueFrom.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -4345,7 +5631,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cd
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4358,7 +5644,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cd
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -4374,11 +5660,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cd
   }
 
   // value_from - computed: false, optional: true, required: false
-  private _valueFrom = new StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference(this, "value_from");
+  private _valueFrom =
+    new StatefulSetV1SpecTemplateSpecContainerEnvValueFromOutputReference(
+      this,
+      'value_from',
+    );
   public get valueFrom() {
     return this._valueFrom;
   }
-  public putValueFrom(value: StatefulSetV1SpecTemplateSpecContainerEnvValueFrom) {
+  public putValueFrom(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvValueFrom,
+  ) {
     this._valueFrom.internalValue = value;
   }
   public resetValueFrom() {
@@ -4391,62 +5683,88 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvOutputReference extends cd
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerEnv[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerEnv[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerEnvOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerEnvOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerEnvOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Specify whether the ConfigMap must be defined
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the ConfigMap must be defined
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4460,13 +5778,16 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._optional = value.optional;
@@ -4474,7 +5795,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputRefe
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4487,7 +5808,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputRefe
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -4504,42 +5825,55 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputRefe
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef {
   /**
-  * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Specify whether the Secret must be defined
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the Secret must be defined
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvFromSecretRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReference | StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvFromSecretRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4553,13 +5887,14 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._optional = value.optional;
@@ -4567,7 +5902,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReferen
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4580,7 +5915,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReferen
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -4597,35 +5932,47 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReferen
 }
 export interface StatefulSetV1SpecTemplateSpecContainerEnvFrom {
   /**
-  * An optional identifer to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#prefix StatefulSetV1#prefix}
-  */
+   * An optional identifer to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#prefix StatefulSetV1#prefix}
+   */
   readonly prefix?: string;
   /**
-  * config_map_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_ref StatefulSetV1#config_map_ref}
-  */
+   * config_map_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_ref StatefulSetV1#config_map_ref}
+   */
   readonly configMapRef?: StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
+   */
   readonly secretRef?: StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerEnvFromToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerEnvFrom | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerEnvFromToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecContainerEnvFrom | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     prefix: cdktf.stringToTerraform(struct!.prefix),
-    config_map_ref: statefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefToTerraform(struct!.configMapRef),
-    secret_ref: statefulSetV1SpecTemplateSpecContainerEnvFromSecretRefToTerraform(struct!.secretRef),
-  }
+    config_map_ref:
+      statefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefToTerraform(
+        struct!.configMapRef,
+      ),
+    secret_ref:
+      statefulSetV1SpecTemplateSpecContainerEnvFromSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extends cdktf.ComplexObject {
@@ -4633,16 +5980,29 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerEnvFrom | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerEnvFrom
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4663,19 +6023,22 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerEnvFrom | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerEnvFrom
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._prefix = undefined;
       this._configMapRef.internalValue = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._prefix = value.prefix;
@@ -4685,7 +6048,7 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extend
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -4701,11 +6064,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extend
   }
 
   // config_map_ref - computed: false, optional: true, required: false
-  private _configMapRef = new StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputReference(this, "config_map_ref");
+  private _configMapRef =
+    new StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRefOutputReference(
+      this,
+      'config_map_ref',
+    );
   public get configMapRef() {
     return this._configMapRef;
   }
-  public putConfigMapRef(value: StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef) {
+  public putConfigMapRef(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvFromConfigMapRef,
+  ) {
     this._configMapRef.internalValue = value;
   }
   public resetConfigMapRef() {
@@ -4717,11 +6086,17 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extend
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef) {
+  public putSecretRef(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvFromSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -4734,55 +6109,81 @@ export class StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference extend
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerEnvFromList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerEnvFrom[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvFrom[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerEnvFromOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputReference | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -4792,19 +6193,22 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -4821,28 +6225,36 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputR
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -4850,16 +6262,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4876,18 +6301,21 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -4896,7 +6324,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4912,7 +6340,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttp
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -4929,83 +6357,114 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttp
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutputReference | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -5031,7 +6490,11 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -5039,8 +6502,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -5051,7 +6513,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -5067,7 +6529,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -5083,7 +6545,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -5099,7 +6561,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -5115,11 +6577,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -5132,21 +6603,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutp
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -5154,16 +6633,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOu
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5176,17 +6668,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -5194,7 +6689,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOu
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -5208,55 +6703,86 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOu
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart {
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePostStartToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    exec: statefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecToTerraform(struct!.exec),
-    http_get: statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecToTerraform(
+      struct!.exec,
+    ),
+    http_get:
+      statefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputReference extends cdktf.ComplexObject {
@@ -5264,16 +6790,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5294,19 +6833,22 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._exec.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._exec.internalValue = value.exec;
@@ -5316,11 +6858,17 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputRefer
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -5332,11 +6880,17 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputRefer
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -5348,11 +6902,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputRefer
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -5365,55 +6928,81 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputRefer
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputReference | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -5423,19 +7012,22 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -5452,28 +7044,36 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -5481,16 +7081,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5507,18 +7120,21 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -5527,7 +7143,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHe
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5543,7 +7159,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHe
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -5560,83 +7176,114 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHe
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutputReference | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -5662,7 +7309,11 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -5670,8 +7321,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -5682,7 +7332,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -5698,7 +7348,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -5714,7 +7364,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -5730,7 +7380,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -5746,11 +7396,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -5763,21 +7422,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutput
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -5785,16 +7452,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5807,17 +7487,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -5825,7 +7508,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutp
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -5839,55 +7522,86 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutp
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop {
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecyclePreStopToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    exec: statefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecToTerraform(struct!.exec),
-    http_get: statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecToTerraform(
+      struct!.exec,
+    ),
+    http_get:
+      statefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReference extends cdktf.ComplexObject {
@@ -5895,16 +7609,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5925,19 +7652,22 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._exec.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._exec.internalValue = value.exec;
@@ -5947,11 +7677,17 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReferen
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -5963,11 +7699,17 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReferen
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -5979,11 +7721,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReferen
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -5996,62 +7747,98 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReferen
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLifecycle {
   /**
-  * post_start block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#post_start StatefulSetV1#post_start}
-  */
-  readonly postStart?: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart[] | cdktf.IResolvable;
+   * post_start block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#post_start StatefulSetV1#post_start}
+   */
+  readonly postStart?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart[]
+    | cdktf.IResolvable;
   /**
-  * pre_stop block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pre_stop StatefulSetV1#pre_stop}
-  */
-  readonly preStop?: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop[] | cdktf.IResolvable;
+   * pre_stop block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pre_stop StatefulSetV1#pre_stop}
+   */
+  readonly preStop?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLifecycleToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference | StatefulSetV1SpecTemplateSpecContainerLifecycle): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLifecycleToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLifecycle,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    post_start: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLifecyclePostStartToTerraform, true)(struct!.postStart),
-    pre_stop: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLifecyclePreStopToTerraform, true)(struct!.preStop),
-  }
+    post_start: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLifecyclePostStartToTerraform,
+      true,
+    )(struct!.postStart),
+    pre_stop: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLifecyclePreStopToTerraform,
+      true,
+    )(struct!.preStop),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLifecycle | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLifecycle
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._postStart?.internalValue !== undefined) {
@@ -6065,13 +7852,14 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLifecycle | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerLifecycle | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._postStart.internalValue = undefined;
       this._preStop.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._postStart.internalValue = value.postStart;
       this._preStop.internalValue = value.preStop;
@@ -6079,11 +7867,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference exte
   }
 
   // post_start - computed: false, optional: true, required: false
-  private _postStart = new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartList(this, "post_start", false);
+  private _postStart =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePostStartList(
+      this,
+      'post_start',
+      false,
+    );
   public get postStart() {
     return this._postStart;
   }
-  public putPostStart(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart[] | cdktf.IResolvable) {
+  public putPostStart(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePostStart[]
+      | cdktf.IResolvable,
+  ) {
     this._postStart.internalValue = value;
   }
   public resetPostStart() {
@@ -6095,11 +7892,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference exte
   }
 
   // pre_stop - computed: false, optional: true, required: false
-  private _preStop = new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopList(this, "pre_stop", false);
+  private _preStop =
+    new StatefulSetV1SpecTemplateSpecContainerLifecyclePreStopList(
+      this,
+      'pre_stop',
+      false,
+    );
   public get preStop() {
     return this._preStop;
   }
-  public putPreStop(value: StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop[] | cdktf.IResolvable) {
+  public putPreStop(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLifecyclePreStop[]
+      | cdktf.IResolvable,
+  ) {
     this._preStop.internalValue = value;
   }
   public resetPreStop() {
@@ -6112,35 +7918,48 @@ export class StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference exte
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLivenessProbeExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputReference | StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLivenessProbeExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -6150,19 +7969,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -6179,28 +7999,36 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputRefere
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
+   */
   readonly service?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -6208,16 +8036,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputRefere
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -6234,18 +8075,21 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -6254,7 +8098,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputRefere
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -6267,7 +8111,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputRefere
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -6284,48 +8128,69 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputRefere
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -6333,16 +8198,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeade
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -6359,18 +8237,21 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeade
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -6379,7 +8260,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeade
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -6395,7 +8276,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeade
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -6412,83 +8293,114 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeade
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputReference | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -6514,7 +8426,11 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -6522,8 +8438,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -6534,7 +8449,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -6550,7 +8465,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6566,7 +8481,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -6582,7 +8497,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -6598,11 +8513,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -6615,21 +8539,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -6637,16 +8569,29 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputR
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -6659,17 +8604,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -6677,7 +8625,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputR
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -6691,85 +8639,110 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputR
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerLivenessProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
-  */
-  readonly grpc?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
+   */
+  readonly grpc?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerLivenessProbeToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference | StatefulSetV1SpecTemplateSpecContainerLivenessProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerLivenessProbeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -6777,25 +8750,41 @@ export function statefulSetV1SpecTemplateSpecContainerLivenessProbeToTerraform(s
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: statefulSetV1SpecTemplateSpecContainerLivenessProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecContainerLivenessProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      statefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerLivenessProbe | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerLivenessProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -6837,7 +8826,9 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbe | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerLivenessProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -6849,8 +8840,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -6865,7 +8855,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -6881,7 +8871,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -6897,7 +8887,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -6913,7 +8903,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -6929,7 +8919,7 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -6945,11 +8935,17 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecContainerLivenessProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -6961,11 +8957,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -6977,11 +8982,17 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -6993,11 +9004,20 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerLivenessProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -7010,41 +9030,47 @@ export class StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference 
 }
 export interface StatefulSetV1SpecTemplateSpecContainerPort {
   /**
-  * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_port StatefulSetV1#container_port}
-  */
+   * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_port StatefulSetV1#container_port}
+   */
   readonly containerPort: number;
   /**
-  * What host IP to bind the external port to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_ip StatefulSetV1#host_ip}
-  */
+   * What host IP to bind the external port to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_ip StatefulSetV1#host_ip}
+   */
   readonly hostIp?: string;
   /**
-  * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_port StatefulSetV1#host_port}
-  */
+   * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_port StatefulSetV1#host_port}
+   */
   readonly hostPort?: number;
   /**
-  * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Protocol for port. Must be UDP or TCP. Defaults to "TCP".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#protocol StatefulSetV1#protocol}
-  */
+   * Protocol for port. Must be UDP or TCP. Defaults to "TCP".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#protocol StatefulSetV1#protocol}
+   */
   readonly protocol?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerPortToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerPort | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerPortToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecContainerPort | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_port: cdktf.numberToTerraform(struct!.containerPort),
@@ -7052,7 +9078,7 @@ export function statefulSetV1SpecTemplateSpecContainerPortToTerraform(struct?: S
     host_port: cdktf.numberToTerraform(struct!.hostPort),
     name: cdktf.stringToTerraform(struct!.name),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends cdktf.ComplexObject {
@@ -7060,16 +9086,29 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerPort | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerPort
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7098,7 +9137,12 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerPort | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerPort
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -7107,12 +9151,10 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
       this._hostPort = undefined;
       this._name = undefined;
       this._protocol = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._containerPort = value.containerPort;
@@ -7124,7 +9166,7 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
   }
 
   // container_port - computed: false, optional: false, required: true
-  private _containerPort?: number; 
+  private _containerPort?: number;
   public get containerPort() {
     return this.getNumberAttribute('container_port');
   }
@@ -7137,7 +9179,7 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
   }
 
   // host_ip - computed: false, optional: true, required: false
-  private _hostIp?: string; 
+  private _hostIp?: string;
   public get hostIp() {
     return this.getStringAttribute('host_ip');
   }
@@ -7153,7 +9195,7 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
   }
 
   // host_port - computed: false, optional: true, required: false
-  private _hostPort?: number; 
+  private _hostPort?: number;
   public get hostPort() {
     return this.getNumberAttribute('host_port');
   }
@@ -7169,7 +9211,7 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7185,7 +9227,7 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -7202,55 +9244,81 @@ export class StatefulSetV1SpecTemplateSpecContainerPortOutputReference extends c
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerPortList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerPort[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerPort[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerPortOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerPortOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerPortOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerPortOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecContainerReadinessProbeExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputReference | StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerReadinessProbeExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -7260,19 +9328,20 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -7289,28 +9358,36 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputRefer
 }
 export interface StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
+   */
   readonly service?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -7318,16 +9395,29 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7344,18 +9434,21 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -7364,7 +9457,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputRefer
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -7377,7 +9470,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputRefer
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -7394,48 +9487,69 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputRefer
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -7443,16 +9557,29 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHead
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7469,18 +9596,21 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHead
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -7489,7 +9619,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHead
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7505,7 +9635,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHead
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -7522,83 +9652,114 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHead
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputReference | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -7624,7 +9785,11 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -7632,8 +9797,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -7644,7 +9808,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -7660,7 +9824,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7676,7 +9840,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -7692,7 +9856,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -7708,11 +9872,20 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -7725,21 +9898,29 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputRe
 }
 export interface StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -7747,16 +9928,29 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7769,17 +9963,20 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -7787,7 +9984,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutput
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -7801,85 +9998,110 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutput
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerReadinessProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
-  */
-  readonly grpc?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
+   */
+  readonly grpc?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerReadinessProbeToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference | StatefulSetV1SpecTemplateSpecContainerReadinessProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerReadinessProbeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -7887,25 +10109,41 @@ export function statefulSetV1SpecTemplateSpecContainerReadinessProbeToTerraform(
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: statefulSetV1SpecTemplateSpecContainerReadinessProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecContainerReadinessProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      statefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerReadinessProbe | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerReadinessProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -7947,7 +10185,9 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbe | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerReadinessProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -7959,8 +10199,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -7975,7 +10214,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -7991,7 +10230,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -8007,7 +10246,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -8023,7 +10262,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -8039,7 +10278,7 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -8055,11 +10294,17 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecContainerReadinessProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -8071,11 +10316,20 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -8087,11 +10341,17 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -8103,11 +10363,20 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerReadinessProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -8120,42 +10389,55 @@ export class StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference
 }
 export interface StatefulSetV1SpecTemplateSpecContainerResources {
   /**
-  * Describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#limits StatefulSetV1#limits}
-  */
+   * Describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#limits StatefulSetV1#limits}
+   */
   readonly limits?: { [key: string]: string };
   /**
-  * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#requests StatefulSetV1#requests}
-  */
+   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#requests StatefulSetV1#requests}
+   */
   readonly requests?: { [key: string]: string };
 }
 
-export function statefulSetV1SpecTemplateSpecContainerResourcesToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference | StatefulSetV1SpecTemplateSpecContainerResources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerResourcesToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerResources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     limits: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.limits),
     requests: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.requests),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerResources | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerResources
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._limits !== undefined) {
@@ -8169,13 +10451,14 @@ export class StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerResources | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerResources | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._limits = undefined;
       this._requests = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._limits = value.limits;
       this._requests = value.requests;
@@ -8183,7 +10466,7 @@ export class StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference exte
   }
 
   // limits - computed: true, optional: true, required: false
-  private _limits?: { [key: string]: string }; 
+  private _limits?: { [key: string]: string };
   public get limits() {
     return this.getStringMapAttribute('limits');
   }
@@ -8199,7 +10482,7 @@ export class StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference exte
   }
 
   // requests - computed: true, optional: true, required: false
-  private _requests?: { [key: string]: string }; 
+  private _requests?: { [key: string]: string };
   public get requests() {
     return this.getStringMapAttribute('requests');
   }
@@ -8216,42 +10499,55 @@ export class StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference exte
 }
 export interface StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities {
   /**
-  * Added capabilities
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#add StatefulSetV1#add}
-  */
+   * Added capabilities
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#add StatefulSetV1#add}
+   */
   readonly add?: string[];
   /**
-  * Removed capabilities
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#drop StatefulSetV1#drop}
-  */
+   * Removed capabilities
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#drop StatefulSetV1#drop}
+   */
   readonly drop?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOutputReference | StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     add: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.add),
     drop: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.drop),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._add !== undefined) {
@@ -8265,13 +10561,16 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._add = undefined;
       this._drop = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._add = value.add;
       this._drop = value.drop;
@@ -8279,7 +10578,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOu
   }
 
   // add - computed: false, optional: true, required: false
-  private _add?: string[]; 
+  private _add?: string[];
   public get add() {
     return this.getListAttribute('add');
   }
@@ -8295,7 +10594,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOu
   }
 
   // drop - computed: false, optional: true, required: false
-  private _drop?: string[]; 
+  private _drop?: string[];
   public get drop() {
     return this.getListAttribute('drop');
   }
@@ -8312,56 +10611,69 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOu
 }
 export interface StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions {
   /**
-  * Level is SELinux level label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#level StatefulSetV1#level}
-  */
+   * Level is SELinux level label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#level StatefulSetV1#level}
+   */
   readonly level?: string;
   /**
-  * Role is a SELinux role label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#role StatefulSetV1#role}
-  */
+   * Role is a SELinux role label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#role StatefulSetV1#role}
+   */
   readonly role?: string;
   /**
-  * Type is a SELinux type label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type is a SELinux type label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
   /**
-  * User is a SELinux user label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
-  */
+   * User is a SELinux user label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
+   */
   readonly user?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsOutputReference | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._level !== undefined) {
@@ -8383,15 +10695,18 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._level = undefined;
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._level = value.level;
       this._role = value.role;
@@ -8401,7 +10716,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -8417,7 +10732,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -8433,7 +10748,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -8449,7 +10764,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -8466,42 +10781,55 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions
 }
 export interface StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile {
   /**
-  * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#localhost_profile StatefulSetV1#localhost_profile}
-  */
+   * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#localhost_profile StatefulSetV1#localhost_profile}
+   */
   readonly localhostProfile?: string;
   /**
-  * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileOutputReference | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     localhost_profile: cdktf.stringToTerraform(struct!.localhostProfile),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._localhostProfile !== undefined) {
@@ -8515,13 +10843,16 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._localhostProfile = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._localhostProfile = value.localhostProfile;
       this._type = value.type;
@@ -8529,7 +10860,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile
   }
 
   // localhost_profile - computed: false, optional: true, required: false
-  private _localhostProfile?: string; 
+  private _localhostProfile?: string;
   public get localhostProfile() {
     return this.getStringAttribute('localhost_profile');
   }
@@ -8545,7 +10876,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -8562,96 +10893,123 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile
 }
 export interface StatefulSetV1SpecTemplateSpecContainerSecurityContext {
   /**
-  * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#allow_privilege_escalation StatefulSetV1#allow_privilege_escalation}
-  */
+   * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#allow_privilege_escalation StatefulSetV1#allow_privilege_escalation}
+   */
   readonly allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   /**
-  * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#privileged StatefulSetV1#privileged}
-  */
+   * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#privileged StatefulSetV1#privileged}
+   */
   readonly privileged?: boolean | cdktf.IResolvable;
   /**
-  * Whether this container has a read-only root filesystem. Default is false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only_root_filesystem StatefulSetV1#read_only_root_filesystem}
-  */
+   * Whether this container has a read-only root filesystem. Default is false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only_root_filesystem StatefulSetV1#read_only_root_filesystem}
+   */
   readonly readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   /**
-  * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_group StatefulSetV1#run_as_group}
-  */
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_group StatefulSetV1#run_as_group}
+   */
   readonly runAsGroup?: string;
   /**
-  * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_non_root StatefulSetV1#run_as_non_root}
-  */
+   * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_non_root StatefulSetV1#run_as_non_root}
+   */
   readonly runAsNonRoot?: boolean | cdktf.IResolvable;
   /**
-  * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_user StatefulSetV1#run_as_user}
-  */
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_user StatefulSetV1#run_as_user}
+   */
   readonly runAsUser?: string;
   /**
-  * capabilities block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#capabilities StatefulSetV1#capabilities}
-  */
+   * capabilities block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#capabilities StatefulSetV1#capabilities}
+   */
   readonly capabilities?: StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities;
   /**
-  * se_linux_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#se_linux_options StatefulSetV1#se_linux_options}
-  */
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#se_linux_options StatefulSetV1#se_linux_options}
+   */
   readonly seLinuxOptions?: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions;
   /**
-  * seccomp_profile block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#seccomp_profile StatefulSetV1#seccomp_profile}
-  */
+   * seccomp_profile block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#seccomp_profile StatefulSetV1#seccomp_profile}
+   */
   readonly seccompProfile?: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerSecurityContextToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReference | StatefulSetV1SpecTemplateSpecContainerSecurityContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerSecurityContextToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    allow_privilege_escalation: cdktf.booleanToTerraform(struct!.allowPrivilegeEscalation),
+    allow_privilege_escalation: cdktf.booleanToTerraform(
+      struct!.allowPrivilegeEscalation,
+    ),
     privileged: cdktf.booleanToTerraform(struct!.privileged),
-    read_only_root_filesystem: cdktf.booleanToTerraform(struct!.readOnlyRootFilesystem),
+    read_only_root_filesystem: cdktf.booleanToTerraform(
+      struct!.readOnlyRootFilesystem,
+    ),
     run_as_group: cdktf.stringToTerraform(struct!.runAsGroup),
     run_as_non_root: cdktf.booleanToTerraform(struct!.runAsNonRoot),
     run_as_user: cdktf.stringToTerraform(struct!.runAsUser),
-    capabilities: statefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesToTerraform(struct!.capabilities),
-    se_linux_options: statefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsToTerraform(struct!.seLinuxOptions),
-    seccomp_profile: statefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileToTerraform(struct!.seccompProfile),
-  }
+    capabilities:
+      statefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesToTerraform(
+        struct!.capabilities,
+      ),
+    se_linux_options:
+      statefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsToTerraform(
+        struct!.seLinuxOptions,
+      ),
+    seccomp_profile:
+      statefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileToTerraform(
+        struct!.seccompProfile,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerSecurityContext | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerSecurityContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._allowPrivilegeEscalation !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allowPrivilegeEscalation = this._allowPrivilegeEscalation;
+      internalValueResult.allowPrivilegeEscalation =
+        this._allowPrivilegeEscalation;
     }
     if (this._privileged !== undefined) {
       hasAnyValues = true;
@@ -8688,7 +11046,9 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerSecurityContext | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerSecurityContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._allowPrivilegeEscalation = undefined;
@@ -8700,8 +11060,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
       this._capabilities.internalValue = undefined;
       this._seLinuxOptions.internalValue = undefined;
       this._seccompProfile.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowPrivilegeEscalation = value.allowPrivilegeEscalation;
       this._privileged = value.privileged;
@@ -8716,7 +11075,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // allow_privilege_escalation - computed: false, optional: true, required: false
-  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable; 
+  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   public get allowPrivilegeEscalation() {
     return this.getBooleanAttribute('allow_privilege_escalation');
   }
@@ -8732,7 +11091,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // privileged - computed: false, optional: true, required: false
-  private _privileged?: boolean | cdktf.IResolvable; 
+  private _privileged?: boolean | cdktf.IResolvable;
   public get privileged() {
     return this.getBooleanAttribute('privileged');
   }
@@ -8748,7 +11107,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // read_only_root_filesystem - computed: false, optional: true, required: false
-  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable; 
+  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   public get readOnlyRootFilesystem() {
     return this.getBooleanAttribute('read_only_root_filesystem');
   }
@@ -8764,7 +11123,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup?: string; 
+  private _runAsGroup?: string;
   public get runAsGroup() {
     return this.getStringAttribute('run_as_group');
   }
@@ -8780,7 +11139,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // run_as_non_root - computed: false, optional: true, required: false
-  private _runAsNonRoot?: boolean | cdktf.IResolvable; 
+  private _runAsNonRoot?: boolean | cdktf.IResolvable;
   public get runAsNonRoot() {
     return this.getBooleanAttribute('run_as_non_root');
   }
@@ -8796,7 +11155,7 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // run_as_user - computed: false, optional: true, required: false
-  private _runAsUser?: string; 
+  private _runAsUser?: string;
   public get runAsUser() {
     return this.getStringAttribute('run_as_user');
   }
@@ -8812,11 +11171,17 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // capabilities - computed: false, optional: true, required: false
-  private _capabilities = new StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOutputReference(this, "capabilities");
+  private _capabilities =
+    new StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilitiesOutputReference(
+      this,
+      'capabilities',
+    );
   public get capabilities() {
     return this._capabilities;
   }
-  public putCapabilities(value: StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities) {
+  public putCapabilities(
+    value: StatefulSetV1SpecTemplateSpecContainerSecurityContextCapabilities,
+  ) {
     this._capabilities.internalValue = value;
   }
   public resetCapabilities() {
@@ -8828,11 +11193,17 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsOutputReference(this, "se_linux_options");
+  private _seLinuxOptions =
+    new StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptionsOutputReference(
+      this,
+      'se_linux_options',
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions) {
+  public putSeLinuxOptions(
+    value: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeLinuxOptions,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -8844,11 +11215,17 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
   }
 
   // seccomp_profile - computed: false, optional: true, required: false
-  private _seccompProfile = new StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileOutputReference(this, "seccomp_profile");
+  private _seccompProfile =
+    new StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfileOutputReference(
+      this,
+      'seccomp_profile',
+    );
   public get seccompProfile() {
     return this._seccompProfile;
   }
-  public putSeccompProfile(value: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile) {
+  public putSeccompProfile(
+    value: StatefulSetV1SpecTemplateSpecContainerSecurityContextSeccompProfile,
+  ) {
     this._seccompProfile.internalValue = value;
   }
   public resetSeccompProfile() {
@@ -8861,35 +11238,48 @@ export class StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReferenc
 }
 export interface StatefulSetV1SpecTemplateSpecContainerStartupProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecContainerStartupProbeExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReference | StatefulSetV1SpecTemplateSpecContainerStartupProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerStartupProbeExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerStartupProbeExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -8899,19 +11289,20 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeExec | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerStartupProbeExec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -8928,28 +11319,36 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReferen
 }
 export interface StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
+   */
   readonly service?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerStartupProbeGrpcToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerStartupProbeGrpcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -8957,16 +11356,29 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8983,18 +11395,21 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -9003,7 +11418,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReferen
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -9016,7 +11431,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReferen
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -9033,48 +11448,69 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReferen
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -9082,16 +11518,29 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9108,18 +11557,21 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -9128,7 +11580,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -9144,7 +11596,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -9161,83 +11613,114 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputReference | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -9263,7 +11746,11 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -9271,8 +11758,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -9283,7 +11769,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -9299,7 +11785,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -9315,7 +11801,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -9331,7 +11817,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -9347,11 +11833,20 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -9364,21 +11859,29 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputRefe
 }
 export interface StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -9386,16 +11889,29 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputRe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9408,17 +11924,20 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -9426,7 +11945,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputRe
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -9440,85 +11959,110 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputRe
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainerStartupProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecContainerStartupProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
-  */
-  readonly grpc?: StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
+   */
+  readonly grpc?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerStartupProbeToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference | StatefulSetV1SpecTemplateSpecContainerStartupProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerStartupProbeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -9526,25 +12070,41 @@ export function statefulSetV1SpecTemplateSpecContainerStartupProbeToTerraform(st
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: statefulSetV1SpecTemplateSpecContainerStartupProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerStartupProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecContainerStartupProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerStartupProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      statefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerStartupProbe | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerStartupProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -9586,7 +12146,9 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerStartupProbe | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecContainerStartupProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -9598,8 +12160,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -9614,7 +12175,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -9630,7 +12191,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -9646,7 +12207,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -9662,7 +12223,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -9678,7 +12239,7 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -9694,11 +12255,17 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecContainerStartupProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecContainerStartupProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -9710,11 +12277,20 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -9726,11 +12302,17 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecContainerStartupProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -9742,11 +12324,20 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerStartupProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -9759,41 +12350,49 @@ export class StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference e
 }
 export interface StatefulSetV1SpecTemplateSpecContainerVolumeMount {
   /**
-  * Path within the container at which the volume should be mounted. Must not contain ':'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_path StatefulSetV1#mount_path}
-  */
+   * Path within the container at which the volume should be mounted. Must not contain ':'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_path StatefulSetV1#mount_path}
+   */
   readonly mountPath: string;
   /**
-  * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_propagation StatefulSetV1#mount_propagation}
-  */
+   * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_propagation StatefulSetV1#mount_propagation}
+   */
   readonly mountPropagation?: string;
   /**
-  * This must match the Name of a Volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * This must match the Name of a Volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sub_path StatefulSetV1#sub_path}
-  */
+   * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sub_path StatefulSetV1#sub_path}
+   */
   readonly subPath?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerVolumeMountToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainerVolumeMount | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerVolumeMountToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecContainerVolumeMount
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mount_path: cdktf.stringToTerraform(struct!.mountPath),
@@ -9801,7 +12400,7 @@ export function statefulSetV1SpecTemplateSpecContainerVolumeMountToTerraform(str
     name: cdktf.stringToTerraform(struct!.name),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     sub_path: cdktf.stringToTerraform(struct!.subPath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference extends cdktf.ComplexObject {
@@ -9809,16 +12408,29 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainerVolumeMount | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainerVolumeMount
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9847,7 +12459,12 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainerVolumeMount | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerVolumeMount
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -9856,12 +12473,10 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
       this._name = undefined;
       this._readOnly = undefined;
       this._subPath = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mountPath = value.mountPath;
@@ -9873,7 +12488,7 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
   }
 
   // mount_path - computed: false, optional: false, required: true
-  private _mountPath?: string; 
+  private _mountPath?: string;
   public get mountPath() {
     return this.getStringAttribute('mount_path');
   }
@@ -9886,7 +12501,7 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
   }
 
   // mount_propagation - computed: false, optional: true, required: false
-  private _mountPropagation?: string; 
+  private _mountPropagation?: string;
   public get mountPropagation() {
     return this.getStringAttribute('mount_propagation');
   }
@@ -9902,7 +12517,7 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -9915,7 +12530,7 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -9931,7 +12546,7 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
   }
 
   // sub_path - computed: false, optional: true, required: false
-  private _subPath?: string; 
+  private _subPath?: string;
   public get subPath() {
     return this.getStringAttribute('sub_path');
   }
@@ -9948,157 +12563,184 @@ export class StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference ex
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerVolumeMountList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainerVolumeMount[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainerVolumeMount[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerVolumeMountOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecContainer {
   /**
-  * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#args StatefulSetV1#args}
-  */
+   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#args StatefulSetV1#args}
+   */
   readonly args?: string[];
   /**
-  * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
   /**
-  * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image StatefulSetV1#image}
-  */
+   * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image StatefulSetV1#image}
+   */
   readonly image?: string;
   /**
-  * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image_pull_policy StatefulSetV1#image_pull_policy}
-  */
+   * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image_pull_policy StatefulSetV1#image_pull_policy}
+   */
   readonly imagePullPolicy?: string;
   /**
-  * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin StatefulSetV1#stdin}
-  */
+   * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin StatefulSetV1#stdin}
+   */
   readonly stdin?: boolean | cdktf.IResolvable;
   /**
-  * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin_once StatefulSetV1#stdin_once}
-  */
+   * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin_once StatefulSetV1#stdin_once}
+   */
   readonly stdinOnce?: boolean | cdktf.IResolvable;
   /**
-  * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_path StatefulSetV1#termination_message_path}
-  */
+   * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_path StatefulSetV1#termination_message_path}
+   */
   readonly terminationMessagePath?: string;
   /**
-  * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_policy StatefulSetV1#termination_message_policy}
-  */
+   * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_policy StatefulSetV1#termination_message_policy}
+   */
   readonly terminationMessagePolicy?: string;
   /**
-  * Whether this container should allocate a TTY for itself
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tty StatefulSetV1#tty}
-  */
+   * Whether this container should allocate a TTY for itself
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tty StatefulSetV1#tty}
+   */
   readonly tty?: boolean | cdktf.IResolvable;
   /**
-  * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#working_dir StatefulSetV1#working_dir}
-  */
+   * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#working_dir StatefulSetV1#working_dir}
+   */
   readonly workingDir?: string;
   /**
-  * env block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env StatefulSetV1#env}
-  */
-  readonly env?: StatefulSetV1SpecTemplateSpecContainerEnv[] | cdktf.IResolvable;
+   * env block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env StatefulSetV1#env}
+   */
+  readonly env?:
+    | StatefulSetV1SpecTemplateSpecContainerEnv[]
+    | cdktf.IResolvable;
   /**
-  * env_from block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env_from StatefulSetV1#env_from}
-  */
-  readonly envFrom?: StatefulSetV1SpecTemplateSpecContainerEnvFrom[] | cdktf.IResolvable;
+   * env_from block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env_from StatefulSetV1#env_from}
+   */
+  readonly envFrom?:
+    | StatefulSetV1SpecTemplateSpecContainerEnvFrom[]
+    | cdktf.IResolvable;
   /**
-  * lifecycle block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lifecycle StatefulSetV1#lifecycle}
-  */
+   * lifecycle block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lifecycle StatefulSetV1#lifecycle}
+   */
   readonly lifecycle?: StatefulSetV1SpecTemplateSpecContainerLifecycle;
   /**
-  * liveness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#liveness_probe StatefulSetV1#liveness_probe}
-  */
+   * liveness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#liveness_probe StatefulSetV1#liveness_probe}
+   */
   readonly livenessProbe?: StatefulSetV1SpecTemplateSpecContainerLivenessProbe;
   /**
-  * port block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
-  readonly port?: StatefulSetV1SpecTemplateSpecContainerPort[] | cdktf.IResolvable;
+   * port block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
+  readonly port?:
+    | StatefulSetV1SpecTemplateSpecContainerPort[]
+    | cdktf.IResolvable;
   /**
-  * readiness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#readiness_probe StatefulSetV1#readiness_probe}
-  */
+   * readiness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#readiness_probe StatefulSetV1#readiness_probe}
+   */
   readonly readinessProbe?: StatefulSetV1SpecTemplateSpecContainerReadinessProbe;
   /**
-  * resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resources StatefulSetV1#resources}
-  */
+   * resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resources StatefulSetV1#resources}
+   */
   readonly resources?: StatefulSetV1SpecTemplateSpecContainerResources;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#security_context StatefulSetV1#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#security_context StatefulSetV1#security_context}
+   */
   readonly securityContext?: StatefulSetV1SpecTemplateSpecContainerSecurityContext;
   /**
-  * startup_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#startup_probe StatefulSetV1#startup_probe}
-  */
+   * startup_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#startup_probe StatefulSetV1#startup_probe}
+   */
   readonly startupProbe?: StatefulSetV1SpecTemplateSpecContainerStartupProbe;
   /**
-  * volume_mount block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_mount StatefulSetV1#volume_mount}
-  */
-  readonly volumeMount?: StatefulSetV1SpecTemplateSpecContainerVolumeMount[] | cdktf.IResolvable;
+   * volume_mount block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_mount StatefulSetV1#volume_mount}
+   */
+  readonly volumeMount?:
+    | StatefulSetV1SpecTemplateSpecContainerVolumeMount[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecContainerToTerraform(struct?: StatefulSetV1SpecTemplateSpecContainer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecContainerToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecContainer | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     args: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.args),
@@ -10108,21 +12750,53 @@ export function statefulSetV1SpecTemplateSpecContainerToTerraform(struct?: State
     name: cdktf.stringToTerraform(struct!.name),
     stdin: cdktf.booleanToTerraform(struct!.stdin),
     stdin_once: cdktf.booleanToTerraform(struct!.stdinOnce),
-    termination_message_path: cdktf.stringToTerraform(struct!.terminationMessagePath),
-    termination_message_policy: cdktf.stringToTerraform(struct!.terminationMessagePolicy),
+    termination_message_path: cdktf.stringToTerraform(
+      struct!.terminationMessagePath,
+    ),
+    termination_message_policy: cdktf.stringToTerraform(
+      struct!.terminationMessagePolicy,
+    ),
     tty: cdktf.booleanToTerraform(struct!.tty),
     working_dir: cdktf.stringToTerraform(struct!.workingDir),
-    env: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerEnvToTerraform, true)(struct!.env),
-    env_from: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerEnvFromToTerraform, true)(struct!.envFrom),
-    lifecycle: statefulSetV1SpecTemplateSpecContainerLifecycleToTerraform(struct!.lifecycle),
-    liveness_probe: statefulSetV1SpecTemplateSpecContainerLivenessProbeToTerraform(struct!.livenessProbe),
-    port: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerPortToTerraform, true)(struct!.port),
-    readiness_probe: statefulSetV1SpecTemplateSpecContainerReadinessProbeToTerraform(struct!.readinessProbe),
-    resources: statefulSetV1SpecTemplateSpecContainerResourcesToTerraform(struct!.resources),
-    security_context: statefulSetV1SpecTemplateSpecContainerSecurityContextToTerraform(struct!.securityContext),
-    startup_probe: statefulSetV1SpecTemplateSpecContainerStartupProbeToTerraform(struct!.startupProbe),
-    volume_mount: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerVolumeMountToTerraform, true)(struct!.volumeMount),
-  }
+    env: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerEnvToTerraform,
+      true,
+    )(struct!.env),
+    env_from: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerEnvFromToTerraform,
+      true,
+    )(struct!.envFrom),
+    lifecycle: statefulSetV1SpecTemplateSpecContainerLifecycleToTerraform(
+      struct!.lifecycle,
+    ),
+    liveness_probe:
+      statefulSetV1SpecTemplateSpecContainerLivenessProbeToTerraform(
+        struct!.livenessProbe,
+      ),
+    port: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerPortToTerraform,
+      true,
+    )(struct!.port),
+    readiness_probe:
+      statefulSetV1SpecTemplateSpecContainerReadinessProbeToTerraform(
+        struct!.readinessProbe,
+      ),
+    resources: statefulSetV1SpecTemplateSpecContainerResourcesToTerraform(
+      struct!.resources,
+    ),
+    security_context:
+      statefulSetV1SpecTemplateSpecContainerSecurityContextToTerraform(
+        struct!.securityContext,
+      ),
+    startup_probe:
+      statefulSetV1SpecTemplateSpecContainerStartupProbeToTerraform(
+        struct!.startupProbe,
+      ),
+    volume_mount: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerVolumeMountToTerraform,
+      true,
+    )(struct!.volumeMount),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf.ComplexObject {
@@ -10130,16 +12804,29 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecContainer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecContainer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -10179,7 +12866,8 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
     }
     if (this._terminationMessagePolicy !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationMessagePolicy = this._terminationMessagePolicy;
+      internalValueResult.terminationMessagePolicy =
+        this._terminationMessagePolicy;
     }
     if (this._tty !== undefined) {
       hasAnyValues = true;
@@ -10219,7 +12907,8 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._startupProbe?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10232,7 +12921,12 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecContainer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainer
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -10257,12 +12951,10 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
       this._securityContext.internalValue = undefined;
       this._startupProbe.internalValue = undefined;
       this._volumeMount.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._args = value.args;
@@ -10290,7 +12982,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // args - computed: false, optional: true, required: false
-  private _args?: string[]; 
+  private _args?: string[];
   public get args() {
     return this.getListAttribute('args');
   }
@@ -10306,7 +12998,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -10322,7 +13014,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // image - computed: false, optional: true, required: false
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -10338,7 +13030,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // image_pull_policy - computed: true, optional: true, required: false
-  private _imagePullPolicy?: string; 
+  private _imagePullPolicy?: string;
   public get imagePullPolicy() {
     return this.getStringAttribute('image_pull_policy');
   }
@@ -10354,7 +13046,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -10367,7 +13059,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // stdin - computed: false, optional: true, required: false
-  private _stdin?: boolean | cdktf.IResolvable; 
+  private _stdin?: boolean | cdktf.IResolvable;
   public get stdin() {
     return this.getBooleanAttribute('stdin');
   }
@@ -10383,7 +13075,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // stdin_once - computed: false, optional: true, required: false
-  private _stdinOnce?: boolean | cdktf.IResolvable; 
+  private _stdinOnce?: boolean | cdktf.IResolvable;
   public get stdinOnce() {
     return this.getBooleanAttribute('stdin_once');
   }
@@ -10399,7 +13091,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // termination_message_path - computed: false, optional: true, required: false
-  private _terminationMessagePath?: string; 
+  private _terminationMessagePath?: string;
   public get terminationMessagePath() {
     return this.getStringAttribute('termination_message_path');
   }
@@ -10415,7 +13107,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // termination_message_policy - computed: true, optional: true, required: false
-  private _terminationMessagePolicy?: string; 
+  private _terminationMessagePolicy?: string;
   public get terminationMessagePolicy() {
     return this.getStringAttribute('termination_message_policy');
   }
@@ -10431,7 +13123,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // tty - computed: false, optional: true, required: false
-  private _tty?: boolean | cdktf.IResolvable; 
+  private _tty?: boolean | cdktf.IResolvable;
   public get tty() {
     return this.getBooleanAttribute('tty');
   }
@@ -10447,7 +13139,7 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // working_dir - computed: false, optional: true, required: false
-  private _workingDir?: string; 
+  private _workingDir?: string;
   public get workingDir() {
     return this.getStringAttribute('working_dir');
   }
@@ -10463,11 +13155,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new StatefulSetV1SpecTemplateSpecContainerEnvList(this, "env", false);
+  private _env = new StatefulSetV1SpecTemplateSpecContainerEnvList(
+    this,
+    'env',
+    false,
+  );
   public get env() {
     return this._env;
   }
-  public putEnv(value: StatefulSetV1SpecTemplateSpecContainerEnv[] | cdktf.IResolvable) {
+  public putEnv(
+    value: StatefulSetV1SpecTemplateSpecContainerEnv[] | cdktf.IResolvable,
+  ) {
     this._env.internalValue = value;
   }
   public resetEnv() {
@@ -10479,11 +13177,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // env_from - computed: false, optional: true, required: false
-  private _envFrom = new StatefulSetV1SpecTemplateSpecContainerEnvFromList(this, "env_from", false);
+  private _envFrom = new StatefulSetV1SpecTemplateSpecContainerEnvFromList(
+    this,
+    'env_from',
+    false,
+  );
   public get envFrom() {
     return this._envFrom;
   }
-  public putEnvFrom(value: StatefulSetV1SpecTemplateSpecContainerEnvFrom[] | cdktf.IResolvable) {
+  public putEnvFrom(
+    value: StatefulSetV1SpecTemplateSpecContainerEnvFrom[] | cdktf.IResolvable,
+  ) {
     this._envFrom.internalValue = value;
   }
   public resetEnvFrom() {
@@ -10495,7 +13199,11 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // lifecycle - computed: false, optional: true, required: false
-  private _lifecycle = new StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference(this, "lifecycle");
+  private _lifecycle =
+    new StatefulSetV1SpecTemplateSpecContainerLifecycleOutputReference(
+      this,
+      'lifecycle',
+    );
   public get lifecycle() {
     return this._lifecycle;
   }
@@ -10511,11 +13219,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // liveness_probe - computed: false, optional: true, required: false
-  private _livenessProbe = new StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference(this, "liveness_probe");
+  private _livenessProbe =
+    new StatefulSetV1SpecTemplateSpecContainerLivenessProbeOutputReference(
+      this,
+      'liveness_probe',
+    );
   public get livenessProbe() {
     return this._livenessProbe;
   }
-  public putLivenessProbe(value: StatefulSetV1SpecTemplateSpecContainerLivenessProbe) {
+  public putLivenessProbe(
+    value: StatefulSetV1SpecTemplateSpecContainerLivenessProbe,
+  ) {
     this._livenessProbe.internalValue = value;
   }
   public resetLivenessProbe() {
@@ -10527,11 +13241,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // port - computed: false, optional: true, required: false
-  private _port = new StatefulSetV1SpecTemplateSpecContainerPortList(this, "port", false);
+  private _port = new StatefulSetV1SpecTemplateSpecContainerPortList(
+    this,
+    'port',
+    false,
+  );
   public get port() {
     return this._port;
   }
-  public putPort(value: StatefulSetV1SpecTemplateSpecContainerPort[] | cdktf.IResolvable) {
+  public putPort(
+    value: StatefulSetV1SpecTemplateSpecContainerPort[] | cdktf.IResolvable,
+  ) {
     this._port.internalValue = value;
   }
   public resetPort() {
@@ -10543,11 +13263,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // readiness_probe - computed: false, optional: true, required: false
-  private _readinessProbe = new StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference(this, "readiness_probe");
+  private _readinessProbe =
+    new StatefulSetV1SpecTemplateSpecContainerReadinessProbeOutputReference(
+      this,
+      'readiness_probe',
+    );
   public get readinessProbe() {
     return this._readinessProbe;
   }
-  public putReadinessProbe(value: StatefulSetV1SpecTemplateSpecContainerReadinessProbe) {
+  public putReadinessProbe(
+    value: StatefulSetV1SpecTemplateSpecContainerReadinessProbe,
+  ) {
     this._readinessProbe.internalValue = value;
   }
   public resetReadinessProbe() {
@@ -10559,7 +13285,11 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources = new StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference(this, "resources");
+  private _resources =
+    new StatefulSetV1SpecTemplateSpecContainerResourcesOutputReference(
+      this,
+      'resources',
+    );
   public get resources() {
     return this._resources;
   }
@@ -10575,11 +13305,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new StatefulSetV1SpecTemplateSpecContainerSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
-  public putSecurityContext(value: StatefulSetV1SpecTemplateSpecContainerSecurityContext) {
+  public putSecurityContext(
+    value: StatefulSetV1SpecTemplateSpecContainerSecurityContext,
+  ) {
     this._securityContext.internalValue = value;
   }
   public resetSecurityContext() {
@@ -10591,11 +13327,17 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // startup_probe - computed: false, optional: true, required: false
-  private _startupProbe = new StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference(this, "startup_probe");
+  private _startupProbe =
+    new StatefulSetV1SpecTemplateSpecContainerStartupProbeOutputReference(
+      this,
+      'startup_probe',
+    );
   public get startupProbe() {
     return this._startupProbe;
   }
-  public putStartupProbe(value: StatefulSetV1SpecTemplateSpecContainerStartupProbe) {
+  public putStartupProbe(
+    value: StatefulSetV1SpecTemplateSpecContainerStartupProbe,
+  ) {
     this._startupProbe.internalValue = value;
   }
   public resetStartupProbe() {
@@ -10607,11 +13349,20 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
   }
 
   // volume_mount - computed: false, optional: true, required: false
-  private _volumeMount = new StatefulSetV1SpecTemplateSpecContainerVolumeMountList(this, "volume_mount", false);
+  private _volumeMount =
+    new StatefulSetV1SpecTemplateSpecContainerVolumeMountList(
+      this,
+      'volume_mount',
+      false,
+    );
   public get volumeMount() {
     return this._volumeMount;
   }
-  public putVolumeMount(value: StatefulSetV1SpecTemplateSpecContainerVolumeMount[] | cdktf.IResolvable) {
+  public putVolumeMount(
+    value:
+      | StatefulSetV1SpecTemplateSpecContainerVolumeMount[]
+      | cdktf.IResolvable,
+  ) {
     this._volumeMount.internalValue = value;
   }
   public resetVolumeMount() {
@@ -10624,48 +13375,67 @@ export class StatefulSetV1SpecTemplateSpecContainerOutputReference extends cdktf
 }
 
 export class StatefulSetV1SpecTemplateSpecContainerList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecContainer[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecContainer[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecContainerOutputReference {
-    return new StatefulSetV1SpecTemplateSpecContainerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecContainerOutputReference {
+    return new StatefulSetV1SpecTemplateSpecContainerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecDnsConfigOption {
   /**
-  * Name of the option.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the option.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Value of the option. Optional: Defaults to empty.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * Value of the option. Optional: Defaults to empty.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecDnsConfigOptionToTerraform(struct?: StatefulSetV1SpecTemplateSpecDnsConfigOption | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecDnsConfigOptionToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecDnsConfigOption | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference extends cdktf.ComplexObject {
@@ -10673,16 +13443,29 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecDnsConfigOption | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecDnsConfigOption
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -10699,18 +13482,21 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecDnsConfigOption | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecDnsConfigOption
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -10719,7 +13505,7 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -10732,7 +13518,7 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference extends
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -10749,69 +13535,106 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference extends
 }
 
 export class StatefulSetV1SpecTemplateSpecDnsConfigOptionList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecDnsConfigOption[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecDnsConfigOption[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference {
-    return new StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference {
+    return new StatefulSetV1SpecTemplateSpecDnsConfigOptionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecDnsConfig {
   /**
-  * A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#nameservers StatefulSetV1#nameservers}
-  */
+   * A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#nameservers StatefulSetV1#nameservers}
+   */
   readonly nameservers?: string[];
   /**
-  * A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#searches StatefulSetV1#searches}
-  */
+   * A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#searches StatefulSetV1#searches}
+   */
   readonly searches?: string[];
   /**
-  * option block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#option StatefulSetV1#option}
-  */
-  readonly option?: StatefulSetV1SpecTemplateSpecDnsConfigOption[] | cdktf.IResolvable;
+   * option block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#option StatefulSetV1#option}
+   */
+  readonly option?:
+    | StatefulSetV1SpecTemplateSpecDnsConfigOption[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecDnsConfigToTerraform(struct?: StatefulSetV1SpecTemplateSpecDnsConfigOutputReference | StatefulSetV1SpecTemplateSpecDnsConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecDnsConfigToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecDnsConfigOutputReference
+    | StatefulSetV1SpecTemplateSpecDnsConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    nameservers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.nameservers),
-    searches: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.searches),
-    option: cdktf.listMapper(statefulSetV1SpecTemplateSpecDnsConfigOptionToTerraform, true)(struct!.option),
-  }
+    nameservers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.nameservers),
+    searches: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.searches),
+    option: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecDnsConfigOptionToTerraform,
+      true,
+    )(struct!.option),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecDnsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecDnsConfig | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecDnsConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._nameservers !== undefined) {
@@ -10829,14 +13652,15 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecDnsConfig | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecDnsConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._nameservers = undefined;
       this._searches = undefined;
       this._option.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._nameservers = value.nameservers;
       this._searches = value.searches;
@@ -10845,7 +13669,7 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOutputReference extends cdktf
   }
 
   // nameservers - computed: false, optional: true, required: false
-  private _nameservers?: string[]; 
+  private _nameservers?: string[];
   public get nameservers() {
     return this.getListAttribute('nameservers');
   }
@@ -10861,7 +13685,7 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOutputReference extends cdktf
   }
 
   // searches - computed: false, optional: true, required: false
-  private _searches?: string[]; 
+  private _searches?: string[];
   public get searches() {
     return this.getListAttribute('searches');
   }
@@ -10877,11 +13701,17 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOutputReference extends cdktf
   }
 
   // option - computed: false, optional: true, required: false
-  private _option = new StatefulSetV1SpecTemplateSpecDnsConfigOptionList(this, "option", false);
+  private _option = new StatefulSetV1SpecTemplateSpecDnsConfigOptionList(
+    this,
+    'option',
+    false,
+  );
   public get option() {
     return this._option;
   }
-  public putOption(value: StatefulSetV1SpecTemplateSpecDnsConfigOption[] | cdktf.IResolvable) {
+  public putOption(
+    value: StatefulSetV1SpecTemplateSpecDnsConfigOption[] | cdktf.IResolvable,
+  ) {
     this._option.internalValue = value;
   }
   public resetOption() {
@@ -10894,28 +13724,37 @@ export class StatefulSetV1SpecTemplateSpecDnsConfigOutputReference extends cdktf
 }
 export interface StatefulSetV1SpecTemplateSpecHostAliases {
   /**
-  * Hostnames for the IP address.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#hostnames StatefulSetV1#hostnames}
-  */
+   * Hostnames for the IP address.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#hostnames StatefulSetV1#hostnames}
+   */
   readonly hostnames: string[];
   /**
-  * IP address of the host file entry.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#ip StatefulSetV1#ip}
-  */
+   * IP address of the host file entry.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#ip StatefulSetV1#ip}
+   */
   readonly ip: string;
 }
 
-export function statefulSetV1SpecTemplateSpecHostAliasesToTerraform(struct?: StatefulSetV1SpecTemplateSpecHostAliases | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecHostAliasesToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecHostAliases | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    hostnames: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.hostnames),
+    hostnames: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.hostnames),
     ip: cdktf.stringToTerraform(struct!.ip),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecHostAliasesOutputReference extends cdktf.ComplexObject {
@@ -10923,16 +13762,29 @@ export class StatefulSetV1SpecTemplateSpecHostAliasesOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecHostAliases | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecHostAliases
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -10949,18 +13801,21 @@ export class StatefulSetV1SpecTemplateSpecHostAliasesOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecHostAliases | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecHostAliases
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._hostnames = undefined;
       this._ip = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._hostnames = value.hostnames;
@@ -10969,7 +13824,7 @@ export class StatefulSetV1SpecTemplateSpecHostAliasesOutputReference extends cdk
   }
 
   // hostnames - computed: false, optional: false, required: true
-  private _hostnames?: string[]; 
+  private _hostnames?: string[];
   public get hostnames() {
     return this.getListAttribute('hostnames');
   }
@@ -10982,7 +13837,7 @@ export class StatefulSetV1SpecTemplateSpecHostAliasesOutputReference extends cdk
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -10996,41 +13851,60 @@ export class StatefulSetV1SpecTemplateSpecHostAliasesOutputReference extends cdk
 }
 
 export class StatefulSetV1SpecTemplateSpecHostAliasesList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecHostAliases[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecHostAliases[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecHostAliasesOutputReference {
-    return new StatefulSetV1SpecTemplateSpecHostAliasesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecHostAliasesOutputReference {
+    return new StatefulSetV1SpecTemplateSpecHostAliasesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecImagePullSecrets {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
 }
 
-export function statefulSetV1SpecTemplateSpecImagePullSecretsToTerraform(struct?: StatefulSetV1SpecTemplateSpecImagePullSecrets | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecImagePullSecretsToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecImagePullSecrets | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference extends cdktf.ComplexObject {
@@ -11038,16 +13912,29 @@ export class StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecImagePullSecrets | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecImagePullSecrets
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11060,17 +13947,20 @@ export class StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecImagePullSecrets | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecImagePullSecrets
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -11078,7 +13968,7 @@ export class StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11092,69 +13982,95 @@ export class StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference extend
 }
 
 export class StatefulSetV1SpecTemplateSpecImagePullSecretsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecImagePullSecrets[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecImagePullSecretsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef {
   /**
-  * The key to select.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key to select.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Specify whether the ConfigMap or its key must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the ConfigMap or its key must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._key !== undefined) {
@@ -11172,14 +14088,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._name = value.name;
@@ -11188,7 +14107,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyR
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -11204,7 +14123,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyR
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11220,7 +14139,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyR
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -11237,42 +14156,55 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyR
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -11286,13 +14218,16 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -11300,7 +14235,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutpu
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -11316,7 +14251,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutpu
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -11333,45 +14268,58 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutpu
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
+   */
   readonly containerName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
+   */
   readonly resource: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -11389,14 +14337,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceField
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -11405,7 +14356,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceField
   }
 
   // container_name - computed: false, optional: true, required: false
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -11421,7 +14372,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceField
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -11437,7 +14388,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceField
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -11451,49 +14402,62 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceField
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef {
   /**
-  * The key of the secret to select from. Must be a valid secret key.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key of the secret to select from. Must be a valid secret key.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Specify whether the Secret or its key must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the Secret or its key must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._key !== undefined) {
@@ -11511,14 +14475,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._name = value.name;
@@ -11527,7 +14494,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefO
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -11543,7 +14510,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefO
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11559,7 +14526,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefO
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -11576,61 +14543,87 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefO
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom {
   /**
-  * config_map_key_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_key_ref StatefulSetV1#config_map_key_ref}
-  */
+   * config_map_key_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_key_ref StatefulSetV1#config_map_key_ref}
+   */
   readonly configMapKeyRef?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
+   */
   readonly fieldRef?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
+   */
   readonly resourceFieldRef?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef;
   /**
-  * secret_key_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_key_ref StatefulSetV1#secret_key_ref}
-  */
+   * secret_key_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_key_ref StatefulSetV1#secret_key_ref}
+   */
   readonly secretKeyRef?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvValueFromToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    config_map_key_ref: statefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefToTerraform(struct!.configMapKeyRef),
-    field_ref: statefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: statefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefToTerraform(struct!.resourceFieldRef),
-    secret_key_ref: statefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefToTerraform(struct!.secretKeyRef),
-  }
+    config_map_key_ref:
+      statefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefToTerraform(
+        struct!.configMapKeyRef,
+      ),
+    field_ref:
+      statefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      statefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+    secret_key_ref:
+      statefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefToTerraform(
+        struct!.secretKeyRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._configMapKeyRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.configMapKeyRef = this._configMapKeyRef?.internalValue;
+      internalValueResult.configMapKeyRef =
+        this._configMapKeyRef?.internalValue;
     }
     if (this._fieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -11638,7 +14631,8 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     if (this._secretKeyRef?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -11647,15 +14641,16 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._configMapKeyRef.internalValue = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
       this._secretKeyRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._configMapKeyRef.internalValue = value.configMapKeyRef;
       this._fieldRef.internalValue = value.fieldRef;
@@ -11665,11 +14660,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
   }
 
   // config_map_key_ref - computed: false, optional: true, required: false
-  private _configMapKeyRef = new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefOutputReference(this, "config_map_key_ref");
+  private _configMapKeyRef =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRefOutputReference(
+      this,
+      'config_map_key_ref',
+    );
   public get configMapKeyRef() {
     return this._configMapKeyRef;
   }
-  public putConfigMapKeyRef(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef) {
+  public putConfigMapKeyRef(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromConfigMapKeyRef,
+  ) {
     this._configMapKeyRef.internalValue = value;
   }
   public resetConfigMapKeyRef() {
@@ -11681,11 +14682,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
   }
 
   // field_ref - computed: false, optional: true, required: false
-  private _fieldRef = new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef) {
+  public putFieldRef(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   public resetFieldRef() {
@@ -11697,11 +14704,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef) {
+  public putResourceFieldRef(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -11713,11 +14726,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
   }
 
   // secret_key_ref - computed: false, optional: true, required: false
-  private _secretKeyRef = new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefOutputReference(this, "secret_key_ref");
+  private _secretKeyRef =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRefOutputReference(
+      this,
+      'secret_key_ref',
+    );
   public get secretKeyRef() {
     return this._secretKeyRef;
   }
-  public putSecretKeyRef(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef) {
+  public putSecretKeyRef(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromSecretKeyRef,
+  ) {
     this._secretKeyRef.internalValue = value;
   }
   public resetSecretKeyRef() {
@@ -11730,35 +14749,44 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReferen
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnv {
   /**
-  * Name of the environment variable. Must be a C_IDENTIFIER
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the environment variable. Must be a C_IDENTIFIER
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
   /**
-  * value_from block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value_from StatefulSetV1#value_from}
-  */
+   * value_from block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value_from StatefulSetV1#value_from}
+   */
   readonly valueFrom?: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnv | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecInitContainerEnv | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-    value_from: statefulSetV1SpecTemplateSpecInitContainerEnvValueFromToTerraform(struct!.valueFrom),
-  }
+    value_from:
+      statefulSetV1SpecTemplateSpecInitContainerEnvValueFromToTerraform(
+        struct!.valueFrom,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extends cdktf.ComplexObject {
@@ -11766,16 +14794,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnv | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnv
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11796,19 +14837,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnv | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnv
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
       this._valueFrom.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -11818,7 +14862,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11831,7 +14875,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extend
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -11847,11 +14891,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extend
   }
 
   // value_from - computed: false, optional: true, required: false
-  private _valueFrom = new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReference(this, "value_from");
+  private _valueFrom =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvValueFromOutputReference(
+      this,
+      'value_from',
+    );
   public get valueFrom() {
     return this._valueFrom;
   }
-  public putValueFrom(value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom) {
+  public putValueFrom(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvValueFrom,
+  ) {
     this._valueFrom.internalValue = value;
   }
   public resetValueFrom() {
@@ -11864,62 +14914,88 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference extend
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnv[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerEnvOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Specify whether the ConfigMap must be defined
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the ConfigMap must be defined
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -11933,13 +15009,16 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._optional = value.optional;
@@ -11947,7 +15026,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutput
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11960,7 +15039,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutput
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -11977,42 +15056,55 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutput
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef {
   /**
-  * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Specify whether the Secret must be defined
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Specify whether the Secret must be defined
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputReference | StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -12026,13 +15118,16 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._optional = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._optional = value.optional;
@@ -12040,7 +15135,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputRef
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -12053,7 +15148,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputRef
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -12070,35 +15165,49 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerEnvFrom {
   /**
-  * An optional identifer to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#prefix StatefulSetV1#prefix}
-  */
+   * An optional identifer to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#prefix StatefulSetV1#prefix}
+   */
   readonly prefix?: string;
   /**
-  * config_map_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_ref StatefulSetV1#config_map_ref}
-  */
+   * config_map_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map_ref StatefulSetV1#config_map_ref}
+   */
   readonly configMapRef?: StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
+   */
   readonly secretRef?: StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerEnvFromToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerEnvFrom | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerEnvFromToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFrom
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     prefix: cdktf.stringToTerraform(struct!.prefix),
-    config_map_ref: statefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefToTerraform(struct!.configMapRef),
-    secret_ref: statefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefToTerraform(struct!.secretRef),
-  }
+    config_map_ref:
+      statefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefToTerraform(
+        struct!.configMapRef,
+      ),
+    secret_ref:
+      statefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference extends cdktf.ComplexObject {
@@ -12106,16 +15215,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerEnvFrom | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFrom
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12136,19 +15258,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerEnvFrom | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvFrom
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._prefix = undefined;
       this._configMapRef.internalValue = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._prefix = value.prefix;
@@ -12158,7 +15283,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference ex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -12174,11 +15299,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference ex
   }
 
   // config_map_ref - computed: false, optional: true, required: false
-  private _configMapRef = new StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutputReference(this, "config_map_ref");
+  private _configMapRef =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRefOutputReference(
+      this,
+      'config_map_ref',
+    );
   public get configMapRef() {
     return this._configMapRef;
   }
-  public putConfigMapRef(value: StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef) {
+  public putConfigMapRef(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvFromConfigMapRef,
+  ) {
     this._configMapRef.internalValue = value;
   }
   public resetConfigMapRef() {
@@ -12190,11 +15321,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference ex
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef) {
+  public putSecretRef(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnvFromSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -12207,55 +15344,81 @@ export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference ex
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerEnvFromList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFrom[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerEnvFromOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -12265,19 +15428,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -12294,28 +15460,36 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOut
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -12323,16 +15497,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12349,18 +15536,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -12369,7 +15559,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -12385,7 +15575,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -12402,83 +15592,114 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -12504,7 +15725,11 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -12512,8 +15737,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -12524,7 +15748,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -12540,7 +15764,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -12556,7 +15780,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -12572,7 +15796,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -12588,11 +15812,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -12605,21 +15838,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -12627,16 +15868,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSock
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12649,17 +15903,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSock
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -12667,7 +15924,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSock
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -12681,55 +15938,86 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSock
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart {
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    exec: statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecToTerraform(struct!.exec),
-    http_get: statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecToTerraform(
+      struct!.exec,
+    ),
+    http_get:
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputReference extends cdktf.ComplexObject {
@@ -12737,16 +16025,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputR
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12767,19 +16068,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._exec.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._exec.internalValue = value.exec;
@@ -12789,11 +16093,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputR
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -12805,11 +16115,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputR
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -12821,11 +16137,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputR
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -12838,55 +16163,81 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputR
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -12896,19 +16247,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -12925,28 +16279,36 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutpu
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -12954,16 +16316,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12980,18 +16355,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -13000,7 +16378,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHt
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -13016,7 +16394,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHt
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -13033,83 +16411,114 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHt
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -13135,7 +16544,11 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -13143,8 +16556,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -13155,7 +16567,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -13171,7 +16583,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -13187,7 +16599,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -13203,7 +16615,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -13219,11 +16631,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -13236,21 +16657,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOu
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -13258,16 +16687,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -13280,17 +16722,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -13298,7 +16743,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -13312,55 +16757,86 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop {
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    exec: statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecToTerraform(struct!.exec),
-    http_get: statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecToTerraform(
+      struct!.exec,
+    ),
+    http_get:
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputReference extends cdktf.ComplexObject {
@@ -13368,16 +16844,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputRef
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -13398,19 +16887,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._exec.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._exec.internalValue = value.exec;
@@ -13420,11 +16912,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputRef
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -13436,11 +16934,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputRef
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -13452,11 +16956,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputRef
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -13469,62 +16982,98 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputRef
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLifecycle {
   /**
-  * post_start block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#post_start StatefulSetV1#post_start}
-  */
-  readonly postStart?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart[] | cdktf.IResolvable;
+   * post_start block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#post_start StatefulSetV1#post_start}
+   */
+  readonly postStart?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart[]
+    | cdktf.IResolvable;
   /**
-  * pre_stop block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pre_stop StatefulSetV1#pre_stop}
-  */
-  readonly preStop?: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop[] | cdktf.IResolvable;
+   * pre_stop block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pre_stop StatefulSetV1#pre_stop}
+   */
+  readonly preStop?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLifecycleToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLifecycle): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLifecycleToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecycle,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    post_start: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartToTerraform, true)(struct!.postStart),
-    pre_stop: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopToTerraform, true)(struct!.preStop),
-  }
+    post_start: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartToTerraform,
+      true,
+    )(struct!.postStart),
+    pre_stop: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopToTerraform,
+      true,
+    )(struct!.preStop),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLifecycle | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLifecycle
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._postStart?.internalValue !== undefined) {
@@ -13538,13 +17087,14 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLifecycle | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLifecycle | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._postStart.internalValue = undefined;
       this._preStop.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._postStart.internalValue = value.postStart;
       this._preStop.internalValue = value.preStop;
@@ -13552,11 +17102,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference 
   }
 
   // post_start - computed: false, optional: true, required: false
-  private _postStart = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartList(this, "post_start", false);
+  private _postStart =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStartList(
+      this,
+      'post_start',
+      false,
+    );
   public get postStart() {
     return this._postStart;
   }
-  public putPostStart(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart[] | cdktf.IResolvable) {
+  public putPostStart(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePostStart[]
+      | cdktf.IResolvable,
+  ) {
     this._postStart.internalValue = value;
   }
   public resetPostStart() {
@@ -13568,11 +17127,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference 
   }
 
   // pre_stop - computed: false, optional: true, required: false
-  private _preStop = new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopList(this, "pre_stop", false);
+  private _preStop =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStopList(
+      this,
+      'pre_stop',
+      false,
+    );
   public get preStop() {
     return this._preStop;
   }
-  public putPreStop(value: StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop[] | cdktf.IResolvable) {
+  public putPreStop(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLifecyclePreStop[]
+      | cdktf.IResolvable,
+  ) {
     this._preStop.internalValue = value;
   }
   public resetPreStop() {
@@ -13585,35 +17153,48 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference 
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -13623,19 +17204,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -13652,28 +17236,36 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputRe
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
+   */
   readonly service?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -13681,16 +17273,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputRe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -13707,18 +17312,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -13727,7 +17335,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputRe
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -13740,7 +17348,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputRe
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -13757,48 +17365,69 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputRe
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -13806,16 +17435,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpH
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -13832,18 +17474,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpH
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -13852,7 +17497,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpH
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -13868,7 +17513,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpH
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -13885,83 +17530,114 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpH
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -13987,7 +17663,11 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -13995,8 +17675,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -14007,7 +17686,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -14023,7 +17702,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -14039,7 +17718,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -14055,7 +17734,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -14071,11 +17750,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -14088,21 +17776,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutpu
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -14110,16 +17806,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOut
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -14132,17 +17841,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -14150,7 +17862,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOut
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -14164,85 +17876,110 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOut
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
-  */
-  readonly grpc?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
+   */
+  readonly grpc?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -14250,25 +17987,41 @@ export function statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerrafo
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: statefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      statefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -14310,7 +18063,9 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -14322,8 +18077,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -14338,7 +18092,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -14354,7 +18108,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -14370,7 +18124,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -14386,7 +18140,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -14402,7 +18156,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -14418,11 +18172,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -14434,11 +18194,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -14450,11 +18219,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -14466,11 +18241,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -14483,41 +18267,47 @@ export class StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputRefere
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerPort {
   /**
-  * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_port StatefulSetV1#container_port}
-  */
+   * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_port StatefulSetV1#container_port}
+   */
   readonly containerPort: number;
   /**
-  * What host IP to bind the external port to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_ip StatefulSetV1#host_ip}
-  */
+   * What host IP to bind the external port to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_ip StatefulSetV1#host_ip}
+   */
   readonly hostIp?: string;
   /**
-  * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_port StatefulSetV1#host_port}
-  */
+   * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_port StatefulSetV1#host_port}
+   */
   readonly hostPort?: number;
   /**
-  * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Protocol for port. Must be UDP or TCP. Defaults to "TCP".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#protocol StatefulSetV1#protocol}
-  */
+   * Protocol for port. Must be UDP or TCP. Defaults to "TCP".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#protocol StatefulSetV1#protocol}
+   */
   readonly protocol?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerPortToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerPort | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerPortToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecInitContainerPort | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_port: cdktf.numberToTerraform(struct!.containerPort),
@@ -14525,7 +18315,7 @@ export function statefulSetV1SpecTemplateSpecInitContainerPortToTerraform(struct
     host_port: cdktf.numberToTerraform(struct!.hostPort),
     name: cdktf.stringToTerraform(struct!.name),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference extends cdktf.ComplexObject {
@@ -14533,16 +18323,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerPort | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerPort
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -14571,7 +18374,12 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerPort | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerPort
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -14580,12 +18388,10 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
       this._hostPort = undefined;
       this._name = undefined;
       this._protocol = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._containerPort = value.containerPort;
@@ -14597,7 +18403,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
   }
 
   // container_port - computed: false, optional: false, required: true
-  private _containerPort?: number; 
+  private _containerPort?: number;
   public get containerPort() {
     return this.getNumberAttribute('container_port');
   }
@@ -14610,7 +18416,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
   }
 
   // host_ip - computed: false, optional: true, required: false
-  private _hostIp?: string; 
+  private _hostIp?: string;
   public get hostIp() {
     return this.getStringAttribute('host_ip');
   }
@@ -14626,7 +18432,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
   }
 
   // host_port - computed: false, optional: true, required: false
-  private _hostPort?: number; 
+  private _hostPort?: number;
   public get hostPort() {
     return this.getNumberAttribute('host_port');
   }
@@ -14642,7 +18448,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -14658,7 +18464,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -14675,55 +18481,81 @@ export class StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference exten
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerPortList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerPort[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerPort[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerPortOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputReference | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -14733,19 +18565,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -14762,28 +18597,36 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputR
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
+   */
   readonly service?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -14791,16 +18634,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputR
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -14817,18 +18673,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -14837,7 +18696,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputR
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -14850,7 +18709,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputR
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -14867,48 +18726,69 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputR
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -14916,16 +18796,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -14942,18 +18835,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -14962,7 +18858,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -14978,7 +18874,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttp
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -14995,83 +18891,114 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttp
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutputReference | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -15097,7 +19024,11 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -15105,8 +19036,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -15117,7 +19047,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -15133,7 +19063,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -15149,7 +19079,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -15165,7 +19095,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -15181,11 +19111,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -15198,21 +19137,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutp
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -15220,16 +19167,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOu
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -15242,17 +19202,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -15260,7 +19223,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOu
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -15274,85 +19237,110 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOu
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
-  */
-  readonly grpc?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
+   */
+  readonly grpc?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -15360,25 +19348,41 @@ export function statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraf
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: statefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      statefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -15420,7 +19424,9 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -15432,8 +19438,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -15448,7 +19453,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -15464,7 +19469,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -15480,7 +19485,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -15496,7 +19501,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -15512,7 +19517,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -15528,11 +19533,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -15544,11 +19555,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -15560,11 +19580,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -15576,11 +19602,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -15593,42 +19628,55 @@ export class StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputRefer
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerResources {
   /**
-  * Describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#limits StatefulSetV1#limits}
-  */
+   * Describes the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#limits StatefulSetV1#limits}
+   */
   readonly limits?: { [key: string]: string };
   /**
-  * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#requests StatefulSetV1#requests}
-  */
+   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#requests StatefulSetV1#requests}
+   */
   readonly requests?: { [key: string]: string };
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerResourcesToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference | StatefulSetV1SpecTemplateSpecInitContainerResources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerResourcesToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerResources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     limits: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.limits),
     requests: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.requests),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerResources | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerResources
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._limits !== undefined) {
@@ -15642,13 +19690,14 @@ export class StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerResources | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecInitContainerResources | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._limits = undefined;
       this._requests = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._limits = value.limits;
       this._requests = value.requests;
@@ -15656,7 +19705,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference 
   }
 
   // limits - computed: true, optional: true, required: false
-  private _limits?: { [key: string]: string }; 
+  private _limits?: { [key: string]: string };
   public get limits() {
     return this.getStringMapAttribute('limits');
   }
@@ -15672,7 +19721,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference 
   }
 
   // requests - computed: true, optional: true, required: false
-  private _requests?: { [key: string]: string }; 
+  private _requests?: { [key: string]: string };
   public get requests() {
     return this.getStringMapAttribute('requests');
   }
@@ -15689,42 +19738,55 @@ export class StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference 
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities {
   /**
-  * Added capabilities
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#add StatefulSetV1#add}
-  */
+   * Added capabilities
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#add StatefulSetV1#add}
+   */
   readonly add?: string[];
   /**
-  * Removed capabilities
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#drop StatefulSetV1#drop}
-  */
+   * Removed capabilities
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#drop StatefulSetV1#drop}
+   */
   readonly drop?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     add: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.add),
     drop: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.drop),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._add !== undefined) {
@@ -15738,13 +19800,16 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabiliti
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._add = undefined;
       this._drop = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._add = value.add;
       this._drop = value.drop;
@@ -15752,7 +19817,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabiliti
   }
 
   // add - computed: false, optional: true, required: false
-  private _add?: string[]; 
+  private _add?: string[];
   public get add() {
     return this.getListAttribute('add');
   }
@@ -15768,7 +19833,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabiliti
   }
 
   // drop - computed: false, optional: true, required: false
-  private _drop?: string[]; 
+  private _drop?: string[];
   public get drop() {
     return this.getListAttribute('drop');
   }
@@ -15785,56 +19850,69 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabiliti
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions {
   /**
-  * Level is SELinux level label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#level StatefulSetV1#level}
-  */
+   * Level is SELinux level label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#level StatefulSetV1#level}
+   */
   readonly level?: string;
   /**
-  * Role is a SELinux role label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#role StatefulSetV1#role}
-  */
+   * Role is a SELinux role label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#role StatefulSetV1#role}
+   */
   readonly role?: string;
   /**
-  * Type is a SELinux type label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type is a SELinux type label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
   /**
-  * User is a SELinux user label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
-  */
+   * User is a SELinux user label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
+   */
   readonly user?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._level !== undefined) {
@@ -15856,15 +19934,18 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOpt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._level = undefined;
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._level = value.level;
       this._role = value.role;
@@ -15874,7 +19955,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOpt
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -15890,7 +19971,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOpt
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -15906,7 +19987,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOpt
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -15922,7 +20003,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOpt
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -15939,42 +20020,55 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOpt
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile {
   /**
-  * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#localhost_profile StatefulSetV1#localhost_profile}
-  */
+   * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#localhost_profile StatefulSetV1#localhost_profile}
+   */
   readonly localhostProfile?: string;
   /**
-  * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     localhost_profile: cdktf.stringToTerraform(struct!.localhostProfile),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._localhostProfile !== undefined) {
@@ -15988,13 +20082,16 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompPro
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._localhostProfile = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._localhostProfile = value.localhostProfile;
       this._type = value.type;
@@ -16002,7 +20099,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompPro
   }
 
   // localhost_profile - computed: false, optional: true, required: false
-  private _localhostProfile?: string; 
+  private _localhostProfile?: string;
   public get localhostProfile() {
     return this.getStringAttribute('localhost_profile');
   }
@@ -16018,7 +20115,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompPro
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }

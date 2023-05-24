@@ -2,48 +2,58 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Wafv2WebAclAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface Wafv2WebAclAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#id Wafv2WebAclAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#id Wafv2WebAclAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#resource_arn Wafv2WebAclAssociation#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#resource_arn Wafv2WebAclAssociation#resource_arn}
+   */
   readonly resourceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#web_acl_arn Wafv2WebAclAssociation#web_acl_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#web_acl_arn Wafv2WebAclAssociation#web_acl_arn}
+   */
   readonly webAclArn: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#timeouts Wafv2WebAclAssociation#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#timeouts Wafv2WebAclAssociation#timeouts}
+   */
   readonly timeouts?: Wafv2WebAclAssociationTimeouts;
 }
 export interface Wafv2WebAclAssociationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#create Wafv2WebAclAssociation#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association#create Wafv2WebAclAssociation#create}
+   */
   readonly create?: string;
 }
 
-export function wafv2WebAclAssociationTimeoutsToTerraform(struct?: Wafv2WebAclAssociationTimeoutsOutputReference | Wafv2WebAclAssociationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafv2WebAclAssociationTimeoutsToTerraform(
+  struct?:
+    | Wafv2WebAclAssociationTimeoutsOutputReference
+    | Wafv2WebAclAssociationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class Wafv2WebAclAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -51,14 +61,20 @@ export class Wafv2WebAclAssociationTimeoutsOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Wafv2WebAclAssociationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Wafv2WebAclAssociationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -71,17 +87,17 @@ export class Wafv2WebAclAssociationTimeoutsOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Wafv2WebAclAssociationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Wafv2WebAclAssociationTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -106,33 +122,36 @@ export class Wafv2WebAclAssociationTimeoutsOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association aws_wafv2_web_acl_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association aws_wafv2_web_acl_association}
+ */
 export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_wafv2_web_acl_association";
+  public static readonly tfResourceType = 'aws_wafv2_web_acl_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association aws_wafv2_web_acl_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Wafv2WebAclAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: Wafv2WebAclAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_association aws_wafv2_web_acl_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Wafv2WebAclAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Wafv2WebAclAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_wafv2_web_acl_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -140,7 +159,7 @@ export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._resourceArn = config.resourceArn;
@@ -195,7 +214,10 @@ export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Wafv2WebAclAssociationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new Wafv2WebAclAssociationTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -219,7 +241,9 @@ export class Wafv2WebAclAssociation extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       resource_arn: cdktf.stringToTerraform(this._resourceArn),
       web_acl_arn: cdktf.stringToTerraform(this._webAclArn),
-      timeouts: wafv2WebAclAssociationTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: wafv2WebAclAssociationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

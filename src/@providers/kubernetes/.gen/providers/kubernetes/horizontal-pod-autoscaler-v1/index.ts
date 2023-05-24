@@ -2,68 +2,77 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface HorizontalPodAutoscalerV1Config extends cdktf.TerraformMetaArguments {
+export interface HorizontalPodAutoscalerV1Config
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#id HorizontalPodAutoscalerV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#id HorizontalPodAutoscalerV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#metadata HorizontalPodAutoscalerV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#metadata HorizontalPodAutoscalerV1#metadata}
+   */
   readonly metadata: HorizontalPodAutoscalerV1Metadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#spec HorizontalPodAutoscalerV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#spec HorizontalPodAutoscalerV1#spec}
+   */
   readonly spec: HorizontalPodAutoscalerV1Spec;
 }
 export interface HorizontalPodAutoscalerV1Metadata {
   /**
-  * An unstructured key value map stored with the horizontal pod autoscaler that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#annotations HorizontalPodAutoscalerV1#annotations}
-  */
+   * An unstructured key value map stored with the horizontal pod autoscaler that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#annotations HorizontalPodAutoscalerV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#generate_name HorizontalPodAutoscalerV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#generate_name HorizontalPodAutoscalerV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the horizontal pod autoscaler. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#labels HorizontalPodAutoscalerV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the horizontal pod autoscaler. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#labels HorizontalPodAutoscalerV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the horizontal pod autoscaler, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#name HorizontalPodAutoscalerV1#name}
-  */
+   * Name of the horizontal pod autoscaler, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#name HorizontalPodAutoscalerV1#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the horizontal pod autoscaler must be unique.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#namespace HorizontalPodAutoscalerV1#namespace}
-  */
+   * Namespace defines the space within which name of the horizontal pod autoscaler must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#namespace HorizontalPodAutoscalerV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function horizontalPodAutoscalerV1MetadataToTerraform(struct?: HorizontalPodAutoscalerV1MetadataOutputReference | HorizontalPodAutoscalerV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerV1MetadataToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerV1MetadataOutputReference
+    | HorizontalPodAutoscalerV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -71,17 +80,20 @@ export function horizontalPodAutoscalerV1MetadataToTerraform(struct?: Horizontal
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -111,7 +123,9 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerV1Metadata | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerV1Metadata | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._annotations = undefined;
@@ -119,8 +133,7 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -227,49 +240,62 @@ export class HorizontalPodAutoscalerV1MetadataOutputReference extends cdktf.Comp
 }
 export interface HorizontalPodAutoscalerV1SpecScaleTargetRef {
   /**
-  * API version of the referent
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#api_version HorizontalPodAutoscalerV1#api_version}
-  */
+   * API version of the referent
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#api_version HorizontalPodAutoscalerV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Kind of the referent. e.g. `ReplicationController`. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#kind HorizontalPodAutoscalerV1#kind}
-  */
+   * Kind of the referent. e.g. `ReplicationController`. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#kind HorizontalPodAutoscalerV1#kind}
+   */
   readonly kind: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#name HorizontalPodAutoscalerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#name HorizontalPodAutoscalerV1#name}
+   */
   readonly name: string;
 }
 
-export function horizontalPodAutoscalerV1SpecScaleTargetRefToTerraform(struct?: HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference | HorizontalPodAutoscalerV1SpecScaleTargetRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerV1SpecScaleTargetRefToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference
+    | HorizontalPodAutoscalerV1SpecScaleTargetRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     kind: cdktf.stringToTerraform(struct!.kind),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerV1SpecScaleTargetRef | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerV1SpecScaleTargetRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -287,14 +313,15 @@ export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerV1SpecScaleTargetRef | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerV1SpecScaleTargetRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._kind = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._kind = value.kind;
@@ -346,52 +373,67 @@ export class HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference extends 
 }
 export interface HorizontalPodAutoscalerV1Spec {
   /**
-  * Upper limit for the number of pods that can be set by the autoscaler.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#max_replicas HorizontalPodAutoscalerV1#max_replicas}
-  */
+   * Upper limit for the number of pods that can be set by the autoscaler.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#max_replicas HorizontalPodAutoscalerV1#max_replicas}
+   */
   readonly maxReplicas: number;
   /**
-  * Lower limit for the number of pods that can be set by the autoscaler, defaults to `1`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#min_replicas HorizontalPodAutoscalerV1#min_replicas}
-  */
+   * Lower limit for the number of pods that can be set by the autoscaler, defaults to `1`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#min_replicas HorizontalPodAutoscalerV1#min_replicas}
+   */
   readonly minReplicas?: number;
   /**
-  * Target average CPU utilization (represented as a percentage of requested CPU) over all the pods. If not specified the default autoscaling policy will be used.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#target_cpu_utilization_percentage HorizontalPodAutoscalerV1#target_cpu_utilization_percentage}
-  */
+   * Target average CPU utilization (represented as a percentage of requested CPU) over all the pods. If not specified the default autoscaling policy will be used.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#target_cpu_utilization_percentage HorizontalPodAutoscalerV1#target_cpu_utilization_percentage}
+   */
   readonly targetCpuUtilizationPercentage?: number;
   /**
-  * scale_target_ref block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#scale_target_ref HorizontalPodAutoscalerV1#scale_target_ref}
-  */
+   * scale_target_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1#scale_target_ref HorizontalPodAutoscalerV1#scale_target_ref}
+   */
   readonly scaleTargetRef: HorizontalPodAutoscalerV1SpecScaleTargetRef;
 }
 
-export function horizontalPodAutoscalerV1SpecToTerraform(struct?: HorizontalPodAutoscalerV1SpecOutputReference | HorizontalPodAutoscalerV1Spec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerV1SpecToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerV1SpecOutputReference
+    | HorizontalPodAutoscalerV1Spec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max_replicas: cdktf.numberToTerraform(struct!.maxReplicas),
     min_replicas: cdktf.numberToTerraform(struct!.minReplicas),
-    target_cpu_utilization_percentage: cdktf.numberToTerraform(struct!.targetCpuUtilizationPercentage),
-    scale_target_ref: horizontalPodAutoscalerV1SpecScaleTargetRefToTerraform(struct!.scaleTargetRef),
-  }
+    target_cpu_utilization_percentage: cdktf.numberToTerraform(
+      struct!.targetCpuUtilizationPercentage,
+    ),
+    scale_target_ref: horizontalPodAutoscalerV1SpecScaleTargetRefToTerraform(
+      struct!.scaleTargetRef,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -408,7 +450,8 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
     }
     if (this._targetCpuUtilizationPercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.targetCpuUtilizationPercentage = this._targetCpuUtilizationPercentage;
+      internalValueResult.targetCpuUtilizationPercentage =
+        this._targetCpuUtilizationPercentage;
     }
     if (this._scaleTargetRef?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -424,12 +467,12 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
       this._minReplicas = undefined;
       this._targetCpuUtilizationPercentage = undefined;
       this._scaleTargetRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._maxReplicas = value.maxReplicas;
       this._minReplicas = value.minReplicas;
-      this._targetCpuUtilizationPercentage = value.targetCpuUtilizationPercentage;
+      this._targetCpuUtilizationPercentage =
+        value.targetCpuUtilizationPercentage;
       this._scaleTargetRef.internalValue = value.scaleTargetRef;
     }
   }
@@ -480,7 +523,11 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
   }
 
   // scale_target_ref - computed: false, optional: false, required: true
-  private _scaleTargetRef = new HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference(this, "scale_target_ref");
+  private _scaleTargetRef =
+    new HorizontalPodAutoscalerV1SpecScaleTargetRefOutputReference(
+      this,
+      'scale_target_ref',
+    );
   public get scaleTargetRef() {
     return this._scaleTargetRef;
   }
@@ -494,33 +541,37 @@ export class HorizontalPodAutoscalerV1SpecOutputReference extends cdktf.ComplexO
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1 kubernetes_horizontal_pod_autoscaler_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1 kubernetes_horizontal_pod_autoscaler_v1}
+ */
 export class HorizontalPodAutoscalerV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_horizontal_pod_autoscaler_v1";
+  public static readonly tfResourceType =
+    'kubernetes_horizontal_pod_autoscaler_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1 kubernetes_horizontal_pod_autoscaler_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options HorizontalPodAutoscalerV1Config
-  */
-  public constructor(scope: Construct, id: string, config: HorizontalPodAutoscalerV1Config) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler_v1 kubernetes_horizontal_pod_autoscaler_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options HorizontalPodAutoscalerV1Config
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: HorizontalPodAutoscalerV1Config,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_horizontal_pod_autoscaler_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -528,7 +579,7 @@ export class HorizontalPodAutoscalerV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -556,7 +607,10 @@ export class HorizontalPodAutoscalerV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new HorizontalPodAutoscalerV1MetadataOutputReference(this, "metadata");
+  private _metadata = new HorizontalPodAutoscalerV1MetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -569,7 +623,10 @@ export class HorizontalPodAutoscalerV1 extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new HorizontalPodAutoscalerV1SpecOutputReference(this, "spec");
+  private _spec = new HorizontalPodAutoscalerV1SpecOutputReference(
+    this,
+    'spec',
+  );
   public get spec() {
     return this._spec;
   }
@@ -588,7 +645,9 @@ export class HorizontalPodAutoscalerV1 extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      metadata: horizontalPodAutoscalerV1MetadataToTerraform(this._metadata.internalValue),
+      metadata: horizontalPodAutoscalerV1MetadataToTerraform(
+        this._metadata.internalValue,
+      ),
       spec: horizontalPodAutoscalerV1SpecToTerraform(this._spec.internalValue),
     };
   }

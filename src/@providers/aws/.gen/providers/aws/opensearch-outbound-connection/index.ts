@@ -2,80 +2,94 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface OpensearchOutboundConnectionConfig extends cdktf.TerraformMetaArguments {
+export interface OpensearchOutboundConnectionConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#connection_alias OpensearchOutboundConnection#connection_alias}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#connection_alias OpensearchOutboundConnection#connection_alias}
+   */
   readonly connectionAlias: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#id OpensearchOutboundConnection#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#id OpensearchOutboundConnection#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * local_domain_info block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#local_domain_info OpensearchOutboundConnection#local_domain_info}
-  */
+   * local_domain_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#local_domain_info OpensearchOutboundConnection#local_domain_info}
+   */
   readonly localDomainInfo: OpensearchOutboundConnectionLocalDomainInfo;
   /**
-  * remote_domain_info block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#remote_domain_info OpensearchOutboundConnection#remote_domain_info}
-  */
+   * remote_domain_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#remote_domain_info OpensearchOutboundConnection#remote_domain_info}
+   */
   readonly remoteDomainInfo: OpensearchOutboundConnectionRemoteDomainInfo;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#timeouts OpensearchOutboundConnection#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#timeouts OpensearchOutboundConnection#timeouts}
+   */
   readonly timeouts?: OpensearchOutboundConnectionTimeouts;
 }
 export interface OpensearchOutboundConnectionLocalDomainInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#domain_name OpensearchOutboundConnection#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#domain_name OpensearchOutboundConnection#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#owner_id OpensearchOutboundConnection#owner_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#owner_id OpensearchOutboundConnection#owner_id}
+   */
   readonly ownerId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#region OpensearchOutboundConnection#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#region OpensearchOutboundConnection#region}
+   */
   readonly region: string;
 }
 
-export function opensearchOutboundConnectionLocalDomainInfoToTerraform(struct?: OpensearchOutboundConnectionLocalDomainInfoOutputReference | OpensearchOutboundConnectionLocalDomainInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opensearchOutboundConnectionLocalDomainInfoToTerraform(
+  struct?:
+    | OpensearchOutboundConnectionLocalDomainInfoOutputReference
+    | OpensearchOutboundConnectionLocalDomainInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     domain_name: cdktf.stringToTerraform(struct!.domainName),
     owner_id: cdktf.stringToTerraform(struct!.ownerId),
     region: cdktf.stringToTerraform(struct!.region),
-  }
+  };
 }
 
 export class OpensearchOutboundConnectionLocalDomainInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpensearchOutboundConnectionLocalDomainInfo | undefined {
+  public get internalValue():
+    | OpensearchOutboundConnectionLocalDomainInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._domainName !== undefined) {
@@ -93,14 +107,15 @@ export class OpensearchOutboundConnectionLocalDomainInfoOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpensearchOutboundConnectionLocalDomainInfo | undefined) {
+  public set internalValue(
+    value: OpensearchOutboundConnectionLocalDomainInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._domainName = undefined;
       this._ownerId = undefined;
       this._region = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domainName = value.domainName;
       this._ownerId = value.ownerId;
@@ -149,43 +164,56 @@ export class OpensearchOutboundConnectionLocalDomainInfoOutputReference extends 
 }
 export interface OpensearchOutboundConnectionRemoteDomainInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#domain_name OpensearchOutboundConnection#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#domain_name OpensearchOutboundConnection#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#owner_id OpensearchOutboundConnection#owner_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#owner_id OpensearchOutboundConnection#owner_id}
+   */
   readonly ownerId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#region OpensearchOutboundConnection#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#region OpensearchOutboundConnection#region}
+   */
   readonly region: string;
 }
 
-export function opensearchOutboundConnectionRemoteDomainInfoToTerraform(struct?: OpensearchOutboundConnectionRemoteDomainInfoOutputReference | OpensearchOutboundConnectionRemoteDomainInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opensearchOutboundConnectionRemoteDomainInfoToTerraform(
+  struct?:
+    | OpensearchOutboundConnectionRemoteDomainInfoOutputReference
+    | OpensearchOutboundConnectionRemoteDomainInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     domain_name: cdktf.stringToTerraform(struct!.domainName),
     owner_id: cdktf.stringToTerraform(struct!.ownerId),
     region: cdktf.stringToTerraform(struct!.region),
-  }
+  };
 }
 
 export class OpensearchOutboundConnectionRemoteDomainInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpensearchOutboundConnectionRemoteDomainInfo | undefined {
+  public get internalValue():
+    | OpensearchOutboundConnectionRemoteDomainInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._domainName !== undefined) {
@@ -203,14 +231,15 @@ export class OpensearchOutboundConnectionRemoteDomainInfoOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpensearchOutboundConnectionRemoteDomainInfo | undefined) {
+  public set internalValue(
+    value: OpensearchOutboundConnectionRemoteDomainInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._domainName = undefined;
       this._ownerId = undefined;
       this._region = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domainName = value.domainName;
       this._ownerId = value.ownerId;
@@ -259,24 +288,33 @@ export class OpensearchOutboundConnectionRemoteDomainInfoOutputReference extends
 }
 export interface OpensearchOutboundConnectionTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#create OpensearchOutboundConnection#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#create OpensearchOutboundConnection#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#delete OpensearchOutboundConnection#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection#delete OpensearchOutboundConnection#delete}
+   */
   readonly delete?: string;
 }
 
-export function opensearchOutboundConnectionTimeoutsToTerraform(struct?: OpensearchOutboundConnectionTimeoutsOutputReference | OpensearchOutboundConnectionTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opensearchOutboundConnectionTimeoutsToTerraform(
+  struct?:
+    | OpensearchOutboundConnectionTimeoutsOutputReference
+    | OpensearchOutboundConnectionTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class OpensearchOutboundConnectionTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -284,14 +322,20 @@ export class OpensearchOutboundConnectionTimeoutsOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpensearchOutboundConnectionTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpensearchOutboundConnectionTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -308,18 +352,18 @@ export class OpensearchOutboundConnectionTimeoutsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpensearchOutboundConnectionTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpensearchOutboundConnectionTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -361,33 +405,36 @@ export class OpensearchOutboundConnectionTimeoutsOutputReference extends cdktf.C
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection aws_opensearch_outbound_connection}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection aws_opensearch_outbound_connection}
+ */
 export class OpensearchOutboundConnection extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_opensearch_outbound_connection";
+  public static readonly tfResourceType = 'aws_opensearch_outbound_connection';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection aws_opensearch_outbound_connection} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options OpensearchOutboundConnectionConfig
-  */
-  public constructor(scope: Construct, id: string, config: OpensearchOutboundConnectionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opensearch_outbound_connection aws_opensearch_outbound_connection} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options OpensearchOutboundConnectionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: OpensearchOutboundConnectionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_opensearch_outbound_connection',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -395,7 +442,7 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._connectionAlias = config.connectionAlias;
     this._id = config.id;
@@ -443,11 +490,17 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
   }
 
   // local_domain_info - computed: false, optional: false, required: true
-  private _localDomainInfo = new OpensearchOutboundConnectionLocalDomainInfoOutputReference(this, "local_domain_info");
+  private _localDomainInfo =
+    new OpensearchOutboundConnectionLocalDomainInfoOutputReference(
+      this,
+      'local_domain_info',
+    );
   public get localDomainInfo() {
     return this._localDomainInfo;
   }
-  public putLocalDomainInfo(value: OpensearchOutboundConnectionLocalDomainInfo) {
+  public putLocalDomainInfo(
+    value: OpensearchOutboundConnectionLocalDomainInfo,
+  ) {
     this._localDomainInfo.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -456,11 +509,17 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
   }
 
   // remote_domain_info - computed: false, optional: false, required: true
-  private _remoteDomainInfo = new OpensearchOutboundConnectionRemoteDomainInfoOutputReference(this, "remote_domain_info");
+  private _remoteDomainInfo =
+    new OpensearchOutboundConnectionRemoteDomainInfoOutputReference(
+      this,
+      'remote_domain_info',
+    );
   public get remoteDomainInfo() {
     return this._remoteDomainInfo;
   }
-  public putRemoteDomainInfo(value: OpensearchOutboundConnectionRemoteDomainInfo) {
+  public putRemoteDomainInfo(
+    value: OpensearchOutboundConnectionRemoteDomainInfo,
+  ) {
     this._remoteDomainInfo.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -469,7 +528,10 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new OpensearchOutboundConnectionTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new OpensearchOutboundConnectionTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -492,9 +554,16 @@ export class OpensearchOutboundConnection extends cdktf.TerraformResource {
     return {
       connection_alias: cdktf.stringToTerraform(this._connectionAlias),
       id: cdktf.stringToTerraform(this._id),
-      local_domain_info: opensearchOutboundConnectionLocalDomainInfoToTerraform(this._localDomainInfo.internalValue),
-      remote_domain_info: opensearchOutboundConnectionRemoteDomainInfoToTerraform(this._remoteDomainInfo.internalValue),
-      timeouts: opensearchOutboundConnectionTimeoutsToTerraform(this._timeouts.internalValue),
+      local_domain_info: opensearchOutboundConnectionLocalDomainInfoToTerraform(
+        this._localDomainInfo.internalValue,
+      ),
+      remote_domain_info:
+        opensearchOutboundConnectionRemoteDomainInfoToTerraform(
+          this._remoteDomainInfo.internalValue,
+        ),
+      timeouts: opensearchOutboundConnectionTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

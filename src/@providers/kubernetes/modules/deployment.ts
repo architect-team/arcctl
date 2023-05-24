@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Deployment } from '../.gen/providers/kubernetes/deployment/index.js';
-import { KubernetesCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'npm:constructs';
 
 export class KubernetesDeploymentModule extends ResourceModule<

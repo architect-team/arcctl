@@ -1,9 +1,9 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.js';
-import { ResourceModule } from '../../module.js';
-import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.js';
-import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.js';
-import { DatabaseUser } from '../.gen/providers/digitalocean/database-user/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
+import { ResourceModule } from '../../module.ts';
+import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.ts';
+import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.ts';
+import { DatabaseUser } from '../.gen/providers/digitalocean/database-user/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'npm:constructs';
 
 export class DigitaloceanDatabaseUserModule extends ResourceModule<

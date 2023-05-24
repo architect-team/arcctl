@@ -1,6 +1,6 @@
-import { Provider } from '../@providers/provider.js';
-import { ProviderStore } from '../@providers/store.js';
-import { SupportedProviders } from '../@providers/supported-providers.js';
+import { Provider } from '../@providers/provider.ts';
+import { ProviderStore } from '../@providers/store.ts';
+import { SupportedProviders } from '../@providers/supported-providers.ts';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';

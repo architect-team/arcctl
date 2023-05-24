@@ -2,8 +2,8 @@ import {
   ResourceInputs,
   ResourceOutputs,
   ResourceType,
-} from '../../../@resources/types.js';
-import { CldctlTest, CldctlTestContext } from '../../tests.js';
+} from '../../../@resources/types.ts';
+import { CldctlTest, CldctlTestContext } from '../../tests.ts';
 import { AwsCredentials } from '../credentials';
 import { expect } from 'chai';
 

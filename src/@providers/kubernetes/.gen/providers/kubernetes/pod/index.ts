@@ -1,73 +1,74 @@
 // generated from terraform resource schema
 
-import { PodMetadata,
-podMetadataToTerraform,
-PodMetadataOutputReference,
-PodSpec,
-podSpecToTerraform,
-PodSpecOutputReference,
-PodTimeouts,
-podTimeoutsToTerraform,
-PodTimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
+import {
+  PodMetadata,
+  podMetadataToTerraform,
+  PodMetadataOutputReference,
+  PodSpec,
+  podSpecToTerraform,
+  PodSpecOutputReference,
+  PodTimeouts,
+  podTimeoutsToTerraform,
+  PodTimeoutsOutputReference,
+} from './index-structs';
+export * from './index-structs';
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 export interface PodConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#id Pod#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#id Pod#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#metadata Pod#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#metadata Pod#metadata}
+   */
   readonly metadata: PodMetadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#spec Pod#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#spec Pod#spec}
+   */
   readonly spec: PodSpec;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#timeouts Pod#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#timeouts Pod#timeouts}
+   */
   readonly timeouts?: PodTimeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/pod kubernetes_pod}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/pod kubernetes_pod}
+ */
 export class Pod extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_pod";
+  public static readonly tfResourceType = 'kubernetes_pod';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/pod kubernetes_pod} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options PodConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/pod kubernetes_pod} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options PodConfig
+   */
   public constructor(scope: Construct, id: string, config: PodConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_pod',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +76,7 @@ export class Pod extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -104,7 +105,7 @@ export class Pod extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new PodMetadataOutputReference(this, "metadata");
+  private _metadata = new PodMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -117,7 +118,7 @@ export class Pod extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new PodSpecOutputReference(this, "spec");
+  private _spec = new PodSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -130,7 +131,7 @@ export class Pod extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new PodTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new PodTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }

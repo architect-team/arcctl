@@ -1,9 +1,9 @@
-import { Provider, ProviderResources } from '../provider.js';
-import { DockerProvider as TerraformDockerProvider } from './.gen/providers/docker/provider/index.js';
-import { DockerCredentials, DockerCredentialsSchema } from './credentials.js';
-import { DockerDeploymentService } from './services/deployment.js';
-import { DockerNamespaceService } from './services/namespace.js';
-import { DockerServiceService } from './services/service.js';
+import { Provider, ProviderResources } from '../provider.ts';
+import { DockerProvider as TerraformDockerProvider } from './.gen/providers/docker/provider/index.ts';
+import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
+import { DockerDeploymentService } from './services/deployment.ts';
+import { DockerNamespaceService } from './services/namespace.ts';
+import { DockerServiceService } from './services/service.ts';
 import { Construct } from 'npm:constructs';
 
 export default class DockerProvider extends Provider<DockerCredentials> {

@@ -2,53 +2,58 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface AuditmanagerAccountRegistrationConfig extends cdktf.TerraformMetaArguments {
+export interface AuditmanagerAccountRegistrationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration#delegated_admin_account AuditmanagerAccountRegistration#delegated_admin_account}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration#delegated_admin_account AuditmanagerAccountRegistration#delegated_admin_account}
+   */
   readonly delegatedAdminAccount?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration#deregister_on_destroy AuditmanagerAccountRegistration#deregister_on_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration#deregister_on_destroy AuditmanagerAccountRegistration#deregister_on_destroy}
+   */
   readonly deregisterOnDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration#kms_key AuditmanagerAccountRegistration#kms_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration#kms_key AuditmanagerAccountRegistration#kms_key}
+   */
   readonly kmsKey?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration aws_auditmanager_account_registration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration aws_auditmanager_account_registration}
+ */
 export class AuditmanagerAccountRegistration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_auditmanager_account_registration";
+  public static readonly tfResourceType =
+    'aws_auditmanager_account_registration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration aws_auditmanager_account_registration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AuditmanagerAccountRegistrationConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: AuditmanagerAccountRegistrationConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_account_registration aws_auditmanager_account_registration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AuditmanagerAccountRegistrationConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AuditmanagerAccountRegistrationConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_auditmanager_account_registration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -56,7 +61,7 @@ export class AuditmanagerAccountRegistration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._delegatedAdminAccount = config.delegatedAdminAccount;
     this._deregisterOnDestroy = config.deregisterOnDestroy;
@@ -131,8 +136,12 @@ export class AuditmanagerAccountRegistration extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      delegated_admin_account: cdktf.stringToTerraform(this._delegatedAdminAccount),
-      deregister_on_destroy: cdktf.booleanToTerraform(this._deregisterOnDestroy),
+      delegated_admin_account: cdktf.stringToTerraform(
+        this._delegatedAdminAccount,
+      ),
+      deregister_on_destroy: cdktf.booleanToTerraform(
+        this._deregisterOnDestroy,
+      ),
       kms_key: cdktf.stringToTerraform(this._kmsKey),
     };
   }

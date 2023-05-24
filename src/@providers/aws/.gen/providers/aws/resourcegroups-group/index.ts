@@ -2,73 +2,82 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface ResourcegroupsGroupConfig extends cdktf.TerraformMetaArguments {
+export interface ResourcegroupsGroupConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#description ResourcegroupsGroup#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#description ResourcegroupsGroup#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#id ResourcegroupsGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#id ResourcegroupsGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#name ResourcegroupsGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#name ResourcegroupsGroup#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#tags ResourcegroupsGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#tags ResourcegroupsGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#tags_all ResourcegroupsGroup#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#tags_all ResourcegroupsGroup#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#configuration ResourcegroupsGroup#configuration}
-  */
-  readonly configuration?: ResourcegroupsGroupConfiguration[] | cdktf.IResolvable;
+   * configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#configuration ResourcegroupsGroup#configuration}
+   */
+  readonly configuration?:
+    | ResourcegroupsGroupConfiguration[]
+    | cdktf.IResolvable;
   /**
-  * resource_query block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#resource_query ResourcegroupsGroup#resource_query}
-  */
+   * resource_query block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#resource_query ResourcegroupsGroup#resource_query}
+   */
   readonly resourceQuery?: ResourcegroupsGroupResourceQuery;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#timeouts ResourcegroupsGroup#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#timeouts ResourcegroupsGroup#timeouts}
+   */
   readonly timeouts?: ResourcegroupsGroupTimeouts;
 }
 export interface ResourcegroupsGroupConfigurationParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#name ResourcegroupsGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#name ResourcegroupsGroup#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#values ResourcegroupsGroup#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#values ResourcegroupsGroup#values}
+   */
   readonly values: string[];
 }
 
-export function resourcegroupsGroupConfigurationParametersToTerraform(struct?: ResourcegroupsGroupConfigurationParameters | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function resourcegroupsGroupConfigurationParametersToTerraform(
+  struct?: ResourcegroupsGroupConfigurationParameters | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class ResourcegroupsGroupConfigurationParametersOutputReference extends cdktf.ComplexObject {
@@ -76,16 +85,29 @@ export class ResourcegroupsGroupConfigurationParametersOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ResourcegroupsGroupConfigurationParameters | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ResourcegroupsGroupConfigurationParameters
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -102,18 +124,21 @@ export class ResourcegroupsGroupConfigurationParametersOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ResourcegroupsGroupConfigurationParameters | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ResourcegroupsGroupConfigurationParameters
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -149,46 +174,70 @@ export class ResourcegroupsGroupConfigurationParametersOutputReference extends c
 }
 
 export class ResourcegroupsGroupConfigurationParametersList extends cdktf.ComplexList {
-  public internalValue? : ResourcegroupsGroupConfigurationParameters[] | cdktf.IResolvable
+  public internalValue?:
+    | ResourcegroupsGroupConfigurationParameters[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ResourcegroupsGroupConfigurationParametersOutputReference {
-    return new ResourcegroupsGroupConfigurationParametersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ResourcegroupsGroupConfigurationParametersOutputReference {
+    return new ResourcegroupsGroupConfigurationParametersOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ResourcegroupsGroupConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#type ResourcegroupsGroup#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#type ResourcegroupsGroup#type}
+   */
   readonly type: string;
   /**
-  * parameters block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#parameters ResourcegroupsGroup#parameters}
-  */
-  readonly parameters?: ResourcegroupsGroupConfigurationParameters[] | cdktf.IResolvable;
+   * parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#parameters ResourcegroupsGroup#parameters}
+   */
+  readonly parameters?:
+    | ResourcegroupsGroupConfigurationParameters[]
+    | cdktf.IResolvable;
 }
 
-export function resourcegroupsGroupConfigurationToTerraform(struct?: ResourcegroupsGroupConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function resourcegroupsGroupConfigurationToTerraform(
+  struct?: ResourcegroupsGroupConfiguration | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-    parameters: cdktf.listMapper(resourcegroupsGroupConfigurationParametersToTerraform, true)(struct!.parameters),
-  }
+    parameters: cdktf.listMapper(
+      resourcegroupsGroupConfigurationParametersToTerraform,
+      true,
+    )(struct!.parameters),
+  };
 }
 
 export class ResourcegroupsGroupConfigurationOutputReference extends cdktf.ComplexObject {
@@ -196,16 +245,29 @@ export class ResourcegroupsGroupConfigurationOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ResourcegroupsGroupConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ResourcegroupsGroupConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -222,18 +284,18 @@ export class ResourcegroupsGroupConfigurationOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ResourcegroupsGroupConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ResourcegroupsGroupConfiguration | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._type = undefined;
       this._parameters.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -255,11 +317,17 @@ export class ResourcegroupsGroupConfigurationOutputReference extends cdktf.Compl
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters = new ResourcegroupsGroupConfigurationParametersList(this, "parameters", true);
+  private _parameters = new ResourcegroupsGroupConfigurationParametersList(
+    this,
+    'parameters',
+    true,
+  );
   public get parameters() {
     return this._parameters;
   }
-  public putParameters(value: ResourcegroupsGroupConfigurationParameters[] | cdktf.IResolvable) {
+  public putParameters(
+    value: ResourcegroupsGroupConfigurationParameters[] | cdktf.IResolvable,
+  ) {
     this._parameters.internalValue = value;
   }
   public resetParameters() {
@@ -272,54 +340,74 @@ export class ResourcegroupsGroupConfigurationOutputReference extends cdktf.Compl
 }
 
 export class ResourcegroupsGroupConfigurationList extends cdktf.ComplexList {
-  public internalValue? : ResourcegroupsGroupConfiguration[] | cdktf.IResolvable
+  public internalValue?: ResourcegroupsGroupConfiguration[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ResourcegroupsGroupConfigurationOutputReference {
-    return new ResourcegroupsGroupConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ResourcegroupsGroupConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ResourcegroupsGroupResourceQuery {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#query ResourcegroupsGroup#query}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#query ResourcegroupsGroup#query}
+   */
   readonly query: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#type ResourcegroupsGroup#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#type ResourcegroupsGroup#type}
+   */
   readonly type?: string;
 }
 
-export function resourcegroupsGroupResourceQueryToTerraform(struct?: ResourcegroupsGroupResourceQueryOutputReference | ResourcegroupsGroupResourceQuery): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function resourcegroupsGroupResourceQueryToTerraform(
+  struct?:
+    | ResourcegroupsGroupResourceQueryOutputReference
+    | ResourcegroupsGroupResourceQuery,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     query: cdktf.stringToTerraform(struct!.query),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class ResourcegroupsGroupResourceQueryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -337,13 +425,14 @@ export class ResourcegroupsGroupResourceQueryOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ResourcegroupsGroupResourceQuery | undefined) {
+  public set internalValue(
+    value: ResourcegroupsGroupResourceQuery | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._query = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._query = value.query;
       this._type = value.type;
@@ -381,24 +470,33 @@ export class ResourcegroupsGroupResourceQueryOutputReference extends cdktf.Compl
 }
 export interface ResourcegroupsGroupTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#create ResourcegroupsGroup#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#create ResourcegroupsGroup#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#update ResourcegroupsGroup#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group#update ResourcegroupsGroup#update}
+   */
   readonly update?: string;
 }
 
-export function resourcegroupsGroupTimeoutsToTerraform(struct?: ResourcegroupsGroupTimeoutsOutputReference | ResourcegroupsGroupTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function resourcegroupsGroupTimeoutsToTerraform(
+  struct?:
+    | ResourcegroupsGroupTimeoutsOutputReference
+    | ResourcegroupsGroupTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ResourcegroupsGroupTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -406,14 +504,20 @@ export class ResourcegroupsGroupTimeoutsOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ResourcegroupsGroupTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ResourcegroupsGroupTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -430,18 +534,18 @@ export class ResourcegroupsGroupTimeoutsOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ResourcegroupsGroupTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ResourcegroupsGroupTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -483,33 +587,36 @@ export class ResourcegroupsGroupTimeoutsOutputReference extends cdktf.ComplexObj
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group aws_resourcegroups_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group aws_resourcegroups_group}
+ */
 export class ResourcegroupsGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_resourcegroups_group";
+  public static readonly tfResourceType = 'aws_resourcegroups_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group aws_resourcegroups_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ResourcegroupsGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: ResourcegroupsGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/resourcegroups_group aws_resourcegroups_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ResourcegroupsGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ResourcegroupsGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_resourcegroups_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -517,7 +624,7 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -616,11 +723,17 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // configuration - computed: false, optional: true, required: false
-  private _configuration = new ResourcegroupsGroupConfigurationList(this, "configuration", true);
+  private _configuration = new ResourcegroupsGroupConfigurationList(
+    this,
+    'configuration',
+    true,
+  );
   public get configuration() {
     return this._configuration;
   }
-  public putConfiguration(value: ResourcegroupsGroupConfiguration[] | cdktf.IResolvable) {
+  public putConfiguration(
+    value: ResourcegroupsGroupConfiguration[] | cdktf.IResolvable,
+  ) {
     this._configuration.internalValue = value;
   }
   public resetConfiguration() {
@@ -632,7 +745,10 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // resource_query - computed: false, optional: true, required: false
-  private _resourceQuery = new ResourcegroupsGroupResourceQueryOutputReference(this, "resource_query");
+  private _resourceQuery = new ResourcegroupsGroupResourceQueryOutputReference(
+    this,
+    'resource_query',
+  );
   public get resourceQuery() {
     return this._resourceQuery;
   }
@@ -648,7 +764,10 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ResourcegroupsGroupTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ResourcegroupsGroupTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -674,9 +793,16 @@ export class ResourcegroupsGroup extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      configuration: cdktf.listMapper(resourcegroupsGroupConfigurationToTerraform, true)(this._configuration.internalValue),
-      resource_query: resourcegroupsGroupResourceQueryToTerraform(this._resourceQuery.internalValue),
-      timeouts: resourcegroupsGroupTimeoutsToTerraform(this._timeouts.internalValue),
+      configuration: cdktf.listMapper(
+        resourcegroupsGroupConfigurationToTerraform,
+        true,
+      )(this._configuration.internalValue),
+      resource_query: resourcegroupsGroupResourceQueryToTerraform(
+        this._resourceQuery.internalValue,
+      ),
+      timeouts: resourcegroupsGroupTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

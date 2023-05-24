@@ -2,79 +2,85 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface DbOptionGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#engine_name DbOptionGroup#engine_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#engine_name DbOptionGroup#engine_name}
+   */
   readonly engineName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#id DbOptionGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#id DbOptionGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#major_engine_version DbOptionGroup#major_engine_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#major_engine_version DbOptionGroup#major_engine_version}
+   */
   readonly majorEngineVersion: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#name DbOptionGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#name DbOptionGroup#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#name_prefix DbOptionGroup#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#name_prefix DbOptionGroup#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_group_description DbOptionGroup#option_group_description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_group_description DbOptionGroup#option_group_description}
+   */
   readonly optionGroupDescription?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#tags DbOptionGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#tags DbOptionGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#tags_all DbOptionGroup#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#tags_all DbOptionGroup#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * option block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option DbOptionGroup#option}
-  */
+   * option block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option DbOptionGroup#option}
+   */
   readonly option?: DbOptionGroupOption[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#timeouts DbOptionGroup#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#timeouts DbOptionGroup#timeouts}
+   */
   readonly timeouts?: DbOptionGroupTimeouts;
 }
 export interface DbOptionGroupOptionOptionSettings {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#name DbOptionGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#name DbOptionGroup#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#value DbOptionGroup#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#value DbOptionGroup#value}
+   */
   readonly value: string;
 }
 
-export function dbOptionGroupOptionOptionSettingsToTerraform(struct?: DbOptionGroupOptionOptionSettings | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbOptionGroupOptionOptionSettingsToTerraform(
+  struct?: DbOptionGroupOptionOptionSettings | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class DbOptionGroupOptionOptionSettingsOutputReference extends cdktf.ComplexObject {
@@ -82,16 +88,29 @@ export class DbOptionGroupOptionOptionSettingsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DbOptionGroupOptionOptionSettings | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DbOptionGroupOptionOptionSettings
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -108,18 +127,18 @@ export class DbOptionGroupOptionOptionSettingsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DbOptionGroupOptionOptionSettings | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DbOptionGroupOptionOptionSettings | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -155,66 +174,94 @@ export class DbOptionGroupOptionOptionSettingsOutputReference extends cdktf.Comp
 }
 
 export class DbOptionGroupOptionOptionSettingsList extends cdktf.ComplexList {
-  public internalValue? : DbOptionGroupOptionOptionSettings[] | cdktf.IResolvable
+  public internalValue?:
+    | DbOptionGroupOptionOptionSettings[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DbOptionGroupOptionOptionSettingsOutputReference {
-    return new DbOptionGroupOptionOptionSettingsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DbOptionGroupOptionOptionSettingsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DbOptionGroupOption {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#db_security_group_memberships DbOptionGroup#db_security_group_memberships}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#db_security_group_memberships DbOptionGroup#db_security_group_memberships}
+   */
   readonly dbSecurityGroupMemberships?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_name DbOptionGroup#option_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_name DbOptionGroup#option_name}
+   */
   readonly optionName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#port DbOptionGroup#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#port DbOptionGroup#port}
+   */
   readonly port?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#version DbOptionGroup#version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#version DbOptionGroup#version}
+   */
   readonly version?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#vpc_security_group_memberships DbOptionGroup#vpc_security_group_memberships}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#vpc_security_group_memberships DbOptionGroup#vpc_security_group_memberships}
+   */
   readonly vpcSecurityGroupMemberships?: string[];
   /**
-  * option_settings block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_settings DbOptionGroup#option_settings}
-  */
-  readonly optionSettings?: DbOptionGroupOptionOptionSettings[] | cdktf.IResolvable;
+   * option_settings block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#option_settings DbOptionGroup#option_settings}
+   */
+  readonly optionSettings?:
+    | DbOptionGroupOptionOptionSettings[]
+    | cdktf.IResolvable;
 }
 
-export function dbOptionGroupOptionToTerraform(struct?: DbOptionGroupOption | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbOptionGroupOptionToTerraform(
+  struct?: DbOptionGroupOption | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    db_security_group_memberships: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.dbSecurityGroupMemberships),
+    db_security_group_memberships: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.dbSecurityGroupMemberships),
     option_name: cdktf.stringToTerraform(struct!.optionName),
     port: cdktf.numberToTerraform(struct!.port),
     version: cdktf.stringToTerraform(struct!.version),
-    vpc_security_group_memberships: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.vpcSecurityGroupMemberships),
-    option_settings: cdktf.listMapper(dbOptionGroupOptionOptionSettingsToTerraform, true)(struct!.optionSettings),
-  }
+    vpc_security_group_memberships: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.vpcSecurityGroupMemberships),
+    option_settings: cdktf.listMapper(
+      dbOptionGroupOptionOptionSettingsToTerraform,
+      true,
+    )(struct!.optionSettings),
+  };
 }
 
 export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
@@ -222,16 +269,29 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DbOptionGroupOption | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DbOptionGroupOption
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -239,7 +299,8 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
     const internalValueResult: any = {};
     if (this._dbSecurityGroupMemberships !== undefined) {
       hasAnyValues = true;
-      internalValueResult.dbSecurityGroupMemberships = this._dbSecurityGroupMemberships;
+      internalValueResult.dbSecurityGroupMemberships =
+        this._dbSecurityGroupMemberships;
     }
     if (this._optionName !== undefined) {
       hasAnyValues = true;
@@ -255,7 +316,8 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
     }
     if (this._vpcSecurityGroupMemberships !== undefined) {
       hasAnyValues = true;
-      internalValueResult.vpcSecurityGroupMemberships = this._vpcSecurityGroupMemberships;
+      internalValueResult.vpcSecurityGroupMemberships =
+        this._vpcSecurityGroupMemberships;
     }
     if (this._optionSettings?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -264,7 +326,9 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DbOptionGroupOption | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DbOptionGroupOption | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -274,12 +338,10 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
       this._version = undefined;
       this._vpcSecurityGroupMemberships = undefined;
       this._optionSettings.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._dbSecurityGroupMemberships = value.dbSecurityGroupMemberships;
@@ -294,7 +356,9 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   // db_security_group_memberships - computed: false, optional: true, required: false
   private _dbSecurityGroupMemberships?: string[];
   public get dbSecurityGroupMemberships() {
-    return cdktf.Fn.tolist(this.getListAttribute('db_security_group_memberships'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('db_security_group_memberships'),
+    );
   }
   public set dbSecurityGroupMemberships(value: string[]) {
     this._dbSecurityGroupMemberships = value;
@@ -355,7 +419,9 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   // vpc_security_group_memberships - computed: false, optional: true, required: false
   private _vpcSecurityGroupMemberships?: string[];
   public get vpcSecurityGroupMemberships() {
-    return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_memberships'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('vpc_security_group_memberships'),
+    );
   }
   public set vpcSecurityGroupMemberships(value: string[]) {
     this._vpcSecurityGroupMemberships = value;
@@ -369,11 +435,17 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
   }
 
   // option_settings - computed: false, optional: true, required: false
-  private _optionSettings = new DbOptionGroupOptionOptionSettingsList(this, "option_settings", true);
+  private _optionSettings = new DbOptionGroupOptionOptionSettingsList(
+    this,
+    'option_settings',
+    true,
+  );
   public get optionSettings() {
     return this._optionSettings;
   }
-  public putOptionSettings(value: DbOptionGroupOptionOptionSettings[] | cdktf.IResolvable) {
+  public putOptionSettings(
+    value: DbOptionGroupOptionOptionSettings[] | cdktf.IResolvable,
+  ) {
     this._optionSettings.internalValue = value;
   }
   public resetOptionSettings() {
@@ -386,39 +458,57 @@ export class DbOptionGroupOptionOutputReference extends cdktf.ComplexObject {
 }
 
 export class DbOptionGroupOptionList extends cdktf.ComplexList {
-  public internalValue? : DbOptionGroupOption[] | cdktf.IResolvable
+  public internalValue?: DbOptionGroupOption[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DbOptionGroupOptionOutputReference {
-    return new DbOptionGroupOptionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DbOptionGroupOptionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DbOptionGroupTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#delete DbOptionGroup#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_option_group#delete DbOptionGroup#delete}
+   */
   readonly delete?: string;
 }
 
-export function dbOptionGroupTimeoutsToTerraform(struct?: DbOptionGroupTimeoutsOutputReference | DbOptionGroupTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbOptionGroupTimeoutsToTerraform(
+  struct?:
+    | DbOptionGroupTimeoutsOutputReference
+    | DbOptionGroupTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class DbOptionGroupTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -426,14 +516,20 @@ export class DbOptionGroupTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DbOptionGroupTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DbOptionGroupTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -446,17 +542,17 @@ export class DbOptionGroupTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DbOptionGroupTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DbOptionGroupTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -481,33 +577,36 @@ export class DbOptionGroupTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_option_group aws_db_option_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_option_group aws_db_option_group}
+ */
 export class DbOptionGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_db_option_group";
+  public static readonly tfResourceType = 'aws_db_option_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_option_group aws_db_option_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DbOptionGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: DbOptionGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_option_group aws_db_option_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DbOptionGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DbOptionGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_db_option_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -515,7 +614,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._engineName = config.engineName;
     this._id = config.id;
@@ -661,7 +760,7 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // option - computed: false, optional: true, required: false
-  private _option = new DbOptionGroupOptionList(this, "option", true);
+  private _option = new DbOptionGroupOptionList(this, 'option', true);
   public get option() {
     return this._option;
   }
@@ -677,7 +776,10 @@ export class DbOptionGroup extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DbOptionGroupTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DbOptionGroupTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -703,10 +805,15 @@ export class DbOptionGroup extends cdktf.TerraformResource {
       major_engine_version: cdktf.stringToTerraform(this._majorEngineVersion),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
-      option_group_description: cdktf.stringToTerraform(this._optionGroupDescription),
+      option_group_description: cdktf.stringToTerraform(
+        this._optionGroupDescription,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      option: cdktf.listMapper(dbOptionGroupOptionToTerraform, true)(this._option.internalValue),
+      option: cdktf.listMapper(
+        dbOptionGroupOptionToTerraform,
+        true,
+      )(this._option.internalValue),
       timeouts: dbOptionGroupTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

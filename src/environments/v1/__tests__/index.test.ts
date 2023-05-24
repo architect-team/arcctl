@@ -1,6 +1,6 @@
-import { CloudEdge, CloudNode } from '../../../cloud-graph/index.js';
-import { ComponentStore } from '../../../component-store/index.js';
-import { parseEnvironment } from '../../parser.js';
+import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { ComponentStore } from '../../../component-store/index.ts';
+import { parseEnvironment } from '../../parser.ts';
 import fs from 'fs/promises';
 import yaml from 'js-yaml';
 import mock_fs from 'mock-fs';

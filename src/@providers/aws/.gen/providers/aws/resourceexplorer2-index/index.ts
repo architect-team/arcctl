@@ -2,51 +2,61 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Resourceexplorer2IndexConfig extends cdktf.TerraformMetaArguments {
+export interface Resourceexplorer2IndexConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#tags Resourceexplorer2Index#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#tags Resourceexplorer2Index#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#type Resourceexplorer2Index#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#type Resourceexplorer2Index#type}
+   */
   readonly type: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#timeouts Resourceexplorer2Index#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#timeouts Resourceexplorer2Index#timeouts}
+   */
   readonly timeouts?: Resourceexplorer2IndexTimeouts;
 }
 export interface Resourceexplorer2IndexTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#create Resourceexplorer2Index#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#create Resourceexplorer2Index#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#delete Resourceexplorer2Index#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#delete Resourceexplorer2Index#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#update Resourceexplorer2Index#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index#update Resourceexplorer2Index#update}
+   */
   readonly update?: string;
 }
 
-export function resourceexplorer2IndexTimeoutsToTerraform(struct?: Resourceexplorer2IndexTimeoutsOutputReference | Resourceexplorer2IndexTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function resourceexplorer2IndexTimeoutsToTerraform(
+  struct?:
+    | Resourceexplorer2IndexTimeoutsOutputReference
+    | Resourceexplorer2IndexTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -54,14 +64,20 @@ export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Resourceexplorer2IndexTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Resourceexplorer2IndexTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -82,19 +98,19 @@ export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Resourceexplorer2IndexTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Resourceexplorer2IndexTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -153,33 +169,36 @@ export class Resourceexplorer2IndexTimeoutsOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index aws_resourceexplorer2_index}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index aws_resourceexplorer2_index}
+ */
 export class Resourceexplorer2Index extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_resourceexplorer2_index";
+  public static readonly tfResourceType = 'aws_resourceexplorer2_index';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index aws_resourceexplorer2_index} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Resourceexplorer2IndexConfig
-  */
-  public constructor(scope: Construct, id: string, config: Resourceexplorer2IndexConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/resourceexplorer2_index aws_resourceexplorer2_index} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Resourceexplorer2IndexConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Resourceexplorer2IndexConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_resourceexplorer2_index',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -187,7 +206,7 @@ export class Resourceexplorer2Index extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._tags = config.tags;
     this._type = config.type;
@@ -225,7 +244,7 @@ export class Resourceexplorer2Index extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: false, required: false
-  private _tagsAll = new cdktf.StringMap(this, "tags_all");
+  private _tagsAll = new cdktf.StringMap(this, 'tags_all');
   public get tagsAll() {
     return this._tagsAll;
   }
@@ -244,7 +263,10 @@ export class Resourceexplorer2Index extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Resourceexplorer2IndexTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new Resourceexplorer2IndexTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -267,7 +289,9 @@ export class Resourceexplorer2Index extends cdktf.TerraformResource {
     return {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       type: cdktf.stringToTerraform(this._type),
-      timeouts: resourceexplorer2IndexTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: resourceexplorer2IndexTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

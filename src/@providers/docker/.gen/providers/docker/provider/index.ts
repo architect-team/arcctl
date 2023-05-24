@@ -2,103 +2,109 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface DockerProviderConfig {
   /**
-  * PEM-encoded content of Docker host CA certificate
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#ca_material DockerProvider#ca_material}
-  */
+   * PEM-encoded content of Docker host CA certificate
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#ca_material DockerProvider#ca_material}
+   */
   readonly caMaterial?: string;
   /**
-  * PEM-encoded content of Docker client certificate
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#cert_material DockerProvider#cert_material}
-  */
+   * PEM-encoded content of Docker client certificate
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#cert_material DockerProvider#cert_material}
+   */
   readonly certMaterial?: string;
   /**
-  * Path to directory with Docker TLS config
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#cert_path DockerProvider#cert_path}
-  */
+   * Path to directory with Docker TLS config
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#cert_path DockerProvider#cert_path}
+   */
   readonly certPath?: string;
   /**
-  * The Docker daemon address
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#host DockerProvider#host}
-  */
+   * The Docker daemon address
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#host DockerProvider#host}
+   */
   readonly host?: string;
   /**
-  * PEM-encoded content of Docker client private key
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#key_material DockerProvider#key_material}
-  */
+   * PEM-encoded content of Docker client private key
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#key_material DockerProvider#key_material}
+   */
   readonly keyMaterial?: string;
   /**
-  * Additional SSH option flags to be appended when using `ssh://` protocol
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#ssh_opts DockerProvider#ssh_opts}
-  */
+   * Additional SSH option flags to be appended when using `ssh://` protocol
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#ssh_opts DockerProvider#ssh_opts}
+   */
   readonly sshOpts?: string[];
   /**
-  * Alias name
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#alias DockerProvider#alias}
-  */
+   * Alias name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#alias DockerProvider#alias}
+   */
   readonly alias?: string;
   /**
-  * registry_auth block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#registry_auth DockerProvider#registry_auth}
-  */
+   * registry_auth block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#registry_auth DockerProvider#registry_auth}
+   */
   readonly registryAuth?: DockerProviderRegistryAuth[] | cdktf.IResolvable;
 }
 export interface DockerProviderRegistryAuth {
   /**
-  * Address of the registry
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#address DockerProvider#address}
-  */
+   * Address of the registry
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#address DockerProvider#address}
+   */
   readonly address: string;
   /**
-  * Setting this to `true` will tell the provider that this registry does not need authentication. Due to the docker internals, the provider will use dummy credentials (see https://github.com/kreuzwerker/terraform-provider-docker/issues/470 for more information). Defaults to `false`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#auth_disabled DockerProvider#auth_disabled}
-  */
+   * Setting this to `true` will tell the provider that this registry does not need authentication. Due to the docker internals, the provider will use dummy credentials (see https://github.com/kreuzwerker/terraform-provider-docker/issues/470 for more information). Defaults to `false`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#auth_disabled DockerProvider#auth_disabled}
+   */
   readonly authDisabled?: boolean | cdktf.IResolvable;
   /**
-  * Path to docker json file for registry auth. Defaults to `~/.docker/config.json`. If `DOCKER_CONFIG` is set, the value of `DOCKER_CONFIG` is used as the path. `config_file` has predencen over all other options.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#config_file DockerProvider#config_file}
-  */
+   * Path to docker json file for registry auth. Defaults to `~/.docker/config.json`. If `DOCKER_CONFIG` is set, the value of `DOCKER_CONFIG` is used as the path. `config_file` has predencen over all other options.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#config_file DockerProvider#config_file}
+   */
   readonly configFile?: string;
   /**
-  * Plain content of the docker json file for registry auth. `config_file_content` has precedence over username/password.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#config_file_content DockerProvider#config_file_content}
-  */
+   * Plain content of the docker json file for registry auth. `config_file_content` has precedence over username/password.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#config_file_content DockerProvider#config_file_content}
+   */
   readonly configFileContent?: string;
   /**
-  * Password for the registry. Defaults to `DOCKER_REGISTRY_PASS` env variable if set.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#password DockerProvider#password}
-  */
+   * Password for the registry. Defaults to `DOCKER_REGISTRY_PASS` env variable if set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#password DockerProvider#password}
+   */
   readonly password?: string;
   /**
-  * Username for the registry. Defaults to `DOCKER_REGISTRY_USER` env variable if set.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#username DockerProvider#username}
-  */
+   * Username for the registry. Defaults to `DOCKER_REGISTRY_USER` env variable if set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker#username DockerProvider#username}
+   */
   readonly username?: string;
 }
 
-export function dockerProviderRegistryAuthToTerraform(struct?: DockerProviderRegistryAuth | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dockerProviderRegistryAuthToTerraform(
+  struct?: DockerProviderRegistryAuth | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     address: cdktf.stringToTerraform(struct!.address),
@@ -107,40 +113,42 @@ export function dockerProviderRegistryAuthToTerraform(struct?: DockerProviderReg
     config_file_content: cdktf.stringToTerraform(struct!.configFileContent),
     password: cdktf.stringToTerraform(struct!.password),
     username: cdktf.stringToTerraform(struct!.username),
-  }
+  };
 }
 
-
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker docker}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker docker}
+ */
 export class DockerProvider extends cdktf.TerraformProvider {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker";
+  public static readonly tfResourceType = 'docker';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker docker} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DockerProviderConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DockerProviderConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/docker docker} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DockerProviderConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DockerProviderConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'docker',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
-      terraformProviderSource: 'kreuzwerker/docker'
+      terraformProviderSource: 'kreuzwerker/docker',
     });
     this._caMaterial = config.caMaterial;
     this._certMaterial = config.certMaterial;
@@ -273,7 +281,9 @@ export class DockerProvider extends cdktf.TerraformProvider {
   public get registryAuth() {
     return this._registryAuth;
   }
-  public set registryAuth(value: DockerProviderRegistryAuth[] | cdktf.IResolvable | undefined) {
+  public set registryAuth(
+    value: DockerProviderRegistryAuth[] | cdktf.IResolvable | undefined,
+  ) {
     this._registryAuth = value;
   }
   public resetRegistryAuth() {
@@ -297,7 +307,10 @@ export class DockerProvider extends cdktf.TerraformProvider {
       key_material: cdktf.stringToTerraform(this._keyMaterial),
       ssh_opts: cdktf.listMapper(cdktf.stringToTerraform, false)(this._sshOpts),
       alias: cdktf.stringToTerraform(this._alias),
-      registry_auth: cdktf.listMapper(dockerProviderRegistryAuthToTerraform, true)(this._registryAuth),
+      registry_auth: cdktf.listMapper(
+        dockerProviderRegistryAuthToTerraform,
+        true,
+      )(this._registryAuth),
     };
   }
 }

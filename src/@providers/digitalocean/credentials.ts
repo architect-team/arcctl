@@ -1,7 +1,7 @@
 import {
   ProviderCredentials,
   ProviderCredentialsSchema,
-} from '../credentials.js';
+} from '../credentials.ts';
 
 export interface DigitaloceanCredentials extends ProviderCredentials {
   token: string;

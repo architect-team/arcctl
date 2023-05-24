@@ -2,62 +2,76 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface GuarddutyOrganizationConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface GuarddutyOrganizationConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#auto_enable GuarddutyOrganizationConfiguration#auto_enable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#auto_enable GuarddutyOrganizationConfiguration#auto_enable}
+   */
   readonly autoEnable: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#detector_id GuarddutyOrganizationConfiguration#detector_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#detector_id GuarddutyOrganizationConfiguration#detector_id}
+   */
   readonly detectorId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#id GuarddutyOrganizationConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#id GuarddutyOrganizationConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * datasources block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#datasources GuarddutyOrganizationConfiguration#datasources}
-  */
+   * datasources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#datasources GuarddutyOrganizationConfiguration#datasources}
+   */
   readonly datasources?: GuarddutyOrganizationConfigurationDatasources;
 }
 export interface GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#enable GuarddutyOrganizationConfiguration#enable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#enable GuarddutyOrganizationConfiguration#enable}
+   */
   readonly enable: boolean | cdktf.IResolvable;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputReference | GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputReference
+    | GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-  }
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -67,12 +81,15 @@ export class GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs | undefined) {
+  public set internalValue(
+    value:
+      | GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
     }
@@ -93,35 +110,51 @@ export class GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOut
 }
 export interface GuarddutyOrganizationConfigurationDatasourcesKubernetes {
   /**
-  * audit_logs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#audit_logs GuarddutyOrganizationConfiguration#audit_logs}
-  */
+   * audit_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#audit_logs GuarddutyOrganizationConfiguration#audit_logs}
+   */
   readonly auditLogs: GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesKubernetesToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputReference | GuarddutyOrganizationConfigurationDatasourcesKubernetes): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesKubernetesToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputReference
+    | GuarddutyOrganizationConfigurationDatasourcesKubernetes,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    audit_logs: guarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsToTerraform(struct!.auditLogs),
-  }
+    audit_logs:
+      guarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsToTerraform(
+        struct!.auditLogs,
+      ),
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasourcesKubernetes | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasourcesKubernetes
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._auditLogs?.internalValue !== undefined) {
@@ -131,23 +164,30 @@ export class GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasourcesKubernetes | undefined) {
+  public set internalValue(
+    value: GuarddutyOrganizationConfigurationDatasourcesKubernetes | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._auditLogs.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._auditLogs.internalValue = value.auditLogs;
     }
   }
 
   // audit_logs - computed: false, optional: false, required: true
-  private _auditLogs = new GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputReference(this, "audit_logs");
+  private _auditLogs =
+    new GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputReference(
+      this,
+      'audit_logs',
+    );
   public get auditLogs() {
     return this._auditLogs;
   }
-  public putAuditLogs(value: GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs) {
+  public putAuditLogs(
+    value: GuarddutyOrganizationConfigurationDatasourcesKubernetesAuditLogs,
+  ) {
     this._auditLogs.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -157,33 +197,46 @@ export class GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputRefere
 }
 export interface GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#auto_enable GuarddutyOrganizationConfiguration#auto_enable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#auto_enable GuarddutyOrganizationConfiguration#auto_enable}
+   */
   readonly autoEnable: boolean | cdktf.IResolvable;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     auto_enable: cdktf.booleanToTerraform(struct!.autoEnable),
-  }
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._autoEnable !== undefined) {
@@ -193,12 +246,15 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes | undefined) {
+  public set internalValue(
+    value:
+      | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._autoEnable = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._autoEnable = value.autoEnable;
     }
@@ -219,35 +275,51 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
 }
 export interface GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
   /**
-  * ebs_volumes block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#ebs_volumes GuarddutyOrganizationConfiguration#ebs_volumes}
-  */
+   * ebs_volumes block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#ebs_volumes GuarddutyOrganizationConfiguration#ebs_volumes}
+   */
   readonly ebsVolumes: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ebs_volumes: guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(struct!.ebsVolumes),
-  }
+    ebs_volumes:
+      guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(
+        struct!.ebsVolumes,
+      ),
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._ebsVolumes?.internalValue !== undefined) {
@@ -257,23 +329,32 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings | undefined) {
+  public set internalValue(
+    value:
+      | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._ebsVolumes.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._ebsVolumes.internalValue = value.ebsVolumes;
     }
   }
 
   // ebs_volumes - computed: false, optional: false, required: true
-  private _ebsVolumes = new GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference(this, "ebs_volumes");
+  private _ebsVolumes =
+    new GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference(
+      this,
+      'ebs_volumes',
+    );
   public get ebsVolumes() {
     return this._ebsVolumes;
   }
-  public putEbsVolumes(value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) {
+  public putEbsVolumes(
+    value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes,
+  ) {
     this._ebsVolumes.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -283,61 +364,88 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanE
 }
 export interface GuarddutyOrganizationConfigurationDatasourcesMalwareProtection {
   /**
-  * scan_ec2_instance_with_findings block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#scan_ec2_instance_with_findings GuarddutyOrganizationConfiguration#scan_ec2_instance_with_findings}
-  */
+   * scan_ec2_instance_with_findings block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#scan_ec2_instance_with_findings GuarddutyOrganizationConfiguration#scan_ec2_instance_with_findings}
+   */
   readonly scanEc2InstanceWithFindings: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesMalwareProtectionToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionOutputReference | GuarddutyOrganizationConfigurationDatasourcesMalwareProtection): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesMalwareProtectionToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionOutputReference
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtection,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    scan_ec2_instance_with_findings: guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(struct!.scanEc2InstanceWithFindings),
-  }
+    scan_ec2_instance_with_findings:
+      guarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(
+        struct!.scanEc2InstanceWithFindings,
+      ),
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasourcesMalwareProtection | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasourcesMalwareProtection
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._scanEc2InstanceWithFindings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.scanEc2InstanceWithFindings = this._scanEc2InstanceWithFindings?.internalValue;
+      internalValueResult.scanEc2InstanceWithFindings =
+        this._scanEc2InstanceWithFindings?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtection | undefined) {
+  public set internalValue(
+    value:
+      | GuarddutyOrganizationConfigurationDatasourcesMalwareProtection
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._scanEc2InstanceWithFindings.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._scanEc2InstanceWithFindings.internalValue = value.scanEc2InstanceWithFindings;
+      this._scanEc2InstanceWithFindings.internalValue =
+        value.scanEc2InstanceWithFindings;
     }
   }
 
   // scan_ec2_instance_with_findings - computed: false, optional: false, required: true
-  private _scanEc2InstanceWithFindings = new GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference(this, "scan_ec2_instance_with_findings");
+  private _scanEc2InstanceWithFindings =
+    new GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference(
+      this,
+      'scan_ec2_instance_with_findings',
+    );
   public get scanEc2InstanceWithFindings() {
     return this._scanEc2InstanceWithFindings;
   }
-  public putScanEc2InstanceWithFindings(value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) {
+  public putScanEc2InstanceWithFindings(
+    value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings,
+  ) {
     this._scanEc2InstanceWithFindings.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -347,33 +455,46 @@ export class GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionOutpu
 }
 export interface GuarddutyOrganizationConfigurationDatasourcesS3Logs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#auto_enable GuarddutyOrganizationConfiguration#auto_enable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#auto_enable GuarddutyOrganizationConfiguration#auto_enable}
+   */
   readonly autoEnable: boolean | cdktf.IResolvable;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesS3LogsToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference | GuarddutyOrganizationConfigurationDatasourcesS3Logs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesS3LogsToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference
+    | GuarddutyOrganizationConfigurationDatasourcesS3Logs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     auto_enable: cdktf.booleanToTerraform(struct!.autoEnable),
-  }
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasourcesS3Logs | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasourcesS3Logs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._autoEnable !== undefined) {
@@ -383,12 +504,13 @@ export class GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasourcesS3Logs | undefined) {
+  public set internalValue(
+    value: GuarddutyOrganizationConfigurationDatasourcesS3Logs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._autoEnable = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._autoEnable = value.autoEnable;
     }
@@ -409,49 +531,70 @@ export class GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference 
 }
 export interface GuarddutyOrganizationConfigurationDatasources {
   /**
-  * kubernetes block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#kubernetes GuarddutyOrganizationConfiguration#kubernetes}
-  */
+   * kubernetes block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#kubernetes GuarddutyOrganizationConfiguration#kubernetes}
+   */
   readonly kubernetes?: GuarddutyOrganizationConfigurationDatasourcesKubernetes;
   /**
-  * malware_protection block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#malware_protection GuarddutyOrganizationConfiguration#malware_protection}
-  */
+   * malware_protection block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#malware_protection GuarddutyOrganizationConfiguration#malware_protection}
+   */
   readonly malwareProtection?: GuarddutyOrganizationConfigurationDatasourcesMalwareProtection;
   /**
-  * s3_logs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#s3_logs GuarddutyOrganizationConfiguration#s3_logs}
-  */
+   * s3_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration#s3_logs GuarddutyOrganizationConfiguration#s3_logs}
+   */
   readonly s3Logs?: GuarddutyOrganizationConfigurationDatasourcesS3Logs;
 }
 
-export function guarddutyOrganizationConfigurationDatasourcesToTerraform(struct?: GuarddutyOrganizationConfigurationDatasourcesOutputReference | GuarddutyOrganizationConfigurationDatasources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function guarddutyOrganizationConfigurationDatasourcesToTerraform(
+  struct?:
+    | GuarddutyOrganizationConfigurationDatasourcesOutputReference
+    | GuarddutyOrganizationConfigurationDatasources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    kubernetes: guarddutyOrganizationConfigurationDatasourcesKubernetesToTerraform(struct!.kubernetes),
-    malware_protection: guarddutyOrganizationConfigurationDatasourcesMalwareProtectionToTerraform(struct!.malwareProtection),
-    s3_logs: guarddutyOrganizationConfigurationDatasourcesS3LogsToTerraform(struct!.s3Logs),
-  }
+    kubernetes:
+      guarddutyOrganizationConfigurationDatasourcesKubernetesToTerraform(
+        struct!.kubernetes,
+      ),
+    malware_protection:
+      guarddutyOrganizationConfigurationDatasourcesMalwareProtectionToTerraform(
+        struct!.malwareProtection,
+      ),
+    s3_logs: guarddutyOrganizationConfigurationDatasourcesS3LogsToTerraform(
+      struct!.s3Logs,
+    ),
+  };
 }
 
 export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GuarddutyOrganizationConfigurationDatasources | undefined {
+  public get internalValue():
+    | GuarddutyOrganizationConfigurationDatasources
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._kubernetes?.internalValue !== undefined) {
@@ -460,7 +603,8 @@ export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extend
     }
     if (this._malwareProtection?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.malwareProtection = this._malwareProtection?.internalValue;
+      internalValueResult.malwareProtection =
+        this._malwareProtection?.internalValue;
     }
     if (this._s3Logs?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -469,14 +613,15 @@ export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GuarddutyOrganizationConfigurationDatasources | undefined) {
+  public set internalValue(
+    value: GuarddutyOrganizationConfigurationDatasources | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._kubernetes.internalValue = undefined;
       this._malwareProtection.internalValue = undefined;
       this._s3Logs.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._kubernetes.internalValue = value.kubernetes;
       this._malwareProtection.internalValue = value.malwareProtection;
@@ -485,11 +630,17 @@ export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extend
   }
 
   // kubernetes - computed: false, optional: true, required: false
-  private _kubernetes = new GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputReference(this, "kubernetes");
+  private _kubernetes =
+    new GuarddutyOrganizationConfigurationDatasourcesKubernetesOutputReference(
+      this,
+      'kubernetes',
+    );
   public get kubernetes() {
     return this._kubernetes;
   }
-  public putKubernetes(value: GuarddutyOrganizationConfigurationDatasourcesKubernetes) {
+  public putKubernetes(
+    value: GuarddutyOrganizationConfigurationDatasourcesKubernetes,
+  ) {
     this._kubernetes.internalValue = value;
   }
   public resetKubernetes() {
@@ -501,11 +652,17 @@ export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extend
   }
 
   // malware_protection - computed: false, optional: true, required: false
-  private _malwareProtection = new GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionOutputReference(this, "malware_protection");
+  private _malwareProtection =
+    new GuarddutyOrganizationConfigurationDatasourcesMalwareProtectionOutputReference(
+      this,
+      'malware_protection',
+    );
   public get malwareProtection() {
     return this._malwareProtection;
   }
-  public putMalwareProtection(value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtection) {
+  public putMalwareProtection(
+    value: GuarddutyOrganizationConfigurationDatasourcesMalwareProtection,
+  ) {
     this._malwareProtection.internalValue = value;
   }
   public resetMalwareProtection() {
@@ -517,7 +674,11 @@ export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extend
   }
 
   // s3_logs - computed: false, optional: true, required: false
-  private _s3Logs = new GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference(this, "s3_logs");
+  private _s3Logs =
+    new GuarddutyOrganizationConfigurationDatasourcesS3LogsOutputReference(
+      this,
+      's3_logs',
+    );
   public get s3Logs() {
     return this._s3Logs;
   }
@@ -534,33 +695,37 @@ export class GuarddutyOrganizationConfigurationDatasourcesOutputReference extend
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration aws_guardduty_organization_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration aws_guardduty_organization_configuration}
+ */
 export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_guardduty_organization_configuration";
+  public static readonly tfResourceType =
+    'aws_guardduty_organization_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration aws_guardduty_organization_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GuarddutyOrganizationConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: GuarddutyOrganizationConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_organization_configuration aws_guardduty_organization_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GuarddutyOrganizationConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GuarddutyOrganizationConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_guardduty_organization_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -568,7 +733,7 @@ export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource 
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoEnable = config.autoEnable;
     this._detectorId = config.detectorId;
@@ -623,7 +788,11 @@ export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource 
   }
 
   // datasources - computed: false, optional: true, required: false
-  private _datasources = new GuarddutyOrganizationConfigurationDatasourcesOutputReference(this, "datasources");
+  private _datasources =
+    new GuarddutyOrganizationConfigurationDatasourcesOutputReference(
+      this,
+      'datasources',
+    );
   public get datasources() {
     return this._datasources;
   }
@@ -647,7 +816,9 @@ export class GuarddutyOrganizationConfiguration extends cdktf.TerraformResource 
       auto_enable: cdktf.booleanToTerraform(this._autoEnable),
       detector_id: cdktf.stringToTerraform(this._detectorId),
       id: cdktf.stringToTerraform(this._id),
-      datasources: guarddutyOrganizationConfigurationDatasourcesToTerraform(this._datasources.internalValue),
+      datasources: guarddutyOrganizationConfigurationDatasourcesToTerraform(
+        this._datasources.internalValue,
+      ),
     };
   }
 }

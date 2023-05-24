@@ -1,7 +1,7 @@
 import {
   ProviderCredentials,
   ProviderCredentialsSchema,
-} from '../credentials.js';
+} from '../credentials.ts';
 
 export interface KubernetesCredentials extends ProviderCredentials {
   configPath?: string;

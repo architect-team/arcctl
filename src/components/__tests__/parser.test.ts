@@ -1,6 +1,6 @@
-import { parseComponent } from '../parser.js';
-import ComponentV1 from '../v1/index.js';
-import ComponentV2 from '../v2/index.js';
+import { parseComponent } from '../parser.ts';
+import ComponentV1 from '../v1/index.ts';
+import ComponentV2 from '../v2/index.ts';
 import yaml from 'js-yaml';
 import url from 'url';
 

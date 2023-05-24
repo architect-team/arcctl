@@ -2,80 +2,91 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface AthenaDatabaseConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#bucket AthenaDatabase#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#bucket AthenaDatabase#bucket}
+   */
   readonly bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#comment AthenaDatabase#comment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#comment AthenaDatabase#comment}
+   */
   readonly comment?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#expected_bucket_owner AthenaDatabase#expected_bucket_owner}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#expected_bucket_owner AthenaDatabase#expected_bucket_owner}
+   */
   readonly expectedBucketOwner?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#force_destroy AthenaDatabase#force_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#force_destroy AthenaDatabase#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#id AthenaDatabase#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#id AthenaDatabase#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#name AthenaDatabase#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#name AthenaDatabase#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#properties AthenaDatabase#properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#properties AthenaDatabase#properties}
+   */
   readonly properties?: { [key: string]: string };
   /**
-  * acl_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#acl_configuration AthenaDatabase#acl_configuration}
-  */
+   * acl_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#acl_configuration AthenaDatabase#acl_configuration}
+   */
   readonly aclConfiguration?: AthenaDatabaseAclConfiguration;
   /**
-  * encryption_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#encryption_configuration AthenaDatabase#encryption_configuration}
-  */
+   * encryption_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#encryption_configuration AthenaDatabase#encryption_configuration}
+   */
   readonly encryptionConfiguration?: AthenaDatabaseEncryptionConfiguration;
 }
 export interface AthenaDatabaseAclConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#s3_acl_option AthenaDatabase#s3_acl_option}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#s3_acl_option AthenaDatabase#s3_acl_option}
+   */
   readonly s3AclOption: string;
 }
 
-export function athenaDatabaseAclConfigurationToTerraform(struct?: AthenaDatabaseAclConfigurationOutputReference | AthenaDatabaseAclConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function athenaDatabaseAclConfigurationToTerraform(
+  struct?:
+    | AthenaDatabaseAclConfigurationOutputReference
+    | AthenaDatabaseAclConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     s3_acl_option: cdktf.stringToTerraform(struct!.s3AclOption),
-  }
+  };
 }
 
 export class AthenaDatabaseAclConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -93,8 +104,7 @@ export class AthenaDatabaseAclConfigurationOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3AclOption = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3AclOption = value.s3AclOption;
     }
@@ -115,38 +125,51 @@ export class AthenaDatabaseAclConfigurationOutputReference extends cdktf.Complex
 }
 export interface AthenaDatabaseEncryptionConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#encryption_option AthenaDatabase#encryption_option}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#encryption_option AthenaDatabase#encryption_option}
+   */
   readonly encryptionOption: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#kms_key AthenaDatabase#kms_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/athena_database#kms_key AthenaDatabase#kms_key}
+   */
   readonly kmsKey?: string;
 }
 
-export function athenaDatabaseEncryptionConfigurationToTerraform(struct?: AthenaDatabaseEncryptionConfigurationOutputReference | AthenaDatabaseEncryptionConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function athenaDatabaseEncryptionConfigurationToTerraform(
+  struct?:
+    | AthenaDatabaseEncryptionConfigurationOutputReference
+    | AthenaDatabaseEncryptionConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     encryption_option: cdktf.stringToTerraform(struct!.encryptionOption),
     kms_key: cdktf.stringToTerraform(struct!.kmsKey),
-  }
+  };
 }
 
 export class AthenaDatabaseEncryptionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AthenaDatabaseEncryptionConfiguration | undefined {
+  public get internalValue():
+    | AthenaDatabaseEncryptionConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._encryptionOption !== undefined) {
@@ -160,13 +183,14 @@ export class AthenaDatabaseEncryptionConfigurationOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AthenaDatabaseEncryptionConfiguration | undefined) {
+  public set internalValue(
+    value: AthenaDatabaseEncryptionConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._encryptionOption = undefined;
       this._kmsKey = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._encryptionOption = value.encryptionOption;
       this._kmsKey = value.kmsKey;
@@ -204,33 +228,36 @@ export class AthenaDatabaseEncryptionConfigurationOutputReference extends cdktf.
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/athena_database aws_athena_database}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/athena_database aws_athena_database}
+ */
 export class AthenaDatabase extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_athena_database";
+  public static readonly tfResourceType = 'aws_athena_database';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/athena_database aws_athena_database} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AthenaDatabaseConfig
-  */
-  public constructor(scope: Construct, id: string, config: AthenaDatabaseConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/athena_database aws_athena_database} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AthenaDatabaseConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AthenaDatabaseConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_athena_database',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -238,7 +265,7 @@ export class AthenaDatabase extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._bucket = config.bucket;
     this._comment = config.comment;
@@ -248,7 +275,8 @@ export class AthenaDatabase extends cdktf.TerraformResource {
     this._name = config.name;
     this._properties = config.properties;
     this._aclConfiguration.internalValue = config.aclConfiguration;
-    this._encryptionConfiguration.internalValue = config.encryptionConfiguration;
+    this._encryptionConfiguration.internalValue =
+      config.encryptionConfiguration;
   }
 
   // ==========
@@ -365,7 +393,10 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // acl_configuration - computed: false, optional: true, required: false
-  private _aclConfiguration = new AthenaDatabaseAclConfigurationOutputReference(this, "acl_configuration");
+  private _aclConfiguration = new AthenaDatabaseAclConfigurationOutputReference(
+    this,
+    'acl_configuration',
+  );
   public get aclConfiguration() {
     return this._aclConfiguration;
   }
@@ -381,11 +412,17 @@ export class AthenaDatabase extends cdktf.TerraformResource {
   }
 
   // encryption_configuration - computed: false, optional: true, required: false
-  private _encryptionConfiguration = new AthenaDatabaseEncryptionConfigurationOutputReference(this, "encryption_configuration");
+  private _encryptionConfiguration =
+    new AthenaDatabaseEncryptionConfigurationOutputReference(
+      this,
+      'encryption_configuration',
+    );
   public get encryptionConfiguration() {
     return this._encryptionConfiguration;
   }
-  public putEncryptionConfiguration(value: AthenaDatabaseEncryptionConfiguration) {
+  public putEncryptionConfiguration(
+    value: AthenaDatabaseEncryptionConfiguration,
+  ) {
     this._encryptionConfiguration.internalValue = value;
   }
   public resetEncryptionConfiguration() {
@@ -409,8 +446,13 @@ export class AthenaDatabase extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       properties: cdktf.hashMapper(cdktf.stringToTerraform)(this._properties),
-      acl_configuration: athenaDatabaseAclConfigurationToTerraform(this._aclConfiguration.internalValue),
-      encryption_configuration: athenaDatabaseEncryptionConfigurationToTerraform(this._encryptionConfiguration.internalValue),
+      acl_configuration: athenaDatabaseAclConfigurationToTerraform(
+        this._aclConfiguration.internalValue,
+      ),
+      encryption_configuration:
+        athenaDatabaseEncryptionConfigurationToTerraform(
+          this._encryptionConfiguration.internalValue,
+        ),
     };
   }
 }

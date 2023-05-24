@@ -2,64 +2,68 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface RdsClusterActivityStreamConfig extends cdktf.TerraformMetaArguments {
+export interface RdsClusterActivityStreamConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#engine_native_audit_fields_included RdsClusterActivityStream#engine_native_audit_fields_included}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#engine_native_audit_fields_included RdsClusterActivityStream#engine_native_audit_fields_included}
+   */
   readonly engineNativeAuditFieldsIncluded?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#id RdsClusterActivityStream#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#id RdsClusterActivityStream#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#kms_key_id RdsClusterActivityStream#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#kms_key_id RdsClusterActivityStream#kms_key_id}
+   */
   readonly kmsKeyId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#mode RdsClusterActivityStream#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#mode RdsClusterActivityStream#mode}
+   */
   readonly mode: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#resource_arn RdsClusterActivityStream#resource_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream#resource_arn RdsClusterActivityStream#resource_arn}
+   */
   readonly resourceArn: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream aws_rds_cluster_activity_stream}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream aws_rds_cluster_activity_stream}
+ */
 export class RdsClusterActivityStream extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_rds_cluster_activity_stream";
+  public static readonly tfResourceType = 'aws_rds_cluster_activity_stream';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream aws_rds_cluster_activity_stream} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RdsClusterActivityStreamConfig
-  */
-  public constructor(scope: Construct, id: string, config: RdsClusterActivityStreamConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_activity_stream aws_rds_cluster_activity_stream} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RdsClusterActivityStreamConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RdsClusterActivityStreamConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_rds_cluster_activity_stream',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,9 +71,10 @@ export class RdsClusterActivityStream extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
-    this._engineNativeAuditFieldsIncluded = config.engineNativeAuditFieldsIncluded;
+    this._engineNativeAuditFieldsIncluded =
+      config.engineNativeAuditFieldsIncluded;
     this._id = config.id;
     this._kmsKeyId = config.kmsKeyId;
     this._mode = config.mode;
@@ -85,7 +90,9 @@ export class RdsClusterActivityStream extends cdktf.TerraformResource {
   public get engineNativeAuditFieldsIncluded() {
     return this.getBooleanAttribute('engine_native_audit_fields_included');
   }
-  public set engineNativeAuditFieldsIncluded(value: boolean | cdktf.IResolvable) {
+  public set engineNativeAuditFieldsIncluded(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._engineNativeAuditFieldsIncluded = value;
   }
   public resetEngineNativeAuditFieldsIncluded() {
@@ -162,7 +169,9 @@ export class RdsClusterActivityStream extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      engine_native_audit_fields_included: cdktf.booleanToTerraform(this._engineNativeAuditFieldsIncluded),
+      engine_native_audit_fields_included: cdktf.booleanToTerraform(
+        this._engineNativeAuditFieldsIncluded,
+      ),
       id: cdktf.stringToTerraform(this._id),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
       mode: cdktf.stringToTerraform(this._mode),

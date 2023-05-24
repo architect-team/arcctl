@@ -2,261 +2,280 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface InstanceConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ami Instance#ami}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ami Instance#ami}
+   */
   readonly ami?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#associate_public_ip_address Instance#associate_public_ip_address}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#associate_public_ip_address Instance#associate_public_ip_address}
+   */
   readonly associatePublicIpAddress?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#availability_zone Instance#availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#availability_zone Instance#availability_zone}
+   */
   readonly availabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#cpu_core_count Instance#cpu_core_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#cpu_core_count Instance#cpu_core_count}
+   */
   readonly cpuCoreCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#cpu_threads_per_core Instance#cpu_threads_per_core}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#cpu_threads_per_core Instance#cpu_threads_per_core}
+   */
   readonly cpuThreadsPerCore?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#disable_api_stop Instance#disable_api_stop}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#disable_api_stop Instance#disable_api_stop}
+   */
   readonly disableApiStop?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#disable_api_termination Instance#disable_api_termination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#disable_api_termination Instance#disable_api_termination}
+   */
   readonly disableApiTermination?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ebs_optimized Instance#ebs_optimized}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ebs_optimized Instance#ebs_optimized}
+   */
   readonly ebsOptimized?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#get_password_data Instance#get_password_data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#get_password_data Instance#get_password_data}
+   */
   readonly fetchPasswordData?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#hibernation Instance#hibernation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#hibernation Instance#hibernation}
+   */
   readonly hibernation?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#host_id Instance#host_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#host_id Instance#host_id}
+   */
   readonly hostId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#host_resource_group_arn Instance#host_resource_group_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#host_resource_group_arn Instance#host_resource_group_arn}
+   */
   readonly hostResourceGroupArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#iam_instance_profile Instance#iam_instance_profile}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#iam_instance_profile Instance#iam_instance_profile}
+   */
   readonly iamInstanceProfile?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#id Instance#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#id Instance#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#instance_initiated_shutdown_behavior Instance#instance_initiated_shutdown_behavior}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#instance_initiated_shutdown_behavior Instance#instance_initiated_shutdown_behavior}
+   */
   readonly instanceInitiatedShutdownBehavior?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#instance_type Instance#instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#instance_type Instance#instance_type}
+   */
   readonly instanceType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ipv6_address_count Instance#ipv6_address_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ipv6_address_count Instance#ipv6_address_count}
+   */
   readonly ipv6AddressCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ipv6_addresses Instance#ipv6_addresses}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ipv6_addresses Instance#ipv6_addresses}
+   */
   readonly ipv6Addresses?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#key_name Instance#key_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#key_name Instance#key_name}
+   */
   readonly keyName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#monitoring Instance#monitoring}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#monitoring Instance#monitoring}
+   */
   readonly monitoring?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#placement_group Instance#placement_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#placement_group Instance#placement_group}
+   */
   readonly placementGroup?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#placement_partition_number Instance#placement_partition_number}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#placement_partition_number Instance#placement_partition_number}
+   */
   readonly placementPartitionNumber?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#private_ip Instance#private_ip}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#private_ip Instance#private_ip}
+   */
   readonly privateIp?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#secondary_private_ips Instance#secondary_private_ips}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#secondary_private_ips Instance#secondary_private_ips}
+   */
   readonly secondaryPrivateIps?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#security_groups Instance#security_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#security_groups Instance#security_groups}
+   */
   readonly securityGroups?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#source_dest_check Instance#source_dest_check}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#source_dest_check Instance#source_dest_check}
+   */
   readonly sourceDestCheck?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#subnet_id Instance#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#subnet_id Instance#subnet_id}
+   */
   readonly subnetId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags Instance#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags Instance#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags_all Instance#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags_all Instance#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tenancy Instance#tenancy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tenancy Instance#tenancy}
+   */
   readonly tenancy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#user_data Instance#user_data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#user_data Instance#user_data}
+   */
   readonly userData?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#user_data_base64 Instance#user_data_base64}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#user_data_base64 Instance#user_data_base64}
+   */
   readonly userDataBase64?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#user_data_replace_on_change Instance#user_data_replace_on_change}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#user_data_replace_on_change Instance#user_data_replace_on_change}
+   */
   readonly userDataReplaceOnChange?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_tags Instance#volume_tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_tags Instance#volume_tags}
+   */
   readonly volumeTags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#vpc_security_group_ids Instance#vpc_security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#vpc_security_group_ids Instance#vpc_security_group_ids}
+   */
   readonly vpcSecurityGroupIds?: string[];
   /**
-  * capacity_reservation_specification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_specification Instance#capacity_reservation_specification}
-  */
+   * capacity_reservation_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_specification Instance#capacity_reservation_specification}
+   */
   readonly capacityReservationSpecification?: InstanceCapacityReservationSpecification;
   /**
-  * credit_specification block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#credit_specification Instance#credit_specification}
-  */
+   * credit_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#credit_specification Instance#credit_specification}
+   */
   readonly creditSpecification?: InstanceCreditSpecification;
   /**
-  * ebs_block_device block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ebs_block_device Instance#ebs_block_device}
-  */
+   * ebs_block_device block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ebs_block_device Instance#ebs_block_device}
+   */
   readonly ebsBlockDevice?: InstanceEbsBlockDevice[] | cdktf.IResolvable;
   /**
-  * enclave_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enclave_options Instance#enclave_options}
-  */
+   * enclave_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enclave_options Instance#enclave_options}
+   */
   readonly enclaveOptions?: InstanceEnclaveOptions;
   /**
-  * ephemeral_block_device block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ephemeral_block_device Instance#ephemeral_block_device}
-  */
-  readonly ephemeralBlockDevice?: InstanceEphemeralBlockDevice[] | cdktf.IResolvable;
+   * ephemeral_block_device block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#ephemeral_block_device Instance#ephemeral_block_device}
+   */
+  readonly ephemeralBlockDevice?:
+    | InstanceEphemeralBlockDevice[]
+    | cdktf.IResolvable;
   /**
-  * launch_template block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#launch_template Instance#launch_template}
-  */
+   * launch_template block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#launch_template Instance#launch_template}
+   */
   readonly launchTemplate?: InstanceLaunchTemplate;
   /**
-  * maintenance_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#maintenance_options Instance#maintenance_options}
-  */
+   * maintenance_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#maintenance_options Instance#maintenance_options}
+   */
   readonly maintenanceOptions?: InstanceMaintenanceOptions;
   /**
-  * metadata_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#metadata_options Instance#metadata_options}
-  */
+   * metadata_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#metadata_options Instance#metadata_options}
+   */
   readonly metadataOptions?: InstanceMetadataOptions;
   /**
-  * network_interface block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#network_interface Instance#network_interface}
-  */
+   * network_interface block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#network_interface Instance#network_interface}
+   */
   readonly networkInterface?: InstanceNetworkInterface[] | cdktf.IResolvable;
   /**
-  * private_dns_name_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#private_dns_name_options Instance#private_dns_name_options}
-  */
+   * private_dns_name_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#private_dns_name_options Instance#private_dns_name_options}
+   */
   readonly privateDnsNameOptions?: InstancePrivateDnsNameOptions;
   /**
-  * root_block_device block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#root_block_device Instance#root_block_device}
-  */
+   * root_block_device block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#root_block_device Instance#root_block_device}
+   */
   readonly rootBlockDevice?: InstanceRootBlockDevice;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#timeouts Instance#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#timeouts Instance#timeouts}
+   */
   readonly timeouts?: InstanceTimeouts;
 }
 export interface InstanceCapacityReservationSpecificationCapacityReservationTarget {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_id Instance#capacity_reservation_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_id Instance#capacity_reservation_id}
+   */
   readonly capacityReservationId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_resource_group_arn Instance#capacity_reservation_resource_group_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_resource_group_arn Instance#capacity_reservation_resource_group_arn}
+   */
   readonly capacityReservationResourceGroupArn?: string;
 }
 
-export function instanceCapacityReservationSpecificationCapacityReservationTargetToTerraform(struct?: InstanceCapacityReservationSpecificationCapacityReservationTargetOutputReference | InstanceCapacityReservationSpecificationCapacityReservationTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceCapacityReservationSpecificationCapacityReservationTargetToTerraform(
+  struct?:
+    | InstanceCapacityReservationSpecificationCapacityReservationTargetOutputReference
+    | InstanceCapacityReservationSpecificationCapacityReservationTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    capacity_reservation_id: cdktf.stringToTerraform(struct!.capacityReservationId),
-    capacity_reservation_resource_group_arn: cdktf.stringToTerraform(struct!.capacityReservationResourceGroupArn),
-  }
+    capacity_reservation_id: cdktf.stringToTerraform(
+      struct!.capacityReservationId,
+    ),
+    capacity_reservation_resource_group_arn: cdktf.stringToTerraform(
+      struct!.capacityReservationResourceGroupArn,
+    ),
+  };
 }
 
 export class InstanceCapacityReservationSpecificationCapacityReservationTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): InstanceCapacityReservationSpecificationCapacityReservationTarget | undefined {
+  public get internalValue():
+    | InstanceCapacityReservationSpecificationCapacityReservationTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._capacityReservationId !== undefined) {
@@ -265,21 +284,26 @@ export class InstanceCapacityReservationSpecificationCapacityReservationTargetOu
     }
     if (this._capacityReservationResourceGroupArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityReservationResourceGroupArn = this._capacityReservationResourceGroupArn;
+      internalValueResult.capacityReservationResourceGroupArn =
+        this._capacityReservationResourceGroupArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InstanceCapacityReservationSpecificationCapacityReservationTarget | undefined) {
+  public set internalValue(
+    value:
+      | InstanceCapacityReservationSpecificationCapacityReservationTarget
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._capacityReservationId = undefined;
       this._capacityReservationResourceGroupArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._capacityReservationId = value.capacityReservationId;
-      this._capacityReservationResourceGroupArn = value.capacityReservationResourceGroupArn;
+      this._capacityReservationResourceGroupArn =
+        value.capacityReservationResourceGroupArn;
     }
   }
 
@@ -317,63 +341,85 @@ export class InstanceCapacityReservationSpecificationCapacityReservationTargetOu
 }
 export interface InstanceCapacityReservationSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_preference Instance#capacity_reservation_preference}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_preference Instance#capacity_reservation_preference}
+   */
   readonly capacityReservationPreference?: string;
   /**
-  * capacity_reservation_target block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_target Instance#capacity_reservation_target}
-  */
+   * capacity_reservation_target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#capacity_reservation_target Instance#capacity_reservation_target}
+   */
   readonly capacityReservationTarget?: InstanceCapacityReservationSpecificationCapacityReservationTarget;
 }
 
-export function instanceCapacityReservationSpecificationToTerraform(struct?: InstanceCapacityReservationSpecificationOutputReference | InstanceCapacityReservationSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceCapacityReservationSpecificationToTerraform(
+  struct?:
+    | InstanceCapacityReservationSpecificationOutputReference
+    | InstanceCapacityReservationSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    capacity_reservation_preference: cdktf.stringToTerraform(struct!.capacityReservationPreference),
-    capacity_reservation_target: instanceCapacityReservationSpecificationCapacityReservationTargetToTerraform(struct!.capacityReservationTarget),
-  }
+    capacity_reservation_preference: cdktf.stringToTerraform(
+      struct!.capacityReservationPreference,
+    ),
+    capacity_reservation_target:
+      instanceCapacityReservationSpecificationCapacityReservationTargetToTerraform(
+        struct!.capacityReservationTarget,
+      ),
+  };
 }
 
 export class InstanceCapacityReservationSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): InstanceCapacityReservationSpecification | undefined {
+  public get internalValue():
+    | InstanceCapacityReservationSpecification
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._capacityReservationPreference !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityReservationPreference = this._capacityReservationPreference;
+      internalValueResult.capacityReservationPreference =
+        this._capacityReservationPreference;
     }
     if (this._capacityReservationTarget?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityReservationTarget = this._capacityReservationTarget?.internalValue;
+      internalValueResult.capacityReservationTarget =
+        this._capacityReservationTarget?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InstanceCapacityReservationSpecification | undefined) {
+  public set internalValue(
+    value: InstanceCapacityReservationSpecification | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._capacityReservationPreference = undefined;
       this._capacityReservationTarget.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._capacityReservationPreference = value.capacityReservationPreference;
-      this._capacityReservationTarget.internalValue = value.capacityReservationTarget;
+      this._capacityReservationTarget.internalValue =
+        value.capacityReservationTarget;
     }
   }
 
@@ -394,11 +440,17 @@ export class InstanceCapacityReservationSpecificationOutputReference extends cdk
   }
 
   // capacity_reservation_target - computed: false, optional: true, required: false
-  private _capacityReservationTarget = new InstanceCapacityReservationSpecificationCapacityReservationTargetOutputReference(this, "capacity_reservation_target");
+  private _capacityReservationTarget =
+    new InstanceCapacityReservationSpecificationCapacityReservationTargetOutputReference(
+      this,
+      'capacity_reservation_target',
+    );
   public get capacityReservationTarget() {
     return this._capacityReservationTarget;
   }
-  public putCapacityReservationTarget(value: InstanceCapacityReservationSpecificationCapacityReservationTarget) {
+  public putCapacityReservationTarget(
+    value: InstanceCapacityReservationSpecificationCapacityReservationTarget,
+  ) {
     this._capacityReservationTarget.internalValue = value;
   }
   public resetCapacityReservationTarget() {
@@ -411,29 +463,40 @@ export class InstanceCapacityReservationSpecificationOutputReference extends cdk
 }
 export interface InstanceCreditSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#cpu_credits Instance#cpu_credits}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#cpu_credits Instance#cpu_credits}
+   */
   readonly cpuCredits?: string;
 }
 
-export function instanceCreditSpecificationToTerraform(struct?: InstanceCreditSpecificationOutputReference | InstanceCreditSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceCreditSpecificationToTerraform(
+  struct?:
+    | InstanceCreditSpecificationOutputReference
+    | InstanceCreditSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cpu_credits: cdktf.stringToTerraform(struct!.cpuCredits),
-  }
+  };
 }
 
 export class InstanceCreditSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -451,8 +514,7 @@ export class InstanceCreditSpecificationOutputReference extends cdktf.ComplexObj
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cpuCredits = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cpuCredits = value.cpuCredits;
     }
@@ -476,54 +538,62 @@ export class InstanceCreditSpecificationOutputReference extends cdktf.ComplexObj
 }
 export interface InstanceEbsBlockDevice {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete_on_termination Instance#delete_on_termination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete_on_termination Instance#delete_on_termination}
+   */
   readonly deleteOnTermination?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#device_name Instance#device_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#device_name Instance#device_name}
+   */
   readonly deviceName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#encrypted Instance#encrypted}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#encrypted Instance#encrypted}
+   */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#iops Instance#iops}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#iops Instance#iops}
+   */
   readonly iops?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#kms_key_id Instance#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#kms_key_id Instance#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#snapshot_id Instance#snapshot_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#snapshot_id Instance#snapshot_id}
+   */
   readonly snapshotId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags Instance#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags Instance#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#throughput Instance#throughput}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#throughput Instance#throughput}
+   */
   readonly throughput?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_size Instance#volume_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_size Instance#volume_size}
+   */
   readonly volumeSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_type Instance#volume_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_type Instance#volume_type}
+   */
   readonly volumeType?: string;
 }
 
-export function instanceEbsBlockDeviceToTerraform(struct?: InstanceEbsBlockDevice | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceEbsBlockDeviceToTerraform(
+  struct?: InstanceEbsBlockDevice | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    delete_on_termination: cdktf.booleanToTerraform(struct!.deleteOnTermination),
+    delete_on_termination: cdktf.booleanToTerraform(
+      struct!.deleteOnTermination,
+    ),
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
     iops: cdktf.numberToTerraform(struct!.iops),
@@ -533,7 +603,7 @@ export function instanceEbsBlockDeviceToTerraform(struct?: InstanceEbsBlockDevic
     throughput: cdktf.numberToTerraform(struct!.throughput),
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
     volume_type: cdktf.stringToTerraform(struct!.volumeType),
-  }
+  };
 }
 
 export class InstanceEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -541,16 +611,29 @@ export class InstanceEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): InstanceEbsBlockDevice | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | InstanceEbsBlockDevice
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -599,7 +682,9 @@ export class InstanceEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InstanceEbsBlockDevice | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: InstanceEbsBlockDevice | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -613,12 +698,10 @@ export class InstanceEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
       this._throughput = undefined;
       this._volumeSize = undefined;
       this._volumeType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deleteOnTermination = value.deleteOnTermination;
@@ -798,49 +881,67 @@ export class InstanceEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
 }
 
 export class InstanceEbsBlockDeviceList extends cdktf.ComplexList {
-  public internalValue? : InstanceEbsBlockDevice[] | cdktf.IResolvable
+  public internalValue?: InstanceEbsBlockDevice[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): InstanceEbsBlockDeviceOutputReference {
-    return new InstanceEbsBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new InstanceEbsBlockDeviceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface InstanceEnclaveOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enabled Instance#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enabled Instance#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function instanceEnclaveOptionsToTerraform(struct?: InstanceEnclaveOptionsOutputReference | InstanceEnclaveOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceEnclaveOptionsToTerraform(
+  struct?: InstanceEnclaveOptionsOutputReference | InstanceEnclaveOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class InstanceEnclaveOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -858,8 +959,7 @@ export class InstanceEnclaveOptionsOutputReference extends cdktf.ComplexObject {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -883,29 +983,35 @@ export class InstanceEnclaveOptionsOutputReference extends cdktf.ComplexObject {
 }
 export interface InstanceEphemeralBlockDevice {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#device_name Instance#device_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#device_name Instance#device_name}
+   */
   readonly deviceName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#no_device Instance#no_device}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#no_device Instance#no_device}
+   */
   readonly noDevice?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#virtual_name Instance#virtual_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#virtual_name Instance#virtual_name}
+   */
   readonly virtualName?: string;
 }
 
-export function instanceEphemeralBlockDeviceToTerraform(struct?: InstanceEphemeralBlockDevice | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceEphemeralBlockDeviceToTerraform(
+  struct?: InstanceEphemeralBlockDevice | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     no_device: cdktf.booleanToTerraform(struct!.noDevice),
     virtual_name: cdktf.stringToTerraform(struct!.virtualName),
-  }
+  };
 }
 
 export class InstanceEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -913,16 +1019,29 @@ export class InstanceEphemeralBlockDeviceOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): InstanceEphemeralBlockDevice | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | InstanceEphemeralBlockDevice
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -943,19 +1062,19 @@ export class InstanceEphemeralBlockDeviceOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InstanceEphemeralBlockDevice | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: InstanceEphemeralBlockDevice | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._deviceName = undefined;
       this._noDevice = undefined;
       this._virtualName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deviceName = value.deviceName;
@@ -1011,62 +1130,80 @@ export class InstanceEphemeralBlockDeviceOutputReference extends cdktf.ComplexOb
 }
 
 export class InstanceEphemeralBlockDeviceList extends cdktf.ComplexList {
-  public internalValue? : InstanceEphemeralBlockDevice[] | cdktf.IResolvable
+  public internalValue?: InstanceEphemeralBlockDevice[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): InstanceEphemeralBlockDeviceOutputReference {
-    return new InstanceEphemeralBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new InstanceEphemeralBlockDeviceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface InstanceLaunchTemplate {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#id Instance#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#id Instance#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#name Instance#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#name Instance#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#version Instance#version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#version Instance#version}
+   */
   readonly version?: string;
 }
 
-export function instanceLaunchTemplateToTerraform(struct?: InstanceLaunchTemplateOutputReference | InstanceLaunchTemplate): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceLaunchTemplateToTerraform(
+  struct?: InstanceLaunchTemplateOutputReference | InstanceLaunchTemplate,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     name: cdktf.stringToTerraform(struct!.name),
     version: cdktf.stringToTerraform(struct!.version),
-  }
+  };
 }
 
 export class InstanceLaunchTemplateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1094,8 +1231,7 @@ export class InstanceLaunchTemplateOutputReference extends cdktf.ComplexObject {
       this._id = undefined;
       this._name = undefined;
       this._version = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._name = value.name;
@@ -1153,29 +1289,40 @@ export class InstanceLaunchTemplateOutputReference extends cdktf.ComplexObject {
 }
 export interface InstanceMaintenanceOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#auto_recovery Instance#auto_recovery}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#auto_recovery Instance#auto_recovery}
+   */
   readonly autoRecovery?: string;
 }
 
-export function instanceMaintenanceOptionsToTerraform(struct?: InstanceMaintenanceOptionsOutputReference | InstanceMaintenanceOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceMaintenanceOptionsToTerraform(
+  struct?:
+    | InstanceMaintenanceOptionsOutputReference
+    | InstanceMaintenanceOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     auto_recovery: cdktf.stringToTerraform(struct!.autoRecovery),
-  }
+  };
 }
 
 export class InstanceMaintenanceOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1193,8 +1340,7 @@ export class InstanceMaintenanceOptionsOutputReference extends cdktf.ComplexObje
     if (value === undefined) {
       this.isEmptyObject = false;
       this._autoRecovery = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._autoRecovery = value.autoRecovery;
     }
@@ -1218,44 +1364,57 @@ export class InstanceMaintenanceOptionsOutputReference extends cdktf.ComplexObje
 }
 export interface InstanceMetadataOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#http_endpoint Instance#http_endpoint}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#http_endpoint Instance#http_endpoint}
+   */
   readonly httpEndpoint?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#http_put_response_hop_limit Instance#http_put_response_hop_limit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#http_put_response_hop_limit Instance#http_put_response_hop_limit}
+   */
   readonly httpPutResponseHopLimit?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#http_tokens Instance#http_tokens}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#http_tokens Instance#http_tokens}
+   */
   readonly httpTokens?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#instance_metadata_tags Instance#instance_metadata_tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#instance_metadata_tags Instance#instance_metadata_tags}
+   */
   readonly instanceMetadataTags?: string;
 }
 
-export function instanceMetadataOptionsToTerraform(struct?: InstanceMetadataOptionsOutputReference | InstanceMetadataOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceMetadataOptionsToTerraform(
+  struct?: InstanceMetadataOptionsOutputReference | InstanceMetadataOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     http_endpoint: cdktf.stringToTerraform(struct!.httpEndpoint),
-    http_put_response_hop_limit: cdktf.numberToTerraform(struct!.httpPutResponseHopLimit),
+    http_put_response_hop_limit: cdktf.numberToTerraform(
+      struct!.httpPutResponseHopLimit,
+    ),
     http_tokens: cdktf.stringToTerraform(struct!.httpTokens),
-    instance_metadata_tags: cdktf.stringToTerraform(struct!.instanceMetadataTags),
-  }
+    instance_metadata_tags: cdktf.stringToTerraform(
+      struct!.instanceMetadataTags,
+    ),
+  };
 }
 
 export class InstanceMetadataOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1268,7 +1427,8 @@ export class InstanceMetadataOptionsOutputReference extends cdktf.ComplexObject 
     }
     if (this._httpPutResponseHopLimit !== undefined) {
       hasAnyValues = true;
-      internalValueResult.httpPutResponseHopLimit = this._httpPutResponseHopLimit;
+      internalValueResult.httpPutResponseHopLimit =
+        this._httpPutResponseHopLimit;
     }
     if (this._httpTokens !== undefined) {
       hasAnyValues = true;
@@ -1288,8 +1448,7 @@ export class InstanceMetadataOptionsOutputReference extends cdktf.ComplexObject 
       this._httpPutResponseHopLimit = undefined;
       this._httpTokens = undefined;
       this._instanceMetadataTags = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._httpEndpoint = value.httpEndpoint;
       this._httpPutResponseHopLimit = value.httpPutResponseHopLimit;
@@ -1364,34 +1523,42 @@ export class InstanceMetadataOptionsOutputReference extends cdktf.ComplexObject 
 }
 export interface InstanceNetworkInterface {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete_on_termination Instance#delete_on_termination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete_on_termination Instance#delete_on_termination}
+   */
   readonly deleteOnTermination?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#device_index Instance#device_index}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#device_index Instance#device_index}
+   */
   readonly deviceIndex: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#network_card_index Instance#network_card_index}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#network_card_index Instance#network_card_index}
+   */
   readonly networkCardIndex?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#network_interface_id Instance#network_interface_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#network_interface_id Instance#network_interface_id}
+   */
   readonly networkInterfaceId: string;
 }
 
-export function instanceNetworkInterfaceToTerraform(struct?: InstanceNetworkInterface | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceNetworkInterfaceToTerraform(
+  struct?: InstanceNetworkInterface | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    delete_on_termination: cdktf.booleanToTerraform(struct!.deleteOnTermination),
+    delete_on_termination: cdktf.booleanToTerraform(
+      struct!.deleteOnTermination,
+    ),
     device_index: cdktf.numberToTerraform(struct!.deviceIndex),
     network_card_index: cdktf.numberToTerraform(struct!.networkCardIndex),
     network_interface_id: cdktf.stringToTerraform(struct!.networkInterfaceId),
-  }
+  };
 }
 
 export class InstanceNetworkInterfaceOutputReference extends cdktf.ComplexObject {
@@ -1399,16 +1566,29 @@ export class InstanceNetworkInterfaceOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): InstanceNetworkInterface | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | InstanceNetworkInterface
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1433,7 +1613,9 @@ export class InstanceNetworkInterfaceOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InstanceNetworkInterface | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: InstanceNetworkInterface | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1441,12 +1623,10 @@ export class InstanceNetworkInterfaceOutputReference extends cdktf.ComplexObject
       this._deviceIndex = undefined;
       this._networkCardIndex = undefined;
       this._networkInterfaceId = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deleteOnTermination = value.deleteOnTermination;
@@ -1516,59 +1696,83 @@ export class InstanceNetworkInterfaceOutputReference extends cdktf.ComplexObject
 }
 
 export class InstanceNetworkInterfaceList extends cdktf.ComplexList {
-  public internalValue? : InstanceNetworkInterface[] | cdktf.IResolvable
+  public internalValue?: InstanceNetworkInterface[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): InstanceNetworkInterfaceOutputReference {
-    return new InstanceNetworkInterfaceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new InstanceNetworkInterfaceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface InstancePrivateDnsNameOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enable_resource_name_dns_a_record Instance#enable_resource_name_dns_a_record}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enable_resource_name_dns_a_record Instance#enable_resource_name_dns_a_record}
+   */
   readonly enableResourceNameDnsARecord?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enable_resource_name_dns_aaaa_record Instance#enable_resource_name_dns_aaaa_record}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#enable_resource_name_dns_aaaa_record Instance#enable_resource_name_dns_aaaa_record}
+   */
   readonly enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#hostname_type Instance#hostname_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#hostname_type Instance#hostname_type}
+   */
   readonly hostnameType?: string;
 }
 
-export function instancePrivateDnsNameOptionsToTerraform(struct?: InstancePrivateDnsNameOptionsOutputReference | InstancePrivateDnsNameOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instancePrivateDnsNameOptionsToTerraform(
+  struct?:
+    | InstancePrivateDnsNameOptionsOutputReference
+    | InstancePrivateDnsNameOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    enable_resource_name_dns_a_record: cdktf.booleanToTerraform(struct!.enableResourceNameDnsARecord),
-    enable_resource_name_dns_aaaa_record: cdktf.booleanToTerraform(struct!.enableResourceNameDnsAaaaRecord),
+    enable_resource_name_dns_a_record: cdktf.booleanToTerraform(
+      struct!.enableResourceNameDnsARecord,
+    ),
+    enable_resource_name_dns_aaaa_record: cdktf.booleanToTerraform(
+      struct!.enableResourceNameDnsAaaaRecord,
+    ),
     hostname_type: cdktf.stringToTerraform(struct!.hostnameType),
-  }
+  };
 }
 
 export class InstancePrivateDnsNameOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1577,11 +1781,13 @@ export class InstancePrivateDnsNameOptionsOutputReference extends cdktf.ComplexO
     const internalValueResult: any = {};
     if (this._enableResourceNameDnsARecord !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableResourceNameDnsARecord = this._enableResourceNameDnsARecord;
+      internalValueResult.enableResourceNameDnsARecord =
+        this._enableResourceNameDnsARecord;
     }
     if (this._enableResourceNameDnsAaaaRecord !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableResourceNameDnsAaaaRecord = this._enableResourceNameDnsAaaaRecord;
+      internalValueResult.enableResourceNameDnsAaaaRecord =
+        this._enableResourceNameDnsAaaaRecord;
     }
     if (this._hostnameType !== undefined) {
       hasAnyValues = true;
@@ -1596,11 +1802,11 @@ export class InstancePrivateDnsNameOptionsOutputReference extends cdktf.ComplexO
       this._enableResourceNameDnsARecord = undefined;
       this._enableResourceNameDnsAaaaRecord = undefined;
       this._hostnameType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableResourceNameDnsARecord = value.enableResourceNameDnsARecord;
-      this._enableResourceNameDnsAaaaRecord = value.enableResourceNameDnsAaaaRecord;
+      this._enableResourceNameDnsAaaaRecord =
+        value.enableResourceNameDnsAaaaRecord;
       this._hostnameType = value.hostnameType;
     }
   }
@@ -1626,7 +1832,9 @@ export class InstancePrivateDnsNameOptionsOutputReference extends cdktf.ComplexO
   public get enableResourceNameDnsAaaaRecord() {
     return this.getBooleanAttribute('enable_resource_name_dns_aaaa_record');
   }
-  public set enableResourceNameDnsAaaaRecord(value: boolean | cdktf.IResolvable) {
+  public set enableResourceNameDnsAaaaRecord(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._enableResourceNameDnsAaaaRecord = value;
   }
   public resetEnableResourceNameDnsAaaaRecord() {
@@ -1655,46 +1863,54 @@ export class InstancePrivateDnsNameOptionsOutputReference extends cdktf.ComplexO
 }
 export interface InstanceRootBlockDevice {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete_on_termination Instance#delete_on_termination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete_on_termination Instance#delete_on_termination}
+   */
   readonly deleteOnTermination?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#encrypted Instance#encrypted}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#encrypted Instance#encrypted}
+   */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#iops Instance#iops}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#iops Instance#iops}
+   */
   readonly iops?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#kms_key_id Instance#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#kms_key_id Instance#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags Instance#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#tags Instance#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#throughput Instance#throughput}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#throughput Instance#throughput}
+   */
   readonly throughput?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_size Instance#volume_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_size Instance#volume_size}
+   */
   readonly volumeSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_type Instance#volume_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#volume_type Instance#volume_type}
+   */
   readonly volumeType?: string;
 }
 
-export function instanceRootBlockDeviceToTerraform(struct?: InstanceRootBlockDeviceOutputReference | InstanceRootBlockDevice): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceRootBlockDeviceToTerraform(
+  struct?: InstanceRootBlockDeviceOutputReference | InstanceRootBlockDevice,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    delete_on_termination: cdktf.booleanToTerraform(struct!.deleteOnTermination),
+    delete_on_termination: cdktf.booleanToTerraform(
+      struct!.deleteOnTermination,
+    ),
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
     iops: cdktf.numberToTerraform(struct!.iops),
     kms_key_id: cdktf.stringToTerraform(struct!.kmsKeyId),
@@ -1702,17 +1918,20 @@ export function instanceRootBlockDeviceToTerraform(struct?: InstanceRootBlockDev
     throughput: cdktf.numberToTerraform(struct!.throughput),
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
     volume_type: cdktf.stringToTerraform(struct!.volumeType),
-  }
+  };
 }
 
 export class InstanceRootBlockDeviceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1765,8 +1984,7 @@ export class InstanceRootBlockDeviceOutputReference extends cdktf.ComplexObject 
       this._throughput = undefined;
       this._volumeSize = undefined;
       this._volumeType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deleteOnTermination = value.deleteOnTermination;
       this._encrypted = value.encrypted;
@@ -1919,29 +2137,38 @@ export class InstanceRootBlockDeviceOutputReference extends cdktf.ComplexObject 
 }
 export interface InstanceTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#create Instance#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#create Instance#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete Instance#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#delete Instance#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#update Instance#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/instance#update Instance#update}
+   */
   readonly update?: string;
 }
 
-export function instanceTimeoutsToTerraform(struct?: InstanceTimeoutsOutputReference | InstanceTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function instanceTimeoutsToTerraform(
+  struct?:
+    | InstanceTimeoutsOutputReference
+    | InstanceTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class InstanceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -1949,10 +2176,13 @@ export class InstanceTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1977,19 +2207,19 @@ export class InstanceTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InstanceTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: InstanceTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -2048,33 +2278,36 @@ export class InstanceTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/instance aws_instance}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/instance aws_instance}
+ */
 export class Instance extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_instance";
+  public static readonly tfResourceType = 'aws_instance';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/instance aws_instance} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options InstanceConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: InstanceConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/instance aws_instance} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options InstanceConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: InstanceConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_instance',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2082,7 +2315,7 @@ export class Instance extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._ami = config.ami;
     this._associatePublicIpAddress = config.associatePublicIpAddress;
@@ -2098,7 +2331,8 @@ export class Instance extends cdktf.TerraformResource {
     this._hostResourceGroupArn = config.hostResourceGroupArn;
     this._iamInstanceProfile = config.iamInstanceProfile;
     this._id = config.id;
-    this._instanceInitiatedShutdownBehavior = config.instanceInitiatedShutdownBehavior;
+    this._instanceInitiatedShutdownBehavior =
+      config.instanceInitiatedShutdownBehavior;
     this._instanceType = config.instanceType;
     this._ipv6AddressCount = config.ipv6AddressCount;
     this._ipv6Addresses = config.ipv6Addresses;
@@ -2119,7 +2353,8 @@ export class Instance extends cdktf.TerraformResource {
     this._userDataReplaceOnChange = config.userDataReplaceOnChange;
     this._volumeTags = config.volumeTags;
     this._vpcSecurityGroupIds = config.vpcSecurityGroupIds;
-    this._capacityReservationSpecification.internalValue = config.capacityReservationSpecification;
+    this._capacityReservationSpecification.internalValue =
+      config.capacityReservationSpecification;
     this._creditSpecification.internalValue = config.creditSpecification;
     this._ebsBlockDevice.internalValue = config.ebsBlockDevice;
     this._enclaveOptions.internalValue = config.enclaveOptions;
@@ -2738,11 +2973,17 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // capacity_reservation_specification - computed: false, optional: true, required: false
-  private _capacityReservationSpecification = new InstanceCapacityReservationSpecificationOutputReference(this, "capacity_reservation_specification");
+  private _capacityReservationSpecification =
+    new InstanceCapacityReservationSpecificationOutputReference(
+      this,
+      'capacity_reservation_specification',
+    );
   public get capacityReservationSpecification() {
     return this._capacityReservationSpecification;
   }
-  public putCapacityReservationSpecification(value: InstanceCapacityReservationSpecification) {
+  public putCapacityReservationSpecification(
+    value: InstanceCapacityReservationSpecification,
+  ) {
     this._capacityReservationSpecification.internalValue = value;
   }
   public resetCapacityReservationSpecification() {
@@ -2754,7 +2995,10 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // credit_specification - computed: false, optional: true, required: false
-  private _creditSpecification = new InstanceCreditSpecificationOutputReference(this, "credit_specification");
+  private _creditSpecification = new InstanceCreditSpecificationOutputReference(
+    this,
+    'credit_specification',
+  );
   public get creditSpecification() {
     return this._creditSpecification;
   }
@@ -2770,11 +3014,17 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // ebs_block_device - computed: false, optional: true, required: false
-  private _ebsBlockDevice = new InstanceEbsBlockDeviceList(this, "ebs_block_device", true);
+  private _ebsBlockDevice = new InstanceEbsBlockDeviceList(
+    this,
+    'ebs_block_device',
+    true,
+  );
   public get ebsBlockDevice() {
     return this._ebsBlockDevice;
   }
-  public putEbsBlockDevice(value: InstanceEbsBlockDevice[] | cdktf.IResolvable) {
+  public putEbsBlockDevice(
+    value: InstanceEbsBlockDevice[] | cdktf.IResolvable,
+  ) {
     this._ebsBlockDevice.internalValue = value;
   }
   public resetEbsBlockDevice() {
@@ -2786,7 +3036,10 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // enclave_options - computed: false, optional: true, required: false
-  private _enclaveOptions = new InstanceEnclaveOptionsOutputReference(this, "enclave_options");
+  private _enclaveOptions = new InstanceEnclaveOptionsOutputReference(
+    this,
+    'enclave_options',
+  );
   public get enclaveOptions() {
     return this._enclaveOptions;
   }
@@ -2802,11 +3055,17 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // ephemeral_block_device - computed: false, optional: true, required: false
-  private _ephemeralBlockDevice = new InstanceEphemeralBlockDeviceList(this, "ephemeral_block_device", true);
+  private _ephemeralBlockDevice = new InstanceEphemeralBlockDeviceList(
+    this,
+    'ephemeral_block_device',
+    true,
+  );
   public get ephemeralBlockDevice() {
     return this._ephemeralBlockDevice;
   }
-  public putEphemeralBlockDevice(value: InstanceEphemeralBlockDevice[] | cdktf.IResolvable) {
+  public putEphemeralBlockDevice(
+    value: InstanceEphemeralBlockDevice[] | cdktf.IResolvable,
+  ) {
     this._ephemeralBlockDevice.internalValue = value;
   }
   public resetEphemeralBlockDevice() {
@@ -2818,7 +3077,10 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // launch_template - computed: false, optional: true, required: false
-  private _launchTemplate = new InstanceLaunchTemplateOutputReference(this, "launch_template");
+  private _launchTemplate = new InstanceLaunchTemplateOutputReference(
+    this,
+    'launch_template',
+  );
   public get launchTemplate() {
     return this._launchTemplate;
   }
@@ -2834,7 +3096,10 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // maintenance_options - computed: false, optional: true, required: false
-  private _maintenanceOptions = new InstanceMaintenanceOptionsOutputReference(this, "maintenance_options");
+  private _maintenanceOptions = new InstanceMaintenanceOptionsOutputReference(
+    this,
+    'maintenance_options',
+  );
   public get maintenanceOptions() {
     return this._maintenanceOptions;
   }
@@ -2850,7 +3115,10 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // metadata_options - computed: false, optional: true, required: false
-  private _metadataOptions = new InstanceMetadataOptionsOutputReference(this, "metadata_options");
+  private _metadataOptions = new InstanceMetadataOptionsOutputReference(
+    this,
+    'metadata_options',
+  );
   public get metadataOptions() {
     return this._metadataOptions;
   }
@@ -2866,11 +3134,17 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // network_interface - computed: false, optional: true, required: false
-  private _networkInterface = new InstanceNetworkInterfaceList(this, "network_interface", true);
+  private _networkInterface = new InstanceNetworkInterfaceList(
+    this,
+    'network_interface',
+    true,
+  );
   public get networkInterface() {
     return this._networkInterface;
   }
-  public putNetworkInterface(value: InstanceNetworkInterface[] | cdktf.IResolvable) {
+  public putNetworkInterface(
+    value: InstanceNetworkInterface[] | cdktf.IResolvable,
+  ) {
     this._networkInterface.internalValue = value;
   }
   public resetNetworkInterface() {
@@ -2882,7 +3156,11 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // private_dns_name_options - computed: false, optional: true, required: false
-  private _privateDnsNameOptions = new InstancePrivateDnsNameOptionsOutputReference(this, "private_dns_name_options");
+  private _privateDnsNameOptions =
+    new InstancePrivateDnsNameOptionsOutputReference(
+      this,
+      'private_dns_name_options',
+    );
   public get privateDnsNameOptions() {
     return this._privateDnsNameOptions;
   }
@@ -2898,7 +3176,10 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // root_block_device - computed: false, optional: true, required: false
-  private _rootBlockDevice = new InstanceRootBlockDeviceOutputReference(this, "root_block_device");
+  private _rootBlockDevice = new InstanceRootBlockDeviceOutputReference(
+    this,
+    'root_block_device',
+  );
   public get rootBlockDevice() {
     return this._rootBlockDevice;
   }
@@ -2914,7 +3195,7 @@ export class Instance extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new InstanceTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new InstanceTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -2936,30 +3217,49 @@ export class Instance extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       ami: cdktf.stringToTerraform(this._ami),
-      associate_public_ip_address: cdktf.booleanToTerraform(this._associatePublicIpAddress),
+      associate_public_ip_address: cdktf.booleanToTerraform(
+        this._associatePublicIpAddress,
+      ),
       availability_zone: cdktf.stringToTerraform(this._availabilityZone),
       cpu_core_count: cdktf.numberToTerraform(this._cpuCoreCount),
       cpu_threads_per_core: cdktf.numberToTerraform(this._cpuThreadsPerCore),
       disable_api_stop: cdktf.booleanToTerraform(this._disableApiStop),
-      disable_api_termination: cdktf.booleanToTerraform(this._disableApiTermination),
+      disable_api_termination: cdktf.booleanToTerraform(
+        this._disableApiTermination,
+      ),
       ebs_optimized: cdktf.booleanToTerraform(this._ebsOptimized),
       get_password_data: cdktf.booleanToTerraform(this._getPasswordData),
       hibernation: cdktf.booleanToTerraform(this._hibernation),
       host_id: cdktf.stringToTerraform(this._hostId),
-      host_resource_group_arn: cdktf.stringToTerraform(this._hostResourceGroupArn),
+      host_resource_group_arn: cdktf.stringToTerraform(
+        this._hostResourceGroupArn,
+      ),
       iam_instance_profile: cdktf.stringToTerraform(this._iamInstanceProfile),
       id: cdktf.stringToTerraform(this._id),
-      instance_initiated_shutdown_behavior: cdktf.stringToTerraform(this._instanceInitiatedShutdownBehavior),
+      instance_initiated_shutdown_behavior: cdktf.stringToTerraform(
+        this._instanceInitiatedShutdownBehavior,
+      ),
       instance_type: cdktf.stringToTerraform(this._instanceType),
       ipv6_address_count: cdktf.numberToTerraform(this._ipv6AddressCount),
-      ipv6_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(this._ipv6Addresses),
+      ipv6_addresses: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._ipv6Addresses),
       key_name: cdktf.stringToTerraform(this._keyName),
       monitoring: cdktf.booleanToTerraform(this._monitoring),
       placement_group: cdktf.stringToTerraform(this._placementGroup),
-      placement_partition_number: cdktf.numberToTerraform(this._placementPartitionNumber),
+      placement_partition_number: cdktf.numberToTerraform(
+        this._placementPartitionNumber,
+      ),
       private_ip: cdktf.stringToTerraform(this._privateIp),
-      secondary_private_ips: cdktf.listMapper(cdktf.stringToTerraform, false)(this._secondaryPrivateIps),
-      security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroups),
+      secondary_private_ips: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._secondaryPrivateIps),
+      security_groups: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroups),
       source_dest_check: cdktf.booleanToTerraform(this._sourceDestCheck),
       subnet_id: cdktf.stringToTerraform(this._subnetId),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
@@ -2967,20 +3267,51 @@ export class Instance extends cdktf.TerraformResource {
       tenancy: cdktf.stringToTerraform(this._tenancy),
       user_data: cdktf.stringToTerraform(this._userData),
       user_data_base64: cdktf.stringToTerraform(this._userDataBase64),
-      user_data_replace_on_change: cdktf.booleanToTerraform(this._userDataReplaceOnChange),
+      user_data_replace_on_change: cdktf.booleanToTerraform(
+        this._userDataReplaceOnChange,
+      ),
       volume_tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._volumeTags),
-      vpc_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._vpcSecurityGroupIds),
-      capacity_reservation_specification: instanceCapacityReservationSpecificationToTerraform(this._capacityReservationSpecification.internalValue),
-      credit_specification: instanceCreditSpecificationToTerraform(this._creditSpecification.internalValue),
-      ebs_block_device: cdktf.listMapper(instanceEbsBlockDeviceToTerraform, true)(this._ebsBlockDevice.internalValue),
-      enclave_options: instanceEnclaveOptionsToTerraform(this._enclaveOptions.internalValue),
-      ephemeral_block_device: cdktf.listMapper(instanceEphemeralBlockDeviceToTerraform, true)(this._ephemeralBlockDevice.internalValue),
-      launch_template: instanceLaunchTemplateToTerraform(this._launchTemplate.internalValue),
-      maintenance_options: instanceMaintenanceOptionsToTerraform(this._maintenanceOptions.internalValue),
-      metadata_options: instanceMetadataOptionsToTerraform(this._metadataOptions.internalValue),
-      network_interface: cdktf.listMapper(instanceNetworkInterfaceToTerraform, true)(this._networkInterface.internalValue),
-      private_dns_name_options: instancePrivateDnsNameOptionsToTerraform(this._privateDnsNameOptions.internalValue),
-      root_block_device: instanceRootBlockDeviceToTerraform(this._rootBlockDevice.internalValue),
+      vpc_security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._vpcSecurityGroupIds),
+      capacity_reservation_specification:
+        instanceCapacityReservationSpecificationToTerraform(
+          this._capacityReservationSpecification.internalValue,
+        ),
+      credit_specification: instanceCreditSpecificationToTerraform(
+        this._creditSpecification.internalValue,
+      ),
+      ebs_block_device: cdktf.listMapper(
+        instanceEbsBlockDeviceToTerraform,
+        true,
+      )(this._ebsBlockDevice.internalValue),
+      enclave_options: instanceEnclaveOptionsToTerraform(
+        this._enclaveOptions.internalValue,
+      ),
+      ephemeral_block_device: cdktf.listMapper(
+        instanceEphemeralBlockDeviceToTerraform,
+        true,
+      )(this._ephemeralBlockDevice.internalValue),
+      launch_template: instanceLaunchTemplateToTerraform(
+        this._launchTemplate.internalValue,
+      ),
+      maintenance_options: instanceMaintenanceOptionsToTerraform(
+        this._maintenanceOptions.internalValue,
+      ),
+      metadata_options: instanceMetadataOptionsToTerraform(
+        this._metadataOptions.internalValue,
+      ),
+      network_interface: cdktf.listMapper(
+        instanceNetworkInterfaceToTerraform,
+        true,
+      )(this._networkInterface.internalValue),
+      private_dns_name_options: instancePrivateDnsNameOptionsToTerraform(
+        this._privateDnsNameOptions.internalValue,
+      ),
+      root_block_device: instanceRootBlockDeviceToTerraform(
+        this._rootBlockDevice.internalValue,
+      ),
       timeouts: instanceTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

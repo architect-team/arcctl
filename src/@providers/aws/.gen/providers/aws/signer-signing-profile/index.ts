@@ -2,68 +2,83 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface SignerSigningProfileConfig extends cdktf.TerraformMetaArguments {
+export interface SignerSigningProfileConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#id SignerSigningProfile#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#id SignerSigningProfile#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#name SignerSigningProfile#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#name SignerSigningProfile#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#name_prefix SignerSigningProfile#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#name_prefix SignerSigningProfile#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#platform_id SignerSigningProfile#platform_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#platform_id SignerSigningProfile#platform_id}
+   */
   readonly platformId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#tags SignerSigningProfile#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#tags SignerSigningProfile#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#tags_all SignerSigningProfile#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#tags_all SignerSigningProfile#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * signature_validity_period block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#signature_validity_period SignerSigningProfile#signature_validity_period}
-  */
+   * signature_validity_period block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#signature_validity_period SignerSigningProfile#signature_validity_period}
+   */
   readonly signatureValidityPeriod?: SignerSigningProfileSignatureValidityPeriod;
 }
-export interface SignerSigningProfileRevocationRecord {
-}
+export interface SignerSigningProfileRevocationRecord {}
 
-export function signerSigningProfileRevocationRecordToTerraform(struct?: SignerSigningProfileRevocationRecord): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function signerSigningProfileRevocationRecordToTerraform(
+  struct?: SignerSigningProfileRevocationRecord,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class SignerSigningProfileRevocationRecordOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): SignerSigningProfileRevocationRecord | undefined {
@@ -72,11 +87,12 @@ export class SignerSigningProfileRevocationRecordOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SignerSigningProfileRevocationRecord | undefined) {
+  public set internalValue(
+    value: SignerSigningProfileRevocationRecord | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -98,57 +114,80 @@ export class SignerSigningProfileRevocationRecordOutputReference extends cdktf.C
 }
 
 export class SignerSigningProfileRevocationRecordList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): SignerSigningProfileRevocationRecordOutputReference {
-    return new SignerSigningProfileRevocationRecordOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): SignerSigningProfileRevocationRecordOutputReference {
+    return new SignerSigningProfileRevocationRecordOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SignerSigningProfileSignatureValidityPeriod {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#type SignerSigningProfile#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#type SignerSigningProfile#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#value SignerSigningProfile#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile#value SignerSigningProfile#value}
+   */
   readonly value: number;
 }
 
-export function signerSigningProfileSignatureValidityPeriodToTerraform(struct?: SignerSigningProfileSignatureValidityPeriodOutputReference | SignerSigningProfileSignatureValidityPeriod): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function signerSigningProfileSignatureValidityPeriodToTerraform(
+  struct?:
+    | SignerSigningProfileSignatureValidityPeriodOutputReference
+    | SignerSigningProfileSignatureValidityPeriod,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.numberToTerraform(struct!.value),
-  }
+  };
 }
 
 export class SignerSigningProfileSignatureValidityPeriodOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SignerSigningProfileSignatureValidityPeriod | undefined {
+  public get internalValue():
+    | SignerSigningProfileSignatureValidityPeriod
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._type !== undefined) {
@@ -162,13 +201,14 @@ export class SignerSigningProfileSignatureValidityPeriodOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SignerSigningProfileSignatureValidityPeriod | undefined) {
+  public set internalValue(
+    value: SignerSigningProfileSignatureValidityPeriod | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._type = value.type;
       this._value = value.value;
@@ -203,33 +243,36 @@ export class SignerSigningProfileSignatureValidityPeriodOutputReference extends 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile aws_signer_signing_profile}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile aws_signer_signing_profile}
+ */
 export class SignerSigningProfile extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_signer_signing_profile";
+  public static readonly tfResourceType = 'aws_signer_signing_profile';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile aws_signer_signing_profile} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SignerSigningProfileConfig
-  */
-  public constructor(scope: Construct, id: string, config: SignerSigningProfileConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/signer_signing_profile aws_signer_signing_profile} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SignerSigningProfileConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SignerSigningProfileConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_signer_signing_profile',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -237,7 +280,7 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -245,7 +288,8 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
     this._platformId = config.platformId;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._signatureValidityPeriod.internalValue = config.signatureValidityPeriod;
+    this._signatureValidityPeriod.internalValue =
+      config.signatureValidityPeriod;
   }
 
   // ==========
@@ -324,7 +368,11 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // revocation_record - computed: true, optional: false, required: false
-  private _revocationRecord = new SignerSigningProfileRevocationRecordList(this, "revocation_record", false);
+  private _revocationRecord = new SignerSigningProfileRevocationRecordList(
+    this,
+    'revocation_record',
+    false,
+  );
   public get revocationRecord() {
     return this._revocationRecord;
   }
@@ -377,11 +425,17 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
   }
 
   // signature_validity_period - computed: false, optional: true, required: false
-  private _signatureValidityPeriod = new SignerSigningProfileSignatureValidityPeriodOutputReference(this, "signature_validity_period");
+  private _signatureValidityPeriod =
+    new SignerSigningProfileSignatureValidityPeriodOutputReference(
+      this,
+      'signature_validity_period',
+    );
   public get signatureValidityPeriod() {
     return this._signatureValidityPeriod;
   }
-  public putSignatureValidityPeriod(value: SignerSigningProfileSignatureValidityPeriod) {
+  public putSignatureValidityPeriod(
+    value: SignerSigningProfileSignatureValidityPeriod,
+  ) {
     this._signatureValidityPeriod.internalValue = value;
   }
   public resetSignatureValidityPeriod() {
@@ -404,7 +458,10 @@ export class SignerSigningProfile extends cdktf.TerraformResource {
       platform_id: cdktf.stringToTerraform(this._platformId),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      signature_validity_period: signerSigningProfileSignatureValidityPeriodToTerraform(this._signatureValidityPeriod.internalValue),
+      signature_validity_period:
+        signerSigningProfileSignatureValidityPeriodToTerraform(
+          this._signatureValidityPeriod.internalValue,
+        ),
     };
   }
 }

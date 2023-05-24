@@ -2,102 +2,118 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface EmrserverlessApplicationConfig extends cdktf.TerraformMetaArguments {
+export interface EmrserverlessApplicationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#architecture EmrserverlessApplication#architecture}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#architecture EmrserverlessApplication#architecture}
+   */
   readonly architecture?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#id EmrserverlessApplication#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#id EmrserverlessApplication#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#name EmrserverlessApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#name EmrserverlessApplication#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#release_label EmrserverlessApplication#release_label}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#release_label EmrserverlessApplication#release_label}
+   */
   readonly releaseLabel: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#tags EmrserverlessApplication#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#tags EmrserverlessApplication#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#tags_all EmrserverlessApplication#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#tags_all EmrserverlessApplication#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#type EmrserverlessApplication#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#type EmrserverlessApplication#type}
+   */
   readonly type: string;
   /**
-  * auto_start_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#auto_start_configuration EmrserverlessApplication#auto_start_configuration}
-  */
+   * auto_start_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#auto_start_configuration EmrserverlessApplication#auto_start_configuration}
+   */
   readonly autoStartConfiguration?: EmrserverlessApplicationAutoStartConfiguration;
   /**
-  * auto_stop_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#auto_stop_configuration EmrserverlessApplication#auto_stop_configuration}
-  */
+   * auto_stop_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#auto_stop_configuration EmrserverlessApplication#auto_stop_configuration}
+   */
   readonly autoStopConfiguration?: EmrserverlessApplicationAutoStopConfiguration;
   /**
-  * initial_capacity block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity EmrserverlessApplication#initial_capacity}
-  */
-  readonly initialCapacity?: EmrserverlessApplicationInitialCapacity[] | cdktf.IResolvable;
+   * initial_capacity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity EmrserverlessApplication#initial_capacity}
+   */
+  readonly initialCapacity?:
+    | EmrserverlessApplicationInitialCapacity[]
+    | cdktf.IResolvable;
   /**
-  * maximum_capacity block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#maximum_capacity EmrserverlessApplication#maximum_capacity}
-  */
+   * maximum_capacity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#maximum_capacity EmrserverlessApplication#maximum_capacity}
+   */
   readonly maximumCapacity?: EmrserverlessApplicationMaximumCapacity;
   /**
-  * network_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#network_configuration EmrserverlessApplication#network_configuration}
-  */
+   * network_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#network_configuration EmrserverlessApplication#network_configuration}
+   */
   readonly networkConfiguration?: EmrserverlessApplicationNetworkConfiguration;
 }
 export interface EmrserverlessApplicationAutoStartConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#enabled EmrserverlessApplication#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#enabled EmrserverlessApplication#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function emrserverlessApplicationAutoStartConfigurationToTerraform(struct?: EmrserverlessApplicationAutoStartConfigurationOutputReference | EmrserverlessApplicationAutoStartConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationAutoStartConfigurationToTerraform(
+  struct?:
+    | EmrserverlessApplicationAutoStartConfigurationOutputReference
+    | EmrserverlessApplicationAutoStartConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class EmrserverlessApplicationAutoStartConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EmrserverlessApplicationAutoStartConfiguration | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationAutoStartConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -107,12 +123,13 @@ export class EmrserverlessApplicationAutoStartConfigurationOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationAutoStartConfiguration | undefined) {
+  public set internalValue(
+    value: EmrserverlessApplicationAutoStartConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -136,38 +153,51 @@ export class EmrserverlessApplicationAutoStartConfigurationOutputReference exten
 }
 export interface EmrserverlessApplicationAutoStopConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#enabled EmrserverlessApplication#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#enabled EmrserverlessApplication#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#idle_timeout_minutes EmrserverlessApplication#idle_timeout_minutes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#idle_timeout_minutes EmrserverlessApplication#idle_timeout_minutes}
+   */
   readonly idleTimeoutMinutes?: number;
 }
 
-export function emrserverlessApplicationAutoStopConfigurationToTerraform(struct?: EmrserverlessApplicationAutoStopConfigurationOutputReference | EmrserverlessApplicationAutoStopConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationAutoStopConfigurationToTerraform(
+  struct?:
+    | EmrserverlessApplicationAutoStopConfigurationOutputReference
+    | EmrserverlessApplicationAutoStopConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     idle_timeout_minutes: cdktf.numberToTerraform(struct!.idleTimeoutMinutes),
-  }
+  };
 }
 
 export class EmrserverlessApplicationAutoStopConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EmrserverlessApplicationAutoStopConfiguration | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationAutoStopConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -181,13 +211,14 @@ export class EmrserverlessApplicationAutoStopConfigurationOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationAutoStopConfiguration | undefined) {
+  public set internalValue(
+    value: EmrserverlessApplicationAutoStopConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._idleTimeoutMinutes = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._idleTimeoutMinutes = value.idleTimeoutMinutes;
@@ -228,43 +259,56 @@ export class EmrserverlessApplicationAutoStopConfigurationOutputReference extend
 }
 export interface EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#cpu EmrserverlessApplication#cpu}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#cpu EmrserverlessApplication#cpu}
+   */
   readonly cpu: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#disk EmrserverlessApplication#disk}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#disk EmrserverlessApplication#disk}
+   */
   readonly disk?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#memory EmrserverlessApplication#memory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#memory EmrserverlessApplication#memory}
+   */
   readonly memory: string;
 }
 
-export function emrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationToTerraform(struct?: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutputReference | EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationToTerraform(
+  struct?:
+    | EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutputReference
+    | EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cpu: cdktf.stringToTerraform(struct!.cpu),
     disk: cdktf.stringToTerraform(struct!.disk),
     memory: cdktf.stringToTerraform(struct!.memory),
-  }
+  };
 }
 
 export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cpu !== undefined) {
@@ -282,14 +326,17 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerC
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cpu = undefined;
       this._disk = undefined;
       this._memory = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cpu = value.cpu;
       this._disk = value.disk;
@@ -341,40 +388,56 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerC
 }
 export interface EmrserverlessApplicationInitialCapacityInitialCapacityConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#worker_count EmrserverlessApplication#worker_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#worker_count EmrserverlessApplication#worker_count}
+   */
   readonly workerCount: number;
   /**
-  * worker_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#worker_configuration EmrserverlessApplication#worker_configuration}
-  */
+   * worker_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#worker_configuration EmrserverlessApplication#worker_configuration}
+   */
   readonly workerConfiguration?: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration;
 }
 
-export function emrserverlessApplicationInitialCapacityInitialCapacityConfigToTerraform(struct?: EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputReference | EmrserverlessApplicationInitialCapacityInitialCapacityConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationInitialCapacityInitialCapacityConfigToTerraform(
+  struct?:
+    | EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputReference
+    | EmrserverlessApplicationInitialCapacityInitialCapacityConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     worker_count: cdktf.numberToTerraform(struct!.workerCount),
-    worker_configuration: emrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationToTerraform(struct!.workerConfiguration),
-  }
+    worker_configuration:
+      emrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationToTerraform(
+        struct!.workerConfiguration,
+      ),
+  };
 }
 
 export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EmrserverlessApplicationInitialCapacityInitialCapacityConfig | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationInitialCapacityInitialCapacityConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._workerCount !== undefined) {
@@ -383,18 +446,22 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputR
     }
     if (this._workerConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.workerConfiguration = this._workerConfiguration?.internalValue;
+      internalValueResult.workerConfiguration =
+        this._workerConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationInitialCapacityInitialCapacityConfig | undefined) {
+  public set internalValue(
+    value:
+      | EmrserverlessApplicationInitialCapacityInitialCapacityConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._workerCount = undefined;
       this._workerConfiguration.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._workerCount = value.workerCount;
       this._workerConfiguration.internalValue = value.workerConfiguration;
@@ -415,11 +482,17 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputR
   }
 
   // worker_configuration - computed: false, optional: true, required: false
-  private _workerConfiguration = new EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutputReference(this, "worker_configuration");
+  private _workerConfiguration =
+    new EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutputReference(
+      this,
+      'worker_configuration',
+    );
   public get workerConfiguration() {
     return this._workerConfiguration;
   }
-  public putWorkerConfiguration(value: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) {
+  public putWorkerConfiguration(
+    value: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration,
+  ) {
     this._workerConfiguration.internalValue = value;
   }
   public resetWorkerConfiguration() {
@@ -432,26 +505,35 @@ export class EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputR
 }
 export interface EmrserverlessApplicationInitialCapacity {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity_type EmrserverlessApplication#initial_capacity_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity_type EmrserverlessApplication#initial_capacity_type}
+   */
   readonly initialCapacityType: string;
   /**
-  * initial_capacity_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity_config EmrserverlessApplication#initial_capacity_config}
-  */
+   * initial_capacity_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#initial_capacity_config EmrserverlessApplication#initial_capacity_config}
+   */
   readonly initialCapacityConfig?: EmrserverlessApplicationInitialCapacityInitialCapacityConfig;
 }
 
-export function emrserverlessApplicationInitialCapacityToTerraform(struct?: EmrserverlessApplicationInitialCapacity | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationInitialCapacityToTerraform(
+  struct?: EmrserverlessApplicationInitialCapacity | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     initial_capacity_type: cdktf.stringToTerraform(struct!.initialCapacityType),
-    initial_capacity_config: emrserverlessApplicationInitialCapacityInitialCapacityConfigToTerraform(struct!.initialCapacityConfig),
-  }
+    initial_capacity_config:
+      emrserverlessApplicationInitialCapacityInitialCapacityConfigToTerraform(
+        struct!.initialCapacityConfig,
+      ),
+  };
 }
 
 export class EmrserverlessApplicationInitialCapacityOutputReference extends cdktf.ComplexObject {
@@ -459,16 +541,29 @@ export class EmrserverlessApplicationInitialCapacityOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): EmrserverlessApplicationInitialCapacity | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationInitialCapacity
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -480,23 +575,27 @@ export class EmrserverlessApplicationInitialCapacityOutputReference extends cdkt
     }
     if (this._initialCapacityConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.initialCapacityConfig = this._initialCapacityConfig?.internalValue;
+      internalValueResult.initialCapacityConfig =
+        this._initialCapacityConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationInitialCapacity | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | EmrserverlessApplicationInitialCapacity
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._initialCapacityType = undefined;
       this._initialCapacityConfig.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._initialCapacityType = value.initialCapacityType;
@@ -518,11 +617,17 @@ export class EmrserverlessApplicationInitialCapacityOutputReference extends cdkt
   }
 
   // initial_capacity_config - computed: false, optional: true, required: false
-  private _initialCapacityConfig = new EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputReference(this, "initial_capacity_config");
+  private _initialCapacityConfig =
+    new EmrserverlessApplicationInitialCapacityInitialCapacityConfigOutputReference(
+      this,
+      'initial_capacity_config',
+    );
   public get initialCapacityConfig() {
     return this._initialCapacityConfig;
   }
-  public putInitialCapacityConfig(value: EmrserverlessApplicationInitialCapacityInitialCapacityConfig) {
+  public putInitialCapacityConfig(
+    value: EmrserverlessApplicationInitialCapacityInitialCapacityConfig,
+  ) {
     this._initialCapacityConfig.internalValue = value;
   }
   public resetInitialCapacityConfig() {
@@ -535,63 +640,89 @@ export class EmrserverlessApplicationInitialCapacityOutputReference extends cdkt
 }
 
 export class EmrserverlessApplicationInitialCapacityList extends cdktf.ComplexList {
-  public internalValue? : EmrserverlessApplicationInitialCapacity[] | cdktf.IResolvable
+  public internalValue?:
+    | EmrserverlessApplicationInitialCapacity[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): EmrserverlessApplicationInitialCapacityOutputReference {
-    return new EmrserverlessApplicationInitialCapacityOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): EmrserverlessApplicationInitialCapacityOutputReference {
+    return new EmrserverlessApplicationInitialCapacityOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface EmrserverlessApplicationMaximumCapacity {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#cpu EmrserverlessApplication#cpu}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#cpu EmrserverlessApplication#cpu}
+   */
   readonly cpu: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#disk EmrserverlessApplication#disk}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#disk EmrserverlessApplication#disk}
+   */
   readonly disk?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#memory EmrserverlessApplication#memory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#memory EmrserverlessApplication#memory}
+   */
   readonly memory: string;
 }
 
-export function emrserverlessApplicationMaximumCapacityToTerraform(struct?: EmrserverlessApplicationMaximumCapacityOutputReference | EmrserverlessApplicationMaximumCapacity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationMaximumCapacityToTerraform(
+  struct?:
+    | EmrserverlessApplicationMaximumCapacityOutputReference
+    | EmrserverlessApplicationMaximumCapacity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cpu: cdktf.stringToTerraform(struct!.cpu),
     disk: cdktf.stringToTerraform(struct!.disk),
     memory: cdktf.stringToTerraform(struct!.memory),
-  }
+  };
 }
 
 export class EmrserverlessApplicationMaximumCapacityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EmrserverlessApplicationMaximumCapacity | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationMaximumCapacity
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cpu !== undefined) {
@@ -609,14 +740,15 @@ export class EmrserverlessApplicationMaximumCapacityOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationMaximumCapacity | undefined) {
+  public set internalValue(
+    value: EmrserverlessApplicationMaximumCapacity | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cpu = undefined;
       this._disk = undefined;
       this._memory = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cpu = value.cpu;
       this._disk = value.disk;
@@ -668,38 +800,57 @@ export class EmrserverlessApplicationMaximumCapacityOutputReference extends cdkt
 }
 export interface EmrserverlessApplicationNetworkConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#security_group_ids EmrserverlessApplication#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#security_group_ids EmrserverlessApplication#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#subnet_ids EmrserverlessApplication#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application#subnet_ids EmrserverlessApplication#subnet_ids}
+   */
   readonly subnetIds?: string[];
 }
 
-export function emrserverlessApplicationNetworkConfigurationToTerraform(struct?: EmrserverlessApplicationNetworkConfigurationOutputReference | EmrserverlessApplicationNetworkConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function emrserverlessApplicationNetworkConfigurationToTerraform(
+  struct?:
+    | EmrserverlessApplicationNetworkConfigurationOutputReference
+    | EmrserverlessApplicationNetworkConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
-  }
+    security_group_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.subnetIds),
+  };
 }
 
 export class EmrserverlessApplicationNetworkConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EmrserverlessApplicationNetworkConfiguration | undefined {
+  public get internalValue():
+    | EmrserverlessApplicationNetworkConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._securityGroupIds !== undefined) {
@@ -713,13 +864,14 @@ export class EmrserverlessApplicationNetworkConfigurationOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EmrserverlessApplicationNetworkConfiguration | undefined) {
+  public set internalValue(
+    value: EmrserverlessApplicationNetworkConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnetIds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnetIds = value.subnetIds;
@@ -760,33 +912,36 @@ export class EmrserverlessApplicationNetworkConfigurationOutputReference extends
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application aws_emrserverless_application}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application aws_emrserverless_application}
+ */
 export class EmrserverlessApplication extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_emrserverless_application";
+  public static readonly tfResourceType = 'aws_emrserverless_application';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application aws_emrserverless_application} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EmrserverlessApplicationConfig
-  */
-  public constructor(scope: Construct, id: string, config: EmrserverlessApplicationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/emrserverless_application aws_emrserverless_application} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EmrserverlessApplicationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: EmrserverlessApplicationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_emrserverless_application',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -794,7 +949,7 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._architecture = config.architecture;
     this._id = config.id;
@@ -923,11 +1078,17 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // auto_start_configuration - computed: false, optional: true, required: false
-  private _autoStartConfiguration = new EmrserverlessApplicationAutoStartConfigurationOutputReference(this, "auto_start_configuration");
+  private _autoStartConfiguration =
+    new EmrserverlessApplicationAutoStartConfigurationOutputReference(
+      this,
+      'auto_start_configuration',
+    );
   public get autoStartConfiguration() {
     return this._autoStartConfiguration;
   }
-  public putAutoStartConfiguration(value: EmrserverlessApplicationAutoStartConfiguration) {
+  public putAutoStartConfiguration(
+    value: EmrserverlessApplicationAutoStartConfiguration,
+  ) {
     this._autoStartConfiguration.internalValue = value;
   }
   public resetAutoStartConfiguration() {
@@ -939,11 +1100,17 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // auto_stop_configuration - computed: false, optional: true, required: false
-  private _autoStopConfiguration = new EmrserverlessApplicationAutoStopConfigurationOutputReference(this, "auto_stop_configuration");
+  private _autoStopConfiguration =
+    new EmrserverlessApplicationAutoStopConfigurationOutputReference(
+      this,
+      'auto_stop_configuration',
+    );
   public get autoStopConfiguration() {
     return this._autoStopConfiguration;
   }
-  public putAutoStopConfiguration(value: EmrserverlessApplicationAutoStopConfiguration) {
+  public putAutoStopConfiguration(
+    value: EmrserverlessApplicationAutoStopConfiguration,
+  ) {
     this._autoStopConfiguration.internalValue = value;
   }
   public resetAutoStopConfiguration() {
@@ -955,11 +1122,17 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // initial_capacity - computed: false, optional: true, required: false
-  private _initialCapacity = new EmrserverlessApplicationInitialCapacityList(this, "initial_capacity", true);
+  private _initialCapacity = new EmrserverlessApplicationInitialCapacityList(
+    this,
+    'initial_capacity',
+    true,
+  );
   public get initialCapacity() {
     return this._initialCapacity;
   }
-  public putInitialCapacity(value: EmrserverlessApplicationInitialCapacity[] | cdktf.IResolvable) {
+  public putInitialCapacity(
+    value: EmrserverlessApplicationInitialCapacity[] | cdktf.IResolvable,
+  ) {
     this._initialCapacity.internalValue = value;
   }
   public resetInitialCapacity() {
@@ -971,7 +1144,11 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // maximum_capacity - computed: false, optional: true, required: false
-  private _maximumCapacity = new EmrserverlessApplicationMaximumCapacityOutputReference(this, "maximum_capacity");
+  private _maximumCapacity =
+    new EmrserverlessApplicationMaximumCapacityOutputReference(
+      this,
+      'maximum_capacity',
+    );
   public get maximumCapacity() {
     return this._maximumCapacity;
   }
@@ -987,11 +1164,17 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
   }
 
   // network_configuration - computed: false, optional: true, required: false
-  private _networkConfiguration = new EmrserverlessApplicationNetworkConfigurationOutputReference(this, "network_configuration");
+  private _networkConfiguration =
+    new EmrserverlessApplicationNetworkConfigurationOutputReference(
+      this,
+      'network_configuration',
+    );
   public get networkConfiguration() {
     return this._networkConfiguration;
   }
-  public putNetworkConfiguration(value: EmrserverlessApplicationNetworkConfiguration) {
+  public putNetworkConfiguration(
+    value: EmrserverlessApplicationNetworkConfiguration,
+  ) {
     this._networkConfiguration.internalValue = value;
   }
   public resetNetworkConfiguration() {
@@ -1015,11 +1198,25 @@ export class EmrserverlessApplication extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       type: cdktf.stringToTerraform(this._type),
-      auto_start_configuration: emrserverlessApplicationAutoStartConfigurationToTerraform(this._autoStartConfiguration.internalValue),
-      auto_stop_configuration: emrserverlessApplicationAutoStopConfigurationToTerraform(this._autoStopConfiguration.internalValue),
-      initial_capacity: cdktf.listMapper(emrserverlessApplicationInitialCapacityToTerraform, true)(this._initialCapacity.internalValue),
-      maximum_capacity: emrserverlessApplicationMaximumCapacityToTerraform(this._maximumCapacity.internalValue),
-      network_configuration: emrserverlessApplicationNetworkConfigurationToTerraform(this._networkConfiguration.internalValue),
+      auto_start_configuration:
+        emrserverlessApplicationAutoStartConfigurationToTerraform(
+          this._autoStartConfiguration.internalValue,
+        ),
+      auto_stop_configuration:
+        emrserverlessApplicationAutoStopConfigurationToTerraform(
+          this._autoStopConfiguration.internalValue,
+        ),
+      initial_capacity: cdktf.listMapper(
+        emrserverlessApplicationInitialCapacityToTerraform,
+        true,
+      )(this._initialCapacity.internalValue),
+      maximum_capacity: emrserverlessApplicationMaximumCapacityToTerraform(
+        this._maximumCapacity.internalValue,
+      ),
+      network_configuration:
+        emrserverlessApplicationNetworkConfigurationToTerraform(
+          this._networkConfiguration.internalValue,
+        ),
     };
   }
 }

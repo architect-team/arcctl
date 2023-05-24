@@ -2,103 +2,121 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface ElastictranscoderPipelineConfig extends cdktf.TerraformMetaArguments {
+export interface ElastictranscoderPipelineConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#aws_kms_key_arn ElastictranscoderPipeline#aws_kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#aws_kms_key_arn ElastictranscoderPipeline#aws_kms_key_arn}
+   */
   readonly awsKmsKeyArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#id ElastictranscoderPipeline#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#id ElastictranscoderPipeline#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#input_bucket ElastictranscoderPipeline#input_bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#input_bucket ElastictranscoderPipeline#input_bucket}
+   */
   readonly inputBucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#name ElastictranscoderPipeline#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#name ElastictranscoderPipeline#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#output_bucket ElastictranscoderPipeline#output_bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#output_bucket ElastictranscoderPipeline#output_bucket}
+   */
   readonly outputBucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#role ElastictranscoderPipeline#role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#role ElastictranscoderPipeline#role}
+   */
   readonly role: string;
   /**
-  * content_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#content_config ElastictranscoderPipeline#content_config}
-  */
+   * content_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#content_config ElastictranscoderPipeline#content_config}
+   */
   readonly contentConfig?: ElastictranscoderPipelineContentConfig;
   /**
-  * content_config_permissions block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#content_config_permissions ElastictranscoderPipeline#content_config_permissions}
-  */
-  readonly contentConfigPermissions?: ElastictranscoderPipelineContentConfigPermissions[] | cdktf.IResolvable;
+   * content_config_permissions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#content_config_permissions ElastictranscoderPipeline#content_config_permissions}
+   */
+  readonly contentConfigPermissions?:
+    | ElastictranscoderPipelineContentConfigPermissions[]
+    | cdktf.IResolvable;
   /**
-  * notifications block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#notifications ElastictranscoderPipeline#notifications}
-  */
+   * notifications block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#notifications ElastictranscoderPipeline#notifications}
+   */
   readonly notifications?: ElastictranscoderPipelineNotifications;
   /**
-  * thumbnail_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#thumbnail_config ElastictranscoderPipeline#thumbnail_config}
-  */
+   * thumbnail_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#thumbnail_config ElastictranscoderPipeline#thumbnail_config}
+   */
   readonly thumbnailConfig?: ElastictranscoderPipelineThumbnailConfig;
   /**
-  * thumbnail_config_permissions block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#thumbnail_config_permissions ElastictranscoderPipeline#thumbnail_config_permissions}
-  */
-  readonly thumbnailConfigPermissions?: ElastictranscoderPipelineThumbnailConfigPermissions[] | cdktf.IResolvable;
+   * thumbnail_config_permissions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#thumbnail_config_permissions ElastictranscoderPipeline#thumbnail_config_permissions}
+   */
+  readonly thumbnailConfigPermissions?:
+    | ElastictranscoderPipelineThumbnailConfigPermissions[]
+    | cdktf.IResolvable;
 }
 export interface ElastictranscoderPipelineContentConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#bucket ElastictranscoderPipeline#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#bucket ElastictranscoderPipeline#bucket}
+   */
   readonly bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#storage_class ElastictranscoderPipeline#storage_class}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#storage_class ElastictranscoderPipeline#storage_class}
+   */
   readonly storageClass?: string;
 }
 
-export function elastictranscoderPipelineContentConfigToTerraform(struct?: ElastictranscoderPipelineContentConfigOutputReference | ElastictranscoderPipelineContentConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elastictranscoderPipelineContentConfigToTerraform(
+  struct?:
+    | ElastictranscoderPipelineContentConfigOutputReference
+    | ElastictranscoderPipelineContentConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     storage_class: cdktf.stringToTerraform(struct!.storageClass),
-  }
+  };
 }
 
 export class ElastictranscoderPipelineContentConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ElastictranscoderPipelineContentConfig | undefined {
+  public get internalValue():
+    | ElastictranscoderPipelineContentConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucket !== undefined) {
@@ -112,13 +130,14 @@ export class ElastictranscoderPipelineContentConfigOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElastictranscoderPipelineContentConfig | undefined) {
+  public set internalValue(
+    value: ElastictranscoderPipelineContentConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
       this._storageClass = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._storageClass = value.storageClass;
@@ -159,29 +178,37 @@ export class ElastictranscoderPipelineContentConfigOutputReference extends cdktf
 }
 export interface ElastictranscoderPipelineContentConfigPermissions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#access ElastictranscoderPipeline#access}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#access ElastictranscoderPipeline#access}
+   */
   readonly access?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee ElastictranscoderPipeline#grantee}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee ElastictranscoderPipeline#grantee}
+   */
   readonly grantee?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee_type ElastictranscoderPipeline#grantee_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee_type ElastictranscoderPipeline#grantee_type}
+   */
   readonly granteeType?: string;
 }
 
-export function elastictranscoderPipelineContentConfigPermissionsToTerraform(struct?: ElastictranscoderPipelineContentConfigPermissions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elastictranscoderPipelineContentConfigPermissionsToTerraform(
+  struct?:
+    | ElastictranscoderPipelineContentConfigPermissions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     access: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.access),
     grantee: cdktf.stringToTerraform(struct!.grantee),
     grantee_type: cdktf.stringToTerraform(struct!.granteeType),
-  }
+  };
 }
 
 export class ElastictranscoderPipelineContentConfigPermissionsOutputReference extends cdktf.ComplexObject {
@@ -189,16 +216,29 @@ export class ElastictranscoderPipelineContentConfigPermissionsOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ElastictranscoderPipelineContentConfigPermissions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ElastictranscoderPipelineContentConfigPermissions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -219,19 +259,22 @@ export class ElastictranscoderPipelineContentConfigPermissionsOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElastictranscoderPipelineContentConfigPermissions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ElastictranscoderPipelineContentConfigPermissions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._access = undefined;
       this._grantee = undefined;
       this._granteeType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._access = value.access;
@@ -290,68 +333,94 @@ export class ElastictranscoderPipelineContentConfigPermissionsOutputReference ex
 }
 
 export class ElastictranscoderPipelineContentConfigPermissionsList extends cdktf.ComplexList {
-  public internalValue? : ElastictranscoderPipelineContentConfigPermissions[] | cdktf.IResolvable
+  public internalValue?:
+    | ElastictranscoderPipelineContentConfigPermissions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ElastictranscoderPipelineContentConfigPermissionsOutputReference {
-    return new ElastictranscoderPipelineContentConfigPermissionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ElastictranscoderPipelineContentConfigPermissionsOutputReference {
+    return new ElastictranscoderPipelineContentConfigPermissionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ElastictranscoderPipelineNotifications {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#completed ElastictranscoderPipeline#completed}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#completed ElastictranscoderPipeline#completed}
+   */
   readonly completed?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#error ElastictranscoderPipeline#error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#error ElastictranscoderPipeline#error}
+   */
   readonly error?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#progressing ElastictranscoderPipeline#progressing}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#progressing ElastictranscoderPipeline#progressing}
+   */
   readonly progressing?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#warning ElastictranscoderPipeline#warning}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#warning ElastictranscoderPipeline#warning}
+   */
   readonly warning?: string;
 }
 
-export function elastictranscoderPipelineNotificationsToTerraform(struct?: ElastictranscoderPipelineNotificationsOutputReference | ElastictranscoderPipelineNotifications): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elastictranscoderPipelineNotificationsToTerraform(
+  struct?:
+    | ElastictranscoderPipelineNotificationsOutputReference
+    | ElastictranscoderPipelineNotifications,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     completed: cdktf.stringToTerraform(struct!.completed),
     error: cdktf.stringToTerraform(struct!.error),
     progressing: cdktf.stringToTerraform(struct!.progressing),
     warning: cdktf.stringToTerraform(struct!.warning),
-  }
+  };
 }
 
 export class ElastictranscoderPipelineNotificationsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ElastictranscoderPipelineNotifications | undefined {
+  public get internalValue():
+    | ElastictranscoderPipelineNotifications
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._completed !== undefined) {
@@ -373,15 +442,16 @@ export class ElastictranscoderPipelineNotificationsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElastictranscoderPipelineNotifications | undefined) {
+  public set internalValue(
+    value: ElastictranscoderPipelineNotifications | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._completed = undefined;
       this._error = undefined;
       this._progressing = undefined;
       this._warning = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._completed = value.completed;
       this._error = value.error;
@@ -456,38 +526,51 @@ export class ElastictranscoderPipelineNotificationsOutputReference extends cdktf
 }
 export interface ElastictranscoderPipelineThumbnailConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#bucket ElastictranscoderPipeline#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#bucket ElastictranscoderPipeline#bucket}
+   */
   readonly bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#storage_class ElastictranscoderPipeline#storage_class}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#storage_class ElastictranscoderPipeline#storage_class}
+   */
   readonly storageClass?: string;
 }
 
-export function elastictranscoderPipelineThumbnailConfigToTerraform(struct?: ElastictranscoderPipelineThumbnailConfigOutputReference | ElastictranscoderPipelineThumbnailConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elastictranscoderPipelineThumbnailConfigToTerraform(
+  struct?:
+    | ElastictranscoderPipelineThumbnailConfigOutputReference
+    | ElastictranscoderPipelineThumbnailConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     storage_class: cdktf.stringToTerraform(struct!.storageClass),
-  }
+  };
 }
 
 export class ElastictranscoderPipelineThumbnailConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ElastictranscoderPipelineThumbnailConfig | undefined {
+  public get internalValue():
+    | ElastictranscoderPipelineThumbnailConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucket !== undefined) {
@@ -501,13 +584,14 @@ export class ElastictranscoderPipelineThumbnailConfigOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElastictranscoderPipelineThumbnailConfig | undefined) {
+  public set internalValue(
+    value: ElastictranscoderPipelineThumbnailConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
       this._storageClass = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._storageClass = value.storageClass;
@@ -548,29 +632,37 @@ export class ElastictranscoderPipelineThumbnailConfigOutputReference extends cdk
 }
 export interface ElastictranscoderPipelineThumbnailConfigPermissions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#access ElastictranscoderPipeline#access}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#access ElastictranscoderPipeline#access}
+   */
   readonly access?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee ElastictranscoderPipeline#grantee}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee ElastictranscoderPipeline#grantee}
+   */
   readonly grantee?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee_type ElastictranscoderPipeline#grantee_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline#grantee_type ElastictranscoderPipeline#grantee_type}
+   */
   readonly granteeType?: string;
 }
 
-export function elastictranscoderPipelineThumbnailConfigPermissionsToTerraform(struct?: ElastictranscoderPipelineThumbnailConfigPermissions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elastictranscoderPipelineThumbnailConfigPermissionsToTerraform(
+  struct?:
+    | ElastictranscoderPipelineThumbnailConfigPermissions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     access: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.access),
     grantee: cdktf.stringToTerraform(struct!.grantee),
     grantee_type: cdktf.stringToTerraform(struct!.granteeType),
-  }
+  };
 }
 
 export class ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference extends cdktf.ComplexObject {
@@ -578,16 +670,29 @@ export class ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ElastictranscoderPipelineThumbnailConfigPermissions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ElastictranscoderPipelineThumbnailConfigPermissions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -608,19 +713,22 @@ export class ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElastictranscoderPipelineThumbnailConfigPermissions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ElastictranscoderPipelineThumbnailConfigPermissions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._access = undefined;
       this._grantee = undefined;
       this._granteeType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._access = value.access;
@@ -679,53 +787,69 @@ export class ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference 
 }
 
 export class ElastictranscoderPipelineThumbnailConfigPermissionsList extends cdktf.ComplexList {
-  public internalValue? : ElastictranscoderPipelineThumbnailConfigPermissions[] | cdktf.IResolvable
+  public internalValue?:
+    | ElastictranscoderPipelineThumbnailConfigPermissions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference {
-    return new ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference {
+    return new ElastictranscoderPipelineThumbnailConfigPermissionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline aws_elastictranscoder_pipeline}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline aws_elastictranscoder_pipeline}
+ */
 export class ElastictranscoderPipeline extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_elastictranscoder_pipeline";
+  public static readonly tfResourceType = 'aws_elastictranscoder_pipeline';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline aws_elastictranscoder_pipeline} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ElastictranscoderPipelineConfig
-  */
-  public constructor(scope: Construct, id: string, config: ElastictranscoderPipelineConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/elastictranscoder_pipeline aws_elastictranscoder_pipeline} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ElastictranscoderPipelineConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ElastictranscoderPipelineConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_elastictranscoder_pipeline',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -733,7 +857,7 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._awsKmsKeyArn = config.awsKmsKeyArn;
     this._id = config.id;
@@ -742,10 +866,12 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
     this._outputBucket = config.outputBucket;
     this._role = config.role;
     this._contentConfig.internalValue = config.contentConfig;
-    this._contentConfigPermissions.internalValue = config.contentConfigPermissions;
+    this._contentConfigPermissions.internalValue =
+      config.contentConfigPermissions;
     this._notifications.internalValue = config.notifications;
     this._thumbnailConfig.internalValue = config.thumbnailConfig;
-    this._thumbnailConfigPermissions.internalValue = config.thumbnailConfigPermissions;
+    this._thumbnailConfigPermissions.internalValue =
+      config.thumbnailConfigPermissions;
   }
 
   // ==========
@@ -848,7 +974,11 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
   }
 
   // content_config - computed: false, optional: true, required: false
-  private _contentConfig = new ElastictranscoderPipelineContentConfigOutputReference(this, "content_config");
+  private _contentConfig =
+    new ElastictranscoderPipelineContentConfigOutputReference(
+      this,
+      'content_config',
+    );
   public get contentConfig() {
     return this._contentConfig;
   }
@@ -864,11 +994,20 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
   }
 
   // content_config_permissions - computed: false, optional: true, required: false
-  private _contentConfigPermissions = new ElastictranscoderPipelineContentConfigPermissionsList(this, "content_config_permissions", true);
+  private _contentConfigPermissions =
+    new ElastictranscoderPipelineContentConfigPermissionsList(
+      this,
+      'content_config_permissions',
+      true,
+    );
   public get contentConfigPermissions() {
     return this._contentConfigPermissions;
   }
-  public putContentConfigPermissions(value: ElastictranscoderPipelineContentConfigPermissions[] | cdktf.IResolvable) {
+  public putContentConfigPermissions(
+    value:
+      | ElastictranscoderPipelineContentConfigPermissions[]
+      | cdktf.IResolvable,
+  ) {
     this._contentConfigPermissions.internalValue = value;
   }
   public resetContentConfigPermissions() {
@@ -880,7 +1019,11 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
   }
 
   // notifications - computed: false, optional: true, required: false
-  private _notifications = new ElastictranscoderPipelineNotificationsOutputReference(this, "notifications");
+  private _notifications =
+    new ElastictranscoderPipelineNotificationsOutputReference(
+      this,
+      'notifications',
+    );
   public get notifications() {
     return this._notifications;
   }
@@ -896,7 +1039,11 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
   }
 
   // thumbnail_config - computed: false, optional: true, required: false
-  private _thumbnailConfig = new ElastictranscoderPipelineThumbnailConfigOutputReference(this, "thumbnail_config");
+  private _thumbnailConfig =
+    new ElastictranscoderPipelineThumbnailConfigOutputReference(
+      this,
+      'thumbnail_config',
+    );
   public get thumbnailConfig() {
     return this._thumbnailConfig;
   }
@@ -912,11 +1059,20 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
   }
 
   // thumbnail_config_permissions - computed: false, optional: true, required: false
-  private _thumbnailConfigPermissions = new ElastictranscoderPipelineThumbnailConfigPermissionsList(this, "thumbnail_config_permissions", true);
+  private _thumbnailConfigPermissions =
+    new ElastictranscoderPipelineThumbnailConfigPermissionsList(
+      this,
+      'thumbnail_config_permissions',
+      true,
+    );
   public get thumbnailConfigPermissions() {
     return this._thumbnailConfigPermissions;
   }
-  public putThumbnailConfigPermissions(value: ElastictranscoderPipelineThumbnailConfigPermissions[] | cdktf.IResolvable) {
+  public putThumbnailConfigPermissions(
+    value:
+      | ElastictranscoderPipelineThumbnailConfigPermissions[]
+      | cdktf.IResolvable,
+  ) {
     this._thumbnailConfigPermissions.internalValue = value;
   }
   public resetThumbnailConfigPermissions() {
@@ -939,11 +1095,23 @@ export class ElastictranscoderPipeline extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       output_bucket: cdktf.stringToTerraform(this._outputBucket),
       role: cdktf.stringToTerraform(this._role),
-      content_config: elastictranscoderPipelineContentConfigToTerraform(this._contentConfig.internalValue),
-      content_config_permissions: cdktf.listMapper(elastictranscoderPipelineContentConfigPermissionsToTerraform, true)(this._contentConfigPermissions.internalValue),
-      notifications: elastictranscoderPipelineNotificationsToTerraform(this._notifications.internalValue),
-      thumbnail_config: elastictranscoderPipelineThumbnailConfigToTerraform(this._thumbnailConfig.internalValue),
-      thumbnail_config_permissions: cdktf.listMapper(elastictranscoderPipelineThumbnailConfigPermissionsToTerraform, true)(this._thumbnailConfigPermissions.internalValue),
+      content_config: elastictranscoderPipelineContentConfigToTerraform(
+        this._contentConfig.internalValue,
+      ),
+      content_config_permissions: cdktf.listMapper(
+        elastictranscoderPipelineContentConfigPermissionsToTerraform,
+        true,
+      )(this._contentConfigPermissions.internalValue),
+      notifications: elastictranscoderPipelineNotificationsToTerraform(
+        this._notifications.internalValue,
+      ),
+      thumbnail_config: elastictranscoderPipelineThumbnailConfigToTerraform(
+        this._thumbnailConfig.internalValue,
+      ),
+      thumbnail_config_permissions: cdktf.listMapper(
+        elastictranscoderPipelineThumbnailConfigPermissionsToTerraform,
+        true,
+      )(this._thumbnailConfigPermissions.internalValue),
     };
   }
 }

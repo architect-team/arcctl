@@ -2,306 +2,320 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#allocated_storage DbInstance#allocated_storage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#allocated_storage DbInstance#allocated_storage}
+   */
   readonly allocatedStorage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#allow_major_version_upgrade DbInstance#allow_major_version_upgrade}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#allow_major_version_upgrade DbInstance#allow_major_version_upgrade}
+   */
   readonly allowMajorVersionUpgrade?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#apply_immediately DbInstance#apply_immediately}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#apply_immediately DbInstance#apply_immediately}
+   */
   readonly applyImmediately?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#auto_minor_version_upgrade DbInstance#auto_minor_version_upgrade}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#auto_minor_version_upgrade DbInstance#auto_minor_version_upgrade}
+   */
   readonly autoMinorVersionUpgrade?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#availability_zone DbInstance#availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#availability_zone DbInstance#availability_zone}
+   */
   readonly availabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#backup_retention_period DbInstance#backup_retention_period}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#backup_retention_period DbInstance#backup_retention_period}
+   */
   readonly backupRetentionPeriod?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#backup_window DbInstance#backup_window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#backup_window DbInstance#backup_window}
+   */
   readonly backupWindow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#ca_cert_identifier DbInstance#ca_cert_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#ca_cert_identifier DbInstance#ca_cert_identifier}
+   */
   readonly caCertIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#character_set_name DbInstance#character_set_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#character_set_name DbInstance#character_set_name}
+   */
   readonly characterSetName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#copy_tags_to_snapshot DbInstance#copy_tags_to_snapshot}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#copy_tags_to_snapshot DbInstance#copy_tags_to_snapshot}
+   */
   readonly copyTagsToSnapshot?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#custom_iam_instance_profile DbInstance#custom_iam_instance_profile}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#custom_iam_instance_profile DbInstance#custom_iam_instance_profile}
+   */
   readonly customIamInstanceProfile?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#customer_owned_ip_enabled DbInstance#customer_owned_ip_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#customer_owned_ip_enabled DbInstance#customer_owned_ip_enabled}
+   */
   readonly customerOwnedIpEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#db_name DbInstance#db_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#db_name DbInstance#db_name}
+   */
   readonly dbName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#db_subnet_group_name DbInstance#db_subnet_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#db_subnet_group_name DbInstance#db_subnet_group_name}
+   */
   readonly dbSubnetGroupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#delete_automated_backups DbInstance#delete_automated_backups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#delete_automated_backups DbInstance#delete_automated_backups}
+   */
   readonly deleteAutomatedBackups?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#deletion_protection DbInstance#deletion_protection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#deletion_protection DbInstance#deletion_protection}
+   */
   readonly deletionProtection?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#domain DbInstance#domain}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#domain DbInstance#domain}
+   */
   readonly domain?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#domain_iam_role_name DbInstance#domain_iam_role_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#domain_iam_role_name DbInstance#domain_iam_role_name}
+   */
   readonly domainIamRoleName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#enabled_cloudwatch_logs_exports DbInstance#enabled_cloudwatch_logs_exports}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#enabled_cloudwatch_logs_exports DbInstance#enabled_cloudwatch_logs_exports}
+   */
   readonly enabledCloudwatchLogsExports?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#engine DbInstance#engine}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#engine DbInstance#engine}
+   */
   readonly engine?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#engine_version DbInstance#engine_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#engine_version DbInstance#engine_version}
+   */
   readonly engineVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#final_snapshot_identifier DbInstance#final_snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#final_snapshot_identifier DbInstance#final_snapshot_identifier}
+   */
   readonly finalSnapshotIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#iam_database_authentication_enabled DbInstance#iam_database_authentication_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#iam_database_authentication_enabled DbInstance#iam_database_authentication_enabled}
+   */
   readonly iamDatabaseAuthenticationEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#id DbInstance#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#id DbInstance#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#identifier DbInstance#identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#identifier DbInstance#identifier}
+   */
   readonly identifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#identifier_prefix DbInstance#identifier_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#identifier_prefix DbInstance#identifier_prefix}
+   */
   readonly identifierPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#instance_class DbInstance#instance_class}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#instance_class DbInstance#instance_class}
+   */
   readonly instanceClass: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#iops DbInstance#iops}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#iops DbInstance#iops}
+   */
   readonly iops?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#kms_key_id DbInstance#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#kms_key_id DbInstance#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#license_model DbInstance#license_model}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#license_model DbInstance#license_model}
+   */
   readonly licenseModel?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#maintenance_window DbInstance#maintenance_window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#maintenance_window DbInstance#maintenance_window}
+   */
   readonly maintenanceWindow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#manage_master_user_password DbInstance#manage_master_user_password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#manage_master_user_password DbInstance#manage_master_user_password}
+   */
   readonly manageMasterUserPassword?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#master_user_secret_kms_key_id DbInstance#master_user_secret_kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#master_user_secret_kms_key_id DbInstance#master_user_secret_kms_key_id}
+   */
   readonly masterUserSecretKmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#max_allocated_storage DbInstance#max_allocated_storage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#max_allocated_storage DbInstance#max_allocated_storage}
+   */
   readonly maxAllocatedStorage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#monitoring_interval DbInstance#monitoring_interval}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#monitoring_interval DbInstance#monitoring_interval}
+   */
   readonly monitoringInterval?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#monitoring_role_arn DbInstance#monitoring_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#monitoring_role_arn DbInstance#monitoring_role_arn}
+   */
   readonly monitoringRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#multi_az DbInstance#multi_az}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#multi_az DbInstance#multi_az}
+   */
   readonly multiAz?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#name DbInstance#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#name DbInstance#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#nchar_character_set_name DbInstance#nchar_character_set_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#nchar_character_set_name DbInstance#nchar_character_set_name}
+   */
   readonly ncharCharacterSetName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#network_type DbInstance#network_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#network_type DbInstance#network_type}
+   */
   readonly networkType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#option_group_name DbInstance#option_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#option_group_name DbInstance#option_group_name}
+   */
   readonly optionGroupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#parameter_group_name DbInstance#parameter_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#parameter_group_name DbInstance#parameter_group_name}
+   */
   readonly parameterGroupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#password DbInstance#password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#password DbInstance#password}
+   */
   readonly password?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#performance_insights_enabled DbInstance#performance_insights_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#performance_insights_enabled DbInstance#performance_insights_enabled}
+   */
   readonly performanceInsightsEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#performance_insights_kms_key_id DbInstance#performance_insights_kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#performance_insights_kms_key_id DbInstance#performance_insights_kms_key_id}
+   */
   readonly performanceInsightsKmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#performance_insights_retention_period DbInstance#performance_insights_retention_period}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#performance_insights_retention_period DbInstance#performance_insights_retention_period}
+   */
   readonly performanceInsightsRetentionPeriod?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#port DbInstance#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#port DbInstance#port}
+   */
   readonly port?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#publicly_accessible DbInstance#publicly_accessible}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#publicly_accessible DbInstance#publicly_accessible}
+   */
   readonly publiclyAccessible?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#replica_mode DbInstance#replica_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#replica_mode DbInstance#replica_mode}
+   */
   readonly replicaMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#replicate_source_db DbInstance#replicate_source_db}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#replicate_source_db DbInstance#replicate_source_db}
+   */
   readonly replicateSourceDb?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#security_group_names DbInstance#security_group_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#security_group_names DbInstance#security_group_names}
+   */
   readonly securityGroupNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#skip_final_snapshot DbInstance#skip_final_snapshot}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#skip_final_snapshot DbInstance#skip_final_snapshot}
+   */
   readonly skipFinalSnapshot?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#snapshot_identifier DbInstance#snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#snapshot_identifier DbInstance#snapshot_identifier}
+   */
   readonly snapshotIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#storage_encrypted DbInstance#storage_encrypted}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#storage_encrypted DbInstance#storage_encrypted}
+   */
   readonly storageEncrypted?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#storage_throughput DbInstance#storage_throughput}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#storage_throughput DbInstance#storage_throughput}
+   */
   readonly storageThroughput?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#storage_type DbInstance#storage_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#storage_type DbInstance#storage_type}
+   */
   readonly storageType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#tags DbInstance#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#tags DbInstance#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#tags_all DbInstance#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#tags_all DbInstance#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#timezone DbInstance#timezone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#timezone DbInstance#timezone}
+   */
   readonly timezone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#username DbInstance#username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#username DbInstance#username}
+   */
   readonly username?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#vpc_security_group_ids DbInstance#vpc_security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#vpc_security_group_ids DbInstance#vpc_security_group_ids}
+   */
   readonly vpcSecurityGroupIds?: string[];
   /**
-  * blue_green_update block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#blue_green_update DbInstance#blue_green_update}
-  */
+   * blue_green_update block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#blue_green_update DbInstance#blue_green_update}
+   */
   readonly blueGreenUpdate?: DbInstanceBlueGreenUpdate;
   /**
-  * restore_to_point_in_time block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#restore_to_point_in_time DbInstance#restore_to_point_in_time}
-  */
+   * restore_to_point_in_time block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#restore_to_point_in_time DbInstance#restore_to_point_in_time}
+   */
   readonly restoreToPointInTime?: DbInstanceRestoreToPointInTime;
   /**
-  * s3_import block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#s3_import DbInstance#s3_import}
-  */
+   * s3_import block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#s3_import DbInstance#s3_import}
+   */
   readonly s3Import?: DbInstanceS3Import;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#timeouts DbInstance#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#timeouts DbInstance#timeouts}
+   */
   readonly timeouts?: DbInstanceTimeouts;
 }
-export interface DbInstanceListenerEndpoint {
-}
+export interface DbInstanceListenerEndpoint {}
 
-export function dbInstanceListenerEndpointToTerraform(struct?: DbInstanceListenerEndpoint): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbInstanceListenerEndpointToTerraform(
+  struct?: DbInstanceListenerEndpoint,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DbInstanceListenerEndpointOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DbInstanceListenerEndpoint | undefined {
@@ -313,8 +327,7 @@ export class DbInstanceListenerEndpointOutputReference extends cdktf.ComplexObje
   public set internalValue(value: DbInstanceListenerEndpoint | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -336,46 +349,68 @@ export class DbInstanceListenerEndpointOutputReference extends cdktf.ComplexObje
 }
 
 export class DbInstanceListenerEndpointList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DbInstanceListenerEndpointOutputReference {
-    return new DbInstanceListenerEndpointOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DbInstanceListenerEndpointOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DbInstanceMasterUserSecret {
-}
+export interface DbInstanceMasterUserSecret {}
 
-export function dbInstanceMasterUserSecretToTerraform(struct?: DbInstanceMasterUserSecret): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbInstanceMasterUserSecretToTerraform(
+  struct?: DbInstanceMasterUserSecret,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DbInstanceMasterUserSecretOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DbInstanceMasterUserSecret | undefined {
@@ -387,8 +422,7 @@ export class DbInstanceMasterUserSecretOutputReference extends cdktf.ComplexObje
   public set internalValue(value: DbInstanceMasterUserSecret | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -410,48 +444,65 @@ export class DbInstanceMasterUserSecretOutputReference extends cdktf.ComplexObje
 }
 
 export class DbInstanceMasterUserSecretList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DbInstanceMasterUserSecretOutputReference {
-    return new DbInstanceMasterUserSecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DbInstanceMasterUserSecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DbInstanceBlueGreenUpdate {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#enabled DbInstance#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#enabled DbInstance#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function dbInstanceBlueGreenUpdateToTerraform(struct?: DbInstanceBlueGreenUpdateOutputReference | DbInstanceBlueGreenUpdate): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbInstanceBlueGreenUpdateToTerraform(
+  struct?: DbInstanceBlueGreenUpdateOutputReference | DbInstanceBlueGreenUpdate,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class DbInstanceBlueGreenUpdateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -469,8 +520,7 @@ export class DbInstanceBlueGreenUpdateOutputReference extends cdktf.ComplexObjec
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -494,49 +544,68 @@ export class DbInstanceBlueGreenUpdateOutputReference extends cdktf.ComplexObjec
 }
 export interface DbInstanceRestoreToPointInTime {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#restore_time DbInstance#restore_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#restore_time DbInstance#restore_time}
+   */
   readonly restoreTime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_db_instance_automated_backups_arn DbInstance#source_db_instance_automated_backups_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_db_instance_automated_backups_arn DbInstance#source_db_instance_automated_backups_arn}
+   */
   readonly sourceDbInstanceAutomatedBackupsArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_db_instance_identifier DbInstance#source_db_instance_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_db_instance_identifier DbInstance#source_db_instance_identifier}
+   */
   readonly sourceDbInstanceIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_dbi_resource_id DbInstance#source_dbi_resource_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_dbi_resource_id DbInstance#source_dbi_resource_id}
+   */
   readonly sourceDbiResourceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#use_latest_restorable_time DbInstance#use_latest_restorable_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#use_latest_restorable_time DbInstance#use_latest_restorable_time}
+   */
   readonly useLatestRestorableTime?: boolean | cdktf.IResolvable;
 }
 
-export function dbInstanceRestoreToPointInTimeToTerraform(struct?: DbInstanceRestoreToPointInTimeOutputReference | DbInstanceRestoreToPointInTime): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbInstanceRestoreToPointInTimeToTerraform(
+  struct?:
+    | DbInstanceRestoreToPointInTimeOutputReference
+    | DbInstanceRestoreToPointInTime,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     restore_time: cdktf.stringToTerraform(struct!.restoreTime),
-    source_db_instance_automated_backups_arn: cdktf.stringToTerraform(struct!.sourceDbInstanceAutomatedBackupsArn),
-    source_db_instance_identifier: cdktf.stringToTerraform(struct!.sourceDbInstanceIdentifier),
-    source_dbi_resource_id: cdktf.stringToTerraform(struct!.sourceDbiResourceId),
-    use_latest_restorable_time: cdktf.booleanToTerraform(struct!.useLatestRestorableTime),
-  }
+    source_db_instance_automated_backups_arn: cdktf.stringToTerraform(
+      struct!.sourceDbInstanceAutomatedBackupsArn,
+    ),
+    source_db_instance_identifier: cdktf.stringToTerraform(
+      struct!.sourceDbInstanceIdentifier,
+    ),
+    source_dbi_resource_id: cdktf.stringToTerraform(
+      struct!.sourceDbiResourceId,
+    ),
+    use_latest_restorable_time: cdktf.booleanToTerraform(
+      struct!.useLatestRestorableTime,
+    ),
+  };
 }
 
 export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -549,11 +618,13 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
     }
     if (this._sourceDbInstanceAutomatedBackupsArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sourceDbInstanceAutomatedBackupsArn = this._sourceDbInstanceAutomatedBackupsArn;
+      internalValueResult.sourceDbInstanceAutomatedBackupsArn =
+        this._sourceDbInstanceAutomatedBackupsArn;
     }
     if (this._sourceDbInstanceIdentifier !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sourceDbInstanceIdentifier = this._sourceDbInstanceIdentifier;
+      internalValueResult.sourceDbInstanceIdentifier =
+        this._sourceDbInstanceIdentifier;
     }
     if (this._sourceDbiResourceId !== undefined) {
       hasAnyValues = true;
@@ -561,7 +632,8 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
     }
     if (this._useLatestRestorableTime !== undefined) {
       hasAnyValues = true;
-      internalValueResult.useLatestRestorableTime = this._useLatestRestorableTime;
+      internalValueResult.useLatestRestorableTime =
+        this._useLatestRestorableTime;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -574,11 +646,11 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
       this._sourceDbInstanceIdentifier = undefined;
       this._sourceDbiResourceId = undefined;
       this._useLatestRestorableTime = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._restoreTime = value.restoreTime;
-      this._sourceDbInstanceAutomatedBackupsArn = value.sourceDbInstanceAutomatedBackupsArn;
+      this._sourceDbInstanceAutomatedBackupsArn =
+        value.sourceDbInstanceAutomatedBackupsArn;
       this._sourceDbInstanceIdentifier = value.sourceDbInstanceIdentifier;
       this._sourceDbiResourceId = value.sourceDbiResourceId;
       this._useLatestRestorableTime = value.useLatestRestorableTime;
@@ -667,31 +739,37 @@ export class DbInstanceRestoreToPointInTimeOutputReference extends cdktf.Complex
 }
 export interface DbInstanceS3Import {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#bucket_name DbInstance#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#bucket_name DbInstance#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#bucket_prefix DbInstance#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#bucket_prefix DbInstance#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#ingestion_role DbInstance#ingestion_role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#ingestion_role DbInstance#ingestion_role}
+   */
   readonly ingestionRole: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_engine DbInstance#source_engine}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_engine DbInstance#source_engine}
+   */
   readonly sourceEngine: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_engine_version DbInstance#source_engine_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#source_engine_version DbInstance#source_engine_version}
+   */
   readonly sourceEngineVersion: string;
 }
 
-export function dbInstanceS3ImportToTerraform(struct?: DbInstanceS3ImportOutputReference | DbInstanceS3Import): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbInstanceS3ImportToTerraform(
+  struct?: DbInstanceS3ImportOutputReference | DbInstanceS3Import,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
@@ -699,17 +777,20 @@ export function dbInstanceS3ImportToTerraform(struct?: DbInstanceS3ImportOutputR
     ingestion_role: cdktf.stringToTerraform(struct!.ingestionRole),
     source_engine: cdktf.stringToTerraform(struct!.sourceEngine),
     source_engine_version: cdktf.stringToTerraform(struct!.sourceEngineVersion),
-  }
+  };
 }
 
 export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -747,8 +828,7 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
       this._ingestionRole = undefined;
       this._sourceEngine = undefined;
       this._sourceEngineVersion = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -828,29 +908,38 @@ export class DbInstanceS3ImportOutputReference extends cdktf.ComplexObject {
 }
 export interface DbInstanceTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#create DbInstance#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#create DbInstance#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#delete DbInstance#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#delete DbInstance#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#update DbInstance#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_instance#update DbInstance#update}
+   */
   readonly update?: string;
 }
 
-export function dbInstanceTimeoutsToTerraform(struct?: DbInstanceTimeoutsOutputReference | DbInstanceTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbInstanceTimeoutsToTerraform(
+  struct?:
+    | DbInstanceTimeoutsOutputReference
+    | DbInstanceTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -858,14 +947,20 @@ export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DbInstanceTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DbInstanceTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -886,19 +981,19 @@ export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DbInstanceTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DbInstanceTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -957,33 +1052,32 @@ export class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_instance aws_db_instance}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_instance aws_db_instance}
+ */
 export class DbInstance extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_db_instance";
+  public static readonly tfResourceType = 'aws_db_instance';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_instance aws_db_instance} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DbInstanceConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_instance aws_db_instance} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DbInstanceConfig
+   */
   public constructor(scope: Construct, id: string, config: DbInstanceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_db_instance',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -991,7 +1085,7 @@ export class DbInstance extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._allocatedStorage = config.allocatedStorage;
     this._allowMajorVersionUpgrade = config.allowMajorVersionUpgrade;
@@ -1015,7 +1109,8 @@ export class DbInstance extends cdktf.TerraformResource {
     this._engine = config.engine;
     this._engineVersion = config.engineVersion;
     this._finalSnapshotIdentifier = config.finalSnapshotIdentifier;
-    this._iamDatabaseAuthenticationEnabled = config.iamDatabaseAuthenticationEnabled;
+    this._iamDatabaseAuthenticationEnabled =
+      config.iamDatabaseAuthenticationEnabled;
     this._id = config.id;
     this._identifier = config.identifier;
     this._identifierPrefix = config.identifierPrefix;
@@ -1038,7 +1133,8 @@ export class DbInstance extends cdktf.TerraformResource {
     this._password = config.password;
     this._performanceInsightsEnabled = config.performanceInsightsEnabled;
     this._performanceInsightsKmsKeyId = config.performanceInsightsKmsKeyId;
-    this._performanceInsightsRetentionPeriod = config.performanceInsightsRetentionPeriod;
+    this._performanceInsightsRetentionPeriod =
+      config.performanceInsightsRetentionPeriod;
     this._port = config.port;
     this._publiclyAccessible = config.publiclyAccessible;
     this._replicaMode = config.replicaMode;
@@ -1365,7 +1461,9 @@ export class DbInstance extends cdktf.TerraformResource {
   // enabled_cloudwatch_logs_exports - computed: false, optional: true, required: false
   private _enabledCloudwatchLogsExports?: string[];
   public get enabledCloudwatchLogsExports() {
-    return cdktf.Fn.tolist(this.getListAttribute('enabled_cloudwatch_logs_exports'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('enabled_cloudwatch_logs_exports'),
+    );
   }
   public set enabledCloudwatchLogsExports(value: string[]) {
     this._enabledCloudwatchLogsExports = value;
@@ -1446,7 +1544,9 @@ export class DbInstance extends cdktf.TerraformResource {
   public get iamDatabaseAuthenticationEnabled() {
     return this.getBooleanAttribute('iam_database_authentication_enabled');
   }
-  public set iamDatabaseAuthenticationEnabled(value: boolean | cdktf.IResolvable) {
+  public set iamDatabaseAuthenticationEnabled(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._iamDatabaseAuthenticationEnabled = value;
   }
   public resetIamDatabaseAuthenticationEnabled() {
@@ -1572,7 +1672,11 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // listener_endpoint - computed: true, optional: false, required: false
-  private _listenerEndpoint = new DbInstanceListenerEndpointList(this, "listener_endpoint", false);
+  private _listenerEndpoint = new DbInstanceListenerEndpointList(
+    this,
+    'listener_endpoint',
+    false,
+  );
   public get listenerEndpoint() {
     return this._listenerEndpoint;
   }
@@ -1610,7 +1714,11 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // master_user_secret - computed: true, optional: false, required: false
-  private _masterUserSecret = new DbInstanceMasterUserSecretList(this, "master_user_secret", false);
+  private _masterUserSecret = new DbInstanceMasterUserSecretList(
+    this,
+    'master_user_secret',
+    false,
+  );
   public get masterUserSecret() {
     return this._masterUserSecret;
   }
@@ -2095,7 +2203,10 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // blue_green_update - computed: false, optional: true, required: false
-  private _blueGreenUpdate = new DbInstanceBlueGreenUpdateOutputReference(this, "blue_green_update");
+  private _blueGreenUpdate = new DbInstanceBlueGreenUpdateOutputReference(
+    this,
+    'blue_green_update',
+  );
   public get blueGreenUpdate() {
     return this._blueGreenUpdate;
   }
@@ -2111,7 +2222,11 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // restore_to_point_in_time - computed: false, optional: true, required: false
-  private _restoreToPointInTime = new DbInstanceRestoreToPointInTimeOutputReference(this, "restore_to_point_in_time");
+  private _restoreToPointInTime =
+    new DbInstanceRestoreToPointInTimeOutputReference(
+      this,
+      'restore_to_point_in_time',
+    );
   public get restoreToPointInTime() {
     return this._restoreToPointInTime;
   }
@@ -2127,7 +2242,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // s3_import - computed: false, optional: true, required: false
-  private _s3Import = new DbInstanceS3ImportOutputReference(this, "s3_import");
+  private _s3Import = new DbInstanceS3ImportOutputReference(this, 's3_import');
   public get s3Import() {
     return this._s3Import;
   }
@@ -2143,7 +2258,7 @@ export class DbInstance extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DbInstanceTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DbInstanceTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -2165,28 +2280,47 @@ export class DbInstance extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       allocated_storage: cdktf.numberToTerraform(this._allocatedStorage),
-      allow_major_version_upgrade: cdktf.booleanToTerraform(this._allowMajorVersionUpgrade),
+      allow_major_version_upgrade: cdktf.booleanToTerraform(
+        this._allowMajorVersionUpgrade,
+      ),
       apply_immediately: cdktf.booleanToTerraform(this._applyImmediately),
-      auto_minor_version_upgrade: cdktf.booleanToTerraform(this._autoMinorVersionUpgrade),
+      auto_minor_version_upgrade: cdktf.booleanToTerraform(
+        this._autoMinorVersionUpgrade,
+      ),
       availability_zone: cdktf.stringToTerraform(this._availabilityZone),
-      backup_retention_period: cdktf.numberToTerraform(this._backupRetentionPeriod),
+      backup_retention_period: cdktf.numberToTerraform(
+        this._backupRetentionPeriod,
+      ),
       backup_window: cdktf.stringToTerraform(this._backupWindow),
       ca_cert_identifier: cdktf.stringToTerraform(this._caCertIdentifier),
       character_set_name: cdktf.stringToTerraform(this._characterSetName),
       copy_tags_to_snapshot: cdktf.booleanToTerraform(this._copyTagsToSnapshot),
-      custom_iam_instance_profile: cdktf.stringToTerraform(this._customIamInstanceProfile),
-      customer_owned_ip_enabled: cdktf.booleanToTerraform(this._customerOwnedIpEnabled),
+      custom_iam_instance_profile: cdktf.stringToTerraform(
+        this._customIamInstanceProfile,
+      ),
+      customer_owned_ip_enabled: cdktf.booleanToTerraform(
+        this._customerOwnedIpEnabled,
+      ),
       db_name: cdktf.stringToTerraform(this._dbName),
       db_subnet_group_name: cdktf.stringToTerraform(this._dbSubnetGroupName),
-      delete_automated_backups: cdktf.booleanToTerraform(this._deleteAutomatedBackups),
+      delete_automated_backups: cdktf.booleanToTerraform(
+        this._deleteAutomatedBackups,
+      ),
       deletion_protection: cdktf.booleanToTerraform(this._deletionProtection),
       domain: cdktf.stringToTerraform(this._domain),
       domain_iam_role_name: cdktf.stringToTerraform(this._domainIamRoleName),
-      enabled_cloudwatch_logs_exports: cdktf.listMapper(cdktf.stringToTerraform, false)(this._enabledCloudwatchLogsExports),
+      enabled_cloudwatch_logs_exports: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._enabledCloudwatchLogsExports),
       engine: cdktf.stringToTerraform(this._engine),
       engine_version: cdktf.stringToTerraform(this._engineVersion),
-      final_snapshot_identifier: cdktf.stringToTerraform(this._finalSnapshotIdentifier),
-      iam_database_authentication_enabled: cdktf.booleanToTerraform(this._iamDatabaseAuthenticationEnabled),
+      final_snapshot_identifier: cdktf.stringToTerraform(
+        this._finalSnapshotIdentifier,
+      ),
+      iam_database_authentication_enabled: cdktf.booleanToTerraform(
+        this._iamDatabaseAuthenticationEnabled,
+      ),
       id: cdktf.stringToTerraform(this._id),
       identifier: cdktf.stringToTerraform(this._identifier),
       identifier_prefix: cdktf.stringToTerraform(this._identifierPrefix),
@@ -2195,26 +2329,41 @@ export class DbInstance extends cdktf.TerraformResource {
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
       license_model: cdktf.stringToTerraform(this._licenseModel),
       maintenance_window: cdktf.stringToTerraform(this._maintenanceWindow),
-      manage_master_user_password: cdktf.booleanToTerraform(this._manageMasterUserPassword),
-      master_user_secret_kms_key_id: cdktf.stringToTerraform(this._masterUserSecretKmsKeyId),
+      manage_master_user_password: cdktf.booleanToTerraform(
+        this._manageMasterUserPassword,
+      ),
+      master_user_secret_kms_key_id: cdktf.stringToTerraform(
+        this._masterUserSecretKmsKeyId,
+      ),
       max_allocated_storage: cdktf.numberToTerraform(this._maxAllocatedStorage),
       monitoring_interval: cdktf.numberToTerraform(this._monitoringInterval),
       monitoring_role_arn: cdktf.stringToTerraform(this._monitoringRoleArn),
       multi_az: cdktf.booleanToTerraform(this._multiAz),
       name: cdktf.stringToTerraform(this._name),
-      nchar_character_set_name: cdktf.stringToTerraform(this._ncharCharacterSetName),
+      nchar_character_set_name: cdktf.stringToTerraform(
+        this._ncharCharacterSetName,
+      ),
       network_type: cdktf.stringToTerraform(this._networkType),
       option_group_name: cdktf.stringToTerraform(this._optionGroupName),
       parameter_group_name: cdktf.stringToTerraform(this._parameterGroupName),
       password: cdktf.stringToTerraform(this._password),
-      performance_insights_enabled: cdktf.booleanToTerraform(this._performanceInsightsEnabled),
-      performance_insights_kms_key_id: cdktf.stringToTerraform(this._performanceInsightsKmsKeyId),
-      performance_insights_retention_period: cdktf.numberToTerraform(this._performanceInsightsRetentionPeriod),
+      performance_insights_enabled: cdktf.booleanToTerraform(
+        this._performanceInsightsEnabled,
+      ),
+      performance_insights_kms_key_id: cdktf.stringToTerraform(
+        this._performanceInsightsKmsKeyId,
+      ),
+      performance_insights_retention_period: cdktf.numberToTerraform(
+        this._performanceInsightsRetentionPeriod,
+      ),
       port: cdktf.numberToTerraform(this._port),
       publicly_accessible: cdktf.booleanToTerraform(this._publiclyAccessible),
       replica_mode: cdktf.stringToTerraform(this._replicaMode),
       replicate_source_db: cdktf.stringToTerraform(this._replicateSourceDb),
-      security_group_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupNames),
+      security_group_names: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupNames),
       skip_final_snapshot: cdktf.booleanToTerraform(this._skipFinalSnapshot),
       snapshot_identifier: cdktf.stringToTerraform(this._snapshotIdentifier),
       storage_encrypted: cdktf.booleanToTerraform(this._storageEncrypted),
@@ -2224,9 +2373,16 @@ export class DbInstance extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       timezone: cdktf.stringToTerraform(this._timezone),
       username: cdktf.stringToTerraform(this._username),
-      vpc_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._vpcSecurityGroupIds),
-      blue_green_update: dbInstanceBlueGreenUpdateToTerraform(this._blueGreenUpdate.internalValue),
-      restore_to_point_in_time: dbInstanceRestoreToPointInTimeToTerraform(this._restoreToPointInTime.internalValue),
+      vpc_security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._vpcSecurityGroupIds),
+      blue_green_update: dbInstanceBlueGreenUpdateToTerraform(
+        this._blueGreenUpdate.internalValue,
+      ),
+      restore_to_point_in_time: dbInstanceRestoreToPointInTimeToTerraform(
+        this._restoreToPointInTime.internalValue,
+      ),
       s3_import: dbInstanceS3ImportToTerraform(this._s3Import.internalValue),
       timeouts: dbInstanceTimeoutsToTerraform(this._timeouts.internalValue),
     };

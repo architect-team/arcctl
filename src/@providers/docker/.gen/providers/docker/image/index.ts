@@ -2,109 +2,115 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface ImageConfig extends cdktf.TerraformMetaArguments {
   /**
-  * If true, then the image is removed forcibly when the resource is destroyed.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#force_remove Image#force_remove}
-  */
+   * If true, then the image is removed forcibly when the resource is destroyed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#force_remove Image#force_remove}
+   */
   readonly forceRemove?: boolean | cdktf.IResolvable;
   /**
-  * If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#keep_locally Image#keep_locally}
-  */
+   * If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#keep_locally Image#keep_locally}
+   */
   readonly keepLocally?: boolean | cdktf.IResolvable;
   /**
-  * The name of the Docker image, including any tags or SHA256 repo digests.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#name Image#name}
-  */
+   * The name of the Docker image, including any tags or SHA256 repo digests.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#name Image#name}
+   */
   readonly name: string;
   /**
-  * The platform to use when pulling the image. Defaults to the platform of the current machine.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#platform Image#platform}
-  */
+   * The platform to use when pulling the image. Defaults to the platform of the current machine.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#platform Image#platform}
+   */
   readonly platform?: string;
   /**
-  * List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the [docker_registry_image](../data-sources/registry_image.md).
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#pull_triggers Image#pull_triggers}
-  */
+   * List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the [docker_registry_image](../data-sources/registry_image.md).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#pull_triggers Image#pull_triggers}
+   */
   readonly pullTriggers?: string[];
   /**
-  * A map of arbitrary strings that, when changed, will force the `docker_image` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#triggers Image#triggers}
-  */
+   * A map of arbitrary strings that, when changed, will force the `docker_image` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#triggers Image#triggers}
+   */
   readonly triggers?: { [key: string]: string };
   /**
-  * build block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build Image#build}
-  */
+   * build block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build Image#build}
+   */
   readonly buildAttribute?: ImageBuild;
 }
 export interface ImageBuildAuthConfig {
   /**
-  * the auth token
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#auth Image#auth}
-  */
+   * the auth token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#auth Image#auth}
+   */
   readonly auth?: string;
   /**
-  * the user emal
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#email Image#email}
-  */
+   * the user emal
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#email Image#email}
+   */
   readonly email?: string;
   /**
-  * hostname of the registry
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#host_name Image#host_name}
-  */
+   * hostname of the registry
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#host_name Image#host_name}
+   */
   readonly hostName: string;
   /**
-  * the identity token
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#identity_token Image#identity_token}
-  */
+   * the identity token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#identity_token Image#identity_token}
+   */
   readonly identityToken?: string;
   /**
-  * the registry password
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#password Image#password}
-  */
+   * the registry password
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#password Image#password}
+   */
   readonly password?: string;
   /**
-  * the registry token
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#registry_token Image#registry_token}
-  */
+   * the registry token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#registry_token Image#registry_token}
+   */
   readonly registryToken?: string;
   /**
-  * the server address
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#server_address Image#server_address}
-  */
+   * the server address
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#server_address Image#server_address}
+   */
   readonly serverAddress?: string;
   /**
-  * the registry user name
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#user_name Image#user_name}
-  */
+   * the registry user name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#user_name Image#user_name}
+   */
   readonly userName?: string;
 }
 
-export function imageBuildAuthConfigToTerraform(struct?: ImageBuildAuthConfig | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function imageBuildAuthConfigToTerraform(
+  struct?: ImageBuildAuthConfig | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     auth: cdktf.stringToTerraform(struct!.auth),
@@ -115,7 +121,7 @@ export function imageBuildAuthConfigToTerraform(struct?: ImageBuildAuthConfig | 
     registry_token: cdktf.stringToTerraform(struct!.registryToken),
     server_address: cdktf.stringToTerraform(struct!.serverAddress),
     user_name: cdktf.stringToTerraform(struct!.userName),
-  }
+  };
 }
 
 export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
@@ -123,16 +129,29 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ImageBuildAuthConfig | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ImageBuildAuthConfig
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -173,7 +192,9 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ImageBuildAuthConfig | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ImageBuildAuthConfig | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -185,12 +206,10 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
       this._registryToken = undefined;
       this._serverAddress = undefined;
       this._userName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._auth = value.auth;
@@ -331,55 +350,70 @@ export class ImageBuildAuthConfigOutputReference extends cdktf.ComplexObject {
 }
 
 export class ImageBuildAuthConfigList extends cdktf.ComplexList {
-  public internalValue? : ImageBuildAuthConfig[] | cdktf.IResolvable
+  public internalValue?: ImageBuildAuthConfig[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ImageBuildAuthConfigOutputReference {
-    return new ImageBuildAuthConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ImageBuildAuthConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ImageBuildUlimit {
   /**
-  * soft limit
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#hard Image#hard}
-  */
+   * soft limit
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#hard Image#hard}
+   */
   readonly hard: number;
   /**
-  * type of ulimit, e.g. `nofile`
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#name Image#name}
-  */
+   * type of ulimit, e.g. `nofile`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#name Image#name}
+   */
   readonly name: string;
   /**
-  * hard limit
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#soft Image#soft}
-  */
+   * hard limit
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#soft Image#soft}
+   */
   readonly soft: number;
 }
 
-export function imageBuildUlimitToTerraform(struct?: ImageBuildUlimit | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function imageBuildUlimitToTerraform(
+  struct?: ImageBuildUlimit | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     hard: cdktf.numberToTerraform(struct!.hard),
     name: cdktf.stringToTerraform(struct!.name),
     soft: cdktf.numberToTerraform(struct!.soft),
-  }
+  };
 }
 
 export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
@@ -387,13 +421,23 @@ export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): ImageBuildUlimit | cdktf.IResolvable | undefined {
@@ -417,19 +461,19 @@ export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ImageBuildUlimit | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ImageBuildUlimit | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._hard = undefined;
       this._name = undefined;
       this._soft = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._hard = value.hard;
@@ -479,247 +523,265 @@ export class ImageBuildUlimitOutputReference extends cdktf.ComplexObject {
 }
 
 export class ImageBuildUlimitList extends cdktf.ComplexList {
-  public internalValue? : ImageBuildUlimit[] | cdktf.IResolvable
+  public internalValue?: ImageBuildUlimit[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ImageBuildUlimitOutputReference {
-    return new ImageBuildUlimitOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ImageBuildUlimitOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ImageBuild {
   /**
-  * Set build-time variables
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_arg Image#build_arg}
-  */
+   * Set build-time variables
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_arg Image#build_arg}
+   */
   readonly buildArg?: { [key: string]: string };
   /**
-  * Pairs for build-time variables in the form TODO
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_args Image#build_args}
-  */
+   * Pairs for build-time variables in the form TODO
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_args Image#build_args}
+   */
   readonly buildArgs?: { [key: string]: string };
   /**
-  * BuildID is an optional identifier that can be passed together with the build request. The same identifier can be used to gracefully cancel the build with the cancel request.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_id Image#build_id}
-  */
+   * BuildID is an optional identifier that can be passed together with the build request. The same identifier can be used to gracefully cancel the build with the cancel request.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#build_id Image#build_id}
+   */
   readonly buildId?: string;
   /**
-  * Images to consider as cache sources
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cache_from Image#cache_from}
-  */
+   * Images to consider as cache sources
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cache_from Image#cache_from}
+   */
   readonly cacheFrom?: string[];
   /**
-  * Optional parent cgroup for the container
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cgroup_parent Image#cgroup_parent}
-  */
+   * Optional parent cgroup for the container
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cgroup_parent Image#cgroup_parent}
+   */
   readonly cgroupParent?: string;
   /**
-  * Value to specify the build context. Currently, only a `PATH` context is supported. You can use the helper function '${path.cwd}/context-dir'. Please see https://docs.docker.com/build/building/context/ for more information about build contexts.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#context Image#context}
-  */
+   * Value to specify the build context. Currently, only a `PATH` context is supported. You can use the helper function '${path.cwd}/context-dir'. Please see https://docs.docker.com/build/building/context/ for more information about build contexts.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#context Image#context}
+   */
   readonly context: string;
   /**
-  * The length of a CPU period in microseconds
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_period Image#cpu_period}
-  */
+   * The length of a CPU period in microseconds
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_period Image#cpu_period}
+   */
   readonly cpuPeriod?: number;
   /**
-  * Microseconds of CPU time that the container can get in a CPU period
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_quota Image#cpu_quota}
-  */
+   * Microseconds of CPU time that the container can get in a CPU period
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_quota Image#cpu_quota}
+   */
   readonly cpuQuota?: number;
   /**
-  * CPUs in which to allow execution (e.g., `0-3`, `0`, `1`)
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_set_cpus Image#cpu_set_cpus}
-  */
+   * CPUs in which to allow execution (e.g., `0-3`, `0`, `1`)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_set_cpus Image#cpu_set_cpus}
+   */
   readonly cpuSetCpus?: string;
   /**
-  * MEMs in which to allow execution (`0-3`, `0`, `1`)
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_set_mems Image#cpu_set_mems}
-  */
+   * MEMs in which to allow execution (`0-3`, `0`, `1`)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_set_mems Image#cpu_set_mems}
+   */
   readonly cpuSetMems?: string;
   /**
-  * CPU shares (relative weight)
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_shares Image#cpu_shares}
-  */
+   * CPU shares (relative weight)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#cpu_shares Image#cpu_shares}
+   */
   readonly cpuShares?: number;
   /**
-  * Name of the Dockerfile. Defaults to `Dockerfile`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#dockerfile Image#dockerfile}
-  */
+   * Name of the Dockerfile. Defaults to `Dockerfile`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#dockerfile Image#dockerfile}
+   */
   readonly dockerfile?: string;
   /**
-  * A list of hostnames/IP mappings to add to the container’s /etc/hosts file. Specified in the form ["hostname:IP"]
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#extra_hosts Image#extra_hosts}
-  */
+   * A list of hostnames/IP mappings to add to the container’s /etc/hosts file. Specified in the form ["hostname:IP"]
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#extra_hosts Image#extra_hosts}
+   */
   readonly extraHosts?: string[];
   /**
-  * Always remove intermediate containers
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#force_remove Image#force_remove}
-  */
+   * Always remove intermediate containers
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#force_remove Image#force_remove}
+   */
   readonly forceRemove?: boolean | cdktf.IResolvable;
   /**
-  * Isolation represents the isolation technology of a container. The supported values are
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#isolation Image#isolation}
-  */
+   * Isolation represents the isolation technology of a container. The supported values are
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#isolation Image#isolation}
+   */
   readonly isolation?: string;
   /**
-  * Set metadata for an image
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#label Image#label}
-  */
+   * Set metadata for an image
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#label Image#label}
+   */
   readonly label?: { [key: string]: string };
   /**
-  * User-defined key/value metadata
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#labels Image#labels}
-  */
+   * User-defined key/value metadata
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#labels Image#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Set memory limit for build
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#memory Image#memory}
-  */
+   * Set memory limit for build
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#memory Image#memory}
+   */
   readonly memory?: number;
   /**
-  * Total memory (memory + swap), -1 to enable unlimited swap
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#memory_swap Image#memory_swap}
-  */
+   * Total memory (memory + swap), -1 to enable unlimited swap
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#memory_swap Image#memory_swap}
+   */
   readonly memorySwap?: number;
   /**
-  * Set the networking mode for the RUN instructions during build
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#network_mode Image#network_mode}
-  */
+   * Set the networking mode for the RUN instructions during build
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#network_mode Image#network_mode}
+   */
   readonly networkMode?: string;
   /**
-  * Do not use the cache when building the image
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#no_cache Image#no_cache}
-  */
+   * Do not use the cache when building the image
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#no_cache Image#no_cache}
+   */
   readonly noCache?: boolean | cdktf.IResolvable;
   /**
-  * Set platform if server is multi-platform capable
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#platform Image#platform}
-  */
+   * Set platform if server is multi-platform capable
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#platform Image#platform}
+   */
   readonly platform?: string;
   /**
-  * Attempt to pull the image even if an older image exists locally
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#pull_parent Image#pull_parent}
-  */
+   * Attempt to pull the image even if an older image exists locally
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#pull_parent Image#pull_parent}
+   */
   readonly pullParent?: boolean | cdktf.IResolvable;
   /**
-  * A Git repository URI or HTTP/HTTPS context URI
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#remote_context Image#remote_context}
-  */
+   * A Git repository URI or HTTP/HTTPS context URI
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#remote_context Image#remote_context}
+   */
   readonly remoteContext?: string;
   /**
-  * Remove intermediate containers after a successful build. Defaults to `true`.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#remove Image#remove}
-  */
+   * Remove intermediate containers after a successful build. Defaults to `true`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#remove Image#remove}
+   */
   readonly remove?: boolean | cdktf.IResolvable;
   /**
-  * The security options
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#security_opt Image#security_opt}
-  */
+   * The security options
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#security_opt Image#security_opt}
+   */
   readonly securityOpt?: string[];
   /**
-  * Set an ID for the build session
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#session_id Image#session_id}
-  */
+   * Set an ID for the build session
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#session_id Image#session_id}
+   */
   readonly sessionId?: string;
   /**
-  * Size of /dev/shm in bytes. The size must be greater than 0
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#shm_size Image#shm_size}
-  */
+   * Size of /dev/shm in bytes. The size must be greater than 0
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#shm_size Image#shm_size}
+   */
   readonly shmSize?: number;
   /**
-  * If true the new layers are squashed into a new image with a single new layer
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#squash Image#squash}
-  */
+   * If true the new layers are squashed into a new image with a single new layer
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#squash Image#squash}
+   */
   readonly squash?: boolean | cdktf.IResolvable;
   /**
-  * Suppress the build output and print image ID on success
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#suppress_output Image#suppress_output}
-  */
+   * Suppress the build output and print image ID on success
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#suppress_output Image#suppress_output}
+   */
   readonly suppressOutput?: boolean | cdktf.IResolvable;
   /**
-  * Name and optionally a tag in the 'name:tag' format
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#tag Image#tag}
-  */
+   * Name and optionally a tag in the 'name:tag' format
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#tag Image#tag}
+   */
   readonly tag?: string[];
   /**
-  * Set the target build stage to build
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#target Image#target}
-  */
+   * Set the target build stage to build
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#target Image#target}
+   */
   readonly target?: string;
   /**
-  * Version of the underlying builder to use
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#version Image#version}
-  */
+   * Version of the underlying builder to use
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#version Image#version}
+   */
   readonly version?: string;
   /**
-  * auth_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#auth_config Image#auth_config}
-  */
+   * auth_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#auth_config Image#auth_config}
+   */
   readonly authConfig?: ImageBuildAuthConfig[] | cdktf.IResolvable;
   /**
-  * ulimit block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#ulimit Image#ulimit}
-  */
+   * ulimit block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/image#ulimit Image#ulimit}
+   */
   readonly ulimit?: ImageBuildUlimit[] | cdktf.IResolvable;
 }
 
-export function imageBuildToTerraform(struct?: ImageBuildOutputReference | ImageBuild): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function imageBuildToTerraform(
+  struct?: ImageBuildOutputReference | ImageBuild,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     build_arg: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.buildArg),
     build_args: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.buildArgs),
     build_id: cdktf.stringToTerraform(struct!.buildId),
-    cache_from: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cacheFrom),
+    cache_from: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cacheFrom),
     cgroup_parent: cdktf.stringToTerraform(struct!.cgroupParent),
     context: cdktf.stringToTerraform(struct!.context),
     cpu_period: cdktf.numberToTerraform(struct!.cpuPeriod),
@@ -728,7 +790,10 @@ export function imageBuildToTerraform(struct?: ImageBuildOutputReference | Image
     cpu_set_mems: cdktf.stringToTerraform(struct!.cpuSetMems),
     cpu_shares: cdktf.numberToTerraform(struct!.cpuShares),
     dockerfile: cdktf.stringToTerraform(struct!.dockerfile),
-    extra_hosts: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.extraHosts),
+    extra_hosts: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.extraHosts),
     force_remove: cdktf.booleanToTerraform(struct!.forceRemove),
     isolation: cdktf.stringToTerraform(struct!.isolation),
     label: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.label),
@@ -741,7 +806,10 @@ export function imageBuildToTerraform(struct?: ImageBuildOutputReference | Image
     pull_parent: cdktf.booleanToTerraform(struct!.pullParent),
     remote_context: cdktf.stringToTerraform(struct!.remoteContext),
     remove: cdktf.booleanToTerraform(struct!.remove),
-    security_opt: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityOpt),
+    security_opt: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityOpt),
     session_id: cdktf.stringToTerraform(struct!.sessionId),
     shm_size: cdktf.numberToTerraform(struct!.shmSize),
     squash: cdktf.booleanToTerraform(struct!.squash),
@@ -749,19 +817,25 @@ export function imageBuildToTerraform(struct?: ImageBuildOutputReference | Image
     tag: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.tag),
     target: cdktf.stringToTerraform(struct!.target),
     version: cdktf.stringToTerraform(struct!.version),
-    auth_config: cdktf.listMapper(imageBuildAuthConfigToTerraform, true)(struct!.authConfig),
+    auth_config: cdktf.listMapper(
+      imageBuildAuthConfigToTerraform,
+      true,
+    )(struct!.authConfig),
     ulimit: cdktf.listMapper(imageBuildUlimitToTerraform, true)(struct!.ulimit),
-  }
+  };
 }
 
 export class ImageBuildOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -949,8 +1023,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
       this._version = undefined;
       this._authConfig.internalValue = undefined;
       this._ulimit.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._buildArg = value.buildArg;
       this._buildArgs = value.buildArgs;
@@ -1516,7 +1589,11 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // auth_config - computed: false, optional: true, required: false
-  private _authConfig = new ImageBuildAuthConfigList(this, "auth_config", false);
+  private _authConfig = new ImageBuildAuthConfigList(
+    this,
+    'auth_config',
+    false,
+  );
   public get authConfig() {
     return this._authConfig;
   }
@@ -1532,7 +1609,7 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
   }
 
   // ulimit - computed: false, optional: true, required: false
-  private _ulimit = new ImageBuildUlimitList(this, "ulimit", false);
+  private _ulimit = new ImageBuildUlimitList(this, 'ulimit', false);
   public get ulimit() {
     return this._ulimit;
   }
@@ -1549,33 +1626,32 @@ export class ImageBuildOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/r/image docker_image}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/r/image docker_image}
+ */
 export class Image extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_image";
+  public static readonly tfResourceType = 'docker_image';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/r/image docker_image} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ImageConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/r/image docker_image} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ImageConfig
+   */
   public constructor(scope: Construct, id: string, config: ImageConfig) {
     super(scope, id, {
       terraformResourceType: 'docker_image',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1583,7 +1659,7 @@ export class Image extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._forceRemove = config.forceRemove;
     this._keepLocally = config.keepLocally;
@@ -1707,7 +1783,7 @@ export class Image extends cdktf.TerraformResource {
   }
 
   // build - computed: false, optional: true, required: false
-  private _build = new ImageBuildOutputReference(this, "build");
+  private _build = new ImageBuildOutputReference(this, 'build');
   public get buildAttribute() {
     return this._build;
   }
@@ -1732,7 +1808,10 @@ export class Image extends cdktf.TerraformResource {
       keep_locally: cdktf.booleanToTerraform(this._keepLocally),
       name: cdktf.stringToTerraform(this._name),
       platform: cdktf.stringToTerraform(this._platform),
-      pull_triggers: cdktf.listMapper(cdktf.stringToTerraform, false)(this._pullTriggers),
+      pull_triggers: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._pullTriggers),
       triggers: cdktf.hashMapper(cdktf.stringToTerraform)(this._triggers),
       build: imageBuildToTerraform(this._build.internalValue),
     };

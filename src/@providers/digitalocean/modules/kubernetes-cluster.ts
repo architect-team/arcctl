@@ -1,13 +1,13 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import KubernetesUtils from '../../kubernetes.js';
-import { ResourceModule } from '../../module.js';
-import { ProviderStore } from '../../store.js';
-import { SupportedProviders } from '../../supported-providers.js';
-import { SaveFileFn } from '../../types.js';
-import { KubernetesCluster } from '../.gen/providers/digitalocean/kubernetes-cluster/index.js';
-import { KubernetesNodePool } from '../.gen/providers/digitalocean/kubernetes-node-pool/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { TerraformOutput } from 'cdktf';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import KubernetesUtils from '../../kubernetes.ts';
+import { ResourceModule } from '../../module.ts';
+import { ProviderStore } from '../../store.ts';
+import { SupportedProviders } from '../../supported-providers.ts';
+import { SaveFileFn } from '../../types.ts';
+import { KubernetesCluster } from '../.gen/providers/digitalocean/kubernetes-cluster/index.ts';
+import { KubernetesNodePool } from '../.gen/providers/digitalocean/kubernetes-node-pool/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { TerraformOutput } from 'npm:cdktf';
 import { Construct } from 'npm:constructs';
 
 export class DigitaloceanKubernetesClusterModule extends ResourceModule<

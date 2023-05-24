@@ -1,7 +1,7 @@
-import { BaseCommand } from '../../base-command.js';
-import { CloudGraph } from '../../cloud-graph/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
-import { DatacenterRecord } from '../../utils/datacenter-store.js';
+import { BaseCommand } from '../../base-command.ts';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { ExecutableGraph } from '../../executable-graph/index.ts';
+import { DatacenterRecord } from '../../utils/datacenter-store.ts';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
 import path from 'path';

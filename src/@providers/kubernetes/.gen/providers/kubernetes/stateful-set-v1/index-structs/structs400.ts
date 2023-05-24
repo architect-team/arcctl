@@ -1,147 +1,176 @@
-import * as cdktf from 'cdktf';
-import { StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities,
-statefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference,
-StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions,
-statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference,
-StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile,
-statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference,
-StatefulSetV1SpecTemplateSpecInitContainerEnv,
-statefulSetV1SpecTemplateSpecInitContainerEnvToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerEnvList,
-StatefulSetV1SpecTemplateSpecInitContainerEnvFrom,
-statefulSetV1SpecTemplateSpecInitContainerEnvFromToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerEnvFromList,
-StatefulSetV1SpecTemplateSpecInitContainerLifecycle,
-statefulSetV1SpecTemplateSpecInitContainerLifecycleToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference,
-StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe,
-statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference,
-StatefulSetV1SpecTemplateSpecInitContainerPort,
-statefulSetV1SpecTemplateSpecInitContainerPortToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerPortList,
-StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe,
-statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference,
-StatefulSetV1SpecTemplateSpecInitContainerResources,
-statefulSetV1SpecTemplateSpecInitContainerResourcesToTerraform,
-StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference,
-StatefulSetV1SpecTemplateSpecAffinity,
-statefulSetV1SpecTemplateSpecAffinityToTerraform,
-StatefulSetV1SpecTemplateSpecAffinityOutputReference,
-StatefulSetV1SpecTemplateSpecContainer,
-statefulSetV1SpecTemplateSpecContainerToTerraform,
-StatefulSetV1SpecTemplateSpecContainerList,
-StatefulSetV1SpecTemplateSpecDnsConfig,
-statefulSetV1SpecTemplateSpecDnsConfigToTerraform,
-StatefulSetV1SpecTemplateSpecDnsConfigOutputReference,
-StatefulSetV1SpecTemplateSpecHostAliases,
-statefulSetV1SpecTemplateSpecHostAliasesToTerraform,
-StatefulSetV1SpecTemplateSpecHostAliasesList,
-StatefulSetV1SpecTemplateSpecImagePullSecrets,
-statefulSetV1SpecTemplateSpecImagePullSecretsToTerraform,
-StatefulSetV1SpecTemplateSpecImagePullSecretsList,
-StatefulSetV1SpecTemplateMetadata,
-statefulSetV1SpecTemplateMetadataToTerraform,
-StatefulSetV1SpecTemplateMetadataOutputReference,
-StatefulSetV1SpecSelector,
-statefulSetV1SpecSelectorToTerraform,
-StatefulSetV1SpecSelectorOutputReference } from './structs0'
+import * as cdktf from 'npm:cdktf';
+import {
+  StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities,
+  statefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference,
+  StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions,
+  statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference,
+  StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile,
+  statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference,
+  StatefulSetV1SpecTemplateSpecInitContainerEnv,
+  statefulSetV1SpecTemplateSpecInitContainerEnvToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerEnvList,
+  StatefulSetV1SpecTemplateSpecInitContainerEnvFrom,
+  statefulSetV1SpecTemplateSpecInitContainerEnvFromToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerEnvFromList,
+  StatefulSetV1SpecTemplateSpecInitContainerLifecycle,
+  statefulSetV1SpecTemplateSpecInitContainerLifecycleToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference,
+  StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe,
+  statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference,
+  StatefulSetV1SpecTemplateSpecInitContainerPort,
+  statefulSetV1SpecTemplateSpecInitContainerPortToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerPortList,
+  StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe,
+  statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference,
+  StatefulSetV1SpecTemplateSpecInitContainerResources,
+  statefulSetV1SpecTemplateSpecInitContainerResourcesToTerraform,
+  StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference,
+  StatefulSetV1SpecTemplateSpecAffinity,
+  statefulSetV1SpecTemplateSpecAffinityToTerraform,
+  StatefulSetV1SpecTemplateSpecAffinityOutputReference,
+  StatefulSetV1SpecTemplateSpecContainer,
+  statefulSetV1SpecTemplateSpecContainerToTerraform,
+  StatefulSetV1SpecTemplateSpecContainerList,
+  StatefulSetV1SpecTemplateSpecDnsConfig,
+  statefulSetV1SpecTemplateSpecDnsConfigToTerraform,
+  StatefulSetV1SpecTemplateSpecDnsConfigOutputReference,
+  StatefulSetV1SpecTemplateSpecHostAliases,
+  statefulSetV1SpecTemplateSpecHostAliasesToTerraform,
+  StatefulSetV1SpecTemplateSpecHostAliasesList,
+  StatefulSetV1SpecTemplateSpecImagePullSecrets,
+  statefulSetV1SpecTemplateSpecImagePullSecretsToTerraform,
+  StatefulSetV1SpecTemplateSpecImagePullSecretsList,
+  StatefulSetV1SpecTemplateMetadata,
+  statefulSetV1SpecTemplateMetadataToTerraform,
+  StatefulSetV1SpecTemplateMetadataOutputReference,
+  StatefulSetV1SpecSelector,
+  statefulSetV1SpecSelectorToTerraform,
+  StatefulSetV1SpecSelectorOutputReference,
+} from './structs0';
 export interface StatefulSetV1SpecTemplateSpecInitContainerSecurityContext {
   /**
-  * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#allow_privilege_escalation StatefulSetV1#allow_privilege_escalation}
-  */
+   * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#allow_privilege_escalation StatefulSetV1#allow_privilege_escalation}
+   */
   readonly allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   /**
-  * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#privileged StatefulSetV1#privileged}
-  */
+   * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#privileged StatefulSetV1#privileged}
+   */
   readonly privileged?: boolean | cdktf.IResolvable;
   /**
-  * Whether this container has a read-only root filesystem. Default is false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only_root_filesystem StatefulSetV1#read_only_root_filesystem}
-  */
+   * Whether this container has a read-only root filesystem. Default is false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only_root_filesystem StatefulSetV1#read_only_root_filesystem}
+   */
   readonly readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   /**
-  * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_group StatefulSetV1#run_as_group}
-  */
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_group StatefulSetV1#run_as_group}
+   */
   readonly runAsGroup?: string;
   /**
-  * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_non_root StatefulSetV1#run_as_non_root}
-  */
+   * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_non_root StatefulSetV1#run_as_non_root}
+   */
   readonly runAsNonRoot?: boolean | cdktf.IResolvable;
   /**
-  * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_user StatefulSetV1#run_as_user}
-  */
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_user StatefulSetV1#run_as_user}
+   */
   readonly runAsUser?: string;
   /**
-  * capabilities block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#capabilities StatefulSetV1#capabilities}
-  */
+   * capabilities block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#capabilities StatefulSetV1#capabilities}
+   */
   readonly capabilities?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities;
   /**
-  * se_linux_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#se_linux_options StatefulSetV1#se_linux_options}
-  */
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#se_linux_options StatefulSetV1#se_linux_options}
+   */
   readonly seLinuxOptions?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions;
   /**
-  * seccomp_profile block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#seccomp_profile StatefulSetV1#seccomp_profile}
-  */
+   * seccomp_profile block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#seccomp_profile StatefulSetV1#seccomp_profile}
+   */
   readonly seccompProfile?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputReference | StatefulSetV1SpecTemplateSpecInitContainerSecurityContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerSecurityContextToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    allow_privilege_escalation: cdktf.booleanToTerraform(struct!.allowPrivilegeEscalation),
+    allow_privilege_escalation: cdktf.booleanToTerraform(
+      struct!.allowPrivilegeEscalation,
+    ),
     privileged: cdktf.booleanToTerraform(struct!.privileged),
-    read_only_root_filesystem: cdktf.booleanToTerraform(struct!.readOnlyRootFilesystem),
+    read_only_root_filesystem: cdktf.booleanToTerraform(
+      struct!.readOnlyRootFilesystem,
+    ),
     run_as_group: cdktf.stringToTerraform(struct!.runAsGroup),
     run_as_non_root: cdktf.booleanToTerraform(struct!.runAsNonRoot),
     run_as_user: cdktf.stringToTerraform(struct!.runAsUser),
-    capabilities: statefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform(struct!.capabilities),
-    se_linux_options: statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(struct!.seLinuxOptions),
-    seccomp_profile: statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(struct!.seccompProfile),
-  }
+    capabilities:
+      statefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform(
+        struct!.capabilities,
+      ),
+    se_linux_options:
+      statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsToTerraform(
+        struct!.seLinuxOptions,
+      ),
+    seccomp_profile:
+      statefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileToTerraform(
+        struct!.seccompProfile,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerSecurityContext | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerSecurityContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._allowPrivilegeEscalation !== undefined) {
       hasAnyValues = true;
-      internalValueResult.allowPrivilegeEscalation = this._allowPrivilegeEscalation;
+      internalValueResult.allowPrivilegeEscalation =
+        this._allowPrivilegeEscalation;
     }
     if (this._privileged !== undefined) {
       hasAnyValues = true;
@@ -178,7 +207,11 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContext | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerSecurityContext
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._allowPrivilegeEscalation = undefined;
@@ -190,8 +223,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
       this._capabilities.internalValue = undefined;
       this._seLinuxOptions.internalValue = undefined;
       this._seccompProfile.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowPrivilegeEscalation = value.allowPrivilegeEscalation;
       this._privileged = value.privileged;
@@ -206,7 +238,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // allow_privilege_escalation - computed: false, optional: true, required: false
-  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable; 
+  private _allowPrivilegeEscalation?: boolean | cdktf.IResolvable;
   public get allowPrivilegeEscalation() {
     return this.getBooleanAttribute('allow_privilege_escalation');
   }
@@ -222,7 +254,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // privileged - computed: false, optional: true, required: false
-  private _privileged?: boolean | cdktf.IResolvable; 
+  private _privileged?: boolean | cdktf.IResolvable;
   public get privileged() {
     return this.getBooleanAttribute('privileged');
   }
@@ -238,7 +270,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // read_only_root_filesystem - computed: false, optional: true, required: false
-  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable; 
+  private _readOnlyRootFilesystem?: boolean | cdktf.IResolvable;
   public get readOnlyRootFilesystem() {
     return this.getBooleanAttribute('read_only_root_filesystem');
   }
@@ -254,7 +286,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup?: string; 
+  private _runAsGroup?: string;
   public get runAsGroup() {
     return this.getStringAttribute('run_as_group');
   }
@@ -270,7 +302,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // run_as_non_root - computed: false, optional: true, required: false
-  private _runAsNonRoot?: boolean | cdktf.IResolvable; 
+  private _runAsNonRoot?: boolean | cdktf.IResolvable;
   public get runAsNonRoot() {
     return this.getBooleanAttribute('run_as_non_root');
   }
@@ -286,7 +318,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // run_as_user - computed: false, optional: true, required: false
-  private _runAsUser?: string; 
+  private _runAsUser?: string;
   public get runAsUser() {
     return this.getStringAttribute('run_as_user');
   }
@@ -302,11 +334,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // capabilities - computed: false, optional: true, required: false
-  private _capabilities = new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference(this, "capabilities");
+  private _capabilities =
+    new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesOutputReference(
+      this,
+      'capabilities',
+    );
   public get capabilities() {
     return this._capabilities;
   }
-  public putCapabilities(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities) {
+  public putCapabilities(
+    value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities,
+  ) {
     this._capabilities.internalValue = value;
   }
   public resetCapabilities() {
@@ -318,11 +356,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference(this, "se_linux_options");
+  private _seLinuxOptions =
+    new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptionsOutputReference(
+      this,
+      'se_linux_options',
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions) {
+  public putSeLinuxOptions(
+    value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -334,11 +378,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
   }
 
   // seccomp_profile - computed: false, optional: true, required: false
-  private _seccompProfile = new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference(this, "seccomp_profile");
+  private _seccompProfile =
+    new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfileOutputReference(
+      this,
+      'seccomp_profile',
+    );
   public get seccompProfile() {
     return this._seccompProfile;
   }
-  public putSeccompProfile(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile) {
+  public putSeccompProfile(
+    value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContextSeccompProfile,
+  ) {
     this._seccompProfile.internalValue = value;
   }
   public resetSeccompProfile() {
@@ -351,35 +401,48 @@ export class StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputRefe
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec {
   /**
-  * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._command !== undefined) {
@@ -389,19 +452,22 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._command = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._command = value.command;
     }
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -418,28 +484,36 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service StatefulSetV1#service}
+   */
   readonly service?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -447,16 +521,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputRef
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -473,18 +560,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -493,7 +583,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputRef
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -506,7 +596,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputRef
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -523,48 +613,69 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputRef
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -572,16 +683,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -598,18 +722,21 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -618,7 +745,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHe
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -634,7 +761,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHe
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -651,83 +778,114 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHe
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host StatefulSetV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#scheme StatefulSetV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
-  */
-  readonly httpHeader?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_header StatefulSetV1#http_header}
+   */
+  readonly httpHeader?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -753,7 +911,11 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -761,8 +923,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -773,7 +934,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -789,7 +950,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -805,7 +966,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -821,7 +982,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -837,11 +998,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -854,21 +1024,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutput
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
   readonly port: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -876,16 +1054,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -898,17 +1089,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -916,7 +1110,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutp
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -930,85 +1124,110 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutp
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerStartupProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#failure_threshold StatefulSetV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#initial_delay_seconds StatefulSetV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#period_seconds StatefulSetV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#success_threshold StatefulSetV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#timeout_seconds StatefulSetV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#exec StatefulSetV1#exec}
+   */
   readonly exec?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
-  */
-  readonly grpc?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#grpc StatefulSetV1#grpc}
+   */
+  readonly grpc?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#http_get StatefulSetV1#http_get}
+   */
   readonly httpGet?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
-  */
-  readonly tcpSocket?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tcp_socket StatefulSetV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReference | StatefulSetV1SpecTemplateSpecInitContainerStartupProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReference
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -1016,25 +1235,41 @@ export function statefulSetV1SpecTemplateSpecInitContainerStartupProbeToTerrafor
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: statefulSetV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: statefulSetV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      statefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerStartupProbe | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerStartupProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -1076,7 +1311,9 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbe | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbe | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -1088,8 +1325,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -1104,7 +1340,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -1120,7 +1356,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -1136,7 +1372,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -1152,7 +1388,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -1168,7 +1404,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -1184,11 +1420,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference(this, "exec");
+  private _exec =
+    new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec) {
+  public putExec(
+    value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -1200,11 +1442,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -1216,11 +1467,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet) {
+  public putHttpGet(
+    value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -1232,11 +1489,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -1249,41 +1515,49 @@ export class StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReferen
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainerVolumeMount {
   /**
-  * Path within the container at which the volume should be mounted. Must not contain ':'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_path StatefulSetV1#mount_path}
-  */
+   * Path within the container at which the volume should be mounted. Must not contain ':'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_path StatefulSetV1#mount_path}
+   */
   readonly mountPath: string;
   /**
-  * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_propagation StatefulSetV1#mount_propagation}
-  */
+   * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mount_propagation StatefulSetV1#mount_propagation}
+   */
   readonly mountPropagation?: string;
   /**
-  * This must match the Name of a Volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * This must match the Name of a Volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sub_path StatefulSetV1#sub_path}
-  */
+   * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sub_path StatefulSetV1#sub_path}
+   */
   readonly subPath?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerVolumeMountToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerVolumeMountToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecInitContainerVolumeMount
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mount_path: cdktf.stringToTerraform(struct!.mountPath),
@@ -1291,7 +1565,7 @@ export function statefulSetV1SpecTemplateSpecInitContainerVolumeMountToTerraform
     name: cdktf.stringToTerraform(struct!.name),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     sub_path: cdktf.stringToTerraform(struct!.subPath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReference extends cdktf.ComplexObject {
@@ -1299,16 +1573,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainerVolumeMount
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1337,7 +1624,12 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerVolumeMount
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1346,12 +1638,10 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
       this._name = undefined;
       this._readOnly = undefined;
       this._subPath = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mountPath = value.mountPath;
@@ -1363,7 +1653,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
   }
 
   // mount_path - computed: false, optional: false, required: true
-  private _mountPath?: string; 
+  private _mountPath?: string;
   public get mountPath() {
     return this.getStringAttribute('mount_path');
   }
@@ -1376,7 +1666,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
   }
 
   // mount_propagation - computed: false, optional: true, required: false
-  private _mountPropagation?: string; 
+  private _mountPropagation?: string;
   public get mountPropagation() {
     return this.getStringAttribute('mount_propagation');
   }
@@ -1392,7 +1682,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1405,7 +1695,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1421,7 +1711,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
   }
 
   // sub_path - computed: false, optional: true, required: false
-  private _subPath?: string; 
+  private _subPath?: string;
   public get subPath() {
     return this.getStringAttribute('sub_path');
   }
@@ -1438,157 +1728,184 @@ export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReferenc
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerVolumeMountList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainerVolumeMount[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerVolumeMountOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecInitContainer {
   /**
-  * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#args StatefulSetV1#args}
-  */
+   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#args StatefulSetV1#args}
+   */
   readonly args?: string[];
   /**
-  * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
-  */
+   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#command StatefulSetV1#command}
+   */
   readonly command?: string[];
   /**
-  * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image StatefulSetV1#image}
-  */
+   * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image StatefulSetV1#image}
+   */
   readonly image?: string;
   /**
-  * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image_pull_policy StatefulSetV1#image_pull_policy}
-  */
+   * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image_pull_policy StatefulSetV1#image_pull_policy}
+   */
   readonly imagePullPolicy?: string;
   /**
-  * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin StatefulSetV1#stdin}
-  */
+   * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin StatefulSetV1#stdin}
+   */
   readonly stdin?: boolean | cdktf.IResolvable;
   /**
-  * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin_once StatefulSetV1#stdin_once}
-  */
+   * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#stdin_once StatefulSetV1#stdin_once}
+   */
   readonly stdinOnce?: boolean | cdktf.IResolvable;
   /**
-  * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_path StatefulSetV1#termination_message_path}
-  */
+   * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_path StatefulSetV1#termination_message_path}
+   */
   readonly terminationMessagePath?: string;
   /**
-  * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_policy StatefulSetV1#termination_message_policy}
-  */
+   * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_message_policy StatefulSetV1#termination_message_policy}
+   */
   readonly terminationMessagePolicy?: string;
   /**
-  * Whether this container should allocate a TTY for itself
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tty StatefulSetV1#tty}
-  */
+   * Whether this container should allocate a TTY for itself
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#tty StatefulSetV1#tty}
+   */
   readonly tty?: boolean | cdktf.IResolvable;
   /**
-  * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#working_dir StatefulSetV1#working_dir}
-  */
+   * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#working_dir StatefulSetV1#working_dir}
+   */
   readonly workingDir?: string;
   /**
-  * env block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env StatefulSetV1#env}
-  */
-  readonly env?: StatefulSetV1SpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable;
+   * env block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env StatefulSetV1#env}
+   */
+  readonly env?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnv[]
+    | cdktf.IResolvable;
   /**
-  * env_from block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env_from StatefulSetV1#env_from}
-  */
-  readonly envFrom?: StatefulSetV1SpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable;
+   * env_from block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#env_from StatefulSetV1#env_from}
+   */
+  readonly envFrom?:
+    | StatefulSetV1SpecTemplateSpecInitContainerEnvFrom[]
+    | cdktf.IResolvable;
   /**
-  * lifecycle block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lifecycle StatefulSetV1#lifecycle}
-  */
+   * lifecycle block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lifecycle StatefulSetV1#lifecycle}
+   */
   readonly lifecycle?: StatefulSetV1SpecTemplateSpecInitContainerLifecycle;
   /**
-  * liveness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#liveness_probe StatefulSetV1#liveness_probe}
-  */
+   * liveness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#liveness_probe StatefulSetV1#liveness_probe}
+   */
   readonly livenessProbe?: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe;
   /**
-  * port block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
-  */
-  readonly port?: StatefulSetV1SpecTemplateSpecInitContainerPort[] | cdktf.IResolvable;
+   * port block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#port StatefulSetV1#port}
+   */
+  readonly port?:
+    | StatefulSetV1SpecTemplateSpecInitContainerPort[]
+    | cdktf.IResolvable;
   /**
-  * readiness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#readiness_probe StatefulSetV1#readiness_probe}
-  */
+   * readiness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#readiness_probe StatefulSetV1#readiness_probe}
+   */
   readonly readinessProbe?: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe;
   /**
-  * resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resources StatefulSetV1#resources}
-  */
+   * resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resources StatefulSetV1#resources}
+   */
   readonly resources?: StatefulSetV1SpecTemplateSpecInitContainerResources;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#security_context StatefulSetV1#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#security_context StatefulSetV1#security_context}
+   */
   readonly securityContext?: StatefulSetV1SpecTemplateSpecInitContainerSecurityContext;
   /**
-  * startup_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#startup_probe StatefulSetV1#startup_probe}
-  */
+   * startup_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#startup_probe StatefulSetV1#startup_probe}
+   */
   readonly startupProbe?: StatefulSetV1SpecTemplateSpecInitContainerStartupProbe;
   /**
-  * volume_mount block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_mount StatefulSetV1#volume_mount}
-  */
-  readonly volumeMount?: StatefulSetV1SpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable;
+   * volume_mount block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_mount StatefulSetV1#volume_mount}
+   */
+  readonly volumeMount?:
+    | StatefulSetV1SpecTemplateSpecInitContainerVolumeMount[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecInitContainerToTerraform(struct?: StatefulSetV1SpecTemplateSpecInitContainer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecInitContainerToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecInitContainer | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     args: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.args),
@@ -1598,21 +1915,53 @@ export function statefulSetV1SpecTemplateSpecInitContainerToTerraform(struct?: S
     name: cdktf.stringToTerraform(struct!.name),
     stdin: cdktf.booleanToTerraform(struct!.stdin),
     stdin_once: cdktf.booleanToTerraform(struct!.stdinOnce),
-    termination_message_path: cdktf.stringToTerraform(struct!.terminationMessagePath),
-    termination_message_policy: cdktf.stringToTerraform(struct!.terminationMessagePolicy),
+    termination_message_path: cdktf.stringToTerraform(
+      struct!.terminationMessagePath,
+    ),
+    termination_message_policy: cdktf.stringToTerraform(
+      struct!.terminationMessagePolicy,
+    ),
     tty: cdktf.booleanToTerraform(struct!.tty),
     working_dir: cdktf.stringToTerraform(struct!.workingDir),
-    env: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerEnvToTerraform, true)(struct!.env),
-    env_from: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerEnvFromToTerraform, true)(struct!.envFrom),
-    lifecycle: statefulSetV1SpecTemplateSpecInitContainerLifecycleToTerraform(struct!.lifecycle),
-    liveness_probe: statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerraform(struct!.livenessProbe),
-    port: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerPortToTerraform, true)(struct!.port),
-    readiness_probe: statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraform(struct!.readinessProbe),
-    resources: statefulSetV1SpecTemplateSpecInitContainerResourcesToTerraform(struct!.resources),
-    security_context: statefulSetV1SpecTemplateSpecInitContainerSecurityContextToTerraform(struct!.securityContext),
-    startup_probe: statefulSetV1SpecTemplateSpecInitContainerStartupProbeToTerraform(struct!.startupProbe),
-    volume_mount: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerVolumeMountToTerraform, true)(struct!.volumeMount),
-  }
+    env: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerEnvToTerraform,
+      true,
+    )(struct!.env),
+    env_from: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerEnvFromToTerraform,
+      true,
+    )(struct!.envFrom),
+    lifecycle: statefulSetV1SpecTemplateSpecInitContainerLifecycleToTerraform(
+      struct!.lifecycle,
+    ),
+    liveness_probe:
+      statefulSetV1SpecTemplateSpecInitContainerLivenessProbeToTerraform(
+        struct!.livenessProbe,
+      ),
+    port: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerPortToTerraform,
+      true,
+    )(struct!.port),
+    readiness_probe:
+      statefulSetV1SpecTemplateSpecInitContainerReadinessProbeToTerraform(
+        struct!.readinessProbe,
+      ),
+    resources: statefulSetV1SpecTemplateSpecInitContainerResourcesToTerraform(
+      struct!.resources,
+    ),
+    security_context:
+      statefulSetV1SpecTemplateSpecInitContainerSecurityContextToTerraform(
+        struct!.securityContext,
+      ),
+    startup_probe:
+      statefulSetV1SpecTemplateSpecInitContainerStartupProbeToTerraform(
+        struct!.startupProbe,
+      ),
+    volume_mount: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerVolumeMountToTerraform,
+      true,
+    )(struct!.volumeMount),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends cdktf.ComplexObject {
@@ -1620,16 +1969,29 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecInitContainer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecInitContainer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1669,7 +2031,8 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
     }
     if (this._terminationMessagePolicy !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationMessagePolicy = this._terminationMessagePolicy;
+      internalValueResult.terminationMessagePolicy =
+        this._terminationMessagePolicy;
     }
     if (this._tty !== undefined) {
       hasAnyValues = true;
@@ -1709,7 +2072,8 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._startupProbe?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1722,7 +2086,12 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecInitContainer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainer
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1747,12 +2116,10 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
       this._securityContext.internalValue = undefined;
       this._startupProbe.internalValue = undefined;
       this._volumeMount.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._args = value.args;
@@ -1780,7 +2147,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // args - computed: false, optional: true, required: false
-  private _args?: string[]; 
+  private _args?: string[];
   public get args() {
     return this.getListAttribute('args');
   }
@@ -1796,7 +2163,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -1812,7 +2179,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // image - computed: false, optional: true, required: false
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -1828,7 +2195,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // image_pull_policy - computed: true, optional: true, required: false
-  private _imagePullPolicy?: string; 
+  private _imagePullPolicy?: string;
   public get imagePullPolicy() {
     return this.getStringAttribute('image_pull_policy');
   }
@@ -1844,7 +2211,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1857,7 +2224,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // stdin - computed: false, optional: true, required: false
-  private _stdin?: boolean | cdktf.IResolvable; 
+  private _stdin?: boolean | cdktf.IResolvable;
   public get stdin() {
     return this.getBooleanAttribute('stdin');
   }
@@ -1873,7 +2240,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // stdin_once - computed: false, optional: true, required: false
-  private _stdinOnce?: boolean | cdktf.IResolvable; 
+  private _stdinOnce?: boolean | cdktf.IResolvable;
   public get stdinOnce() {
     return this.getBooleanAttribute('stdin_once');
   }
@@ -1889,7 +2256,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // termination_message_path - computed: false, optional: true, required: false
-  private _terminationMessagePath?: string; 
+  private _terminationMessagePath?: string;
   public get terminationMessagePath() {
     return this.getStringAttribute('termination_message_path');
   }
@@ -1905,7 +2272,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // termination_message_policy - computed: true, optional: true, required: false
-  private _terminationMessagePolicy?: string; 
+  private _terminationMessagePolicy?: string;
   public get terminationMessagePolicy() {
     return this.getStringAttribute('termination_message_policy');
   }
@@ -1921,7 +2288,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // tty - computed: false, optional: true, required: false
-  private _tty?: boolean | cdktf.IResolvable; 
+  private _tty?: boolean | cdktf.IResolvable;
   public get tty() {
     return this.getBooleanAttribute('tty');
   }
@@ -1937,7 +2304,7 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // working_dir - computed: false, optional: true, required: false
-  private _workingDir?: string; 
+  private _workingDir?: string;
   public get workingDir() {
     return this.getStringAttribute('working_dir');
   }
@@ -1953,11 +2320,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new StatefulSetV1SpecTemplateSpecInitContainerEnvList(this, "env", false);
+  private _env = new StatefulSetV1SpecTemplateSpecInitContainerEnvList(
+    this,
+    'env',
+    false,
+  );
   public get env() {
     return this._env;
   }
-  public putEnv(value: StatefulSetV1SpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable) {
+  public putEnv(
+    value: StatefulSetV1SpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable,
+  ) {
     this._env.internalValue = value;
   }
   public resetEnv() {
@@ -1969,11 +2342,19 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // env_from - computed: false, optional: true, required: false
-  private _envFrom = new StatefulSetV1SpecTemplateSpecInitContainerEnvFromList(this, "env_from", false);
+  private _envFrom = new StatefulSetV1SpecTemplateSpecInitContainerEnvFromList(
+    this,
+    'env_from',
+    false,
+  );
   public get envFrom() {
     return this._envFrom;
   }
-  public putEnvFrom(value: StatefulSetV1SpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable) {
+  public putEnvFrom(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerEnvFrom[]
+      | cdktf.IResolvable,
+  ) {
     this._envFrom.internalValue = value;
   }
   public resetEnvFrom() {
@@ -1985,11 +2366,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // lifecycle - computed: false, optional: true, required: false
-  private _lifecycle = new StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference(this, "lifecycle");
+  private _lifecycle =
+    new StatefulSetV1SpecTemplateSpecInitContainerLifecycleOutputReference(
+      this,
+      'lifecycle',
+    );
   public get lifecycle() {
     return this._lifecycle;
   }
-  public putLifecycle(value: StatefulSetV1SpecTemplateSpecInitContainerLifecycle) {
+  public putLifecycle(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLifecycle,
+  ) {
     this._lifecycle.internalValue = value;
   }
   public resetLifecycle() {
@@ -2001,11 +2388,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // liveness_probe - computed: false, optional: true, required: false
-  private _livenessProbe = new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference(this, "liveness_probe");
+  private _livenessProbe =
+    new StatefulSetV1SpecTemplateSpecInitContainerLivenessProbeOutputReference(
+      this,
+      'liveness_probe',
+    );
   public get livenessProbe() {
     return this._livenessProbe;
   }
-  public putLivenessProbe(value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe) {
+  public putLivenessProbe(
+    value: StatefulSetV1SpecTemplateSpecInitContainerLivenessProbe,
+  ) {
     this._livenessProbe.internalValue = value;
   }
   public resetLivenessProbe() {
@@ -2017,11 +2410,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // port - computed: false, optional: true, required: false
-  private _port = new StatefulSetV1SpecTemplateSpecInitContainerPortList(this, "port", false);
+  private _port = new StatefulSetV1SpecTemplateSpecInitContainerPortList(
+    this,
+    'port',
+    false,
+  );
   public get port() {
     return this._port;
   }
-  public putPort(value: StatefulSetV1SpecTemplateSpecInitContainerPort[] | cdktf.IResolvable) {
+  public putPort(
+    value: StatefulSetV1SpecTemplateSpecInitContainerPort[] | cdktf.IResolvable,
+  ) {
     this._port.internalValue = value;
   }
   public resetPort() {
@@ -2033,11 +2432,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // readiness_probe - computed: false, optional: true, required: false
-  private _readinessProbe = new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference(this, "readiness_probe");
+  private _readinessProbe =
+    new StatefulSetV1SpecTemplateSpecInitContainerReadinessProbeOutputReference(
+      this,
+      'readiness_probe',
+    );
   public get readinessProbe() {
     return this._readinessProbe;
   }
-  public putReadinessProbe(value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe) {
+  public putReadinessProbe(
+    value: StatefulSetV1SpecTemplateSpecInitContainerReadinessProbe,
+  ) {
     this._readinessProbe.internalValue = value;
   }
   public resetReadinessProbe() {
@@ -2049,11 +2454,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources = new StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference(this, "resources");
+  private _resources =
+    new StatefulSetV1SpecTemplateSpecInitContainerResourcesOutputReference(
+      this,
+      'resources',
+    );
   public get resources() {
     return this._resources;
   }
-  public putResources(value: StatefulSetV1SpecTemplateSpecInitContainerResources) {
+  public putResources(
+    value: StatefulSetV1SpecTemplateSpecInitContainerResources,
+  ) {
     this._resources.internalValue = value;
   }
   public resetResources() {
@@ -2065,11 +2476,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new StatefulSetV1SpecTemplateSpecInitContainerSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
-  public putSecurityContext(value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContext) {
+  public putSecurityContext(
+    value: StatefulSetV1SpecTemplateSpecInitContainerSecurityContext,
+  ) {
     this._securityContext.internalValue = value;
   }
   public resetSecurityContext() {
@@ -2081,11 +2498,17 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // startup_probe - computed: false, optional: true, required: false
-  private _startupProbe = new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReference(this, "startup_probe");
+  private _startupProbe =
+    new StatefulSetV1SpecTemplateSpecInitContainerStartupProbeOutputReference(
+      this,
+      'startup_probe',
+    );
   public get startupProbe() {
     return this._startupProbe;
   }
-  public putStartupProbe(value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbe) {
+  public putStartupProbe(
+    value: StatefulSetV1SpecTemplateSpecInitContainerStartupProbe,
+  ) {
     this._startupProbe.internalValue = value;
   }
   public resetStartupProbe() {
@@ -2097,11 +2520,20 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
   }
 
   // volume_mount - computed: false, optional: true, required: false
-  private _volumeMount = new StatefulSetV1SpecTemplateSpecInitContainerVolumeMountList(this, "volume_mount", false);
+  private _volumeMount =
+    new StatefulSetV1SpecTemplateSpecInitContainerVolumeMountList(
+      this,
+      'volume_mount',
+      false,
+    );
   public get volumeMount() {
     return this._volumeMount;
   }
-  public putVolumeMount(value: StatefulSetV1SpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable) {
+  public putVolumeMount(
+    value:
+      | StatefulSetV1SpecTemplateSpecInitContainerVolumeMount[]
+      | cdktf.IResolvable,
+  ) {
     this._volumeMount.internalValue = value;
   }
   public resetVolumeMount() {
@@ -2114,41 +2546,60 @@ export class StatefulSetV1SpecTemplateSpecInitContainerOutputReference extends c
 }
 
 export class StatefulSetV1SpecTemplateSpecInitContainerList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecInitContainer[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecInitContainerOutputReference {
-    return new StatefulSetV1SpecTemplateSpecInitContainerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecInitContainerOutputReference {
+    return new StatefulSetV1SpecTemplateSpecInitContainerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecReadinessGate {
   /**
-  * refers to a condition in the pod's condition list with matching type.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#condition_type StatefulSetV1#condition_type}
-  */
+   * refers to a condition in the pod's condition list with matching type.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#condition_type StatefulSetV1#condition_type}
+   */
   readonly conditionType: string;
 }
 
-export function statefulSetV1SpecTemplateSpecReadinessGateToTerraform(struct?: StatefulSetV1SpecTemplateSpecReadinessGate | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecReadinessGateToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecReadinessGate | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     condition_type: cdktf.stringToTerraform(struct!.conditionType),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecReadinessGateOutputReference extends cdktf.ComplexObject {
@@ -2156,16 +2607,29 @@ export class StatefulSetV1SpecTemplateSpecReadinessGateOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecReadinessGate | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecReadinessGate
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2178,17 +2642,20 @@ export class StatefulSetV1SpecTemplateSpecReadinessGateOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecReadinessGate | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecReadinessGate
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._conditionType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._conditionType = value.conditionType;
@@ -2196,7 +2663,7 @@ export class StatefulSetV1SpecTemplateSpecReadinessGateOutputReference extends c
   }
 
   // condition_type - computed: false, optional: false, required: true
-  private _conditionType?: string; 
+  private _conditionType?: string;
   public get conditionType() {
     return this.getStringAttribute('condition_type');
   }
@@ -2210,76 +2677,102 @@ export class StatefulSetV1SpecTemplateSpecReadinessGateOutputReference extends c
 }
 
 export class StatefulSetV1SpecTemplateSpecReadinessGateList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecReadinessGate[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecReadinessGateOutputReference {
-    return new StatefulSetV1SpecTemplateSpecReadinessGateOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecReadinessGateOutputReference {
+    return new StatefulSetV1SpecTemplateSpecReadinessGateOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions {
   /**
-  * Level is SELinux level label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#level StatefulSetV1#level}
-  */
+   * Level is SELinux level label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#level StatefulSetV1#level}
+   */
   readonly level?: string;
   /**
-  * Role is a SELinux role label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#role StatefulSetV1#role}
-  */
+   * Role is a SELinux role label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#role StatefulSetV1#role}
+   */
   readonly role?: string;
   /**
-  * Type is a SELinux type label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type is a SELinux type label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
   /**
-  * User is a SELinux user label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
-  */
+   * User is a SELinux user label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
+   */
   readonly user?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference | StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference
+    | StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._level !== undefined) {
@@ -2301,15 +2794,18 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._level = undefined;
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._level = value.level;
       this._role = value.role;
@@ -2319,7 +2815,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputRef
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -2335,7 +2831,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputRef
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -2351,7 +2847,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputRef
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2367,7 +2863,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputRef
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -2384,42 +2880,55 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile {
   /**
-  * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#localhost_profile StatefulSetV1#localhost_profile}
-  */
+   * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#localhost_profile StatefulSetV1#localhost_profile}
+   */
   readonly localhostProfile?: string;
   /**
-  * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(struct?: StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference | StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference
+    | StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     localhost_profile: cdktf.stringToTerraform(struct!.localhostProfile),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._localhostProfile !== undefined) {
@@ -2433,13 +2942,16 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._localhostProfile = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._localhostProfile = value.localhostProfile;
       this._type = value.type;
@@ -2447,7 +2959,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputRef
   }
 
   // localhost_profile - computed: false, optional: true, required: false
-  private _localhostProfile?: string; 
+  private _localhostProfile?: string;
   public get localhostProfile() {
     return this.getStringAttribute('localhost_profile');
   }
@@ -2463,7 +2975,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputRef
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2480,28 +2992,36 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecSecurityContextSysctl {
   /**
-  * Name of a property to set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of a property to set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name: string;
   /**
-  * Value of a property to set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * Value of a property to set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value: string;
 }
 
-export function statefulSetV1SpecTemplateSpecSecurityContextSysctlToTerraform(struct?: StatefulSetV1SpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecSecurityContextSysctlToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecSecurityContextSysctl
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference extends cdktf.ComplexObject {
@@ -2509,16 +3029,29 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecSecurityContextSysctl
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2535,18 +3068,21 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecSecurityContextSysctl
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -2555,7 +3091,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference e
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2568,7 +3104,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference e
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2582,111 +3118,153 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference e
 }
 
 export class StatefulSetV1SpecTemplateSpecSecurityContextSysctlList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecSecurityContextSysctl[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference {
-    return new StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference {
+    return new StatefulSetV1SpecTemplateSpecSecurityContextSysctlOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecSecurityContext {
   /**
-  * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- If unset, the Kubelet will not modify the ownership and permissions of any volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_group StatefulSetV1#fs_group}
-  */
+   * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- If unset, the Kubelet will not modify the ownership and permissions of any volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_group StatefulSetV1#fs_group}
+   */
   readonly fsGroup?: string;
   /**
-  * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_group_change_policy StatefulSetV1#fs_group_change_policy}
-  */
+   * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_group_change_policy StatefulSetV1#fs_group_change_policy}
+   */
   readonly fsGroupChangePolicy?: string;
   /**
-  * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_group StatefulSetV1#run_as_group}
-  */
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_group StatefulSetV1#run_as_group}
+   */
   readonly runAsGroup?: string;
   /**
-  * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_non_root StatefulSetV1#run_as_non_root}
-  */
+   * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_non_root StatefulSetV1#run_as_non_root}
+   */
   readonly runAsNonRoot?: boolean | cdktf.IResolvable;
   /**
-  * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_user StatefulSetV1#run_as_user}
-  */
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#run_as_user StatefulSetV1#run_as_user}
+   */
   readonly runAsUser?: string;
   /**
-  * A list of groups applied to the first process run in each container, in addition to the container's primary GID. If unspecified, no groups will be added to any container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#supplemental_groups StatefulSetV1#supplemental_groups}
-  */
+   * A list of groups applied to the first process run in each container, in addition to the container's primary GID. If unspecified, no groups will be added to any container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#supplemental_groups StatefulSetV1#supplemental_groups}
+   */
   readonly supplementalGroups?: number[];
   /**
-  * se_linux_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#se_linux_options StatefulSetV1#se_linux_options}
-  */
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#se_linux_options StatefulSetV1#se_linux_options}
+   */
   readonly seLinuxOptions?: StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions;
   /**
-  * seccomp_profile block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#seccomp_profile StatefulSetV1#seccomp_profile}
-  */
+   * seccomp_profile block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#seccomp_profile StatefulSetV1#seccomp_profile}
+   */
   readonly seccompProfile?: StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile;
   /**
-  * sysctl block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sysctl StatefulSetV1#sysctl}
-  */
-  readonly sysctl?: StatefulSetV1SpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable;
+   * sysctl block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sysctl StatefulSetV1#sysctl}
+   */
+  readonly sysctl?:
+    | StatefulSetV1SpecTemplateSpecSecurityContextSysctl[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecSecurityContextToTerraform(struct?: StatefulSetV1SpecTemplateSpecSecurityContextOutputReference | StatefulSetV1SpecTemplateSpecSecurityContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecSecurityContextToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecSecurityContextOutputReference
+    | StatefulSetV1SpecTemplateSpecSecurityContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_group: cdktf.stringToTerraform(struct!.fsGroup),
-    fs_group_change_policy: cdktf.stringToTerraform(struct!.fsGroupChangePolicy),
+    fs_group_change_policy: cdktf.stringToTerraform(
+      struct!.fsGroupChangePolicy,
+    ),
     run_as_group: cdktf.stringToTerraform(struct!.runAsGroup),
     run_as_non_root: cdktf.booleanToTerraform(struct!.runAsNonRoot),
     run_as_user: cdktf.stringToTerraform(struct!.runAsUser),
-    supplemental_groups: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.supplementalGroups),
-    se_linux_options: statefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(struct!.seLinuxOptions),
-    seccomp_profile: statefulSetV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(struct!.seccompProfile),
-    sysctl: cdktf.listMapper(statefulSetV1SpecTemplateSpecSecurityContextSysctlToTerraform, true)(struct!.sysctl),
-  }
+    supplemental_groups: cdktf.listMapper(
+      cdktf.numberToTerraform,
+      false,
+    )(struct!.supplementalGroups),
+    se_linux_options:
+      statefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(
+        struct!.seLinuxOptions,
+      ),
+    seccomp_profile:
+      statefulSetV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(
+        struct!.seccompProfile,
+      ),
+    sysctl: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecSecurityContextSysctlToTerraform,
+      true,
+    )(struct!.sysctl),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecSecurityContext | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecSecurityContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsGroup !== undefined) {
@@ -2728,7 +3306,9 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecSecurityContext | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecSecurityContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsGroup = undefined;
@@ -2740,8 +3320,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
       this._seLinuxOptions.internalValue = undefined;
       this._seccompProfile.internalValue = undefined;
       this._sysctl.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsGroup = value.fsGroup;
       this._fsGroupChangePolicy = value.fsGroupChangePolicy;
@@ -2756,7 +3335,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // fs_group - computed: false, optional: true, required: false
-  private _fsGroup?: string; 
+  private _fsGroup?: string;
   public get fsGroup() {
     return this.getStringAttribute('fs_group');
   }
@@ -2772,7 +3351,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // fs_group_change_policy - computed: false, optional: true, required: false
-  private _fsGroupChangePolicy?: string; 
+  private _fsGroupChangePolicy?: string;
   public get fsGroupChangePolicy() {
     return this.getStringAttribute('fs_group_change_policy');
   }
@@ -2788,7 +3367,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup?: string; 
+  private _runAsGroup?: string;
   public get runAsGroup() {
     return this.getStringAttribute('run_as_group');
   }
@@ -2804,7 +3383,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // run_as_non_root - computed: false, optional: true, required: false
-  private _runAsNonRoot?: boolean | cdktf.IResolvable; 
+  private _runAsNonRoot?: boolean | cdktf.IResolvable;
   public get runAsNonRoot() {
     return this.getBooleanAttribute('run_as_non_root');
   }
@@ -2820,7 +3399,7 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // run_as_user - computed: false, optional: true, required: false
-  private _runAsUser?: string; 
+  private _runAsUser?: string;
   public get runAsUser() {
     return this.getStringAttribute('run_as_user');
   }
@@ -2836,9 +3415,11 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // supplemental_groups - computed: false, optional: true, required: false
-  private _supplementalGroups?: number[]; 
+  private _supplementalGroups?: number[];
   public get supplementalGroups() {
-    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('supplemental_groups')));
+    return cdktf.Token.asNumberList(
+      cdktf.Fn.tolist(this.getNumberListAttribute('supplemental_groups')),
+    );
   }
   public set supplementalGroups(value: number[]) {
     this._supplementalGroups = value;
@@ -2852,11 +3433,17 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference(this, "se_linux_options");
+  private _seLinuxOptions =
+    new StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference(
+      this,
+      'se_linux_options',
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions) {
+  public putSeLinuxOptions(
+    value: StatefulSetV1SpecTemplateSpecSecurityContextSeLinuxOptions,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -2868,11 +3455,17 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // seccomp_profile - computed: false, optional: true, required: false
-  private _seccompProfile = new StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference(this, "seccomp_profile");
+  private _seccompProfile =
+    new StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference(
+      this,
+      'seccomp_profile',
+    );
   public get seccompProfile() {
     return this._seccompProfile;
   }
-  public putSeccompProfile(value: StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile) {
+  public putSeccompProfile(
+    value: StatefulSetV1SpecTemplateSpecSecurityContextSeccompProfile,
+  ) {
     this._seccompProfile.internalValue = value;
   }
   public resetSeccompProfile() {
@@ -2884,11 +3477,19 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
   }
 
   // sysctl - computed: false, optional: true, required: false
-  private _sysctl = new StatefulSetV1SpecTemplateSpecSecurityContextSysctlList(this, "sysctl", false);
+  private _sysctl = new StatefulSetV1SpecTemplateSpecSecurityContextSysctlList(
+    this,
+    'sysctl',
+    false,
+  );
   public get sysctl() {
     return this._sysctl;
   }
-  public putSysctl(value: StatefulSetV1SpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable) {
+  public putSysctl(
+    value:
+      | StatefulSetV1SpecTemplateSpecSecurityContextSysctl[]
+      | cdktf.IResolvable,
+  ) {
     this._sysctl.internalValue = value;
   }
   public resetSysctl() {
@@ -2901,41 +3502,47 @@ export class StatefulSetV1SpecTemplateSpecSecurityContextOutputReference extends
 }
 export interface StatefulSetV1SpecTemplateSpecToleration {
   /**
-  * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#effect StatefulSetV1#effect}
-  */
+   * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#effect StatefulSetV1#effect}
+   */
   readonly effect?: string;
   /**
-  * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#toleration_seconds StatefulSetV1#toleration_seconds}
-  */
+   * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#toleration_seconds StatefulSetV1#toleration_seconds}
+   */
   readonly tolerationSeconds?: string;
   /**
-  * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
-  */
+   * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#value StatefulSetV1#value}
+   */
   readonly value?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecTolerationToTerraform(struct?: StatefulSetV1SpecTemplateSpecToleration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecTolerationToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecToleration | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     effect: cdktf.stringToTerraform(struct!.effect),
@@ -2943,7 +3550,7 @@ export function statefulSetV1SpecTemplateSpecTolerationToTerraform(struct?: Stat
     operator: cdktf.stringToTerraform(struct!.operator),
     toleration_seconds: cdktf.stringToTerraform(struct!.tolerationSeconds),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdktf.ComplexObject {
@@ -2951,16 +3558,29 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecToleration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecToleration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2989,7 +3609,12 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecToleration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecToleration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2998,12 +3623,10 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
       this._operator = undefined;
       this._tolerationSeconds = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._effect = value.effect;
@@ -3015,7 +3638,7 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
   }
 
   // effect - computed: false, optional: true, required: false
-  private _effect?: string; 
+  private _effect?: string;
   public get effect() {
     return this.getStringAttribute('effect');
   }
@@ -3031,7 +3654,7 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3047,7 +3670,7 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -3063,7 +3686,7 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
   }
 
   // toleration_seconds - computed: false, optional: true, required: false
-  private _tolerationSeconds?: string; 
+  private _tolerationSeconds?: string;
   public get tolerationSeconds() {
     return this.getStringAttribute('toleration_seconds');
   }
@@ -3079,7 +3702,7 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3096,55 +3719,76 @@ export class StatefulSetV1SpecTemplateSpecTolerationOutputReference extends cdkt
 }
 
 export class StatefulSetV1SpecTemplateSpecTolerationList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecToleration[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecToleration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecTolerationOutputReference {
-    return new StatefulSetV1SpecTemplateSpecTolerationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecTolerationOutputReference {
+    return new StatefulSetV1SpecTemplateSpecTolerationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -3152,16 +3796,29 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorM
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3182,19 +3839,22 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorM
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -3204,7 +3864,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorM
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3220,7 +3880,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorM
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -3236,7 +3896,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorM
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -3253,48 +3913,76 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorM
 }
 
 export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform(struct?: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -3302,16 +3990,29 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3323,23 +4024,27 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorO
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -3348,7 +4053,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorO
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -3364,11 +4069,20 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorO
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -3381,62 +4095,88 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorO
 }
 
 export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference {
-    return new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference {
+    return new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecTopologySpreadConstraint {
   /**
-  * describes the degree to which pods may be unevenly distributed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#max_skew StatefulSetV1#max_skew}
-  */
+   * describes the degree to which pods may be unevenly distributed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#max_skew StatefulSetV1#max_skew}
+   */
   readonly maxSkew?: number;
   /**
-  * the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
-  */
+   * the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_key StatefulSetV1#topology_key}
+   */
   readonly topologyKey?: string;
   /**
-  * indicates how to deal with a pod if it doesn't satisfy the spread constraint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#when_unsatisfiable StatefulSetV1#when_unsatisfiable}
-  */
+   * indicates how to deal with a pod if it doesn't satisfy the spread constraint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#when_unsatisfiable StatefulSetV1#when_unsatisfiable}
+   */
   readonly whenUnsatisfiable?: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
-  */
-  readonly labelSelector?: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#label_selector StatefulSetV1#label_selector}
+   */
+  readonly labelSelector?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecTopologySpreadConstraintToTerraform(struct?: StatefulSetV1SpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecTopologySpreadConstraintToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraint
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max_skew: cdktf.numberToTerraform(struct!.maxSkew),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
     when_unsatisfiable: cdktf.stringToTerraform(struct!.whenUnsatisfiable),
-    label_selector: cdktf.listMapper(statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReference extends cdktf.ComplexObject {
@@ -3444,16 +4184,29 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraint
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3478,7 +4231,12 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecTopologySpreadConstraint
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3486,12 +4244,10 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
       this._topologyKey = undefined;
       this._whenUnsatisfiable = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._maxSkew = value.maxSkew;
@@ -3502,7 +4258,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
   }
 
   // max_skew - computed: false, optional: true, required: false
-  private _maxSkew?: number; 
+  private _maxSkew?: number;
   public get maxSkew() {
     return this.getNumberAttribute('max_skew');
   }
@@ -3518,7 +4274,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
   }
 
   // topology_key - computed: false, optional: true, required: false
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -3534,7 +4290,7 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
   }
 
   // when_unsatisfiable - computed: false, optional: true, required: false
-  private _whenUnsatisfiable?: string; 
+  private _whenUnsatisfiable?: string;
   public get whenUnsatisfiable() {
     return this.getStringAttribute('when_unsatisfiable');
   }
@@ -3550,11 +4306,20 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | StatefulSetV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -3567,76 +4332,102 @@ export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReferenc
 }
 
 export class StatefulSetV1SpecTemplateSpecTopologySpreadConstraintList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraint[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReference {
-    return new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReference {
+    return new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#partition StatefulSetV1#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#partition StatefulSetV1#partition}
+   */
   readonly partition?: number;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_id StatefulSetV1#volume_id}
-  */
+   * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_id StatefulSetV1#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference | StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -3658,15 +4449,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -3676,7 +4468,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputRefere
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3692,7 +4484,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputRefere
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -3708,7 +4500,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputRefere
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3724,7 +4516,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputRefere
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -3738,47 +4530,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputRefere
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeAzureDisk {
   /**
-  * Host Caching mode: None, Read Only, Read Write.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#caching_mode StatefulSetV1#caching_mode}
-  */
+   * Host Caching mode: None, Read Only, Read Write.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#caching_mode StatefulSetV1#caching_mode}
+   */
   readonly cachingMode: string;
   /**
-  * The URI the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#data_disk_uri StatefulSetV1#data_disk_uri}
-  */
+   * The URI the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#data_disk_uri StatefulSetV1#data_disk_uri}
+   */
   readonly dataDiskUri: string;
   /**
-  * The Name of the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#disk_name StatefulSetV1#disk_name}
-  */
+   * The Name of the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#disk_name StatefulSetV1#disk_name}
+   */
   readonly diskName: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#kind StatefulSetV1#kind}
-  */
+   * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#kind StatefulSetV1#kind}
+   */
   readonly kind?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeAzureDiskToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference | StatefulSetV1SpecTemplateSpecVolumeAzureDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeAzureDiskToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeAzureDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     caching_mode: cdktf.stringToTerraform(struct!.cachingMode),
@@ -3787,21 +4587,26 @@ export function statefulSetV1SpecTemplateSpecVolumeAzureDiskToTerraform(struct?:
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     kind: cdktf.stringToTerraform(struct!.kind),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeAzureDisk | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeAzureDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cachingMode !== undefined) {
@@ -3831,7 +4636,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeAzureDisk | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeAzureDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cachingMode = undefined;
@@ -3840,8 +4647,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
       this._fsType = undefined;
       this._kind = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cachingMode = value.cachingMode;
       this._dataDiskUri = value.dataDiskUri;
@@ -3853,7 +4659,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
   }
 
   // caching_mode - computed: false, optional: false, required: true
-  private _cachingMode?: string; 
+  private _cachingMode?: string;
   public get cachingMode() {
     return this.getStringAttribute('caching_mode');
   }
@@ -3866,7 +4672,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
   }
 
   // data_disk_uri - computed: false, optional: false, required: true
-  private _dataDiskUri?: string; 
+  private _dataDiskUri?: string;
   public get dataDiskUri() {
     return this.getStringAttribute('data_disk_uri');
   }
@@ -3879,7 +4685,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
   }
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string; 
+  private _diskName?: string;
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -3892,7 +4698,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3908,7 +4714,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
   }
 
   // kind - computed: true, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -3924,7 +4730,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3941,56 +4747,69 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference extends
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeAzureFile {
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The name of secret that contains Azure Storage Account Name and Key
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_name StatefulSetV1#secret_name}
-  */
+   * The name of secret that contains Azure Storage Account Name and Key
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_name StatefulSetV1#secret_name}
+   */
   readonly secretName: string;
   /**
-  * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_namespace StatefulSetV1#secret_namespace}
-  */
+   * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_namespace StatefulSetV1#secret_namespace}
+   */
   readonly secretNamespace?: string;
   /**
-  * Share Name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#share_name StatefulSetV1#share_name}
-  */
+   * Share Name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#share_name StatefulSetV1#share_name}
+   */
   readonly shareName: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeAzureFileToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference | StatefulSetV1SpecTemplateSpecVolumeAzureFile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeAzureFileToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeAzureFile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
     secret_namespace: cdktf.stringToTerraform(struct!.secretNamespace),
     share_name: cdktf.stringToTerraform(struct!.shareName),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeAzureFile | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeAzureFile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._readOnly !== undefined) {
@@ -4012,15 +4831,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeAzureFile | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeAzureFile | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._readOnly = undefined;
       this._secretName = undefined;
       this._secretNamespace = undefined;
       this._shareName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._readOnly = value.readOnly;
       this._secretName = value.secretName;
@@ -4030,7 +4850,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4046,7 +4866,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -4059,7 +4879,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends
   }
 
   // secret_namespace - computed: false, optional: true, required: false
-  private _secretNamespace?: string; 
+  private _secretNamespace?: string;
   public get secretNamespace() {
     return this.getStringAttribute('secret_namespace');
   }
@@ -4075,7 +4895,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends
   }
 
   // share_name - computed: false, optional: false, required: true
-  private _shareName?: string; 
+  private _shareName?: string;
   public get shareName() {
     return this.getStringAttribute('share_name');
   }
@@ -4089,42 +4909,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference extends
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4138,13 +4971,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -4152,7 +4986,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference e
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4168,7 +5002,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference e
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -4185,70 +5019,88 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference e
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeCephFs {
   /**
-  * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#monitors StatefulSetV1#monitors}
-  */
+   * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#monitors StatefulSetV1#monitors}
+   */
   readonly monitors: string[];
   /**
-  * Used as the mounted root, rather than the full Ceph tree, default is /
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Used as the mounted root, rather than the full Ceph tree, default is /
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_file StatefulSetV1#secret_file}
-  */
+   * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_file StatefulSetV1#secret_file}
+   */
   readonly secretFile?: string;
   /**
-  * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
-  */
+   * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
+   */
   readonly user?: string;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
+   */
   readonly secretRef?: StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeCephFsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference | StatefulSetV1SpecTemplateSpecVolumeCephFs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeCephFsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeCephFs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.monitors),
+    monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.monitors),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_file: cdktf.stringToTerraform(struct!.secretFile),
     user: cdktf.stringToTerraform(struct!.user),
-    secret_ref: statefulSetV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref: statefulSetV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(
+      struct!.secretRef,
+    ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeCephFs | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeCephFs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._monitors !== undefined) {
@@ -4278,7 +5130,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeCephFs | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeCephFs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._monitors = undefined;
@@ -4287,8 +5141,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
       this._secretFile = undefined;
       this._user = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._monitors = value.monitors;
       this._path = value.path;
@@ -4300,7 +5153,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
   }
 
   // monitors - computed: false, optional: false, required: true
-  private _monitors?: string[]; 
+  private _monitors?: string[];
   public get monitors() {
     return cdktf.Fn.tolist(this.getListAttribute('monitors'));
   }
@@ -4313,7 +5166,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -4329,7 +5182,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4345,7 +5198,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
   }
 
   // secret_file - computed: false, optional: true, required: false
-  private _secretFile?: string; 
+  private _secretFile?: string;
   public get secretFile() {
     return this.getStringAttribute('secret_file');
   }
@@ -4361,7 +5214,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -4377,11 +5230,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef) {
+  public putSecretRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeCephFsSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -4394,49 +5253,62 @@ export class StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference extends cd
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeCinder {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_id StatefulSetV1#volume_id}
-  */
+   * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_id StatefulSetV1#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeCinderToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference | StatefulSetV1SpecTemplateSpecVolumeCinder): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeCinderToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeCinder,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeCinder | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeCinder
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -4454,14 +5326,15 @@ export class StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeCinder | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeCinder | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._readOnly = value.readOnly;
@@ -4470,7 +5343,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference extends cd
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4486,7 +5359,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference extends cd
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4502,7 +5375,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference extends cd
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -4516,35 +5389,43 @@ export class StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference extends cd
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeConfigMapItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeConfigMapItemsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeConfigMapItemsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMapItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference extends cdktf.ComplexObject {
@@ -4552,16 +5433,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMapItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4582,19 +5476,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeConfigMapItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -4604,7 +5501,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference ex
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -4620,7 +5517,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference ex
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -4636,7 +5533,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference ex
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -4653,76 +5550,107 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference ex
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMapItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeConfigMap {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the ConfigMap or its keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Optional: Specify whether the ConfigMap or its keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
-  */
-  readonly items?: StatefulSetV1SpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
+   */
+  readonly items?:
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMapItems[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeConfigMapToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference | StatefulSetV1SpecTemplateSpecVolumeConfigMap): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeConfigMapToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMap,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeConfigMapItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeConfigMapItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeConfigMap | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeConfigMap
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -4744,15 +5672,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeConfigMap | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeConfigMap | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._name = value.name;
@@ -4762,7 +5691,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -4778,7 +5707,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4794,7 +5723,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -4810,11 +5739,19 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsList(this, "items", false);
+  private _items = new StatefulSetV1SpecTemplateSpecVolumeConfigMapItemsList(
+    this,
+    'items',
+    false,
+  );
   public get items() {
     return this._items;
   }
-  public putItems(value: StatefulSetV1SpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeConfigMapItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -4827,35 +5764,48 @@ export class StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference extends
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4865,19 +5815,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4894,63 +5847,81 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputRef
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeCsi {
   /**
-  * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#driver StatefulSetV1#driver}
-  */
+   * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#driver StatefulSetV1#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Attributes of the volume to publish.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_attributes StatefulSetV1#volume_attributes}
-  */
+   * Attributes of the volume to publish.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_attributes StatefulSetV1#volume_attributes}
+   */
   readonly volumeAttributes?: { [key: string]: string };
   /**
-  * node_publish_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_publish_secret_ref StatefulSetV1#node_publish_secret_ref}
-  */
+   * node_publish_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_publish_secret_ref StatefulSetV1#node_publish_secret_ref}
+   */
   readonly nodePublishSecretRef?: StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeCsiToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference | StatefulSetV1SpecTemplateSpecVolumeCsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeCsiToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeCsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.volumeAttributes),
-    node_publish_secret_ref: statefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(struct!.nodePublishSecretRef),
-  }
+    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.volumeAttributes,
+    ),
+    node_publish_secret_ref:
+      statefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(
+        struct!.nodePublishSecretRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeCsi | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeCsi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -4971,12 +5942,15 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
     }
     if (this._nodePublishSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodePublishSecretRef = this._nodePublishSecretRef?.internalValue;
+      internalValueResult.nodePublishSecretRef =
+        this._nodePublishSecretRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeCsi | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeCsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -4984,8 +5958,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
       this._readOnly = undefined;
       this._volumeAttributes = undefined;
       this._nodePublishSecretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -4996,7 +5969,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -5009,7 +5982,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -5025,7 +5998,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -5041,7 +6014,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
   }
 
   // volume_attributes - computed: false, optional: true, required: false
-  private _volumeAttributes?: { [key: string]: string }; 
+  private _volumeAttributes?: { [key: string]: string };
   public get volumeAttributes() {
     return this.getStringMapAttribute('volume_attributes');
   }
@@ -5057,11 +6030,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
   }
 
   // node_publish_secret_ref - computed: false, optional: true, required: false
-  private _nodePublishSecretRef = new StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference(this, "node_publish_secret_ref");
+  private _nodePublishSecretRef =
+    new StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference(
+      this,
+      'node_publish_secret_ref',
+    );
   public get nodePublishSecretRef() {
     return this._nodePublishSecretRef;
   }
-  public putNodePublishSecretRef(value: StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef) {
+  public putNodePublishSecretRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeCsiNodePublishSecretRef,
+  ) {
     this._nodePublishSecretRef.internalValue = value;
   }
   public resetNodePublishSecretRef() {
@@ -5074,42 +6053,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -5123,13 +6115,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -5137,7 +6132,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRe
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -5153,7 +6148,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRe
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -5170,45 +6165,58 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputRe
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
+   */
   readonly resource: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -5226,14 +6234,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -5242,7 +6253,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -5255,7 +6266,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -5271,7 +6282,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -5285,42 +6296,56 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems {
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
+   */
   readonly mode?: string;
   /**
-  * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path: string;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
+   */
   readonly fieldRef: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
+   */
   readonly resourceFieldRef?: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-    field_ref: statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(struct!.resourceFieldRef),
-  }
+    field_ref:
+      statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference extends cdktf.ComplexObject {
@@ -5328,16 +6353,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5357,12 +6395,18 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -5370,12 +6414,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
       this._path = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mode = value.mode;
@@ -5386,7 +6428,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -5402,7 +6444,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -5415,11 +6457,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
   }
 
   // field_ref - computed: false, optional: false, required: true
-  private _fieldRef = new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef) {
+  public putFieldRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -5428,11 +6476,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef) {
+  public putResourceFieldRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -5445,62 +6499,93 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference 
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeDownwardApi {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
-  */
-  readonly items?: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
+   */
+  readonly items?:
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeDownwardApiToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference | StatefulSetV1SpecTemplateSpecVolumeDownwardApi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeDownwardApiToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
-    items: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeDownwardApi | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeDownwardApi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -5514,13 +6599,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApi | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeDownwardApi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._items.internalValue = value.items;
@@ -5528,7 +6614,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference exten
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -5544,11 +6630,19 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference exten
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsList(this, "items", false);
+  private _items = new StatefulSetV1SpecTemplateSpecVolumeDownwardApiItemsList(
+    this,
+    'items',
+    false,
+  );
   public get items() {
     return this._items;
   }
-  public putItems(value: StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeDownwardApiItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -5561,42 +6655,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference exten
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeEmptyDir {
   /**
-  * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#medium StatefulSetV1#medium}
-  */
+   * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#medium StatefulSetV1#medium}
+   */
   readonly medium?: string;
   /**
-  * Total amount of local storage required for this EmptyDir volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#size_limit StatefulSetV1#size_limit}
-  */
+   * Total amount of local storage required for this EmptyDir volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#size_limit StatefulSetV1#size_limit}
+   */
   readonly sizeLimit?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeEmptyDirToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference | StatefulSetV1SpecTemplateSpecVolumeEmptyDir): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeEmptyDirToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeEmptyDir,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     medium: cdktf.stringToTerraform(struct!.medium),
     size_limit: cdktf.stringToTerraform(struct!.sizeLimit),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeEmptyDir | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeEmptyDir
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._medium !== undefined) {
@@ -5610,13 +6717,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeEmptyDir | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeEmptyDir | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._medium = undefined;
       this._sizeLimit = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._medium = value.medium;
       this._sizeLimit = value.sizeLimit;
@@ -5624,7 +6732,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference extends 
   }
 
   // medium - computed: false, optional: true, required: false
-  private _medium?: string; 
+  private _medium?: string;
   public get medium() {
     return this.getStringAttribute('medium');
   }
@@ -5640,7 +6748,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference extends 
   }
 
   // size_limit - computed: false, optional: true, required: false
-  private _sizeLimit?: string; 
+  private _sizeLimit?: string;
   public get sizeLimit() {
     return this.getStringAttribute('size_limit');
   }
@@ -5657,56 +6765,72 @@ export class StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference extends 
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeFc {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * FC target lun number
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lun StatefulSetV1#lun}
-  */
+   * FC target lun number
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lun StatefulSetV1#lun}
+   */
   readonly lun: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * FC target worldwide names (WWNs)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#target_ww_ns StatefulSetV1#target_ww_ns}
-  */
+   * FC target worldwide names (WWNs)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#target_ww_ns StatefulSetV1#target_ww_ns}
+   */
   readonly targetWwNs: string[];
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeFcToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeFcOutputReference | StatefulSetV1SpecTemplateSpecVolumeFc): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeFcToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeFcOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeFc,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    target_ww_ns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.targetWwNs),
-  }
+    target_ww_ns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.targetWwNs),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeFc | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeFc
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -5728,15 +6852,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeFc | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeFc | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetWwNs = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._lun = value.lun;
@@ -5746,7 +6871,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -5762,7 +6887,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.
   }
 
   // lun - computed: false, optional: false, required: true
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -5775,7 +6900,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -5791,7 +6916,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.
   }
 
   // target_ww_ns - computed: false, optional: false, required: true
-  private _targetWwNs?: string[]; 
+  private _targetWwNs?: string[];
   public get targetWwNs() {
     return cdktf.Fn.tolist(this.getListAttribute('target_ww_ns'));
   }
@@ -5805,42 +6930,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -5854,13 +6992,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -5868,7 +7007,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReferen
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5884,7 +7023,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReferen
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -5901,63 +7040,79 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReferen
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeFlexVolume {
   /**
-  * Driver is the name of the driver to use for this volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#driver StatefulSetV1#driver}
-  */
+   * Driver is the name of the driver to use for this volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#driver StatefulSetV1#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Extra command options if any.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#options StatefulSetV1#options}
-  */
+   * Extra command options if any.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#options StatefulSetV1#options}
+   */
   readonly options?: { [key: string]: string };
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
+   */
   readonly secretRef?: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeFlexVolumeToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference | StatefulSetV1SpecTemplateSpecVolumeFlexVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeFlexVolumeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeFlexVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     options: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.options),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: statefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      statefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeFlexVolume | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeFlexVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -5983,7 +7138,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeFlexVolume | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeFlexVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -5991,8 +7148,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
       this._options = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -6003,7 +7159,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -6016,7 +7172,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6032,7 +7188,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -6048,7 +7204,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6064,11 +7220,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef) {
+  public putSecretRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeFlexVolumeSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -6081,42 +7243,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference extend
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeFlocker {
   /**
-  * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dataset_name StatefulSetV1#dataset_name}
-  */
+   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dataset_name StatefulSetV1#dataset_name}
+   */
   readonly datasetName?: string;
   /**
-  * UUID of the dataset. This is unique identifier of a Flocker dataset
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dataset_uuid StatefulSetV1#dataset_uuid}
-  */
+   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dataset_uuid StatefulSetV1#dataset_uuid}
+   */
   readonly datasetUuid?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeFlockerToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference | StatefulSetV1SpecTemplateSpecVolumeFlocker): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeFlockerToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeFlocker,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dataset_name: cdktf.stringToTerraform(struct!.datasetName),
     dataset_uuid: cdktf.stringToTerraform(struct!.datasetUuid),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeFlocker | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeFlocker
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._datasetName !== undefined) {
@@ -6130,13 +7305,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeFlocker | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeFlocker | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._datasetName = undefined;
       this._datasetUuid = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._datasetName = value.datasetName;
       this._datasetUuid = value.datasetUuid;
@@ -6144,7 +7320,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference extends c
   }
 
   // dataset_name - computed: false, optional: true, required: false
-  private _datasetName?: string; 
+  private _datasetName?: string;
   public get datasetName() {
     return this.getStringAttribute('dataset_name');
   }
@@ -6160,7 +7336,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference extends c
   }
 
   // dataset_uuid - computed: false, optional: true, required: false
-  private _datasetUuid?: string; 
+  private _datasetUuid?: string;
   public get datasetUuid() {
     return this.getStringAttribute('dataset_uuid');
   }
@@ -6177,56 +7353,69 @@ export class StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference extends c
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#partition StatefulSetV1#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#partition StatefulSetV1#partition}
+   */
   readonly partition?: number;
   /**
-  * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pd_name StatefulSetV1#pd_name}
-  */
+   * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pd_name StatefulSetV1#pd_name}
+   */
   readonly pdName: string;
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference | StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     pd_name: cdktf.stringToTerraform(struct!.pdName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -6248,15 +7437,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._pdName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -6266,7 +7456,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6282,7 +7472,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -6298,7 +7488,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
   }
 
   // pd_name - computed: false, optional: false, required: true
-  private _pdName?: string; 
+  private _pdName?: string;
   public get pdName() {
     return this.getStringAttribute('pd_name');
   }
@@ -6311,7 +7501,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6328,49 +7518,62 @@ export class StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeGitRepo {
   /**
-  * Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#directory StatefulSetV1#directory}
-  */
+   * Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#directory StatefulSetV1#directory}
+   */
   readonly directory?: string;
   /**
-  * Repository URL
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#repository StatefulSetV1#repository}
-  */
+   * Repository URL
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#repository StatefulSetV1#repository}
+   */
   readonly repository?: string;
   /**
-  * Commit hash for the specified revision.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#revision StatefulSetV1#revision}
-  */
+   * Commit hash for the specified revision.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#revision StatefulSetV1#revision}
+   */
   readonly revision?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeGitRepoToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference | StatefulSetV1SpecTemplateSpecVolumeGitRepo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeGitRepoToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeGitRepo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     directory: cdktf.stringToTerraform(struct!.directory),
     repository: cdktf.stringToTerraform(struct!.repository),
     revision: cdktf.stringToTerraform(struct!.revision),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeGitRepo | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeGitRepo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._directory !== undefined) {
@@ -6388,14 +7591,15 @@ export class StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeGitRepo | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeGitRepo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._directory = undefined;
       this._repository = undefined;
       this._revision = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._directory = value.directory;
       this._repository = value.repository;
@@ -6404,7 +7608,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference extends c
   }
 
   // directory - computed: false, optional: true, required: false
-  private _directory?: string; 
+  private _directory?: string;
   public get directory() {
     return this.getStringAttribute('directory');
   }
@@ -6420,7 +7624,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference extends c
   }
 
   // repository - computed: false, optional: true, required: false
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -6436,7 +7640,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference extends c
   }
 
   // revision - computed: false, optional: true, required: false
-  private _revision?: string; 
+  private _revision?: string;
   public get revision() {
     return this.getStringAttribute('revision');
   }
@@ -6453,49 +7657,62 @@ export class StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference extends c
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeGlusterfs {
   /**
-  * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#endpoints_name StatefulSetV1#endpoints_name}
-  */
+   * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#endpoints_name StatefulSetV1#endpoints_name}
+   */
   readonly endpointsName: string;
   /**
-  * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeGlusterfsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference | StatefulSetV1SpecTemplateSpecVolumeGlusterfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeGlusterfsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeGlusterfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     endpoints_name: cdktf.stringToTerraform(struct!.endpointsName),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeGlusterfs | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeGlusterfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpointsName !== undefined) {
@@ -6513,14 +7730,15 @@ export class StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeGlusterfs | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeGlusterfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpointsName = undefined;
       this._path = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpointsName = value.endpointsName;
       this._path = value.path;
@@ -6529,7 +7747,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference extends
   }
 
   // endpoints_name - computed: false, optional: false, required: true
-  private _endpointsName?: string; 
+  private _endpointsName?: string;
   public get endpointsName() {
     return this.getStringAttribute('endpoints_name');
   }
@@ -6542,7 +7760,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference extends
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6555,7 +7773,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference extends
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6572,42 +7790,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference extends
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeHostPath {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
   /**
-  * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeHostPathToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference | StatefulSetV1SpecTemplateSpecVolumeHostPath): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeHostPathToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeHostPath,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeHostPath | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeHostPath
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -6621,13 +7852,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeHostPath | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeHostPath | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._type = value.type;
@@ -6635,7 +7867,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference extends 
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6651,7 +7883,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference extends 
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -6668,47 +7900,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference extends 
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeIscsi {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Target iSCSI Qualified Name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#iqn StatefulSetV1#iqn}
-  */
+   * Target iSCSI Qualified Name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#iqn StatefulSetV1#iqn}
+   */
   readonly iqn: string;
   /**
-  * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#iscsi_interface StatefulSetV1#iscsi_interface}
-  */
+   * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#iscsi_interface StatefulSetV1#iscsi_interface}
+   */
   readonly iscsiInterface?: string;
   /**
-  * iSCSI target lun number.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lun StatefulSetV1#lun}
-  */
+   * iSCSI target lun number.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#lun StatefulSetV1#lun}
+   */
   readonly lun?: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#target_portal StatefulSetV1#target_portal}
-  */
+   * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#target_portal StatefulSetV1#target_portal}
+   */
   readonly targetPortal: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeIscsiToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference | StatefulSetV1SpecTemplateSpecVolumeIscsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeIscsiToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeIscsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
@@ -6717,21 +7957,26 @@ export function statefulSetV1SpecTemplateSpecVolumeIscsiToTerraform(struct?: Sta
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     target_portal: cdktf.stringToTerraform(struct!.targetPortal),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeIscsi | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeIscsi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -6761,7 +8006,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeIscsi | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeIscsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
@@ -6770,8 +8017,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetPortal = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._iqn = value.iqn;
@@ -6783,7 +8029,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6799,7 +8045,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
   }
 
   // iqn - computed: false, optional: false, required: true
-  private _iqn?: string; 
+  private _iqn?: string;
   public get iqn() {
     return this.getStringAttribute('iqn');
   }
@@ -6812,7 +8058,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
   }
 
   // iscsi_interface - computed: false, optional: true, required: false
-  private _iscsiInterface?: string; 
+  private _iscsiInterface?: string;
   public get iscsiInterface() {
     return this.getStringAttribute('iscsi_interface');
   }
@@ -6828,7 +8074,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
   }
 
   // lun - computed: false, optional: true, required: false
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -6844,7 +8090,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6860,7 +8106,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
   }
 
   // target_portal - computed: false, optional: false, required: true
-  private _targetPortal?: string; 
+  private _targetPortal?: string;
   public get targetPortal() {
     return this.getStringAttribute('target_portal');
   }
@@ -6874,35 +8120,48 @@ export class StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference extends cdk
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeLocal {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeLocalToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference | StatefulSetV1SpecTemplateSpecVolumeLocal): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeLocalToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeLocal,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeLocal | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeLocal
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -6912,19 +8171,20 @@ export class StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeLocal | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeLocal | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
     }
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6941,49 +8201,62 @@ export class StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference extends cdk
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeNfs {
   /**
-  * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#server StatefulSetV1#server}
-  */
+   * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#server StatefulSetV1#server}
+   */
   readonly server: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeNfsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference | StatefulSetV1SpecTemplateSpecVolumeNfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeNfsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeNfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     server: cdktf.stringToTerraform(struct!.server),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeNfs | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeNfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -7001,14 +8274,15 @@ export class StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeNfs | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeNfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._readOnly = undefined;
       this._server = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._readOnly = value.readOnly;
@@ -7017,7 +8291,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7030,7 +8304,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -7046,7 +8320,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf
   }
 
   // server - computed: false, optional: false, required: true
-  private _server?: string; 
+  private _server?: string;
   public get server() {
     return this.getStringAttribute('server');
   }
@@ -7060,42 +8334,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf
 }
 export interface StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim {
   /**
-  * ClaimName is the name of a PersistentVolumeClaim in the same 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#claim_name StatefulSetV1#claim_name}
-  */
+   * ClaimName is the name of a PersistentVolumeClaim in the same
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#claim_name StatefulSetV1#claim_name}
+   */
   readonly claimName?: string;
   /**
-  * Will force the ReadOnly setting in VolumeMounts.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Will force the ReadOnly setting in VolumeMounts.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference | StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     claim_name: cdktf.stringToTerraform(struct!.claimName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._claimName !== undefined) {
@@ -7109,13 +8396,14 @@ export class StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._claimName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._claimName = value.claimName;
       this._readOnly = value.readOnly;
@@ -7123,7 +8411,7 @@ export class StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputRefer
   }
 
   // claim_name - computed: false, optional: true, required: false
-  private _claimName?: string; 
+  private _claimName?: string;
   public get claimName() {
     return this.getStringAttribute('claim_name');
   }
@@ -7139,7 +8427,7 @@ export class StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputRefer
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -7156,42 +8444,55 @@ export class StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputRefer
 }
 export interface StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * ID that identifies Photon Controller persistent disk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pd_id StatefulSetV1#pd_id}
-  */
+   * ID that identifies Photon Controller persistent disk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pd_id StatefulSetV1#pd_id}
+   */
   readonly pdId: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference | StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     pd_id: cdktf.stringToTerraform(struct!.pdId),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -7205,13 +8506,14 @@ export class StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._pdId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._pdId = value.pdId;
@@ -7219,7 +8521,7 @@ export class StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputRefere
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -7235,7 +8537,7 @@ export class StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputRefere
   }
 
   // pd_id - computed: false, optional: false, required: true
-  private _pdId?: string; 
+  private _pdId?: string;
   public get pdId() {
     return this.getStringAttribute('pd_id');
   }
@@ -7249,35 +8551,43 @@ export class StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputRefere
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference extends cdktf.ComplexObject {
@@ -7285,16 +8595,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOu
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7315,19 +8638,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -7337,7 +8663,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOu
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -7353,7 +8679,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOu
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -7369,7 +8695,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOu
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7386,55 +8712,81 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOu
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the ConfigMap or it's keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Optional: Specify whether the ConfigMap or it's keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
-  */
-  readonly items?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
+   */
+  readonly items?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference extends cdktf.ComplexObject {
@@ -7442,16 +8794,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputR
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7472,19 +8837,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -7494,7 +8862,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputR
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7510,7 +8878,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputR
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -7526,11 +8894,20 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputR
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList(this, "items", false);
+  private _items =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -7543,62 +8920,88 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputR
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to 'v1'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to 'v1'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#api_version StatefulSetV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_path StatefulSetV1#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -7612,13 +9015,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -7626,7 +9032,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -7642,7 +9048,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -7659,45 +9065,58 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container_name StatefulSetV1#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#divisor StatefulSetV1#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource StatefulSetV1#resource}
+   */
   readonly resource: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -7715,14 +9134,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -7731,7 +9153,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -7744,7 +9166,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -7760,7 +9182,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -7774,42 +9196,56 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems {
   /**
-  * Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
-  */
+   * Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
+   */
   readonly mode?: string;
   /**
-  * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path: string;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#field_ref StatefulSetV1#field_ref}
+   */
   readonly fieldRef?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resource_field_ref StatefulSetV1#resource_field_ref}
+   */
   readonly resourceFieldRef?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-    field_ref: statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(struct!.resourceFieldRef),
-  }
+    field_ref:
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference extends cdktf.ComplexObject {
@@ -7817,16 +9253,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7846,12 +9295,18 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -7859,12 +9314,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
       this._path = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mode = value.mode;
@@ -7875,7 +9328,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -7891,7 +9344,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7904,11 +9357,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // field_ref - computed: false, optional: true, required: false
-  private _fieldRef = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef) {
+  public putFieldRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   public resetFieldRef() {
@@ -7920,11 +9379,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef) {
+  public putResourceFieldRef(
+    value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -7937,55 +9402,86 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi {
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
-  */
-  readonly items?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
+   */
+  readonly items?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    items: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items?.internalValue !== undefined) {
@@ -7995,23 +9491,35 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items.internalValue = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList(this, "items", false);
+  private _items =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -8024,35 +9532,43 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutpu
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference extends cdktf.ComplexObject {
@@ -8060,16 +9576,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutpu
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8090,19 +9619,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -8112,7 +9644,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutpu
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -8128,7 +9660,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutpu
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -8144,7 +9676,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutpu
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8161,55 +9693,81 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutpu
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret {
   /**
-  * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the Secret or it's keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Optional: Specify whether the Secret or it's keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
-  */
-  readonly items?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
+   */
+  readonly items?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference extends cdktf.ComplexObject {
@@ -8217,16 +9775,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputRefe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8247,19 +9818,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -8269,7 +9843,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputRefe
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -8285,7 +9859,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputRefe
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -8301,11 +9875,20 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputRefe
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsList(this, "items", false);
+  private _items =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -8318,69 +9901,95 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputRefe
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken {
   /**
-  * Audience is the intended audience of the token
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#audience StatefulSetV1#audience}
-  */
+   * Audience is the intended audience of the token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#audience StatefulSetV1#audience}
+   */
   readonly audience?: string;
   /**
-  * ExpirationSeconds is the expected duration of validity of the service account token. It defaults to 1 hour and must be at least 10 minutes (600 seconds).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#expiration_seconds StatefulSetV1#expiration_seconds}
-  */
+   * ExpirationSeconds is the expected duration of validity of the service account token. It defaults to 1 hour and must be at least 10 minutes (600 seconds).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#expiration_seconds StatefulSetV1#expiration_seconds}
+   */
   readonly expirationSeconds?: number;
   /**
-  * Path specifies a relative path to the mount point of the projected volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * Path specifies a relative path to the mount point of the projected volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     audience: cdktf.stringToTerraform(struct!.audience),
     expiration_seconds: cdktf.numberToTerraform(struct!.expirationSeconds),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._audience !== undefined) {
@@ -8398,14 +10007,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTo
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._audience = undefined;
       this._expirationSeconds = undefined;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._audience = value.audience;
       this._expirationSeconds = value.expirationSeconds;
@@ -8414,7 +10026,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTo
   }
 
   // audience - computed: false, optional: true, required: false
-  private _audience?: string; 
+  private _audience?: string;
   public get audience() {
     return this.getStringAttribute('audience');
   }
@@ -8430,7 +10042,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTo
   }
 
   // expiration_seconds - computed: false, optional: true, required: false
-  private _expirationSeconds?: number; 
+  private _expirationSeconds?: number;
   public get expirationSeconds() {
     return this.getNumberAttribute('expiration_seconds');
   }
@@ -8446,7 +10058,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTo
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8460,42 +10072,66 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTo
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjectedSources {
   /**
-  * config_map block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map StatefulSetV1#config_map}
-  */
-  readonly configMap?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable;
+   * config_map block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map StatefulSetV1#config_map}
+   */
+  readonly configMap?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+    | cdktf.IResolvable;
   /**
-  * downward_api block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#downward_api StatefulSetV1#downward_api}
-  */
+   * downward_api block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#downward_api StatefulSetV1#downward_api}
+   */
   readonly downwardApi?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret StatefulSetV1#secret}
-  */
-  readonly secret?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable;
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret StatefulSetV1#secret}
+   */
+  readonly secret?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret[]
+    | cdktf.IResolvable;
   /**
-  * service_account_token block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service_account_token StatefulSetV1#service_account_token}
-  */
+   * service_account_token block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service_account_token StatefulSetV1#service_account_token}
+   */
   readonly serviceAccountToken?: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedSourcesToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSources
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    config_map: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform, true)(struct!.configMap),
-    downward_api: statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(struct!.downwardApi),
-    secret: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform, true)(struct!.secret),
-    service_account_token: statefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(struct!.serviceAccountToken),
-  }
+    config_map: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform,
+      true,
+    )(struct!.configMap),
+    downward_api:
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(
+        struct!.downwardApi,
+      ),
+    secret: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform,
+      true,
+    )(struct!.secret),
+    service_account_token:
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(
+        struct!.serviceAccountToken,
+      ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference extends cdktf.ComplexObject {
@@ -8503,16 +10139,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSources
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8532,12 +10181,18 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
     }
     if (this._serviceAccountToken?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.serviceAccountToken = this._serviceAccountToken?.internalValue;
+      internalValueResult.serviceAccountToken =
+        this._serviceAccountToken?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSources
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -8545,12 +10200,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
       this._downwardApi.internalValue = undefined;
       this._secret.internalValue = undefined;
       this._serviceAccountToken.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._configMap.internalValue = value.configMap;
@@ -8561,11 +10214,20 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
   }
 
   // config_map - computed: false, optional: true, required: false
-  private _configMap = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapList(this, "config_map", false);
+  private _configMap =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMapList(
+      this,
+      'config_map',
+      false,
+    );
   public get configMap() {
     return this._configMap;
   }
-  public putConfigMap(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable) {
+  public putConfigMap(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+      | cdktf.IResolvable,
+  ) {
     this._configMap.internalValue = value;
   }
   public resetConfigMap() {
@@ -8577,11 +10239,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
   }
 
   // downward_api - computed: false, optional: true, required: false
-  private _downwardApi = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference(this, "downward_api");
+  private _downwardApi =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference(
+      this,
+      'downward_api',
+    );
   public get downwardApi() {
     return this._downwardApi;
   }
-  public putDownwardApi(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi) {
+  public putDownwardApi(
+    value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi,
+  ) {
     this._downwardApi.internalValue = value;
   }
   public resetDownwardApi() {
@@ -8593,11 +10261,20 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretList(this, "secret", false);
+  private _secret =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecretList(
+      this,
+      'secret',
+      false,
+    );
   public get secret() {
     return this._secret;
   }
-  public putSecret(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable) {
+  public putSecret(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesSecret[]
+      | cdktf.IResolvable,
+  ) {
     this._secret.internalValue = value;
   }
   public resetSecret() {
@@ -8609,11 +10286,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
   }
 
   // service_account_token - computed: false, optional: true, required: false
-  private _serviceAccountToken = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference(this, "service_account_token");
+  private _serviceAccountToken =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference(
+      this,
+      'service_account_token',
+    );
   public get serviceAccountToken() {
     return this._serviceAccountToken;
   }
-  public putServiceAccountToken(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken) {
+  public putServiceAccountToken(
+    value: StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken,
+  ) {
     this._serviceAccountToken.internalValue = value;
   }
   public resetServiceAccountToken() {
@@ -8626,48 +10309,72 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference 
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSources[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeProjected {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * sources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sources StatefulSetV1#sources}
-  */
-  readonly sources: StatefulSetV1SpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable;
+   * sources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#sources StatefulSetV1#sources}
+   */
+  readonly sources:
+    | StatefulSetV1SpecTemplateSpecVolumeProjectedSources[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeProjectedToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeProjectedToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
-    sources: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedSourcesToTerraform, true)(struct!.sources),
-  }
+    sources: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedSourcesToTerraform,
+      true,
+    )(struct!.sources),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference extends cdktf.ComplexObject {
@@ -8675,16 +10382,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeProjected
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8701,18 +10421,21 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjected
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._defaultMode = undefined;
       this._sources.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._defaultMode = value.defaultMode;
@@ -8721,7 +10444,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference extends
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -8737,11 +10460,20 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference extends
   }
 
   // sources - computed: false, optional: false, required: true
-  private _sources = new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesList(this, "sources", false);
+  private _sources =
+    new StatefulSetV1SpecTemplateSpecVolumeProjectedSourcesList(
+      this,
+      'sources',
+      false,
+    );
   public get sources() {
     return this._sources;
   }
-  public putSources(value: StatefulSetV1SpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable) {
+  public putSources(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeProjectedSources[]
+      | cdktf.IResolvable,
+  ) {
     this._sources.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -8751,61 +10483,82 @@ export class StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference extends
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeProjectedList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjected[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeProjectedOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeQuobyte {
   /**
-  * Group to map volume access to Default is no group
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#group StatefulSetV1#group}
-  */
+   * Group to map volume access to Default is no group
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#group StatefulSetV1#group}
+   */
   readonly group?: string;
   /**
-  * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#registry StatefulSetV1#registry}
-  */
+   * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#registry StatefulSetV1#registry}
+   */
   readonly registry: string;
   /**
-  * User to map volume access to Defaults to serivceaccount user
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
-  */
+   * User to map volume access to Defaults to serivceaccount user
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#user StatefulSetV1#user}
+   */
   readonly user?: string;
   /**
-  * Volume is a string that references an already created Quobyte volume by name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume StatefulSetV1#volume}
-  */
+   * Volume is a string that references an already created Quobyte volume by name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume StatefulSetV1#volume}
+   */
   readonly volume: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeQuobyteToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference | StatefulSetV1SpecTemplateSpecVolumeQuobyte): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeQuobyteToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeQuobyte,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     group: cdktf.stringToTerraform(struct!.group),
@@ -8813,21 +10566,26 @@ export function statefulSetV1SpecTemplateSpecVolumeQuobyteToTerraform(struct?: S
     registry: cdktf.stringToTerraform(struct!.registry),
     user: cdktf.stringToTerraform(struct!.user),
     volume: cdktf.stringToTerraform(struct!.volume),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeQuobyte | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeQuobyte
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._group !== undefined) {
@@ -8853,7 +10611,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeQuobyte | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeQuobyte | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._group = undefined;
@@ -8861,8 +10621,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
       this._registry = undefined;
       this._user = undefined;
       this._volume = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._group = value.group;
       this._readOnly = value.readOnly;
@@ -8873,7 +10632,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -8889,7 +10648,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -8905,7 +10664,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
   }
 
   // registry - computed: false, optional: false, required: true
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -8918,7 +10677,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -8934,7 +10693,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
   }
 
   // volume - computed: false, optional: false, required: true
-  private _volume?: string; 
+  private _volume?: string;
   public get volume() {
     return this.getStringAttribute('volume');
   }
@@ -8948,42 +10707,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference extends c
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference | StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -8997,13 +10769,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -9011,7 +10784,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference exte
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -9027,7 +10800,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference exte
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -9044,84 +10817,102 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference exte
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeRbd {
   /**
-  * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#ceph_monitors StatefulSetV1#ceph_monitors}
-  */
+   * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#ceph_monitors StatefulSetV1#ceph_monitors}
+   */
   readonly cephMonitors: string[];
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#keyring StatefulSetV1#keyring}
-  */
+   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#keyring StatefulSetV1#keyring}
+   */
   readonly keyring?: string;
   /**
-  * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rados_user StatefulSetV1#rados_user}
-  */
+   * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rados_user StatefulSetV1#rados_user}
+   */
   readonly radosUser?: string;
   /**
-  * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rbd_image StatefulSetV1#rbd_image}
-  */
+   * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rbd_image StatefulSetV1#rbd_image}
+   */
   readonly rbdImage: string;
   /**
-  * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rbd_pool StatefulSetV1#rbd_pool}
-  */
+   * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rbd_pool StatefulSetV1#rbd_pool}
+   */
   readonly rbdPool?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read_only StatefulSetV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_ref StatefulSetV1#secret_ref}
+   */
   readonly secretRef?: StatefulSetV1SpecTemplateSpecVolumeRbdSecretRef;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeRbdToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference | StatefulSetV1SpecTemplateSpecVolumeRbd): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeRbdToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeRbd,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ceph_monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cephMonitors),
+    ceph_monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cephMonitors),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     keyring: cdktf.stringToTerraform(struct!.keyring),
     rados_user: cdktf.stringToTerraform(struct!.radosUser),
     rbd_image: cdktf.stringToTerraform(struct!.rbdImage),
     rbd_pool: cdktf.stringToTerraform(struct!.rbdPool),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: statefulSetV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref: statefulSetV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(
+      struct!.secretRef,
+    ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeRbd | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeRbd
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cephMonitors !== undefined) {
@@ -9159,7 +10950,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeRbd | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeRbd | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cephMonitors = undefined;
@@ -9170,8 +10963,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
       this._rbdPool = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cephMonitors = value.cephMonitors;
       this._fsType = value.fsType;
@@ -9185,7 +10977,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // ceph_monitors - computed: false, optional: false, required: true
-  private _cephMonitors?: string[]; 
+  private _cephMonitors?: string[];
   public get cephMonitors() {
     return cdktf.Fn.tolist(this.getListAttribute('ceph_monitors'));
   }
@@ -9198,7 +10990,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -9214,7 +11006,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // keyring - computed: true, optional: true, required: false
-  private _keyring?: string; 
+  private _keyring?: string;
   public get keyring() {
     return this.getStringAttribute('keyring');
   }
@@ -9230,7 +11022,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // rados_user - computed: false, optional: true, required: false
-  private _radosUser?: string; 
+  private _radosUser?: string;
   public get radosUser() {
     return this.getStringAttribute('rados_user');
   }
@@ -9246,7 +11038,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // rbd_image - computed: false, optional: false, required: true
-  private _rbdImage?: string; 
+  private _rbdImage?: string;
   public get rbdImage() {
     return this.getStringAttribute('rbd_image');
   }
@@ -9259,7 +11051,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // rbd_pool - computed: false, optional: true, required: false
-  private _rbdPool?: string; 
+  private _rbdPool?: string;
   public get rbdPool() {
     return this.getStringAttribute('rbd_pool');
   }
@@ -9275,7 +11067,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -9291,7 +11083,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new StatefulSetV1SpecTemplateSpecVolumeRbdSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
@@ -9308,35 +11104,41 @@ export class StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeSecretItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#mode StatefulSetV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#path StatefulSetV1#path}
+   */
   readonly path?: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeSecretItemsToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeSecretItemsToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference extends cdktf.ComplexObject {
@@ -9344,16 +11146,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeSecretItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9374,19 +11189,22 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecTemplateSpecVolumeSecretItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -9396,7 +11214,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference exten
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -9412,7 +11230,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference exten
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -9428,7 +11246,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference exten
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -9445,76 +11263,107 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference exten
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeSecretItemsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolumeSecretItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeSecretItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeSecret {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#default_mode StatefulSetV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * Optional: Specify whether the Secret or its keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
-  */
+   * Optional: Specify whether the Secret or its keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#optional StatefulSetV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_name StatefulSetV1#secret_name}
-  */
+   * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret_name StatefulSetV1#secret_name}
+   */
   readonly secretName?: string;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
-  */
-  readonly items?: StatefulSetV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#items StatefulSetV1#items}
+   */
+  readonly items?:
+    | StatefulSetV1SpecTemplateSpecVolumeSecretItems[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeSecretToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference | StatefulSetV1SpecTemplateSpecVolumeSecret): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeSecretToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeSecret,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
     optional: cdktf.booleanToTerraform(struct!.optional),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
-    items: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeSecretItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeSecretItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeSecret | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeSecret
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -9536,15 +11385,16 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeSecret | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeSecret | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._optional = undefined;
       this._secretName = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._optional = value.optional;
@@ -9554,7 +11404,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cd
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -9570,7 +11420,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cd
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -9586,7 +11436,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cd
   }
 
   // secret_name - computed: false, optional: true, required: false
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -9602,11 +11452,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cd
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new StatefulSetV1SpecTemplateSpecVolumeSecretItemsList(this, "items", false);
+  private _items = new StatefulSetV1SpecTemplateSpecVolumeSecretItemsList(
+    this,
+    'items',
+    false,
+  );
   public get items() {
     return this._items;
   }
-  public putItems(value: StatefulSetV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable) {
+  public putItems(
+    value: StatefulSetV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -9619,42 +11475,55 @@ export class StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference extends cd
 }
 export interface StatefulSetV1SpecTemplateSpecVolumeVsphereVolume {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fs_type StatefulSetV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Path that identifies vSphere volume vmdk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_path StatefulSetV1#volume_path}
-  */
+   * Path that identifies vSphere volume vmdk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_path StatefulSetV1#volume_path}
+   */
   readonly volumePath: string;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference | StatefulSetV1SpecTemplateSpecVolumeVsphereVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference
+    | StatefulSetV1SpecTemplateSpecVolumeVsphereVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     volume_path: cdktf.stringToTerraform(struct!.volumePath),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolumeVsphereVolume | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolumeVsphereVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -9668,13 +11537,14 @@ export class StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolumeVsphereVolume | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolumeVsphereVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._volumePath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._volumePath = value.volumePath;
@@ -9682,7 +11552,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference ext
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -9698,7 +11568,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference ext
   }
 
   // volume_path - computed: false, optional: false, required: true
-  private _volumePath?: string; 
+  private _volumePath?: string;
   public get volumePath() {
     return this.getStringAttribute('volume_path');
   }
@@ -9712,203 +11582,256 @@ export class StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference ext
 }
 export interface StatefulSetV1SpecTemplateSpecVolume {
   /**
-  * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * aws_elastic_block_store block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#aws_elastic_block_store StatefulSetV1#aws_elastic_block_store}
-  */
+   * aws_elastic_block_store block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#aws_elastic_block_store StatefulSetV1#aws_elastic_block_store}
+   */
   readonly awsElasticBlockStore?: StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore;
   /**
-  * azure_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#azure_disk StatefulSetV1#azure_disk}
-  */
+   * azure_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#azure_disk StatefulSetV1#azure_disk}
+   */
   readonly azureDisk?: StatefulSetV1SpecTemplateSpecVolumeAzureDisk;
   /**
-  * azure_file block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#azure_file StatefulSetV1#azure_file}
-  */
+   * azure_file block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#azure_file StatefulSetV1#azure_file}
+   */
   readonly azureFile?: StatefulSetV1SpecTemplateSpecVolumeAzureFile;
   /**
-  * ceph_fs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#ceph_fs StatefulSetV1#ceph_fs}
-  */
+   * ceph_fs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#ceph_fs StatefulSetV1#ceph_fs}
+   */
   readonly cephFs?: StatefulSetV1SpecTemplateSpecVolumeCephFs;
   /**
-  * cinder block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#cinder StatefulSetV1#cinder}
-  */
+   * cinder block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#cinder StatefulSetV1#cinder}
+   */
   readonly cinder?: StatefulSetV1SpecTemplateSpecVolumeCinder;
   /**
-  * config_map block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map StatefulSetV1#config_map}
-  */
+   * config_map block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#config_map StatefulSetV1#config_map}
+   */
   readonly configMap?: StatefulSetV1SpecTemplateSpecVolumeConfigMap;
   /**
-  * csi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#csi StatefulSetV1#csi}
-  */
+   * csi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#csi StatefulSetV1#csi}
+   */
   readonly csi?: StatefulSetV1SpecTemplateSpecVolumeCsi;
   /**
-  * downward_api block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#downward_api StatefulSetV1#downward_api}
-  */
+   * downward_api block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#downward_api StatefulSetV1#downward_api}
+   */
   readonly downwardApi?: StatefulSetV1SpecTemplateSpecVolumeDownwardApi;
   /**
-  * empty_dir block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#empty_dir StatefulSetV1#empty_dir}
-  */
+   * empty_dir block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#empty_dir StatefulSetV1#empty_dir}
+   */
   readonly emptyDir?: StatefulSetV1SpecTemplateSpecVolumeEmptyDir;
   /**
-  * fc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fc StatefulSetV1#fc}
-  */
+   * fc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#fc StatefulSetV1#fc}
+   */
   readonly fc?: StatefulSetV1SpecTemplateSpecVolumeFc;
   /**
-  * flex_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#flex_volume StatefulSetV1#flex_volume}
-  */
+   * flex_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#flex_volume StatefulSetV1#flex_volume}
+   */
   readonly flexVolume?: StatefulSetV1SpecTemplateSpecVolumeFlexVolume;
   /**
-  * flocker block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#flocker StatefulSetV1#flocker}
-  */
+   * flocker block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#flocker StatefulSetV1#flocker}
+   */
   readonly flocker?: StatefulSetV1SpecTemplateSpecVolumeFlocker;
   /**
-  * gce_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#gce_persistent_disk StatefulSetV1#gce_persistent_disk}
-  */
+   * gce_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#gce_persistent_disk StatefulSetV1#gce_persistent_disk}
+   */
   readonly gcePersistentDisk?: StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk;
   /**
-  * git_repo block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#git_repo StatefulSetV1#git_repo}
-  */
+   * git_repo block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#git_repo StatefulSetV1#git_repo}
+   */
   readonly gitRepo?: StatefulSetV1SpecTemplateSpecVolumeGitRepo;
   /**
-  * glusterfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#glusterfs StatefulSetV1#glusterfs}
-  */
+   * glusterfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#glusterfs StatefulSetV1#glusterfs}
+   */
   readonly glusterfs?: StatefulSetV1SpecTemplateSpecVolumeGlusterfs;
   /**
-  * host_path block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_path StatefulSetV1#host_path}
-  */
+   * host_path block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_path StatefulSetV1#host_path}
+   */
   readonly hostPath?: StatefulSetV1SpecTemplateSpecVolumeHostPath;
   /**
-  * iscsi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#iscsi StatefulSetV1#iscsi}
-  */
+   * iscsi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#iscsi StatefulSetV1#iscsi}
+   */
   readonly iscsi?: StatefulSetV1SpecTemplateSpecVolumeIscsi;
   /**
-  * local block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#local StatefulSetV1#local}
-  */
+   * local block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#local StatefulSetV1#local}
+   */
   readonly local?: StatefulSetV1SpecTemplateSpecVolumeLocal;
   /**
-  * nfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#nfs StatefulSetV1#nfs}
-  */
+   * nfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#nfs StatefulSetV1#nfs}
+   */
   readonly nfs?: StatefulSetV1SpecTemplateSpecVolumeNfs;
   /**
-  * persistent_volume_claim block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#persistent_volume_claim StatefulSetV1#persistent_volume_claim}
-  */
+   * persistent_volume_claim block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#persistent_volume_claim StatefulSetV1#persistent_volume_claim}
+   */
   readonly persistentVolumeClaim?: StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim;
   /**
-  * photon_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#photon_persistent_disk StatefulSetV1#photon_persistent_disk}
-  */
+   * photon_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#photon_persistent_disk StatefulSetV1#photon_persistent_disk}
+   */
   readonly photonPersistentDisk?: StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk;
   /**
-  * projected block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#projected StatefulSetV1#projected}
-  */
-  readonly projected?: StatefulSetV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable;
+   * projected block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#projected StatefulSetV1#projected}
+   */
+  readonly projected?:
+    | StatefulSetV1SpecTemplateSpecVolumeProjected[]
+    | cdktf.IResolvable;
   /**
-  * quobyte block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#quobyte StatefulSetV1#quobyte}
-  */
+   * quobyte block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#quobyte StatefulSetV1#quobyte}
+   */
   readonly quobyte?: StatefulSetV1SpecTemplateSpecVolumeQuobyte;
   /**
-  * rbd block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rbd StatefulSetV1#rbd}
-  */
+   * rbd block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rbd StatefulSetV1#rbd}
+   */
   readonly rbd?: StatefulSetV1SpecTemplateSpecVolumeRbd;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret StatefulSetV1#secret}
-  */
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#secret StatefulSetV1#secret}
+   */
   readonly secret?: StatefulSetV1SpecTemplateSpecVolumeSecret;
   /**
-  * vsphere_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#vsphere_volume StatefulSetV1#vsphere_volume}
-  */
+   * vsphere_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#vsphere_volume StatefulSetV1#vsphere_volume}
+   */
   readonly vsphereVolume?: StatefulSetV1SpecTemplateSpecVolumeVsphereVolume;
 }
 
-export function statefulSetV1SpecTemplateSpecVolumeToTerraform(struct?: StatefulSetV1SpecTemplateSpecVolume | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecVolumeToTerraform(
+  struct?: StatefulSetV1SpecTemplateSpecVolume | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    aws_elastic_block_store: statefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(struct!.awsElasticBlockStore),
-    azure_disk: statefulSetV1SpecTemplateSpecVolumeAzureDiskToTerraform(struct!.azureDisk),
-    azure_file: statefulSetV1SpecTemplateSpecVolumeAzureFileToTerraform(struct!.azureFile),
-    ceph_fs: statefulSetV1SpecTemplateSpecVolumeCephFsToTerraform(struct!.cephFs),
-    cinder: statefulSetV1SpecTemplateSpecVolumeCinderToTerraform(struct!.cinder),
-    config_map: statefulSetV1SpecTemplateSpecVolumeConfigMapToTerraform(struct!.configMap),
+    aws_elastic_block_store:
+      statefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(
+        struct!.awsElasticBlockStore,
+      ),
+    azure_disk: statefulSetV1SpecTemplateSpecVolumeAzureDiskToTerraform(
+      struct!.azureDisk,
+    ),
+    azure_file: statefulSetV1SpecTemplateSpecVolumeAzureFileToTerraform(
+      struct!.azureFile,
+    ),
+    ceph_fs: statefulSetV1SpecTemplateSpecVolumeCephFsToTerraform(
+      struct!.cephFs,
+    ),
+    cinder: statefulSetV1SpecTemplateSpecVolumeCinderToTerraform(
+      struct!.cinder,
+    ),
+    config_map: statefulSetV1SpecTemplateSpecVolumeConfigMapToTerraform(
+      struct!.configMap,
+    ),
     csi: statefulSetV1SpecTemplateSpecVolumeCsiToTerraform(struct!.csi),
-    downward_api: statefulSetV1SpecTemplateSpecVolumeDownwardApiToTerraform(struct!.downwardApi),
-    empty_dir: statefulSetV1SpecTemplateSpecVolumeEmptyDirToTerraform(struct!.emptyDir),
+    downward_api: statefulSetV1SpecTemplateSpecVolumeDownwardApiToTerraform(
+      struct!.downwardApi,
+    ),
+    empty_dir: statefulSetV1SpecTemplateSpecVolumeEmptyDirToTerraform(
+      struct!.emptyDir,
+    ),
     fc: statefulSetV1SpecTemplateSpecVolumeFcToTerraform(struct!.fc),
-    flex_volume: statefulSetV1SpecTemplateSpecVolumeFlexVolumeToTerraform(struct!.flexVolume),
-    flocker: statefulSetV1SpecTemplateSpecVolumeFlockerToTerraform(struct!.flocker),
-    gce_persistent_disk: statefulSetV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(struct!.gcePersistentDisk),
-    git_repo: statefulSetV1SpecTemplateSpecVolumeGitRepoToTerraform(struct!.gitRepo),
-    glusterfs: statefulSetV1SpecTemplateSpecVolumeGlusterfsToTerraform(struct!.glusterfs),
-    host_path: statefulSetV1SpecTemplateSpecVolumeHostPathToTerraform(struct!.hostPath),
+    flex_volume: statefulSetV1SpecTemplateSpecVolumeFlexVolumeToTerraform(
+      struct!.flexVolume,
+    ),
+    flocker: statefulSetV1SpecTemplateSpecVolumeFlockerToTerraform(
+      struct!.flocker,
+    ),
+    gce_persistent_disk:
+      statefulSetV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(
+        struct!.gcePersistentDisk,
+      ),
+    git_repo: statefulSetV1SpecTemplateSpecVolumeGitRepoToTerraform(
+      struct!.gitRepo,
+    ),
+    glusterfs: statefulSetV1SpecTemplateSpecVolumeGlusterfsToTerraform(
+      struct!.glusterfs,
+    ),
+    host_path: statefulSetV1SpecTemplateSpecVolumeHostPathToTerraform(
+      struct!.hostPath,
+    ),
     iscsi: statefulSetV1SpecTemplateSpecVolumeIscsiToTerraform(struct!.iscsi),
     local: statefulSetV1SpecTemplateSpecVolumeLocalToTerraform(struct!.local),
     nfs: statefulSetV1SpecTemplateSpecVolumeNfsToTerraform(struct!.nfs),
-    persistent_volume_claim: statefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(struct!.persistentVolumeClaim),
-    photon_persistent_disk: statefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(struct!.photonPersistentDisk),
-    projected: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeProjectedToTerraform, true)(struct!.projected),
-    quobyte: statefulSetV1SpecTemplateSpecVolumeQuobyteToTerraform(struct!.quobyte),
+    persistent_volume_claim:
+      statefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(
+        struct!.persistentVolumeClaim,
+      ),
+    photon_persistent_disk:
+      statefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(
+        struct!.photonPersistentDisk,
+      ),
+    projected: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeProjectedToTerraform,
+      true,
+    )(struct!.projected),
+    quobyte: statefulSetV1SpecTemplateSpecVolumeQuobyteToTerraform(
+      struct!.quobyte,
+    ),
     rbd: statefulSetV1SpecTemplateSpecVolumeRbdToTerraform(struct!.rbd),
-    secret: statefulSetV1SpecTemplateSpecVolumeSecretToTerraform(struct!.secret),
-    vsphere_volume: statefulSetV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(struct!.vsphereVolume),
-  }
+    secret: statefulSetV1SpecTemplateSpecVolumeSecretToTerraform(
+      struct!.secret,
+    ),
+    vsphere_volume: statefulSetV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(
+      struct!.vsphereVolume,
+    ),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.ComplexObject {
@@ -9916,16 +11839,29 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecTemplateSpecVolume | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecTemplateSpecVolume
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9937,7 +11873,8 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
     }
     if (this._awsElasticBlockStore?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.awsElasticBlockStore = this._awsElasticBlockStore?.internalValue;
+      internalValueResult.awsElasticBlockStore =
+        this._awsElasticBlockStore?.internalValue;
     }
     if (this._azureDisk?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -9985,7 +11922,8 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
     }
     if (this._gcePersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.gcePersistentDisk = this._gcePersistentDisk?.internalValue;
+      internalValueResult.gcePersistentDisk =
+        this._gcePersistentDisk?.internalValue;
     }
     if (this._gitRepo?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10013,11 +11951,13 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
     }
     if (this._persistentVolumeClaim?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.persistentVolumeClaim = this._persistentVolumeClaim?.internalValue;
+      internalValueResult.persistentVolumeClaim =
+        this._persistentVolumeClaim?.internalValue;
     }
     if (this._photonPersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.photonPersistentDisk = this._photonPersistentDisk?.internalValue;
+      internalValueResult.photonPersistentDisk =
+        this._photonPersistentDisk?.internalValue;
     }
     if (this._projected?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10042,7 +11982,9 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecTemplateSpecVolume | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecTemplateSpecVolume | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -10073,12 +12015,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
       this._rbd.internalValue = undefined;
       this._secret.internalValue = undefined;
       this._vsphereVolume.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -10112,7 +12052,7 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -10128,11 +12068,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // aws_elastic_block_store - computed: false, optional: true, required: false
-  private _awsElasticBlockStore = new StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference(this, "aws_elastic_block_store");
+  private _awsElasticBlockStore =
+    new StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference(
+      this,
+      'aws_elastic_block_store',
+    );
   public get awsElasticBlockStore() {
     return this._awsElasticBlockStore;
   }
-  public putAwsElasticBlockStore(value: StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore) {
+  public putAwsElasticBlockStore(
+    value: StatefulSetV1SpecTemplateSpecVolumeAwsElasticBlockStore,
+  ) {
     this._awsElasticBlockStore.internalValue = value;
   }
   public resetAwsElasticBlockStore() {
@@ -10144,7 +12090,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // azure_disk - computed: false, optional: true, required: false
-  private _azureDisk = new StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference(this, "azure_disk");
+  private _azureDisk =
+    new StatefulSetV1SpecTemplateSpecVolumeAzureDiskOutputReference(
+      this,
+      'azure_disk',
+    );
   public get azureDisk() {
     return this._azureDisk;
   }
@@ -10160,7 +12110,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // azure_file - computed: false, optional: true, required: false
-  private _azureFile = new StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference(this, "azure_file");
+  private _azureFile =
+    new StatefulSetV1SpecTemplateSpecVolumeAzureFileOutputReference(
+      this,
+      'azure_file',
+    );
   public get azureFile() {
     return this._azureFile;
   }
@@ -10176,7 +12130,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // ceph_fs - computed: false, optional: true, required: false
-  private _cephFs = new StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference(this, "ceph_fs");
+  private _cephFs =
+    new StatefulSetV1SpecTemplateSpecVolumeCephFsOutputReference(
+      this,
+      'ceph_fs',
+    );
   public get cephFs() {
     return this._cephFs;
   }
@@ -10192,7 +12150,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // cinder - computed: false, optional: true, required: false
-  private _cinder = new StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference(this, "cinder");
+  private _cinder =
+    new StatefulSetV1SpecTemplateSpecVolumeCinderOutputReference(
+      this,
+      'cinder',
+    );
   public get cinder() {
     return this._cinder;
   }
@@ -10208,7 +12170,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // config_map - computed: false, optional: true, required: false
-  private _configMap = new StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference(this, "config_map");
+  private _configMap =
+    new StatefulSetV1SpecTemplateSpecVolumeConfigMapOutputReference(
+      this,
+      'config_map',
+    );
   public get configMap() {
     return this._configMap;
   }
@@ -10224,7 +12190,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // csi - computed: false, optional: true, required: false
-  private _csi = new StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference(this, "csi");
+  private _csi = new StatefulSetV1SpecTemplateSpecVolumeCsiOutputReference(
+    this,
+    'csi',
+  );
   public get csi() {
     return this._csi;
   }
@@ -10240,7 +12209,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // downward_api - computed: false, optional: true, required: false
-  private _downwardApi = new StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference(this, "downward_api");
+  private _downwardApi =
+    new StatefulSetV1SpecTemplateSpecVolumeDownwardApiOutputReference(
+      this,
+      'downward_api',
+    );
   public get downwardApi() {
     return this._downwardApi;
   }
@@ -10256,7 +12229,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // empty_dir - computed: false, optional: true, required: false
-  private _emptyDir = new StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference(this, "empty_dir");
+  private _emptyDir =
+    new StatefulSetV1SpecTemplateSpecVolumeEmptyDirOutputReference(
+      this,
+      'empty_dir',
+    );
   public get emptyDir() {
     return this._emptyDir;
   }
@@ -10272,7 +12249,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // fc - computed: false, optional: true, required: false
-  private _fc = new StatefulSetV1SpecTemplateSpecVolumeFcOutputReference(this, "fc");
+  private _fc = new StatefulSetV1SpecTemplateSpecVolumeFcOutputReference(
+    this,
+    'fc',
+  );
   public get fc() {
     return this._fc;
   }
@@ -10288,7 +12268,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // flex_volume - computed: false, optional: true, required: false
-  private _flexVolume = new StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference(this, "flex_volume");
+  private _flexVolume =
+    new StatefulSetV1SpecTemplateSpecVolumeFlexVolumeOutputReference(
+      this,
+      'flex_volume',
+    );
   public get flexVolume() {
     return this._flexVolume;
   }
@@ -10304,7 +12288,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // flocker - computed: false, optional: true, required: false
-  private _flocker = new StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference(this, "flocker");
+  private _flocker =
+    new StatefulSetV1SpecTemplateSpecVolumeFlockerOutputReference(
+      this,
+      'flocker',
+    );
   public get flocker() {
     return this._flocker;
   }
@@ -10320,11 +12308,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // gce_persistent_disk - computed: false, optional: true, required: false
-  private _gcePersistentDisk = new StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference(this, "gce_persistent_disk");
+  private _gcePersistentDisk =
+    new StatefulSetV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference(
+      this,
+      'gce_persistent_disk',
+    );
   public get gcePersistentDisk() {
     return this._gcePersistentDisk;
   }
-  public putGcePersistentDisk(value: StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk) {
+  public putGcePersistentDisk(
+    value: StatefulSetV1SpecTemplateSpecVolumeGcePersistentDisk,
+  ) {
     this._gcePersistentDisk.internalValue = value;
   }
   public resetGcePersistentDisk() {
@@ -10336,7 +12330,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // git_repo - computed: false, optional: true, required: false
-  private _gitRepo = new StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference(this, "git_repo");
+  private _gitRepo =
+    new StatefulSetV1SpecTemplateSpecVolumeGitRepoOutputReference(
+      this,
+      'git_repo',
+    );
   public get gitRepo() {
     return this._gitRepo;
   }
@@ -10352,7 +12350,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // glusterfs - computed: false, optional: true, required: false
-  private _glusterfs = new StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference(this, "glusterfs");
+  private _glusterfs =
+    new StatefulSetV1SpecTemplateSpecVolumeGlusterfsOutputReference(
+      this,
+      'glusterfs',
+    );
   public get glusterfs() {
     return this._glusterfs;
   }
@@ -10368,7 +12370,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // host_path - computed: false, optional: true, required: false
-  private _hostPath = new StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference(this, "host_path");
+  private _hostPath =
+    new StatefulSetV1SpecTemplateSpecVolumeHostPathOutputReference(
+      this,
+      'host_path',
+    );
   public get hostPath() {
     return this._hostPath;
   }
@@ -10384,7 +12390,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // iscsi - computed: false, optional: true, required: false
-  private _iscsi = new StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference(this, "iscsi");
+  private _iscsi = new StatefulSetV1SpecTemplateSpecVolumeIscsiOutputReference(
+    this,
+    'iscsi',
+  );
   public get iscsi() {
     return this._iscsi;
   }
@@ -10400,7 +12409,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // local - computed: false, optional: true, required: false
-  private _local = new StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference(this, "local");
+  private _local = new StatefulSetV1SpecTemplateSpecVolumeLocalOutputReference(
+    this,
+    'local',
+  );
   public get local() {
     return this._local;
   }
@@ -10416,7 +12428,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // nfs - computed: false, optional: true, required: false
-  private _nfs = new StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference(this, "nfs");
+  private _nfs = new StatefulSetV1SpecTemplateSpecVolumeNfsOutputReference(
+    this,
+    'nfs',
+  );
   public get nfs() {
     return this._nfs;
   }
@@ -10432,11 +12447,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // persistent_volume_claim - computed: false, optional: true, required: false
-  private _persistentVolumeClaim = new StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference(this, "persistent_volume_claim");
+  private _persistentVolumeClaim =
+    new StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference(
+      this,
+      'persistent_volume_claim',
+    );
   public get persistentVolumeClaim() {
     return this._persistentVolumeClaim;
   }
-  public putPersistentVolumeClaim(value: StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim) {
+  public putPersistentVolumeClaim(
+    value: StatefulSetV1SpecTemplateSpecVolumePersistentVolumeClaim,
+  ) {
     this._persistentVolumeClaim.internalValue = value;
   }
   public resetPersistentVolumeClaim() {
@@ -10448,11 +12469,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // photon_persistent_disk - computed: false, optional: true, required: false
-  private _photonPersistentDisk = new StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference(this, "photon_persistent_disk");
+  private _photonPersistentDisk =
+    new StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference(
+      this,
+      'photon_persistent_disk',
+    );
   public get photonPersistentDisk() {
     return this._photonPersistentDisk;
   }
-  public putPhotonPersistentDisk(value: StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk) {
+  public putPhotonPersistentDisk(
+    value: StatefulSetV1SpecTemplateSpecVolumePhotonPersistentDisk,
+  ) {
     this._photonPersistentDisk.internalValue = value;
   }
   public resetPhotonPersistentDisk() {
@@ -10464,11 +12491,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // projected - computed: false, optional: true, required: false
-  private _projected = new StatefulSetV1SpecTemplateSpecVolumeProjectedList(this, "projected", false);
+  private _projected = new StatefulSetV1SpecTemplateSpecVolumeProjectedList(
+    this,
+    'projected',
+    false,
+  );
   public get projected() {
     return this._projected;
   }
-  public putProjected(value: StatefulSetV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable) {
+  public putProjected(
+    value: StatefulSetV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable,
+  ) {
     this._projected.internalValue = value;
   }
   public resetProjected() {
@@ -10480,7 +12513,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // quobyte - computed: false, optional: true, required: false
-  private _quobyte = new StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference(this, "quobyte");
+  private _quobyte =
+    new StatefulSetV1SpecTemplateSpecVolumeQuobyteOutputReference(
+      this,
+      'quobyte',
+    );
   public get quobyte() {
     return this._quobyte;
   }
@@ -10496,7 +12533,10 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // rbd - computed: false, optional: true, required: false
-  private _rbd = new StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference(this, "rbd");
+  private _rbd = new StatefulSetV1SpecTemplateSpecVolumeRbdOutputReference(
+    this,
+    'rbd',
+  );
   public get rbd() {
     return this._rbd;
   }
@@ -10512,7 +12552,11 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference(this, "secret");
+  private _secret =
+    new StatefulSetV1SpecTemplateSpecVolumeSecretOutputReference(
+      this,
+      'secret',
+    );
   public get secret() {
     return this._secret;
   }
@@ -10528,11 +12572,17 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
   }
 
   // vsphere_volume - computed: false, optional: true, required: false
-  private _vsphereVolume = new StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference(this, "vsphere_volume");
+  private _vsphereVolume =
+    new StatefulSetV1SpecTemplateSpecVolumeVsphereVolumeOutputReference(
+      this,
+      'vsphere_volume',
+    );
   public get vsphereVolume() {
     return this._vsphereVolume;
   }
-  public putVsphereVolume(value: StatefulSetV1SpecTemplateSpecVolumeVsphereVolume) {
+  public putVsphereVolume(
+    value: StatefulSetV1SpecTemplateSpecVolumeVsphereVolume,
+  ) {
     this._vsphereVolume.internalValue = value;
   }
   public resetVsphereVolume() {
@@ -10545,203 +12595,242 @@ export class StatefulSetV1SpecTemplateSpecVolumeOutputReference extends cdktf.Co
 }
 
 export class StatefulSetV1SpecTemplateSpecVolumeList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecTemplateSpecVolume[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecTemplateSpecVolume[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecTemplateSpecVolumeOutputReference {
-    return new StatefulSetV1SpecTemplateSpecVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecTemplateSpecVolumeOutputReference {
+    return new StatefulSetV1SpecTemplateSpecVolumeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecTemplateSpec {
   /**
-  * Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#active_deadline_seconds StatefulSetV1#active_deadline_seconds}
-  */
+   * Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#active_deadline_seconds StatefulSetV1#active_deadline_seconds}
+   */
   readonly activeDeadlineSeconds?: number;
   /**
-  * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#automount_service_account_token StatefulSetV1#automount_service_account_token}
-  */
+   * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#automount_service_account_token StatefulSetV1#automount_service_account_token}
+   */
   readonly automountServiceAccountToken?: boolean | cdktf.IResolvable;
   /**
-  * Set DNS policy for containers within the pod. Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'. Optional: Defaults to 'ClusterFirst', see [Kubernetes reference](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dns_policy StatefulSetV1#dns_policy}
-  */
+   * Set DNS policy for containers within the pod. Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'. Optional: Defaults to 'ClusterFirst', see [Kubernetes reference](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dns_policy StatefulSetV1#dns_policy}
+   */
   readonly dnsPolicy?: string;
   /**
-  * Enables generating environment variables for service discovery. Defaults to true.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#enable_service_links StatefulSetV1#enable_service_links}
-  */
+   * Enables generating environment variables for service discovery. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#enable_service_links StatefulSetV1#enable_service_links}
+   */
   readonly enableServiceLinks?: boolean | cdktf.IResolvable;
   /**
-  * Use the host's ipc namespace. Optional: Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_ipc StatefulSetV1#host_ipc}
-  */
+   * Use the host's ipc namespace. Optional: Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_ipc StatefulSetV1#host_ipc}
+   */
   readonly hostIpc?: boolean | cdktf.IResolvable;
   /**
-  * Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_network StatefulSetV1#host_network}
-  */
+   * Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_network StatefulSetV1#host_network}
+   */
   readonly hostNetwork?: boolean | cdktf.IResolvable;
   /**
-  * Use the host's pid namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_pid StatefulSetV1#host_pid}
-  */
+   * Use the host's pid namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_pid StatefulSetV1#host_pid}
+   */
   readonly hostPid?: boolean | cdktf.IResolvable;
   /**
-  * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#hostname StatefulSetV1#hostname}
-  */
+   * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#hostname StatefulSetV1#hostname}
+   */
   readonly hostname?: string;
   /**
-  * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_name StatefulSetV1#node_name}
-  */
+   * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_name StatefulSetV1#node_name}
+   */
   readonly nodeName?: string;
   /**
-  * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_selector StatefulSetV1#node_selector}
-  */
+   * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#node_selector StatefulSetV1#node_selector}
+   */
   readonly nodeSelector?: { [key: string]: string };
   /**
-  * If specified, indicates the pod's priority. "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#priority_class_name StatefulSetV1#priority_class_name}
-  */
+   * If specified, indicates the pod's priority. "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#priority_class_name StatefulSetV1#priority_class_name}
+   */
   readonly priorityClassName?: string;
   /**
-  * Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#restart_policy StatefulSetV1#restart_policy}
-  */
+   * Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#restart_policy StatefulSetV1#restart_policy}
+   */
   readonly restartPolicy?: string;
   /**
-  * RuntimeClassName is a feature for selecting the container runtime configuration. The container runtime configuration is used to run a Pod's containers. More info: https://kubernetes.io/docs/concepts/containers/runtime-class
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#runtime_class_name StatefulSetV1#runtime_class_name}
-  */
+   * RuntimeClassName is a feature for selecting the container runtime configuration. The container runtime configuration is used to run a Pod's containers. More info: https://kubernetes.io/docs/concepts/containers/runtime-class
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#runtime_class_name StatefulSetV1#runtime_class_name}
+   */
   readonly runtimeClassName?: string;
   /**
-  * ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service_account_name StatefulSetV1#service_account_name}
-  */
+   * ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service_account_name StatefulSetV1#service_account_name}
+   */
   readonly serviceAccountName?: string;
   /**
-  * Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#share_process_namespace StatefulSetV1#share_process_namespace}
-  */
+   * Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#share_process_namespace StatefulSetV1#share_process_namespace}
+   */
   readonly shareProcessNamespace?: boolean | cdktf.IResolvable;
   /**
-  * If specified, the fully qualified Pod hostname will be "...svc.". If not specified, the pod will not have a domainname at all..
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#subdomain StatefulSetV1#subdomain}
-  */
+   * If specified, the fully qualified Pod hostname will be "...svc.". If not specified, the pod will not have a domainname at all..
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#subdomain StatefulSetV1#subdomain}
+   */
   readonly subdomain?: string;
   /**
-  * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_grace_period_seconds StatefulSetV1#termination_grace_period_seconds}
-  */
+   * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#termination_grace_period_seconds StatefulSetV1#termination_grace_period_seconds}
+   */
   readonly terminationGracePeriodSeconds?: number;
   /**
-  * affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#affinity StatefulSetV1#affinity}
-  */
+   * affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#affinity StatefulSetV1#affinity}
+   */
   readonly affinity?: StatefulSetV1SpecTemplateSpecAffinity;
   /**
-  * container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container StatefulSetV1#container}
-  */
-  readonly container?: StatefulSetV1SpecTemplateSpecContainer[] | cdktf.IResolvable;
+   * container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#container StatefulSetV1#container}
+   */
+  readonly container?:
+    | StatefulSetV1SpecTemplateSpecContainer[]
+    | cdktf.IResolvable;
   /**
-  * dns_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dns_config StatefulSetV1#dns_config}
-  */
+   * dns_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#dns_config StatefulSetV1#dns_config}
+   */
   readonly dnsConfig?: StatefulSetV1SpecTemplateSpecDnsConfig;
   /**
-  * host_aliases block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_aliases StatefulSetV1#host_aliases}
-  */
-  readonly hostAliases?: StatefulSetV1SpecTemplateSpecHostAliases[] | cdktf.IResolvable;
+   * host_aliases block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#host_aliases StatefulSetV1#host_aliases}
+   */
+  readonly hostAliases?:
+    | StatefulSetV1SpecTemplateSpecHostAliases[]
+    | cdktf.IResolvable;
   /**
-  * image_pull_secrets block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image_pull_secrets StatefulSetV1#image_pull_secrets}
-  */
-  readonly imagePullSecrets?: StatefulSetV1SpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable;
+   * image_pull_secrets block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#image_pull_secrets StatefulSetV1#image_pull_secrets}
+   */
+  readonly imagePullSecrets?:
+    | StatefulSetV1SpecTemplateSpecImagePullSecrets[]
+    | cdktf.IResolvable;
   /**
-  * init_container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#init_container StatefulSetV1#init_container}
-  */
-  readonly initContainer?: StatefulSetV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable;
+   * init_container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#init_container StatefulSetV1#init_container}
+   */
+  readonly initContainer?:
+    | StatefulSetV1SpecTemplateSpecInitContainer[]
+    | cdktf.IResolvable;
   /**
-  * readiness_gate block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#readiness_gate StatefulSetV1#readiness_gate}
-  */
-  readonly readinessGate?: StatefulSetV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable;
+   * readiness_gate block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#readiness_gate StatefulSetV1#readiness_gate}
+   */
+  readonly readinessGate?:
+    | StatefulSetV1SpecTemplateSpecReadinessGate[]
+    | cdktf.IResolvable;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#security_context StatefulSetV1#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#security_context StatefulSetV1#security_context}
+   */
   readonly securityContext?: StatefulSetV1SpecTemplateSpecSecurityContext;
   /**
-  * toleration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#toleration StatefulSetV1#toleration}
-  */
-  readonly toleration?: StatefulSetV1SpecTemplateSpecToleration[] | cdktf.IResolvable;
+   * toleration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#toleration StatefulSetV1#toleration}
+   */
+  readonly toleration?:
+    | StatefulSetV1SpecTemplateSpecToleration[]
+    | cdktf.IResolvable;
   /**
-  * topology_spread_constraint block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_spread_constraint StatefulSetV1#topology_spread_constraint}
-  */
-  readonly topologySpreadConstraint?: StatefulSetV1SpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable;
+   * topology_spread_constraint block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#topology_spread_constraint StatefulSetV1#topology_spread_constraint}
+   */
+  readonly topologySpreadConstraint?:
+    | StatefulSetV1SpecTemplateSpecTopologySpreadConstraint[]
+    | cdktf.IResolvable;
   /**
-  * volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume StatefulSetV1#volume}
-  */
+   * volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume StatefulSetV1#volume}
+   */
   readonly volume?: StatefulSetV1SpecTemplateSpecVolume[] | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecTemplateSpecToTerraform(struct?: StatefulSetV1SpecTemplateSpecOutputReference | StatefulSetV1SpecTemplateSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateSpecToTerraform(
+  struct?:
+    | StatefulSetV1SpecTemplateSpecOutputReference
+    | StatefulSetV1SpecTemplateSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    active_deadline_seconds: cdktf.numberToTerraform(struct!.activeDeadlineSeconds),
-    automount_service_account_token: cdktf.booleanToTerraform(struct!.automountServiceAccountToken),
+    active_deadline_seconds: cdktf.numberToTerraform(
+      struct!.activeDeadlineSeconds,
+    ),
+    automount_service_account_token: cdktf.booleanToTerraform(
+      struct!.automountServiceAccountToken,
+    ),
     dns_policy: cdktf.stringToTerraform(struct!.dnsPolicy),
     enable_service_links: cdktf.booleanToTerraform(struct!.enableServiceLinks),
     host_ipc: cdktf.booleanToTerraform(struct!.hostIpc),
@@ -10749,36 +12838,75 @@ export function statefulSetV1SpecTemplateSpecToTerraform(struct?: StatefulSetV1S
     host_pid: cdktf.booleanToTerraform(struct!.hostPid),
     hostname: cdktf.stringToTerraform(struct!.hostname),
     node_name: cdktf.stringToTerraform(struct!.nodeName),
-    node_selector: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.nodeSelector),
+    node_selector: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.nodeSelector,
+    ),
     priority_class_name: cdktf.stringToTerraform(struct!.priorityClassName),
     restart_policy: cdktf.stringToTerraform(struct!.restartPolicy),
     runtime_class_name: cdktf.stringToTerraform(struct!.runtimeClassName),
     service_account_name: cdktf.stringToTerraform(struct!.serviceAccountName),
-    share_process_namespace: cdktf.booleanToTerraform(struct!.shareProcessNamespace),
+    share_process_namespace: cdktf.booleanToTerraform(
+      struct!.shareProcessNamespace,
+    ),
     subdomain: cdktf.stringToTerraform(struct!.subdomain),
-    termination_grace_period_seconds: cdktf.numberToTerraform(struct!.terminationGracePeriodSeconds),
-    affinity: statefulSetV1SpecTemplateSpecAffinityToTerraform(struct!.affinity),
-    container: cdktf.listMapper(statefulSetV1SpecTemplateSpecContainerToTerraform, true)(struct!.container),
-    dns_config: statefulSetV1SpecTemplateSpecDnsConfigToTerraform(struct!.dnsConfig),
-    host_aliases: cdktf.listMapper(statefulSetV1SpecTemplateSpecHostAliasesToTerraform, true)(struct!.hostAliases),
-    image_pull_secrets: cdktf.listMapper(statefulSetV1SpecTemplateSpecImagePullSecretsToTerraform, true)(struct!.imagePullSecrets),
-    init_container: cdktf.listMapper(statefulSetV1SpecTemplateSpecInitContainerToTerraform, true)(struct!.initContainer),
-    readiness_gate: cdktf.listMapper(statefulSetV1SpecTemplateSpecReadinessGateToTerraform, true)(struct!.readinessGate),
-    security_context: statefulSetV1SpecTemplateSpecSecurityContextToTerraform(struct!.securityContext),
-    toleration: cdktf.listMapper(statefulSetV1SpecTemplateSpecTolerationToTerraform, true)(struct!.toleration),
-    topology_spread_constraint: cdktf.listMapper(statefulSetV1SpecTemplateSpecTopologySpreadConstraintToTerraform, true)(struct!.topologySpreadConstraint),
-    volume: cdktf.listMapper(statefulSetV1SpecTemplateSpecVolumeToTerraform, true)(struct!.volume),
-  }
+    termination_grace_period_seconds: cdktf.numberToTerraform(
+      struct!.terminationGracePeriodSeconds,
+    ),
+    affinity: statefulSetV1SpecTemplateSpecAffinityToTerraform(
+      struct!.affinity,
+    ),
+    container: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecContainerToTerraform,
+      true,
+    )(struct!.container),
+    dns_config: statefulSetV1SpecTemplateSpecDnsConfigToTerraform(
+      struct!.dnsConfig,
+    ),
+    host_aliases: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecHostAliasesToTerraform,
+      true,
+    )(struct!.hostAliases),
+    image_pull_secrets: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecImagePullSecretsToTerraform,
+      true,
+    )(struct!.imagePullSecrets),
+    init_container: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecInitContainerToTerraform,
+      true,
+    )(struct!.initContainer),
+    readiness_gate: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecReadinessGateToTerraform,
+      true,
+    )(struct!.readinessGate),
+    security_context: statefulSetV1SpecTemplateSpecSecurityContextToTerraform(
+      struct!.securityContext,
+    ),
+    toleration: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecTolerationToTerraform,
+      true,
+    )(struct!.toleration),
+    topology_spread_constraint: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecTopologySpreadConstraintToTerraform,
+      true,
+    )(struct!.topologySpreadConstraint),
+    volume: cdktf.listMapper(
+      statefulSetV1SpecTemplateSpecVolumeToTerraform,
+      true,
+    )(struct!.volume),
+  };
 }
 
 export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -10791,7 +12919,8 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
     }
     if (this._automountServiceAccountToken !== undefined) {
       hasAnyValues = true;
-      internalValueResult.automountServiceAccountToken = this._automountServiceAccountToken;
+      internalValueResult.automountServiceAccountToken =
+        this._automountServiceAccountToken;
     }
     if (this._dnsPolicy !== undefined) {
       hasAnyValues = true;
@@ -10851,7 +12980,8 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
     }
     if (this._terminationGracePeriodSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationGracePeriodSeconds = this._terminationGracePeriodSeconds;
+      internalValueResult.terminationGracePeriodSeconds =
+        this._terminationGracePeriodSeconds;
     }
     if (this._affinity?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10871,7 +13001,8 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
     }
     if (this._imagePullSecrets?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.imagePullSecrets = this._imagePullSecrets?.internalValue;
+      internalValueResult.imagePullSecrets =
+        this._imagePullSecrets?.internalValue;
     }
     if (this._initContainer?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10883,7 +13014,8 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._toleration?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10891,7 +13023,8 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
     }
     if (this._topologySpreadConstraint?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.topologySpreadConstraint = this._topologySpreadConstraint?.internalValue;
+      internalValueResult.topologySpreadConstraint =
+        this._topologySpreadConstraint?.internalValue;
     }
     if (this._volume?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10931,8 +13064,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
       this._toleration.internalValue = undefined;
       this._topologySpreadConstraint.internalValue = undefined;
       this._volume.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._activeDeadlineSeconds = value.activeDeadlineSeconds;
       this._automountServiceAccountToken = value.automountServiceAccountToken;
@@ -10960,13 +13092,14 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
       this._readinessGate.internalValue = value.readinessGate;
       this._securityContext.internalValue = value.securityContext;
       this._toleration.internalValue = value.toleration;
-      this._topologySpreadConstraint.internalValue = value.topologySpreadConstraint;
+      this._topologySpreadConstraint.internalValue =
+        value.topologySpreadConstraint;
       this._volume.internalValue = value.volume;
     }
   }
 
   // active_deadline_seconds - computed: false, optional: true, required: false
-  private _activeDeadlineSeconds?: number; 
+  private _activeDeadlineSeconds?: number;
   public get activeDeadlineSeconds() {
     return this.getNumberAttribute('active_deadline_seconds');
   }
@@ -10982,7 +13115,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // automount_service_account_token - computed: false, optional: true, required: false
-  private _automountServiceAccountToken?: boolean | cdktf.IResolvable; 
+  private _automountServiceAccountToken?: boolean | cdktf.IResolvable;
   public get automountServiceAccountToken() {
     return this.getBooleanAttribute('automount_service_account_token');
   }
@@ -10998,7 +13131,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // dns_policy - computed: false, optional: true, required: false
-  private _dnsPolicy?: string; 
+  private _dnsPolicy?: string;
   public get dnsPolicy() {
     return this.getStringAttribute('dns_policy');
   }
@@ -11014,7 +13147,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // enable_service_links - computed: false, optional: true, required: false
-  private _enableServiceLinks?: boolean | cdktf.IResolvable; 
+  private _enableServiceLinks?: boolean | cdktf.IResolvable;
   public get enableServiceLinks() {
     return this.getBooleanAttribute('enable_service_links');
   }
@@ -11030,7 +13163,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // host_ipc - computed: false, optional: true, required: false
-  private _hostIpc?: boolean | cdktf.IResolvable; 
+  private _hostIpc?: boolean | cdktf.IResolvable;
   public get hostIpc() {
     return this.getBooleanAttribute('host_ipc');
   }
@@ -11046,7 +13179,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // host_network - computed: false, optional: true, required: false
-  private _hostNetwork?: boolean | cdktf.IResolvable; 
+  private _hostNetwork?: boolean | cdktf.IResolvable;
   public get hostNetwork() {
     return this.getBooleanAttribute('host_network');
   }
@@ -11062,7 +13195,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // host_pid - computed: false, optional: true, required: false
-  private _hostPid?: boolean | cdktf.IResolvable; 
+  private _hostPid?: boolean | cdktf.IResolvable;
   public get hostPid() {
     return this.getBooleanAttribute('host_pid');
   }
@@ -11078,7 +13211,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // hostname - computed: true, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -11094,7 +13227,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // node_name - computed: true, optional: true, required: false
-  private _nodeName?: string; 
+  private _nodeName?: string;
   public get nodeName() {
     return this.getStringAttribute('node_name');
   }
@@ -11110,7 +13243,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // node_selector - computed: false, optional: true, required: false
-  private _nodeSelector?: { [key: string]: string }; 
+  private _nodeSelector?: { [key: string]: string };
   public get nodeSelector() {
     return this.getStringMapAttribute('node_selector');
   }
@@ -11126,7 +13259,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // priority_class_name - computed: false, optional: true, required: false
-  private _priorityClassName?: string; 
+  private _priorityClassName?: string;
   public get priorityClassName() {
     return this.getStringAttribute('priority_class_name');
   }
@@ -11142,7 +13275,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // restart_policy - computed: false, optional: true, required: false
-  private _restartPolicy?: string; 
+  private _restartPolicy?: string;
   public get restartPolicy() {
     return this.getStringAttribute('restart_policy');
   }
@@ -11158,7 +13291,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // runtime_class_name - computed: false, optional: true, required: false
-  private _runtimeClassName?: string; 
+  private _runtimeClassName?: string;
   public get runtimeClassName() {
     return this.getStringAttribute('runtime_class_name');
   }
@@ -11174,7 +13307,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // service_account_name - computed: true, optional: true, required: false
-  private _serviceAccountName?: string; 
+  private _serviceAccountName?: string;
   public get serviceAccountName() {
     return this.getStringAttribute('service_account_name');
   }
@@ -11190,7 +13323,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // share_process_namespace - computed: false, optional: true, required: false
-  private _shareProcessNamespace?: boolean | cdktf.IResolvable; 
+  private _shareProcessNamespace?: boolean | cdktf.IResolvable;
   public get shareProcessNamespace() {
     return this.getBooleanAttribute('share_process_namespace');
   }
@@ -11206,7 +13339,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // subdomain - computed: false, optional: true, required: false
-  private _subdomain?: string; 
+  private _subdomain?: string;
   public get subdomain() {
     return this.getStringAttribute('subdomain');
   }
@@ -11222,7 +13355,7 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // termination_grace_period_seconds - computed: false, optional: true, required: false
-  private _terminationGracePeriodSeconds?: number; 
+  private _terminationGracePeriodSeconds?: number;
   public get terminationGracePeriodSeconds() {
     return this.getNumberAttribute('termination_grace_period_seconds');
   }
@@ -11238,7 +13371,10 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // affinity - computed: false, optional: true, required: false
-  private _affinity = new StatefulSetV1SpecTemplateSpecAffinityOutputReference(this, "affinity");
+  private _affinity = new StatefulSetV1SpecTemplateSpecAffinityOutputReference(
+    this,
+    'affinity',
+  );
   public get affinity() {
     return this._affinity;
   }
@@ -11254,11 +13390,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // container - computed: false, optional: true, required: false
-  private _container = new StatefulSetV1SpecTemplateSpecContainerList(this, "container", false);
+  private _container = new StatefulSetV1SpecTemplateSpecContainerList(
+    this,
+    'container',
+    false,
+  );
   public get container() {
     return this._container;
   }
-  public putContainer(value: StatefulSetV1SpecTemplateSpecContainer[] | cdktf.IResolvable) {
+  public putContainer(
+    value: StatefulSetV1SpecTemplateSpecContainer[] | cdktf.IResolvable,
+  ) {
     this._container.internalValue = value;
   }
   public resetContainer() {
@@ -11270,7 +13412,11 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // dns_config - computed: false, optional: true, required: false
-  private _dnsConfig = new StatefulSetV1SpecTemplateSpecDnsConfigOutputReference(this, "dns_config");
+  private _dnsConfig =
+    new StatefulSetV1SpecTemplateSpecDnsConfigOutputReference(
+      this,
+      'dns_config',
+    );
   public get dnsConfig() {
     return this._dnsConfig;
   }
@@ -11286,11 +13432,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // host_aliases - computed: false, optional: true, required: false
-  private _hostAliases = new StatefulSetV1SpecTemplateSpecHostAliasesList(this, "host_aliases", false);
+  private _hostAliases = new StatefulSetV1SpecTemplateSpecHostAliasesList(
+    this,
+    'host_aliases',
+    false,
+  );
   public get hostAliases() {
     return this._hostAliases;
   }
-  public putHostAliases(value: StatefulSetV1SpecTemplateSpecHostAliases[] | cdktf.IResolvable) {
+  public putHostAliases(
+    value: StatefulSetV1SpecTemplateSpecHostAliases[] | cdktf.IResolvable,
+  ) {
     this._hostAliases.internalValue = value;
   }
   public resetHostAliases() {
@@ -11302,11 +13454,18 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // image_pull_secrets - computed: false, optional: true, required: false
-  private _imagePullSecrets = new StatefulSetV1SpecTemplateSpecImagePullSecretsList(this, "image_pull_secrets", false);
+  private _imagePullSecrets =
+    new StatefulSetV1SpecTemplateSpecImagePullSecretsList(
+      this,
+      'image_pull_secrets',
+      false,
+    );
   public get imagePullSecrets() {
     return this._imagePullSecrets;
   }
-  public putImagePullSecrets(value: StatefulSetV1SpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable) {
+  public putImagePullSecrets(
+    value: StatefulSetV1SpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable,
+  ) {
     this._imagePullSecrets.internalValue = value;
   }
   public resetImagePullSecrets() {
@@ -11318,11 +13477,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // init_container - computed: false, optional: true, required: false
-  private _initContainer = new StatefulSetV1SpecTemplateSpecInitContainerList(this, "init_container", false);
+  private _initContainer = new StatefulSetV1SpecTemplateSpecInitContainerList(
+    this,
+    'init_container',
+    false,
+  );
   public get initContainer() {
     return this._initContainer;
   }
-  public putInitContainer(value: StatefulSetV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable) {
+  public putInitContainer(
+    value: StatefulSetV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable,
+  ) {
     this._initContainer.internalValue = value;
   }
   public resetInitContainer() {
@@ -11334,11 +13499,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // readiness_gate - computed: false, optional: true, required: false
-  private _readinessGate = new StatefulSetV1SpecTemplateSpecReadinessGateList(this, "readiness_gate", false);
+  private _readinessGate = new StatefulSetV1SpecTemplateSpecReadinessGateList(
+    this,
+    'readiness_gate',
+    false,
+  );
   public get readinessGate() {
     return this._readinessGate;
   }
-  public putReadinessGate(value: StatefulSetV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable) {
+  public putReadinessGate(
+    value: StatefulSetV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable,
+  ) {
     this._readinessGate.internalValue = value;
   }
   public resetReadinessGate() {
@@ -11350,11 +13521,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new StatefulSetV1SpecTemplateSpecSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new StatefulSetV1SpecTemplateSpecSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
-  public putSecurityContext(value: StatefulSetV1SpecTemplateSpecSecurityContext) {
+  public putSecurityContext(
+    value: StatefulSetV1SpecTemplateSpecSecurityContext,
+  ) {
     this._securityContext.internalValue = value;
   }
   public resetSecurityContext() {
@@ -11366,11 +13543,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // toleration - computed: false, optional: true, required: false
-  private _toleration = new StatefulSetV1SpecTemplateSpecTolerationList(this, "toleration", false);
+  private _toleration = new StatefulSetV1SpecTemplateSpecTolerationList(
+    this,
+    'toleration',
+    false,
+  );
   public get toleration() {
     return this._toleration;
   }
-  public putToleration(value: StatefulSetV1SpecTemplateSpecToleration[] | cdktf.IResolvable) {
+  public putToleration(
+    value: StatefulSetV1SpecTemplateSpecToleration[] | cdktf.IResolvable,
+  ) {
     this._toleration.internalValue = value;
   }
   public resetToleration() {
@@ -11382,11 +13565,20 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // topology_spread_constraint - computed: false, optional: true, required: false
-  private _topologySpreadConstraint = new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintList(this, "topology_spread_constraint", false);
+  private _topologySpreadConstraint =
+    new StatefulSetV1SpecTemplateSpecTopologySpreadConstraintList(
+      this,
+      'topology_spread_constraint',
+      false,
+    );
   public get topologySpreadConstraint() {
     return this._topologySpreadConstraint;
   }
-  public putTopologySpreadConstraint(value: StatefulSetV1SpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable) {
+  public putTopologySpreadConstraint(
+    value:
+      | StatefulSetV1SpecTemplateSpecTopologySpreadConstraint[]
+      | cdktf.IResolvable,
+  ) {
     this._topologySpreadConstraint.internalValue = value;
   }
   public resetTopologySpreadConstraint() {
@@ -11398,11 +13590,17 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
   }
 
   // volume - computed: false, optional: true, required: false
-  private _volume = new StatefulSetV1SpecTemplateSpecVolumeList(this, "volume", false);
+  private _volume = new StatefulSetV1SpecTemplateSpecVolumeList(
+    this,
+    'volume',
+    false,
+  );
   public get volume() {
     return this._volume;
   }
-  public putVolume(value: StatefulSetV1SpecTemplateSpecVolume[] | cdktf.IResolvable) {
+  public putVolume(
+    value: StatefulSetV1SpecTemplateSpecVolume[] | cdktf.IResolvable,
+  ) {
     this._volume.internalValue = value;
   }
   public resetVolume() {
@@ -11415,38 +13613,47 @@ export class StatefulSetV1SpecTemplateSpecOutputReference extends cdktf.ComplexO
 }
 export interface StatefulSetV1SpecTemplate {
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#metadata StatefulSetV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#metadata StatefulSetV1#metadata}
+   */
   readonly metadata: StatefulSetV1SpecTemplateMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#spec StatefulSetV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#spec StatefulSetV1#spec}
+   */
   readonly spec?: StatefulSetV1SpecTemplateSpec;
 }
 
-export function statefulSetV1SpecTemplateToTerraform(struct?: StatefulSetV1SpecTemplateOutputReference | StatefulSetV1SpecTemplate): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecTemplateToTerraform(
+  struct?: StatefulSetV1SpecTemplateOutputReference | StatefulSetV1SpecTemplate,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     metadata: statefulSetV1SpecTemplateMetadataToTerraform(struct!.metadata),
     spec: statefulSetV1SpecTemplateSpecToTerraform(struct!.spec),
-  }
+  };
 }
 
 export class StatefulSetV1SpecTemplateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11469,8 +13676,7 @@ export class StatefulSetV1SpecTemplateOutputReference extends cdktf.ComplexObjec
       this.isEmptyObject = false;
       this._metadata.internalValue = undefined;
       this._spec.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._metadata.internalValue = value.metadata;
       this._spec.internalValue = value.spec;
@@ -11478,7 +13684,10 @@ export class StatefulSetV1SpecTemplateOutputReference extends cdktf.ComplexObjec
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new StatefulSetV1SpecTemplateMetadataOutputReference(this, "metadata");
+  private _metadata = new StatefulSetV1SpecTemplateMetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -11491,7 +13700,10 @@ export class StatefulSetV1SpecTemplateOutputReference extends cdktf.ComplexObjec
   }
 
   // spec - computed: false, optional: true, required: false
-  private _spec = new StatefulSetV1SpecTemplateSpecOutputReference(this, "spec");
+  private _spec = new StatefulSetV1SpecTemplateSpecOutputReference(
+    this,
+    'spec',
+  );
   public get spec() {
     return this._spec;
   }
@@ -11508,21 +13720,27 @@ export class StatefulSetV1SpecTemplateOutputReference extends cdktf.ComplexObjec
 }
 export interface StatefulSetV1SpecUpdateStrategyRollingUpdate {
   /**
-  * Indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#partition StatefulSetV1#partition}
-  */
+   * Indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#partition StatefulSetV1#partition}
+   */
   readonly partition?: number;
 }
 
-export function statefulSetV1SpecUpdateStrategyRollingUpdateToTerraform(struct?: StatefulSetV1SpecUpdateStrategyRollingUpdate | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecUpdateStrategyRollingUpdateToTerraform(
+  struct?: StatefulSetV1SpecUpdateStrategyRollingUpdate | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     partition: cdktf.numberToTerraform(struct!.partition),
-  }
+  };
 }
 
 export class StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference extends cdktf.ComplexObject {
@@ -11530,16 +13748,29 @@ export class StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecUpdateStrategyRollingUpdate | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecUpdateStrategyRollingUpdate
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11552,17 +13783,20 @@ export class StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecUpdateStrategyRollingUpdate | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecUpdateStrategyRollingUpdate
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._partition = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._partition = value.partition;
@@ -11570,7 +13804,7 @@ export class StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference extends
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -11587,48 +13821,72 @@ export class StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference extends
 }
 
 export class StatefulSetV1SpecUpdateStrategyRollingUpdateList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecUpdateStrategyRollingUpdate[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecUpdateStrategyRollingUpdate[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference {
-    return new StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference {
+    return new StatefulSetV1SpecUpdateStrategyRollingUpdateOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecUpdateStrategy {
   /**
-  * Indicates the type of the StatefulSet update strategy. Default is RollingUpdate
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
-  */
+   * Indicates the type of the StatefulSet update strategy. Default is RollingUpdate
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#type StatefulSetV1#type}
+   */
   readonly type?: string;
   /**
-  * rolling_update block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rolling_update StatefulSetV1#rolling_update}
-  */
-  readonly rollingUpdate?: StatefulSetV1SpecUpdateStrategyRollingUpdate[] | cdktf.IResolvable;
+   * rolling_update block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#rolling_update StatefulSetV1#rolling_update}
+   */
+  readonly rollingUpdate?:
+    | StatefulSetV1SpecUpdateStrategyRollingUpdate[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecUpdateStrategyToTerraform(struct?: StatefulSetV1SpecUpdateStrategy | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecUpdateStrategyToTerraform(
+  struct?: StatefulSetV1SpecUpdateStrategy | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-    rolling_update: cdktf.listMapper(statefulSetV1SpecUpdateStrategyRollingUpdateToTerraform, true)(struct!.rollingUpdate),
-  }
+    rolling_update: cdktf.listMapper(
+      statefulSetV1SpecUpdateStrategyRollingUpdateToTerraform,
+      true,
+    )(struct!.rollingUpdate),
+  };
 }
 
 export class StatefulSetV1SpecUpdateStrategyOutputReference extends cdktf.ComplexObject {
@@ -11636,16 +13894,29 @@ export class StatefulSetV1SpecUpdateStrategyOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecUpdateStrategy | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecUpdateStrategy
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11662,18 +13933,18 @@ export class StatefulSetV1SpecUpdateStrategyOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecUpdateStrategy | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecUpdateStrategy | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._type = undefined;
       this._rollingUpdate.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -11682,7 +13953,7 @@ export class StatefulSetV1SpecUpdateStrategyOutputReference extends cdktf.Comple
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -11698,11 +13969,17 @@ export class StatefulSetV1SpecUpdateStrategyOutputReference extends cdktf.Comple
   }
 
   // rolling_update - computed: false, optional: true, required: false
-  private _rollingUpdate = new StatefulSetV1SpecUpdateStrategyRollingUpdateList(this, "rolling_update", false);
+  private _rollingUpdate = new StatefulSetV1SpecUpdateStrategyRollingUpdateList(
+    this,
+    'rolling_update',
+    false,
+  );
   public get rollingUpdate() {
     return this._rollingUpdate;
   }
-  public putRollingUpdate(value: StatefulSetV1SpecUpdateStrategyRollingUpdate[] | cdktf.IResolvable) {
+  public putRollingUpdate(
+    value: StatefulSetV1SpecUpdateStrategyRollingUpdate[] | cdktf.IResolvable,
+  ) {
     this._rollingUpdate.internalValue = value;
   }
   public resetRollingUpdate() {
@@ -11715,61 +13992,78 @@ export class StatefulSetV1SpecUpdateStrategyOutputReference extends cdktf.Comple
 }
 
 export class StatefulSetV1SpecUpdateStrategyList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecUpdateStrategy[] | cdktf.IResolvable
+  public internalValue?: StatefulSetV1SpecUpdateStrategy[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): StatefulSetV1SpecUpdateStrategyOutputReference {
-    return new StatefulSetV1SpecUpdateStrategyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new StatefulSetV1SpecUpdateStrategyOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecVolumeClaimTemplateMetadata {
   /**
-  * An unstructured key value map stored with the persistent volume claim that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#annotations StatefulSetV1#annotations}
-  */
+   * An unstructured key value map stored with the persistent volume claim that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#annotations StatefulSetV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#generate_name StatefulSetV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#generate_name StatefulSetV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the persistent volume claim. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#labels StatefulSetV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the persistent volume claim. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#labels StatefulSetV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the persistent volume claim, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
-  */
+   * Name of the persistent volume claim, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#name StatefulSetV1#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the persistent volume claim must be unique.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
-  */
+   * Namespace defines the space within which name of the persistent volume claim must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#namespace StatefulSetV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function statefulSetV1SpecVolumeClaimTemplateMetadataToTerraform(struct?: StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference | StatefulSetV1SpecVolumeClaimTemplateMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecVolumeClaimTemplateMetadataToTerraform(
+  struct?:
+    | StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference
+    | StatefulSetV1SpecVolumeClaimTemplateMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -11777,21 +14071,26 @@ export function statefulSetV1SpecVolumeClaimTemplateMetadataToTerraform(struct?:
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecVolumeClaimTemplateMetadata | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecVolumeClaimTemplateMetadata
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._annotations !== undefined) {
@@ -11817,7 +14116,9 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecVolumeClaimTemplateMetadata | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecVolumeClaimTemplateMetadata | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._annotations = undefined;
@@ -11825,8 +14126,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -11837,7 +14137,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -11853,7 +14153,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -11874,7 +14174,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -11890,7 +14190,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11906,7 +14206,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -11933,42 +14233,55 @@ export class StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference extends
 }
 export interface StatefulSetV1SpecVolumeClaimTemplateSpecResources {
   /**
-  * Map describing the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#limits StatefulSetV1#limits}
-  */
+   * Map describing the maximum amount of compute resources allowed. More info: http://kubernetes.io/docs/user-guide/compute-resources/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#limits StatefulSetV1#limits}
+   */
   readonly limits?: { [key: string]: string };
   /**
-  * Map describing the minimum amount of compute resources required. If this is omitted for a container, it defaults to `limits` if that is explicitly specified, otherwise to an implementation-defined value. More info: http://kubernetes.io/docs/user-guide/compute-resources/
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#requests StatefulSetV1#requests}
-  */
+   * Map describing the minimum amount of compute resources required. If this is omitted for a container, it defaults to `limits` if that is explicitly specified, otherwise to an implementation-defined value. More info: http://kubernetes.io/docs/user-guide/compute-resources/
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#requests StatefulSetV1#requests}
+   */
   readonly requests?: { [key: string]: string };
 }
 
-export function statefulSetV1SpecVolumeClaimTemplateSpecResourcesToTerraform(struct?: StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference | StatefulSetV1SpecVolumeClaimTemplateSpecResources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecVolumeClaimTemplateSpecResourcesToTerraform(
+  struct?:
+    | StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference
+    | StatefulSetV1SpecVolumeClaimTemplateSpecResources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     limits: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.limits),
     requests: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.requests),
-  }
+  };
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecVolumeClaimTemplateSpecResources | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecVolumeClaimTemplateSpecResources
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._limits !== undefined) {
@@ -11982,13 +14295,14 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecVolumeClaimTemplateSpecResources | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecVolumeClaimTemplateSpecResources | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._limits = undefined;
       this._requests = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._limits = value.limits;
       this._requests = value.requests;
@@ -11996,7 +14310,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference ex
   }
 
   // limits - computed: false, optional: true, required: false
-  private _limits?: { [key: string]: string }; 
+  private _limits?: { [key: string]: string };
   public get limits() {
     return this.getStringMapAttribute('limits');
   }
@@ -12012,7 +14326,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference ex
   }
 
   // requests - computed: false, optional: true, required: false
-  private _requests?: { [key: string]: string }; 
+  private _requests?: { [key: string]: string };
   public get requests() {
     return this.getStringMapAttribute('requests');
   }
@@ -12029,35 +14343,43 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference ex
 }
 export interface StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#key StatefulSetV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#operator StatefulSetV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#values StatefulSetV1#values}
+   */
   readonly values?: string[];
 }
 
-export function statefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsToTerraform(struct?: StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsToTerraform(
+  struct?:
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -12065,16 +14387,29 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOut
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12095,19 +14430,22 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -12117,7 +14455,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOut
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -12133,7 +14471,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOut
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -12149,7 +14487,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOut
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -12166,62 +14504,95 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOut
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOutputReference {
-    return new StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOutputReference {
+    return new StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1SpecVolumeClaimTemplateSpecSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_labels StatefulSetV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
-  */
-  readonly matchExpressions?: StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#match_expressions StatefulSetV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecVolumeClaimTemplateSpecSelectorToTerraform(struct?: StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference | StatefulSetV1SpecVolumeClaimTemplateSpecSelector): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecVolumeClaimTemplateSpecSelectorToTerraform(
+  struct?:
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelector,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(statefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      statefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecVolumeClaimTemplateSpecSelector | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecVolumeClaimTemplateSpecSelector
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._matchLabels !== undefined) {
@@ -12230,18 +14601,20 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference ext
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecVolumeClaimTemplateSpecSelector | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecVolumeClaimTemplateSpecSelector | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._matchLabels = value.matchLabels;
       this._matchExpressions.internalValue = value.matchExpressions;
@@ -12249,7 +14622,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference ext
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -12265,11 +14638,20 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference ext
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | StatefulSetV1SpecVolumeClaimTemplateSpecSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -12282,63 +14664,83 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference ext
 }
 export interface StatefulSetV1SpecVolumeClaimTemplateSpec {
   /**
-  * A set of the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#access_modes StatefulSetV1#access_modes}
-  */
+   * A set of the desired access modes the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes-1
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#access_modes StatefulSetV1#access_modes}
+   */
   readonly accessModes: string[];
   /**
-  * Name of the storage class requested by the claim
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#storage_class_name StatefulSetV1#storage_class_name}
-  */
+   * Name of the storage class requested by the claim
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#storage_class_name StatefulSetV1#storage_class_name}
+   */
   readonly storageClassName?: string;
   /**
-  * The binding reference to the PersistentVolume backing this claim.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_name StatefulSetV1#volume_name}
-  */
+   * The binding reference to the PersistentVolume backing this claim.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_name StatefulSetV1#volume_name}
+   */
   readonly volumeName?: string;
   /**
-  * resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resources StatefulSetV1#resources}
-  */
+   * resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#resources StatefulSetV1#resources}
+   */
   readonly resources: StatefulSetV1SpecVolumeClaimTemplateSpecResources;
   /**
-  * selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#selector StatefulSetV1#selector}
-  */
+   * selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#selector StatefulSetV1#selector}
+   */
   readonly selector?: StatefulSetV1SpecVolumeClaimTemplateSpecSelector;
 }
 
-export function statefulSetV1SpecVolumeClaimTemplateSpecToTerraform(struct?: StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference | StatefulSetV1SpecVolumeClaimTemplateSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecVolumeClaimTemplateSpecToTerraform(
+  struct?:
+    | StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference
+    | StatefulSetV1SpecVolumeClaimTemplateSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    access_modes: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.accessModes),
+    access_modes: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.accessModes),
     storage_class_name: cdktf.stringToTerraform(struct!.storageClassName),
     volume_name: cdktf.stringToTerraform(struct!.volumeName),
-    resources: statefulSetV1SpecVolumeClaimTemplateSpecResourcesToTerraform(struct!.resources),
-    selector: statefulSetV1SpecVolumeClaimTemplateSpecSelectorToTerraform(struct!.selector),
-  }
+    resources: statefulSetV1SpecVolumeClaimTemplateSpecResourcesToTerraform(
+      struct!.resources,
+    ),
+    selector: statefulSetV1SpecVolumeClaimTemplateSpecSelectorToTerraform(
+      struct!.selector,
+    ),
+  };
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1SpecVolumeClaimTemplateSpec | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecVolumeClaimTemplateSpec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accessModes !== undefined) {
@@ -12364,7 +14766,9 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecVolumeClaimTemplateSpec | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecVolumeClaimTemplateSpec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accessModes = undefined;
@@ -12372,8 +14776,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
       this._volumeName = undefined;
       this._resources.internalValue = undefined;
       this._selector.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accessModes = value.accessModes;
       this._storageClassName = value.storageClassName;
@@ -12384,7 +14787,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
   }
 
   // access_modes - computed: false, optional: false, required: true
-  private _accessModes?: string[]; 
+  private _accessModes?: string[];
   public get accessModes() {
     return cdktf.Fn.tolist(this.getListAttribute('access_modes'));
   }
@@ -12397,7 +14800,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
   }
 
   // storage_class_name - computed: true, optional: true, required: false
-  private _storageClassName?: string; 
+  private _storageClassName?: string;
   public get storageClassName() {
     return this.getStringAttribute('storage_class_name');
   }
@@ -12413,7 +14816,7 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
   }
 
   // volume_name - computed: true, optional: true, required: false
-  private _volumeName?: string; 
+  private _volumeName?: string;
   public get volumeName() {
     return this.getStringAttribute('volume_name');
   }
@@ -12429,11 +14832,17 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
   }
 
   // resources - computed: false, optional: false, required: true
-  private _resources = new StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference(this, "resources");
+  private _resources =
+    new StatefulSetV1SpecVolumeClaimTemplateSpecResourcesOutputReference(
+      this,
+      'resources',
+    );
   public get resources() {
     return this._resources;
   }
-  public putResources(value: StatefulSetV1SpecVolumeClaimTemplateSpecResources) {
+  public putResources(
+    value: StatefulSetV1SpecVolumeClaimTemplateSpecResources,
+  ) {
     this._resources.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -12442,7 +14851,11 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
   }
 
   // selector - computed: false, optional: true, required: false
-  private _selector = new StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference(this, "selector");
+  private _selector =
+    new StatefulSetV1SpecVolumeClaimTemplateSpecSelectorOutputReference(
+      this,
+      'selector',
+    );
   public get selector() {
     return this._selector;
   }
@@ -12459,28 +14872,36 @@ export class StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference extends cdk
 }
 export interface StatefulSetV1SpecVolumeClaimTemplate {
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#metadata StatefulSetV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#metadata StatefulSetV1#metadata}
+   */
   readonly metadata: StatefulSetV1SpecVolumeClaimTemplateMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#spec StatefulSetV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#spec StatefulSetV1#spec}
+   */
   readonly spec: StatefulSetV1SpecVolumeClaimTemplateSpec;
 }
 
-export function statefulSetV1SpecVolumeClaimTemplateToTerraform(struct?: StatefulSetV1SpecVolumeClaimTemplate | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecVolumeClaimTemplateToTerraform(
+  struct?: StatefulSetV1SpecVolumeClaimTemplate | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    metadata: statefulSetV1SpecVolumeClaimTemplateMetadataToTerraform(struct!.metadata),
+    metadata: statefulSetV1SpecVolumeClaimTemplateMetadataToTerraform(
+      struct!.metadata,
+    ),
     spec: statefulSetV1SpecVolumeClaimTemplateSpecToTerraform(struct!.spec),
-  }
+  };
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateOutputReference extends cdktf.ComplexObject {
@@ -12488,16 +14909,29 @@ export class StatefulSetV1SpecVolumeClaimTemplateOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StatefulSetV1SpecVolumeClaimTemplate | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1SpecVolumeClaimTemplate
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12514,18 +14948,18 @@ export class StatefulSetV1SpecVolumeClaimTemplateOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1SpecVolumeClaimTemplate | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: StatefulSetV1SpecVolumeClaimTemplate | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._metadata.internalValue = undefined;
       this._spec.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._metadata.internalValue = value.metadata;
@@ -12534,7 +14968,11 @@ export class StatefulSetV1SpecVolumeClaimTemplateOutputReference extends cdktf.C
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference(this, "metadata");
+  private _metadata =
+    new StatefulSetV1SpecVolumeClaimTemplateMetadataOutputReference(
+      this,
+      'metadata',
+    );
   public get metadata() {
     return this._metadata;
   }
@@ -12547,7 +14985,10 @@ export class StatefulSetV1SpecVolumeClaimTemplateOutputReference extends cdktf.C
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference(this, "spec");
+  private _spec = new StatefulSetV1SpecVolumeClaimTemplateSpecOutputReference(
+    this,
+    'spec',
+  );
   public get spec() {
     return this._spec;
   }
@@ -12561,100 +15002,134 @@ export class StatefulSetV1SpecVolumeClaimTemplateOutputReference extends cdktf.C
 }
 
 export class StatefulSetV1SpecVolumeClaimTemplateList extends cdktf.ComplexList {
-  public internalValue? : StatefulSetV1SpecVolumeClaimTemplate[] | cdktf.IResolvable
+  public internalValue?:
+    | StatefulSetV1SpecVolumeClaimTemplate[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StatefulSetV1SpecVolumeClaimTemplateOutputReference {
-    return new StatefulSetV1SpecVolumeClaimTemplateOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StatefulSetV1SpecVolumeClaimTemplateOutputReference {
+    return new StatefulSetV1SpecVolumeClaimTemplateOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StatefulSetV1Spec {
   /**
-  * Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_management_policy StatefulSetV1#pod_management_policy}
-  */
+   * Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#pod_management_policy StatefulSetV1#pod_management_policy}
+   */
   readonly podManagementPolicy?: string;
   /**
-  * The desired number of replicas of the given Template, in the sense that they are instantiations of the same Template. Value must be a positive integer.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#replicas StatefulSetV1#replicas}
-  */
+   * The desired number of replicas of the given Template, in the sense that they are instantiations of the same Template. Value must be a positive integer.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#replicas StatefulSetV1#replicas}
+   */
   readonly replicas?: string;
   /**
-  * The maximum number of revisions that will be maintained in the StatefulSet's revision history. The default value is 10.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#revision_history_limit StatefulSetV1#revision_history_limit}
-  */
+   * The maximum number of revisions that will be maintained in the StatefulSet's revision history. The default value is 10.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#revision_history_limit StatefulSetV1#revision_history_limit}
+   */
   readonly revisionHistoryLimit?: number;
   /**
-  * The name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service_name StatefulSetV1#service_name}
-  */
+   * The name of the service that governs this StatefulSet. This service must exist before the StatefulSet, and is responsible for the network identity of the set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#service_name StatefulSetV1#service_name}
+   */
   readonly serviceName: string;
   /**
-  * selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#selector StatefulSetV1#selector}
-  */
+   * selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#selector StatefulSetV1#selector}
+   */
   readonly selector: StatefulSetV1SpecSelector;
   /**
-  * template block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#template StatefulSetV1#template}
-  */
+   * template block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#template StatefulSetV1#template}
+   */
   readonly template: StatefulSetV1SpecTemplate;
   /**
-  * update_strategy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#update_strategy StatefulSetV1#update_strategy}
-  */
-  readonly updateStrategy?: StatefulSetV1SpecUpdateStrategy[] | cdktf.IResolvable;
+   * update_strategy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#update_strategy StatefulSetV1#update_strategy}
+   */
+  readonly updateStrategy?:
+    | StatefulSetV1SpecUpdateStrategy[]
+    | cdktf.IResolvable;
   /**
-  * volume_claim_template block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_claim_template StatefulSetV1#volume_claim_template}
-  */
-  readonly volumeClaimTemplate?: StatefulSetV1SpecVolumeClaimTemplate[] | cdktf.IResolvable;
+   * volume_claim_template block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#volume_claim_template StatefulSetV1#volume_claim_template}
+   */
+  readonly volumeClaimTemplate?:
+    | StatefulSetV1SpecVolumeClaimTemplate[]
+    | cdktf.IResolvable;
 }
 
-export function statefulSetV1SpecToTerraform(struct?: StatefulSetV1SpecOutputReference | StatefulSetV1Spec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1SpecToTerraform(
+  struct?: StatefulSetV1SpecOutputReference | StatefulSetV1Spec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     pod_management_policy: cdktf.stringToTerraform(struct!.podManagementPolicy),
     replicas: cdktf.stringToTerraform(struct!.replicas),
-    revision_history_limit: cdktf.numberToTerraform(struct!.revisionHistoryLimit),
+    revision_history_limit: cdktf.numberToTerraform(
+      struct!.revisionHistoryLimit,
+    ),
     service_name: cdktf.stringToTerraform(struct!.serviceName),
     selector: statefulSetV1SpecSelectorToTerraform(struct!.selector),
     template: statefulSetV1SpecTemplateToTerraform(struct!.template),
-    update_strategy: cdktf.listMapper(statefulSetV1SpecUpdateStrategyToTerraform, true)(struct!.updateStrategy),
-    volume_claim_template: cdktf.listMapper(statefulSetV1SpecVolumeClaimTemplateToTerraform, true)(struct!.volumeClaimTemplate),
-  }
+    update_strategy: cdktf.listMapper(
+      statefulSetV1SpecUpdateStrategyToTerraform,
+      true,
+    )(struct!.updateStrategy),
+    volume_claim_template: cdktf.listMapper(
+      statefulSetV1SpecVolumeClaimTemplateToTerraform,
+      true,
+    )(struct!.volumeClaimTemplate),
+  };
 }
 
 export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -12691,7 +15166,8 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
     }
     if (this._volumeClaimTemplate?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.volumeClaimTemplate = this._volumeClaimTemplate?.internalValue;
+      internalValueResult.volumeClaimTemplate =
+        this._volumeClaimTemplate?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -12707,8 +15183,7 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
       this._template.internalValue = undefined;
       this._updateStrategy.internalValue = undefined;
       this._volumeClaimTemplate.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._podManagementPolicy = value.podManagementPolicy;
       this._replicas = value.replicas;
@@ -12722,7 +15197,7 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // pod_management_policy - computed: true, optional: true, required: false
-  private _podManagementPolicy?: string; 
+  private _podManagementPolicy?: string;
   public get podManagementPolicy() {
     return this.getStringAttribute('pod_management_policy');
   }
@@ -12738,7 +15213,7 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // replicas - computed: true, optional: true, required: false
-  private _replicas?: string; 
+  private _replicas?: string;
   public get replicas() {
     return this.getStringAttribute('replicas');
   }
@@ -12754,7 +15229,7 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // revision_history_limit - computed: true, optional: true, required: false
-  private _revisionHistoryLimit?: number; 
+  private _revisionHistoryLimit?: number;
   public get revisionHistoryLimit() {
     return this.getNumberAttribute('revision_history_limit');
   }
@@ -12770,7 +15245,7 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string; 
+  private _serviceName?: string;
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -12783,7 +15258,10 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // selector - computed: false, optional: false, required: true
-  private _selector = new StatefulSetV1SpecSelectorOutputReference(this, "selector");
+  private _selector = new StatefulSetV1SpecSelectorOutputReference(
+    this,
+    'selector',
+  );
   public get selector() {
     return this._selector;
   }
@@ -12796,7 +15274,10 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // template - computed: false, optional: false, required: true
-  private _template = new StatefulSetV1SpecTemplateOutputReference(this, "template");
+  private _template = new StatefulSetV1SpecTemplateOutputReference(
+    this,
+    'template',
+  );
   public get template() {
     return this._template;
   }
@@ -12809,11 +15290,17 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // update_strategy - computed: false, optional: true, required: false
-  private _updateStrategy = new StatefulSetV1SpecUpdateStrategyList(this, "update_strategy", false);
+  private _updateStrategy = new StatefulSetV1SpecUpdateStrategyList(
+    this,
+    'update_strategy',
+    false,
+  );
   public get updateStrategy() {
     return this._updateStrategy;
   }
-  public putUpdateStrategy(value: StatefulSetV1SpecUpdateStrategy[] | cdktf.IResolvable) {
+  public putUpdateStrategy(
+    value: StatefulSetV1SpecUpdateStrategy[] | cdktf.IResolvable,
+  ) {
     this._updateStrategy.internalValue = value;
   }
   public resetUpdateStrategy() {
@@ -12825,11 +15312,17 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_claim_template - computed: false, optional: true, required: false
-  private _volumeClaimTemplate = new StatefulSetV1SpecVolumeClaimTemplateList(this, "volume_claim_template", false);
+  private _volumeClaimTemplate = new StatefulSetV1SpecVolumeClaimTemplateList(
+    this,
+    'volume_claim_template',
+    false,
+  );
   public get volumeClaimTemplate() {
     return this._volumeClaimTemplate;
   }
-  public putVolumeClaimTemplate(value: StatefulSetV1SpecVolumeClaimTemplate[] | cdktf.IResolvable) {
+  public putVolumeClaimTemplate(
+    value: StatefulSetV1SpecVolumeClaimTemplate[] | cdktf.IResolvable,
+  ) {
     this._volumeClaimTemplate.internalValue = value;
   }
   public resetVolumeClaimTemplate() {
@@ -12842,34 +15335,43 @@ export class StatefulSetV1SpecOutputReference extends cdktf.ComplexObject {
 }
 export interface StatefulSetV1Timeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#create StatefulSetV1#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#create StatefulSetV1#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#delete StatefulSetV1#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#delete StatefulSetV1#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read StatefulSetV1#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#read StatefulSetV1#read}
+   */
   readonly read?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#update StatefulSetV1#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set_v1#update StatefulSetV1#update}
+   */
   readonly update?: string;
 }
 
-export function statefulSetV1TimeoutsToTerraform(struct?: StatefulSetV1TimeoutsOutputReference | StatefulSetV1Timeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function statefulSetV1TimeoutsToTerraform(
+  struct?:
+    | StatefulSetV1TimeoutsOutputReference
+    | StatefulSetV1Timeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
@@ -12877,14 +15379,20 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): StatefulSetV1Timeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StatefulSetV1Timeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -12909,7 +15417,9 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StatefulSetV1Timeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: StatefulSetV1Timeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -12917,12 +15427,10 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
       this._delete = undefined;
       this._read = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -12933,7 +15441,7 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -12949,7 +15457,7 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -12965,7 +15473,7 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -12981,7 +15489,7 @@ export class StatefulSetV1TimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }

@@ -2,94 +2,109 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface GlobalacceleratorEndpointGroupConfig extends cdktf.TerraformMetaArguments {
+export interface GlobalacceleratorEndpointGroupConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_group_region GlobalacceleratorEndpointGroup#endpoint_group_region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_group_region GlobalacceleratorEndpointGroup#endpoint_group_region}
+   */
   readonly endpointGroupRegion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_interval_seconds GlobalacceleratorEndpointGroup#health_check_interval_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_interval_seconds GlobalacceleratorEndpointGroup#health_check_interval_seconds}
+   */
   readonly healthCheckIntervalSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_path GlobalacceleratorEndpointGroup#health_check_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_path GlobalacceleratorEndpointGroup#health_check_path}
+   */
   readonly healthCheckPath?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_port GlobalacceleratorEndpointGroup#health_check_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_port GlobalacceleratorEndpointGroup#health_check_port}
+   */
   readonly healthCheckPort?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_protocol GlobalacceleratorEndpointGroup#health_check_protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#health_check_protocol GlobalacceleratorEndpointGroup#health_check_protocol}
+   */
   readonly healthCheckProtocol?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#id GlobalacceleratorEndpointGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#id GlobalacceleratorEndpointGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#listener_arn GlobalacceleratorEndpointGroup#listener_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#listener_arn GlobalacceleratorEndpointGroup#listener_arn}
+   */
   readonly listenerArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#threshold_count GlobalacceleratorEndpointGroup#threshold_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#threshold_count GlobalacceleratorEndpointGroup#threshold_count}
+   */
   readonly thresholdCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#traffic_dial_percentage GlobalacceleratorEndpointGroup#traffic_dial_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#traffic_dial_percentage GlobalacceleratorEndpointGroup#traffic_dial_percentage}
+   */
   readonly trafficDialPercentage?: number;
   /**
-  * endpoint_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_configuration GlobalacceleratorEndpointGroup#endpoint_configuration}
-  */
-  readonly endpointConfiguration?: GlobalacceleratorEndpointGroupEndpointConfiguration[] | cdktf.IResolvable;
+   * endpoint_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_configuration GlobalacceleratorEndpointGroup#endpoint_configuration}
+   */
+  readonly endpointConfiguration?:
+    | GlobalacceleratorEndpointGroupEndpointConfiguration[]
+    | cdktf.IResolvable;
   /**
-  * port_override block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#port_override GlobalacceleratorEndpointGroup#port_override}
-  */
-  readonly portOverride?: GlobalacceleratorEndpointGroupPortOverride[] | cdktf.IResolvable;
+   * port_override block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#port_override GlobalacceleratorEndpointGroup#port_override}
+   */
+  readonly portOverride?:
+    | GlobalacceleratorEndpointGroupPortOverride[]
+    | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#timeouts GlobalacceleratorEndpointGroup#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#timeouts GlobalacceleratorEndpointGroup#timeouts}
+   */
   readonly timeouts?: GlobalacceleratorEndpointGroupTimeouts;
 }
 export interface GlobalacceleratorEndpointGroupEndpointConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#client_ip_preservation_enabled GlobalacceleratorEndpointGroup#client_ip_preservation_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#client_ip_preservation_enabled GlobalacceleratorEndpointGroup#client_ip_preservation_enabled}
+   */
   readonly clientIpPreservationEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_id GlobalacceleratorEndpointGroup#endpoint_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_id GlobalacceleratorEndpointGroup#endpoint_id}
+   */
   readonly endpointId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#weight GlobalacceleratorEndpointGroup#weight}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#weight GlobalacceleratorEndpointGroup#weight}
+   */
   readonly weight?: number;
 }
 
-export function globalacceleratorEndpointGroupEndpointConfigurationToTerraform(struct?: GlobalacceleratorEndpointGroupEndpointConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorEndpointGroupEndpointConfigurationToTerraform(
+  struct?:
+    | GlobalacceleratorEndpointGroupEndpointConfiguration
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    client_ip_preservation_enabled: cdktf.booleanToTerraform(struct!.clientIpPreservationEnabled),
+    client_ip_preservation_enabled: cdktf.booleanToTerraform(
+      struct!.clientIpPreservationEnabled,
+    ),
     endpoint_id: cdktf.stringToTerraform(struct!.endpointId),
     weight: cdktf.numberToTerraform(struct!.weight),
-  }
+  };
 }
 
 export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference extends cdktf.ComplexObject {
@@ -97,16 +112,29 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GlobalacceleratorEndpointGroupEndpointConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlobalacceleratorEndpointGroupEndpointConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -114,7 +142,8 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
     const internalValueResult: any = {};
     if (this._clientIpPreservationEnabled !== undefined) {
       hasAnyValues = true;
-      internalValueResult.clientIpPreservationEnabled = this._clientIpPreservationEnabled;
+      internalValueResult.clientIpPreservationEnabled =
+        this._clientIpPreservationEnabled;
     }
     if (this._endpointId !== undefined) {
       hasAnyValues = true;
@@ -127,19 +156,22 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorEndpointGroupEndpointConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GlobalacceleratorEndpointGroupEndpointConfiguration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._clientIpPreservationEnabled = undefined;
       this._endpointId = undefined;
       this._weight = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._clientIpPreservationEnabled = value.clientIpPreservationEnabled;
@@ -198,44 +230,63 @@ export class GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference 
 }
 
 export class GlobalacceleratorEndpointGroupEndpointConfigurationList extends cdktf.ComplexList {
-  public internalValue? : GlobalacceleratorEndpointGroupEndpointConfiguration[] | cdktf.IResolvable
+  public internalValue?:
+    | GlobalacceleratorEndpointGroupEndpointConfiguration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference {
-    return new GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference {
+    return new GlobalacceleratorEndpointGroupEndpointConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GlobalacceleratorEndpointGroupPortOverride {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_port GlobalacceleratorEndpointGroup#endpoint_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#endpoint_port GlobalacceleratorEndpointGroup#endpoint_port}
+   */
   readonly endpointPort: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#listener_port GlobalacceleratorEndpointGroup#listener_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#listener_port GlobalacceleratorEndpointGroup#listener_port}
+   */
   readonly listenerPort: number;
 }
 
-export function globalacceleratorEndpointGroupPortOverrideToTerraform(struct?: GlobalacceleratorEndpointGroupPortOverride | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorEndpointGroupPortOverrideToTerraform(
+  struct?: GlobalacceleratorEndpointGroupPortOverride | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     endpoint_port: cdktf.numberToTerraform(struct!.endpointPort),
     listener_port: cdktf.numberToTerraform(struct!.listenerPort),
-  }
+  };
 }
 
 export class GlobalacceleratorEndpointGroupPortOverrideOutputReference extends cdktf.ComplexObject {
@@ -243,16 +294,29 @@ export class GlobalacceleratorEndpointGroupPortOverrideOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GlobalacceleratorEndpointGroupPortOverride | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlobalacceleratorEndpointGroupPortOverride
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -269,18 +333,21 @@ export class GlobalacceleratorEndpointGroupPortOverrideOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorEndpointGroupPortOverride | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GlobalacceleratorEndpointGroupPortOverride
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._endpointPort = undefined;
       this._listenerPort = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._endpointPort = value.endpointPort;
@@ -316,49 +383,71 @@ export class GlobalacceleratorEndpointGroupPortOverrideOutputReference extends c
 }
 
 export class GlobalacceleratorEndpointGroupPortOverrideList extends cdktf.ComplexList {
-  public internalValue? : GlobalacceleratorEndpointGroupPortOverride[] | cdktf.IResolvable
+  public internalValue?:
+    | GlobalacceleratorEndpointGroupPortOverride[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GlobalacceleratorEndpointGroupPortOverrideOutputReference {
-    return new GlobalacceleratorEndpointGroupPortOverrideOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GlobalacceleratorEndpointGroupPortOverrideOutputReference {
+    return new GlobalacceleratorEndpointGroupPortOverrideOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GlobalacceleratorEndpointGroupTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#create GlobalacceleratorEndpointGroup#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#create GlobalacceleratorEndpointGroup#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#delete GlobalacceleratorEndpointGroup#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#delete GlobalacceleratorEndpointGroup#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#update GlobalacceleratorEndpointGroup#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group#update GlobalacceleratorEndpointGroup#update}
+   */
   readonly update?: string;
 }
 
-export function globalacceleratorEndpointGroupTimeoutsToTerraform(struct?: GlobalacceleratorEndpointGroupTimeoutsOutputReference | GlobalacceleratorEndpointGroupTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorEndpointGroupTimeoutsToTerraform(
+  struct?:
+    | GlobalacceleratorEndpointGroupTimeoutsOutputReference
+    | GlobalacceleratorEndpointGroupTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -366,14 +455,20 @@ export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GlobalacceleratorEndpointGroupTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlobalacceleratorEndpointGroupTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -394,19 +489,22 @@ export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorEndpointGroupTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GlobalacceleratorEndpointGroupTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -465,33 +563,37 @@ export class GlobalacceleratorEndpointGroupTimeoutsOutputReference extends cdktf
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group aws_globalaccelerator_endpoint_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group aws_globalaccelerator_endpoint_group}
+ */
 export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_globalaccelerator_endpoint_group";
+  public static readonly tfResourceType =
+    'aws_globalaccelerator_endpoint_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group aws_globalaccelerator_endpoint_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GlobalacceleratorEndpointGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: GlobalacceleratorEndpointGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_endpoint_group aws_globalaccelerator_endpoint_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GlobalacceleratorEndpointGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GlobalacceleratorEndpointGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_globalaccelerator_endpoint_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -499,7 +601,7 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._endpointGroupRegion = config.endpointGroupRegion;
     this._healthCheckIntervalSeconds = config.healthCheckIntervalSeconds;
@@ -666,11 +768,20 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // endpoint_configuration - computed: false, optional: true, required: false
-  private _endpointConfiguration = new GlobalacceleratorEndpointGroupEndpointConfigurationList(this, "endpoint_configuration", true);
+  private _endpointConfiguration =
+    new GlobalacceleratorEndpointGroupEndpointConfigurationList(
+      this,
+      'endpoint_configuration',
+      true,
+    );
   public get endpointConfiguration() {
     return this._endpointConfiguration;
   }
-  public putEndpointConfiguration(value: GlobalacceleratorEndpointGroupEndpointConfiguration[] | cdktf.IResolvable) {
+  public putEndpointConfiguration(
+    value:
+      | GlobalacceleratorEndpointGroupEndpointConfiguration[]
+      | cdktf.IResolvable,
+  ) {
     this._endpointConfiguration.internalValue = value;
   }
   public resetEndpointConfiguration() {
@@ -682,11 +793,17 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // port_override - computed: false, optional: true, required: false
-  private _portOverride = new GlobalacceleratorEndpointGroupPortOverrideList(this, "port_override", true);
+  private _portOverride = new GlobalacceleratorEndpointGroupPortOverrideList(
+    this,
+    'port_override',
+    true,
+  );
   public get portOverride() {
     return this._portOverride;
   }
-  public putPortOverride(value: GlobalacceleratorEndpointGroupPortOverride[] | cdktf.IResolvable) {
+  public putPortOverride(
+    value: GlobalacceleratorEndpointGroupPortOverride[] | cdktf.IResolvable,
+  ) {
     this._portOverride.internalValue = value;
   }
   public resetPortOverride() {
@@ -698,7 +815,10 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GlobalacceleratorEndpointGroupTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new GlobalacceleratorEndpointGroupTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -720,17 +840,29 @@ export class GlobalacceleratorEndpointGroup extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       endpoint_group_region: cdktf.stringToTerraform(this._endpointGroupRegion),
-      health_check_interval_seconds: cdktf.numberToTerraform(this._healthCheckIntervalSeconds),
+      health_check_interval_seconds: cdktf.numberToTerraform(
+        this._healthCheckIntervalSeconds,
+      ),
       health_check_path: cdktf.stringToTerraform(this._healthCheckPath),
       health_check_port: cdktf.numberToTerraform(this._healthCheckPort),
       health_check_protocol: cdktf.stringToTerraform(this._healthCheckProtocol),
       id: cdktf.stringToTerraform(this._id),
       listener_arn: cdktf.stringToTerraform(this._listenerArn),
       threshold_count: cdktf.numberToTerraform(this._thresholdCount),
-      traffic_dial_percentage: cdktf.numberToTerraform(this._trafficDialPercentage),
-      endpoint_configuration: cdktf.listMapper(globalacceleratorEndpointGroupEndpointConfigurationToTerraform, true)(this._endpointConfiguration.internalValue),
-      port_override: cdktf.listMapper(globalacceleratorEndpointGroupPortOverrideToTerraform, true)(this._portOverride.internalValue),
-      timeouts: globalacceleratorEndpointGroupTimeoutsToTerraform(this._timeouts.internalValue),
+      traffic_dial_percentage: cdktf.numberToTerraform(
+        this._trafficDialPercentage,
+      ),
+      endpoint_configuration: cdktf.listMapper(
+        globalacceleratorEndpointGroupEndpointConfigurationToTerraform,
+        true,
+      )(this._endpointConfiguration.internalValue),
+      port_override: cdktf.listMapper(
+        globalacceleratorEndpointGroupPortOverrideToTerraform,
+        true,
+      )(this._portOverride.internalValue),
+      timeouts: globalacceleratorEndpointGroupTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

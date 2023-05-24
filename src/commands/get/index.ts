@@ -1,7 +1,7 @@
 import { Flags } from '@oclif/core';
 import inquirer from 'inquirer';
-import { ResourceTypeList } from '../../@resources/index.js';
-import { BaseCommand } from '../../base-command.js';
+import { ResourceTypeList } from '../../@resources/index.ts';
+import { BaseCommand } from '../../base-command.ts';
 
 export default class GetResourceCommand extends BaseCommand {
   static description = 'Get the details of a specific cloud resource';

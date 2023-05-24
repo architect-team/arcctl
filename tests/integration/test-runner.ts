@@ -1,16 +1,16 @@
-import { ProviderCredentials } from '../../src/@providers/credentials.js';
-import { Provider } from '../../src/@providers/provider.js';
-import { SupportedProviders } from '../../src/@providers/supported-providers.js';
+import { ProviderCredentials } from '../../src/@providers/credentials.ts';
+import { Provider } from '../../src/@providers/provider.ts';
+import { SupportedProviders } from '../../src/@providers/supported-providers.ts';
 import {
   CldctlTest,
   CldctlTestStack,
   CldctlTestStackOutputs,
-} from '../../src/@providers/tests.js';
-import { ResourceOutputs, ResourceType } from '../../src/index.js';
-import PluginManager from '../../src/plugins/plugin-manager.js';
-import TerraformPlugin from '../../src/plugins/terraform-plugin.js';
-import { CldCtlTerraformStack } from '../../src/utils/stack.js';
-import { App, TerraformOutput } from 'cdktf';
+} from '../../src/@providers/tests.ts';
+import { ResourceOutputs, ResourceType } from '../../src/index.ts';
+import PluginManager from '../../src/plugins/plugin-manager.ts';
+import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
+import { CldCtlTerraformStack } from '../../src/utils/stack.ts';
+import { App, TerraformOutput } from 'npm:cdktf';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';

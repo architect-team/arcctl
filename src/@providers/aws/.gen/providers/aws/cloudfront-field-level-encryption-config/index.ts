@@ -2,60 +2,69 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface CloudfrontFieldLevelEncryptionConfigConfig extends cdktf.TerraformMetaArguments {
+export interface CloudfrontFieldLevelEncryptionConfigConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#comment CloudfrontFieldLevelEncryptionConfig#comment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#comment CloudfrontFieldLevelEncryptionConfig#comment}
+   */
   readonly comment?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#id CloudfrontFieldLevelEncryptionConfig#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#id CloudfrontFieldLevelEncryptionConfig#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * content_type_profile_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#content_type_profile_config CloudfrontFieldLevelEncryptionConfig#content_type_profile_config}
-  */
+   * content_type_profile_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#content_type_profile_config CloudfrontFieldLevelEncryptionConfig#content_type_profile_config}
+   */
   readonly contentTypeProfileConfig: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig;
   /**
-  * query_arg_profile_config block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#query_arg_profile_config CloudfrontFieldLevelEncryptionConfig#query_arg_profile_config}
-  */
+   * query_arg_profile_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#query_arg_profile_config CloudfrontFieldLevelEncryptionConfig#query_arg_profile_config}
+   */
   readonly queryArgProfileConfig: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig;
 }
 export interface CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#content_type CloudfrontFieldLevelEncryptionConfig#content_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#content_type CloudfrontFieldLevelEncryptionConfig#content_type}
+   */
   readonly contentType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#format CloudfrontFieldLevelEncryptionConfig#format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#format CloudfrontFieldLevelEncryptionConfig#format}
+   */
   readonly format: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#profile_id CloudfrontFieldLevelEncryptionConfig#profile_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#profile_id CloudfrontFieldLevelEncryptionConfig#profile_id}
+   */
   readonly profileId?: string;
 }
 
-export function cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsToTerraform(struct?: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsToTerraform(
+  struct?:
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     content_type: cdktf.stringToTerraform(struct!.contentType),
     format: cdktf.stringToTerraform(struct!.format),
     profile_id: cdktf.stringToTerraform(struct!.profileId),
-  }
+  };
 }
 
 export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsOutputReference extends cdktf.ComplexObject {
@@ -63,16 +72,29 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContent
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -93,19 +115,22 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContent
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._contentType = undefined;
       this._format = undefined;
       this._profileId = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._contentType = value.contentType;
@@ -158,55 +183,86 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContent
 }
 
 export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsList extends cdktf.ComplexList {
-  public internalValue? : CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems[] | cdktf.IResolvable
+  public internalValue?:
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsOutputReference {
-    return new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsOutputReference {
+    return new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
   /**
-  * items block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#items CloudfrontFieldLevelEncryptionConfig#items}
-  */
-  readonly items: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#items CloudfrontFieldLevelEncryptionConfig#items}
+   */
+  readonly items:
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems[]
+    | cdktf.IResolvable;
 }
 
-export function cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesToTerraform(struct?: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputReference | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesToTerraform(
+  struct?:
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputReference
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    items: cdktf.listMapper(cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles | undefined {
+  public get internalValue():
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items?.internalValue !== undefined) {
@@ -216,23 +272,35 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContent
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items.internalValue = value.items;
     }
   }
 
   // items - computed: false, optional: false, required: true
-  private _items = new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsList(this, "items", true);
+  private _items =
+    new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemsList(
+      this,
+      'items',
+      true,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -242,62 +310,86 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContent
 }
 export interface CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#forward_when_content_type_is_unknown CloudfrontFieldLevelEncryptionConfig#forward_when_content_type_is_unknown}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#forward_when_content_type_is_unknown CloudfrontFieldLevelEncryptionConfig#forward_when_content_type_is_unknown}
+   */
   readonly forwardWhenContentTypeIsUnknown: boolean | cdktf.IResolvable;
   /**
-  * content_type_profiles block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#content_type_profiles CloudfrontFieldLevelEncryptionConfig#content_type_profiles}
-  */
+   * content_type_profiles block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#content_type_profiles CloudfrontFieldLevelEncryptionConfig#content_type_profiles}
+   */
   readonly contentTypeProfiles: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles;
 }
 
-export function cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigToTerraform(struct?: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputReference | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigToTerraform(
+  struct?:
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputReference
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    forward_when_content_type_is_unknown: cdktf.booleanToTerraform(struct!.forwardWhenContentTypeIsUnknown),
-    content_type_profiles: cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesToTerraform(struct!.contentTypeProfiles),
-  }
+    forward_when_content_type_is_unknown: cdktf.booleanToTerraform(
+      struct!.forwardWhenContentTypeIsUnknown,
+    ),
+    content_type_profiles:
+      cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesToTerraform(
+        struct!.contentTypeProfiles,
+      ),
+  };
 }
 
 export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig | undefined {
+  public get internalValue():
+    | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._forwardWhenContentTypeIsUnknown !== undefined) {
       hasAnyValues = true;
-      internalValueResult.forwardWhenContentTypeIsUnknown = this._forwardWhenContentTypeIsUnknown;
+      internalValueResult.forwardWhenContentTypeIsUnknown =
+        this._forwardWhenContentTypeIsUnknown;
     }
     if (this._contentTypeProfiles?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.contentTypeProfiles = this._contentTypeProfiles?.internalValue;
+      internalValueResult.contentTypeProfiles =
+        this._contentTypeProfiles?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._forwardWhenContentTypeIsUnknown = undefined;
       this._contentTypeProfiles.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._forwardWhenContentTypeIsUnknown = value.forwardWhenContentTypeIsUnknown;
+      this._forwardWhenContentTypeIsUnknown =
+        value.forwardWhenContentTypeIsUnknown;
       this._contentTypeProfiles.internalValue = value.contentTypeProfiles;
     }
   }
@@ -307,7 +399,9 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputR
   public get forwardWhenContentTypeIsUnknown() {
     return this.getBooleanAttribute('forward_when_content_type_is_unknown');
   }
-  public set forwardWhenContentTypeIsUnknown(value: boolean | cdktf.IResolvable) {
+  public set forwardWhenContentTypeIsUnknown(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._forwardWhenContentTypeIsUnknown = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -316,11 +410,17 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputR
   }
 
   // content_type_profiles - computed: false, optional: false, required: true
-  private _contentTypeProfiles = new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputReference(this, "content_type_profiles");
+  private _contentTypeProfiles =
+    new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputReference(
+      this,
+      'content_type_profiles',
+    );
   public get contentTypeProfiles() {
     return this._contentTypeProfiles;
   }
-  public putContentTypeProfiles(value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) {
+  public putContentTypeProfiles(
+    value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles,
+  ) {
     this._contentTypeProfiles.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -330,24 +430,32 @@ export class CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputR
 }
 export interface CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#profile_id CloudfrontFieldLevelEncryptionConfig#profile_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#profile_id CloudfrontFieldLevelEncryptionConfig#profile_id}
+   */
   readonly profileId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#query_arg CloudfrontFieldLevelEncryptionConfig#query_arg}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#query_arg CloudfrontFieldLevelEncryptionConfig#query_arg}
+   */
   readonly queryArg: string;
 }
 
-export function cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsToTerraform(struct?: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsToTerraform(
+  struct?:
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     profile_id: cdktf.stringToTerraform(struct!.profileId),
     query_arg: cdktf.stringToTerraform(struct!.queryArg),
-  }
+  };
 }
 
 export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsOutputReference extends cdktf.ComplexObject {
@@ -355,16 +463,29 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgPr
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -381,18 +502,21 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgPr
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._profileId = undefined;
       this._queryArg = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._profileId = value.profileId;
@@ -428,55 +552,86 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgPr
 }
 
 export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsList extends cdktf.ComplexList {
-  public internalValue? : CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems[] | cdktf.IResolvable
+  public internalValue?:
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsOutputReference {
-    return new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsOutputReference {
+    return new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
   /**
-  * items block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#items CloudfrontFieldLevelEncryptionConfig#items}
-  */
-  readonly items?: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#items CloudfrontFieldLevelEncryptionConfig#items}
+   */
+  readonly items?:
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems[]
+    | cdktf.IResolvable;
 }
 
-export function cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesToTerraform(struct?: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputReference | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesToTerraform(
+  struct?:
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputReference
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    items: cdktf.listMapper(cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles | undefined {
+  public get internalValue():
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items?.internalValue !== undefined) {
@@ -486,23 +641,35 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgPr
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items.internalValue = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsList(this, "items", true);
+  private _items =
+    new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemsList(
+      this,
+      'items',
+      true,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -515,62 +682,86 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgPr
 }
 export interface CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#forward_when_query_arg_profile_is_unknown CloudfrontFieldLevelEncryptionConfig#forward_when_query_arg_profile_is_unknown}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#forward_when_query_arg_profile_is_unknown CloudfrontFieldLevelEncryptionConfig#forward_when_query_arg_profile_is_unknown}
+   */
   readonly forwardWhenQueryArgProfileIsUnknown: boolean | cdktf.IResolvable;
   /**
-  * query_arg_profiles block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#query_arg_profiles CloudfrontFieldLevelEncryptionConfig#query_arg_profiles}
-  */
+   * query_arg_profiles block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config#query_arg_profiles CloudfrontFieldLevelEncryptionConfig#query_arg_profiles}
+   */
   readonly queryArgProfiles?: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles;
 }
 
-export function cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigToTerraform(struct?: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputReference | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigToTerraform(
+  struct?:
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputReference
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    forward_when_query_arg_profile_is_unknown: cdktf.booleanToTerraform(struct!.forwardWhenQueryArgProfileIsUnknown),
-    query_arg_profiles: cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesToTerraform(struct!.queryArgProfiles),
-  }
+    forward_when_query_arg_profile_is_unknown: cdktf.booleanToTerraform(
+      struct!.forwardWhenQueryArgProfileIsUnknown,
+    ),
+    query_arg_profiles:
+      cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesToTerraform(
+        struct!.queryArgProfiles,
+      ),
+  };
 }
 
 export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig | undefined {
+  public get internalValue():
+    | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._forwardWhenQueryArgProfileIsUnknown !== undefined) {
       hasAnyValues = true;
-      internalValueResult.forwardWhenQueryArgProfileIsUnknown = this._forwardWhenQueryArgProfileIsUnknown;
+      internalValueResult.forwardWhenQueryArgProfileIsUnknown =
+        this._forwardWhenQueryArgProfileIsUnknown;
     }
     if (this._queryArgProfiles?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.queryArgProfiles = this._queryArgProfiles?.internalValue;
+      internalValueResult.queryArgProfiles =
+        this._queryArgProfiles?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._forwardWhenQueryArgProfileIsUnknown = undefined;
       this._queryArgProfiles.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._forwardWhenQueryArgProfileIsUnknown = value.forwardWhenQueryArgProfileIsUnknown;
+      this._forwardWhenQueryArgProfileIsUnknown =
+        value.forwardWhenQueryArgProfileIsUnknown;
       this._queryArgProfiles.internalValue = value.queryArgProfiles;
     }
   }
@@ -578,9 +769,13 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputRefe
   // forward_when_query_arg_profile_is_unknown - computed: false, optional: false, required: true
   private _forwardWhenQueryArgProfileIsUnknown?: boolean | cdktf.IResolvable;
   public get forwardWhenQueryArgProfileIsUnknown() {
-    return this.getBooleanAttribute('forward_when_query_arg_profile_is_unknown');
+    return this.getBooleanAttribute(
+      'forward_when_query_arg_profile_is_unknown',
+    );
   }
-  public set forwardWhenQueryArgProfileIsUnknown(value: boolean | cdktf.IResolvable) {
+  public set forwardWhenQueryArgProfileIsUnknown(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._forwardWhenQueryArgProfileIsUnknown = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -589,11 +784,17 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputRefe
   }
 
   // query_arg_profiles - computed: false, optional: true, required: false
-  private _queryArgProfiles = new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputReference(this, "query_arg_profiles");
+  private _queryArgProfiles =
+    new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputReference(
+      this,
+      'query_arg_profiles',
+    );
   public get queryArgProfiles() {
     return this._queryArgProfiles;
   }
-  public putQueryArgProfiles(value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles) {
+  public putQueryArgProfiles(
+    value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles,
+  ) {
     this._queryArgProfiles.internalValue = value;
   }
   public resetQueryArgProfiles() {
@@ -606,33 +807,37 @@ export class CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputRefe
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config aws_cloudfront_field_level_encryption_config}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config aws_cloudfront_field_level_encryption_config}
+ */
 export class CloudfrontFieldLevelEncryptionConfig extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudfront_field_level_encryption_config";
+  public static readonly tfResourceType =
+    'aws_cloudfront_field_level_encryption_config';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config aws_cloudfront_field_level_encryption_config} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudfrontFieldLevelEncryptionConfigConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudfrontFieldLevelEncryptionConfigConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_field_level_encryption_config aws_cloudfront_field_level_encryption_config} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudfrontFieldLevelEncryptionConfigConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudfrontFieldLevelEncryptionConfigConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudfront_field_level_encryption_config',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -640,11 +845,12 @@ export class CloudfrontFieldLevelEncryptionConfig extends cdktf.TerraformResourc
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._comment = config.comment;
     this._id = config.id;
-    this._contentTypeProfileConfig.internalValue = config.contentTypeProfileConfig;
+    this._contentTypeProfileConfig.internalValue =
+      config.contentTypeProfileConfig;
     this._queryArgProfileConfig.internalValue = config.queryArgProfileConfig;
   }
 
@@ -695,11 +901,17 @@ export class CloudfrontFieldLevelEncryptionConfig extends cdktf.TerraformResourc
   }
 
   // content_type_profile_config - computed: false, optional: false, required: true
-  private _contentTypeProfileConfig = new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputReference(this, "content_type_profile_config");
+  private _contentTypeProfileConfig =
+    new CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigOutputReference(
+      this,
+      'content_type_profile_config',
+    );
   public get contentTypeProfileConfig() {
     return this._contentTypeProfileConfig;
   }
-  public putContentTypeProfileConfig(value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig) {
+  public putContentTypeProfileConfig(
+    value: CloudfrontFieldLevelEncryptionConfigContentTypeProfileConfig,
+  ) {
     this._contentTypeProfileConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -708,11 +920,17 @@ export class CloudfrontFieldLevelEncryptionConfig extends cdktf.TerraformResourc
   }
 
   // query_arg_profile_config - computed: false, optional: false, required: true
-  private _queryArgProfileConfig = new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputReference(this, "query_arg_profile_config");
+  private _queryArgProfileConfig =
+    new CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigOutputReference(
+      this,
+      'query_arg_profile_config',
+    );
   public get queryArgProfileConfig() {
     return this._queryArgProfileConfig;
   }
-  public putQueryArgProfileConfig(value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig) {
+  public putQueryArgProfileConfig(
+    value: CloudfrontFieldLevelEncryptionConfigQueryArgProfileConfig,
+  ) {
     this._queryArgProfileConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -728,8 +946,14 @@ export class CloudfrontFieldLevelEncryptionConfig extends cdktf.TerraformResourc
     return {
       comment: cdktf.stringToTerraform(this._comment),
       id: cdktf.stringToTerraform(this._id),
-      content_type_profile_config: cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigToTerraform(this._contentTypeProfileConfig.internalValue),
-      query_arg_profile_config: cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigToTerraform(this._queryArgProfileConfig.internalValue),
+      content_type_profile_config:
+        cloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigToTerraform(
+          this._contentTypeProfileConfig.internalValue,
+        ),
+      query_arg_profile_config:
+        cloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigToTerraform(
+          this._queryArgProfileConfig.internalValue,
+        ),
     };
   }
 }

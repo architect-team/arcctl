@@ -2,84 +2,100 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface S3BucketWebsiteConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface S3BucketWebsiteConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#bucket S3BucketWebsiteConfiguration#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#bucket S3BucketWebsiteConfiguration#bucket}
+   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#expected_bucket_owner S3BucketWebsiteConfiguration#expected_bucket_owner}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#expected_bucket_owner S3BucketWebsiteConfiguration#expected_bucket_owner}
+   */
   readonly expectedBucketOwner?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#id S3BucketWebsiteConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#id S3BucketWebsiteConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#routing_rules S3BucketWebsiteConfiguration#routing_rules}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#routing_rules S3BucketWebsiteConfiguration#routing_rules}
+   */
   readonly routingRules?: string;
   /**
-  * error_document block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#error_document S3BucketWebsiteConfiguration#error_document}
-  */
+   * error_document block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#error_document S3BucketWebsiteConfiguration#error_document}
+   */
   readonly errorDocument?: S3BucketWebsiteConfigurationErrorDocument;
   /**
-  * index_document block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#index_document S3BucketWebsiteConfiguration#index_document}
-  */
+   * index_document block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#index_document S3BucketWebsiteConfiguration#index_document}
+   */
   readonly indexDocument?: S3BucketWebsiteConfigurationIndexDocument;
   /**
-  * redirect_all_requests_to block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#redirect_all_requests_to S3BucketWebsiteConfiguration#redirect_all_requests_to}
-  */
+   * redirect_all_requests_to block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#redirect_all_requests_to S3BucketWebsiteConfiguration#redirect_all_requests_to}
+   */
   readonly redirectAllRequestsTo?: S3BucketWebsiteConfigurationRedirectAllRequestsTo;
   /**
-  * routing_rule block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#routing_rule S3BucketWebsiteConfiguration#routing_rule}
-  */
-  readonly routingRule?: S3BucketWebsiteConfigurationRoutingRule[] | cdktf.IResolvable;
+   * routing_rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#routing_rule S3BucketWebsiteConfiguration#routing_rule}
+   */
+  readonly routingRule?:
+    | S3BucketWebsiteConfigurationRoutingRule[]
+    | cdktf.IResolvable;
 }
 export interface S3BucketWebsiteConfigurationErrorDocument {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#key S3BucketWebsiteConfiguration#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#key S3BucketWebsiteConfiguration#key}
+   */
   readonly key: string;
 }
 
-export function s3BucketWebsiteConfigurationErrorDocumentToTerraform(struct?: S3BucketWebsiteConfigurationErrorDocumentOutputReference | S3BucketWebsiteConfigurationErrorDocument): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3BucketWebsiteConfigurationErrorDocumentToTerraform(
+  struct?:
+    | S3BucketWebsiteConfigurationErrorDocumentOutputReference
+    | S3BucketWebsiteConfigurationErrorDocument,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-  }
+  };
 }
 
 export class S3BucketWebsiteConfigurationErrorDocumentOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3BucketWebsiteConfigurationErrorDocument | undefined {
+  public get internalValue():
+    | S3BucketWebsiteConfigurationErrorDocument
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._key !== undefined) {
@@ -89,12 +105,13 @@ export class S3BucketWebsiteConfigurationErrorDocumentOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3BucketWebsiteConfigurationErrorDocument | undefined) {
+  public set internalValue(
+    value: S3BucketWebsiteConfigurationErrorDocument | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
     }
@@ -115,33 +132,46 @@ export class S3BucketWebsiteConfigurationErrorDocumentOutputReference extends cd
 }
 export interface S3BucketWebsiteConfigurationIndexDocument {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#suffix S3BucketWebsiteConfiguration#suffix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#suffix S3BucketWebsiteConfiguration#suffix}
+   */
   readonly suffix: string;
 }
 
-export function s3BucketWebsiteConfigurationIndexDocumentToTerraform(struct?: S3BucketWebsiteConfigurationIndexDocumentOutputReference | S3BucketWebsiteConfigurationIndexDocument): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3BucketWebsiteConfigurationIndexDocumentToTerraform(
+  struct?:
+    | S3BucketWebsiteConfigurationIndexDocumentOutputReference
+    | S3BucketWebsiteConfigurationIndexDocument,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     suffix: cdktf.stringToTerraform(struct!.suffix),
-  }
+  };
 }
 
 export class S3BucketWebsiteConfigurationIndexDocumentOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3BucketWebsiteConfigurationIndexDocument | undefined {
+  public get internalValue():
+    | S3BucketWebsiteConfigurationIndexDocument
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._suffix !== undefined) {
@@ -151,12 +181,13 @@ export class S3BucketWebsiteConfigurationIndexDocumentOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3BucketWebsiteConfigurationIndexDocument | undefined) {
+  public set internalValue(
+    value: S3BucketWebsiteConfigurationIndexDocument | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._suffix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._suffix = value.suffix;
     }
@@ -177,38 +208,51 @@ export class S3BucketWebsiteConfigurationIndexDocumentOutputReference extends cd
 }
 export interface S3BucketWebsiteConfigurationRedirectAllRequestsTo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#host_name S3BucketWebsiteConfiguration#host_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#host_name S3BucketWebsiteConfiguration#host_name}
+   */
   readonly hostName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#protocol S3BucketWebsiteConfiguration#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#protocol S3BucketWebsiteConfiguration#protocol}
+   */
   readonly protocol?: string;
 }
 
-export function s3BucketWebsiteConfigurationRedirectAllRequestsToToTerraform(struct?: S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference | S3BucketWebsiteConfigurationRedirectAllRequestsTo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3BucketWebsiteConfigurationRedirectAllRequestsToToTerraform(
+  struct?:
+    | S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference
+    | S3BucketWebsiteConfigurationRedirectAllRequestsTo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host_name: cdktf.stringToTerraform(struct!.hostName),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-  }
+  };
 }
 
 export class S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3BucketWebsiteConfigurationRedirectAllRequestsTo | undefined {
+  public get internalValue():
+    | S3BucketWebsiteConfigurationRedirectAllRequestsTo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._hostName !== undefined) {
@@ -222,13 +266,14 @@ export class S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3BucketWebsiteConfigurationRedirectAllRequestsTo | undefined) {
+  public set internalValue(
+    value: S3BucketWebsiteConfigurationRedirectAllRequestsTo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._hostName = undefined;
       this._protocol = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._hostName = value.hostName;
       this._protocol = value.protocol;
@@ -266,43 +311,59 @@ export class S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference ex
 }
 export interface S3BucketWebsiteConfigurationRoutingRuleCondition {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#http_error_code_returned_equals S3BucketWebsiteConfiguration#http_error_code_returned_equals}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#http_error_code_returned_equals S3BucketWebsiteConfiguration#http_error_code_returned_equals}
+   */
   readonly httpErrorCodeReturnedEquals?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#key_prefix_equals S3BucketWebsiteConfiguration#key_prefix_equals}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#key_prefix_equals S3BucketWebsiteConfiguration#key_prefix_equals}
+   */
   readonly keyPrefixEquals?: string;
 }
 
-export function s3BucketWebsiteConfigurationRoutingRuleConditionToTerraform(struct?: S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference | S3BucketWebsiteConfigurationRoutingRuleCondition): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3BucketWebsiteConfigurationRoutingRuleConditionToTerraform(
+  struct?:
+    | S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference
+    | S3BucketWebsiteConfigurationRoutingRuleCondition,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    http_error_code_returned_equals: cdktf.stringToTerraform(struct!.httpErrorCodeReturnedEquals),
+    http_error_code_returned_equals: cdktf.stringToTerraform(
+      struct!.httpErrorCodeReturnedEquals,
+    ),
     key_prefix_equals: cdktf.stringToTerraform(struct!.keyPrefixEquals),
-  }
+  };
 }
 
 export class S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3BucketWebsiteConfigurationRoutingRuleCondition | undefined {
+  public get internalValue():
+    | S3BucketWebsiteConfigurationRoutingRuleCondition
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._httpErrorCodeReturnedEquals !== undefined) {
       hasAnyValues = true;
-      internalValueResult.httpErrorCodeReturnedEquals = this._httpErrorCodeReturnedEquals;
+      internalValueResult.httpErrorCodeReturnedEquals =
+        this._httpErrorCodeReturnedEquals;
     }
     if (this._keyPrefixEquals !== undefined) {
       hasAnyValues = true;
@@ -311,13 +372,14 @@ export class S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3BucketWebsiteConfigurationRoutingRuleCondition | undefined) {
+  public set internalValue(
+    value: S3BucketWebsiteConfigurationRoutingRuleCondition | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._httpErrorCodeReturnedEquals = undefined;
       this._keyPrefixEquals = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._httpErrorCodeReturnedEquals = value.httpErrorCodeReturnedEquals;
       this._keyPrefixEquals = value.keyPrefixEquals;
@@ -358,53 +420,68 @@ export class S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference ext
 }
 export interface S3BucketWebsiteConfigurationRoutingRuleRedirect {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#host_name S3BucketWebsiteConfiguration#host_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#host_name S3BucketWebsiteConfiguration#host_name}
+   */
   readonly hostName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#http_redirect_code S3BucketWebsiteConfiguration#http_redirect_code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#http_redirect_code S3BucketWebsiteConfiguration#http_redirect_code}
+   */
   readonly httpRedirectCode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#protocol S3BucketWebsiteConfiguration#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#protocol S3BucketWebsiteConfiguration#protocol}
+   */
   readonly protocol?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#replace_key_prefix_with S3BucketWebsiteConfiguration#replace_key_prefix_with}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#replace_key_prefix_with S3BucketWebsiteConfiguration#replace_key_prefix_with}
+   */
   readonly replaceKeyPrefixWith?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#replace_key_with S3BucketWebsiteConfiguration#replace_key_with}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#replace_key_with S3BucketWebsiteConfiguration#replace_key_with}
+   */
   readonly replaceKeyWith?: string;
 }
 
-export function s3BucketWebsiteConfigurationRoutingRuleRedirectToTerraform(struct?: S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference | S3BucketWebsiteConfigurationRoutingRuleRedirect): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3BucketWebsiteConfigurationRoutingRuleRedirectToTerraform(
+  struct?:
+    | S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference
+    | S3BucketWebsiteConfigurationRoutingRuleRedirect,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host_name: cdktf.stringToTerraform(struct!.hostName),
     http_redirect_code: cdktf.stringToTerraform(struct!.httpRedirectCode),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-    replace_key_prefix_with: cdktf.stringToTerraform(struct!.replaceKeyPrefixWith),
+    replace_key_prefix_with: cdktf.stringToTerraform(
+      struct!.replaceKeyPrefixWith,
+    ),
     replace_key_with: cdktf.stringToTerraform(struct!.replaceKeyWith),
-  }
+  };
 }
 
 export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): S3BucketWebsiteConfigurationRoutingRuleRedirect | undefined {
+  public get internalValue():
+    | S3BucketWebsiteConfigurationRoutingRuleRedirect
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._hostName !== undefined) {
@@ -430,7 +507,9 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3BucketWebsiteConfigurationRoutingRuleRedirect | undefined) {
+  public set internalValue(
+    value: S3BucketWebsiteConfigurationRoutingRuleRedirect | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._hostName = undefined;
@@ -438,8 +517,7 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
       this._protocol = undefined;
       this._replaceKeyPrefixWith = undefined;
       this._replaceKeyWith = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._hostName = value.hostName;
       this._httpRedirectCode = value.httpRedirectCode;
@@ -531,28 +609,38 @@ export class S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference exte
 }
 export interface S3BucketWebsiteConfigurationRoutingRule {
   /**
-  * condition block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#condition S3BucketWebsiteConfiguration#condition}
-  */
+   * condition block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#condition S3BucketWebsiteConfiguration#condition}
+   */
   readonly condition?: S3BucketWebsiteConfigurationRoutingRuleCondition;
   /**
-  * redirect block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#redirect S3BucketWebsiteConfiguration#redirect}
-  */
+   * redirect block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration#redirect S3BucketWebsiteConfiguration#redirect}
+   */
   readonly redirect: S3BucketWebsiteConfigurationRoutingRuleRedirect;
 }
 
-export function s3BucketWebsiteConfigurationRoutingRuleToTerraform(struct?: S3BucketWebsiteConfigurationRoutingRule | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function s3BucketWebsiteConfigurationRoutingRuleToTerraform(
+  struct?: S3BucketWebsiteConfigurationRoutingRule | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    condition: s3BucketWebsiteConfigurationRoutingRuleConditionToTerraform(struct!.condition),
-    redirect: s3BucketWebsiteConfigurationRoutingRuleRedirectToTerraform(struct!.redirect),
-  }
+    condition: s3BucketWebsiteConfigurationRoutingRuleConditionToTerraform(
+      struct!.condition,
+    ),
+    redirect: s3BucketWebsiteConfigurationRoutingRuleRedirectToTerraform(
+      struct!.redirect,
+    ),
+  };
 }
 
 export class S3BucketWebsiteConfigurationRoutingRuleOutputReference extends cdktf.ComplexObject {
@@ -560,16 +648,29 @@ export class S3BucketWebsiteConfigurationRoutingRuleOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): S3BucketWebsiteConfigurationRoutingRule | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | S3BucketWebsiteConfigurationRoutingRule
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -586,18 +687,21 @@ export class S3BucketWebsiteConfigurationRoutingRuleOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: S3BucketWebsiteConfigurationRoutingRule | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | S3BucketWebsiteConfigurationRoutingRule
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._condition.internalValue = undefined;
       this._redirect.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._condition.internalValue = value.condition;
@@ -606,7 +710,11 @@ export class S3BucketWebsiteConfigurationRoutingRuleOutputReference extends cdkt
   }
 
   // condition - computed: false, optional: true, required: false
-  private _condition = new S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference(this, "condition");
+  private _condition =
+    new S3BucketWebsiteConfigurationRoutingRuleConditionOutputReference(
+      this,
+      'condition',
+    );
   public get condition() {
     return this._condition;
   }
@@ -622,7 +730,11 @@ export class S3BucketWebsiteConfigurationRoutingRuleOutputReference extends cdkt
   }
 
   // redirect - computed: false, optional: false, required: true
-  private _redirect = new S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference(this, "redirect");
+  private _redirect =
+    new S3BucketWebsiteConfigurationRoutingRuleRedirectOutputReference(
+      this,
+      'redirect',
+    );
   public get redirect() {
     return this._redirect;
   }
@@ -636,53 +748,69 @@ export class S3BucketWebsiteConfigurationRoutingRuleOutputReference extends cdkt
 }
 
 export class S3BucketWebsiteConfigurationRoutingRuleList extends cdktf.ComplexList {
-  public internalValue? : S3BucketWebsiteConfigurationRoutingRule[] | cdktf.IResolvable
+  public internalValue?:
+    | S3BucketWebsiteConfigurationRoutingRule[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): S3BucketWebsiteConfigurationRoutingRuleOutputReference {
-    return new S3BucketWebsiteConfigurationRoutingRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): S3BucketWebsiteConfigurationRoutingRuleOutputReference {
+    return new S3BucketWebsiteConfigurationRoutingRuleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration aws_s3_bucket_website_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration aws_s3_bucket_website_configuration}
+ */
 export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_s3_bucket_website_configuration";
+  public static readonly tfResourceType = 'aws_s3_bucket_website_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration aws_s3_bucket_website_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options S3BucketWebsiteConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: S3BucketWebsiteConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_website_configuration aws_s3_bucket_website_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options S3BucketWebsiteConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: S3BucketWebsiteConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_bucket_website_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -690,7 +818,7 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._bucket = config.bucket;
     this._expectedBucketOwner = config.expectedBucketOwner;
@@ -778,7 +906,11 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // error_document - computed: false, optional: true, required: false
-  private _errorDocument = new S3BucketWebsiteConfigurationErrorDocumentOutputReference(this, "error_document");
+  private _errorDocument =
+    new S3BucketWebsiteConfigurationErrorDocumentOutputReference(
+      this,
+      'error_document',
+    );
   public get errorDocument() {
     return this._errorDocument;
   }
@@ -794,7 +926,11 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // index_document - computed: false, optional: true, required: false
-  private _indexDocument = new S3BucketWebsiteConfigurationIndexDocumentOutputReference(this, "index_document");
+  private _indexDocument =
+    new S3BucketWebsiteConfigurationIndexDocumentOutputReference(
+      this,
+      'index_document',
+    );
   public get indexDocument() {
     return this._indexDocument;
   }
@@ -810,11 +946,17 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // redirect_all_requests_to - computed: false, optional: true, required: false
-  private _redirectAllRequestsTo = new S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference(this, "redirect_all_requests_to");
+  private _redirectAllRequestsTo =
+    new S3BucketWebsiteConfigurationRedirectAllRequestsToOutputReference(
+      this,
+      'redirect_all_requests_to',
+    );
   public get redirectAllRequestsTo() {
     return this._redirectAllRequestsTo;
   }
-  public putRedirectAllRequestsTo(value: S3BucketWebsiteConfigurationRedirectAllRequestsTo) {
+  public putRedirectAllRequestsTo(
+    value: S3BucketWebsiteConfigurationRedirectAllRequestsTo,
+  ) {
     this._redirectAllRequestsTo.internalValue = value;
   }
   public resetRedirectAllRequestsTo() {
@@ -826,11 +968,17 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
   }
 
   // routing_rule - computed: false, optional: true, required: false
-  private _routingRule = new S3BucketWebsiteConfigurationRoutingRuleList(this, "routing_rule", false);
+  private _routingRule = new S3BucketWebsiteConfigurationRoutingRuleList(
+    this,
+    'routing_rule',
+    false,
+  );
   public get routingRule() {
     return this._routingRule;
   }
-  public putRoutingRule(value: S3BucketWebsiteConfigurationRoutingRule[] | cdktf.IResolvable) {
+  public putRoutingRule(
+    value: S3BucketWebsiteConfigurationRoutingRule[] | cdktf.IResolvable,
+  ) {
     this._routingRule.internalValue = value;
   }
   public resetRoutingRule() {
@@ -851,10 +999,20 @@ export class S3BucketWebsiteConfiguration extends cdktf.TerraformResource {
       expected_bucket_owner: cdktf.stringToTerraform(this._expectedBucketOwner),
       id: cdktf.stringToTerraform(this._id),
       routing_rules: cdktf.stringToTerraform(this._routingRules),
-      error_document: s3BucketWebsiteConfigurationErrorDocumentToTerraform(this._errorDocument.internalValue),
-      index_document: s3BucketWebsiteConfigurationIndexDocumentToTerraform(this._indexDocument.internalValue),
-      redirect_all_requests_to: s3BucketWebsiteConfigurationRedirectAllRequestsToToTerraform(this._redirectAllRequestsTo.internalValue),
-      routing_rule: cdktf.listMapper(s3BucketWebsiteConfigurationRoutingRuleToTerraform, true)(this._routingRule.internalValue),
+      error_document: s3BucketWebsiteConfigurationErrorDocumentToTerraform(
+        this._errorDocument.internalValue,
+      ),
+      index_document: s3BucketWebsiteConfigurationIndexDocumentToTerraform(
+        this._indexDocument.internalValue,
+      ),
+      redirect_all_requests_to:
+        s3BucketWebsiteConfigurationRedirectAllRequestsToToTerraform(
+          this._redirectAllRequestsTo.internalValue,
+        ),
+      routing_rule: cdktf.listMapper(
+        s3BucketWebsiteConfigurationRoutingRuleToTerraform,
+        true,
+      )(this._routingRule.internalValue),
     };
   }
 }

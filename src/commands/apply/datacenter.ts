@@ -1,7 +1,7 @@
-import { BaseCommand } from '../../base-command.js';
-import { CloudGraph } from '../../cloud-graph/index.js';
-import { parseDatacenter } from '../../datacenters/index.js';
-import { ExecutableGraph } from '../../executable-graph/index.js';
+import { BaseCommand } from '../../base-command.ts';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { parseDatacenter } from '../../datacenters/index.ts';
+import { ExecutableGraph } from '../../executable-graph/index.ts';
 import { Flags } from '@oclif/core';
 
 export default class ApplyDatacenterChangesCmd extends BaseCommand {

@@ -2,79 +2,82 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface DigitaloceanProviderConfig {
   /**
-  * The URL to use for the DigitalOcean API.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#api_endpoint DigitaloceanProvider#api_endpoint}
-  */
+   * The URL to use for the DigitalOcean API.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#api_endpoint DigitaloceanProvider#api_endpoint}
+   */
   readonly apiEndpoint?: string;
   /**
-  * The access key ID for Spaces API operations.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_access_id DigitaloceanProvider#spaces_access_id}
-  */
+   * The access key ID for Spaces API operations.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_access_id DigitaloceanProvider#spaces_access_id}
+   */
   readonly spacesAccessId?: string;
   /**
-  * The URL to use for the DigitalOcean Spaces API.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_endpoint DigitaloceanProvider#spaces_endpoint}
-  */
+   * The URL to use for the DigitalOcean Spaces API.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_endpoint DigitaloceanProvider#spaces_endpoint}
+   */
   readonly spacesEndpoint?: string;
   /**
-  * The secret access key for Spaces API operations.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_secret_key DigitaloceanProvider#spaces_secret_key}
-  */
+   * The secret access key for Spaces API operations.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#spaces_secret_key DigitaloceanProvider#spaces_secret_key}
+   */
   readonly spacesSecretKey?: string;
   /**
-  * The token key for API operations.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#token DigitaloceanProvider#token}
-  */
+   * The token key for API operations.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#token DigitaloceanProvider#token}
+   */
   readonly token?: string;
   /**
-  * Alias name
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#alias DigitaloceanProvider#alias}
-  */
+   * Alias name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean#alias DigitaloceanProvider#alias}
+   */
   readonly alias?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean digitalocean}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean digitalocean}
+ */
 export class DigitaloceanProvider extends cdktf.TerraformProvider {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean";
+  public static readonly tfResourceType = 'digitalocean';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean digitalocean} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DigitaloceanProviderConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DigitaloceanProviderConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean digitalocean} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DigitaloceanProviderConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DigitaloceanProviderConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'digitalocean',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
-      terraformProviderSource: 'digitalocean/digitalocean'
+      terraformProviderSource: 'digitalocean/digitalocean',
     });
     this._apiEndpoint = config.apiEndpoint;
     this._spacesAccessId = config.spacesAccessId;

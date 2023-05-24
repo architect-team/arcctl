@@ -2,68 +2,79 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface LightsailContainerServiceDeploymentVersionConfig extends cdktf.TerraformMetaArguments {
+export interface LightsailContainerServiceDeploymentVersionConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#id LightsailContainerServiceDeploymentVersion#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#id LightsailContainerServiceDeploymentVersion#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#service_name LightsailContainerServiceDeploymentVersion#service_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#service_name LightsailContainerServiceDeploymentVersion#service_name}
+   */
   readonly serviceName: string;
   /**
-  * container block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container LightsailContainerServiceDeploymentVersion#container}
-  */
-  readonly container: LightsailContainerServiceDeploymentVersionContainer[] | cdktf.IResolvable;
+   * container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container LightsailContainerServiceDeploymentVersion#container}
+   */
+  readonly container:
+    | LightsailContainerServiceDeploymentVersionContainer[]
+    | cdktf.IResolvable;
   /**
-  * public_endpoint block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#public_endpoint LightsailContainerServiceDeploymentVersion#public_endpoint}
-  */
+   * public_endpoint block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#public_endpoint LightsailContainerServiceDeploymentVersion#public_endpoint}
+   */
   readonly publicEndpoint?: LightsailContainerServiceDeploymentVersionPublicEndpoint;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#timeouts LightsailContainerServiceDeploymentVersion#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#timeouts LightsailContainerServiceDeploymentVersion#timeouts}
+   */
   readonly timeouts?: LightsailContainerServiceDeploymentVersionTimeouts;
 }
 export interface LightsailContainerServiceDeploymentVersionContainer {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#command LightsailContainerServiceDeploymentVersion#command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#command LightsailContainerServiceDeploymentVersion#command}
+   */
   readonly command?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container_name LightsailContainerServiceDeploymentVersion#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container_name LightsailContainerServiceDeploymentVersion#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#environment LightsailContainerServiceDeploymentVersion#environment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#environment LightsailContainerServiceDeploymentVersion#environment}
+   */
   readonly environment?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#image LightsailContainerServiceDeploymentVersion#image}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#image LightsailContainerServiceDeploymentVersion#image}
+   */
   readonly image: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#ports LightsailContainerServiceDeploymentVersion#ports}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#ports LightsailContainerServiceDeploymentVersion#ports}
+   */
   readonly ports?: { [key: string]: string };
 }
 
-export function lightsailContainerServiceDeploymentVersionContainerToTerraform(struct?: LightsailContainerServiceDeploymentVersionContainer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lightsailContainerServiceDeploymentVersionContainerToTerraform(
+  struct?:
+    | LightsailContainerServiceDeploymentVersionContainer
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     command: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.command),
@@ -71,7 +82,7 @@ export function lightsailContainerServiceDeploymentVersionContainerToTerraform(s
     environment: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.environment),
     image: cdktf.stringToTerraform(struct!.image),
     ports: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.ports),
-  }
+  };
 }
 
 export class LightsailContainerServiceDeploymentVersionContainerOutputReference extends cdktf.ComplexObject {
@@ -79,16 +90,29 @@ export class LightsailContainerServiceDeploymentVersionContainerOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): LightsailContainerServiceDeploymentVersionContainer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LightsailContainerServiceDeploymentVersionContainer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -117,7 +141,12 @@ export class LightsailContainerServiceDeploymentVersionContainerOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LightsailContainerServiceDeploymentVersionContainer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | LightsailContainerServiceDeploymentVersionContainer
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -126,12 +155,10 @@ export class LightsailContainerServiceDeploymentVersionContainerOutputReference 
       this._environment = undefined;
       this._image = undefined;
       this._ports = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._command = value.command;
@@ -218,55 +245,76 @@ export class LightsailContainerServiceDeploymentVersionContainerOutputReference 
 }
 
 export class LightsailContainerServiceDeploymentVersionContainerList extends cdktf.ComplexList {
-  public internalValue? : LightsailContainerServiceDeploymentVersionContainer[] | cdktf.IResolvable
+  public internalValue?:
+    | LightsailContainerServiceDeploymentVersionContainer[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): LightsailContainerServiceDeploymentVersionContainerOutputReference {
-    return new LightsailContainerServiceDeploymentVersionContainerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): LightsailContainerServiceDeploymentVersionContainerOutputReference {
+    return new LightsailContainerServiceDeploymentVersionContainerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#healthy_threshold LightsailContainerServiceDeploymentVersion#healthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#healthy_threshold LightsailContainerServiceDeploymentVersion#healthy_threshold}
+   */
   readonly healthyThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#interval_seconds LightsailContainerServiceDeploymentVersion#interval_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#interval_seconds LightsailContainerServiceDeploymentVersion#interval_seconds}
+   */
   readonly intervalSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#path LightsailContainerServiceDeploymentVersion#path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#path LightsailContainerServiceDeploymentVersion#path}
+   */
   readonly path?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#success_codes LightsailContainerServiceDeploymentVersion#success_codes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#success_codes LightsailContainerServiceDeploymentVersion#success_codes}
+   */
   readonly successCodes?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#timeout_seconds LightsailContainerServiceDeploymentVersion#timeout_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#timeout_seconds LightsailContainerServiceDeploymentVersion#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#unhealthy_threshold LightsailContainerServiceDeploymentVersion#unhealthy_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#unhealthy_threshold LightsailContainerServiceDeploymentVersion#unhealthy_threshold}
+   */
   readonly unhealthyThreshold?: number;
 }
 
-export function lightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckToTerraform(struct?: LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputReference | LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckToTerraform(
+  struct?:
+    | LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputReference
+    | LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     healthy_threshold: cdktf.numberToTerraform(struct!.healthyThreshold),
@@ -275,21 +323,26 @@ export function lightsailContainerServiceDeploymentVersionPublicEndpointHealthCh
     success_codes: cdktf.stringToTerraform(struct!.successCodes),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
     unhealthy_threshold: cdktf.numberToTerraform(struct!.unhealthyThreshold),
-  }
+  };
 }
 
 export class LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck | undefined {
+  public get internalValue():
+    | LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._healthyThreshold !== undefined) {
@@ -319,7 +372,11 @@ export class LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck | undefined) {
+  public set internalValue(
+    value:
+      | LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._healthyThreshold = undefined;
@@ -328,8 +385,7 @@ export class LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck
       this._successCodes = undefined;
       this._timeoutSeconds = undefined;
       this._unhealthyThreshold = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._healthyThreshold = value.healthyThreshold;
       this._intervalSeconds = value.intervalSeconds;
@@ -438,45 +494,61 @@ export class LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck
 }
 export interface LightsailContainerServiceDeploymentVersionPublicEndpoint {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container_name LightsailContainerServiceDeploymentVersion#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container_name LightsailContainerServiceDeploymentVersion#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container_port LightsailContainerServiceDeploymentVersion#container_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#container_port LightsailContainerServiceDeploymentVersion#container_port}
+   */
   readonly containerPort: number;
   /**
-  * health_check block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#health_check LightsailContainerServiceDeploymentVersion#health_check}
-  */
+   * health_check block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#health_check LightsailContainerServiceDeploymentVersion#health_check}
+   */
   readonly healthCheck: LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck;
 }
 
-export function lightsailContainerServiceDeploymentVersionPublicEndpointToTerraform(struct?: LightsailContainerServiceDeploymentVersionPublicEndpointOutputReference | LightsailContainerServiceDeploymentVersionPublicEndpoint): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lightsailContainerServiceDeploymentVersionPublicEndpointToTerraform(
+  struct?:
+    | LightsailContainerServiceDeploymentVersionPublicEndpointOutputReference
+    | LightsailContainerServiceDeploymentVersionPublicEndpoint,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     container_port: cdktf.numberToTerraform(struct!.containerPort),
-    health_check: lightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckToTerraform(struct!.healthCheck),
-  }
+    health_check:
+      lightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckToTerraform(
+        struct!.healthCheck,
+      ),
+  };
 }
 
 export class LightsailContainerServiceDeploymentVersionPublicEndpointOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LightsailContainerServiceDeploymentVersionPublicEndpoint | undefined {
+  public get internalValue():
+    | LightsailContainerServiceDeploymentVersionPublicEndpoint
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -494,14 +566,15 @@ export class LightsailContainerServiceDeploymentVersionPublicEndpointOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LightsailContainerServiceDeploymentVersionPublicEndpoint | undefined) {
+  public set internalValue(
+    value: LightsailContainerServiceDeploymentVersionPublicEndpoint | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._containerPort = undefined;
       this._healthCheck.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._containerPort = value.containerPort;
@@ -536,11 +609,17 @@ export class LightsailContainerServiceDeploymentVersionPublicEndpointOutputRefer
   }
 
   // health_check - computed: false, optional: false, required: true
-  private _healthCheck = new LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputReference(this, "health_check");
+  private _healthCheck =
+    new LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputReference(
+      this,
+      'health_check',
+    );
   public get healthCheck() {
     return this._healthCheck;
   }
-  public putHealthCheck(value: LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck) {
+  public putHealthCheck(
+    value: LightsailContainerServiceDeploymentVersionPublicEndpointHealthCheck,
+  ) {
     this._healthCheck.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -550,19 +629,28 @@ export class LightsailContainerServiceDeploymentVersionPublicEndpointOutputRefer
 }
 export interface LightsailContainerServiceDeploymentVersionTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#create LightsailContainerServiceDeploymentVersion#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version#create LightsailContainerServiceDeploymentVersion#create}
+   */
   readonly create?: string;
 }
 
-export function lightsailContainerServiceDeploymentVersionTimeoutsToTerraform(struct?: LightsailContainerServiceDeploymentVersionTimeoutsOutputReference | LightsailContainerServiceDeploymentVersionTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lightsailContainerServiceDeploymentVersionTimeoutsToTerraform(
+  struct?:
+    | LightsailContainerServiceDeploymentVersionTimeoutsOutputReference
+    | LightsailContainerServiceDeploymentVersionTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class LightsailContainerServiceDeploymentVersionTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -570,14 +658,20 @@ export class LightsailContainerServiceDeploymentVersionTimeoutsOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LightsailContainerServiceDeploymentVersionTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LightsailContainerServiceDeploymentVersionTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -590,17 +684,20 @@ export class LightsailContainerServiceDeploymentVersionTimeoutsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LightsailContainerServiceDeploymentVersionTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | LightsailContainerServiceDeploymentVersionTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -625,33 +722,38 @@ export class LightsailContainerServiceDeploymentVersionTimeoutsOutputReference e
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version aws_lightsail_container_service_deployment_version}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version aws_lightsail_container_service_deployment_version}
+ */
 export class LightsailContainerServiceDeploymentVersion extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lightsail_container_service_deployment_version";
+  public static readonly tfResourceType =
+    'aws_lightsail_container_service_deployment_version';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version aws_lightsail_container_service_deployment_version} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LightsailContainerServiceDeploymentVersionConfig
-  */
-  public constructor(scope: Construct, id: string, config: LightsailContainerServiceDeploymentVersionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service_deployment_version aws_lightsail_container_service_deployment_version} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LightsailContainerServiceDeploymentVersionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LightsailContainerServiceDeploymentVersionConfig,
+  ) {
     super(scope, id, {
-      terraformResourceType: 'aws_lightsail_container_service_deployment_version',
+      terraformResourceType:
+        'aws_lightsail_container_service_deployment_version',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -659,7 +761,7 @@ export class LightsailContainerServiceDeploymentVersion extends cdktf.TerraformR
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._serviceName = config.serviceName;
@@ -717,11 +819,20 @@ export class LightsailContainerServiceDeploymentVersion extends cdktf.TerraformR
   }
 
   // container - computed: false, optional: false, required: true
-  private _container = new LightsailContainerServiceDeploymentVersionContainerList(this, "container", true);
+  private _container =
+    new LightsailContainerServiceDeploymentVersionContainerList(
+      this,
+      'container',
+      true,
+    );
   public get container() {
     return this._container;
   }
-  public putContainer(value: LightsailContainerServiceDeploymentVersionContainer[] | cdktf.IResolvable) {
+  public putContainer(
+    value:
+      | LightsailContainerServiceDeploymentVersionContainer[]
+      | cdktf.IResolvable,
+  ) {
     this._container.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -730,11 +841,17 @@ export class LightsailContainerServiceDeploymentVersion extends cdktf.TerraformR
   }
 
   // public_endpoint - computed: false, optional: true, required: false
-  private _publicEndpoint = new LightsailContainerServiceDeploymentVersionPublicEndpointOutputReference(this, "public_endpoint");
+  private _publicEndpoint =
+    new LightsailContainerServiceDeploymentVersionPublicEndpointOutputReference(
+      this,
+      'public_endpoint',
+    );
   public get publicEndpoint() {
     return this._publicEndpoint;
   }
-  public putPublicEndpoint(value: LightsailContainerServiceDeploymentVersionPublicEndpoint) {
+  public putPublicEndpoint(
+    value: LightsailContainerServiceDeploymentVersionPublicEndpoint,
+  ) {
     this._publicEndpoint.internalValue = value;
   }
   public resetPublicEndpoint() {
@@ -746,11 +863,17 @@ export class LightsailContainerServiceDeploymentVersion extends cdktf.TerraformR
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new LightsailContainerServiceDeploymentVersionTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new LightsailContainerServiceDeploymentVersionTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
-  public putTimeouts(value: LightsailContainerServiceDeploymentVersionTimeouts) {
+  public putTimeouts(
+    value: LightsailContainerServiceDeploymentVersionTimeouts,
+  ) {
     this._timeouts.internalValue = value;
   }
   public resetTimeouts() {
@@ -769,9 +892,17 @@ export class LightsailContainerServiceDeploymentVersion extends cdktf.TerraformR
     return {
       id: cdktf.stringToTerraform(this._id),
       service_name: cdktf.stringToTerraform(this._serviceName),
-      container: cdktf.listMapper(lightsailContainerServiceDeploymentVersionContainerToTerraform, true)(this._container.internalValue),
-      public_endpoint: lightsailContainerServiceDeploymentVersionPublicEndpointToTerraform(this._publicEndpoint.internalValue),
-      timeouts: lightsailContainerServiceDeploymentVersionTimeoutsToTerraform(this._timeouts.internalValue),
+      container: cdktf.listMapper(
+        lightsailContainerServiceDeploymentVersionContainerToTerraform,
+        true,
+      )(this._container.internalValue),
+      public_endpoint:
+        lightsailContainerServiceDeploymentVersionPublicEndpointToTerraform(
+          this._publicEndpoint.internalValue,
+        ),
+      timeouts: lightsailContainerServiceDeploymentVersionTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -2,96 +2,112 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface GlueConnectionConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#catalog_id GlueConnection#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#catalog_id GlueConnection#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#connection_properties GlueConnection#connection_properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#connection_properties GlueConnection#connection_properties}
+   */
   readonly connectionProperties?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#connection_type GlueConnection#connection_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#connection_type GlueConnection#connection_type}
+   */
   readonly connectionType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#description GlueConnection#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#description GlueConnection#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#id GlueConnection#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#id GlueConnection#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#match_criteria GlueConnection#match_criteria}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#match_criteria GlueConnection#match_criteria}
+   */
   readonly matchCriteria?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#name GlueConnection#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#name GlueConnection#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#tags GlueConnection#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#tags GlueConnection#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#tags_all GlueConnection#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#tags_all GlueConnection#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * physical_connection_requirements block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#physical_connection_requirements GlueConnection#physical_connection_requirements}
-  */
+   * physical_connection_requirements block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#physical_connection_requirements GlueConnection#physical_connection_requirements}
+   */
   readonly physicalConnectionRequirements?: GlueConnectionPhysicalConnectionRequirements;
 }
 export interface GlueConnectionPhysicalConnectionRequirements {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#availability_zone GlueConnection#availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#availability_zone GlueConnection#availability_zone}
+   */
   readonly availabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#security_group_id_list GlueConnection#security_group_id_list}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#security_group_id_list GlueConnection#security_group_id_list}
+   */
   readonly securityGroupIdList?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#subnet_id GlueConnection#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_connection#subnet_id GlueConnection#subnet_id}
+   */
   readonly subnetId?: string;
 }
 
-export function glueConnectionPhysicalConnectionRequirementsToTerraform(struct?: GlueConnectionPhysicalConnectionRequirementsOutputReference | GlueConnectionPhysicalConnectionRequirements): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function glueConnectionPhysicalConnectionRequirementsToTerraform(
+  struct?:
+    | GlueConnectionPhysicalConnectionRequirementsOutputReference
+    | GlueConnectionPhysicalConnectionRequirements,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     availability_zone: cdktf.stringToTerraform(struct!.availabilityZone),
-    security_group_id_list: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIdList),
+    security_group_id_list: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIdList),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
-  }
+  };
 }
 
 export class GlueConnectionPhysicalConnectionRequirementsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GlueConnectionPhysicalConnectionRequirements | undefined {
+  public get internalValue():
+    | GlueConnectionPhysicalConnectionRequirements
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._availabilityZone !== undefined) {
@@ -109,14 +125,15 @@ export class GlueConnectionPhysicalConnectionRequirementsOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlueConnectionPhysicalConnectionRequirements | undefined) {
+  public set internalValue(
+    value: GlueConnectionPhysicalConnectionRequirements | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._availabilityZone = undefined;
       this._securityGroupIdList = undefined;
       this._subnetId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._availabilityZone = value.availabilityZone;
       this._securityGroupIdList = value.securityGroupIdList;
@@ -174,33 +191,36 @@ export class GlueConnectionPhysicalConnectionRequirementsOutputReference extends
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_connection aws_glue_connection}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_connection aws_glue_connection}
+ */
 export class GlueConnection extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_glue_connection";
+  public static readonly tfResourceType = 'aws_glue_connection';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_connection aws_glue_connection} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GlueConnectionConfig
-  */
-  public constructor(scope: Construct, id: string, config: GlueConnectionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_connection aws_glue_connection} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GlueConnectionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GlueConnectionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_connection',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -208,7 +228,7 @@ export class GlueConnection extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._catalogId = config.catalogId;
     this._connectionProperties = config.connectionProperties;
@@ -219,7 +239,8 @@ export class GlueConnection extends cdktf.TerraformResource {
     this._name = config.name;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._physicalConnectionRequirements.internalValue = config.physicalConnectionRequirements;
+    this._physicalConnectionRequirements.internalValue =
+      config.physicalConnectionRequirements;
   }
 
   // ==========
@@ -373,11 +394,17 @@ export class GlueConnection extends cdktf.TerraformResource {
   }
 
   // physical_connection_requirements - computed: false, optional: true, required: false
-  private _physicalConnectionRequirements = new GlueConnectionPhysicalConnectionRequirementsOutputReference(this, "physical_connection_requirements");
+  private _physicalConnectionRequirements =
+    new GlueConnectionPhysicalConnectionRequirementsOutputReference(
+      this,
+      'physical_connection_requirements',
+    );
   public get physicalConnectionRequirements() {
     return this._physicalConnectionRequirements;
   }
-  public putPhysicalConnectionRequirements(value: GlueConnectionPhysicalConnectionRequirements) {
+  public putPhysicalConnectionRequirements(
+    value: GlueConnectionPhysicalConnectionRequirements,
+  ) {
     this._physicalConnectionRequirements.internalValue = value;
   }
   public resetPhysicalConnectionRequirements() {
@@ -395,15 +422,23 @@ export class GlueConnection extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       catalog_id: cdktf.stringToTerraform(this._catalogId),
-      connection_properties: cdktf.hashMapper(cdktf.stringToTerraform)(this._connectionProperties),
+      connection_properties: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._connectionProperties,
+      ),
       connection_type: cdktf.stringToTerraform(this._connectionType),
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
-      match_criteria: cdktf.listMapper(cdktf.stringToTerraform, false)(this._matchCriteria),
+      match_criteria: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._matchCriteria),
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      physical_connection_requirements: glueConnectionPhysicalConnectionRequirementsToTerraform(this._physicalConnectionRequirements.internalValue),
+      physical_connection_requirements:
+        glueConnectionPhysicalConnectionRequirementsToTerraform(
+          this._physicalConnectionRequirements.internalValue,
+        ),
     };
   }
 }

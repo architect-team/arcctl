@@ -2,72 +2,86 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface IvschatLoggingConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface IvschatLoggingConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#id IvschatLoggingConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#id IvschatLoggingConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#name IvschatLoggingConfiguration#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#name IvschatLoggingConfiguration#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#tags IvschatLoggingConfiguration#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#tags IvschatLoggingConfiguration#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#tags_all IvschatLoggingConfiguration#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#tags_all IvschatLoggingConfiguration#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * destination_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#destination_configuration IvschatLoggingConfiguration#destination_configuration}
-  */
+   * destination_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#destination_configuration IvschatLoggingConfiguration#destination_configuration}
+   */
   readonly destinationConfiguration?: IvschatLoggingConfigurationDestinationConfiguration;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#timeouts IvschatLoggingConfiguration#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#timeouts IvschatLoggingConfiguration#timeouts}
+   */
   readonly timeouts?: IvschatLoggingConfigurationTimeouts;
 }
 export interface IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#log_group_name IvschatLoggingConfiguration#log_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#log_group_name IvschatLoggingConfiguration#log_group_name}
+   */
   readonly logGroupName: string;
 }
 
-export function ivschatLoggingConfigurationDestinationConfigurationCloudwatchLogsToTerraform(struct?: IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOutputReference | IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatLoggingConfigurationDestinationConfigurationCloudwatchLogsToTerraform(
+  struct?:
+    | IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOutputReference
+    | IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     log_group_name: cdktf.stringToTerraform(struct!.logGroupName),
-  }
+  };
 }
 
 export class IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs | undefined {
+  public get internalValue():
+    | IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._logGroupName !== undefined) {
@@ -77,12 +91,15 @@ export class IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs | undefined) {
+  public set internalValue(
+    value:
+      | IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._logGroupName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._logGroupName = value.logGroupName;
     }
@@ -103,33 +120,46 @@ export class IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOu
 }
 export interface IvschatLoggingConfigurationDestinationConfigurationFirehose {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#delivery_stream_name IvschatLoggingConfiguration#delivery_stream_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#delivery_stream_name IvschatLoggingConfiguration#delivery_stream_name}
+   */
   readonly deliveryStreamName: string;
 }
 
-export function ivschatLoggingConfigurationDestinationConfigurationFirehoseToTerraform(struct?: IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputReference | IvschatLoggingConfigurationDestinationConfigurationFirehose): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatLoggingConfigurationDestinationConfigurationFirehoseToTerraform(
+  struct?:
+    | IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputReference
+    | IvschatLoggingConfigurationDestinationConfigurationFirehose,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delivery_stream_name: cdktf.stringToTerraform(struct!.deliveryStreamName),
-  }
+  };
 }
 
 export class IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvschatLoggingConfigurationDestinationConfigurationFirehose | undefined {
+  public get internalValue():
+    | IvschatLoggingConfigurationDestinationConfigurationFirehose
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._deliveryStreamName !== undefined) {
@@ -139,12 +169,15 @@ export class IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvschatLoggingConfigurationDestinationConfigurationFirehose | undefined) {
+  public set internalValue(
+    value:
+      | IvschatLoggingConfigurationDestinationConfigurationFirehose
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deliveryStreamName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deliveryStreamName = value.deliveryStreamName;
     }
@@ -165,33 +198,46 @@ export class IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputRe
 }
 export interface IvschatLoggingConfigurationDestinationConfigurationS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#bucket_name IvschatLoggingConfiguration#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#bucket_name IvschatLoggingConfiguration#bucket_name}
+   */
   readonly bucketName: string;
 }
 
-export function ivschatLoggingConfigurationDestinationConfigurationS3ToTerraform(struct?: IvschatLoggingConfigurationDestinationConfigurationS3OutputReference | IvschatLoggingConfigurationDestinationConfigurationS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatLoggingConfigurationDestinationConfigurationS3ToTerraform(
+  struct?:
+    | IvschatLoggingConfigurationDestinationConfigurationS3OutputReference
+    | IvschatLoggingConfigurationDestinationConfigurationS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
-  }
+  };
 }
 
 export class IvschatLoggingConfigurationDestinationConfigurationS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvschatLoggingConfigurationDestinationConfigurationS3 | undefined {
+  public get internalValue():
+    | IvschatLoggingConfigurationDestinationConfigurationS3
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -201,12 +247,13 @@ export class IvschatLoggingConfigurationDestinationConfigurationS3OutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvschatLoggingConfigurationDestinationConfigurationS3 | undefined) {
+  public set internalValue(
+    value: IvschatLoggingConfigurationDestinationConfigurationS3 | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
     }
@@ -227,49 +274,70 @@ export class IvschatLoggingConfigurationDestinationConfigurationS3OutputReferenc
 }
 export interface IvschatLoggingConfigurationDestinationConfiguration {
   /**
-  * cloudwatch_logs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#cloudwatch_logs IvschatLoggingConfiguration#cloudwatch_logs}
-  */
+   * cloudwatch_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#cloudwatch_logs IvschatLoggingConfiguration#cloudwatch_logs}
+   */
   readonly cloudwatchLogs?: IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs;
   /**
-  * firehose block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#firehose IvschatLoggingConfiguration#firehose}
-  */
+   * firehose block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#firehose IvschatLoggingConfiguration#firehose}
+   */
   readonly firehose?: IvschatLoggingConfigurationDestinationConfigurationFirehose;
   /**
-  * s3 block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#s3 IvschatLoggingConfiguration#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#s3 IvschatLoggingConfiguration#s3}
+   */
   readonly s3?: IvschatLoggingConfigurationDestinationConfigurationS3;
 }
 
-export function ivschatLoggingConfigurationDestinationConfigurationToTerraform(struct?: IvschatLoggingConfigurationDestinationConfigurationOutputReference | IvschatLoggingConfigurationDestinationConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatLoggingConfigurationDestinationConfigurationToTerraform(
+  struct?:
+    | IvschatLoggingConfigurationDestinationConfigurationOutputReference
+    | IvschatLoggingConfigurationDestinationConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cloudwatch_logs: ivschatLoggingConfigurationDestinationConfigurationCloudwatchLogsToTerraform(struct!.cloudwatchLogs),
-    firehose: ivschatLoggingConfigurationDestinationConfigurationFirehoseToTerraform(struct!.firehose),
-    s3: ivschatLoggingConfigurationDestinationConfigurationS3ToTerraform(struct!.s3),
-  }
+    cloudwatch_logs:
+      ivschatLoggingConfigurationDestinationConfigurationCloudwatchLogsToTerraform(
+        struct!.cloudwatchLogs,
+      ),
+    firehose:
+      ivschatLoggingConfigurationDestinationConfigurationFirehoseToTerraform(
+        struct!.firehose,
+      ),
+    s3: ivschatLoggingConfigurationDestinationConfigurationS3ToTerraform(
+      struct!.s3,
+    ),
+  };
 }
 
 export class IvschatLoggingConfigurationDestinationConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvschatLoggingConfigurationDestinationConfiguration | undefined {
+  public get internalValue():
+    | IvschatLoggingConfigurationDestinationConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cloudwatchLogs?.internalValue !== undefined) {
@@ -287,14 +355,15 @@ export class IvschatLoggingConfigurationDestinationConfigurationOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvschatLoggingConfigurationDestinationConfiguration | undefined) {
+  public set internalValue(
+    value: IvschatLoggingConfigurationDestinationConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cloudwatchLogs.internalValue = undefined;
       this._firehose.internalValue = undefined;
       this._s3.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchLogs.internalValue = value.cloudwatchLogs;
       this._firehose.internalValue = value.firehose;
@@ -303,11 +372,17 @@ export class IvschatLoggingConfigurationDestinationConfigurationOutputReference 
   }
 
   // cloudwatch_logs - computed: false, optional: true, required: false
-  private _cloudwatchLogs = new IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOutputReference(this, "cloudwatch_logs");
+  private _cloudwatchLogs =
+    new IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogsOutputReference(
+      this,
+      'cloudwatch_logs',
+    );
   public get cloudwatchLogs() {
     return this._cloudwatchLogs;
   }
-  public putCloudwatchLogs(value: IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs) {
+  public putCloudwatchLogs(
+    value: IvschatLoggingConfigurationDestinationConfigurationCloudwatchLogs,
+  ) {
     this._cloudwatchLogs.internalValue = value;
   }
   public resetCloudwatchLogs() {
@@ -319,11 +394,17 @@ export class IvschatLoggingConfigurationDestinationConfigurationOutputReference 
   }
 
   // firehose - computed: false, optional: true, required: false
-  private _firehose = new IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputReference(this, "firehose");
+  private _firehose =
+    new IvschatLoggingConfigurationDestinationConfigurationFirehoseOutputReference(
+      this,
+      'firehose',
+    );
   public get firehose() {
     return this._firehose;
   }
-  public putFirehose(value: IvschatLoggingConfigurationDestinationConfigurationFirehose) {
+  public putFirehose(
+    value: IvschatLoggingConfigurationDestinationConfigurationFirehose,
+  ) {
     this._firehose.internalValue = value;
   }
   public resetFirehose() {
@@ -335,7 +416,11 @@ export class IvschatLoggingConfigurationDestinationConfigurationOutputReference 
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3 = new IvschatLoggingConfigurationDestinationConfigurationS3OutputReference(this, "s3");
+  private _s3 =
+    new IvschatLoggingConfigurationDestinationConfigurationS3OutputReference(
+      this,
+      's3',
+    );
   public get s3() {
     return this._s3;
   }
@@ -352,29 +437,38 @@ export class IvschatLoggingConfigurationDestinationConfigurationOutputReference 
 }
 export interface IvschatLoggingConfigurationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#create IvschatLoggingConfiguration#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#create IvschatLoggingConfiguration#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#delete IvschatLoggingConfiguration#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#delete IvschatLoggingConfiguration#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#update IvschatLoggingConfiguration#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration#update IvschatLoggingConfiguration#update}
+   */
   readonly update?: string;
 }
 
-export function ivschatLoggingConfigurationTimeoutsToTerraform(struct?: IvschatLoggingConfigurationTimeoutsOutputReference | IvschatLoggingConfigurationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatLoggingConfigurationTimeoutsToTerraform(
+  struct?:
+    | IvschatLoggingConfigurationTimeoutsOutputReference
+    | IvschatLoggingConfigurationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -382,14 +476,20 @@ export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvschatLoggingConfigurationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | IvschatLoggingConfigurationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -410,19 +510,19 @@ export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvschatLoggingConfigurationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: IvschatLoggingConfigurationTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -481,33 +581,36 @@ export class IvschatLoggingConfigurationTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration aws_ivschat_logging_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration aws_ivschat_logging_configuration}
+ */
 export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ivschat_logging_configuration";
+  public static readonly tfResourceType = 'aws_ivschat_logging_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration aws_ivschat_logging_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options IvschatLoggingConfigurationConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: IvschatLoggingConfigurationConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ivschat_logging_configuration aws_ivschat_logging_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options IvschatLoggingConfigurationConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: IvschatLoggingConfigurationConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ivschat_logging_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -515,13 +618,14 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._destinationConfiguration.internalValue = config.destinationConfiguration;
+    this._destinationConfiguration.internalValue =
+      config.destinationConfiguration;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -604,11 +708,17 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // destination_configuration - computed: false, optional: true, required: false
-  private _destinationConfiguration = new IvschatLoggingConfigurationDestinationConfigurationOutputReference(this, "destination_configuration");
+  private _destinationConfiguration =
+    new IvschatLoggingConfigurationDestinationConfigurationOutputReference(
+      this,
+      'destination_configuration',
+    );
   public get destinationConfiguration() {
     return this._destinationConfiguration;
   }
-  public putDestinationConfiguration(value: IvschatLoggingConfigurationDestinationConfiguration) {
+  public putDestinationConfiguration(
+    value: IvschatLoggingConfigurationDestinationConfiguration,
+  ) {
     this._destinationConfiguration.internalValue = value;
   }
   public resetDestinationConfiguration() {
@@ -620,7 +730,10 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new IvschatLoggingConfigurationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new IvschatLoggingConfigurationTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -645,8 +758,13 @@ export class IvschatLoggingConfiguration extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      destination_configuration: ivschatLoggingConfigurationDestinationConfigurationToTerraform(this._destinationConfiguration.internalValue),
-      timeouts: ivschatLoggingConfigurationTimeoutsToTerraform(this._timeouts.internalValue),
+      destination_configuration:
+        ivschatLoggingConfigurationDestinationConfigurationToTerraform(
+          this._destinationConfiguration.internalValue,
+        ),
+      timeouts: ivschatLoggingConfigurationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

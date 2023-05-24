@@ -2,69 +2,83 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface OpensearchDomainSamlOptionsConfig extends cdktf.TerraformMetaArguments {
+export interface OpensearchDomainSamlOptionsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#domain_name OpensearchDomainSamlOptions#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#domain_name OpensearchDomainSamlOptions#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#id OpensearchDomainSamlOptions#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#id OpensearchDomainSamlOptions#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * saml_options block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#saml_options OpensearchDomainSamlOptions#saml_options}
-  */
+   * saml_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#saml_options OpensearchDomainSamlOptions#saml_options}
+   */
   readonly samlOptions?: OpensearchDomainSamlOptionsSamlOptions;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#timeouts OpensearchDomainSamlOptions#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#timeouts OpensearchDomainSamlOptions#timeouts}
+   */
   readonly timeouts?: OpensearchDomainSamlOptionsTimeouts;
 }
 export interface OpensearchDomainSamlOptionsSamlOptionsIdp {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#entity_id OpensearchDomainSamlOptions#entity_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#entity_id OpensearchDomainSamlOptions#entity_id}
+   */
   readonly entityId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#metadata_content OpensearchDomainSamlOptions#metadata_content}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#metadata_content OpensearchDomainSamlOptions#metadata_content}
+   */
   readonly metadataContent: string;
 }
 
-export function opensearchDomainSamlOptionsSamlOptionsIdpToTerraform(struct?: OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference | OpensearchDomainSamlOptionsSamlOptionsIdp): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opensearchDomainSamlOptionsSamlOptionsIdpToTerraform(
+  struct?:
+    | OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference
+    | OpensearchDomainSamlOptionsSamlOptionsIdp,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     entity_id: cdktf.stringToTerraform(struct!.entityId),
     metadata_content: cdktf.stringToTerraform(struct!.metadataContent),
-  }
+  };
 }
 
 export class OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpensearchDomainSamlOptionsSamlOptionsIdp | undefined {
+  public get internalValue():
+    | OpensearchDomainSamlOptionsSamlOptionsIdp
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._entityId !== undefined) {
@@ -78,13 +92,14 @@ export class OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpensearchDomainSamlOptionsSamlOptionsIdp | undefined) {
+  public set internalValue(
+    value: OpensearchDomainSamlOptionsSamlOptionsIdp | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._entityId = undefined;
       this._metadataContent = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._entityId = value.entityId;
       this._metadataContent = value.metadataContent;
@@ -119,65 +134,80 @@ export class OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference extends cd
 }
 export interface OpensearchDomainSamlOptionsSamlOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#enabled OpensearchDomainSamlOptions#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#enabled OpensearchDomainSamlOptions#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#master_backend_role OpensearchDomainSamlOptions#master_backend_role}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#master_backend_role OpensearchDomainSamlOptions#master_backend_role}
+   */
   readonly masterBackendRole?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#master_user_name OpensearchDomainSamlOptions#master_user_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#master_user_name OpensearchDomainSamlOptions#master_user_name}
+   */
   readonly masterUserName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#roles_key OpensearchDomainSamlOptions#roles_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#roles_key OpensearchDomainSamlOptions#roles_key}
+   */
   readonly rolesKey?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#session_timeout_minutes OpensearchDomainSamlOptions#session_timeout_minutes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#session_timeout_minutes OpensearchDomainSamlOptions#session_timeout_minutes}
+   */
   readonly sessionTimeoutMinutes?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#subject_key OpensearchDomainSamlOptions#subject_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#subject_key OpensearchDomainSamlOptions#subject_key}
+   */
   readonly subjectKey?: string;
   /**
-  * idp block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#idp OpensearchDomainSamlOptions#idp}
-  */
+   * idp block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#idp OpensearchDomainSamlOptions#idp}
+   */
   readonly idp?: OpensearchDomainSamlOptionsSamlOptionsIdp;
 }
 
-export function opensearchDomainSamlOptionsSamlOptionsToTerraform(struct?: OpensearchDomainSamlOptionsSamlOptionsOutputReference | OpensearchDomainSamlOptionsSamlOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opensearchDomainSamlOptionsSamlOptionsToTerraform(
+  struct?:
+    | OpensearchDomainSamlOptionsSamlOptionsOutputReference
+    | OpensearchDomainSamlOptionsSamlOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     master_backend_role: cdktf.stringToTerraform(struct!.masterBackendRole),
     master_user_name: cdktf.stringToTerraform(struct!.masterUserName),
     roles_key: cdktf.stringToTerraform(struct!.rolesKey),
-    session_timeout_minutes: cdktf.numberToTerraform(struct!.sessionTimeoutMinutes),
+    session_timeout_minutes: cdktf.numberToTerraform(
+      struct!.sessionTimeoutMinutes,
+    ),
     subject_key: cdktf.stringToTerraform(struct!.subjectKey),
     idp: opensearchDomainSamlOptionsSamlOptionsIdpToTerraform(struct!.idp),
-  }
+  };
 }
 
 export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpensearchDomainSamlOptionsSamlOptions | undefined {
+  public get internalValue():
+    | OpensearchDomainSamlOptionsSamlOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -211,7 +241,9 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpensearchDomainSamlOptionsSamlOptions | undefined) {
+  public set internalValue(
+    value: OpensearchDomainSamlOptionsSamlOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
@@ -221,8 +253,7 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
       this._sessionTimeoutMinutes = undefined;
       this._subjectKey = undefined;
       this._idp.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._masterBackendRole = value.masterBackendRole;
@@ -331,7 +362,10 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
   }
 
   // idp - computed: false, optional: true, required: false
-  private _idp = new OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference(this, "idp");
+  private _idp = new OpensearchDomainSamlOptionsSamlOptionsIdpOutputReference(
+    this,
+    'idp',
+  );
   public get idp() {
     return this._idp;
   }
@@ -348,24 +382,33 @@ export class OpensearchDomainSamlOptionsSamlOptionsOutputReference extends cdktf
 }
 export interface OpensearchDomainSamlOptionsTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#delete OpensearchDomainSamlOptions#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#delete OpensearchDomainSamlOptions#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#update OpensearchDomainSamlOptions#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options#update OpensearchDomainSamlOptions#update}
+   */
   readonly update?: string;
 }
 
-export function opensearchDomainSamlOptionsTimeoutsToTerraform(struct?: OpensearchDomainSamlOptionsTimeoutsOutputReference | OpensearchDomainSamlOptionsTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opensearchDomainSamlOptionsTimeoutsToTerraform(
+  struct?:
+    | OpensearchDomainSamlOptionsTimeoutsOutputReference
+    | OpensearchDomainSamlOptionsTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class OpensearchDomainSamlOptionsTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -373,14 +416,20 @@ export class OpensearchDomainSamlOptionsTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpensearchDomainSamlOptionsTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpensearchDomainSamlOptionsTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -397,18 +446,18 @@ export class OpensearchDomainSamlOptionsTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpensearchDomainSamlOptionsTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpensearchDomainSamlOptionsTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -450,33 +499,36 @@ export class OpensearchDomainSamlOptionsTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options aws_opensearch_domain_saml_options}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options aws_opensearch_domain_saml_options}
+ */
 export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_opensearch_domain_saml_options";
+  public static readonly tfResourceType = 'aws_opensearch_domain_saml_options';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options aws_opensearch_domain_saml_options} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options OpensearchDomainSamlOptionsConfig
-  */
-  public constructor(scope: Construct, id: string, config: OpensearchDomainSamlOptionsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_saml_options aws_opensearch_domain_saml_options} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options OpensearchDomainSamlOptionsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: OpensearchDomainSamlOptionsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_opensearch_domain_saml_options',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -484,7 +536,7 @@ export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._domainName = config.domainName;
     this._id = config.id;
@@ -526,7 +578,11 @@ export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
   }
 
   // saml_options - computed: false, optional: true, required: false
-  private _samlOptions = new OpensearchDomainSamlOptionsSamlOptionsOutputReference(this, "saml_options");
+  private _samlOptions =
+    new OpensearchDomainSamlOptionsSamlOptionsOutputReference(
+      this,
+      'saml_options',
+    );
   public get samlOptions() {
     return this._samlOptions;
   }
@@ -542,7 +598,10 @@ export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new OpensearchDomainSamlOptionsTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new OpensearchDomainSamlOptionsTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -565,8 +624,12 @@ export class OpensearchDomainSamlOptions extends cdktf.TerraformResource {
     return {
       domain_name: cdktf.stringToTerraform(this._domainName),
       id: cdktf.stringToTerraform(this._id),
-      saml_options: opensearchDomainSamlOptionsSamlOptionsToTerraform(this._samlOptions.internalValue),
-      timeouts: opensearchDomainSamlOptionsTimeoutsToTerraform(this._timeouts.internalValue),
+      saml_options: opensearchDomainSamlOptionsSamlOptionsToTerraform(
+        this._samlOptions.internalValue,
+      ),
+      timeouts: opensearchDomainSamlOptionsTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

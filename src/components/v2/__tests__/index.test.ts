@@ -1,4 +1,4 @@
-import { CloudNode } from '../../../cloud-graph/index.js';
+import { CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
@@ -6,7 +6,7 @@ import {
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper';
-import ComponentV2 from '../index.js';
+import ComponentV2 from '../index.ts';
 import yaml from 'js-yaml';
 
 describe('Component Schema: v2', () => {
@@ -51,7 +51,7 @@ describe('Component Schema: v2', () => {
           image: nginx:1.14.2
           environment:
             FIRST_ADDR: \${{ services.first.url }}
-      
+
       services:
         first:
           deployment: first

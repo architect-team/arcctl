@@ -2,57 +2,67 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Ec2TransitGatewayMulticastDomainAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface Ec2TransitGatewayMulticastDomainAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#id Ec2TransitGatewayMulticastDomainAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#id Ec2TransitGatewayMulticastDomainAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#subnet_id Ec2TransitGatewayMulticastDomainAssociation#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#subnet_id Ec2TransitGatewayMulticastDomainAssociation#subnet_id}
+   */
   readonly subnetId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#transit_gateway_attachment_id Ec2TransitGatewayMulticastDomainAssociation#transit_gateway_attachment_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#transit_gateway_attachment_id Ec2TransitGatewayMulticastDomainAssociation#transit_gateway_attachment_id}
+   */
   readonly transitGatewayAttachmentId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#transit_gateway_multicast_domain_id Ec2TransitGatewayMulticastDomainAssociation#transit_gateway_multicast_domain_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#transit_gateway_multicast_domain_id Ec2TransitGatewayMulticastDomainAssociation#transit_gateway_multicast_domain_id}
+   */
   readonly transitGatewayMulticastDomainId: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#timeouts Ec2TransitGatewayMulticastDomainAssociation#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#timeouts Ec2TransitGatewayMulticastDomainAssociation#timeouts}
+   */
   readonly timeouts?: Ec2TransitGatewayMulticastDomainAssociationTimeouts;
 }
 export interface Ec2TransitGatewayMulticastDomainAssociationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#create Ec2TransitGatewayMulticastDomainAssociation#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#create Ec2TransitGatewayMulticastDomainAssociation#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#delete Ec2TransitGatewayMulticastDomainAssociation#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association#delete Ec2TransitGatewayMulticastDomainAssociation#delete}
+   */
   readonly delete?: string;
 }
 
-export function ec2TransitGatewayMulticastDomainAssociationTimeoutsToTerraform(struct?: Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference | Ec2TransitGatewayMulticastDomainAssociationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2TransitGatewayMulticastDomainAssociationTimeoutsToTerraform(
+  struct?:
+    | Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference
+    | Ec2TransitGatewayMulticastDomainAssociationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -60,14 +70,20 @@ export class Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2TransitGatewayMulticastDomainAssociationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Ec2TransitGatewayMulticastDomainAssociationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -84,18 +100,21 @@ export class Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2TransitGatewayMulticastDomainAssociationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | Ec2TransitGatewayMulticastDomainAssociationTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -137,33 +156,38 @@ export class Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association aws_ec2_transit_gateway_multicast_domain_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association aws_ec2_transit_gateway_multicast_domain_association}
+ */
 export class Ec2TransitGatewayMulticastDomainAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_transit_gateway_multicast_domain_association";
+  public static readonly tfResourceType =
+    'aws_ec2_transit_gateway_multicast_domain_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association aws_ec2_transit_gateway_multicast_domain_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2TransitGatewayMulticastDomainAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: Ec2TransitGatewayMulticastDomainAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain_association aws_ec2_transit_gateway_multicast_domain_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2TransitGatewayMulticastDomainAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Ec2TransitGatewayMulticastDomainAssociationConfig,
+  ) {
     super(scope, id, {
-      terraformResourceType: 'aws_ec2_transit_gateway_multicast_domain_association',
+      terraformResourceType:
+        'aws_ec2_transit_gateway_multicast_domain_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -171,12 +195,13 @@ export class Ec2TransitGatewayMulticastDomainAssociation extends cdktf.Terraform
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._subnetId = config.subnetId;
     this._transitGatewayAttachmentId = config.transitGatewayAttachmentId;
-    this._transitGatewayMulticastDomainId = config.transitGatewayMulticastDomainId;
+    this._transitGatewayMulticastDomainId =
+      config.transitGatewayMulticastDomainId;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -240,11 +265,17 @@ export class Ec2TransitGatewayMulticastDomainAssociation extends cdktf.Terraform
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new Ec2TransitGatewayMulticastDomainAssociationTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
-  public putTimeouts(value: Ec2TransitGatewayMulticastDomainAssociationTimeouts) {
+  public putTimeouts(
+    value: Ec2TransitGatewayMulticastDomainAssociationTimeouts,
+  ) {
     this._timeouts.internalValue = value;
   }
   public resetTimeouts() {
@@ -263,9 +294,15 @@ export class Ec2TransitGatewayMulticastDomainAssociation extends cdktf.Terraform
     return {
       id: cdktf.stringToTerraform(this._id),
       subnet_id: cdktf.stringToTerraform(this._subnetId),
-      transit_gateway_attachment_id: cdktf.stringToTerraform(this._transitGatewayAttachmentId),
-      transit_gateway_multicast_domain_id: cdktf.stringToTerraform(this._transitGatewayMulticastDomainId),
-      timeouts: ec2TransitGatewayMulticastDomainAssociationTimeoutsToTerraform(this._timeouts.internalValue),
+      transit_gateway_attachment_id: cdktf.stringToTerraform(
+        this._transitGatewayAttachmentId,
+      ),
+      transit_gateway_multicast_domain_id: cdktf.stringToTerraform(
+        this._transitGatewayMulticastDomainId,
+      ),
+      timeouts: ec2TransitGatewayMulticastDomainAssociationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

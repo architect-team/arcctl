@@ -1,73 +1,80 @@
 // generated from terraform resource schema
 
-import { ReplicationControllerV1Metadata,
-replicationControllerV1MetadataToTerraform,
-ReplicationControllerV1MetadataOutputReference,
-ReplicationControllerV1Spec,
-replicationControllerV1SpecToTerraform,
-ReplicationControllerV1SpecOutputReference,
-ReplicationControllerV1Timeouts,
-replicationControllerV1TimeoutsToTerraform,
-ReplicationControllerV1TimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
+import {
+  ReplicationControllerV1Metadata,
+  replicationControllerV1MetadataToTerraform,
+  ReplicationControllerV1MetadataOutputReference,
+  ReplicationControllerV1Spec,
+  replicationControllerV1SpecToTerraform,
+  ReplicationControllerV1SpecOutputReference,
+  ReplicationControllerV1Timeouts,
+  replicationControllerV1TimeoutsToTerraform,
+  ReplicationControllerV1TimeoutsOutputReference,
+} from './index-structs';
+export * from './index-structs';
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
-export interface ReplicationControllerV1Config extends cdktf.TerraformMetaArguments {
+import * as cdktf from 'npm:cdktf';
+export interface ReplicationControllerV1Config
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#id ReplicationControllerV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#id ReplicationControllerV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#metadata ReplicationControllerV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#metadata ReplicationControllerV1#metadata}
+   */
   readonly metadata: ReplicationControllerV1Metadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#spec ReplicationControllerV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#spec ReplicationControllerV1#spec}
+   */
   readonly spec: ReplicationControllerV1Spec;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#timeouts ReplicationControllerV1#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#timeouts ReplicationControllerV1#timeouts}
+   */
   readonly timeouts?: ReplicationControllerV1Timeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1 kubernetes_replication_controller_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1 kubernetes_replication_controller_v1}
+ */
 export class ReplicationControllerV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_replication_controller_v1";
+  public static readonly tfResourceType =
+    'kubernetes_replication_controller_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1 kubernetes_replication_controller_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ReplicationControllerV1Config
-  */
-  public constructor(scope: Construct, id: string, config: ReplicationControllerV1Config) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1 kubernetes_replication_controller_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ReplicationControllerV1Config
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ReplicationControllerV1Config,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_replication_controller_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +82,7 @@ export class ReplicationControllerV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -104,7 +111,10 @@ export class ReplicationControllerV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new ReplicationControllerV1MetadataOutputReference(this, "metadata");
+  private _metadata = new ReplicationControllerV1MetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -117,7 +127,7 @@ export class ReplicationControllerV1 extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new ReplicationControllerV1SpecOutputReference(this, "spec");
+  private _spec = new ReplicationControllerV1SpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -130,7 +140,10 @@ export class ReplicationControllerV1 extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ReplicationControllerV1TimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ReplicationControllerV1TimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -152,9 +165,13 @@ export class ReplicationControllerV1 extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      metadata: replicationControllerV1MetadataToTerraform(this._metadata.internalValue),
+      metadata: replicationControllerV1MetadataToTerraform(
+        this._metadata.internalValue,
+      ),
       spec: replicationControllerV1SpecToTerraform(this._spec.internalValue),
-      timeouts: replicationControllerV1TimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: replicationControllerV1TimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

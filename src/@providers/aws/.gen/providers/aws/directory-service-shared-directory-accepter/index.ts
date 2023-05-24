@@ -2,49 +2,59 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DirectoryServiceSharedDirectoryAccepterConfig extends cdktf.TerraformMetaArguments {
+export interface DirectoryServiceSharedDirectoryAccepterConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#id DirectoryServiceSharedDirectoryAccepter#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#id DirectoryServiceSharedDirectoryAccepter#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#shared_directory_id DirectoryServiceSharedDirectoryAccepter#shared_directory_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#shared_directory_id DirectoryServiceSharedDirectoryAccepter#shared_directory_id}
+   */
   readonly sharedDirectoryId: string;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#timeouts DirectoryServiceSharedDirectoryAccepter#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#timeouts DirectoryServiceSharedDirectoryAccepter#timeouts}
+   */
   readonly timeouts?: DirectoryServiceSharedDirectoryAccepterTimeouts;
 }
 export interface DirectoryServiceSharedDirectoryAccepterTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#create DirectoryServiceSharedDirectoryAccepter#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#create DirectoryServiceSharedDirectoryAccepter#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#delete DirectoryServiceSharedDirectoryAccepter#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter#delete DirectoryServiceSharedDirectoryAccepter#delete}
+   */
   readonly delete?: string;
 }
 
-export function directoryServiceSharedDirectoryAccepterTimeoutsToTerraform(struct?: DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference | DirectoryServiceSharedDirectoryAccepterTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function directoryServiceSharedDirectoryAccepterTimeoutsToTerraform(
+  struct?:
+    | DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference
+    | DirectoryServiceSharedDirectoryAccepterTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -52,14 +62,20 @@ export class DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference exte
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DirectoryServiceSharedDirectoryAccepterTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DirectoryServiceSharedDirectoryAccepterTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -76,18 +92,21 @@ export class DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DirectoryServiceSharedDirectoryAccepterTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DirectoryServiceSharedDirectoryAccepterTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -129,33 +148,37 @@ export class DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference exte
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter aws_directory_service_shared_directory_accepter}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter aws_directory_service_shared_directory_accepter}
+ */
 export class DirectoryServiceSharedDirectoryAccepter extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_directory_service_shared_directory_accepter";
+  public static readonly tfResourceType =
+    'aws_directory_service_shared_directory_accepter';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter aws_directory_service_shared_directory_accepter} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DirectoryServiceSharedDirectoryAccepterConfig
-  */
-  public constructor(scope: Construct, id: string, config: DirectoryServiceSharedDirectoryAccepterConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/directory_service_shared_directory_accepter aws_directory_service_shared_directory_accepter} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DirectoryServiceSharedDirectoryAccepterConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DirectoryServiceSharedDirectoryAccepterConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_directory_service_shared_directory_accepter',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -163,7 +186,7 @@ export class DirectoryServiceSharedDirectoryAccepter extends cdktf.TerraformReso
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._sharedDirectoryId = config.sharedDirectoryId;
@@ -224,7 +247,11 @@ export class DirectoryServiceSharedDirectoryAccepter extends cdktf.TerraformReso
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new DirectoryServiceSharedDirectoryAccepterTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -247,7 +274,9 @@ export class DirectoryServiceSharedDirectoryAccepter extends cdktf.TerraformReso
     return {
       id: cdktf.stringToTerraform(this._id),
       shared_directory_id: cdktf.stringToTerraform(this._sharedDirectoryId),
-      timeouts: directoryServiceSharedDirectoryAccepterTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: directoryServiceSharedDirectoryAccepterTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

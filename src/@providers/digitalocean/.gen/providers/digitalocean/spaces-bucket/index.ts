@@ -2,97 +2,112 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface SpacesBucketConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Canned ACL applied on bucket creation
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#acl SpacesBucket#acl}
-  */
+   * Canned ACL applied on bucket creation
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#acl SpacesBucket#acl}
+   */
   readonly acl?: string;
   /**
-  * Unless true, the bucket will only be destroyed if empty
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#force_destroy SpacesBucket#force_destroy}
-  */
+   * Unless true, the bucket will only be destroyed if empty
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#force_destroy SpacesBucket#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#id SpacesBucket#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#id SpacesBucket#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Bucket name
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#name SpacesBucket#name}
-  */
+   * Bucket name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#name SpacesBucket#name}
+   */
   readonly name: string;
   /**
-  * Bucket region
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#region SpacesBucket#region}
-  */
+   * Bucket region
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#region SpacesBucket#region}
+   */
   readonly region?: string;
   /**
-  * cors_rule block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#cors_rule SpacesBucket#cors_rule}
-  */
+   * cors_rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#cors_rule SpacesBucket#cors_rule}
+   */
   readonly corsRule?: SpacesBucketCorsRule[] | cdktf.IResolvable;
   /**
-  * lifecycle_rule block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#lifecycle_rule SpacesBucket#lifecycle_rule}
-  */
+   * lifecycle_rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#lifecycle_rule SpacesBucket#lifecycle_rule}
+   */
   readonly lifecycleRule?: SpacesBucketLifecycleRule[] | cdktf.IResolvable;
   /**
-  * versioning block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#versioning SpacesBucket#versioning}
-  */
+   * versioning block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#versioning SpacesBucket#versioning}
+   */
   readonly versioning?: SpacesBucketVersioning;
 }
 export interface SpacesBucketCorsRule {
   /**
-  * A list of headers that will be included in the CORS preflight request's Access-Control-Request-Headers. A header may contain one wildcard (e.g. x-amz-*).
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_headers SpacesBucket#allowed_headers}
-  */
+   * A list of headers that will be included in the CORS preflight request's Access-Control-Request-Headers. A header may contain one wildcard (e.g. x-amz-*).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_headers SpacesBucket#allowed_headers}
+   */
   readonly allowedHeaders?: string[];
   /**
-  * A list of HTTP methods (e.g. GET) which are allowed from the specified origin.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_methods SpacesBucket#allowed_methods}
-  */
+   * A list of HTTP methods (e.g. GET) which are allowed from the specified origin.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_methods SpacesBucket#allowed_methods}
+   */
   readonly allowedMethods: string[];
   /**
-  * A list of hosts from which requests using the specified methods are allowed. A host may contain one wildcard (e.g. http://*.example.com).
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_origins SpacesBucket#allowed_origins}
-  */
+   * A list of hosts from which requests using the specified methods are allowed. A host may contain one wildcard (e.g. http://*.example.com).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_origins SpacesBucket#allowed_origins}
+   */
   readonly allowedOrigins: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#max_age_seconds SpacesBucket#max_age_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#max_age_seconds SpacesBucket#max_age_seconds}
+   */
   readonly maxAgeSeconds?: number;
 }
 
-export function spacesBucketCorsRuleToTerraform(struct?: SpacesBucketCorsRule | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function spacesBucketCorsRuleToTerraform(
+  struct?: SpacesBucketCorsRule | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    allowed_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedHeaders),
-    allowed_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedMethods),
-    allowed_origins: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedOrigins),
+    allowed_headers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedHeaders),
+    allowed_methods: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedMethods),
+    allowed_origins: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedOrigins),
     max_age_seconds: cdktf.numberToTerraform(struct!.maxAgeSeconds),
-  }
+  };
 }
 
 export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
@@ -100,16 +115,29 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SpacesBucketCorsRule | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SpacesBucketCorsRule
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -134,7 +162,9 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SpacesBucketCorsRule | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: SpacesBucketCorsRule | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -142,12 +172,10 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
       this._allowedMethods = undefined;
       this._allowedOrigins = undefined;
       this._maxAgeSeconds = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._allowedHeaders = value.allowedHeaders;
@@ -217,59 +245,81 @@ export class SpacesBucketCorsRuleOutputReference extends cdktf.ComplexObject {
 }
 
 export class SpacesBucketCorsRuleList extends cdktf.ComplexList {
-  public internalValue? : SpacesBucketCorsRule[] | cdktf.IResolvable
+  public internalValue?: SpacesBucketCorsRule[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): SpacesBucketCorsRuleOutputReference {
-    return new SpacesBucketCorsRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new SpacesBucketCorsRuleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SpacesBucketLifecycleRuleExpiration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#date SpacesBucket#date}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#date SpacesBucket#date}
+   */
   readonly date?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#days SpacesBucket#days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#days SpacesBucket#days}
+   */
   readonly days?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expired_object_delete_marker SpacesBucket#expired_object_delete_marker}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expired_object_delete_marker SpacesBucket#expired_object_delete_marker}
+   */
   readonly expiredObjectDeleteMarker?: boolean | cdktf.IResolvable;
 }
 
-export function spacesBucketLifecycleRuleExpirationToTerraform(struct?: SpacesBucketLifecycleRuleExpirationOutputReference | SpacesBucketLifecycleRuleExpiration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function spacesBucketLifecycleRuleExpirationToTerraform(
+  struct?:
+    | SpacesBucketLifecycleRuleExpirationOutputReference
+    | SpacesBucketLifecycleRuleExpiration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     date: cdktf.stringToTerraform(struct!.date),
     days: cdktf.numberToTerraform(struct!.days),
-    expired_object_delete_marker: cdktf.booleanToTerraform(struct!.expiredObjectDeleteMarker),
-  }
+    expired_object_delete_marker: cdktf.booleanToTerraform(
+      struct!.expiredObjectDeleteMarker,
+    ),
+  };
 }
 
 export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -286,19 +336,21 @@ export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.Co
     }
     if (this._expiredObjectDeleteMarker !== undefined) {
       hasAnyValues = true;
-      internalValueResult.expiredObjectDeleteMarker = this._expiredObjectDeleteMarker;
+      internalValueResult.expiredObjectDeleteMarker =
+        this._expiredObjectDeleteMarker;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SpacesBucketLifecycleRuleExpiration | undefined) {
+  public set internalValue(
+    value: SpacesBucketLifecycleRuleExpiration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._date = undefined;
       this._days = undefined;
       this._expiredObjectDeleteMarker = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._date = value.date;
       this._days = value.days;
@@ -356,33 +408,46 @@ export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.Co
 }
 export interface SpacesBucketLifecycleRuleNoncurrentVersionExpiration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#days SpacesBucket#days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#days SpacesBucket#days}
+   */
   readonly days?: number;
 }
 
-export function spacesBucketLifecycleRuleNoncurrentVersionExpirationToTerraform(struct?: SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference | SpacesBucketLifecycleRuleNoncurrentVersionExpiration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function spacesBucketLifecycleRuleNoncurrentVersionExpirationToTerraform(
+  struct?:
+    | SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference
+    | SpacesBucketLifecycleRuleNoncurrentVersionExpiration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     days: cdktf.numberToTerraform(struct!.days),
-  }
+  };
 }
 
 export class SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SpacesBucketLifecycleRuleNoncurrentVersionExpiration | undefined {
+  public get internalValue():
+    | SpacesBucketLifecycleRuleNoncurrentVersionExpiration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._days !== undefined) {
@@ -392,12 +457,13 @@ export class SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SpacesBucketLifecycleRuleNoncurrentVersionExpiration | undefined) {
+  public set internalValue(
+    value: SpacesBucketLifecycleRuleNoncurrentVersionExpiration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._days = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._days = value.days;
     }
@@ -421,51 +487,64 @@ export class SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference
 }
 export interface SpacesBucketLifecycleRule {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#abort_incomplete_multipart_upload_days SpacesBucket#abort_incomplete_multipart_upload_days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#abort_incomplete_multipart_upload_days SpacesBucket#abort_incomplete_multipart_upload_days}
+   */
   readonly abortIncompleteMultipartUploadDays?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#enabled SpacesBucket#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#enabled SpacesBucket#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#id SpacesBucket#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#id SpacesBucket#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#prefix SpacesBucket#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#prefix SpacesBucket#prefix}
+   */
   readonly prefix?: string;
   /**
-  * expiration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expiration SpacesBucket#expiration}
-  */
+   * expiration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expiration SpacesBucket#expiration}
+   */
   readonly expiration?: SpacesBucketLifecycleRuleExpiration;
   /**
-  * noncurrent_version_expiration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#noncurrent_version_expiration SpacesBucket#noncurrent_version_expiration}
-  */
+   * noncurrent_version_expiration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#noncurrent_version_expiration SpacesBucket#noncurrent_version_expiration}
+   */
   readonly noncurrentVersionExpiration?: SpacesBucketLifecycleRuleNoncurrentVersionExpiration;
 }
 
-export function spacesBucketLifecycleRuleToTerraform(struct?: SpacesBucketLifecycleRule | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function spacesBucketLifecycleRuleToTerraform(
+  struct?: SpacesBucketLifecycleRule | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    abort_incomplete_multipart_upload_days: cdktf.numberToTerraform(struct!.abortIncompleteMultipartUploadDays),
+    abort_incomplete_multipart_upload_days: cdktf.numberToTerraform(
+      struct!.abortIncompleteMultipartUploadDays,
+    ),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     id: cdktf.stringToTerraform(struct!.id),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-    expiration: spacesBucketLifecycleRuleExpirationToTerraform(struct!.expiration),
-    noncurrent_version_expiration: spacesBucketLifecycleRuleNoncurrentVersionExpirationToTerraform(struct!.noncurrentVersionExpiration),
-  }
+    expiration: spacesBucketLifecycleRuleExpirationToTerraform(
+      struct!.expiration,
+    ),
+    noncurrent_version_expiration:
+      spacesBucketLifecycleRuleNoncurrentVersionExpirationToTerraform(
+        struct!.noncurrentVersionExpiration,
+      ),
+  };
 }
 
 export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
@@ -473,16 +552,29 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SpacesBucketLifecycleRule | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SpacesBucketLifecycleRule
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -490,7 +582,8 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
     const internalValueResult: any = {};
     if (this._abortIncompleteMultipartUploadDays !== undefined) {
       hasAnyValues = true;
-      internalValueResult.abortIncompleteMultipartUploadDays = this._abortIncompleteMultipartUploadDays;
+      internalValueResult.abortIncompleteMultipartUploadDays =
+        this._abortIncompleteMultipartUploadDays;
     }
     if (this._enabled !== undefined) {
       hasAnyValues = true;
@@ -510,12 +603,15 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
     }
     if (this._noncurrentVersionExpiration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.noncurrentVersionExpiration = this._noncurrentVersionExpiration?.internalValue;
+      internalValueResult.noncurrentVersionExpiration =
+        this._noncurrentVersionExpiration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SpacesBucketLifecycleRule | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: SpacesBucketLifecycleRule | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -525,20 +621,20 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
       this._prefix = undefined;
       this._expiration.internalValue = undefined;
       this._noncurrentVersionExpiration.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
-      this._abortIncompleteMultipartUploadDays = value.abortIncompleteMultipartUploadDays;
+      this._abortIncompleteMultipartUploadDays =
+        value.abortIncompleteMultipartUploadDays;
       this._enabled = value.enabled;
       this._id = value.id;
       this._prefix = value.prefix;
       this._expiration.internalValue = value.expiration;
-      this._noncurrentVersionExpiration.internalValue = value.noncurrentVersionExpiration;
+      this._noncurrentVersionExpiration.internalValue =
+        value.noncurrentVersionExpiration;
     }
   }
 
@@ -604,7 +700,10 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   }
 
   // expiration - computed: false, optional: true, required: false
-  private _expiration = new SpacesBucketLifecycleRuleExpirationOutputReference(this, "expiration");
+  private _expiration = new SpacesBucketLifecycleRuleExpirationOutputReference(
+    this,
+    'expiration',
+  );
   public get expiration() {
     return this._expiration;
   }
@@ -620,11 +719,17 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
   }
 
   // noncurrent_version_expiration - computed: false, optional: true, required: false
-  private _noncurrentVersionExpiration = new SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference(this, "noncurrent_version_expiration");
+  private _noncurrentVersionExpiration =
+    new SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference(
+      this,
+      'noncurrent_version_expiration',
+    );
   public get noncurrentVersionExpiration() {
     return this._noncurrentVersionExpiration;
   }
-  public putNoncurrentVersionExpiration(value: SpacesBucketLifecycleRuleNoncurrentVersionExpiration) {
+  public putNoncurrentVersionExpiration(
+    value: SpacesBucketLifecycleRuleNoncurrentVersionExpiration,
+  ) {
     this._noncurrentVersionExpiration.internalValue = value;
   }
   public resetNoncurrentVersionExpiration() {
@@ -637,49 +742,67 @@ export class SpacesBucketLifecycleRuleOutputReference extends cdktf.ComplexObjec
 }
 
 export class SpacesBucketLifecycleRuleList extends cdktf.ComplexList {
-  public internalValue? : SpacesBucketLifecycleRule[] | cdktf.IResolvable
+  public internalValue?: SpacesBucketLifecycleRule[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): SpacesBucketLifecycleRuleOutputReference {
-    return new SpacesBucketLifecycleRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new SpacesBucketLifecycleRuleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SpacesBucketVersioning {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#enabled SpacesBucket#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#enabled SpacesBucket#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function spacesBucketVersioningToTerraform(struct?: SpacesBucketVersioningOutputReference | SpacesBucketVersioning): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function spacesBucketVersioningToTerraform(
+  struct?: SpacesBucketVersioningOutputReference | SpacesBucketVersioning,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class SpacesBucketVersioningOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -697,8 +820,7 @@ export class SpacesBucketVersioningOutputReference extends cdktf.ComplexObject {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
@@ -722,33 +844,32 @@ export class SpacesBucketVersioningOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket digitalocean_spaces_bucket}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket digitalocean_spaces_bucket}
+ */
 export class SpacesBucket extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_spaces_bucket";
+  public static readonly tfResourceType = 'digitalocean_spaces_bucket';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket digitalocean_spaces_bucket} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SpacesBucketConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket digitalocean_spaces_bucket} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SpacesBucketConfig
+   */
   public constructor(scope: Construct, id: string, config: SpacesBucketConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_spaces_bucket',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -756,7 +877,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acl = config.acl;
     this._forceDestroy = config.forceDestroy;
@@ -865,7 +986,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // cors_rule - computed: false, optional: true, required: false
-  private _corsRule = new SpacesBucketCorsRuleList(this, "cors_rule", false);
+  private _corsRule = new SpacesBucketCorsRuleList(this, 'cors_rule', false);
   public get corsRule() {
     return this._corsRule;
   }
@@ -881,11 +1002,17 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // lifecycle_rule - computed: false, optional: true, required: false
-  private _lifecycleRule = new SpacesBucketLifecycleRuleList(this, "lifecycle_rule", false);
+  private _lifecycleRule = new SpacesBucketLifecycleRuleList(
+    this,
+    'lifecycle_rule',
+    false,
+  );
   public get lifecycleRule() {
     return this._lifecycleRule;
   }
-  public putLifecycleRule(value: SpacesBucketLifecycleRule[] | cdktf.IResolvable) {
+  public putLifecycleRule(
+    value: SpacesBucketLifecycleRule[] | cdktf.IResolvable,
+  ) {
     this._lifecycleRule.internalValue = value;
   }
   public resetLifecycleRule() {
@@ -897,7 +1024,10 @@ export class SpacesBucket extends cdktf.TerraformResource {
   }
 
   // versioning - computed: false, optional: true, required: false
-  private _versioning = new SpacesBucketVersioningOutputReference(this, "versioning");
+  private _versioning = new SpacesBucketVersioningOutputReference(
+    this,
+    'versioning',
+  );
   public get versioning() {
     return this._versioning;
   }
@@ -923,9 +1053,17 @@ export class SpacesBucket extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       region: cdktf.stringToTerraform(this._region),
-      cors_rule: cdktf.listMapper(spacesBucketCorsRuleToTerraform, true)(this._corsRule.internalValue),
-      lifecycle_rule: cdktf.listMapper(spacesBucketLifecycleRuleToTerraform, true)(this._lifecycleRule.internalValue),
-      versioning: spacesBucketVersioningToTerraform(this._versioning.internalValue),
+      cors_rule: cdktf.listMapper(
+        spacesBucketCorsRuleToTerraform,
+        true,
+      )(this._corsRule.internalValue),
+      lifecycle_rule: cdktf.listMapper(
+        spacesBucketLifecycleRuleToTerraform,
+        true,
+      )(this._lifecycleRule.internalValue),
+      versioning: spacesBucketVersioningToTerraform(
+        this._versioning.internalValue,
+      ),
     };
   }
 }

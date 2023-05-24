@@ -2,56 +2,60 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface LightsailLbAttachmentConfig extends cdktf.TerraformMetaArguments {
+export interface LightsailLbAttachmentConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment#id LightsailLbAttachment#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment#id LightsailLbAttachment#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment#instance_name LightsailLbAttachment#instance_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment#instance_name LightsailLbAttachment#instance_name}
+   */
   readonly instanceName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment#lb_name LightsailLbAttachment#lb_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment#lb_name LightsailLbAttachment#lb_name}
+   */
   readonly lbName: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment aws_lightsail_lb_attachment}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment aws_lightsail_lb_attachment}
+ */
 export class LightsailLbAttachment extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lightsail_lb_attachment";
+  public static readonly tfResourceType = 'aws_lightsail_lb_attachment';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment aws_lightsail_lb_attachment} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LightsailLbAttachmentConfig
-  */
-  public constructor(scope: Construct, id: string, config: LightsailLbAttachmentConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_attachment aws_lightsail_lb_attachment} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LightsailLbAttachmentConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LightsailLbAttachmentConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lightsail_lb_attachment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +63,7 @@ export class LightsailLbAttachment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._instanceName = config.instanceName;

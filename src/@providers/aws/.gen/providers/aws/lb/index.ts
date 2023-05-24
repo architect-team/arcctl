@@ -2,156 +2,165 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface LbConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#customer_owned_ipv4_pool Lb#customer_owned_ipv4_pool}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#customer_owned_ipv4_pool Lb#customer_owned_ipv4_pool}
+   */
   readonly customerOwnedIpv4Pool?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#desync_mitigation_mode Lb#desync_mitigation_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#desync_mitigation_mode Lb#desync_mitigation_mode}
+   */
   readonly desyncMitigationMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#drop_invalid_header_fields Lb#drop_invalid_header_fields}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#drop_invalid_header_fields Lb#drop_invalid_header_fields}
+   */
   readonly dropInvalidHeaderFields?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_cross_zone_load_balancing Lb#enable_cross_zone_load_balancing}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_cross_zone_load_balancing Lb#enable_cross_zone_load_balancing}
+   */
   readonly enableCrossZoneLoadBalancing?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_deletion_protection Lb#enable_deletion_protection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_deletion_protection Lb#enable_deletion_protection}
+   */
   readonly enableDeletionProtection?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_http2 Lb#enable_http2}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_http2 Lb#enable_http2}
+   */
   readonly enableHttp2?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_tls_version_and_cipher_suite_headers Lb#enable_tls_version_and_cipher_suite_headers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_tls_version_and_cipher_suite_headers Lb#enable_tls_version_and_cipher_suite_headers}
+   */
   readonly enableTlsVersionAndCipherSuiteHeaders?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_waf_fail_open Lb#enable_waf_fail_open}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_waf_fail_open Lb#enable_waf_fail_open}
+   */
   readonly enableWafFailOpen?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_xff_client_port Lb#enable_xff_client_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enable_xff_client_port Lb#enable_xff_client_port}
+   */
   readonly enableXffClientPort?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#id Lb#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#id Lb#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#idle_timeout Lb#idle_timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#idle_timeout Lb#idle_timeout}
+   */
   readonly idleTimeout?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#internal Lb#internal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#internal Lb#internal}
+   */
   readonly internal?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#ip_address_type Lb#ip_address_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#ip_address_type Lb#ip_address_type}
+   */
   readonly ipAddressType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#load_balancer_type Lb#load_balancer_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#load_balancer_type Lb#load_balancer_type}
+   */
   readonly loadBalancerType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#name Lb#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#name Lb#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#name_prefix Lb#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#name_prefix Lb#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#preserve_host_header Lb#preserve_host_header}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#preserve_host_header Lb#preserve_host_header}
+   */
   readonly preserveHostHeader?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#security_groups Lb#security_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#security_groups Lb#security_groups}
+   */
   readonly securityGroups?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#subnets Lb#subnets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#subnets Lb#subnets}
+   */
   readonly subnets?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#tags Lb#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#tags Lb#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#tags_all Lb#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#tags_all Lb#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#xff_header_processing_mode Lb#xff_header_processing_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#xff_header_processing_mode Lb#xff_header_processing_mode}
+   */
   readonly xffHeaderProcessingMode?: string;
   /**
-  * access_logs block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#access_logs Lb#access_logs}
-  */
+   * access_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#access_logs Lb#access_logs}
+   */
   readonly accessLogs?: LbAccessLogs;
   /**
-  * subnet_mapping block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#subnet_mapping Lb#subnet_mapping}
-  */
+   * subnet_mapping block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#subnet_mapping Lb#subnet_mapping}
+   */
   readonly subnetMapping?: LbSubnetMapping[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#timeouts Lb#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#timeouts Lb#timeouts}
+   */
   readonly timeouts?: LbTimeouts;
 }
 export interface LbAccessLogs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#bucket Lb#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#bucket Lb#bucket}
+   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enabled Lb#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#enabled Lb#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#prefix Lb#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#prefix Lb#prefix}
+   */
   readonly prefix?: string;
 }
 
-export function lbAccessLogsToTerraform(struct?: LbAccessLogsOutputReference | LbAccessLogs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lbAccessLogsToTerraform(
+  struct?: LbAccessLogsOutputReference | LbAccessLogs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-  }
+  };
 }
 
 export class LbAccessLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -179,8 +188,7 @@ export class LbAccessLogsOutputReference extends cdktf.ComplexObject {
       this._bucket = undefined;
       this._enabled = undefined;
       this._prefix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._enabled = value.enabled;
@@ -235,34 +243,40 @@ export class LbAccessLogsOutputReference extends cdktf.ComplexObject {
 }
 export interface LbSubnetMapping {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#allocation_id Lb#allocation_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#allocation_id Lb#allocation_id}
+   */
   readonly allocationId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#ipv6_address Lb#ipv6_address}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#ipv6_address Lb#ipv6_address}
+   */
   readonly ipv6Address?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#private_ipv4_address Lb#private_ipv4_address}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#private_ipv4_address Lb#private_ipv4_address}
+   */
   readonly privateIpv4Address?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#subnet_id Lb#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#subnet_id Lb#subnet_id}
+   */
   readonly subnetId: string;
 }
 
-export function lbSubnetMappingToTerraform(struct?: LbSubnetMapping | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lbSubnetMappingToTerraform(
+  struct?: LbSubnetMapping | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     allocation_id: cdktf.stringToTerraform(struct!.allocationId),
     ipv6_address: cdktf.stringToTerraform(struct!.ipv6Address),
     private_ipv4_address: cdktf.stringToTerraform(struct!.privateIpv4Address),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
-  }
+  };
 }
 
 export class LbSubnetMappingOutputReference extends cdktf.ComplexObject {
@@ -270,13 +284,23 @@ export class LbSubnetMappingOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): LbSubnetMapping | cdktf.IResolvable | undefined {
@@ -304,7 +328,9 @@ export class LbSubnetMappingOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LbSubnetMapping | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: LbSubnetMapping | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -312,12 +338,10 @@ export class LbSubnetMappingOutputReference extends cdktf.ComplexObject {
       this._ipv6Address = undefined;
       this._privateIpv4Address = undefined;
       this._subnetId = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._allocationId = value.allocationId;
@@ -395,49 +419,64 @@ export class LbSubnetMappingOutputReference extends cdktf.ComplexObject {
 }
 
 export class LbSubnetMappingList extends cdktf.ComplexList {
-  public internalValue? : LbSubnetMapping[] | cdktf.IResolvable
+  public internalValue?: LbSubnetMapping[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): LbSubnetMappingOutputReference {
-    return new LbSubnetMappingOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new LbSubnetMappingOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface LbTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#create Lb#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#create Lb#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#delete Lb#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#delete Lb#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#update Lb#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lb#update Lb#update}
+   */
   readonly update?: string;
 }
 
-export function lbTimeoutsToTerraform(struct?: LbTimeoutsOutputReference | LbTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lbTimeoutsToTerraform(
+  struct?: LbTimeoutsOutputReference | LbTimeouts | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class LbTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -445,10 +484,13 @@ export class LbTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -480,12 +522,10 @@ export class LbTimeoutsOutputReference extends cdktf.ComplexObject {
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -544,33 +584,32 @@ export class LbTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lb aws_lb}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lb aws_lb}
+ */
 export class Lb extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lb";
+  public static readonly tfResourceType = 'aws_lb';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lb aws_lb} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LbConfig = {}
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lb aws_lb} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LbConfig = {}
+   */
   public constructor(scope: Construct, id: string, config: LbConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_lb',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -578,7 +617,7 @@ export class Lb extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._customerOwnedIpv4Pool = config.customerOwnedIpv4Pool;
     this._desyncMitigationMode = config.desyncMitigationMode;
@@ -586,7 +625,8 @@ export class Lb extends cdktf.TerraformResource {
     this._enableCrossZoneLoadBalancing = config.enableCrossZoneLoadBalancing;
     this._enableDeletionProtection = config.enableDeletionProtection;
     this._enableHttp2 = config.enableHttp2;
-    this._enableTlsVersionAndCipherSuiteHeaders = config.enableTlsVersionAndCipherSuiteHeaders;
+    this._enableTlsVersionAndCipherSuiteHeaders =
+      config.enableTlsVersionAndCipherSuiteHeaders;
     this._enableWafFailOpen = config.enableWafFailOpen;
     this._enableXffClientPort = config.enableXffClientPort;
     this._id = config.id;
@@ -725,9 +765,13 @@ export class Lb extends cdktf.TerraformResource {
   // enable_tls_version_and_cipher_suite_headers - computed: false, optional: true, required: false
   private _enableTlsVersionAndCipherSuiteHeaders?: boolean | cdktf.IResolvable;
   public get enableTlsVersionAndCipherSuiteHeaders() {
-    return this.getBooleanAttribute('enable_tls_version_and_cipher_suite_headers');
+    return this.getBooleanAttribute(
+      'enable_tls_version_and_cipher_suite_headers',
+    );
   }
-  public set enableTlsVersionAndCipherSuiteHeaders(value: boolean | cdktf.IResolvable) {
+  public set enableTlsVersionAndCipherSuiteHeaders(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._enableTlsVersionAndCipherSuiteHeaders = value;
   }
   public resetEnableTlsVersionAndCipherSuiteHeaders() {
@@ -989,7 +1033,7 @@ export class Lb extends cdktf.TerraformResource {
   }
 
   // access_logs - computed: false, optional: true, required: false
-  private _accessLogs = new LbAccessLogsOutputReference(this, "access_logs");
+  private _accessLogs = new LbAccessLogsOutputReference(this, 'access_logs');
   public get accessLogs() {
     return this._accessLogs;
   }
@@ -1005,7 +1049,11 @@ export class Lb extends cdktf.TerraformResource {
   }
 
   // subnet_mapping - computed: false, optional: true, required: false
-  private _subnetMapping = new LbSubnetMappingList(this, "subnet_mapping", true);
+  private _subnetMapping = new LbSubnetMappingList(
+    this,
+    'subnet_mapping',
+    true,
+  );
   public get subnetMapping() {
     return this._subnetMapping;
   }
@@ -1021,7 +1069,7 @@ export class Lb extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new LbTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new LbTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -1042,15 +1090,29 @@ export class Lb extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      customer_owned_ipv4_pool: cdktf.stringToTerraform(this._customerOwnedIpv4Pool),
-      desync_mitigation_mode: cdktf.stringToTerraform(this._desyncMitigationMode),
-      drop_invalid_header_fields: cdktf.booleanToTerraform(this._dropInvalidHeaderFields),
-      enable_cross_zone_load_balancing: cdktf.booleanToTerraform(this._enableCrossZoneLoadBalancing),
-      enable_deletion_protection: cdktf.booleanToTerraform(this._enableDeletionProtection),
+      customer_owned_ipv4_pool: cdktf.stringToTerraform(
+        this._customerOwnedIpv4Pool,
+      ),
+      desync_mitigation_mode: cdktf.stringToTerraform(
+        this._desyncMitigationMode,
+      ),
+      drop_invalid_header_fields: cdktf.booleanToTerraform(
+        this._dropInvalidHeaderFields,
+      ),
+      enable_cross_zone_load_balancing: cdktf.booleanToTerraform(
+        this._enableCrossZoneLoadBalancing,
+      ),
+      enable_deletion_protection: cdktf.booleanToTerraform(
+        this._enableDeletionProtection,
+      ),
       enable_http2: cdktf.booleanToTerraform(this._enableHttp2),
-      enable_tls_version_and_cipher_suite_headers: cdktf.booleanToTerraform(this._enableTlsVersionAndCipherSuiteHeaders),
+      enable_tls_version_and_cipher_suite_headers: cdktf.booleanToTerraform(
+        this._enableTlsVersionAndCipherSuiteHeaders,
+      ),
       enable_waf_fail_open: cdktf.booleanToTerraform(this._enableWafFailOpen),
-      enable_xff_client_port: cdktf.booleanToTerraform(this._enableXffClientPort),
+      enable_xff_client_port: cdktf.booleanToTerraform(
+        this._enableXffClientPort,
+      ),
       id: cdktf.stringToTerraform(this._id),
       idle_timeout: cdktf.numberToTerraform(this._idleTimeout),
       internal: cdktf.booleanToTerraform(this._internal),
@@ -1059,13 +1121,21 @@ export class Lb extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       preserve_host_header: cdktf.booleanToTerraform(this._preserveHostHeader),
-      security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroups),
+      security_groups: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroups),
       subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnets),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      xff_header_processing_mode: cdktf.stringToTerraform(this._xffHeaderProcessingMode),
+      xff_header_processing_mode: cdktf.stringToTerraform(
+        this._xffHeaderProcessingMode,
+      ),
       access_logs: lbAccessLogsToTerraform(this._accessLogs.internalValue),
-      subnet_mapping: cdktf.listMapper(lbSubnetMappingToTerraform, true)(this._subnetMapping.internalValue),
+      subnet_mapping: cdktf.listMapper(
+        lbSubnetMappingToTerraform,
+        true,
+      )(this._subnetMapping.internalValue),
       timeouts: lbTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

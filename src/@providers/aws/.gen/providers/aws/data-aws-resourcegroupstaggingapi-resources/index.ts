@@ -2,77 +2,99 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsResourcegroupstaggingapiResourcesConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsResourcegroupstaggingapiResourcesConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#exclude_compliant_resources DataAwsResourcegroupstaggingapiResources#exclude_compliant_resources}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#exclude_compliant_resources DataAwsResourcegroupstaggingapiResources#exclude_compliant_resources}
+   */
   readonly excludeCompliantResources?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#id DataAwsResourcegroupstaggingapiResources#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#id DataAwsResourcegroupstaggingapiResources#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#include_compliance_details DataAwsResourcegroupstaggingapiResources#include_compliance_details}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#include_compliance_details DataAwsResourcegroupstaggingapiResources#include_compliance_details}
+   */
   readonly includeComplianceDetails?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#resource_arn_list DataAwsResourcegroupstaggingapiResources#resource_arn_list}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#resource_arn_list DataAwsResourcegroupstaggingapiResources#resource_arn_list}
+   */
   readonly resourceArnList?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#resource_type_filters DataAwsResourcegroupstaggingapiResources#resource_type_filters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#resource_type_filters DataAwsResourcegroupstaggingapiResources#resource_type_filters}
+   */
   readonly resourceTypeFilters?: string[];
   /**
-  * tag_filter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#tag_filter DataAwsResourcegroupstaggingapiResources#tag_filter}
-  */
-  readonly tagFilter?: DataAwsResourcegroupstaggingapiResourcesTagFilter[] | cdktf.IResolvable;
+   * tag_filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#tag_filter DataAwsResourcegroupstaggingapiResources#tag_filter}
+   */
+  readonly tagFilter?:
+    | DataAwsResourcegroupstaggingapiResourcesTagFilter[]
+    | cdktf.IResolvable;
 }
-export interface DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails {
-}
+export interface DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails {}
 
-export function dataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsToTerraform(struct?: DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsToTerraform(
+  struct?: DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails | undefined {
+  public get internalValue():
+    | DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetails
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -84,7 +106,9 @@ export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListCompl
 
   // keys_with_noncompliant_values - computed: true, optional: false, required: false
   public get keysWithNoncompliantValues() {
-    return cdktf.Fn.tolist(this.getListAttribute('keys_with_noncompliant_values'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('keys_with_noncompliant_values'),
+    );
   }
 
   // non_compliant_keys - computed: true, optional: false, required: false
@@ -94,65 +118,99 @@ export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListCompl
 }
 
 export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsOutputReference {
-    return new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsOutputReference {
+    return new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList {
-}
+export interface DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList {}
 
-export function dataAwsResourcegroupstaggingapiResourcesResourceTagMappingListToTerraform(struct?: DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsResourcegroupstaggingapiResourcesResourceTagMappingListToTerraform(
+  struct?: DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList | undefined {
+  public get internalValue():
+    | DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsResourcegroupstaggingapiResourcesResourceTagMappingList
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // compliance_details - computed: true, optional: false, required: false
-  private _complianceDetails = new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsList(this, "compliance_details", false);
+  private _complianceDetails =
+    new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListComplianceDetailsList(
+      this,
+      'compliance_details',
+      false,
+    );
   public get complianceDetails() {
     return this._complianceDetails;
   }
@@ -163,50 +221,68 @@ export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListOutpu
   }
 
   // tags - computed: true, optional: false, required: false
-  private _tags = new cdktf.StringMap(this, "tags");
+  private _tags = new cdktf.StringMap(this, 'tags');
   public get tags() {
     return this._tags;
   }
 }
 
 export class DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListOutputReference {
-    return new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListOutputReference {
+    return new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsResourcegroupstaggingapiResourcesTagFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#key DataAwsResourcegroupstaggingapiResources#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#key DataAwsResourcegroupstaggingapiResources#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#values DataAwsResourcegroupstaggingapiResources#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources#values DataAwsResourcegroupstaggingapiResources#values}
+   */
   readonly values?: string[];
 }
 
-export function dataAwsResourcegroupstaggingapiResourcesTagFilterToTerraform(struct?: DataAwsResourcegroupstaggingapiResourcesTagFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsResourcegroupstaggingapiResourcesTagFilterToTerraform(
+  struct?:
+    | DataAwsResourcegroupstaggingapiResourcesTagFilter
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference extends cdktf.ComplexObject {
@@ -214,16 +290,29 @@ export class DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsResourcegroupstaggingapiResourcesTagFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsResourcegroupstaggingapiResourcesTagFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -240,18 +329,21 @@ export class DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsResourcegroupstaggingapiResourcesTagFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsResourcegroupstaggingapiResourcesTagFilter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -290,53 +382,70 @@ export class DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference ex
 }
 
 export class DataAwsResourcegroupstaggingapiResourcesTagFilterList extends cdktf.ComplexList {
-  public internalValue? : DataAwsResourcegroupstaggingapiResourcesTagFilter[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsResourcegroupstaggingapiResourcesTagFilter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference {
-    return new DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference {
+    return new DataAwsResourcegroupstaggingapiResourcesTagFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources aws_resourcegroupstaggingapi_resources}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources aws_resourcegroupstaggingapi_resources}
+ */
 export class DataAwsResourcegroupstaggingapiResources extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_resourcegroupstaggingapi_resources";
+  public static readonly tfResourceType =
+    'aws_resourcegroupstaggingapi_resources';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources aws_resourcegroupstaggingapi_resources} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsResourcegroupstaggingapiResourcesConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsResourcegroupstaggingapiResourcesConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/resourcegroupstaggingapi_resources aws_resourcegroupstaggingapi_resources} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsResourcegroupstaggingapiResourcesConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsResourcegroupstaggingapiResourcesConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_resourcegroupstaggingapi_resources',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -344,7 +453,7 @@ export class DataAwsResourcegroupstaggingapiResources extends cdktf.TerraformDat
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._excludeCompliantResources = config.excludeCompliantResources;
     this._id = config.id;
@@ -423,7 +532,12 @@ export class DataAwsResourcegroupstaggingapiResources extends cdktf.TerraformDat
   }
 
   // resource_tag_mapping_list - computed: true, optional: false, required: false
-  private _resourceTagMappingList = new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListList(this, "resource_tag_mapping_list", false);
+  private _resourceTagMappingList =
+    new DataAwsResourcegroupstaggingapiResourcesResourceTagMappingListList(
+      this,
+      'resource_tag_mapping_list',
+      false,
+    );
   public get resourceTagMappingList() {
     return this._resourceTagMappingList;
   }
@@ -445,11 +559,20 @@ export class DataAwsResourcegroupstaggingapiResources extends cdktf.TerraformDat
   }
 
   // tag_filter - computed: false, optional: true, required: false
-  private _tagFilter = new DataAwsResourcegroupstaggingapiResourcesTagFilterList(this, "tag_filter", false);
+  private _tagFilter =
+    new DataAwsResourcegroupstaggingapiResourcesTagFilterList(
+      this,
+      'tag_filter',
+      false,
+    );
   public get tagFilter() {
     return this._tagFilter;
   }
-  public putTagFilter(value: DataAwsResourcegroupstaggingapiResourcesTagFilter[] | cdktf.IResolvable) {
+  public putTagFilter(
+    value:
+      | DataAwsResourcegroupstaggingapiResourcesTagFilter[]
+      | cdktf.IResolvable,
+  ) {
     this._tagFilter.internalValue = value;
   }
   public resetTagFilter() {
@@ -466,12 +589,25 @@ export class DataAwsResourcegroupstaggingapiResources extends cdktf.TerraformDat
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      exclude_compliant_resources: cdktf.booleanToTerraform(this._excludeCompliantResources),
+      exclude_compliant_resources: cdktf.booleanToTerraform(
+        this._excludeCompliantResources,
+      ),
       id: cdktf.stringToTerraform(this._id),
-      include_compliance_details: cdktf.booleanToTerraform(this._includeComplianceDetails),
-      resource_arn_list: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resourceArnList),
-      resource_type_filters: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resourceTypeFilters),
-      tag_filter: cdktf.listMapper(dataAwsResourcegroupstaggingapiResourcesTagFilterToTerraform, true)(this._tagFilter.internalValue),
+      include_compliance_details: cdktf.booleanToTerraform(
+        this._includeComplianceDetails,
+      ),
+      resource_arn_list: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._resourceArnList),
+      resource_type_filters: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._resourceTypeFilters),
+      tag_filter: cdktf.listMapper(
+        dataAwsResourcegroupstaggingapiResourcesTagFilterToTerraform,
+        true,
+      )(this._tagFilter.internalValue),
     };
   }
 }

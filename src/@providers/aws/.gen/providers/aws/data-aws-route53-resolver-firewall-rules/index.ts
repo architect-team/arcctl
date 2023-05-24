@@ -2,67 +2,85 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataAwsRoute53ResolverFirewallRulesConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsRoute53ResolverFirewallRulesConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#action DataAwsRoute53ResolverFirewallRules#action}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#action DataAwsRoute53ResolverFirewallRules#action}
+   */
   readonly action?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#firewall_rule_group_id DataAwsRoute53ResolverFirewallRules#firewall_rule_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#firewall_rule_group_id DataAwsRoute53ResolverFirewallRules#firewall_rule_group_id}
+   */
   readonly firewallRuleGroupId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#id DataAwsRoute53ResolverFirewallRules#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#id DataAwsRoute53ResolverFirewallRules#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#priority DataAwsRoute53ResolverFirewallRules#priority}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules#priority DataAwsRoute53ResolverFirewallRules#priority}
+   */
   readonly priority?: number;
 }
-export interface DataAwsRoute53ResolverFirewallRulesFirewallRules {
-}
+export interface DataAwsRoute53ResolverFirewallRulesFirewallRules {}
 
-export function dataAwsRoute53ResolverFirewallRulesFirewallRulesToTerraform(struct?: DataAwsRoute53ResolverFirewallRulesFirewallRules): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsRoute53ResolverFirewallRulesFirewallRulesToTerraform(
+  struct?: DataAwsRoute53ResolverFirewallRulesFirewallRules,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsRoute53ResolverFirewallRulesFirewallRulesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsRoute53ResolverFirewallRulesFirewallRules | undefined {
+  public get internalValue():
+    | DataAwsRoute53ResolverFirewallRulesFirewallRules
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsRoute53ResolverFirewallRulesFirewallRules | undefined) {
+  public set internalValue(
+    value: DataAwsRoute53ResolverFirewallRulesFirewallRules | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -129,52 +147,65 @@ export class DataAwsRoute53ResolverFirewallRulesFirewallRulesOutputReference ext
 }
 
 export class DataAwsRoute53ResolverFirewallRulesFirewallRulesList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsRoute53ResolverFirewallRulesFirewallRulesOutputReference {
-    return new DataAwsRoute53ResolverFirewallRulesFirewallRulesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsRoute53ResolverFirewallRulesFirewallRulesOutputReference {
+    return new DataAwsRoute53ResolverFirewallRulesFirewallRulesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules aws_route53_resolver_firewall_rules}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules aws_route53_resolver_firewall_rules}
+ */
 export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53_resolver_firewall_rules";
+  public static readonly tfResourceType = 'aws_route53_resolver_firewall_rules';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules aws_route53_resolver_firewall_rules} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsRoute53ResolverFirewallRulesConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsRoute53ResolverFirewallRulesConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rules aws_route53_resolver_firewall_rules} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsRoute53ResolverFirewallRulesConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsRoute53ResolverFirewallRulesConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_resolver_firewall_rules',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -182,7 +213,7 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._action = config.action;
     this._firewallRuleGroupId = config.firewallRuleGroupId;
@@ -224,7 +255,12 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
   }
 
   // firewall_rules - computed: true, optional: false, required: false
-  private _firewallRules = new DataAwsRoute53ResolverFirewallRulesFirewallRulesList(this, "firewall_rules", false);
+  private _firewallRules =
+    new DataAwsRoute53ResolverFirewallRulesFirewallRulesList(
+      this,
+      'firewall_rules',
+      false,
+    );
   public get firewallRules() {
     return this._firewallRules;
   }
@@ -268,7 +304,9 @@ export class DataAwsRoute53ResolverFirewallRules extends cdktf.TerraformDataSour
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       action: cdktf.stringToTerraform(this._action),
-      firewall_rule_group_id: cdktf.stringToTerraform(this._firewallRuleGroupId),
+      firewall_rule_group_id: cdktf.stringToTerraform(
+        this._firewallRuleGroupId,
+      ),
       id: cdktf.stringToTerraform(this._id),
       priority: cdktf.numberToTerraform(this._priority),
     };

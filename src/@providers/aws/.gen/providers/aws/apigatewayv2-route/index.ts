@@ -2,89 +2,97 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface Apigatewayv2RouteConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#api_id Apigatewayv2Route#api_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#api_id Apigatewayv2Route#api_id}
+   */
   readonly apiId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#api_key_required Apigatewayv2Route#api_key_required}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#api_key_required Apigatewayv2Route#api_key_required}
+   */
   readonly apiKeyRequired?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#authorization_scopes Apigatewayv2Route#authorization_scopes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#authorization_scopes Apigatewayv2Route#authorization_scopes}
+   */
   readonly authorizationScopes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#authorization_type Apigatewayv2Route#authorization_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#authorization_type Apigatewayv2Route#authorization_type}
+   */
   readonly authorizationType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#authorizer_id Apigatewayv2Route#authorizer_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#authorizer_id Apigatewayv2Route#authorizer_id}
+   */
   readonly authorizerId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#id Apigatewayv2Route#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#id Apigatewayv2Route#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#model_selection_expression Apigatewayv2Route#model_selection_expression}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#model_selection_expression Apigatewayv2Route#model_selection_expression}
+   */
   readonly modelSelectionExpression?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#operation_name Apigatewayv2Route#operation_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#operation_name Apigatewayv2Route#operation_name}
+   */
   readonly operationName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#request_models Apigatewayv2Route#request_models}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#request_models Apigatewayv2Route#request_models}
+   */
   readonly requestModels?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#route_key Apigatewayv2Route#route_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#route_key Apigatewayv2Route#route_key}
+   */
   readonly routeKey: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#route_response_selection_expression Apigatewayv2Route#route_response_selection_expression}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#route_response_selection_expression Apigatewayv2Route#route_response_selection_expression}
+   */
   readonly routeResponseSelectionExpression?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#target Apigatewayv2Route#target}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#target Apigatewayv2Route#target}
+   */
   readonly target?: string;
   /**
-  * request_parameter block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#request_parameter Apigatewayv2Route#request_parameter}
-  */
-  readonly requestParameter?: Apigatewayv2RouteRequestParameter[] | cdktf.IResolvable;
+   * request_parameter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#request_parameter Apigatewayv2Route#request_parameter}
+   */
+  readonly requestParameter?:
+    | Apigatewayv2RouteRequestParameter[]
+    | cdktf.IResolvable;
 }
 export interface Apigatewayv2RouteRequestParameter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#request_parameter_key Apigatewayv2Route#request_parameter_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#request_parameter_key Apigatewayv2Route#request_parameter_key}
+   */
   readonly requestParameterKey: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#required Apigatewayv2Route#required}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route#required Apigatewayv2Route#required}
+   */
   readonly required: boolean | cdktf.IResolvable;
 }
 
-export function apigatewayv2RouteRequestParameterToTerraform(struct?: Apigatewayv2RouteRequestParameter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apigatewayv2RouteRequestParameterToTerraform(
+  struct?: Apigatewayv2RouteRequestParameter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     request_parameter_key: cdktf.stringToTerraform(struct!.requestParameterKey),
     required: cdktf.booleanToTerraform(struct!.required),
-  }
+  };
 }
 
 export class Apigatewayv2RouteRequestParameterOutputReference extends cdktf.ComplexObject {
@@ -92,16 +100,29 @@ export class Apigatewayv2RouteRequestParameterOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): Apigatewayv2RouteRequestParameter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Apigatewayv2RouteRequestParameter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -118,18 +139,18 @@ export class Apigatewayv2RouteRequestParameterOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Apigatewayv2RouteRequestParameter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Apigatewayv2RouteRequestParameter | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._requestParameterKey = undefined;
       this._required = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._requestParameterKey = value.requestParameterKey;
@@ -165,53 +186,67 @@ export class Apigatewayv2RouteRequestParameterOutputReference extends cdktf.Comp
 }
 
 export class Apigatewayv2RouteRequestParameterList extends cdktf.ComplexList {
-  public internalValue? : Apigatewayv2RouteRequestParameter[] | cdktf.IResolvable
+  public internalValue?:
+    | Apigatewayv2RouteRequestParameter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): Apigatewayv2RouteRequestParameterOutputReference {
-    return new Apigatewayv2RouteRequestParameterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new Apigatewayv2RouteRequestParameterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route aws_apigatewayv2_route}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route aws_apigatewayv2_route}
+ */
 export class Apigatewayv2Route extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_apigatewayv2_route";
+  public static readonly tfResourceType = 'aws_apigatewayv2_route';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route aws_apigatewayv2_route} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Apigatewayv2RouteConfig
-  */
-  public constructor(scope: Construct, id: string, config: Apigatewayv2RouteConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route aws_apigatewayv2_route} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Apigatewayv2RouteConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Apigatewayv2RouteConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_apigatewayv2_route',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -219,7 +254,7 @@ export class Apigatewayv2Route extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._apiId = config.apiId;
     this._apiKeyRequired = config.apiKeyRequired;
@@ -231,7 +266,8 @@ export class Apigatewayv2Route extends cdktf.TerraformResource {
     this._operationName = config.operationName;
     this._requestModels = config.requestModels;
     this._routeKey = config.routeKey;
-    this._routeResponseSelectionExpression = config.routeResponseSelectionExpression;
+    this._routeResponseSelectionExpression =
+      config.routeResponseSelectionExpression;
     this._target = config.target;
     this._requestParameter.internalValue = config.requestParameter;
   }
@@ -427,11 +463,17 @@ export class Apigatewayv2Route extends cdktf.TerraformResource {
   }
 
   // request_parameter - computed: false, optional: true, required: false
-  private _requestParameter = new Apigatewayv2RouteRequestParameterList(this, "request_parameter", true);
+  private _requestParameter = new Apigatewayv2RouteRequestParameterList(
+    this,
+    'request_parameter',
+    true,
+  );
   public get requestParameter() {
     return this._requestParameter;
   }
-  public putRequestParameter(value: Apigatewayv2RouteRequestParameter[] | cdktf.IResolvable) {
+  public putRequestParameter(
+    value: Apigatewayv2RouteRequestParameter[] | cdktf.IResolvable,
+  ) {
     this._requestParameter.internalValue = value;
   }
   public resetRequestParameter() {
@@ -450,17 +492,29 @@ export class Apigatewayv2Route extends cdktf.TerraformResource {
     return {
       api_id: cdktf.stringToTerraform(this._apiId),
       api_key_required: cdktf.booleanToTerraform(this._apiKeyRequired),
-      authorization_scopes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._authorizationScopes),
+      authorization_scopes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._authorizationScopes),
       authorization_type: cdktf.stringToTerraform(this._authorizationType),
       authorizer_id: cdktf.stringToTerraform(this._authorizerId),
       id: cdktf.stringToTerraform(this._id),
-      model_selection_expression: cdktf.stringToTerraform(this._modelSelectionExpression),
+      model_selection_expression: cdktf.stringToTerraform(
+        this._modelSelectionExpression,
+      ),
       operation_name: cdktf.stringToTerraform(this._operationName),
-      request_models: cdktf.hashMapper(cdktf.stringToTerraform)(this._requestModels),
+      request_models: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._requestModels,
+      ),
       route_key: cdktf.stringToTerraform(this._routeKey),
-      route_response_selection_expression: cdktf.stringToTerraform(this._routeResponseSelectionExpression),
+      route_response_selection_expression: cdktf.stringToTerraform(
+        this._routeResponseSelectionExpression,
+      ),
       target: cdktf.stringToTerraform(this._target),
-      request_parameter: cdktf.listMapper(apigatewayv2RouteRequestParameterToTerraform, true)(this._requestParameter.internalValue),
+      request_parameter: cdktf.listMapper(
+        apigatewayv2RouteRequestParameterToTerraform,
+        true,
+      )(this._requestParameter.internalValue),
     };
   }
 }

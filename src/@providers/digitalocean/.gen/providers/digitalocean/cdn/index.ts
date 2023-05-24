@@ -2,76 +2,75 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface CdnConfig extends cdktf.TerraformMetaArguments {
   /**
-  * ID of a DigitalOcean managed TLS certificate for use with custom domains
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#certificate_id Cdn#certificate_id}
-  */
+   * ID of a DigitalOcean managed TLS certificate for use with custom domains
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#certificate_id Cdn#certificate_id}
+   */
   readonly certificateId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#certificate_name Cdn#certificate_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#certificate_name Cdn#certificate_name}
+   */
   readonly certificateName?: string;
   /**
-  * fully qualified domain name (FQDN) for custom subdomain, (requires certificate_id)
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#custom_domain Cdn#custom_domain}
-  */
+   * fully qualified domain name (FQDN) for custom subdomain, (requires certificate_id)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#custom_domain Cdn#custom_domain}
+   */
   readonly customDomain?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#id Cdn#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#id Cdn#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * fully qualified domain name (FQDN) for the origin server
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#origin Cdn#origin}
-  */
+   * fully qualified domain name (FQDN) for the origin server
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#origin Cdn#origin}
+   */
   readonly origin: string;
   /**
-  * The amount of time the content is cached in the CDN
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#ttl Cdn#ttl}
-  */
+   * The amount of time the content is cached in the CDN
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn#ttl Cdn#ttl}
+   */
   readonly ttl?: number;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn digitalocean_cdn}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn digitalocean_cdn}
+ */
 export class Cdn extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_cdn";
+  public static readonly tfResourceType = 'digitalocean_cdn';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn digitalocean_cdn} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CdnConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/cdn digitalocean_cdn} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CdnConfig
+   */
   public constructor(scope: Construct, id: string, config: CdnConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_cdn',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -79,7 +78,7 @@ export class Cdn extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._certificateId = config.certificateId;
     this._certificateName = config.certificateName;

@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Vpc } from '../.gen/providers/digitalocean/vpc/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Vpc } from '../.gen/providers/digitalocean/vpc/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'npm:constructs';
 
 export class DigitaloceanVpcModule extends ResourceModule<

@@ -1,79 +1,80 @@
 // generated from terraform resource schema
 
-import { StatefulSetMetadata,
-statefulSetMetadataToTerraform,
-StatefulSetMetadataOutputReference,
-StatefulSetSpec,
-statefulSetSpecToTerraform,
-StatefulSetSpecOutputReference,
-StatefulSetTimeouts,
-statefulSetTimeoutsToTerraform,
-StatefulSetTimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
+import {
+  StatefulSetMetadata,
+  statefulSetMetadataToTerraform,
+  StatefulSetMetadataOutputReference,
+  StatefulSetSpec,
+  statefulSetSpecToTerraform,
+  StatefulSetSpecOutputReference,
+  StatefulSetTimeouts,
+  statefulSetTimeoutsToTerraform,
+  StatefulSetTimeoutsOutputReference,
+} from './index-structs';
+export * from './index-structs';
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 export interface StatefulSetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#id StatefulSet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#id StatefulSet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Wait for the rollout of the stateful set to complete. Defaults to true.
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#wait_for_rollout StatefulSet#wait_for_rollout}
-  */
+   * Wait for the rollout of the stateful set to complete. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#wait_for_rollout StatefulSet#wait_for_rollout}
+   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#metadata StatefulSet#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#metadata StatefulSet#metadata}
+   */
   readonly metadata: StatefulSetMetadata;
   /**
-  * spec block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#spec StatefulSet#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#spec StatefulSet#spec}
+   */
   readonly spec: StatefulSetSpec;
   /**
-  * timeouts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#timeouts StatefulSet#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set#timeouts StatefulSet#timeouts}
+   */
   readonly timeouts?: StatefulSetTimeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set kubernetes_stateful_set}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set kubernetes_stateful_set}
+ */
 export class StatefulSet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_stateful_set";
+  public static readonly tfResourceType = 'kubernetes_stateful_set';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set kubernetes_stateful_set} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options StatefulSetConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/stateful_set kubernetes_stateful_set} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options StatefulSetConfig
+   */
   public constructor(scope: Construct, id: string, config: StatefulSetConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_stateful_set',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -81,7 +82,7 @@ export class StatefulSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._waitForRollout = config.waitForRollout;
@@ -127,7 +128,7 @@ export class StatefulSet extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new StatefulSetMetadataOutputReference(this, "metadata");
+  private _metadata = new StatefulSetMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -140,7 +141,7 @@ export class StatefulSet extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new StatefulSetSpecOutputReference(this, "spec");
+  private _spec = new StatefulSetSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -153,7 +154,7 @@ export class StatefulSet extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new StatefulSetTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new StatefulSetTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }

@@ -1,20 +1,20 @@
-import { ProviderCredentials } from '@providers/credentials.js';
-import { TerraformOutput } from 'cdktf';
+import { ProviderCredentials } from '@providers/credentials.ts';
+import { TerraformOutput } from 'npm:cdktf';
 import { ExecaChildProcess } from 'execa';
 import * as fs from 'fs';
 import path from 'path';
 import { BehaviorSubject } from 'rxjs';
 import * as stream from 'stream';
-import { CldCtlTerraformStack } from 'utils/stack.js';
-import { ResourceModule } from '../@providers/module.js';
-import { ResourceStatus } from '../@providers/status.js';
-import { ResourceOutputs, ResourceType } from '../@resources/index.js';
-import PluginManager from '../plugins/plugin-manager.js';
+import { CldCtlTerraformStack } from 'utils/stack.ts';
+import { ResourceModule } from '../@providers/module.ts';
+import { ResourceStatus } from '../@providers/status.ts';
+import { ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import PluginManager from '../plugins/plugin-manager.ts';
 import TerraformPlugin, {
-  TerraformVersion
-} from '../plugins/terraform-plugin.js';
-import CloudCtlConfig from './config.js';
-import { getLogger } from './logger.js';
+  TerraformVersion,
+} from '../plugins/terraform-plugin.ts';
+import CloudCtlConfig from './config.ts';
+import { getLogger } from './logger.ts';
 
 export default class Terraform {
   private static terraformPlugin?: TerraformPlugin;
@@ -33,7 +33,9 @@ export default class Terraform {
 
   public static async cleanup(attempts = 0): Promise<void> {
     if (CloudCtlConfig.isNoCleanup()) {
-      console.log(`Not cleaning up: ${CloudCtlConfig.getTerraformDirectory()}\n\n\n`);
+      console.log(
+        `Not cleaning up: ${CloudCtlConfig.getTerraformDirectory()}\n\n\n`,
+      );
       return;
     }
     if (attempts === 0) {
@@ -174,7 +176,8 @@ export default class Terraform {
     stack: CldCtlTerraformStack,
     resources: {
       [T in ResourceType]?: { id: string; credentials: ProviderCredentials };
-    }): Promise<Record<string, Record<string, string>>> {
+    },
+  ): Promise<Record<string, Record<string, string>>> {
     if (version === 'fake') {
       return {};
     }
@@ -199,7 +202,7 @@ export default class Terraform {
 
   public static async import(
     version: TerraformVersion,
-    import_records: Record<string, Record<string, string>>
+    import_records: Record<string, Record<string, string>>,
   ): Promise<void> {
     if (version === 'fake') {
       return;
@@ -230,7 +233,11 @@ export default class Terraform {
       return;
     }
     await this.ready(version);
-    const import_records = await this.getImportRecords(version, stack, resourceData);
+    const import_records = await this.getImportRecords(
+      version,
+      stack,
+      resourceData,
+    );
     await this.writeStack(stack);
     await this.init(stack);
     await this.plan(version, stack);
@@ -285,9 +292,11 @@ export default class Terraform {
   public static async getOutputString(
     output: TerraformOutput,
   ): Promise<string> {
-    return await this.terraformPlugin?.output(
-      CloudCtlConfig.getTerraformDirectory(),
-      output.friendlyUniqueId,
-    ) || '';
+    return (
+      (await this.terraformPlugin?.output(
+        CloudCtlConfig.getTerraformDirectory(),
+        output.friendlyUniqueId,
+      )) || ''
+    );
   }
 }

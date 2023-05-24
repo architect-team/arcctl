@@ -2,73 +2,83 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface KmsGrantConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#grant_creation_tokens KmsGrant#grant_creation_tokens}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#grant_creation_tokens KmsGrant#grant_creation_tokens}
+   */
   readonly grantCreationTokens?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#grantee_principal KmsGrant#grantee_principal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#grantee_principal KmsGrant#grantee_principal}
+   */
   readonly granteePrincipal: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#id KmsGrant#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#id KmsGrant#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#key_id KmsGrant#key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#key_id KmsGrant#key_id}
+   */
   readonly keyId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#name KmsGrant#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#name KmsGrant#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#operations KmsGrant#operations}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#operations KmsGrant#operations}
+   */
   readonly operations: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#retire_on_delete KmsGrant#retire_on_delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#retire_on_delete KmsGrant#retire_on_delete}
+   */
   readonly retireOnDelete?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#retiring_principal KmsGrant#retiring_principal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#retiring_principal KmsGrant#retiring_principal}
+   */
   readonly retiringPrincipal?: string;
   /**
-  * constraints block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#constraints KmsGrant#constraints}
-  */
+   * constraints block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#constraints KmsGrant#constraints}
+   */
   readonly constraints?: KmsGrantConstraints[] | cdktf.IResolvable;
 }
 export interface KmsGrantConstraints {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#encryption_context_equals KmsGrant#encryption_context_equals}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#encryption_context_equals KmsGrant#encryption_context_equals}
+   */
   readonly encryptionContextEquals?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#encryption_context_subset KmsGrant#encryption_context_subset}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_grant#encryption_context_subset KmsGrant#encryption_context_subset}
+   */
   readonly encryptionContextSubset?: { [key: string]: string };
 }
 
-export function kmsGrantConstraintsToTerraform(struct?: KmsGrantConstraints | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function kmsGrantConstraintsToTerraform(
+  struct?: KmsGrantConstraints | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    encryption_context_equals: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.encryptionContextEquals),
-    encryption_context_subset: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.encryptionContextSubset),
-  }
+    encryption_context_equals: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.encryptionContextEquals,
+    ),
+    encryption_context_subset: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.encryptionContextSubset,
+    ),
+  };
 }
 
 export class KmsGrantConstraintsOutputReference extends cdktf.ComplexObject {
@@ -76,16 +86,29 @@ export class KmsGrantConstraintsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): KmsGrantConstraints | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | KmsGrantConstraints
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -93,27 +116,29 @@ export class KmsGrantConstraintsOutputReference extends cdktf.ComplexObject {
     const internalValueResult: any = {};
     if (this._encryptionContextEquals !== undefined) {
       hasAnyValues = true;
-      internalValueResult.encryptionContextEquals = this._encryptionContextEquals;
+      internalValueResult.encryptionContextEquals =
+        this._encryptionContextEquals;
     }
     if (this._encryptionContextSubset !== undefined) {
       hasAnyValues = true;
-      internalValueResult.encryptionContextSubset = this._encryptionContextSubset;
+      internalValueResult.encryptionContextSubset =
+        this._encryptionContextSubset;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: KmsGrantConstraints | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: KmsGrantConstraints | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._encryptionContextEquals = undefined;
       this._encryptionContextSubset = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._encryptionContextEquals = value.encryptionContextEquals;
@@ -155,53 +180,61 @@ export class KmsGrantConstraintsOutputReference extends cdktf.ComplexObject {
 }
 
 export class KmsGrantConstraintsList extends cdktf.ComplexList {
-  public internalValue? : KmsGrantConstraints[] | cdktf.IResolvable
+  public internalValue?: KmsGrantConstraints[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): KmsGrantConstraintsOutputReference {
-    return new KmsGrantConstraintsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new KmsGrantConstraintsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/kms_grant aws_kms_grant}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/kms_grant aws_kms_grant}
+ */
 export class KmsGrant extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_kms_grant";
+  public static readonly tfResourceType = 'aws_kms_grant';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kms_grant aws_kms_grant} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options KmsGrantConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kms_grant aws_kms_grant} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options KmsGrantConfig
+   */
   public constructor(scope: Construct, id: string, config: KmsGrantConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_kms_grant',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -209,7 +242,7 @@ export class KmsGrant extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._grantCreationTokens = config.grantCreationTokens;
     this._granteePrincipal = config.granteePrincipal;
@@ -356,7 +389,7 @@ export class KmsGrant extends cdktf.TerraformResource {
   }
 
   // constraints - computed: false, optional: true, required: false
-  private _constraints = new KmsGrantConstraintsList(this, "constraints", true);
+  private _constraints = new KmsGrantConstraintsList(this, 'constraints', true);
   public get constraints() {
     return this._constraints;
   }
@@ -377,15 +410,24 @@ export class KmsGrant extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      grant_creation_tokens: cdktf.listMapper(cdktf.stringToTerraform, false)(this._grantCreationTokens),
+      grant_creation_tokens: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._grantCreationTokens),
       grantee_principal: cdktf.stringToTerraform(this._granteePrincipal),
       id: cdktf.stringToTerraform(this._id),
       key_id: cdktf.stringToTerraform(this._keyId),
       name: cdktf.stringToTerraform(this._name),
-      operations: cdktf.listMapper(cdktf.stringToTerraform, false)(this._operations),
+      operations: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._operations),
       retire_on_delete: cdktf.booleanToTerraform(this._retireOnDelete),
       retiring_principal: cdktf.stringToTerraform(this._retiringPrincipal),
-      constraints: cdktf.listMapper(kmsGrantConstraintsToTerraform, true)(this._constraints.internalValue),
+      constraints: cdktf.listMapper(
+        kmsGrantConstraintsToTerraform,
+        true,
+      )(this._constraints.internalValue),
     };
   }
 }

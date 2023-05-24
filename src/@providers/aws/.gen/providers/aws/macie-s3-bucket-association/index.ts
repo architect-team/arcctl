@@ -2,71 +2,85 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface MacieS3BucketAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface MacieS3BucketAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#bucket_name MacieS3BucketAssociation#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#bucket_name MacieS3BucketAssociation#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#id MacieS3BucketAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#id MacieS3BucketAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#member_account_id MacieS3BucketAssociation#member_account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#member_account_id MacieS3BucketAssociation#member_account_id}
+   */
   readonly memberAccountId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#prefix MacieS3BucketAssociation#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#prefix MacieS3BucketAssociation#prefix}
+   */
   readonly prefix?: string;
   /**
-  * classification_type block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#classification_type MacieS3BucketAssociation#classification_type}
-  */
+   * classification_type block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#classification_type MacieS3BucketAssociation#classification_type}
+   */
   readonly classificationType?: MacieS3BucketAssociationClassificationType;
 }
 export interface MacieS3BucketAssociationClassificationType {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#continuous MacieS3BucketAssociation#continuous}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#continuous MacieS3BucketAssociation#continuous}
+   */
   readonly continuous?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#one_time MacieS3BucketAssociation#one_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association#one_time MacieS3BucketAssociation#one_time}
+   */
   readonly oneTime?: string;
 }
 
-export function macieS3BucketAssociationClassificationTypeToTerraform(struct?: MacieS3BucketAssociationClassificationTypeOutputReference | MacieS3BucketAssociationClassificationType): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function macieS3BucketAssociationClassificationTypeToTerraform(
+  struct?:
+    | MacieS3BucketAssociationClassificationTypeOutputReference
+    | MacieS3BucketAssociationClassificationType,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     continuous: cdktf.stringToTerraform(struct!.continuous),
     one_time: cdktf.stringToTerraform(struct!.oneTime),
-  }
+  };
 }
 
 export class MacieS3BucketAssociationClassificationTypeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MacieS3BucketAssociationClassificationType | undefined {
+  public get internalValue():
+    | MacieS3BucketAssociationClassificationType
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._continuous !== undefined) {
@@ -80,13 +94,14 @@ export class MacieS3BucketAssociationClassificationTypeOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MacieS3BucketAssociationClassificationType | undefined) {
+  public set internalValue(
+    value: MacieS3BucketAssociationClassificationType | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._continuous = undefined;
       this._oneTime = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._continuous = value.continuous;
       this._oneTime = value.oneTime;
@@ -127,33 +142,36 @@ export class MacieS3BucketAssociationClassificationTypeOutputReference extends c
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association aws_macie_s3_bucket_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association aws_macie_s3_bucket_association}
+ */
 export class MacieS3BucketAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_macie_s3_bucket_association";
+  public static readonly tfResourceType = 'aws_macie_s3_bucket_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association aws_macie_s3_bucket_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options MacieS3BucketAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: MacieS3BucketAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie_s3_bucket_association aws_macie_s3_bucket_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options MacieS3BucketAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: MacieS3BucketAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_macie_s3_bucket_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -161,7 +179,7 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._bucketName = config.bucketName;
     this._id = config.id;
@@ -236,11 +254,17 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
   }
 
   // classification_type - computed: false, optional: true, required: false
-  private _classificationType = new MacieS3BucketAssociationClassificationTypeOutputReference(this, "classification_type");
+  private _classificationType =
+    new MacieS3BucketAssociationClassificationTypeOutputReference(
+      this,
+      'classification_type',
+    );
   public get classificationType() {
     return this._classificationType;
   }
-  public putClassificationType(value: MacieS3BucketAssociationClassificationType) {
+  public putClassificationType(
+    value: MacieS3BucketAssociationClassificationType,
+  ) {
     this._classificationType.internalValue = value;
   }
   public resetClassificationType() {
@@ -261,7 +285,10 @@ export class MacieS3BucketAssociation extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       member_account_id: cdktf.stringToTerraform(this._memberAccountId),
       prefix: cdktf.stringToTerraform(this._prefix),
-      classification_type: macieS3BucketAssociationClassificationTypeToTerraform(this._classificationType.internalValue),
+      classification_type:
+        macieS3BucketAssociationClassificationTypeToTerraform(
+          this._classificationType.internalValue,
+        ),
     };
   }
 }

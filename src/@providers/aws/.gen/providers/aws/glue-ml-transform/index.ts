@@ -2,98 +2,114 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface GlueMlTransformConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#description GlueMlTransform#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#description GlueMlTransform#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#glue_version GlueMlTransform#glue_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#glue_version GlueMlTransform#glue_version}
+   */
   readonly glueVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#id GlueMlTransform#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#id GlueMlTransform#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#max_capacity GlueMlTransform#max_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#max_capacity GlueMlTransform#max_capacity}
+   */
   readonly maxCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#max_retries GlueMlTransform#max_retries}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#max_retries GlueMlTransform#max_retries}
+   */
   readonly maxRetries?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#name GlueMlTransform#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#name GlueMlTransform#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#number_of_workers GlueMlTransform#number_of_workers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#number_of_workers GlueMlTransform#number_of_workers}
+   */
   readonly numberOfWorkers?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#role_arn GlueMlTransform#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#role_arn GlueMlTransform#role_arn}
+   */
   readonly roleArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#tags GlueMlTransform#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#tags GlueMlTransform#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#tags_all GlueMlTransform#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#tags_all GlueMlTransform#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#timeout GlueMlTransform#timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#timeout GlueMlTransform#timeout}
+   */
   readonly timeout?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#worker_type GlueMlTransform#worker_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#worker_type GlueMlTransform#worker_type}
+   */
   readonly workerType?: string;
   /**
-  * input_record_tables block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#input_record_tables GlueMlTransform#input_record_tables}
-  */
-  readonly inputRecordTables: GlueMlTransformInputRecordTables[] | cdktf.IResolvable;
+   * input_record_tables block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#input_record_tables GlueMlTransform#input_record_tables}
+   */
+  readonly inputRecordTables:
+    | GlueMlTransformInputRecordTables[]
+    | cdktf.IResolvable;
   /**
-  * parameters block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#parameters GlueMlTransform#parameters}
-  */
+   * parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#parameters GlueMlTransform#parameters}
+   */
   readonly parameters: GlueMlTransformParameters;
 }
-export interface GlueMlTransformSchema {
-}
+export interface GlueMlTransformSchema {}
 
-export function glueMlTransformSchemaToTerraform(struct?: GlueMlTransformSchema): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function glueMlTransformSchemaToTerraform(
+  struct?: GlueMlTransformSchema,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class GlueMlTransformSchemaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): GlueMlTransformSchema | undefined {
@@ -105,8 +121,7 @@ export class GlueMlTransformSchemaOutputReference extends cdktf.ComplexObject {
   public set internalValue(value: GlueMlTransformSchema | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -123,53 +138,67 @@ export class GlueMlTransformSchemaOutputReference extends cdktf.ComplexObject {
 }
 
 export class GlueMlTransformSchemaList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): GlueMlTransformSchemaOutputReference {
-    return new GlueMlTransformSchemaOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new GlueMlTransformSchemaOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GlueMlTransformInputRecordTables {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#catalog_id GlueMlTransform#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#catalog_id GlueMlTransform#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#connection_name GlueMlTransform#connection_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#connection_name GlueMlTransform#connection_name}
+   */
   readonly connectionName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#database_name GlueMlTransform#database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#database_name GlueMlTransform#database_name}
+   */
   readonly databaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#table_name GlueMlTransform#table_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#table_name GlueMlTransform#table_name}
+   */
   readonly tableName: string;
 }
 
-export function glueMlTransformInputRecordTablesToTerraform(struct?: GlueMlTransformInputRecordTables | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function glueMlTransformInputRecordTablesToTerraform(
+  struct?: GlueMlTransformInputRecordTables | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     connection_name: cdktf.stringToTerraform(struct!.connectionName),
     database_name: cdktf.stringToTerraform(struct!.databaseName),
     table_name: cdktf.stringToTerraform(struct!.tableName),
-  }
+  };
 }
 
 export class GlueMlTransformInputRecordTablesOutputReference extends cdktf.ComplexObject {
@@ -177,16 +206,29 @@ export class GlueMlTransformInputRecordTablesOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GlueMlTransformInputRecordTables | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlueMlTransformInputRecordTables
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -211,7 +253,9 @@ export class GlueMlTransformInputRecordTablesOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlueMlTransformInputRecordTables | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: GlueMlTransformInputRecordTables | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -219,12 +263,10 @@ export class GlueMlTransformInputRecordTablesOutputReference extends cdktf.Compl
       this._connectionName = undefined;
       this._databaseName = undefined;
       this._tableName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._catalogId = value.catalogId;
@@ -294,68 +336,98 @@ export class GlueMlTransformInputRecordTablesOutputReference extends cdktf.Compl
 }
 
 export class GlueMlTransformInputRecordTablesList extends cdktf.ComplexList {
-  public internalValue? : GlueMlTransformInputRecordTables[] | cdktf.IResolvable
+  public internalValue?: GlueMlTransformInputRecordTables[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): GlueMlTransformInputRecordTablesOutputReference {
-    return new GlueMlTransformInputRecordTablesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new GlueMlTransformInputRecordTablesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GlueMlTransformParametersFindMatchesParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#accuracy_cost_trade_off GlueMlTransform#accuracy_cost_trade_off}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#accuracy_cost_trade_off GlueMlTransform#accuracy_cost_trade_off}
+   */
   readonly accuracyCostTradeOff?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#enforce_provided_labels GlueMlTransform#enforce_provided_labels}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#enforce_provided_labels GlueMlTransform#enforce_provided_labels}
+   */
   readonly enforceProvidedLabels?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#precision_recall_trade_off GlueMlTransform#precision_recall_trade_off}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#precision_recall_trade_off GlueMlTransform#precision_recall_trade_off}
+   */
   readonly precisionRecallTradeOff?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#primary_key_column_name GlueMlTransform#primary_key_column_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#primary_key_column_name GlueMlTransform#primary_key_column_name}
+   */
   readonly primaryKeyColumnName?: string;
 }
 
-export function glueMlTransformParametersFindMatchesParametersToTerraform(struct?: GlueMlTransformParametersFindMatchesParametersOutputReference | GlueMlTransformParametersFindMatchesParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function glueMlTransformParametersFindMatchesParametersToTerraform(
+  struct?:
+    | GlueMlTransformParametersFindMatchesParametersOutputReference
+    | GlueMlTransformParametersFindMatchesParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    accuracy_cost_trade_off: cdktf.numberToTerraform(struct!.accuracyCostTradeOff),
-    enforce_provided_labels: cdktf.booleanToTerraform(struct!.enforceProvidedLabels),
-    precision_recall_trade_off: cdktf.numberToTerraform(struct!.precisionRecallTradeOff),
-    primary_key_column_name: cdktf.stringToTerraform(struct!.primaryKeyColumnName),
-  }
+    accuracy_cost_trade_off: cdktf.numberToTerraform(
+      struct!.accuracyCostTradeOff,
+    ),
+    enforce_provided_labels: cdktf.booleanToTerraform(
+      struct!.enforceProvidedLabels,
+    ),
+    precision_recall_trade_off: cdktf.numberToTerraform(
+      struct!.precisionRecallTradeOff,
+    ),
+    primary_key_column_name: cdktf.stringToTerraform(
+      struct!.primaryKeyColumnName,
+    ),
+  };
 }
 
 export class GlueMlTransformParametersFindMatchesParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GlueMlTransformParametersFindMatchesParameters | undefined {
+  public get internalValue():
+    | GlueMlTransformParametersFindMatchesParameters
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accuracyCostTradeOff !== undefined) {
@@ -368,7 +440,8 @@ export class GlueMlTransformParametersFindMatchesParametersOutputReference exten
     }
     if (this._precisionRecallTradeOff !== undefined) {
       hasAnyValues = true;
-      internalValueResult.precisionRecallTradeOff = this._precisionRecallTradeOff;
+      internalValueResult.precisionRecallTradeOff =
+        this._precisionRecallTradeOff;
     }
     if (this._primaryKeyColumnName !== undefined) {
       hasAnyValues = true;
@@ -377,15 +450,16 @@ export class GlueMlTransformParametersFindMatchesParametersOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlueMlTransformParametersFindMatchesParameters | undefined) {
+  public set internalValue(
+    value: GlueMlTransformParametersFindMatchesParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accuracyCostTradeOff = undefined;
       this._enforceProvidedLabels = undefined;
       this._precisionRecallTradeOff = undefined;
       this._primaryKeyColumnName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accuracyCostTradeOff = value.accuracyCostTradeOff;
       this._enforceProvidedLabels = value.enforceProvidedLabels;
@@ -460,36 +534,48 @@ export class GlueMlTransformParametersFindMatchesParametersOutputReference exten
 }
 export interface GlueMlTransformParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#transform_type GlueMlTransform#transform_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#transform_type GlueMlTransform#transform_type}
+   */
   readonly transformType: string;
   /**
-  * find_matches_parameters block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#find_matches_parameters GlueMlTransform#find_matches_parameters}
-  */
+   * find_matches_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform#find_matches_parameters GlueMlTransform#find_matches_parameters}
+   */
   readonly findMatchesParameters: GlueMlTransformParametersFindMatchesParameters;
 }
 
-export function glueMlTransformParametersToTerraform(struct?: GlueMlTransformParametersOutputReference | GlueMlTransformParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function glueMlTransformParametersToTerraform(
+  struct?: GlueMlTransformParametersOutputReference | GlueMlTransformParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     transform_type: cdktf.stringToTerraform(struct!.transformType),
-    find_matches_parameters: glueMlTransformParametersFindMatchesParametersToTerraform(struct!.findMatchesParameters),
-  }
+    find_matches_parameters:
+      glueMlTransformParametersFindMatchesParametersToTerraform(
+        struct!.findMatchesParameters,
+      ),
+  };
 }
 
 export class GlueMlTransformParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -502,7 +588,8 @@ export class GlueMlTransformParametersOutputReference extends cdktf.ComplexObjec
     }
     if (this._findMatchesParameters?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.findMatchesParameters = this._findMatchesParameters?.internalValue;
+      internalValueResult.findMatchesParameters =
+        this._findMatchesParameters?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -512,8 +599,7 @@ export class GlueMlTransformParametersOutputReference extends cdktf.ComplexObjec
       this.isEmptyObject = false;
       this._transformType = undefined;
       this._findMatchesParameters.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._transformType = value.transformType;
       this._findMatchesParameters.internalValue = value.findMatchesParameters;
@@ -534,11 +620,17 @@ export class GlueMlTransformParametersOutputReference extends cdktf.ComplexObjec
   }
 
   // find_matches_parameters - computed: false, optional: false, required: true
-  private _findMatchesParameters = new GlueMlTransformParametersFindMatchesParametersOutputReference(this, "find_matches_parameters");
+  private _findMatchesParameters =
+    new GlueMlTransformParametersFindMatchesParametersOutputReference(
+      this,
+      'find_matches_parameters',
+    );
   public get findMatchesParameters() {
     return this._findMatchesParameters;
   }
-  public putFindMatchesParameters(value: GlueMlTransformParametersFindMatchesParameters) {
+  public putFindMatchesParameters(
+    value: GlueMlTransformParametersFindMatchesParameters,
+  ) {
     this._findMatchesParameters.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -548,33 +640,36 @@ export class GlueMlTransformParametersOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform aws_glue_ml_transform}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform aws_glue_ml_transform}
+ */
 export class GlueMlTransform extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_glue_ml_transform";
+  public static readonly tfResourceType = 'aws_glue_ml_transform';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform aws_glue_ml_transform} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GlueMlTransformConfig
-  */
-  public constructor(scope: Construct, id: string, config: GlueMlTransformConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_ml_transform aws_glue_ml_transform} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GlueMlTransformConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GlueMlTransformConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_ml_transform',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -582,7 +677,7 @@ export class GlueMlTransform extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._glueVersion = config.glueVersion;
@@ -737,7 +832,7 @@ export class GlueMlTransform extends cdktf.TerraformResource {
   }
 
   // schema - computed: true, optional: false, required: false
-  private _schema = new GlueMlTransformSchemaList(this, "schema", false);
+  private _schema = new GlueMlTransformSchemaList(this, 'schema', false);
   public get schema() {
     return this._schema;
   }
@@ -807,11 +902,17 @@ export class GlueMlTransform extends cdktf.TerraformResource {
   }
 
   // input_record_tables - computed: false, optional: false, required: true
-  private _inputRecordTables = new GlueMlTransformInputRecordTablesList(this, "input_record_tables", false);
+  private _inputRecordTables = new GlueMlTransformInputRecordTablesList(
+    this,
+    'input_record_tables',
+    false,
+  );
   public get inputRecordTables() {
     return this._inputRecordTables;
   }
-  public putInputRecordTables(value: GlueMlTransformInputRecordTables[] | cdktf.IResolvable) {
+  public putInputRecordTables(
+    value: GlueMlTransformInputRecordTables[] | cdktf.IResolvable,
+  ) {
     this._inputRecordTables.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -820,7 +921,10 @@ export class GlueMlTransform extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: false, required: true
-  private _parameters = new GlueMlTransformParametersOutputReference(this, "parameters");
+  private _parameters = new GlueMlTransformParametersOutputReference(
+    this,
+    'parameters',
+  );
   public get parameters() {
     return this._parameters;
   }
@@ -850,8 +954,13 @@ export class GlueMlTransform extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       timeout: cdktf.numberToTerraform(this._timeout),
       worker_type: cdktf.stringToTerraform(this._workerType),
-      input_record_tables: cdktf.listMapper(glueMlTransformInputRecordTablesToTerraform, true)(this._inputRecordTables.internalValue),
-      parameters: glueMlTransformParametersToTerraform(this._parameters.internalValue),
+      input_record_tables: cdktf.listMapper(
+        glueMlTransformInputRecordTablesToTerraform,
+        true,
+      )(this._inputRecordTables.internalValue),
+      parameters: glueMlTransformParametersToTerraform(
+        this._parameters.internalValue,
+      ),
     };
   }
 }

@@ -2,97 +2,111 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface Ec2TrafficMirrorFilterRuleConfig extends cdktf.TerraformMetaArguments {
+export interface Ec2TrafficMirrorFilterRuleConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#description Ec2TrafficMirrorFilterRule#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#description Ec2TrafficMirrorFilterRule#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#destination_cidr_block Ec2TrafficMirrorFilterRule#destination_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#destination_cidr_block Ec2TrafficMirrorFilterRule#destination_cidr_block}
+   */
   readonly destinationCidrBlock: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#id Ec2TrafficMirrorFilterRule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#id Ec2TrafficMirrorFilterRule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#protocol Ec2TrafficMirrorFilterRule#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#protocol Ec2TrafficMirrorFilterRule#protocol}
+   */
   readonly protocol?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#rule_action Ec2TrafficMirrorFilterRule#rule_action}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#rule_action Ec2TrafficMirrorFilterRule#rule_action}
+   */
   readonly ruleAction: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#rule_number Ec2TrafficMirrorFilterRule#rule_number}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#rule_number Ec2TrafficMirrorFilterRule#rule_number}
+   */
   readonly ruleNumber: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#source_cidr_block Ec2TrafficMirrorFilterRule#source_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#source_cidr_block Ec2TrafficMirrorFilterRule#source_cidr_block}
+   */
   readonly sourceCidrBlock: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#traffic_direction Ec2TrafficMirrorFilterRule#traffic_direction}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#traffic_direction Ec2TrafficMirrorFilterRule#traffic_direction}
+   */
   readonly trafficDirection: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#traffic_mirror_filter_id Ec2TrafficMirrorFilterRule#traffic_mirror_filter_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#traffic_mirror_filter_id Ec2TrafficMirrorFilterRule#traffic_mirror_filter_id}
+   */
   readonly trafficMirrorFilterId: string;
   /**
-  * destination_port_range block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#destination_port_range Ec2TrafficMirrorFilterRule#destination_port_range}
-  */
+   * destination_port_range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#destination_port_range Ec2TrafficMirrorFilterRule#destination_port_range}
+   */
   readonly destinationPortRange?: Ec2TrafficMirrorFilterRuleDestinationPortRange;
   /**
-  * source_port_range block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#source_port_range Ec2TrafficMirrorFilterRule#source_port_range}
-  */
+   * source_port_range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#source_port_range Ec2TrafficMirrorFilterRule#source_port_range}
+   */
   readonly sourcePortRange?: Ec2TrafficMirrorFilterRuleSourcePortRange;
 }
 export interface Ec2TrafficMirrorFilterRuleDestinationPortRange {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#from_port Ec2TrafficMirrorFilterRule#from_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#from_port Ec2TrafficMirrorFilterRule#from_port}
+   */
   readonly fromPort?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#to_port Ec2TrafficMirrorFilterRule#to_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#to_port Ec2TrafficMirrorFilterRule#to_port}
+   */
   readonly toPort?: number;
 }
 
-export function ec2TrafficMirrorFilterRuleDestinationPortRangeToTerraform(struct?: Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference | Ec2TrafficMirrorFilterRuleDestinationPortRange): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2TrafficMirrorFilterRuleDestinationPortRangeToTerraform(
+  struct?:
+    | Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference
+    | Ec2TrafficMirrorFilterRuleDestinationPortRange,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     from_port: cdktf.numberToTerraform(struct!.fromPort),
     to_port: cdktf.numberToTerraform(struct!.toPort),
-  }
+  };
 }
 
 export class Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2TrafficMirrorFilterRuleDestinationPortRange | undefined {
+  public get internalValue():
+    | Ec2TrafficMirrorFilterRuleDestinationPortRange
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fromPort !== undefined) {
@@ -106,13 +120,14 @@ export class Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2TrafficMirrorFilterRuleDestinationPortRange | undefined) {
+  public set internalValue(
+    value: Ec2TrafficMirrorFilterRuleDestinationPortRange | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fromPort = undefined;
       this._toPort = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fromPort = value.fromPort;
       this._toPort = value.toPort;
@@ -153,38 +168,51 @@ export class Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference exten
 }
 export interface Ec2TrafficMirrorFilterRuleSourcePortRange {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#from_port Ec2TrafficMirrorFilterRule#from_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#from_port Ec2TrafficMirrorFilterRule#from_port}
+   */
   readonly fromPort?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#to_port Ec2TrafficMirrorFilterRule#to_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule#to_port Ec2TrafficMirrorFilterRule#to_port}
+   */
   readonly toPort?: number;
 }
 
-export function ec2TrafficMirrorFilterRuleSourcePortRangeToTerraform(struct?: Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference | Ec2TrafficMirrorFilterRuleSourcePortRange): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2TrafficMirrorFilterRuleSourcePortRangeToTerraform(
+  struct?:
+    | Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference
+    | Ec2TrafficMirrorFilterRuleSourcePortRange,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     from_port: cdktf.numberToTerraform(struct!.fromPort),
     to_port: cdktf.numberToTerraform(struct!.toPort),
-  }
+  };
 }
 
 export class Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2TrafficMirrorFilterRuleSourcePortRange | undefined {
+  public get internalValue():
+    | Ec2TrafficMirrorFilterRuleSourcePortRange
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fromPort !== undefined) {
@@ -198,13 +226,14 @@ export class Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2TrafficMirrorFilterRuleSourcePortRange | undefined) {
+  public set internalValue(
+    value: Ec2TrafficMirrorFilterRuleSourcePortRange | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fromPort = undefined;
       this._toPort = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fromPort = value.fromPort;
       this._toPort = value.toPort;
@@ -245,33 +274,36 @@ export class Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference extends cd
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule aws_ec2_traffic_mirror_filter_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule aws_ec2_traffic_mirror_filter_rule}
+ */
 export class Ec2TrafficMirrorFilterRule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_traffic_mirror_filter_rule";
+  public static readonly tfResourceType = 'aws_ec2_traffic_mirror_filter_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule aws_ec2_traffic_mirror_filter_rule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2TrafficMirrorFilterRuleConfig
-  */
-  public constructor(scope: Construct, id: string, config: Ec2TrafficMirrorFilterRuleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_filter_rule aws_ec2_traffic_mirror_filter_rule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2TrafficMirrorFilterRuleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Ec2TrafficMirrorFilterRuleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_traffic_mirror_filter_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -279,7 +311,7 @@ export class Ec2TrafficMirrorFilterRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._destinationCidrBlock = config.destinationCidrBlock;
@@ -430,11 +462,17 @@ export class Ec2TrafficMirrorFilterRule extends cdktf.TerraformResource {
   }
 
   // destination_port_range - computed: false, optional: true, required: false
-  private _destinationPortRange = new Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference(this, "destination_port_range");
+  private _destinationPortRange =
+    new Ec2TrafficMirrorFilterRuleDestinationPortRangeOutputReference(
+      this,
+      'destination_port_range',
+    );
   public get destinationPortRange() {
     return this._destinationPortRange;
   }
-  public putDestinationPortRange(value: Ec2TrafficMirrorFilterRuleDestinationPortRange) {
+  public putDestinationPortRange(
+    value: Ec2TrafficMirrorFilterRuleDestinationPortRange,
+  ) {
     this._destinationPortRange.internalValue = value;
   }
   public resetDestinationPortRange() {
@@ -446,7 +484,11 @@ export class Ec2TrafficMirrorFilterRule extends cdktf.TerraformResource {
   }
 
   // source_port_range - computed: false, optional: true, required: false
-  private _sourcePortRange = new Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference(this, "source_port_range");
+  private _sourcePortRange =
+    new Ec2TrafficMirrorFilterRuleSourcePortRangeOutputReference(
+      this,
+      'source_port_range',
+    );
   public get sourcePortRange() {
     return this._sourcePortRange;
   }
@@ -468,16 +510,25 @@ export class Ec2TrafficMirrorFilterRule extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       description: cdktf.stringToTerraform(this._description),
-      destination_cidr_block: cdktf.stringToTerraform(this._destinationCidrBlock),
+      destination_cidr_block: cdktf.stringToTerraform(
+        this._destinationCidrBlock,
+      ),
       id: cdktf.stringToTerraform(this._id),
       protocol: cdktf.numberToTerraform(this._protocol),
       rule_action: cdktf.stringToTerraform(this._ruleAction),
       rule_number: cdktf.numberToTerraform(this._ruleNumber),
       source_cidr_block: cdktf.stringToTerraform(this._sourceCidrBlock),
       traffic_direction: cdktf.stringToTerraform(this._trafficDirection),
-      traffic_mirror_filter_id: cdktf.stringToTerraform(this._trafficMirrorFilterId),
-      destination_port_range: ec2TrafficMirrorFilterRuleDestinationPortRangeToTerraform(this._destinationPortRange.internalValue),
-      source_port_range: ec2TrafficMirrorFilterRuleSourcePortRangeToTerraform(this._sourcePortRange.internalValue),
+      traffic_mirror_filter_id: cdktf.stringToTerraform(
+        this._trafficMirrorFilterId,
+      ),
+      destination_port_range:
+        ec2TrafficMirrorFilterRuleDestinationPortRangeToTerraform(
+          this._destinationPortRange.internalValue,
+        ),
+      source_port_range: ec2TrafficMirrorFilterRuleSourcePortRangeToTerraform(
+        this._sourcePortRange.internalValue,
+      ),
     };
   }
 }

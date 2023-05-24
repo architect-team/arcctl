@@ -2,87 +2,93 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
 export interface MonitorAlertConfig extends cdktf.TerraformMetaArguments {
   /**
-  * The comparison operator to use for value
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#compare MonitorAlert#compare}
-  */
+   * The comparison operator to use for value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#compare MonitorAlert#compare}
+   */
   readonly compare: string;
   /**
-  * Description of the alert policy
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#description MonitorAlert#description}
-  */
+   * Description of the alert policy
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#description MonitorAlert#description}
+   */
   readonly description: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#enabled MonitorAlert#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#enabled MonitorAlert#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * The droplets to apply the alert policy to
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#entities MonitorAlert#entities}
-  */
+   * The droplets to apply the alert policy to
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#entities MonitorAlert#entities}
+   */
   readonly entities?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#id MonitorAlert#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#id MonitorAlert#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#tags MonitorAlert#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#tags MonitorAlert#tags}
+   */
   readonly tags?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#type MonitorAlert#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#type MonitorAlert#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#value MonitorAlert#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#value MonitorAlert#value}
+   */
   readonly value: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#window MonitorAlert#window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#window MonitorAlert#window}
+   */
   readonly window: string;
   /**
-  * alerts block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#alerts MonitorAlert#alerts}
-  */
+   * alerts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#alerts MonitorAlert#alerts}
+   */
   readonly alerts: MonitorAlertAlerts;
 }
 export interface MonitorAlertAlertsSlack {
   /**
-  * The Slack channel to send alerts to
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#channel MonitorAlert#channel}
-  */
+   * The Slack channel to send alerts to
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#channel MonitorAlert#channel}
+   */
   readonly channel: string;
   /**
-  * The webhook URL for Slack
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#url MonitorAlert#url}
-  */
+   * The webhook URL for Slack
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#url MonitorAlert#url}
+   */
   readonly url: string;
 }
 
-export function monitorAlertAlertsSlackToTerraform(struct?: MonitorAlertAlertsSlack | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function monitorAlertAlertsSlackToTerraform(
+  struct?: MonitorAlertAlertsSlack | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     channel: cdktf.stringToTerraform(struct!.channel),
     url: cdktf.stringToTerraform(struct!.url),
-  }
+  };
 }
 
 export class MonitorAlertAlertsSlackOutputReference extends cdktf.ComplexObject {
@@ -90,16 +96,29 @@ export class MonitorAlertAlertsSlackOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): MonitorAlertAlertsSlack | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | MonitorAlertAlertsSlack
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -116,18 +135,18 @@ export class MonitorAlertAlertsSlackOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MonitorAlertAlertsSlack | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: MonitorAlertAlertsSlack | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._channel = undefined;
       this._url = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._channel = value.channel;
@@ -163,58 +182,79 @@ export class MonitorAlertAlertsSlackOutputReference extends cdktf.ComplexObject 
 }
 
 export class MonitorAlertAlertsSlackList extends cdktf.ComplexList {
-  public internalValue? : MonitorAlertAlertsSlack[] | cdktf.IResolvable
+  public internalValue?: MonitorAlertAlertsSlack[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): MonitorAlertAlertsSlackOutputReference {
-    return new MonitorAlertAlertsSlackOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new MonitorAlertAlertsSlackOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface MonitorAlertAlerts {
   /**
-  * List of email addresses to sent notifications to
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#email MonitorAlert#email}
-  */
+   * List of email addresses to sent notifications to
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#email MonitorAlert#email}
+   */
   readonly email?: string[];
   /**
-  * slack block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#slack MonitorAlert#slack}
-  */
+   * slack block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert#slack MonitorAlert#slack}
+   */
   readonly slack?: MonitorAlertAlertsSlack[] | cdktf.IResolvable;
 }
 
-export function monitorAlertAlertsToTerraform(struct?: MonitorAlertAlertsOutputReference | MonitorAlertAlerts): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function monitorAlertAlertsToTerraform(
+  struct?: MonitorAlertAlertsOutputReference | MonitorAlertAlerts,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     email: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.email),
-    slack: cdktf.listMapper(monitorAlertAlertsSlackToTerraform, true)(struct!.slack),
-  }
+    slack: cdktf.listMapper(
+      monitorAlertAlertsSlackToTerraform,
+      true,
+    )(struct!.slack),
+  };
 }
 
 export class MonitorAlertAlertsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -237,8 +277,7 @@ export class MonitorAlertAlertsOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._email = undefined;
       this._slack.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._email = value.email;
       this._slack.internalValue = value.slack;
@@ -262,7 +301,7 @@ export class MonitorAlertAlertsOutputReference extends cdktf.ComplexObject {
   }
 
   // slack - computed: false, optional: true, required: false
-  private _slack = new MonitorAlertAlertsSlackList(this, "slack", false);
+  private _slack = new MonitorAlertAlertsSlackList(this, 'slack', false);
   public get slack() {
     return this._slack;
   }
@@ -279,33 +318,32 @@ export class MonitorAlertAlertsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert digitalocean_monitor_alert}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert digitalocean_monitor_alert}
+ */
 export class MonitorAlert extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "digitalocean_monitor_alert";
+  public static readonly tfResourceType = 'digitalocean_monitor_alert';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert digitalocean_monitor_alert} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options MonitorAlertConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/monitor_alert digitalocean_monitor_alert} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options MonitorAlertConfig
+   */
   public constructor(scope: Construct, id: string, config: MonitorAlertConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_monitor_alert',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
         providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersionConstraint: '2.26.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -313,7 +351,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._compare = config.compare;
     this._description = config.description;
@@ -466,7 +504,7 @@ export class MonitorAlert extends cdktf.TerraformResource {
   }
 
   // alerts - computed: false, optional: false, required: true
-  private _alerts = new MonitorAlertAlertsOutputReference(this, "alerts");
+  private _alerts = new MonitorAlertAlertsOutputReference(this, 'alerts');
   public get alerts() {
     return this._alerts;
   }
@@ -487,7 +525,10 @@ export class MonitorAlert extends cdktf.TerraformResource {
       compare: cdktf.stringToTerraform(this._compare),
       description: cdktf.stringToTerraform(this._description),
       enabled: cdktf.booleanToTerraform(this._enabled),
-      entities: cdktf.listMapper(cdktf.stringToTerraform, false)(this._entities),
+      entities: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._entities),
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
       type: cdktf.stringToTerraform(this._type),

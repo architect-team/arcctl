@@ -2,60 +2,64 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface DataDockerRegistryImageConfig extends cdktf.TerraformMetaArguments {
+export interface DataDockerRegistryImageConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#id DataDockerRegistryImage#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#id DataDockerRegistryImage#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#insecure_skip_verify DataDockerRegistryImage#insecure_skip_verify}
-  */
+   * If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#insecure_skip_verify DataDockerRegistryImage#insecure_skip_verify}
+   */
   readonly insecureSkipVerify?: boolean | cdktf.IResolvable;
   /**
-  * The name of the Docker image, including any tags. e.g. `alpine:latest`
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#name DataDockerRegistryImage#name}
-  */
+   * The name of the Docker image, including any tags. e.g. `alpine:latest`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/registry_image#name DataDockerRegistryImage#name}
+   */
   readonly name: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/d/registry_image docker_registry_image}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/d/registry_image docker_registry_image}
+ */
 export class DataDockerRegistryImage extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_registry_image";
+  public static readonly tfResourceType = 'docker_registry_image';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/d/registry_image docker_registry_image} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataDockerRegistryImageConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataDockerRegistryImageConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/d/registry_image docker_registry_image} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataDockerRegistryImageConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataDockerRegistryImageConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'docker_registry_image',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class DataDockerRegistryImage extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._insecureSkipVerify = config.insecureSkipVerify;

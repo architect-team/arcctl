@@ -1,6 +1,6 @@
-import { ResourceOutputs, ResourceType } from '../@resources/index.js';
-import { CloudNode, CloudNodeOptions } from '../cloud-graph/index.js';
-import { NodeAction, NodeColor, NodeStatus } from './types.js';
+import { ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { CloudNode, CloudNodeOptions } from '../cloud-graph/index.ts';
+import { NodeAction, NodeColor, NodeStatus } from './types.ts';
 
 export type ExecutableNodeOptions<T extends ResourceType> =
   CloudNodeOptions<T> & {

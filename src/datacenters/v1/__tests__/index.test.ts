@@ -1,12 +1,12 @@
-import { SupportedProviders } from '../../../@providers/supported-providers.js';
+import { SupportedProviders } from '../../../@providers/supported-providers.ts';
 import {
   CloudEdge,
   CloudGraph,
   CloudNode,
-} from '../../../cloud-graph/index.js';
-import { CldCtlProviderStore } from '../../../utils/provider-store.js';
-import { parseDatacenter } from '../../parser.js';
-import DatacenterV1 from '../index.js';
+} from '../../../cloud-graph/index.ts';
+import { CldCtlProviderStore } from '../../../utils/provider-store.ts';
+import { parseDatacenter } from '../../parser.ts';
+import DatacenterV1 from '../index.ts';
 import yaml from 'js-yaml';
 
 describe('Datacenter Schema: v1', () => {

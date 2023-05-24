@@ -2,196 +2,205 @@
 // generated from terraform resource schema
 
 import { Construct } from 'npm:constructs';
-import * as cdktf from 'cdktf';
+import * as cdktf from 'npm:cdktf';
 
 // Configuration
 
-export interface OpsworksRailsAppLayerConfig extends cdktf.TerraformMetaArguments {
+export interface OpsworksRailsAppLayerConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#app_server OpsworksRailsAppLayer#app_server}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#app_server OpsworksRailsAppLayer#app_server}
+   */
   readonly appServer?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#auto_assign_elastic_ips OpsworksRailsAppLayer#auto_assign_elastic_ips}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#auto_assign_elastic_ips OpsworksRailsAppLayer#auto_assign_elastic_ips}
+   */
   readonly autoAssignElasticIps?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#auto_assign_public_ips OpsworksRailsAppLayer#auto_assign_public_ips}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#auto_assign_public_ips OpsworksRailsAppLayer#auto_assign_public_ips}
+   */
   readonly autoAssignPublicIps?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#auto_healing OpsworksRailsAppLayer#auto_healing}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#auto_healing OpsworksRailsAppLayer#auto_healing}
+   */
   readonly autoHealing?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#bundler_version OpsworksRailsAppLayer#bundler_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#bundler_version OpsworksRailsAppLayer#bundler_version}
+   */
   readonly bundlerVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_configure_recipes OpsworksRailsAppLayer#custom_configure_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_configure_recipes OpsworksRailsAppLayer#custom_configure_recipes}
+   */
   readonly customConfigureRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_deploy_recipes OpsworksRailsAppLayer#custom_deploy_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_deploy_recipes OpsworksRailsAppLayer#custom_deploy_recipes}
+   */
   readonly customDeployRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_instance_profile_arn OpsworksRailsAppLayer#custom_instance_profile_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_instance_profile_arn OpsworksRailsAppLayer#custom_instance_profile_arn}
+   */
   readonly customInstanceProfileArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_json OpsworksRailsAppLayer#custom_json}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_json OpsworksRailsAppLayer#custom_json}
+   */
   readonly customJson?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_security_group_ids OpsworksRailsAppLayer#custom_security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_security_group_ids OpsworksRailsAppLayer#custom_security_group_ids}
+   */
   readonly customSecurityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_setup_recipes OpsworksRailsAppLayer#custom_setup_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_setup_recipes OpsworksRailsAppLayer#custom_setup_recipes}
+   */
   readonly customSetupRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_shutdown_recipes OpsworksRailsAppLayer#custom_shutdown_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_shutdown_recipes OpsworksRailsAppLayer#custom_shutdown_recipes}
+   */
   readonly customShutdownRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_undeploy_recipes OpsworksRailsAppLayer#custom_undeploy_recipes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#custom_undeploy_recipes OpsworksRailsAppLayer#custom_undeploy_recipes}
+   */
   readonly customUndeployRecipes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#drain_elb_on_shutdown OpsworksRailsAppLayer#drain_elb_on_shutdown}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#drain_elb_on_shutdown OpsworksRailsAppLayer#drain_elb_on_shutdown}
+   */
   readonly drainElbOnShutdown?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#elastic_load_balancer OpsworksRailsAppLayer#elastic_load_balancer}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#elastic_load_balancer OpsworksRailsAppLayer#elastic_load_balancer}
+   */
   readonly elasticLoadBalancer?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#id OpsworksRailsAppLayer#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#id OpsworksRailsAppLayer#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#install_updates_on_boot OpsworksRailsAppLayer#install_updates_on_boot}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#install_updates_on_boot OpsworksRailsAppLayer#install_updates_on_boot}
+   */
   readonly installUpdatesOnBoot?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#instance_shutdown_timeout OpsworksRailsAppLayer#instance_shutdown_timeout}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#instance_shutdown_timeout OpsworksRailsAppLayer#instance_shutdown_timeout}
+   */
   readonly instanceShutdownTimeout?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#manage_bundler OpsworksRailsAppLayer#manage_bundler}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#manage_bundler OpsworksRailsAppLayer#manage_bundler}
+   */
   readonly manageBundler?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#name OpsworksRailsAppLayer#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#name OpsworksRailsAppLayer#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#passenger_version OpsworksRailsAppLayer#passenger_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#passenger_version OpsworksRailsAppLayer#passenger_version}
+   */
   readonly passengerVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ruby_version OpsworksRailsAppLayer#ruby_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ruby_version OpsworksRailsAppLayer#ruby_version}
+   */
   readonly rubyVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#rubygems_version OpsworksRailsAppLayer#rubygems_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#rubygems_version OpsworksRailsAppLayer#rubygems_version}
+   */
   readonly rubygemsVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#stack_id OpsworksRailsAppLayer#stack_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#stack_id OpsworksRailsAppLayer#stack_id}
+   */
   readonly stackId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#system_packages OpsworksRailsAppLayer#system_packages}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#system_packages OpsworksRailsAppLayer#system_packages}
+   */
   readonly systemPackages?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#tags OpsworksRailsAppLayer#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#tags OpsworksRailsAppLayer#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#tags_all OpsworksRailsAppLayer#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#tags_all OpsworksRailsAppLayer#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#use_ebs_optimized_instances OpsworksRailsAppLayer#use_ebs_optimized_instances}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#use_ebs_optimized_instances OpsworksRailsAppLayer#use_ebs_optimized_instances}
+   */
   readonly useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
   /**
-  * cloudwatch_configuration block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#cloudwatch_configuration OpsworksRailsAppLayer#cloudwatch_configuration}
-  */
+   * cloudwatch_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#cloudwatch_configuration OpsworksRailsAppLayer#cloudwatch_configuration}
+   */
   readonly cloudwatchConfiguration?: OpsworksRailsAppLayerCloudwatchConfiguration;
   /**
-  * ebs_volume block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ebs_volume OpsworksRailsAppLayer#ebs_volume}
-  */
+   * ebs_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ebs_volume OpsworksRailsAppLayer#ebs_volume}
+   */
   readonly ebsVolume?: OpsworksRailsAppLayerEbsVolume[] | cdktf.IResolvable;
   /**
-  * load_based_auto_scaling block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#load_based_auto_scaling OpsworksRailsAppLayer#load_based_auto_scaling}
-  */
+   * load_based_auto_scaling block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#load_based_auto_scaling OpsworksRailsAppLayer#load_based_auto_scaling}
+   */
   readonly loadBasedAutoScaling?: OpsworksRailsAppLayerLoadBasedAutoScaling;
 }
 export interface OpsworksRailsAppLayerCloudwatchConfigurationLogStreams {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#batch_count OpsworksRailsAppLayer#batch_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#batch_count OpsworksRailsAppLayer#batch_count}
+   */
   readonly batchCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#batch_size OpsworksRailsAppLayer#batch_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#batch_size OpsworksRailsAppLayer#batch_size}
+   */
   readonly batchSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#buffer_duration OpsworksRailsAppLayer#buffer_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#buffer_duration OpsworksRailsAppLayer#buffer_duration}
+   */
   readonly bufferDuration?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#datetime_format OpsworksRailsAppLayer#datetime_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#datetime_format OpsworksRailsAppLayer#datetime_format}
+   */
   readonly datetimeFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#encoding OpsworksRailsAppLayer#encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#encoding OpsworksRailsAppLayer#encoding}
+   */
   readonly encoding?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#file OpsworksRailsAppLayer#file}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#file OpsworksRailsAppLayer#file}
+   */
   readonly file: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#file_fingerprint_lines OpsworksRailsAppLayer#file_fingerprint_lines}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#file_fingerprint_lines OpsworksRailsAppLayer#file_fingerprint_lines}
+   */
   readonly fileFingerprintLines?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#initial_position OpsworksRailsAppLayer#initial_position}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#initial_position OpsworksRailsAppLayer#initial_position}
+   */
   readonly initialPosition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#log_group_name OpsworksRailsAppLayer#log_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#log_group_name OpsworksRailsAppLayer#log_group_name}
+   */
   readonly logGroupName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#multiline_start_pattern OpsworksRailsAppLayer#multiline_start_pattern}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#multiline_start_pattern OpsworksRailsAppLayer#multiline_start_pattern}
+   */
   readonly multilineStartPattern?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#time_zone OpsworksRailsAppLayer#time_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#time_zone OpsworksRailsAppLayer#time_zone}
+   */
   readonly timeZone?: string;
 }
 
-export function opsworksRailsAppLayerCloudwatchConfigurationLogStreamsToTerraform(struct?: OpsworksRailsAppLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksRailsAppLayerCloudwatchConfigurationLogStreamsToTerraform(
+  struct?:
+    | OpsworksRailsAppLayerCloudwatchConfigurationLogStreams
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     batch_count: cdktf.numberToTerraform(struct!.batchCount),
@@ -200,12 +209,16 @@ export function opsworksRailsAppLayerCloudwatchConfigurationLogStreamsToTerrafor
     datetime_format: cdktf.stringToTerraform(struct!.datetimeFormat),
     encoding: cdktf.stringToTerraform(struct!.encoding),
     file: cdktf.stringToTerraform(struct!.file),
-    file_fingerprint_lines: cdktf.stringToTerraform(struct!.fileFingerprintLines),
+    file_fingerprint_lines: cdktf.stringToTerraform(
+      struct!.fileFingerprintLines,
+    ),
     initial_position: cdktf.stringToTerraform(struct!.initialPosition),
     log_group_name: cdktf.stringToTerraform(struct!.logGroupName),
-    multiline_start_pattern: cdktf.stringToTerraform(struct!.multilineStartPattern),
+    multiline_start_pattern: cdktf.stringToTerraform(
+      struct!.multilineStartPattern,
+    ),
     time_zone: cdktf.stringToTerraform(struct!.timeZone),
-  }
+  };
 }
 
 export class OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReference extends cdktf.ComplexObject {
@@ -213,16 +226,29 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksRailsAppLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksRailsAppLayerCloudwatchConfigurationLogStreams
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -275,7 +301,12 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksRailsAppLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | OpsworksRailsAppLayerCloudwatchConfigurationLogStreams
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -290,12 +321,10 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReferen
       this._logGroupName = undefined;
       this._multilineStartPattern = undefined;
       this._timeZone = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._batchCount = value.batchCount;
@@ -484,60 +513,91 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReferen
 }
 
 export class OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsList extends cdktf.ComplexList {
-  public internalValue? : OpsworksRailsAppLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable
+  public internalValue?:
+    | OpsworksRailsAppLayerCloudwatchConfigurationLogStreams[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReference {
-    return new OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReference {
+    return new OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface OpsworksRailsAppLayerCloudwatchConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#enabled OpsworksRailsAppLayer#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#enabled OpsworksRailsAppLayer#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * log_streams block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#log_streams OpsworksRailsAppLayer#log_streams}
-  */
-  readonly logStreams?: OpsworksRailsAppLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable;
+   * log_streams block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#log_streams OpsworksRailsAppLayer#log_streams}
+   */
+  readonly logStreams?:
+    | OpsworksRailsAppLayerCloudwatchConfigurationLogStreams[]
+    | cdktf.IResolvable;
 }
 
-export function opsworksRailsAppLayerCloudwatchConfigurationToTerraform(struct?: OpsworksRailsAppLayerCloudwatchConfigurationOutputReference | OpsworksRailsAppLayerCloudwatchConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksRailsAppLayerCloudwatchConfigurationToTerraform(
+  struct?:
+    | OpsworksRailsAppLayerCloudwatchConfigurationOutputReference
+    | OpsworksRailsAppLayerCloudwatchConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    log_streams: cdktf.listMapper(opsworksRailsAppLayerCloudwatchConfigurationLogStreamsToTerraform, true)(struct!.logStreams),
-  }
+    log_streams: cdktf.listMapper(
+      opsworksRailsAppLayerCloudwatchConfigurationLogStreamsToTerraform,
+      true,
+    )(struct!.logStreams),
+  };
 }
 
 export class OpsworksRailsAppLayerCloudwatchConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksRailsAppLayerCloudwatchConfiguration | undefined {
+  public get internalValue():
+    | OpsworksRailsAppLayerCloudwatchConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -551,13 +611,14 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksRailsAppLayerCloudwatchConfiguration | undefined) {
+  public set internalValue(
+    value: OpsworksRailsAppLayerCloudwatchConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._logStreams.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._logStreams.internalValue = value.logStreams;
@@ -581,11 +642,20 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationOutputReference extends
   }
 
   // log_streams - computed: false, optional: true, required: false
-  private _logStreams = new OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsList(this, "log_streams", false);
+  private _logStreams =
+    new OpsworksRailsAppLayerCloudwatchConfigurationLogStreamsList(
+      this,
+      'log_streams',
+      false,
+    );
   public get logStreams() {
     return this._logStreams;
   }
-  public putLogStreams(value: OpsworksRailsAppLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable) {
+  public putLogStreams(
+    value:
+      | OpsworksRailsAppLayerCloudwatchConfigurationLogStreams[]
+      | cdktf.IResolvable,
+  ) {
     this._logStreams.internalValue = value;
   }
   public resetLogStreams() {
@@ -598,39 +668,45 @@ export class OpsworksRailsAppLayerCloudwatchConfigurationOutputReference extends
 }
 export interface OpsworksRailsAppLayerEbsVolume {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#encrypted OpsworksRailsAppLayer#encrypted}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#encrypted OpsworksRailsAppLayer#encrypted}
+   */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#iops OpsworksRailsAppLayer#iops}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#iops OpsworksRailsAppLayer#iops}
+   */
   readonly iops?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#mount_point OpsworksRailsAppLayer#mount_point}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#mount_point OpsworksRailsAppLayer#mount_point}
+   */
   readonly mountPoint: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#number_of_disks OpsworksRailsAppLayer#number_of_disks}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#number_of_disks OpsworksRailsAppLayer#number_of_disks}
+   */
   readonly numberOfDisks: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#raid_level OpsworksRailsAppLayer#raid_level}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#raid_level OpsworksRailsAppLayer#raid_level}
+   */
   readonly raidLevel?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#size OpsworksRailsAppLayer#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#size OpsworksRailsAppLayer#size}
+   */
   readonly size: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#type OpsworksRailsAppLayer#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#type OpsworksRailsAppLayer#type}
+   */
   readonly type?: string;
 }
 
-export function opsworksRailsAppLayerEbsVolumeToTerraform(struct?: OpsworksRailsAppLayerEbsVolume | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksRailsAppLayerEbsVolumeToTerraform(
+  struct?: OpsworksRailsAppLayerEbsVolume | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
@@ -640,7 +716,7 @@ export function opsworksRailsAppLayerEbsVolumeToTerraform(struct?: OpsworksRails
     raid_level: cdktf.stringToTerraform(struct!.raidLevel),
     size: cdktf.numberToTerraform(struct!.size),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class OpsworksRailsAppLayerEbsVolumeOutputReference extends cdktf.ComplexObject {
@@ -648,16 +724,29 @@ export class OpsworksRailsAppLayerEbsVolumeOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): OpsworksRailsAppLayerEbsVolume | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | OpsworksRailsAppLayerEbsVolume
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -694,7 +783,9 @@ export class OpsworksRailsAppLayerEbsVolumeOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksRailsAppLayerEbsVolume | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: OpsworksRailsAppLayerEbsVolume | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -705,12 +796,10 @@ export class OpsworksRailsAppLayerEbsVolumeOutputReference extends cdktf.Complex
       this._raidLevel = undefined;
       this._size = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._encrypted = value.encrypted;
@@ -828,59 +917,76 @@ export class OpsworksRailsAppLayerEbsVolumeOutputReference extends cdktf.Complex
 }
 
 export class OpsworksRailsAppLayerEbsVolumeList extends cdktf.ComplexList {
-  public internalValue? : OpsworksRailsAppLayerEbsVolume[] | cdktf.IResolvable
+  public internalValue?: OpsworksRailsAppLayerEbsVolume[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): OpsworksRailsAppLayerEbsVolumeOutputReference {
-    return new OpsworksRailsAppLayerEbsVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new OpsworksRailsAppLayerEbsVolumeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#alarms OpsworksRailsAppLayer#alarms}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#alarms OpsworksRailsAppLayer#alarms}
+   */
   readonly alarms?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#cpu_threshold OpsworksRailsAppLayer#cpu_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#cpu_threshold OpsworksRailsAppLayer#cpu_threshold}
+   */
   readonly cpuThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ignore_metrics_time OpsworksRailsAppLayer#ignore_metrics_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ignore_metrics_time OpsworksRailsAppLayer#ignore_metrics_time}
+   */
   readonly ignoreMetricsTime?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#instance_count OpsworksRailsAppLayer#instance_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#instance_count OpsworksRailsAppLayer#instance_count}
+   */
   readonly instanceCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#load_threshold OpsworksRailsAppLayer#load_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#load_threshold OpsworksRailsAppLayer#load_threshold}
+   */
   readonly loadThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#memory_threshold OpsworksRailsAppLayer#memory_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#memory_threshold OpsworksRailsAppLayer#memory_threshold}
+   */
   readonly memoryThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#thresholds_wait_time OpsworksRailsAppLayer#thresholds_wait_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#thresholds_wait_time OpsworksRailsAppLayer#thresholds_wait_time}
+   */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksRailsAppLayerLoadBasedAutoScalingDownscalingToTerraform(struct?: OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference | OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksRailsAppLayerLoadBasedAutoScalingDownscalingToTerraform(
+  struct?:
+    | OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference
+    | OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -890,21 +996,26 @@ export function opsworksRailsAppLayerLoadBasedAutoScalingDownscalingToTerraform(
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  }
+  };
 }
 
 export class OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling | undefined {
+  public get internalValue():
+    | OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -938,7 +1049,9 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling | undefined) {
+  public set internalValue(
+    value: OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -948,8 +1061,7 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1075,39 +1187,47 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference
 }
 export interface OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#alarms OpsworksRailsAppLayer#alarms}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#alarms OpsworksRailsAppLayer#alarms}
+   */
   readonly alarms?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#cpu_threshold OpsworksRailsAppLayer#cpu_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#cpu_threshold OpsworksRailsAppLayer#cpu_threshold}
+   */
   readonly cpuThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ignore_metrics_time OpsworksRailsAppLayer#ignore_metrics_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#ignore_metrics_time OpsworksRailsAppLayer#ignore_metrics_time}
+   */
   readonly ignoreMetricsTime?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#instance_count OpsworksRailsAppLayer#instance_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#instance_count OpsworksRailsAppLayer#instance_count}
+   */
   readonly instanceCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#load_threshold OpsworksRailsAppLayer#load_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#load_threshold OpsworksRailsAppLayer#load_threshold}
+   */
   readonly loadThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#memory_threshold OpsworksRailsAppLayer#memory_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#memory_threshold OpsworksRailsAppLayer#memory_threshold}
+   */
   readonly memoryThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#thresholds_wait_time OpsworksRailsAppLayer#thresholds_wait_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#thresholds_wait_time OpsworksRailsAppLayer#thresholds_wait_time}
+   */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksRailsAppLayerLoadBasedAutoScalingUpscalingToTerraform(struct?: OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference | OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksRailsAppLayerLoadBasedAutoScalingUpscalingToTerraform(
+  struct?:
+    | OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference
+    | OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -1117,21 +1237,26 @@ export function opsworksRailsAppLayerLoadBasedAutoScalingUpscalingToTerraform(st
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  }
+  };
 }
 
 export class OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling | undefined {
+  public get internalValue():
+    | OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -1165,7 +1290,9 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling | undefined) {
+  public set internalValue(
+    value: OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -1175,8 +1302,7 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference e
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1302,47 +1428,65 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference e
 }
 export interface OpsworksRailsAppLayerLoadBasedAutoScaling {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#enable OpsworksRailsAppLayer#enable}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#enable OpsworksRailsAppLayer#enable}
+   */
   readonly enable?: boolean | cdktf.IResolvable;
   /**
-  * downscaling block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#downscaling OpsworksRailsAppLayer#downscaling}
-  */
+   * downscaling block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#downscaling OpsworksRailsAppLayer#downscaling}
+   */
   readonly downscaling?: OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling;
   /**
-  * upscaling block
-  *
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#upscaling OpsworksRailsAppLayer#upscaling}
-  */
+   * upscaling block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer#upscaling OpsworksRailsAppLayer#upscaling}
+   */
   readonly upscaling?: OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling;
 }
 
-export function opsworksRailsAppLayerLoadBasedAutoScalingToTerraform(struct?: OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference | OpsworksRailsAppLayerLoadBasedAutoScaling): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function opsworksRailsAppLayerLoadBasedAutoScalingToTerraform(
+  struct?:
+    | OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference
+    | OpsworksRailsAppLayerLoadBasedAutoScaling,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-    downscaling: opsworksRailsAppLayerLoadBasedAutoScalingDownscalingToTerraform(struct!.downscaling),
-    upscaling: opsworksRailsAppLayerLoadBasedAutoScalingUpscalingToTerraform(struct!.upscaling),
-  }
+    downscaling:
+      opsworksRailsAppLayerLoadBasedAutoScalingDownscalingToTerraform(
+        struct!.downscaling,
+      ),
+    upscaling: opsworksRailsAppLayerLoadBasedAutoScalingUpscalingToTerraform(
+      struct!.upscaling,
+    ),
+  };
 }
 
 export class OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): OpsworksRailsAppLayerLoadBasedAutoScaling | undefined {
+  public get internalValue():
+    | OpsworksRailsAppLayerLoadBasedAutoScaling
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -1360,14 +1504,15 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: OpsworksRailsAppLayerLoadBasedAutoScaling | undefined) {
+  public set internalValue(
+    value: OpsworksRailsAppLayerLoadBasedAutoScaling | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
       this._downscaling.internalValue = undefined;
       this._upscaling.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
       this._downscaling.internalValue = value.downscaling;
@@ -1392,11 +1537,17 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference extends cd
   }
 
   // downscaling - computed: false, optional: true, required: false
-  private _downscaling = new OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference(this, "downscaling");
+  private _downscaling =
+    new OpsworksRailsAppLayerLoadBasedAutoScalingDownscalingOutputReference(
+      this,
+      'downscaling',
+    );
   public get downscaling() {
     return this._downscaling;
   }
-  public putDownscaling(value: OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling) {
+  public putDownscaling(
+    value: OpsworksRailsAppLayerLoadBasedAutoScalingDownscaling,
+  ) {
     this._downscaling.internalValue = value;
   }
   public resetDownscaling() {
@@ -1408,11 +1559,17 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference extends cd
   }
 
   // upscaling - computed: false, optional: true, required: false
-  private _upscaling = new OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference(this, "upscaling");
+  private _upscaling =
+    new OpsworksRailsAppLayerLoadBasedAutoScalingUpscalingOutputReference(
+      this,
+      'upscaling',
+    );
   public get upscaling() {
     return this._upscaling;
   }
-  public putUpscaling(value: OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling) {
+  public putUpscaling(
+    value: OpsworksRailsAppLayerLoadBasedAutoScalingUpscaling,
+  ) {
     this._upscaling.internalValue = value;
   }
   public resetUpscaling() {
@@ -1425,33 +1582,36 @@ export class OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference extends cd
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer aws_opsworks_rails_app_layer}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer aws_opsworks_rails_app_layer}
+ */
 export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_opsworks_rails_app_layer";
+  public static readonly tfResourceType = 'aws_opsworks_rails_app_layer';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer aws_opsworks_rails_app_layer} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options OpsworksRailsAppLayerConfig
-  */
-  public constructor(scope: Construct, id: string, config: OpsworksRailsAppLayerConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_rails_app_layer aws_opsworks_rails_app_layer} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options OpsworksRailsAppLayerConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: OpsworksRailsAppLayerConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_opsworks_rails_app_layer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1459,7 +1619,7 @@ export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._appServer = config.appServer;
     this._autoAssignElasticIps = config.autoAssignElasticIps;
@@ -1489,7 +1649,8 @@ export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._useEbsOptimizedInstances = config.useEbsOptimizedInstances;
-    this._cloudwatchConfiguration.internalValue = config.cloudwatchConfiguration;
+    this._cloudwatchConfiguration.internalValue =
+      config.cloudwatchConfiguration;
     this._ebsVolume.internalValue = config.ebsVolume;
     this._loadBasedAutoScaling.internalValue = config.loadBasedAutoScaling;
   }
@@ -1949,11 +2110,17 @@ export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
   }
 
   // cloudwatch_configuration - computed: false, optional: true, required: false
-  private _cloudwatchConfiguration = new OpsworksRailsAppLayerCloudwatchConfigurationOutputReference(this, "cloudwatch_configuration");
+  private _cloudwatchConfiguration =
+    new OpsworksRailsAppLayerCloudwatchConfigurationOutputReference(
+      this,
+      'cloudwatch_configuration',
+    );
   public get cloudwatchConfiguration() {
     return this._cloudwatchConfiguration;
   }
-  public putCloudwatchConfiguration(value: OpsworksRailsAppLayerCloudwatchConfiguration) {
+  public putCloudwatchConfiguration(
+    value: OpsworksRailsAppLayerCloudwatchConfiguration,
+  ) {
     this._cloudwatchConfiguration.internalValue = value;
   }
   public resetCloudwatchConfiguration() {
@@ -1965,11 +2132,17 @@ export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
   }
 
   // ebs_volume - computed: false, optional: true, required: false
-  private _ebsVolume = new OpsworksRailsAppLayerEbsVolumeList(this, "ebs_volume", true);
+  private _ebsVolume = new OpsworksRailsAppLayerEbsVolumeList(
+    this,
+    'ebs_volume',
+    true,
+  );
   public get ebsVolume() {
     return this._ebsVolume;
   }
-  public putEbsVolume(value: OpsworksRailsAppLayerEbsVolume[] | cdktf.IResolvable) {
+  public putEbsVolume(
+    value: OpsworksRailsAppLayerEbsVolume[] | cdktf.IResolvable,
+  ) {
     this._ebsVolume.internalValue = value;
   }
   public resetEbsVolume() {
@@ -1981,11 +2154,17 @@ export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
   }
 
   // load_based_auto_scaling - computed: false, optional: true, required: false
-  private _loadBasedAutoScaling = new OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference(this, "load_based_auto_scaling");
+  private _loadBasedAutoScaling =
+    new OpsworksRailsAppLayerLoadBasedAutoScalingOutputReference(
+      this,
+      'load_based_auto_scaling',
+    );
   public get loadBasedAutoScaling() {
     return this._loadBasedAutoScaling;
   }
-  public putLoadBasedAutoScaling(value: OpsworksRailsAppLayerLoadBasedAutoScaling) {
+  public putLoadBasedAutoScaling(
+    value: OpsworksRailsAppLayerLoadBasedAutoScaling,
+  ) {
     this._loadBasedAutoScaling.internalValue = value;
   }
   public resetLoadBasedAutoScaling() {
@@ -2003,36 +2182,78 @@ export class OpsworksRailsAppLayer extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       app_server: cdktf.stringToTerraform(this._appServer),
-      auto_assign_elastic_ips: cdktf.booleanToTerraform(this._autoAssignElasticIps),
-      auto_assign_public_ips: cdktf.booleanToTerraform(this._autoAssignPublicIps),
+      auto_assign_elastic_ips: cdktf.booleanToTerraform(
+        this._autoAssignElasticIps,
+      ),
+      auto_assign_public_ips: cdktf.booleanToTerraform(
+        this._autoAssignPublicIps,
+      ),
       auto_healing: cdktf.booleanToTerraform(this._autoHealing),
       bundler_version: cdktf.stringToTerraform(this._bundlerVersion),
-      custom_configure_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customConfigureRecipes),
-      custom_deploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customDeployRecipes),
-      custom_instance_profile_arn: cdktf.stringToTerraform(this._customInstanceProfileArn),
+      custom_configure_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customConfigureRecipes),
+      custom_deploy_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customDeployRecipes),
+      custom_instance_profile_arn: cdktf.stringToTerraform(
+        this._customInstanceProfileArn,
+      ),
       custom_json: cdktf.stringToTerraform(this._customJson),
-      custom_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSecurityGroupIds),
-      custom_setup_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSetupRecipes),
-      custom_shutdown_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customShutdownRecipes),
-      custom_undeploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customUndeployRecipes),
+      custom_security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customSecurityGroupIds),
+      custom_setup_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customSetupRecipes),
+      custom_shutdown_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customShutdownRecipes),
+      custom_undeploy_recipes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._customUndeployRecipes),
       drain_elb_on_shutdown: cdktf.booleanToTerraform(this._drainElbOnShutdown),
       elastic_load_balancer: cdktf.stringToTerraform(this._elasticLoadBalancer),
       id: cdktf.stringToTerraform(this._id),
-      install_updates_on_boot: cdktf.booleanToTerraform(this._installUpdatesOnBoot),
-      instance_shutdown_timeout: cdktf.numberToTerraform(this._instanceShutdownTimeout),
+      install_updates_on_boot: cdktf.booleanToTerraform(
+        this._installUpdatesOnBoot,
+      ),
+      instance_shutdown_timeout: cdktf.numberToTerraform(
+        this._instanceShutdownTimeout,
+      ),
       manage_bundler: cdktf.booleanToTerraform(this._manageBundler),
       name: cdktf.stringToTerraform(this._name),
       passenger_version: cdktf.stringToTerraform(this._passengerVersion),
       ruby_version: cdktf.stringToTerraform(this._rubyVersion),
       rubygems_version: cdktf.stringToTerraform(this._rubygemsVersion),
       stack_id: cdktf.stringToTerraform(this._stackId),
-      system_packages: cdktf.listMapper(cdktf.stringToTerraform, false)(this._systemPackages),
+      system_packages: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._systemPackages),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      use_ebs_optimized_instances: cdktf.booleanToTerraform(this._useEbsOptimizedInstances),
-      cloudwatch_configuration: opsworksRailsAppLayerCloudwatchConfigurationToTerraform(this._cloudwatchConfiguration.internalValue),
-      ebs_volume: cdktf.listMapper(opsworksRailsAppLayerEbsVolumeToTerraform, true)(this._ebsVolume.internalValue),
-      load_based_auto_scaling: opsworksRailsAppLayerLoadBasedAutoScalingToTerraform(this._loadBasedAutoScaling.internalValue),
+      use_ebs_optimized_instances: cdktf.booleanToTerraform(
+        this._useEbsOptimizedInstances,
+      ),
+      cloudwatch_configuration:
+        opsworksRailsAppLayerCloudwatchConfigurationToTerraform(
+          this._cloudwatchConfiguration.internalValue,
+        ),
+      ebs_volume: cdktf.listMapper(
+        opsworksRailsAppLayerEbsVolumeToTerraform,
+        true,
+      )(this._ebsVolume.internalValue),
+      load_based_auto_scaling:
+        opsworksRailsAppLayerLoadBasedAutoScalingToTerraform(
+          this._loadBasedAutoScaling.internalValue,
+        ),
     };
   }
 }

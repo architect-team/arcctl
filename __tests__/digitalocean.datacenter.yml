@@ -24,10 +24,10 @@ environment:
     namespace:
       type: kubernetesNamespace
       account: ${{ resources.cluster.provider }}
-      name: test-env
+      name: ${{ environment.name }}
     nginx-ingress-controller:
       type: helmChart
-      name: ingress-nginx
+      name: ${{ environment.name }}-ingress-nginx
       account: ${{ resources.cluster.provider }}
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx

@@ -170,6 +170,18 @@ export default class DatacenterV1 extends Datacenter {
     );
   }
 
+  private replaceEnvironmentNameRefs<T>(
+    environmentName: string,
+    contents: T,
+  ): T {
+    return JSON.parse(
+      JSON.stringify(contents).replace(
+        /\${{\s?environment\.name\s?}}/g,
+        environmentName,
+      ),
+    );
+  }
+
   public async enrichGraph(
     graph: CloudGraph,
     environmentName?: string,
@@ -207,6 +219,10 @@ export default class DatacenterV1 extends Datacenter {
           graph,
           environmentName,
           node.id,
+          node.inputs,
+        );
+        node.inputs = this.replaceEnvironmentNameRefs(
+          environmentName,
           node.inputs,
         );
 
@@ -284,28 +300,31 @@ export default class DatacenterV1 extends Datacenter {
                 name: newResourceName,
                 environment: environmentName,
                 component: node.component,
-                inputs: this.replaceEnvironmentResourceRefs(
-                  graph,
+                inputs: this.replaceEnvironmentNameRefs(
                   environmentName,
-                  hook_node_id,
-                  replaceHookExpressions(
-                    hook.resources || {},
-                    newResourceName,
+                  this.replaceEnvironmentResourceRefs(
+                    graph,
+                    environmentName,
                     hook_node_id,
-                    JSON.parse(
-                      JSON.stringify(resource_config).replace(
-                        /\${{\s?this\.outputs\.(\S+)\s?}}/g,
-                        (_, key: string) => {
-                          graph.insertEdges(
-                            new CloudEdge({
-                              from: hook_node_id,
-                              to: node.id,
-                              required: true,
-                            }),
-                          );
+                    replaceHookExpressions(
+                      hook.resources || {},
+                      newResourceName,
+                      hook_node_id,
+                      JSON.parse(
+                        JSON.stringify(resource_config).replace(
+                          /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                          (_, key: string) => {
+                            graph.insertEdges(
+                              new CloudEdge({
+                                from: hook_node_id,
+                                to: node.id,
+                                required: true,
+                              }),
+                            );
 
-                          return `\${{ ${node.id}.${key} }}`;
-                        },
+                            return `\${{ ${node.id}.${key} }}`;
+                          },
+                        ),
                       ),
                     ),
                   ),

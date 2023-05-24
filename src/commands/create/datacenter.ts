@@ -4,7 +4,6 @@ import { parseDatacenter } from '../../datacenters/index.js';
 import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
-import path from 'path';
 import winston, { Logger } from 'winston';
 
 export class CreateDatacenterCmd extends BaseCommand {
@@ -33,9 +32,7 @@ export class CreateDatacenterCmd extends BaseCommand {
   async run(): Promise<void> {
     const { args, flags } = await this.parse(CreateDatacenterCmd);
 
-    const existingDatacenter = await this.datacenterStore.getDatacenter(
-      args.name,
-    );
+    const existingDatacenter = await this.datacenterStore.get(args.name);
     if (existingDatacenter) {
       this.error(`A datacenter named ${args.name} already exists`);
     }
@@ -51,8 +48,8 @@ export class CreateDatacenterCmd extends BaseCommand {
       pipeline.validate();
 
       if (pipeline.steps.length <= 0) {
+        await this.saveDatacenter(args.name, datacenter, pipeline);
         this.log('Datacenter created successfully');
-        return;
       }
 
       let interval: NodeJS.Timer;
@@ -75,15 +72,10 @@ export class CreateDatacenterCmd extends BaseCommand {
       return pipeline
         .apply({
           providerStore: this.providerStore,
-          cwd: path.resolve('./.terraform'),
           logger: logger,
         })
         .then(async () => {
-          await this.datacenterStore.saveDatacenter({
-            name: args.name,
-            config: datacenter,
-          });
-
+          await this.saveDatacenter(args.name, datacenter, pipeline);
           this.renderPipeline(pipeline);
           clearInterval(interval);
           this.log('Datacenter created successfully');

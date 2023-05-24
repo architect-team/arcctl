@@ -27,7 +27,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   name: string;
   type: T;
   action: StepAction;
-  color: StepColor;
+  color?: StepColor;
   status?: StepStatus;
   component?: string;
   environment?: string;
@@ -52,7 +52,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.name = options.name;
     this.type = options.type;
     this.action = options.action;
-    this.color = options.color;
+    this.color = options.color || 'blue';
     this.status = options.status || {
       state: 'pending',
     };
@@ -84,6 +84,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.status.startTime = Date.now();
     subscriber.next(this);
 
+    // We have to do this before
     const initCmd = options.terraform.init(options.cwd, stack);
     if (options.logger) {
       initCmd.stdout?.on('data', (chunk) => {
@@ -139,7 +140,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'arcctl-'));
     const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
     const stateFile = path.join(nodeDir, 'terraform.tfstate');
-    const alreadyExists = Boolean(this.state);
 
     let app = new App({
       outdir: nodeDir,
@@ -161,6 +161,19 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         provider.credentials,
         this.resource.id,
       );
+
+      // We have to run this before we can run `terraform import`
+      const initCmd = options.terraform.init(nodeDir, stack);
+      if (options.logger) {
+        initCmd.stdout?.on('data', (chunk) => {
+          options.logger?.info(chunk);
+        });
+        initCmd.stderr?.on('data', (chunk) => {
+          options.logger?.error(chunk);
+        });
+      }
+      await initCmd;
+
       for (const [key, value] of Object.entries(imports)) {
         await options.terraform.import(nodeDir, key, value);
       }
@@ -180,33 +193,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     const stateString = fs.readFileSync(stateFile, 'utf8');
     this.state = JSON.parse(stateString);
-
-    this.status.state = this.action === 'delete' ? 'destroying' : 'applying';
-    this.status.message = `Running post-${this.action} hooks`;
-    subscriber.next(this);
-
-    try {
-      if (this.action === 'delete' && service.hooks.afterDelete) {
-        await service.hooks.afterDelete();
-      } else if (service.hooks.afterCreate && !alreadyExists) {
-        const outputs = await this.getOutputs(options);
-        if (!outputs) {
-          throw new Error(`Failed to acquired outputs for ${this.id}`);
-        }
-
-        await service.hooks.afterCreate(
-          options.providerStore,
-          this.inputs!,
-          outputs,
-        );
-      }
-    } catch (err: any) {
-      this.status.state = 'error';
-      this.status.message = err.message || '';
-      this.status.endTime = Date.now();
-      subscriber.next(this);
-      subscriber.error(err);
-    }
+    fs.rmSync(stateFile);
 
     this.status.state = 'complete';
     this.status.message = '';
@@ -301,30 +288,51 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         );
       } else {
-        promise = this.crudApply(
-          subscriber,
-          service as CrudResourceService<T>,
-          {
-            ...options,
-            cwd: nodeDir,
-          },
-        );
+        promise = this.crudApply(subscriber, service as CrudResourceService<T>);
       }
 
       promise
-        .then(() => {
+        .then(async () => {
+          if (this.action === 'create' && service.hooks.afterCreate) {
+            this.status.state = 'applying';
+            this.status.message = `Running post-create hooks`;
+            subscriber.next(this);
+
+            const outputs = await this.getOutputs(options);
+            if (!outputs) {
+              throw new Error(`Failed to acquired outputs for ${this.id}`);
+            }
+
+            await service.hooks.afterCreate(
+              options.providerStore,
+              this.inputs!,
+              outputs,
+            );
+          } else if (this.action === 'delete' && service.hooks.afterDelete) {
+            this.status.state = 'destroying';
+            this.status.message = `Running post-delete hooks`;
+            subscriber.next(this);
+
+            await service.hooks.afterDelete();
+          }
+
           this.status.state = 'complete';
           this.status.message = '';
           this.status.endTime = Date.now();
           subscriber.next(this);
           subscriber.complete();
+
+          fs.rmSync(nodeDir, { recursive: true });
         })
         .catch((err) => {
+          console.error(err);
           this.status.state = 'error';
           this.status.message = err.message || '';
           this.status.endTime = Date.now();
           subscriber.next(this);
           subscriber.error(err);
+
+          fs.rmSync(nodeDir, { recursive: true });
         });
     });
   }
@@ -357,6 +365,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       const cwd =
         options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'arcctl-'));
       const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
+      fs.mkdirSync(nodeDir, { recursive: true });
       fs.writeFileSync(
         path.join(nodeDir, 'terraform.tfstate'),
         JSON.stringify(this.state),

@@ -4,7 +4,6 @@ import { Pipeline } from '../../pipeline/index.js';
 import { DatacenterRecord } from '../../utils/datacenter-store.js';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import path from 'path';
 
 export class DestroyDatacenterCmd extends BaseCommand {
   static description =
@@ -55,7 +54,7 @@ export class DestroyDatacenterCmd extends BaseCommand {
       (r) => r.datacenter === name,
     );
 
-    const graph = new Pipeline();
+    const graph = new CloudGraph();
     for (const record of datacenterEnvironments) {
       const environmentGraph = await datacenter.enrichGraph(
         record.graph,
@@ -70,9 +69,8 @@ export class DestroyDatacenterCmd extends BaseCommand {
     graph.validate();
 
     const graphPlan = Pipeline.plan({
-      before: graph,
+      before: pipeline,
       after: new CloudGraph(),
-      datacenter: name,
     });
 
     const interval = setInterval(() => {
@@ -85,7 +83,6 @@ export class DestroyDatacenterCmd extends BaseCommand {
       .apply({
         datacenterStore: this.datacenterStore,
         providerStore: this.providerStore,
-        cwd: path.resolve('./.terraform'),
       })
       .then(async () => {
         for (const environmentRecord of datacenterEnvironments) {

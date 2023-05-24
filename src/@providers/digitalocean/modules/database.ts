@@ -53,7 +53,7 @@ export class DigitaloceanDatabaseModule extends ResourceModule<
       protocol: protocol,
       host: this.database.host,
       port: this.database.port,
-      provider: inputs.provider!,
+      account: inputs.account!,
       certificate: ca.certificate,
     };
   }

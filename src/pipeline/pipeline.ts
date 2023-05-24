@@ -315,11 +315,13 @@ export class Pipeline {
         throw new Error(`Something went wrong queuing up a node to apply`);
       }
 
-      step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
-        ...options,
-        terraform,
-        cwd,
-      });
+      if (step.inputs) {
+        step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
+          ...options,
+          terraform,
+          cwd,
+        });
+      }
 
       await new Promise<void>((resolve, reject) => {
         step!

@@ -23,13 +23,6 @@ export class DatacenterStore {
     return path.join(this.config_dir, this.datacenter_filename);
   }
 
-  saveFile(name: string, content: string): string {
-    const file_path = path.join(this.config_dir, name);
-    fs.mkdirSync(path.dirname(file_path), { recursive: true });
-    fs.writeFileSync(file_path, content);
-    return file_path;
-  }
-
   async getDatacenter(name: string): Promise<DatacenterRecord | undefined> {
     const datacenters = await this.getDatacenters();
     return datacenters.find((record) => record.name === name);

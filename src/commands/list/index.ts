@@ -32,13 +32,13 @@ export default class ListResourcesCommand extends BaseCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(ListResourcesCommand);
-    const provider = await this.promptForAccount({
+    const account = await this.promptForAccount({
       account: flags.account,
       type: args.type,
       action: 'list',
     });
     const type = (await this.promptForResourceType(
-      provider,
+      account,
       'list',
       args.type,
     )) as ResourceType;
@@ -49,7 +49,7 @@ export default class ListResourcesCommand extends BaseCommand {
       filter[key] = value;
     }
 
-    const list = provider.resources[type]?.list?.bind(provider.resources[type]);
+    const list = account.resources[type]?.list?.bind(account.resources[type]);
     if (!list) {
       throw new Error(`Unable to list the resources for ${type}`);
     }

@@ -38,7 +38,7 @@ export class AwsDatabaseService extends TerraformResourceService<
               host: rds_database.Endpoint?.HostedZoneId || '',
               port: rds_database.Endpoint?.Port || 5432,
               protocol: rds_database.Engine || '',
-              provider: '',
+              account: '',
             });
           }
           resolve();

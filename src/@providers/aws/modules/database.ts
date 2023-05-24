@@ -73,7 +73,7 @@ export class AwsDatabaseModule extends ResourceModule<
       host: this.database.dbInstanceEndpointOutput,
       port: this.database.dbInstancePortOutput as any,
       protocol: inputs.databaseType,
-      provider: '',
+      account: '',
     };
   }
 

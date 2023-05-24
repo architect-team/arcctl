@@ -5,7 +5,6 @@ import {
 } from '../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../utils/paging.js';
 import { ProviderStore } from './store.js';
-import { SaveFileFn } from './types.js';
 
 export type InputValidators<T extends ResourceType> = {
   [P in keyof ResourceInputs[T]]?: (

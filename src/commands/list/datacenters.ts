@@ -7,7 +7,7 @@ export class ListDatacentersCmd extends BaseCommand {
   static aliases = ['list:datacenter'];
 
   async run(): Promise<void> {
-    const datacenters = await this.datacenterStore.getDatacenters();
+    const datacenters = await this.datacenterStore.find();
 
     if (datacenters.length <= 0) {
       this.log('No registered datacenters');

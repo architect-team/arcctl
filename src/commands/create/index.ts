@@ -1,22 +1,16 @@
-import {
-  ResourceOutputs,
-  ResourceType,
-  ResourceTypeList,
-} from '../../@resources/index.js';
+import { ResourceTypeList } from '../../@resources/index.js';
 import { BaseCommand } from '../../base-command.js';
+import { CloudGraph } from '../../cloud-graph/index.js';
+import { Pipeline } from '../../pipeline/index.js';
+import { Terraform } from '../../terraform/terraform.js';
 import CloudCtlConfig from '../../utils/config.js';
-import { CldCtlTerraformStack } from '../../utils/stack.js';
-import TaskManager from '../../utils/task-manager.js';
-import Terraform from '../../utils/terraform.js';
 import { Flags } from '@oclif/core';
-import { ResourceModule } from '@providers/module.js';
-import { ResourceStatus } from '@providers/status.js';
-import { App } from 'cdktf';
 import chalk from 'chalk';
-import * as fs from 'fs';
+import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
+import path from 'path';
 import { inspect } from 'util';
+import winston, { Logger } from 'winston';
 
 export default class CreateResourceCommand extends BaseCommand {
   static description = 'Create a new cloud resource';
@@ -32,6 +26,11 @@ export default class CreateResourceCommand extends BaseCommand {
       char: 'i',
       description:
         'A yaml file that represents the answers to some or all of the input questions',
+    }),
+
+    verbose: Flags.boolean({
+      char: 'v',
+      description: 'Turn on verbose logs',
     }),
   };
 
@@ -54,49 +53,25 @@ export default class CreateResourceCommand extends BaseCommand {
       }
     }
 
-    const provider = await this.promptForAccount({
-      account: flags.credentials,
+    const account = await this.promptForAccount({
+      account: flags.account,
       type: args.type,
       action: 'create',
     });
 
-    const type = await this.promptForResourceType(
-      provider,
-      'create',
-      args.type,
-    );
+    const type = await this.promptForResourceType(account, 'create', args.type);
 
-    const service = provider.resources[type];
-    if (!service) {
-      this.error(
-        `The ${provider.type} provider cannot create the ${type} resource`,
-      );
-    }
+    const graph = new CloudGraph();
+    const rootNode = await this.promptForNewResource(graph, account, type);
 
-    await fs.promises.mkdir(CloudCtlConfig.getTerraformDirectory(), {
-      recursive: true,
+    const pipeline = Pipeline.plan({
+      before: new Pipeline(),
+      after: graph,
     });
-    const app = new App({
-      outdir: CloudCtlConfig.getTerraformDirectory(),
-    });
-    const stack = new CldCtlTerraformStack(app, 'cldctl');
-    provider.configureTerraformProviders(stack);
-    const { module, output: tfOutput } = await this.promptForNewResourceModule(
-      stack,
-      provider,
-      type,
-    );
 
-    const inputs = module.inputs as any;
-    for (const key of Object.keys(inputs)) {
-      const child = stack.node.tryFindChild(key);
-      if (ResourceTypeList.includes(key as ResourceType) && child) {
-        inputs[key] = (child as ResourceModule<any, any>).inputs;
-      }
-    }
-
-    this.log('\nAbout to create the following resource:');
-    this.log(inputs);
+    this.log('\nAbout to create the following resources:');
+    this.renderPipeline(pipeline);
+    this.log('');
     const { proceed } = await inquirer.prompt([
       {
         name: 'proceed',
@@ -110,87 +85,52 @@ export default class CreateResourceCommand extends BaseCommand {
       this.exit(0);
     }
 
-    let outputs: ResourceOutputs[ResourceType] | undefined;
+    let interval: NodeJS.Timer;
+    if (!flags.verbose) {
+      interval = setInterval(() => {
+        this.renderPipeline(pipeline, { clear: true });
+      }, 1000 / cliSpinners.dots.frames.length);
+    }
 
-    const taskManager = new TaskManager([
-      {
-        title:
-          'Creating your resources (this can take a while depending on the resource type)...',
-        finished: false,
-        action: () => {
-          const subject = new BehaviorSubject<
-            ResourceOutputs[ResourceType] | ResourceStatus
-          >({
-            state: 'pending',
-          });
+    let logger: Logger | undefined;
+    if (flags.verbose) {
+      this.renderPipeline(pipeline);
+      logger = winston.createLogger({
+        level: 'info',
+        format: winston.format.printf(({ message }) => message),
+        transports: [new winston.transports.Console()],
+      });
+    }
 
-          const fn = async () => {
-            subject.next({
-              state: 'initializing',
-              message: 'Getting everything ready',
-            });
-
-            try {
-              await Terraform.upsert(
-                provider.terraform_version,
-                stack,
-                subject,
-              );
-            } catch (err) {
-              this.handleTerraformError(err);
-            }
-
-            outputs = await Terraform.getOutput(tfOutput);
-            if (module.hooks?.afterCreate) {
-              await module.hooks.afterCreate();
-            }
-            await Terraform.cleanup();
-            subject.complete();
-          };
-          fn();
-
-          const subscriber = subject.asObservable();
-
-          const terraformSubscribers: {
-            [key: string]: Subscriber<ResourceStatus>;
-          } = {};
-          subscriber.subscribe({
-            next: (res: ResourceOutputs[ResourceType] | ResourceStatus) => {
-              if ('state' in res) {
-                const key = res.message as string;
-                if (res.state === 'creating') {
-                  taskManager.add({
-                    title: `Creating: ${key}`,
-                    action: () =>
-                      new Observable((observer) => {
-                        terraformSubscribers[key] = observer;
-                      }),
-                    finished: false,
-                  });
-                } else if (res.state === 'complete') {
-                  terraformSubscribers[key]?.complete();
-                }
-              } else {
-                outputs = res;
-              }
-            },
-            error: (err: any) => {
-              subject.error(err);
-            },
-            complete: () => {
-              subject.complete();
-            },
-          });
-
-          return subscriber;
-        },
-      },
-    ]);
-
-    console.time('Time');
-    await taskManager.run();
-    this.log(inspect(outputs));
-    this.log(chalk.green(`${type} resource created successfully`));
-    console.timeEnd('Time');
+    return pipeline
+      .apply({
+        providerStore: this.providerStore,
+        logger: logger,
+      })
+      .then(async () => {
+        this.renderPipeline(pipeline, { clear: true });
+        clearInterval(interval);
+        const step = pipeline.steps.find(
+          (s) => s.type === rootNode.type && s.name === rootNode.name,
+        );
+        const terraform = await Terraform.generate(
+          CloudCtlConfig.getPluginDirectory(),
+          '1.4.5',
+        );
+        const outputs = await step?.getOutputs({
+          providerStore: this.providerStore,
+          terraform,
+        });
+        this.log('');
+        this.log(chalk.green(`${type} created successfully!`));
+        this.log(
+          'Please record the results for your records. Some fields may not be retrievable again.',
+        );
+        this.log(inspect(outputs));
+      })
+      .catch((err) => {
+        clearInterval(interval);
+        this.error(err);
+      });
   }
 }

@@ -4,7 +4,7 @@ export type DatabaseSchemaApplyOutputs = {
   port: string | number;
   name: string;
   url: string;
-  provider: string;
+  account: string;
   certificate?: string;
 };
 

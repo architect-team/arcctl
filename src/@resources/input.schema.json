@@ -1062,7 +1062,6 @@
           "required": [
             "data",
             "name",
-            "namespace",
             "type"
           ],
           "type": "object"

@@ -238,6 +238,7 @@ export class Pipeline {
           ...newNode,
           type: newNode.type,
           color: previousStep.color,
+          state: previousStep.state,
           action: 'update',
           status: {
             state: 'pending',

@@ -349,7 +349,6 @@
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -359,7 +358,6 @@
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "memory": {
@@ -411,7 +409,6 @@
                                   "additionalProperties": {
                                     "type": "string"
                                   },
-                                  "description": "Construct a type with a set of properties K of type T",
                                   "type": "object"
                                 },
                                 "image": {
@@ -2042,7 +2039,6 @@
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -2052,7 +2048,6 @@
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "memory": {
@@ -2104,7 +2099,6 @@
                                   "additionalProperties": {
                                     "type": "string"
                                   },
-                                  "description": "Construct a type with a set of properties K of type T",
                                   "type": "object"
                                 },
                                 "image": {
@@ -2813,7 +2807,6 @@
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "image": {
@@ -2823,7 +2816,6 @@
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "memory": {
@@ -2875,7 +2867,6 @@
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {
@@ -4506,7 +4497,6 @@
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "image": {
@@ -4516,7 +4506,6 @@
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Construct a type with a set of properties K of type T",
                       "type": "object"
                     },
                     "memory": {
@@ -4568,7 +4557,6 @@
                             "additionalProperties": {
                               "type": "string"
                             },
-                            "description": "Construct a type with a set of properties K of type T",
                             "type": "object"
                           },
                           "image": {

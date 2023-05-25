@@ -74,7 +74,7 @@ const listrTasks = new Listr([
         '--type',
         'InputSchema',
         '--tsconfig',
-        '../../tsconfig.json',
+        path.join(__dirname, '..', '..', 'tsconfig.json'),
         '--no-type-check',
       ]);
 
@@ -103,7 +103,7 @@ for (const type of all_types) {
         '--type',
         '*',
         '--tsconfig',
-        '../../tsconfig.json',
+        path.join(__dirname, '..', '..', 'tsconfig.json'),
         '--no-type-check',
       ]);
 

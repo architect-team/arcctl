@@ -120,7 +120,6 @@
       "prepack": "npm run build && oclif manifest && oclif readme",
       "version": "oclif readme && git add README.md",
       "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-      "test:service": "ts-node --project ./tsconfig.json ./tests/integration/test-runner.ts",
-      "generate:resources": "ts-node --project ./tsconfig.json ./bin/scripts/resource-generator.ts"
+      "test:service": "ts-node --project ./tsconfig.json ./tests/integration/test-runner.ts"
     }
   }

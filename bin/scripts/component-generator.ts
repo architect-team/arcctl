@@ -61,7 +61,7 @@ const { stdout: type_schema_string } = await execa('deno', [
   '--type',
   'ComponentSchema',
   '--tsconfig',
-  '../../tsconfig.json',
+  path.join(__dirname, '..', '..', 'tsconfig.json'),
   '--no-type-check',
 ]);
 

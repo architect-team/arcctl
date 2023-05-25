@@ -18,5 +18,12 @@
     "proseWrap": "preserve",
     "include": ["src/"],
     "exclude": []
+  },
+  "tasks": {
+    "generate:component-schema": "deno run --allow-all ./bin/scripts/component-generator.ts",
+    "generate:datacenter-schema": "deno run --allow-all ./bin/scripts/datacenter-generator.ts",
+    "generate:environment-schema": "deno run --allow-all ./bin/scripts/environment-generator.ts",
+    "generate:providers": "deno run --allow-all ./bin/scripts/provider-generator.ts",
+    "generate:resources": "deno run --allow-all ./bin/scripts/resource-generator.ts"
   }
 }

@@ -110,7 +110,7 @@ export class DestroyEnvironmentCmd extends BaseCommand {
       .apply({
         providerStore: this.providerStore,
         logger: logger,
-        cwd: path.resolve('./terraform'),
+        cwd: path.resolve('./.terraform'),
       })
       .then(async () => {
         await this.saveDatacenter(

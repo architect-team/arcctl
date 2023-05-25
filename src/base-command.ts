@@ -115,6 +115,38 @@ export abstract class BaseCommand extends Command {
     });
   }
 
+  protected async removeDatacenter(record: DatacenterRecord): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'delete',
+        type: 'secret',
+        name: `${record.name}-datacenter-pipeline`,
+        resource: {
+          account: record.config.getSecretsConfig().account,
+          id: `${record.name}/datacenter-pipeline`,
+        },
+      });
+
+      const terraform = await Terraform.generate(
+        CloudCtlConfig.getPluginDirectory(),
+        '1.4.5',
+      );
+
+      secretStep
+        .apply({
+          providerStore: this.providerStore,
+          terraform: terraform,
+        })
+        .subscribe({
+          complete: async () => {
+            await this.datacenterStore.remove(record.name);
+            resolve();
+          },
+          error: reject,
+        });
+    });
+  }
+
   protected async getPipelineForDatacenter(
     record: DatacenterRecord,
   ): Promise<Pipeline> {

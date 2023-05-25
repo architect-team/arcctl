@@ -3,8 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanVpcModule } from '../modules/vpc.ts';
-import { createApiClient } from 'dots-wrapper';
-import { IVpc } from 'dots-wrapper/dist/vpc/index.ts';
+import { createApiClient, modules } from 'dots-wrapper';
 
 export class DigitaloceanVpcService extends ResourceService<
   'vpc',
@@ -17,7 +16,7 @@ export class DigitaloceanVpcService extends ResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  private normalizeVpc(vpc: IVpc): ResourceOutputs['vpc'] {
+  private normalizeVpc(vpc: modules.vpc.IVpc): ResourceOutputs['vpc'] {
     return {
       id: vpc.id,
       name: vpc.name,

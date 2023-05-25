@@ -3,8 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseModule } from '../modules/database.ts';
-import { createApiClient } from 'dots-wrapper';
-import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.ts';
+import { createApiClient, modules } from 'dots-wrapper';
 
 export class DigitaloceanDatabaseService extends ResourceService<
   'database',
@@ -18,7 +17,7 @@ export class DigitaloceanDatabaseService extends ResourceService<
   }
 
   private normalizeDatabase(
-    database: IDatabaseCluster,
+    database: modules.database.IDatabaseCluster,
   ): ResourceOutputs['database'] {
     return {
       id: database.id,

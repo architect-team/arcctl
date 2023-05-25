@@ -1,4 +1,4 @@
-import Mustache from 'npm:mustache';
+import Mustache from 'mustache';
 import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;

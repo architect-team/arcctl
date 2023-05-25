@@ -23,7 +23,7 @@ import { JSONSchemaType } from 'ajv';
 import { TerraformOutput, TerraformStack } from 'cdktf';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import readline from 'readline';
+import readline from 'node:readline';
 import { Command } from 'cliffy/command/mod.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';

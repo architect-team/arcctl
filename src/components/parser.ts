@@ -1,6 +1,6 @@
 import { Component } from './component.ts';
 import { buildComponent, ComponentSchema } from './schema.ts';
-import Ajv2019 from 'https://esm.sh/ajv@8.6.1';
+import Ajv2019 from 'ajv/dist/2019';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 

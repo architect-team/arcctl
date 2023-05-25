@@ -1,6 +1,7 @@
 import { BaseCommand } from '../../base-command.js';
 import { CloudGraph } from '../../cloud-graph/index.js';
 import { DatacenterRecord } from '../../datacenters/index.js';
+import { Environment, parseEnvironment } from '../../environments/index.js';
 import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
@@ -31,14 +32,13 @@ export class CreateEnvironmentCmd extends BaseCommand {
     {
       name: 'config_path',
       description: 'Path to the environment config file',
-      required: true,
     },
   ];
 
   private async promptForDatacenter(name?: string): Promise<DatacenterRecord> {
     const datacenterRecords = await this.datacenterStore.find();
     if (datacenterRecords.length <= 0) {
-      this.error('No datacenters to create environments on');
+      this.error('No datacenters to create environments in');
     }
 
     const selected = datacenterRecords.find((d) => d.name === name);
@@ -63,36 +63,32 @@ export class CreateEnvironmentCmd extends BaseCommand {
   async run(): Promise<void> {
     const { args, flags } = await this.parse(CreateEnvironmentCmd);
 
-    const datacenterRecord = await this.promptForDatacenter(flags.datacenter);
-    const account = this.providerStore.getProvider(
-      datacenterRecord.lastPipeline.account,
-    );
-    if (!account) {
-      this.error(
-        `Invalid account, ${datacenterRecord.lastPipeline.account} associated with the datacenter: ${datacenterRecord.name}`,
-      );
+    const existing = await this.environmentStore.get(args.name);
+    if (existing) {
+      this.error(`An environment named ${args.name} already exists`);
     }
-
-    if (!account.resources.secret) {
-      this.error(`The ${account.type} provider cannot manage secrets`);
-    }
-
-    const secret = await account.resources.secret.get(
-      datacenterRecord.lastPipeline.secret,
-    );
-    if (!secret) {
-      this.error(
-        `Invalid pipeline referenced by secret: ${datacenterRecord.lastPipeline.secret}`,
-      );
-    }
-
-    const lastPipeline = new Pipeline(JSON.parse(secret.data));
 
     try {
+      const datacenterRecord = await this.promptForDatacenter(flags.datacenter);
+      const lastPipeline = await this.getPipelineForDatacenter(
+        datacenterRecord,
+      );
+
+      let environment: Environment | undefined;
+      let environmentGraph = new CloudGraph();
+      if (args.config_path) {
+        environment = await parseEnvironment(args.config_path);
+        environmentGraph = await environment.getGraph(
+          args.name,
+          this.componentStore,
+        );
+      }
+
       const targetGraph = await datacenterRecord.config.enrichGraph(
-        new CloudGraph(),
+        environmentGraph,
         args.name,
       );
+
       const pipeline = Pipeline.plan({
         before: lastPipeline,
         after: targetGraph,
@@ -100,15 +96,10 @@ export class CreateEnvironmentCmd extends BaseCommand {
 
       pipeline.validate();
 
-      if (pipeline.steps.length <= 0) {
-        this.log('Datacenter created successfully');
-        return;
-      }
-
       let interval: NodeJS.Timer;
       if (!flags.verbose) {
         interval = setInterval(() => {
-          this.renderPipeline(pipeline);
+          this.renderPipeline(pipeline, { clear: true });
         }, 1000 / cliSpinners.dots.frames.length);
       }
 
@@ -128,16 +119,27 @@ export class CreateEnvironmentCmd extends BaseCommand {
           logger: logger,
         })
         .then(async () => {
-          await this.datacenterStore.saveDatacenter({
+          await this.saveDatacenter(
+            datacenterRecord.name,
+            datacenterRecord.config,
+            pipeline,
+          );
+          await this.environmentStore.save({
+            datacenter: datacenterRecord.name,
             name: args.name,
-            config: datacenter,
+            config: environment,
           });
-
-          this.renderPipeline(pipeline);
+          this.renderPipeline(pipeline, { clear: !flags.verbose });
           clearInterval(interval);
-          this.log('Datacenter created successfully');
+          this.log('Environment created successfully');
         })
-        .catch((err) => {
+        .catch(async (err) => {
+          await this.saveDatacenter(
+            datacenterRecord.name,
+            datacenterRecord.config,
+            pipeline,
+          );
+          this.renderPipeline(pipeline, { clear: !flags.verbose });
           clearInterval(interval);
           this.error(err);
         });

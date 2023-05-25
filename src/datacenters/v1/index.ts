@@ -145,7 +145,7 @@ export default class DatacenterV1 extends Datacenter {
       JSON.stringify(contents).replace(
         /\${{\s?environment\.resources\.([\w-]+)\.(\S+)\s?}}/g,
         (full_ref, resource_id, resource_key) => {
-          const resource = this.resources?.[resource_id];
+          const resource = this.environment?.resources?.[resource_id];
           if (!resource) {
             throw new Error(`Invalid expression: ${full_ref}`);
           }
@@ -214,6 +214,12 @@ export default class DatacenterV1 extends Datacenter {
           environment: environmentName,
           inputs: value,
         });
+
+        node.inputs = this.replaceDatacenterResourceRefs(
+          graph,
+          node.id,
+          node.inputs,
+        );
 
         node.inputs = this.replaceEnvironmentResourceRefs(
           graph,
@@ -300,30 +306,34 @@ export default class DatacenterV1 extends Datacenter {
                 name: newResourceName,
                 environment: environmentName,
                 component: node.component,
-                inputs: this.replaceEnvironmentNameRefs(
-                  environmentName,
-                  this.replaceEnvironmentResourceRefs(
-                    graph,
+                inputs: this.replaceDatacenterResourceRefs(
+                  graph,
+                  hook_node_id,
+                  this.replaceEnvironmentNameRefs(
                     environmentName,
-                    hook_node_id,
-                    replaceHookExpressions(
-                      hook.resources || {},
-                      newResourceName,
+                    this.replaceEnvironmentResourceRefs(
+                      graph,
+                      environmentName,
                       hook_node_id,
-                      JSON.parse(
-                        JSON.stringify(resource_config).replace(
-                          /\${{\s?this\.outputs\.(\S+)\s?}}/g,
-                          (_, key: string) => {
-                            graph.insertEdges(
-                              new CloudEdge({
-                                from: hook_node_id,
-                                to: node.id,
-                                required: true,
-                              }),
-                            );
+                      replaceHookExpressions(
+                        hook.resources || {},
+                        newResourceName,
+                        hook_node_id,
+                        JSON.parse(
+                          JSON.stringify(resource_config).replace(
+                            /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                            (_, key: string) => {
+                              graph.insertEdges(
+                                new CloudEdge({
+                                  from: hook_node_id,
+                                  to: node.id,
+                                  required: true,
+                                }),
+                              );
 
-                            return `\${{ ${node.id}.${key} }}`;
-                          },
+                              return `\${{ ${node.id}.${key} }}`;
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -339,15 +349,19 @@ export default class DatacenterV1 extends Datacenter {
           delete hookData.when;
           delete hookData.resources;
 
-          node.inputs = this.replaceEnvironmentResourceRefs(
+          node.inputs = this.replaceDatacenterResourceRefs(
             graph,
-            environmentName,
             node.id,
-            replaceHookExpressions(hookResources, node.name, node.id, {
-              ...node.inputs,
-              ...hookData,
-              account: node.inputs.account || hookData.account,
-            } as any),
+            this.replaceEnvironmentResourceRefs(
+              graph,
+              environmentName,
+              node.id,
+              replaceHookExpressions(hookResources, node.name, node.id, {
+                ...node.inputs,
+                ...hookData,
+                account: node.inputs.account || hookData.account,
+              } as any),
+            ),
           );
 
           graph.insertNodes(node);

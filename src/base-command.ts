@@ -11,10 +11,10 @@ import {
   DatacenterRecord,
   DatacenterStore,
 } from './datacenters/index.js';
+import { EnvironmentStore } from './environments/index.js';
 import { Pipeline, PipelineStep } from './pipeline/index.js';
 import { Terraform } from './terraform/terraform.js';
 import CloudCtlConfig from './utils/config.js';
-import { EnvironmentStore } from './utils/environment-store.js';
 import { CldCtlProviderStore } from './utils/provider-store.js';
 import { createProvider } from './utils/providers.js';
 import { createTable } from './utils/table.js';
@@ -108,7 +108,6 @@ export abstract class BaseCommand extends Command {
                 secret: outputs.id,
               },
             });
-            this.log('Datacenter created successfully');
             resolve();
           },
           error: reject,

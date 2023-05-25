@@ -221,7 +221,7 @@ export class Pipeline {
       );
 
       const oldId = newNode.id;
-      if (!previousStep) {
+      if (!previousStep || previousStep.status.state !== 'complete') {
         const newStep = new PipelineStep({
           ...newNode,
           type: newNode.type,

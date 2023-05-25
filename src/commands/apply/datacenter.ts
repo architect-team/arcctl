@@ -10,12 +10,6 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
   static description = 'Apply changes to a new or existing datacenter';
 
   static flags = {
-    name: Flags.string({
-      char: 'n',
-      description: `Name of the datacenter to modify. If it doesn't exist, one will be created.`,
-      required: true,
-    }),
-
     verbose: Flags.boolean({
       char: 'v',
       description: 'Turn on verbose logs',
@@ -23,6 +17,11 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
   };
 
   static args = [
+    {
+      name: 'name',
+      description: 'Name of the datacenter to create or modify',
+      required: true,
+    },
     {
       name: 'config_path',
       description: 'Path to the new datacenter configuration file',
@@ -34,11 +33,9 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
     const { args, flags } = await this.parse(ApplyDatacenterChangesCmd);
 
     try {
-      const currentDatacenterRecord = await this.datacenterStore.get(
-        flags.name,
-      );
+      const currentDatacenterRecord = await this.datacenterStore.get(args.name);
       const newDatacenter = await parseDatacenter(args.config_path);
-      const allEnvironments = await this.environmentStore.getEnvironments();
+      const allEnvironments = await this.environmentStore.find();
       const datacenterEnvironments = allEnvironments.filter(
         (e) => e.datacenter === flags.name,
       );

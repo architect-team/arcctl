@@ -17,19 +17,7 @@ export type ResourcePresets<T extends ResourceType> = Array<{
   values: Partial<ResourceInputs[T]>;
 }>;
 
-export interface ResourceLifecycleHooks<T extends ResourceType> {
-  afterCreate?: (
-    providerStore: ProviderStore,
-    inputs: ResourceInputs[T],
-    outputs: ResourceOutputs[T] & Record<string, any>,
-  ) => Promise<void>;
-  afterDelete?: () => Promise<void>;
-  afterImport?: () => Promise<void>;
-}
-
 export abstract class BaseService<T extends ResourceType> {
-  hooks: ResourceLifecycleHooks<T> = {};
-
   /**
    * Retrieve the details of an existing resource
    */

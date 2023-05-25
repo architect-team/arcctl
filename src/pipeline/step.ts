@@ -193,7 +193,46 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     const stateString = fs.readFileSync(stateFile, 'utf8');
     this.state = JSON.parse(stateString);
+
+    const outputCmd = options.terraform.output(nodeDir);
+    if (options.logger) {
+      outputCmd.stdout?.on('data', (chunk) => {
+        options.logger?.info(chunk);
+      });
+      outputCmd.stderr?.on('data', (chunk) => {
+        options.logger?.error(chunk);
+      });
+    }
+    const { stdout: rawOutputs } = await outputCmd;
+    const parsedOutputs = JSON.parse(rawOutputs);
+
+    // Clean up state
     fs.rmSync(stateFile);
+
+    if (this.action === 'create' && module.hooks.afterCreate) {
+      this.status.state = 'applying';
+      this.status.message = `Running post-create hooks`;
+      subscriber.next(this);
+
+      const outputs = await this.getOutputs(options);
+      if (!outputs) {
+        throw new Error(`Failed to acquired outputs for ${this.id}`);
+      }
+
+      await module.hooks.afterCreate(options.providerStore, (id: string) => {
+        if (parsedOutputs[id]) {
+          return parsedOutputs[id].value;
+        }
+
+        throw new Error(`Invalid output key, ${id}`);
+      });
+    } else if (this.action === 'delete' && module.hooks.afterDelete) {
+      this.status.state = 'destroying';
+      this.status.message = `Running post-delete hooks`;
+      subscriber.next(this);
+
+      await module.hooks.afterDelete();
+    }
 
     this.status.state = 'complete';
     this.status.message = '';
@@ -293,29 +332,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
       promise
         .then(async () => {
-          if (this.action === 'create' && service.hooks.afterCreate) {
-            this.status.state = 'applying';
-            this.status.message = `Running post-create hooks`;
-            subscriber.next(this);
-
-            const outputs = await this.getOutputs(options);
-            if (!outputs) {
-              throw new Error(`Failed to acquired outputs for ${this.id}`);
-            }
-
-            await service.hooks.afterCreate(
-              options.providerStore,
-              this.inputs!,
-              outputs,
-            );
-          } else if (this.action === 'delete' && service.hooks.afterDelete) {
-            this.status.state = 'destroying';
-            this.status.message = `Running post-delete hooks`;
-            subscriber.next(this);
-
-            await service.hooks.afterDelete();
-          }
-
           this.status.state = 'complete';
           this.status.message = '';
           this.status.endTime = Date.now();

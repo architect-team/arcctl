@@ -3,7 +3,6 @@ import KubernetesUtils from '../../kubernetes.js';
 import { ResourceModule } from '../../module.js';
 import { ProviderStore } from '../../store.js';
 import { SupportedProviders } from '../../supported-providers.js';
-import { SaveFileFn } from '../../types.js';
 import { KubernetesCluster } from '../.gen/providers/digitalocean/kubernetes-cluster/index.js';
 import { KubernetesNodePool } from '../.gen/providers/digitalocean/kubernetes-node-pool/index.js';
 import { DigitaloceanCredentials } from '../credentials.js';
@@ -80,7 +79,7 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<
       name: this.cluster.name,
       vpc: inputs.vpc,
       kubernetesVersion: this.cluster.version,
-      provider: `kubernetesCluster-${this.cluster.name}`,
+      account: `kubernetesCluster-${this.cluster.name}`,
     };
   }
 
@@ -102,8 +101,7 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<
 
   hooks = {
     afterCreate: async (
-      saveFile: SaveFileFn,
-      saveProvider: ProviderStore['saveProvider'],
+      providerStore: ProviderStore,
       getOutputValue: (id: string) => Promise<any>,
     ) => {
       const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
@@ -132,17 +130,17 @@ users:
   user:
     token: ${token}`;
       await KubernetesUtils.createProvider(this.inputs.name, credentialsYaml);
-      const configFilePath = saveFile(
+      const configFilePath = providerStore.saveFile(
         `kubernetesCluster-${this.inputs.name}.yml`,
         credentialsYaml,
       );
-      saveProvider(
+      providerStore.saveProvider(
         new SupportedProviders.kubernetes(
           `kubernetesCluster-${this.inputs.name}`,
           {
             configPath: configFilePath,
           },
-          saveFile,
+          providerStore.saveFile.bind(providerStore),
         ),
       );
     },

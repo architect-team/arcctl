@@ -6,23 +6,29 @@ export class ListEnvironmentsCmd extends BaseCommand {
 
   static aliases = ['list:envs', 'list:env', 'list:environment'];
 
-  static flags = {};
-
-  static args = [];
-
   async run(): Promise<void> {
-    const environments = await this.environmentStore.getEnvironments();
+    const environments = await this.environmentStore.find();
     if (environments.length <= 0) {
       this.log('No environments found');
       return;
     }
 
     const table = createTable({
-      head: ['Name', 'Datacenter'],
+      head: ['Name', 'Datacenter', 'Resources'],
     });
 
     for (const { name, datacenter } of environments) {
-      table.push([name, datacenter]);
+      const datacenterRecord = await this.datacenterStore.get(datacenter);
+
+      let resourceCount = 0;
+      if (datacenterRecord) {
+        const pipeline = await this.getPipelineForDatacenter(datacenterRecord);
+        resourceCount = pipeline.steps.filter(
+          (step) => step.action !== 'delete' && step.environment === name,
+        ).length;
+      }
+
+      table.push([name, datacenter, String(resourceCount)]);
     }
 
     this.log(table.toString());

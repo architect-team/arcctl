@@ -1,5 +1,7 @@
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
+import KubernetesUtils from '../../kubernetes.js';
+import { ResourceModule, ResourceModuleHooks } from '../../module.js';
+import { SupportedProviders } from '../../supported-providers.js';
 import { Eks } from '../.gen/modules/eks.js';
 import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.js';
 import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.js';
@@ -146,7 +148,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
       kubernetesVersion: this.eks.clusterVersion || '',
       name: this.eks.clusterName || this.inputs.name,
       vpc: this.eks.vpcId || this.inputs.vpc,
-      provider: `kubernetesCluster-${this.inputs.name}`,
+      account: `kubernetesCluster-${this.inputs.name}`,
     };
   }
 
@@ -254,4 +256,54 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     }
     return results;
   }
+
+  hooks: ResourceModuleHooks = {
+    afterCreate: async (providerStore, getOutputValue) => {
+      const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
+      const endpoint = await getOutputValue(
+        this.clusterEndpointOutput.friendlyUniqueId,
+      );
+      const credentialsYaml = `apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${ca}
+    server: ${endpoint}
+  name: ${this.inputs.name}
+contexts:
+- context:
+    cluster:  ${this.inputs.name}
+    user:  ${this.inputs.name}
+  name:  ${this.inputs.name}
+current-context:  ${this.inputs.name}
+kind: Config
+preferences: {}
+users:
+- name:  ${this.inputs.name}
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - ${this.inputs.region}
+      - eks
+      - get-token
+      - --cluster-name
+      - ${this.inputs.name}
+      command: aws`;
+      await KubernetesUtils.createProvider(this.inputs.name, credentialsYaml);
+      const configPath = providerStore.saveFile(
+        this.inputs.name,
+        credentialsYaml,
+      );
+      providerStore.saveProvider(
+        new SupportedProviders.kubernetes(
+          `kubernetesCluster-${this.inputs.name}`,
+          {
+            configPath,
+          },
+          providerStore.saveFile.bind(providerStore),
+        ),
+      );
+    },
+  };
 }

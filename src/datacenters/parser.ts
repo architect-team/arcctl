@@ -1,8 +1,8 @@
 import { Datacenter } from './datacenter.ts';
 import { buildDatacenter, DatacenterSchema } from './schema.ts';
 import Ajv2019 from 'https://esm.sh/ajv@8.6.1';
-import yaml from 'npm:js-yaml';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import yaml from 'js-yaml';
+import * as path from 'std/path/mod.ts';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });

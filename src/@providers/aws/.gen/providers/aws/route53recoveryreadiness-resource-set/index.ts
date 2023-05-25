@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoveryreadiness_resource_set
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

@@ -19,25 +19,25 @@ import { CldCtlProviderStore } from './utils/provider-store.ts';
 import { createProvider, getProviders } from './utils/providers.ts';
 import { CldCtlTerraformStack } from './utils/stack.ts';
 import { createTable } from './utils/table.ts';
+import { JSONSchemaType } from 'ajv';
+import { TerraformOutput, TerraformStack } from 'cdktf';
+import cliSpinners from 'cli-spinners';
+import inquirer from 'inquirer';
+import readline from 'readline';
+import { Command } from 'cliffy/command/mod.ts';
+import { colors } from 'cliffy/ansi/colors.ts';
+import * as path from 'std/path/mod.ts';
 
-import { JSONSchemaType } from 'npm:ajv';
-import { TerraformOutput, TerraformStack } from 'npm:cdktf';
-import cliSpinners from 'npm:cli-spinners';
-import inquirer from 'npm:inquirer';
-import readline from 'npm:readline';
-import { Command } from "https://deno.land/x/cliffy@v0.25.7/command/mod.ts";
-import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
-import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
-
-type ParentCommandGlobals = {
+export type ParentCommandGlobals = {
   config?: string;
-}
+};
 
 type ParentCommandTypes = void;
 
-export abstract class BaseCommand<T extends Record<string, unknown> | void , U extends Array<unknown> = unknown[]> extends Command<ParentCommandGlobals, ParentCommandTypes, T, U> {
-  private spinner_frame_index = 0;
-
+export abstract class BaseCommand<
+  T extends Record<string, unknown> | void,
+  U extends Array<unknown> = unknown[],
+> extends Command<ParentCommandGlobals, ParentCommandTypes, T, U> {
   static command_name: string | undefined;
   static command_description: string | undefined;
 
@@ -45,14 +45,12 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
   // CloudCtlConfig.setOclifConfig(config);
 
   constructor() {
-    super()
-    return this
-      .name(this.getName())
-      .description(this.getDescription());
+    super();
+    return this.name(this.getName()).description(this.getDescription());
   }
 
   getName() {
-    const cls = (<typeof BaseCommand> this.constructor);
+    const cls = <typeof BaseCommand>this.constructor;
     if (!cls.command_name) {
       throw new Error(`static command_name is not set for ${cls.name}`);
     }
@@ -60,7 +58,7 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
   }
 
   getDescription() {
-    const cls = (<typeof BaseCommand> this.constructor);
+    const cls = <typeof BaseCommand>this.constructor;
     if (!cls.command_description) {
       throw new Error(`static command_description is not set for ${cls.name}`);
     }
@@ -71,26 +69,30 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
     if (options.config) {
       return options.config;
     }
-    return '~/.config/test'
+    return '~/.config/test';
   }
+}
 
-  protected get componentStore(): ComponentStore {
-    const config_dir = CloudCtlConfig.getConfigDirectory()
+export class CommandHelper {
+  private spinner_frame_index = 0;
+
+  get componentStore(): ComponentStore {
+    const config_dir = CloudCtlConfig.getConfigDirectory();
     return new ComponentStore(
       path.join(config_dir, 'component-store'),
       'registry.architect.io',
     );
   }
 
-  protected get providerStore(): ProviderStore {
+  get providerStore(): ProviderStore {
     return new CldCtlProviderStore(CloudCtlConfig.getConfigDirectory());
   }
 
-  protected get datacenterStore(): DatacenterStore {
+  get datacenterStore(): DatacenterStore {
     return new DatacenterStore(CloudCtlConfig.getConfigDirectory());
   }
 
-  protected get environmentStore(): EnvironmentStore {
+  get environmentStore(): EnvironmentStore {
     return new EnvironmentStore(CloudCtlConfig.getConfigDirectory());
   }
 
@@ -560,7 +562,8 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
     } = {},
   ): Promise<Provider> {
     const providers: Provider[] = [];
-    for (const p of await getProviders(this.config.configDir)) {
+    const config_dir = CloudCtlConfig.getConfigDirectory();
+    for (const p of await getProviders(config_dir)) {
       if (options.type && p.resources[options.type]) {
         const service = p.resources[options.type]!;
         if (!options.action || (options.action && service[options.action])) {
@@ -598,6 +601,8 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
     const provider = providers.find((p) => p.name === res.provider);
     if (!provider) {
       console.error(`Credentials ${res.provider} not found`);
+      // TODO(tyler): Exit here?
+      Deno.exit(1);
     }
 
     return provider;
@@ -660,7 +665,9 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
       type,
       './inputs.schema.json',
     );
-    const schemaString = new TextDecoder().decode(await Deno.readFile(schemaPath));;
+    const schemaString = new TextDecoder().decode(
+      await Deno.readFile(schemaPath),
+    );
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {
       schema = schema.definitions[schema.$ref.replace('#/definitions/', '')];
@@ -671,6 +678,8 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
       console.error(
         `The ${provider.type} provider does not work with ${type} resources`,
       );
+      // TODO(tyler): Exit here?
+      Deno.exit(1);
     }
 
     const ModuleConstructor = service.manage?.module;
@@ -678,6 +687,8 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
       console.error(
         `The ${provider.type} provider cannot create ${type} resources`,
       );
+      // TODO(tyler): Exit here?
+      Deno.exit(1);
     }
 
     if (service.manage?.presets?.length) {
@@ -735,7 +746,6 @@ export abstract class BaseCommand<T extends Record<string, unknown> | void , U e
         break;
       }
     }
-    // eslint-disable-next-line no-process-exit
     Deno.exit(1);
   }
 }

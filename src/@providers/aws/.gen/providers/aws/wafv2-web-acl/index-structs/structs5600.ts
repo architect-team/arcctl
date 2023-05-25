@@ -1,9 +1,10 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2WebAclRuleStatementOrStatementStatement,
   wafv2WebAclRuleStatementOrStatementStatementToTerraform,
   Wafv2WebAclRuleStatementOrStatementStatementList,
 } from './structs6000';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2WebAclRuleStatementNotStatementStatementAndStatement {
   /**
    * statement block

@@ -4,7 +4,7 @@ import {
   ResourceType,
 } from '../../../@resources/types.ts';
 import { CldctlTest, CldctlTestContext } from '../../tests.ts';
-import { AwsCredentials } from '../credentials';
+import { AwsCredentials } from '../credentials.ts';
 import { expect } from 'chai';
 
 export class AwsDnsZoneTest implements CldctlTest<AwsCredentials> {

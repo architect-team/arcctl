@@ -6,7 +6,7 @@ import {
 import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import * as path from 'std/path/mod.ts';
 
 const tmpDirectory = tmpDir() || '/tmp';
 

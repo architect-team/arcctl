@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl_logging_configuration
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

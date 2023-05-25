@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   CronJobMetadata,
   cronJobMetadataToTerraform,
@@ -10,10 +9,12 @@ import {
   CronJobTimeouts,
   cronJobTimeoutsToTerraform,
   CronJobTimeoutsOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface CronJobConfig extends cdktf.TerraformMetaArguments {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cron_job#id CronJob#id}

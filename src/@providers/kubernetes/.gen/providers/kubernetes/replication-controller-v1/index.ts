@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   ReplicationControllerV1Metadata,
   replicationControllerV1MetadataToTerraform,
@@ -10,10 +9,12 @@ import {
   ReplicationControllerV1Timeouts,
   replicationControllerV1TimeoutsToTerraform,
   ReplicationControllerV1TimeoutsOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface ReplicationControllerV1Config
   extends cdktf.TerraformMetaArguments {
   /**

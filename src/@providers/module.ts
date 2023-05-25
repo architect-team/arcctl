@@ -6,8 +6,8 @@ import {
 import { ProviderCredentials } from './credentials.ts';
 import { ProviderStore } from './store.ts';
 import { SaveFileFn } from './types.ts';
-import { TerraformResource } from 'npm:cdktf';
-import { Construct } from 'npm:constructs';
+import { TerraformResource } from 'cdktf';
+import { Construct } from 'constructs';
 
 export interface ResourceModuleHooks {
   afterCreate?: (

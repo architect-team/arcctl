@@ -1,4 +1,46 @@
-import * as cdktf from 'npm:cdktf';
+import {
+  Wafv2WebAclRuleAction,
+  wafv2WebAclRuleActionToTerraform,
+  Wafv2WebAclRuleActionOutputReference,
+  Wafv2WebAclRuleOverrideAction,
+  wafv2WebAclRuleOverrideActionToTerraform,
+  Wafv2WebAclRuleOverrideActionOutputReference,
+  Wafv2WebAclRuleRuleLabel,
+  wafv2WebAclRuleRuleLabelToTerraform,
+  Wafv2WebAclRuleRuleLabelList,
+} from './structs0.ts';
+import {
+  Wafv2WebAclRuleStatementAndStatement,
+  wafv2WebAclRuleStatementAndStatementToTerraform,
+  Wafv2WebAclRuleStatementAndStatementOutputReference,
+  Wafv2WebAclRuleStatementByteMatchStatement,
+  wafv2WebAclRuleStatementByteMatchStatementToTerraform,
+  Wafv2WebAclRuleStatementByteMatchStatementOutputReference,
+  Wafv2WebAclRuleStatementGeoMatchStatement,
+  wafv2WebAclRuleStatementGeoMatchStatementToTerraform,
+  Wafv2WebAclRuleStatementGeoMatchStatementOutputReference,
+  Wafv2WebAclRuleStatementIpSetReferenceStatement,
+  wafv2WebAclRuleStatementIpSetReferenceStatementToTerraform,
+  Wafv2WebAclRuleStatementIpSetReferenceStatementOutputReference,
+  Wafv2WebAclRuleStatementLabelMatchStatement,
+  wafv2WebAclRuleStatementLabelMatchStatementToTerraform,
+  Wafv2WebAclRuleStatementLabelMatchStatementOutputReference,
+} from './structs400.ts';
+import {
+  Wafv2WebAclRuleStatementManagedRuleGroupStatement,
+  wafv2WebAclRuleStatementManagedRuleGroupStatementToTerraform,
+  Wafv2WebAclRuleStatementManagedRuleGroupStatementOutputReference,
+} from './structs5200';
+import {
+  Wafv2WebAclRuleStatementNotStatement,
+  wafv2WebAclRuleStatementNotStatementToTerraform,
+  Wafv2WebAclRuleStatementNotStatementOutputReference,
+} from './structs5600';
+import {
+  Wafv2WebAclRuleStatementOrStatement,
+  wafv2WebAclRuleStatementOrStatementToTerraform,
+  Wafv2WebAclRuleStatementOrStatementOutputReference,
+} from './structs6000';
 import {
   Wafv2WebAclRuleStatementSqliMatchStatementFieldToMatch,
   wafv2WebAclRuleStatementSqliMatchStatementFieldToMatchToTerraform,
@@ -19,49 +61,8 @@ import {
   wafv2WebAclRuleStatementSizeConstraintStatementToTerraform,
   Wafv2WebAclRuleStatementSizeConstraintStatementOutputReference,
 } from './structs11200';
-import {
-  Wafv2WebAclRuleStatementAndStatement,
-  wafv2WebAclRuleStatementAndStatementToTerraform,
-  Wafv2WebAclRuleStatementAndStatementOutputReference,
-  Wafv2WebAclRuleStatementByteMatchStatement,
-  wafv2WebAclRuleStatementByteMatchStatementToTerraform,
-  Wafv2WebAclRuleStatementByteMatchStatementOutputReference,
-  Wafv2WebAclRuleStatementGeoMatchStatement,
-  wafv2WebAclRuleStatementGeoMatchStatementToTerraform,
-  Wafv2WebAclRuleStatementGeoMatchStatementOutputReference,
-  Wafv2WebAclRuleStatementIpSetReferenceStatement,
-  wafv2WebAclRuleStatementIpSetReferenceStatementToTerraform,
-  Wafv2WebAclRuleStatementIpSetReferenceStatementOutputReference,
-  Wafv2WebAclRuleStatementLabelMatchStatement,
-  wafv2WebAclRuleStatementLabelMatchStatementToTerraform,
-  Wafv2WebAclRuleStatementLabelMatchStatementOutputReference,
-} from './structs400';
-import {
-  Wafv2WebAclRuleStatementManagedRuleGroupStatement,
-  wafv2WebAclRuleStatementManagedRuleGroupStatementToTerraform,
-  Wafv2WebAclRuleStatementManagedRuleGroupStatementOutputReference,
-} from './structs5200';
-import {
-  Wafv2WebAclRuleStatementNotStatement,
-  wafv2WebAclRuleStatementNotStatementToTerraform,
-  Wafv2WebAclRuleStatementNotStatementOutputReference,
-} from './structs5600';
-import {
-  Wafv2WebAclRuleStatementOrStatement,
-  wafv2WebAclRuleStatementOrStatementToTerraform,
-  Wafv2WebAclRuleStatementOrStatementOutputReference,
-} from './structs6000';
-import {
-  Wafv2WebAclRuleAction,
-  wafv2WebAclRuleActionToTerraform,
-  Wafv2WebAclRuleActionOutputReference,
-  Wafv2WebAclRuleOverrideAction,
-  wafv2WebAclRuleOverrideActionToTerraform,
-  Wafv2WebAclRuleOverrideActionOutputReference,
-  Wafv2WebAclRuleRuleLabel,
-  wafv2WebAclRuleRuleLabelToTerraform,
-  Wafv2WebAclRuleRuleLabelList,
-} from './structs0';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2WebAclRuleStatementSqliMatchStatementTextTransformation {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#priority Wafv2WebAcl#priority}

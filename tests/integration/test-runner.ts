@@ -10,11 +10,10 @@ import { ResourceOutputs, ResourceType } from '../../src/index.ts';
 import PluginManager from '../../src/plugins/plugin-manager.ts';
 import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
 import { CldCtlTerraformStack } from '../../src/utils/stack.ts';
-import { App, TerraformOutput } from 'npm:cdktf';
+import { App, TerraformOutput } from 'cdktf';
 import fs from 'fs';
 import os from 'os';
-import path from 'path';
-import { v4 } from 'uuid';
+import * as path from 'std/path/mod.ts';
 
 let terraformPlugin: TerraformPlugin | undefined;
 
@@ -137,9 +136,9 @@ export class TestRunner {
     credentials: ProviderCredentials,
   ): Promise<void> {
     const tmp_dir = os.tmpdir();
-    const tf_tmp_dir = path.join(tmp_dir, `/tf/${v4()}`);
+    const tf_tmp_dir = path.join(tmp_dir, `/tf/${crypto.randomUUID()}`);
     this.createDirectory = tf_tmp_dir;
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
 
     const app = new App({
       outdir: tf_tmp_dir,
@@ -154,11 +153,8 @@ export class TestRunner {
     );
 
     const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
-    await fs.promises.writeFile(
-      tfMainFile,
-      JSON.stringify(stack.toTerraform()),
-    );
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.writeTextFile(tfMainFile, JSON.stringify(stack.toTerraform()));
     await terraformPlugin?.init(tf_tmp_dir);
     const planFile = path.join(tf_tmp_dir, 'plan');
     await terraformPlugin?.plan(tf_tmp_dir, planFile);
@@ -172,9 +168,9 @@ export class TestRunner {
     credentials: ProviderCredentials,
   ): Promise<void> {
     const tmp_dir = os.tmpdir();
-    const tf_tmp_dir = path.join(tmp_dir, `/tf/${v4()}`);
+    const tf_tmp_dir = path.join(tmp_dir, `/tf/${crypto.randomUUID()}`);
     this.deleteDirectory = tf_tmp_dir;
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
 
     const app = new App({
       outdir: tf_tmp_dir,
@@ -190,11 +186,8 @@ export class TestRunner {
     );
 
     const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
-    await fs.promises.writeFile(
-      tfMainFile,
-      JSON.stringify(stack.toTerraform()),
-    );
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.writeTextFile(tfMainFile, JSON.stringify(stack.toTerraform()));
     await terraformPlugin?.init(tf_tmp_dir);
     await this.runImports(this.destroyOutputStacks);
 
@@ -219,7 +212,7 @@ export class TestRunner {
         context.credentials,
       );
       const plugins_path = path.join(os.tmpdir(), '/plugins');
-      await fs.promises.mkdir(plugins_path, { recursive: true });
+      await Deno.mkdir(plugins_path, { recursive: true });
       terraformPlugin = await PluginManager.getPlugin<TerraformPlugin>(
         plugins_path,
         provider.terraform_version,

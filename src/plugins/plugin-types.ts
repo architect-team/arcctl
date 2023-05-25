@@ -1,4 +1,4 @@
-import { ExecaChildProcess, Options } from 'npm:execa';
+import { ExecaChildProcess, Options } from 'execa';
 
 export enum PluginArchitecture {
   AMD64,

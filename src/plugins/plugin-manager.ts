@@ -1,5 +1,6 @@
-import * as fs from 'fs';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
+import * as fs from 'https://deno.land/std@0.188.0/fs/mod.ts';
+import { existsSync } from 'https://deno.land/std@0.188.0/fs/exists.ts';
 import {
   ArchitectPlugin,
   PluginArchitecture,
@@ -25,27 +26,27 @@ export default class PluginManager {
   };
 
   private static getPlatform(): PluginPlatform {
-    return this.OPERATINSYSTEMMAP[process.platform];
+    return this.OPERATINSYSTEMMAP[Deno.build.os];
   }
 
   private static getArchitecture(): PluginArchitecture {
-    return this.ARCHITECTUREMAP[process.arch];
+    return this.ARCHITECTUREMAP[Deno.build.arch];
   }
 
   private static async removeOldPluginVersions(
     pluginDirectory: string,
     plugin: ArchitectPlugin,
   ) {
-    if (!fs.existsSync(pluginDirectory)) {
+    if (!existsSync(pluginDirectory)) {
       return;
     }
     const usedVersions = Object.keys(plugin.versions);
-    const downloadedVersions = await fs.promises.readdir(pluginDirectory);
-    for (const downloadedVersion of downloadedVersions) {
-      if (usedVersions.includes(downloadedVersion)) {
+    const downloadedVersions = await Deno.readDir(pluginDirectory);
+    for await (const downloadedVersion of downloadedVersions) {
+      if (usedVersions.includes(downloadedVersion.name)) {
         continue;
       }
-      await fs.promises.rmdir(path.join(pluginDirectory, downloadedVersion), {
+      await Deno.remove(path.join(pluginDirectory, downloadedVersion.name), {
         recursive: true,
       });
     }
@@ -72,7 +73,7 @@ export default class PluginManager {
     const versionPath = path.join(currentPluginDirectory, `/${version}`);
 
     await this.removeOldPluginVersions(currentPluginDirectory, plugin);
-    await fs.promises.mkdir(versionPath, { recursive: true });
+    await Deno.mkdir(versionPath, { recursive: true });
 
     const binary = PluginUtils.getBinary(
       plugin.versions[version],
@@ -87,7 +88,7 @@ export default class PluginManager {
     );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);
-    if (!fs.existsSync(executablePath)) {
+    if (!existsSync(executablePath)) {
       await PluginUtils.downloadFile(
         binary.url,
         downloadedFilePath,
@@ -98,8 +99,8 @@ export default class PluginManager {
         versionPath,
         binary.bundleType,
       );
-      await fs.promises.chmod(executablePath, '755');
-      await fs.promises.rm(downloadedFilePath);
+      await Deno.chmod(executablePath, 0o755);
+      await Deno.remove(downloadedFilePath);
     }
 
     await plugin.setup(

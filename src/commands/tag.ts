@@ -1,7 +1,7 @@
 import { BaseCommand } from '../base-command.ts';
-import { ImageRepository } from 'npm:@architect-io/arc-oci';
+import { ImageRepository } from '@architect-io/arc-oci';
 import { execa } from 'execa';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 
 export class TagComponentCmd extends BaseCommand {
   static description = 'Tag a component and its associated build artifacts';

@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

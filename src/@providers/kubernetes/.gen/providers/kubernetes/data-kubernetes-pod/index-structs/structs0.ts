@@ -1,4 +1,5 @@
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+
 export interface DataKubernetesPodSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions {}
 
 export function dataKubernetesPodSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressionsToTerraform(

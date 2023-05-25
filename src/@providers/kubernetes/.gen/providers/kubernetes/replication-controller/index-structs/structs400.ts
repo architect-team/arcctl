@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   ReplicationControllerSpecTemplateSpecInitContainerStartupProbeExec,
   replicationControllerSpecTemplateSpecInitContainerStartupProbeExecToTerraform,
@@ -45,7 +44,9 @@ import {
   ReplicationControllerSpecTemplateMetadata,
   replicationControllerSpecTemplateMetadataToTerraform,
   ReplicationControllerSpecTemplateMetadataOutputReference,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface ReplicationControllerSpecTemplateSpecInitContainerStartupProbeGrpc {
   /**
    * Number of the port to access on the container. Number must be in the range 1 to 65535.

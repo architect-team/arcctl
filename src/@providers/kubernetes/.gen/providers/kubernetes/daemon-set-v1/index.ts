@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   DaemonSetV1Metadata,
   daemonSetV1MetadataToTerraform,
@@ -10,10 +9,12 @@ import {
   DaemonSetV1Timeouts,
   daemonSetV1TimeoutsToTerraform,
   DaemonSetV1TimeoutsOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface DaemonSetV1Config extends cdktf.TerraformMetaArguments {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemon_set_v1#id DaemonSetV1#id}

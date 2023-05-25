@@ -1,11 +1,11 @@
-import { expect } from 'chai';
 import {
   ResourceInputs,
   ResourceOutputs,
   ResourceType,
 } from '../../../@resources/types.ts';
 import { CldctlTest, CldctlTestContext } from '../../tests.ts';
-import { AwsCredentials } from '../credentials';
+import { AwsCredentials } from '../credentials.ts';
+import { expect } from 'chai';
 
 export class AwsDnsRecordTest implements CldctlTest<AwsCredentials> {
   name = 'Basic DNS Record Test';

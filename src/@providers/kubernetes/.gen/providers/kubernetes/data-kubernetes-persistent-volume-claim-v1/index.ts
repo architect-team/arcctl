@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/kubernetes/d/persistent_volume_claim_v1
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

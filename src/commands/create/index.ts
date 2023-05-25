@@ -11,8 +11,9 @@ import Terraform from '../../utils/terraform.ts';
 import { Flags } from '@oclif/core';
 import { ResourceModule } from '@providers/module.ts';
 import { ResourceStatus } from '@providers/status.ts';
-import { App } from 'npm:cdktf';
+import { App } from 'cdktf';
 import chalk from 'chalk';
+import { colors } from 'cliffy/ansi/colors.ts';
 import * as fs from 'fs';
 import inquirer from 'inquirer';
 import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
@@ -85,7 +86,7 @@ export default class CreateResourceCommand extends BaseCommand {
       );
     }
 
-    await fs.promises.mkdir(CloudCtlConfig.getTerraformDirectory(), {
+    await Deno.mkdir(CloudCtlConfig.getTerraformDirectory(), {
       recursive: true,
     });
     const app = new App({
@@ -202,7 +203,7 @@ export default class CreateResourceCommand extends BaseCommand {
     console.time('Time');
     await taskManager.run();
     this.log(inspect(outputs));
-    this.log(chalk.green(`${type} resource created successfully`));
+    this.log(colors.green(`${type} resource created successfully`));
     console.timeEnd('Time');
   }
 }

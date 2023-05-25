@@ -2,7 +2,7 @@
 import { execa } from 'npm:execa';
 import Listr from 'npm:listr';
 import Mustache from 'npm:mustache';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import * as path from 'std/path/mod.ts';
 import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;

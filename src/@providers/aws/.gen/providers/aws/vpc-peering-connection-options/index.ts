@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_peering_connection_options
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

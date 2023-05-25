@@ -1,5 +1,5 @@
 import { CloudGraph } from '../cloud-graph/index.ts';
-import { Construct } from 'npm:constructs';
+import { Construct } from 'constructs';
 
 export abstract class Datacenter {
   public abstract enrichGraph(

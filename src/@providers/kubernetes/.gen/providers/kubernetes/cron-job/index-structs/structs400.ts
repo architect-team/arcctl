@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   CronJobSpecJobTemplateSpecTemplateSpecInitContainerSecurityContextCapabilities,
   cronJobSpecJobTemplateSpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
@@ -51,7 +50,9 @@ import {
   CronJobSpecJobTemplateMetadata,
   cronJobSpecJobTemplateMetadataToTerraform,
   CronJobSpecJobTemplateMetadataOutputReference,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface CronJobSpecJobTemplateSpecTemplateSpecInitContainerSecurityContextSeccompProfile {
   /**
    * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.

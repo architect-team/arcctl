@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   PodMetadata,
   podMetadataToTerraform,
@@ -10,10 +9,12 @@ import {
   PodTimeouts,
   podTimeoutsToTerraform,
   PodTimeoutsOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface PodConfig extends cdktf.TerraformMetaArguments {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/pod#id Pod#id}

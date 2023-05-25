@@ -1,11 +1,11 @@
 import { Component } from '../../components/index.ts';
 import { parseComponent } from '../../components/parser.ts';
 import { ComponentStore } from '../store.ts';
-import { ImageManifest, ImageRepository } from 'npm:@architect-io/arc-oci';
+import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
 import jest from 'jest-mock';
 import mock_fs from 'mock-fs';
 import os from 'os';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 import tar from 'tar';
 
 const DEFAULT_REGISTRY = 'registry.architect.io';

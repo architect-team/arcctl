@@ -7,7 +7,7 @@ import {
 import { ResourceService } from './service.ts';
 import { CldctlTestResource } from './tests.ts';
 import { SaveFileFn } from './types.ts';
-import { Construct } from 'npm:constructs';
+import { Construct } from 'constructs';
 
 export type ProviderResources<C extends ProviderCredentials> = {
   [T in ResourceType]?: ResourceService<T, C>;

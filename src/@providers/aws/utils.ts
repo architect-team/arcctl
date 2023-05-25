@@ -1,7 +1,7 @@
+import { ResourceInputs } from '../../@resources/index.ts';
+import { AwsCredentials } from './credentials.ts';
 import AWS, { EC2 } from 'aws-sdk';
 import { SecurityGroupRule } from 'aws-sdk/clients/ec2.ts';
-import { ResourceInputs } from '../../@resources';
-import { AwsCredentials } from './credentials';
 
 export interface AwsIds {
   private: string[];

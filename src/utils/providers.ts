@@ -1,9 +1,8 @@
 import { Provider } from '../@providers/provider.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import CloudCtlConfig from './config.ts';
-import fs from 'fs';
 import inquirer from 'inquirer';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 
 export const saveProvider = async (
   provider: Provider,
@@ -42,17 +41,17 @@ export const saveFile =
   (name: string, content: string): string => {
     configDir = configDir || CloudCtlConfig.getConfigDirectory();
     const filePath = path.join(configDir, name);
-    fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, content);
+    Deno.mkdirSync(path.dirname(filePath), { recursive: true });
+    Deno.writeTextFileSync(filePath, content);
     return filePath;
   };
 
 export const getProviders = async (configDir?: string): Promise<Provider[]> => {
   configDir = configDir || CloudCtlConfig.getConfigDirectory();
   const providersConfigFile = path.join(configDir, 'providers.json');
-  const fileContents = await fs.promises
-    .readFile(providersConfigFile, 'utf8')
-    .catch(() => '[]');
+  const fileContents = await Deno.readTextFile(providersConfigFile).catch(
+    () => '[]',
+  );
   const rawProviders = JSON.parse(fileContents);
 
   const providers: Provider[] = [];
@@ -154,10 +153,10 @@ export const saveProviders = async (
   providers: Provider[],
 ): Promise<void> => {
   const providersConfigFile = path.join(configDir, 'providers.json');
-  await fs.promises.mkdir(path.dirname(providersConfigFile), {
+  await Deno.mkdir(path.dirname(providersConfigFile), {
     recursive: true,
   });
-  await fs.promises.writeFile(
+  await Deno.writeTextFile(
     providersConfigFile,
     JSON.stringify(providers, null, 2),
   );

@@ -22,7 +22,7 @@ import { DigitalOceanDatabaseTest } from './tests/database.ts';
 import { DigitalOceanDnsRecordTest } from './tests/dns-record.ts';
 import { DigitalOceanDnsZoneTest } from './tests/dns-zone.ts';
 import { DigitalOceanVpcTest } from './tests/vpc.ts';
-import { Construct } from 'npm:constructs';
+import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
 
 export default class DigitaloceanProvider extends Provider<DigitaloceanCredentials> {

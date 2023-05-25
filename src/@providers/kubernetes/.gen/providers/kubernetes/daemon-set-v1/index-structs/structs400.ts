@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   DaemonSetV1SpecTemplateSpecInitContainerSecurityContextCapabilities,
   daemonSetV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
@@ -48,7 +47,9 @@ import {
   DaemonSetV1SpecStrategy,
   daemonSetV1SpecStrategyToTerraform,
   DaemonSetV1SpecStrategyOutputReference,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface DaemonSetV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions {
   /**
    * Level is SELinux level label that applies to the container.

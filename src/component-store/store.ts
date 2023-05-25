@@ -1,12 +1,12 @@
 import { Component } from '../components/component.ts';
 import { parseComponent } from '../components/parser.ts';
 import { ComponentStoreDB } from './db.ts';
-import { ImageManifest, ImageRepository } from 'npm:@architect-io/arc-oci';
-import * as fs from 'https://deno.land/std@0.188.0/fs/mod.ts';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
+import { existsSync } from 'https://deno.land/std@0.188.0/fs/exists.ts';
 import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
-import tar from 'npm:tar';
+import * as path from 'std/path/mod.ts';
+import tar from 'tar';
 
 const CACHE_DB_FILENAME = 'component.db.json';
 
@@ -79,7 +79,7 @@ export class ComponentStore {
     // If the input is an image ID, look for it in the filesystem
     if (/^[\dA-Fa-f]{64}/.test(ref_or_id)) {
       const src_path = path.join(this.cache_dir, ref_or_id, 'architect.json');
-      if (!fs.existsSync(src_path)) {
+      if (!existsSync(src_path)) {
         throw new MissingComponentRef(ref_or_id);
       }
 
@@ -114,7 +114,7 @@ export class ComponentStore {
       .setEncoding('utf-8') // TODO(tyler): Test this
       .digest('hex') as string;
     const new_path = path.join(this.cache_dir, artifact_id);
-    if (!fs.existsSync(new_path)) {
+    if (!existsSync(new_path)) {
       Deno.mkdirSync(new_path, { recursive: true });
     }
     Deno.writeTextFileSync(
@@ -134,7 +134,7 @@ export class ComponentStore {
       if (/^[\dA-Fa-f]{64}/.test(ref_string)) {
         // If the input is an image ID, look for it in the filesystem
         const src_path = path.join(this.cache_dir, ref_string);
-        if (!fs.existsSync(src_path)) {
+        if (!existsSync(src_path)) {
           throw new MissingComponentRef(ref_string);
         }
 
@@ -176,7 +176,7 @@ export class ComponentStore {
         src_ref_or_id,
         'architect.json',
       );
-      if (!fs.existsSync(src_path)) {
+      if (!existsSync(src_path)) {
         throw new MissingComponentRef(src_ref_or_id);
       }
 
@@ -273,7 +273,7 @@ export class ComponentStore {
       this.cache_dir,
       manifest.config.digest.replace(/^sha256:/, ''),
     );
-    if (!fs.existsSync(store_dir)) {
+    if (!existsSync(store_dir)) {
       Deno.mkdirSync(store_dir, { recursive: true });
     }
 

@@ -1,15 +1,14 @@
 import { Provider } from '../@providers/provider.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
+import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
 
 export class CldCtlProviderStore implements ProviderStore {
   private _providers?: Provider[];
 
   constructor(
-    private config_dir: string = os.tmpdir(),
+    private config_dir: string = tmpDir() || '/tmp',
     private provider_filename: string = 'providers.json',
   ) {
     this.getProviders();
@@ -21,8 +20,8 @@ export class CldCtlProviderStore implements ProviderStore {
 
   saveFile(name: string, content: string): string {
     const file_path = path.join(this.config_dir, name);
-    fs.mkdirSync(path.dirname(file_path), { recursive: true });
-    fs.writeFileSync(file_path, content);
+    Deno.mkdirSync(path.dirname(file_path), { recursive: true });
+    Deno.writeTextFileSync(file_path, content);
     return file_path;
   }
 
@@ -36,7 +35,7 @@ export class CldCtlProviderStore implements ProviderStore {
     }
 
     try {
-      const fileContents = fs.readFileSync(this.providers_config_file, 'utf8');
+      const fileContents = Deno.readTextFileSync(this.providers_config_file);
       const rawProviders = JSON.parse(fileContents);
 
       const providers: Provider[] = [];
@@ -82,10 +81,10 @@ export class CldCtlProviderStore implements ProviderStore {
   }
 
   saveProviders(providers: Provider[]): void {
-    fs.mkdirSync(path.dirname(this.providers_config_file), {
+    Deno.mkdirSync(path.dirname(this.providers_config_file), {
       recursive: true,
     });
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       this.providers_config_file,
       JSON.stringify(providers, null, 2),
     );

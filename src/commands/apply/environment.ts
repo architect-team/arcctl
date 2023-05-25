@@ -3,7 +3,7 @@ import { parseEnvironment } from '../../environments/index.ts';
 import { ExecutableGraph } from '../../executable-graph/index.ts';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 
 export class ApplyEnvironmentChangesCmd extends BaseCommand {

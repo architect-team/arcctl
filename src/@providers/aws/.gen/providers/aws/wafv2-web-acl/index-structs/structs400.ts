@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2WebAclRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments,
   wafv2WebAclRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsToTerraform,
@@ -51,7 +50,9 @@ import {
   Wafv2WebAclRuleStatementAndStatementStatementSizeConstraintStatement,
   wafv2WebAclRuleStatementAndStatementStatementSizeConstraintStatementToTerraform,
   Wafv2WebAclRuleStatementAndStatementStatementSizeConstraintStatementOutputReference,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2WebAclRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#name Wafv2WebAcl#name}

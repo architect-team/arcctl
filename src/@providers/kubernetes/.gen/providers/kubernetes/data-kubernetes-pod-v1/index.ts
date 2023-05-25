@@ -1,14 +1,15 @@
 // generated from terraform resource schema
-
 import {
   DataKubernetesPodV1SpecList,
   DataKubernetesPodV1Metadata,
   dataKubernetesPodV1MetadataToTerraform,
   DataKubernetesPodV1MetadataOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface DataKubernetesPodV1Config
   extends cdktf.TerraformMetaArguments {
   /**

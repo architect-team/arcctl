@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments,
   wafv2RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArgumentsToTerraform,
@@ -42,12 +41,14 @@ import {
   Wafv2RuleGroupRuleStatementAndStatementStatementSqliMatchStatement,
   wafv2RuleGroupRuleStatementAndStatementStatementSqliMatchStatementToTerraform,
   Wafv2RuleGroupRuleStatementAndStatementStatementSqliMatchStatementOutputReference,
-} from './structs0';
+} from './structs0.ts';
 import {
   Wafv2RuleGroupRuleStatementNotStatementStatement,
   wafv2RuleGroupRuleStatementNotStatementStatementToTerraform,
   Wafv2RuleGroupRuleStatementNotStatementStatementList,
 } from './structs800';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {}
 
 export function wafv2RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllToTerraform(

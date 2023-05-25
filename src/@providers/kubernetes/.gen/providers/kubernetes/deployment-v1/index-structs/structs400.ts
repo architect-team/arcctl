@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   DeploymentV1SpecTemplateSpecInitContainerSecurityContextCapabilities,
   deploymentV1SpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
@@ -48,7 +47,9 @@ import {
   DeploymentV1SpecStrategy,
   deploymentV1SpecStrategyToTerraform,
   DeploymentV1SpecStrategyOutputReference,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface DeploymentV1SpecTemplateSpecInitContainerSecurityContextSeLinuxOptions {
   /**
    * Level is SELinux level label that applies to the container.

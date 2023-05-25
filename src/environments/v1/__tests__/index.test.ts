@@ -5,7 +5,7 @@ import fs from 'fs/promises';
 import yaml from 'js-yaml';
 import mock_fs from 'mock-fs';
 import os from 'os';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 
 describe('Environment schema: v1', () => {
   afterEach(() => {

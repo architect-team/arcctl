@@ -1,0 +1,126 @@
+{
+    "name": "@architect-io/cldctl",
+    "version": "0.1.4",
+    "description": "cldctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure",
+    "author": "Architect.io @architect-team",
+    "homepage": "https://github.com/architect-team/cldctl",
+    "repository": "architect-team/cldctl",
+    "type": "module",
+    "bin": {
+      "cldctl": "./bin/run.js"
+    },
+    "engines": {
+      "node": ">=12.0.0"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    },
+    "files": [
+      "/bin",
+      "/dist",
+      "/npm-shrinkwrap.json",
+      "/oclif.manifest.json"
+    ],
+    "oclif": {
+      "bin": "cldctl",
+      "dirname": "cldctl",
+      "commands": "./dist/commands",
+      "helpClass": "./dist/help",
+      "plugins": [
+        "@oclif/plugin-help",
+        "@oclif/plugin-plugins"
+      ],
+      "topicSeparator": " ",
+      "macos": {
+        "identifier": "io.architect.cldctl"
+      }
+    },
+    "dependencies": {
+      "@architect-io/arc-oci": "0.1.0",
+      "@kubernetes/client-node": "^0.18.1",
+      "adm-zip": "^0.5.9",
+      "ajv": "^8.11.0",
+      "aws-sdk": "^2.1229.0",
+      "cdktf": "^0.15.5",
+      "chai": "^4.3.7",
+      "chalk": "^5.1.2",
+      "cli-spinners": "^2.7.0",
+      "cli-table": "^0.3.11",
+      "constructs": "^10.1.255",
+      "digitalocean": "^1.2.1",
+      "digitalocean-js": "^2.0.3",
+      "dots-wrapper": "https://github.com/mueschm/dots/tarball/build",
+      "execa": "^6.1.0",
+      "inquirer": "^8.2.4",
+      "js-yaml": "^4.1.0",
+      "listr": "^0.14.3",
+      "log-symbols": "^5.1.0",
+      "log-update": "^5.0.1",
+      "mongodb": "^4.10.0",
+      "mysql2": "^2.3.3",
+      "pg": "^8.8.0",
+      "rxjs": "^7.5.6",
+      "strip-ansi": "^7.0.1",
+      "tar": "^6.1.11",
+      "untildify": "^4.0.0",
+      "winston": "^3.8.2"
+    },
+    "devDependencies": {
+      "@saithodev/semantic-release-backmerge": "^2.1.2",
+      "@semantic-release/changelog": "^6.0.1",
+      "@semantic-release/commit-analyzer": "^9.0.2",
+      "@semantic-release/exec": "^6.0.3",
+      "@semantic-release/git": "^10.0.1",
+      "@semantic-release/github": "^8.0.4",
+      "@semantic-release/npm": "^9.0.1",
+      "@semantic-release/release-notes-generator": "^10.0.3",
+      "@trivago/prettier-plugin-sort-imports": "^4.1.0",
+      "@types/adm-zip": "^0.5.0",
+      "@types/cli-table": "^0.3.0",
+      "@types/fs-extra": "^9.0.13",
+      "@types/inquirer": "^8.2.1",
+      "@types/jest": "^29.0.1",
+      "@types/jest-when": "^3.5.2",
+      "@types/js-yaml": "^4.0.5",
+      "@types/listr": "^0.14.4",
+      "@types/mock-fs": "^4.13.1",
+      "@types/mustache": "^4.2.1",
+      "@types/pg": "^8.6.5",
+      "@types/tar": "^6.1.2",
+      "@typescript-eslint/eslint-plugin": "^5.43.0",
+      "@typescript-eslint/typescript-estree": "^5.43.0",
+      "eslint": "^8.23.0",
+      "eslint-config-oclif": "^4.0.0",
+      "eslint-config-oclif-typescript": "^1.0.3",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-plugin-unicorn": "^44.0.2",
+      "jest": "^29.0.2",
+      "mock-fs": "^5.1.4",
+      "mustache": "^4.2.0",
+      "oclif": "^3.4.3",
+      "prettier": "^2.6.2",
+      "shx": "^0.3.4",
+      "ts-jest": "^29.0.0",
+      "ts-json-schema-generator": "^1.0.0",
+      "ts-node": "^10.7.0",
+      "ts-xor": "^1.0.8",
+      "typescript": "^4.9.5"
+    },
+    "scripts": {
+      "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js",
+      "build": "shx rm -rf dist && tsc -b",
+      "lint": "eslint . --ext .ts --config .eslintrc.cjs",
+      "postpack": "shx rm -f oclif.manifest.json",
+      "prepack": "npm run build && oclif manifest && oclif readme",
+      "version": "oclif readme && git add README.md",
+      "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+      "test:service": "ts-node --project ./tsconfig.json ./tests/integration/test-runner.ts",
+      "generate:resources": "ts-node --project ./tsconfig.json ./bin/scripts/resource-generator.ts"
+    }
+  }

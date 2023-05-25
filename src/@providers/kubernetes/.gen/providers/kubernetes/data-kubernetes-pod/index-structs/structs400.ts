@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   DataKubernetesPodSpecInitContainerEnvList,
   DataKubernetesPodSpecInitContainerEnvFromList,
@@ -9,7 +8,9 @@ import {
   DataKubernetesPodSpecDnsConfigList,
   DataKubernetesPodSpecHostAliasesList,
   DataKubernetesPodSpecImagePullSecretsList,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface DataKubernetesPodSpecInitContainerPort {}
 
 export function dataKubernetesPodSpecInitContainerPortToTerraform(

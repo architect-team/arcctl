@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   Wafv2WebAclCustomResponseBody,
   wafv2WebAclCustomResponseBodyToTerraform,
@@ -13,10 +12,12 @@ import {
   Wafv2WebAclVisibilityConfig,
   wafv2WebAclVisibilityConfigToTerraform,
   Wafv2WebAclVisibilityConfigOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface Wafv2WebAclConfig extends cdktf.TerraformMetaArguments {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#description Wafv2WebAcl#description}

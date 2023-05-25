@@ -7,10 +7,10 @@ import {
 } from '../utils/providers.ts';
 import KubernetesProvider from './kubernetes/provider.ts';
 import { SupportedProviders } from './supported-providers.ts';
-import chalk from 'chalk';
-import fs from 'fs';
+import { colors } from 'cliffy/ansi/colors.ts';
+import { existsSync } from 'https://deno.land/std@0.188.0/fs/exists.ts';
 import yaml from 'js-yaml';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 import untildify from 'untildify';
 
 export default class KubernetesUtils {
@@ -27,7 +27,7 @@ export default class KubernetesUtils {
       CloudCtlConfig.getConfigDirectory(),
       `${newProviderName}.yml`,
     );
-    await fs.promises.writeFile(filePath, kubeConfig);
+    await Deno.writeTextFile(filePath, kubeConfig);
     const newProvider = new SupportedProviders.kubernetes(
       newProviderName,
       {
@@ -53,16 +53,16 @@ export default class KubernetesUtils {
     await deleteProvider(providerName);
     await this.removeFromKubeConfig(clusterName);
     if (provider.credentials.configPath) {
-      await fs.promises.rm(provider.credentials.configPath);
+      await Deno.remove(provider.credentials.configPath);
     }
   }
 
   static async removeFromKubeConfig(name: string): Promise<void> {
     const kubeConfigPath = untildify('~/.kube/config');
-    if (!fs.existsSync(kubeConfigPath)) {
+    if (!existsSync(kubeConfigPath)) {
       return;
     }
-    const kubeConfigContents = await fs.promises.readFile(kubeConfigPath);
+    const kubeConfigContents = await Deno.readTextFile(kubeConfigPath);
     const credentials = yaml.load(kubeConfigContents.toString()) as any;
 
     for (const key of ['clusters', 'users', 'contexts']) {
@@ -75,11 +75,11 @@ export default class KubernetesUtils {
       }
     }
 
-    await fs.promises.writeFile(
+    await Deno.writeTextFile(
       untildify('~/.kube/cldctl-backup'),
       kubeConfigContents,
     );
-    await fs.promises.writeFile(
+    await Deno.writeTextFile(
       untildify('~/.kube/config'),
       yaml.dump(credentials),
     );
@@ -87,14 +87,14 @@ export default class KubernetesUtils {
 
   static async addToKubeConfig(credentialsYaml: string): Promise<void> {
     const kubeConfigPath = untildify('~/.kube/config');
-    if (!fs.existsSync(kubeConfigPath)) {
-      fs.promises.mkdir(kubeConfigPath, {
+    if (!existsSync(kubeConfigPath)) {
+      await Deno.mkdir(kubeConfigPath, {
         recursive: true,
       });
-      fs.promises.writeFile(kubeConfigPath, credentialsYaml);
+      Deno.writeTextFile(kubeConfigPath, credentialsYaml);
     }
     const newCredentials = yaml.load(credentialsYaml) as any;
-    const kubeConfigContents = await fs.promises.readFile(kubeConfigPath);
+    const kubeConfigContents = await Deno.readFile(kubeConfigPath);
     const credentials = yaml.load(kubeConfigContents.toString()) as any;
 
     for (const key of ['clusters', 'users', 'contexts']) {
@@ -111,11 +111,11 @@ export default class KubernetesUtils {
       }
     }
 
-    await fs.promises.writeFile(
+    await Deno.writeFile(
       untildify('~/.kube/cldctl-backup'),
       kubeConfigContents,
     );
-    await fs.promises.writeFile(
+    await Deno.writeTextFile(
       untildify('~/.kube/config'),
       yaml.dump(credentials),
     );
@@ -124,11 +124,11 @@ export default class KubernetesUtils {
   static afterCreateClusterHelpText(): void {
     console.log(`
 Now that your cluster has finished creating, we will modify your kube config file to add its credentials.
-You can view your kube config file using the Kubernetes command line tool ${chalk.yellow(
+You can view your kube config file using the Kubernetes command line tool ${colors.yellow(
       '$ kubectl config view',
     )}
 To explore other kubectl commands to communicate with your cluster, goto https://kubernetes.io/docs/reference/kubectl/
-To register your cluster with Architect cloud, use command ${chalk.yellow(
+To register your cluster with Architect cloud, use command ${colors.yellow(
       '$ architect cluster:create',
     )}
     `);

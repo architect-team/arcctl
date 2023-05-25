@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user_in_group
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

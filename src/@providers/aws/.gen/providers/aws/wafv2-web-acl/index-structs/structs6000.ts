@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2WebAclRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll,
   wafv2WebAclRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllToTerraform,
@@ -13,6 +12,8 @@ import {
   wafv2WebAclRuleStatementOrStatementStatementAndStatementToTerraform,
   Wafv2WebAclRuleStatementOrStatementStatementAndStatementOutputReference,
 } from './structs5600';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2WebAclRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#excluded_cookies Wafv2WebAcl#excluded_cookies}

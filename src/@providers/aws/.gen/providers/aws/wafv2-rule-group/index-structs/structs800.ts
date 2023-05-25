@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchHeadersMatchPattern,
   wafv2RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchHeadersMatchPatternToTerraform,
@@ -39,12 +38,14 @@ import {
   Wafv2RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement,
   wafv2RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementToTerraform,
   Wafv2RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementOutputReference,
-} from './structs400';
+} from './structs400.ts';
 import {
   Wafv2RuleGroupRuleStatementOrStatementStatement,
   wafv2RuleGroupRuleStatementOrStatementStatementToTerraform,
   Wafv2RuleGroupRuleStatementOrStatementStatementList,
 } from './structs1200';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchHeaders {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#match_scope Wafv2RuleGroup#match_scope}

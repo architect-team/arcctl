@@ -6,8 +6,9 @@ import TaskManager from '../../utils/task-manager.ts';
 import Terraform from '../../utils/terraform.ts';
 import { Flags } from '@oclif/core';
 import { ResourceStatus } from '@providers/status.ts';
-import { App } from 'npm:cdktf';
+import { App } from 'cdktf';
 import chalk from 'chalk';
+import { colors } from 'cliffy/ansi/colors.ts';
 import inquirer from 'inquirer';
 import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 
@@ -88,7 +89,7 @@ export default class DeleteResourceCommand extends BaseCommand {
     }
 
     if (choices.length === 0) {
-      this.log(chalk.yellow('No resources were found'));
+      this.log(colors.yellow('No resources were found'));
       this.exit(0);
     }
 
@@ -204,7 +205,7 @@ export default class DeleteResourceCommand extends BaseCommand {
 
     console.time('Time');
     await taskManager.run();
-    this.log(chalk.green(`${type} resource deleted successfully`));
+    this.log(colors.green(`${type} resource deleted successfully`));
     console.timeEnd('Time');
   }
 }

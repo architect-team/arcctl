@@ -7,9 +7,9 @@ import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
 import { Datacenter } from '../datacenter.ts';
 import { StateBackends } from './backends.ts';
-import { LocalBackend, S3Backend } from 'npm:cdktf';
-import { Construct } from 'npm:constructs';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import { LocalBackend, S3Backend } from 'cdktf';
+import { Construct } from 'constructs';
+import * as path from 'std/path/mod.ts';
 
 /**
  * @discriminator type

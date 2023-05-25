@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   StatefulSetSpecTemplateSpecInitContainerSecurityContextCapabilities,
   statefulSetSpecTemplateSpecInitContainerSecurityContextCapabilitiesToTerraform,
@@ -51,7 +50,9 @@ import {
   StatefulSetSpecSelector,
   statefulSetSpecSelectorToTerraform,
   StatefulSetSpecSelectorOutputReference,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface StatefulSetSpecTemplateSpecInitContainerSecurityContext {
   /**
    * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN

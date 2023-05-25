@@ -1,9 +1,10 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2RuleGroupRuleStatementAndStatementStatement,
   wafv2RuleGroupRuleStatementAndStatementStatementToTerraform,
   Wafv2RuleGroupRuleStatementAndStatementStatementList,
-} from './structs400';
+} from './structs400.ts';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2RuleGroupCustomResponseBody {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#content Wafv2RuleGroup#content}

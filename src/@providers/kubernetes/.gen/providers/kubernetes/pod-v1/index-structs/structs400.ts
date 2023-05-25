@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   PodV1SpecInitContainerStartupProbeExec,
   podV1SpecInitContainerStartupProbeExecToTerraform,
@@ -45,7 +44,9 @@ import {
   PodV1SpecImagePullSecrets,
   podV1SpecImagePullSecretsToTerraform,
   PodV1SpecImagePullSecretsList,
-} from './structs0';
+} from './structs0.ts';
+import * as cdktf from 'cdktf';
+
 export interface PodV1SpecInitContainerStartupProbeHttpGetHttpHeader {
   /**
    * The header field name

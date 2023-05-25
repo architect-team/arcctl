@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   JobV1Metadata,
   jobV1MetadataToTerraform,
@@ -10,10 +9,12 @@ import {
   JobV1Timeouts,
   jobV1TimeoutsToTerraform,
   JobV1TimeoutsOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface JobV1Config extends cdktf.TerraformMetaArguments {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job_v1#id JobV1#id}

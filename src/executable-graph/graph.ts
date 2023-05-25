@@ -6,11 +6,9 @@ import CloudCtlConfig from '../utils/config.ts';
 import { DatacenterStore } from '../utils/datacenter-store.ts';
 import { CldCtlTerraformStack } from '../utils/stack.ts';
 import { ExecutableNode } from './node.ts';
-import { App } from 'npm:cdktf';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import { App } from 'cdktf';
 import { Observable } from 'rxjs';
+import * as path from 'std/path/mod.ts';
 import { Logger } from 'winston';
 
 export type ExecutableGraphOptions = {

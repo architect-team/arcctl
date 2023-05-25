@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/emr_block_public_access_configuration
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

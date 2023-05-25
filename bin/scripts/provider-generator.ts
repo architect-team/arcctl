@@ -1,5 +1,5 @@
 import Mustache from 'npm:mustache';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
+import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const providers_dir = path.join(__dirname, '../../src/@providers/');

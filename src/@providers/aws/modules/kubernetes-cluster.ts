@@ -12,8 +12,8 @@ import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { Sleep } from '../.gen/providers/time/sleep/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
-import { TerraformOutput } from 'npm:cdktf';
-import { Construct } from 'npm:constructs';
+import { TerraformOutput } from 'cdktf';
+import { Construct } from 'constructs';
 
 export class AwsKubernetesClusterModule extends ResourceModule<
   'kubernetesCluster',
@@ -89,7 +89,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
           name: nodePool.name,
         }))
       : [];
-    const managedNodeGroups: Record<string, (typeof nodeGroups)[number]> = {};
+    const managedNodeGroups: Record<string, typeof nodeGroups[number]> = {};
     for (const nodeGroup of nodeGroups) {
       managedNodeGroups[nodeGroup.name] = nodeGroup;
     }

@@ -1,4 +1,5 @@
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+
 export interface CronJobV1Metadata {
   /**
    * An unstructured key value map stored with the cronjob that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations

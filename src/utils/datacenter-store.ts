@@ -1,8 +1,7 @@
 import { Datacenter } from '../datacenters/datacenter.ts';
 import { parseDatacenter } from '../datacenters/parser.ts';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
+import * as path from 'std/path/mod.ts';
 
 export type DatacenterRecord = {
   name: string;
@@ -13,7 +12,7 @@ export class DatacenterStore {
   private _datacenters?: DatacenterRecord[];
 
   constructor(
-    private config_dir: string = os.tmpdir(),
+    private config_dir: string = tmpDir() || '/tmp',
     private datacenter_filename: string = 'datacenters.json',
   ) {
     this.getDatacenters();
@@ -25,8 +24,8 @@ export class DatacenterStore {
 
   saveFile(name: string, content: string): string {
     const file_path = path.join(this.config_dir, name);
-    fs.mkdirSync(path.dirname(file_path), { recursive: true });
-    fs.writeFileSync(file_path, content);
+    Deno.mkdirSync(path.dirname(file_path), { recursive: true });
+    Deno.writeTextFileSync(file_path, content);
     return file_path;
   }
 
@@ -41,10 +40,7 @@ export class DatacenterStore {
     }
 
     try {
-      const fileContents = fs.readFileSync(
-        this.datacenters_config_file,
-        'utf8',
-      );
+      const fileContents = Deno.readTextFileSync(this.datacenters_config_file);
       const rawDatacenters = JSON.parse(fileContents);
 
       const datacenters: DatacenterRecord[] = [];
@@ -86,10 +82,10 @@ export class DatacenterStore {
   }
 
   async saveDatacenters(datacenters: DatacenterRecord[]): Promise<void> {
-    await fs.promises.mkdir(path.dirname(this.datacenters_config_file), {
+    await Deno.mkdir(path.dirname(this.datacenters_config_file), {
       recursive: true,
     });
-    await fs.promises.writeFile(
+    await Deno.writeTextFile(
       this.datacenters_config_file,
       JSON.stringify(datacenters, null, 2),
     );

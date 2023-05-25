@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 
 export interface Task<T> {
   title: string;
-  action: () => Observable<T>,
-  finished: boolean,
+  action: () => Observable<T>;
+  finished: boolean;
 }
 
 // This class has a slight hack. It assumes that one of the initial promises
@@ -13,25 +13,27 @@ export default class TaskManager<T> {
   private readonly frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
   private frameIndex = 0;
 
-  constructor(private readonly tasks: Task<T>[]) {
-  }
+  constructor(private readonly tasks: Task<T>[]) {}
 
   private render(): void {
     const output: string[] = [];
     for (const [index, task] of this.tasks.entries()) {
       if (task.finished) continue;
-      const prefix = index === 0 ? ` ${this.frames[this.frameIndex++]} ` : '   ';
+      const prefix =
+        index === 0 ? ` ${this.frames[this.frameIndex++]} ` : '   ';
       if (this.frameIndex >= this.frames.length) {
         this.frameIndex = 0;
       }
-      output.push(`${prefix}${task.title}`.substring(0, process.stdout.columns));
+      output.push(
+        `${prefix}${task.title}`.substring(0, Deno.consoleSize().columns),
+      );
     }
     if (output.length > 0) {
       logUpdate(output.join('\n'));
     }
   }
 
-  private async runTask(task: Task<T>): Promise<void> {
+  private runTask(task: Task<T>): Promise<void> {
     return new Promise((resolve, reject) => {
       task.action().subscribe({
         complete: () => {

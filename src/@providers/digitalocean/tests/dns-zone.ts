@@ -4,7 +4,7 @@ import {
   ResourceType,
 } from '../../../@resources/types.ts';
 import { CldctlTest, CldctlTestContext } from '../../tests.ts';
-import { DigitaloceanCredentials } from '../credentials';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { expect } from 'chai';
 
 export class DigitalOceanDnsZoneTest

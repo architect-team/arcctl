@@ -1,5 +1,4 @@
 // generated from terraform resource schema
-
 import {
   Wafv2RuleGroupCustomResponseBody,
   wafv2RuleGroupCustomResponseBodyToTerraform,
@@ -10,10 +9,12 @@ import {
   Wafv2RuleGroupVisibilityConfig,
   wafv2RuleGroupVisibilityConfigToTerraform,
   Wafv2RuleGroupVisibilityConfigOutputReference,
-} from './index-structs';
-export * from './index-structs';
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+} from './index-structs/index.ts';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface Wafv2RuleGroupConfig extends cdktf.TerraformMetaArguments {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#capacity Wafv2RuleGroup#capacity}

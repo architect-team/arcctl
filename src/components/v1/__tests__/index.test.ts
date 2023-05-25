@@ -5,7 +5,7 @@ import {
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
 import ComponentV1 from '../index.ts';
-import yaml from 'npm:js-yaml';
+import yaml from 'js-yaml';
 
 describe('Component Schema: v1', () => {
   it('should generate deployments', async () =>

@@ -1,4 +1,38 @@
-import * as cdktf from 'npm:cdktf';
+import {
+  Wafv2RuleGroupRuleAction,
+  wafv2RuleGroupRuleActionToTerraform,
+  Wafv2RuleGroupRuleActionOutputReference,
+  Wafv2RuleGroupRuleRuleLabel,
+  wafv2RuleGroupRuleRuleLabelToTerraform,
+  Wafv2RuleGroupRuleRuleLabelList,
+} from './structs0.ts';
+import {
+  Wafv2RuleGroupRuleStatementAndStatement,
+  wafv2RuleGroupRuleStatementAndStatementToTerraform,
+  Wafv2RuleGroupRuleStatementAndStatementOutputReference,
+  Wafv2RuleGroupRuleStatementByteMatchStatement,
+  wafv2RuleGroupRuleStatementByteMatchStatementToTerraform,
+  Wafv2RuleGroupRuleStatementByteMatchStatementOutputReference,
+  Wafv2RuleGroupRuleStatementGeoMatchStatement,
+  wafv2RuleGroupRuleStatementGeoMatchStatementToTerraform,
+  Wafv2RuleGroupRuleStatementGeoMatchStatementOutputReference,
+  Wafv2RuleGroupRuleStatementIpSetReferenceStatement,
+  wafv2RuleGroupRuleStatementIpSetReferenceStatementToTerraform,
+  Wafv2RuleGroupRuleStatementIpSetReferenceStatementOutputReference,
+  Wafv2RuleGroupRuleStatementLabelMatchStatement,
+  wafv2RuleGroupRuleStatementLabelMatchStatementToTerraform,
+  Wafv2RuleGroupRuleStatementLabelMatchStatementOutputReference,
+} from './structs400.ts';
+import {
+  Wafv2RuleGroupRuleStatementNotStatement,
+  wafv2RuleGroupRuleStatementNotStatementToTerraform,
+  Wafv2RuleGroupRuleStatementNotStatementOutputReference,
+} from './structs800';
+import {
+  Wafv2RuleGroupRuleStatementOrStatement,
+  wafv2RuleGroupRuleStatementOrStatementToTerraform,
+  Wafv2RuleGroupRuleStatementOrStatementOutputReference,
+} from './structs1200';
 import {
   Wafv2RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll,
   wafv2RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllToTerraform,
@@ -19,41 +53,8 @@ import {
   wafv2RuleGroupRuleStatementRegexPatternSetReferenceStatementToTerraform,
   Wafv2RuleGroupRuleStatementRegexPatternSetReferenceStatementOutputReference,
 } from './structs6000';
-import {
-  Wafv2RuleGroupRuleStatementAndStatement,
-  wafv2RuleGroupRuleStatementAndStatementToTerraform,
-  Wafv2RuleGroupRuleStatementAndStatementOutputReference,
-  Wafv2RuleGroupRuleStatementByteMatchStatement,
-  wafv2RuleGroupRuleStatementByteMatchStatementToTerraform,
-  Wafv2RuleGroupRuleStatementByteMatchStatementOutputReference,
-  Wafv2RuleGroupRuleStatementGeoMatchStatement,
-  wafv2RuleGroupRuleStatementGeoMatchStatementToTerraform,
-  Wafv2RuleGroupRuleStatementGeoMatchStatementOutputReference,
-  Wafv2RuleGroupRuleStatementIpSetReferenceStatement,
-  wafv2RuleGroupRuleStatementIpSetReferenceStatementToTerraform,
-  Wafv2RuleGroupRuleStatementIpSetReferenceStatementOutputReference,
-  Wafv2RuleGroupRuleStatementLabelMatchStatement,
-  wafv2RuleGroupRuleStatementLabelMatchStatementToTerraform,
-  Wafv2RuleGroupRuleStatementLabelMatchStatementOutputReference,
-} from './structs400';
-import {
-  Wafv2RuleGroupRuleStatementNotStatement,
-  wafv2RuleGroupRuleStatementNotStatementToTerraform,
-  Wafv2RuleGroupRuleStatementNotStatementOutputReference,
-} from './structs800';
-import {
-  Wafv2RuleGroupRuleStatementOrStatement,
-  wafv2RuleGroupRuleStatementOrStatementToTerraform,
-  Wafv2RuleGroupRuleStatementOrStatementOutputReference,
-} from './structs1200';
-import {
-  Wafv2RuleGroupRuleAction,
-  wafv2RuleGroupRuleActionToTerraform,
-  Wafv2RuleGroupRuleActionOutputReference,
-  Wafv2RuleGroupRuleRuleLabel,
-  wafv2RuleGroupRuleRuleLabelToTerraform,
-  Wafv2RuleGroupRuleRuleLabelList,
-} from './structs0';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#excluded_cookies Wafv2RuleGroup#excluded_cookies}

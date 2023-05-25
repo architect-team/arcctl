@@ -1,15 +1,11 @@
-import AdmZip from 'adm-zip';
-import axios from 'axios';
-import * as fs from 'fs';
-import { finished } from 'stream';
-import * as tar from 'tar';
-import { promisify } from 'util';
 import {
   PluginArchitecture,
   PluginBinary,
   PluginBundleType,
   PluginPlatform,
 } from './plugin-types.ts';
+import AdmZip from 'adm-zip';
+import tar from 'tar';
 
 export default class PluginUtils {
   static async downloadFile(
@@ -17,14 +13,9 @@ export default class PluginUtils {
     location: string,
     sha256: string,
   ): Promise<void> {
-    const writer = fs.createWriteStream(location);
-    return axios({
-      method: 'get',
-      url: url,
-      responseType: 'stream',
-    }).then(async (response) => {
-      response.data.pipe(writer);
-      await promisify(finished)(writer);
+    return fetch(url).then(async (response) => {
+      const file = await Deno.create(location);
+      await response.body?.pipeTo(file.writable);
     });
   }
 

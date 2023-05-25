@@ -2,8 +2,7 @@ import PluginManager from '../plugins/plugin-manager.ts';
 import { CldCtlTerraformStack } from '../utils/stack.ts';
 import { TerraformPlugin, TerraformVersion } from './plugin.ts';
 import { ExecaChildProcess } from 'execa';
-import fs from 'fs';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 
 export class Terraform {
   private plugin: TerraformPlugin;
@@ -30,8 +29,8 @@ export class Terraform {
     stack: CldCtlTerraformStack,
   ): ExecaChildProcess<string> {
     const moduleFile = path.join(cwd, 'main.tf.json');
-    fs.mkdirSync(cwd, { recursive: true });
-    fs.writeFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
+    Deno.mkdirSync(cwd, { recursive: true });
+    Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
 
     return this.plugin.exec(['init', '-input=false'], {
       stdout: false,

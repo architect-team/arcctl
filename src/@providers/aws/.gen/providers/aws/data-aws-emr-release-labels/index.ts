@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/d/emr_release_labels
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

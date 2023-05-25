@@ -4,7 +4,7 @@ import { ExecutableGraph } from '../../executable-graph/index.ts';
 import { EnvironmentRecord } from '../../utils/environment-store.ts';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 
 export class DestroyEnvironmentCmd extends BaseCommand {
   static description = 'Destroy all the resources in the specified environment';

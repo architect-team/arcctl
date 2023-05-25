@@ -1,8 +1,7 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_firewall_rule
 // generated from terraform resource schema
-
-import { Construct } from 'npm:constructs';
-import * as cdktf from 'npm:cdktf';
+import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 

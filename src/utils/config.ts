@@ -1,9 +1,6 @@
-import { Config } from '@oclif/core';
-import path from 'path';
-import { v4 } from 'uuid';
+import * as path from 'std/path/mod.ts';
 
 export default class CloudCtlConfig {
-  public static oclifConfig: Config;
   private static dev: boolean;
   private static tfDirectory?: string;
   private static noCleanup: boolean;
@@ -17,12 +14,16 @@ export default class CloudCtlConfig {
     if (this.configDirectory) {
       return this.configDirectory;
     }
-    return this.oclifConfig.configDir;
+    throw Error('No config directory configured');
   }
 
   public static getTerraformDirectory(): string {
     if (!this.tfDirectory) {
-      this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${v4()}/`);
+      this.tfDirectory = path.join(
+        this.getConfigDirectory(),
+        '/tf/',
+        `/${crypto.randomUUID()}/`,
+      );
     }
     return this.tfDirectory!;
   }

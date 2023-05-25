@@ -1,9 +1,10 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2WebAclRuleStatementAndStatementStatement,
   wafv2WebAclRuleStatementAndStatementStatementToTerraform,
   Wafv2WebAclRuleStatementAndStatementStatementList,
-} from './structs400';
+} from './structs400.ts';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2WebAclCustomResponseBody {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#content Wafv2WebAcl#content}

@@ -1,0 +1,21 @@
+{
+  "nodeModulesDir": true,
+  "imports": {
+    "std/": "https://deno.land/std@0.189.0/",
+    "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
+    "cliffy/": "https://deno.land/x/cliffy@v0.25.7/"
+  },
+  "lint": {
+    "include": ["src/"],
+    "exclude": []
+  },
+  "fmt": {
+    "useTabs": true,
+    "lineWidth": 120,
+    "indentWidth": 2,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"],
+    "exclude": []
+  }
+}

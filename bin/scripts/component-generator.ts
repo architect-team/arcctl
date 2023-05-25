@@ -1,7 +1,7 @@
-import { execa } from 'npm:execa';
-import Mustache from 'npm:mustache';
-import * as path from 'https://deno.land/std@0.188.0/path/mod.ts';
-import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
+import { execa } from 'execa';
+import Mustache from 'mustache';
+import * as path from 'std/path/mod.ts';
+import { build, emptyDir } from 'dnt';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const components_dir = path.join(__dirname, '../../src/components');

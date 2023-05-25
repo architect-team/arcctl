@@ -1,4 +1,3 @@
-import * as cdktf from 'npm:cdktf';
 import {
   Wafv2RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern,
   wafv2RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternToTerraform,
@@ -43,6 +42,8 @@ import {
   wafv2RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementToTerraform,
   Wafv2RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementOutputReference,
 } from './structs800';
+import * as cdktf from 'cdktf';
+
 export interface Wafv2RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBody {
   /**
    * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_rule_group#invalid_fallback_behavior Wafv2RuleGroup#invalid_fallback_behavior}

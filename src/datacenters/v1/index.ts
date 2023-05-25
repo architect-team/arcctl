@@ -190,7 +190,6 @@ export default class DatacenterV1 extends Datacenter {
     for (const [key, value] of Object.entries(this.resources || {})) {
       const node = new CloudNode({
         name: key,
-        environment: environmentName,
         inputs: value,
       });
 

@@ -4,6 +4,7 @@ import { parseDatacenter } from '../../datacenters/index.js';
 import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
+import path from 'path';
 import winston, { Logger } from 'winston';
 
 export class CreateDatacenterCmd extends BaseCommand {
@@ -73,6 +74,7 @@ export class CreateDatacenterCmd extends BaseCommand {
         .apply({
           providerStore: this.providerStore,
           logger: logger,
+          cwd: path.resolve('./.terraform'),
         })
         .then(async () => {
           await this.saveDatacenter(args.name, datacenter, pipeline);

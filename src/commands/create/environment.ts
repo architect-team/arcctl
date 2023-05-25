@@ -6,6 +6,7 @@ import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
+import path from 'path';
 import winston, { Logger } from 'winston';
 
 export class CreateEnvironmentCmd extends BaseCommand {
@@ -117,6 +118,7 @@ export class CreateEnvironmentCmd extends BaseCommand {
         .apply({
           providerStore: this.providerStore,
           logger: logger,
+          cwd: path.resolve('./.terraform'),
         })
         .then(async () => {
           await this.saveDatacenter(

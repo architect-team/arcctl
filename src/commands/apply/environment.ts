@@ -10,15 +10,9 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
   static description = 'Apply changes to an environment';
 
   static flags = {
-    name: Flags.string({
-      char: 'n',
-      description: `Name of the environment to modify. If it doesn't exist, it will be created.`,
-      required: true,
-    }),
-
     datacenter: Flags.string({
       char: 'd',
-      description: 'Name of the datacenter backing the environment',
+      description: 'New datacenter for the environment',
     }),
 
     verbose: Flags.boolean({
@@ -29,9 +23,13 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
 
   static args = [
     {
+      name: 'name',
+      description: 'Name of the new environment',
+      required: true,
+    },
+    {
       name: 'config_path',
       description: 'Path to the new environment configuration file',
-      required: true,
     },
   ];
 
@@ -89,7 +87,6 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
 
     return graphPlan
       .apply({
-        datacenterStore: this.datacenterStore,
         providerStore: this.providerStore,
         cwd: path.resolve('./.terraform'),
         logger,

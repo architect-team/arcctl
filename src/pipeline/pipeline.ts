@@ -102,15 +102,24 @@ export class Pipeline {
    * Returns a pipeline step that is ready to be applied
    */
   private getNextStep(...seenIds: string[]): PipelineStep | undefined {
-    const availableSteps = this.steps.filter((step) => {
-      const isStepSeen = seenIds.includes(step.id);
-      const hasDeps = this.edges.some(
-        (edge) =>
-          edge.required && edge.from === step.id && !seenIds.includes(edge.to),
-      );
+    const availableSteps = this.steps
+      .sort(
+        (first, second) =>
+          (first.environment || '').localeCompare(second.environment || '') ||
+          (first.component || '').localeCompare(second.component || '') ||
+          0,
+      )
+      .filter((step) => {
+        const isStepSeen = seenIds.includes(step.id);
+        const hasDeps = this.edges.some(
+          (edge) =>
+            edge.required &&
+            edge.from === step.id &&
+            !seenIds.includes(edge.to),
+        );
 
-      return !isStepSeen && !hasDeps;
-    });
+        return !isStepSeen && !hasDeps;
+      });
 
     return availableSteps.shift();
   }
@@ -317,11 +326,17 @@ export class Pipeline {
       }
 
       if (step.inputs) {
-        step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
-          ...options,
-          terraform,
-          cwd,
-        });
+        try {
+          step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
+            ...options,
+            terraform,
+            cwd,
+          });
+        } catch (err: any) {
+          step.status.state = 'error';
+          step.status.message = err.message;
+          throw err;
+        }
       }
 
       await new Promise<void>((resolve, reject) => {

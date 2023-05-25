@@ -4,6 +4,7 @@ import { parseDatacenter } from '../../datacenters/index.js';
 import { Pipeline } from '../../pipeline/index.js';
 import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
+import path from 'path';
 import winston, { Logger } from 'winston';
 
 export default class ApplyDatacenterChangesCmd extends BaseCommand {
@@ -69,7 +70,7 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
 
       if (newPipeline.steps.length <= 0) {
         await this.saveDatacenter(args.name, newDatacenter, newPipeline);
-        this.log('Datacenter created successfully');
+        this.log('Datacenter updated successfully');
       }
 
       let interval: NodeJS.Timer;
@@ -93,12 +94,13 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
         .apply({
           providerStore: this.providerStore,
           logger: logger,
+          cwd: path.resolve('./.terraform'),
         })
         .then(async () => {
           await this.saveDatacenter(args.name, newDatacenter, newPipeline);
           this.renderPipeline(newPipeline, { clear: !flags.verbose });
           clearInterval(interval);
-          this.log('Datacenter created successfully');
+          this.log('Datacenter updated successfully');
         })
         .catch(async (err) => {
           await this.saveDatacenter(args.name, newDatacenter, newPipeline);

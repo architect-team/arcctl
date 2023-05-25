@@ -47,7 +47,7 @@ environment:
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
           region: nyc1
-      account: ${{ this.resources.db.provider }}
+      account: ${{ this.resources.db.account }}
       database: ${{ this.resources.db.id }}
     - when:
         type: ingressRule

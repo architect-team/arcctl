@@ -206,9 +206,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     const { stdout: rawOutputs } = await outputCmd;
     const parsedOutputs = JSON.parse(rawOutputs);
 
-    // Clean up state
-    fs.rmSync(stateFile);
-
     if (this.action === 'create' && module.hooks.afterCreate) {
       this.status.state = 'applying';
       this.status.message = `Running post-create hooks`;
@@ -338,7 +335,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           subscriber.next(this);
           subscriber.complete();
 
-          fs.rmSync(nodeDir, { recursive: true });
+          // fs.rmSync(nodeDir, { recursive: true });
         })
         .catch((err) => {
           this.status.state = 'error';
@@ -347,7 +344,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           subscriber.next(this);
           subscriber.error(err);
 
-          fs.rmSync(nodeDir, { recursive: true });
+          // fs.rmSync(nodeDir, { recursive: true });
         });
     });
   }
@@ -377,13 +374,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     if ('construct' in service) {
       const tfService = service as TerraformResourceService<T, any>;
-      const cwd =
-        options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'arcctl-'));
-      const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
-      fs.mkdirSync(nodeDir, { recursive: true });
-      const app = new App({
-        outdir: nodeDir,
-      });
+      const app = new App();
       const stack = new CldCtlTerraformStack(app, this.id);
       account.configureTerraformProviders(stack);
       const { output: tfOutput } = stack.addModule(
@@ -392,28 +383,17 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         this.inputs!,
       );
 
-      await options.terraform.init(nodeDir, stack);
-
-      // Do not remove. For some reason this folder gets deleted after the init command.
-      fs.mkdirSync(nodeDir, { recursive: true });
-      fs.writeFileSync(
-        path.join(nodeDir, 'terraform.tfstate'),
-        JSON.stringify(this.state),
-      );
-
-      const outputCmd = options.terraform.output(nodeDir);
-      if (options.logger) {
-        outputCmd.stdout?.on('data', (chunk) => {
-          options.logger?.info(chunk);
-        });
-        outputCmd.stderr?.on('data', (chunk) => {
-          options.logger?.error(chunk);
-        });
+      switch (this.state.version) {
+        case 4: {
+          const parsedOutputs = this.state.outputs;
+          return parsedOutputs[tfOutput.friendlyUniqueId].value;
+        }
       }
-      const { stdout: rawOutputs } = await outputCmd;
 
-      const parsedOutputs = JSON.parse(rawOutputs);
-      return parsedOutputs[tfOutput.friendlyUniqueId].value;
+      // TODO:
+      throw new Error(
+        `Failed to get outputs. Unknown terraform state file version: ${this.state.version}`,
+      );
     } else {
       return this.state;
     }

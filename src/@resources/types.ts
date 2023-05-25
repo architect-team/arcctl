@@ -34,6 +34,8 @@ import type loadBalancerInputs from './loadBalancer/inputs.ts';
 import type loadBalancerOutputs from './loadBalancer/outputs.ts';
 import type loadBalancerTypeInputs from './loadBalancerType/inputs.ts';
 import type loadBalancerTypeOutputs from './loadBalancerType/outputs.ts';
+import type namespaceInputs from './namespace/inputs.ts';
+import type namespaceOutputs from './namespace/outputs.ts';
 import type nodeInputs from './node/inputs.ts';
 import type nodeOutputs from './node/outputs.ts';
 import type nodeSizeInputs from './nodeSize/inputs.ts';
@@ -70,6 +72,7 @@ export type ResourceType =
   | 'kubernetesVersion'
   | 'loadBalancer'
   | 'loadBalancerType'
+  | 'namespace'
   | 'node'
   | 'nodeSize'
   | 'region'
@@ -99,6 +102,7 @@ export const ResourceTypeList: ResourceType[] = [
   'kubernetesVersion',
   'loadBalancer',
   'loadBalancerType',
+  'namespace',
   'node',
   'nodeSize',
   'region',
@@ -182,6 +186,10 @@ export type ResourceInputs = {
     type: 'loadBalancerType',
     account?: string,
   } & loadBalancerTypeInputs;
+  'namespace': {
+    type: 'namespace',
+    account?: string,
+  } & namespaceInputs;
   'node': {
     type: 'node',
     account?: string,
@@ -271,6 +279,9 @@ export type ResourceOutputs = {
   'loadBalancerType': {
     id: string;
   } & loadBalancerTypeOutputs;
+  'namespace': {
+    id: string;
+  } & namespaceOutputs;
   'node': {
     id: string;
   } & nodeOutputs;

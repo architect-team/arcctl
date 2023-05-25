@@ -1,8 +1,10 @@
 import { Environment } from './environment.ts';
 import { buildEnvironment, EnvironmentSchema } from './schema.ts';
-import Ajv2019 from 'ajv/dist/2019.js';
+import _Ajv2019 from 'ajv/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
+// https://github.com/ajv-validator/ajv/issues/2132#issuecomment-1290409907
+const Ajv2019 = _Ajv2019 as unknown as typeof _Ajv2019.default;
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });

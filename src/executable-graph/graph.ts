@@ -271,14 +271,23 @@ export class ExecutableGraph extends CloudGraph {
           this.getTerraformPlugin().then(async (terraform) => {
             const initCmd = terraform.init(nodeDir, stack);
             if (options.logger) {
-              initCmd.stdout?.on('data', (chunk) => {
-                options.logger?.info(chunk);
-              });
-              initCmd.stderr?.on('data', (chunk) => {
-                options.logger?.error(chunk);
-              });
+              initCmd.stdout.pipeTo(
+                new WritableStream({
+                  write(chunk) {
+                    options.logger?.info(chunk);
+                  },
+                }),
+              );
+
+              initCmd.stderr.pipeTo(
+                new WritableStream({
+                  write(chunk) {
+                    options.logger?.error(chunk);
+                  },
+                }),
+              );
             }
-            await initCmd;
+            await initCmd.output();
 
             node.status.state = 'starting';
             node.status.message = 'Generating diff';
@@ -288,14 +297,23 @@ export class ExecutableGraph extends CloudGraph {
               destroy: node.action === 'delete',
             });
             if (options.logger) {
-              planCmd.stdout?.on('data', (chunk) => {
-                options.logger?.info(chunk);
-              });
-              planCmd.stderr?.on('data', (chunk) => {
-                options.logger?.error(chunk);
-              });
+              planCmd.stdout.pipeTo(
+                new WritableStream({
+                  write(chunk) {
+                    options.logger?.info(chunk);
+                  },
+                }),
+              );
+
+              planCmd.stderr.pipeTo(
+                new WritableStream({
+                  write(chunk) {
+                    options.logger?.error(chunk);
+                  },
+                }),
+              );
             }
-            await planCmd;
+            await planCmd.output();
 
             node.status.state = 'applying';
             node.status.message = 'Applying changes';
@@ -303,14 +321,23 @@ export class ExecutableGraph extends CloudGraph {
 
             const applyCmd = terraform.apply(nodeDir, 'plan');
             if (options.logger) {
-              applyCmd.stdout?.on('data', (chunk) => {
-                options.logger?.info(chunk);
-              });
-              applyCmd.stderr?.on('data', (chunk) => {
-                options.logger?.error(chunk);
-              });
+              applyCmd.stdout.pipeTo(
+                new WritableStream({
+                  write(chunk) {
+                    options.logger?.info(chunk);
+                  },
+                }),
+              );
+
+              applyCmd.stderr.pipeTo(
+                new WritableStream({
+                  write(chunk) {
+                    options.logger?.error(chunk);
+                  },
+                }),
+              );
             }
-            await applyCmd;
+            await applyCmd.output();
 
             node.status.state = 'applying';
             node.status.message = 'Collecting outputs';
@@ -318,8 +345,10 @@ export class ExecutableGraph extends CloudGraph {
 
             let parsedOutputs: any;
             if (node.action !== 'delete') {
-              const { stdout: rawOutputs } = await terraform.output(nodeDir);
-              parsedOutputs = JSON.parse(rawOutputs);
+              const { stdout: rawOutputs } = await terraform
+                .output(nodeDir)
+                .output();
+              parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
               node.outputs = parsedOutputs[tfOutput.friendlyUniqueId].value;
             }
 

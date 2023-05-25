@@ -13,7 +13,11 @@ export class CldCtlTerraformStack extends TerraformStack {
     id: string,
     inputs: ResourceInputs[T],
   ): { module: ResourceModule<T, any>; output: TerraformOutput } {
-    const module = new ModuleConstructor(this, id, inputs);
+    const module = new ModuleConstructor(
+      this as unknown as Construct,
+      id,
+      inputs,
+    );
     const output = new TerraformOutput(this, `${id}-output`, {
       value: module.outputs,
       sensitive: true,
@@ -24,10 +28,9 @@ export class CldCtlTerraformStack extends TerraformStack {
   findModules(): ResourceModule<any, any>[] {
     return this.node
       .findAll()
-      .filter((child) => child instanceof ResourceModule) as ResourceModule<
-      any,
-      any
-    >[];
+      .filter(
+        (child) => child instanceof ResourceModule,
+      ) as unknown as ResourceModule<any, any>[];
   }
 
   getResourceDisplayNames(): Record<string, string> {

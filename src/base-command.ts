@@ -23,10 +23,11 @@ import { JSONSchemaType } from 'ajv';
 import { TerraformOutput, TerraformStack } from 'cdktf';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import readline from 'node:readline';
 import { Command } from 'cliffy/command/mod.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
+import readline from 'node:readline';
+import process from 'node:process';
 
 export type ParentCommandGlobals = {
   config?: string;
@@ -143,8 +144,8 @@ export class CommandHelper {
         }),
     );
 
-    readline.cursorTo(Deno.stdout, 0, 0);
-    readline.clearScreenDown(Deno.stdout);
+    readline.cursorTo(process.stdout, 0, 0);
+    readline.clearScreenDown(process.stdout);
 
     const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
     this.spinner_frame_index =
@@ -233,7 +234,7 @@ export class CommandHelper {
     validator?: (input?: number) => string | true,
     existingValues: Record<string, unknown> = {},
   ): Promise<number> {
-    const { result } = await inquirer.prompt<{ result: number }>(
+    const { result } = await inquirer.prompt(
       [
         {
           name: 'result',
@@ -290,7 +291,7 @@ export class CommandHelper {
     validator?: (input?: string) => string | true,
     existingValues: Record<string, unknown> = {},
   ): Promise<string> {
-    const { result } = await inquirer.prompt<{ result: string }>(
+    const { result } = await inquirer.prompt(
       [
         {
           name: 'result',

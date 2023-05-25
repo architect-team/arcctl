@@ -19,6 +19,7 @@
     "exclude": []
   },
   "tasks": {
+    "compile": "deno compile src/index.ts --import-map deno.json --output test",
     "generate:component-schema": "deno run --allow-all ./bin/scripts/component-generator.ts",
     "generate:datacenter-schema": "deno run --allow-all ./bin/scripts/datacenter-generator.ts",
     "generate:environment-schema": "deno run --allow-all ./bin/scripts/environment-generator.ts",

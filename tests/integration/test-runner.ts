@@ -6,14 +6,13 @@ import {
   CldctlTestStack,
   CldctlTestStackOutputs,
 } from '../../src/@providers/tests.ts';
-import { ResourceOutputs, ResourceType } from '../../src/index.ts';
+import { ResourceOutputs, ResourceType } from '../../src/@resources/index.ts';
 import PluginManager from '../../src/plugins/plugin-manager.ts';
 import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
 import { CldCtlTerraformStack } from '../../src/utils/stack.ts';
 import { App, TerraformOutput } from 'cdktf';
-import fs from 'fs';
-import os from 'os';
 import * as path from 'std/path/mod.ts';
+import { Construct } from 'constructs';
 
 let terraformPlugin: TerraformPlugin | undefined;
 
@@ -82,7 +81,7 @@ export class TestStackGenerator {
     test: CldctlTest<ProviderCredentials>,
     ids?: Record<string, string>,
   ): Promise<CldctlTestStackOutputs[]> {
-    provider.configureTerraformProviders(stack);
+    provider.configureTerraformProviders(stack as unknown as Construct);
     return this.addResourceToStack(stack, provider, test.stacks, ids);
   }
 }
@@ -108,7 +107,7 @@ export class TestRunner {
     for (const stack of stacks) {
       if (stack.tfOutputs) {
         stack.outputs = await this.getOutput(stack.tfOutputs!);
-        stack.id = stack.outputs.id;
+        stack.id = stack.outputs!.id;
         this.ids[stack.serviceType] = stack.id;
       }
       if (stack.children) {
@@ -135,7 +134,7 @@ export class TestRunner {
     test: CldctlTest<ProviderCredentials>,
     credentials: ProviderCredentials,
   ): Promise<void> {
-    const tmp_dir = os.tmpdir();
+    const tmp_dir = Deno.makeTempDirSync();
     const tf_tmp_dir = path.join(tmp_dir, `/tf/${crypto.randomUUID()}`);
     this.createDirectory = tf_tmp_dir;
     await Deno.mkdir(tf_tmp_dir, { recursive: true });
@@ -167,7 +166,7 @@ export class TestRunner {
     test: CldctlTest<ProviderCredentials>,
     credentials: ProviderCredentials,
   ): Promise<void> {
-    const tmp_dir = os.tmpdir();
+    const tmp_dir = Deno.makeTempDirSync();
     const tf_tmp_dir = path.join(tmp_dir, `/tf/${crypto.randomUUID()}`);
     this.deleteDirectory = tf_tmp_dir;
     await Deno.mkdir(tf_tmp_dir, { recursive: true });
@@ -211,7 +210,7 @@ export class TestRunner {
         context.provider,
         context.credentials,
       );
-      const plugins_path = path.join(os.tmpdir(), '/plugins');
+      const plugins_path = path.join(Deno.makeTempDirSync(), '/plugins');
       await Deno.mkdir(plugins_path, { recursive: true });
       terraformPlugin = await PluginManager.getPlugin<TerraformPlugin>(
         plugins_path,
@@ -254,8 +253,7 @@ export class TestRunner {
         } finally {
           if (!context.keep_test_folders) {
             if (this.createDirectory) {
-              await fs.promises.rm(this.createDirectory, {
-                force: true,
+              await Deno.remove(this.createDirectory, {
                 recursive: true,
               });
               console.log(
@@ -263,8 +261,7 @@ export class TestRunner {
               );
             }
             if (this.deleteDirectory) {
-              await fs.promises.rm(this.deleteDirectory, {
-                force: true,
+              await Deno.remove(this.deleteDirectory, {
                 recursive: true,
               });
               console.log(
@@ -278,12 +275,12 @@ export class TestRunner {
   }
 }
 
-const configuration_file_path = process.argv[2];
+const configuration_file_path = Deno.args[2];
 if (!configuration_file_path) {
   throw new Error('No configuration file provided');
 }
 
-const configuration_file = fs.readFileSync(configuration_file_path, 'utf8');
+const configuration_file = Deno.readTextFileSync(configuration_file_path);
 const configuration = JSON.parse(
   configuration_file,
 ) as TestRunnerContext<any>[];

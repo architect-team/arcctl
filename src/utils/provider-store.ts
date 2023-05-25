@@ -2,13 +2,12 @@ import { Provider } from '../@providers/provider.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
 import * as path from 'std/path/mod.ts';
-import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
 
 export class CldCtlProviderStore implements ProviderStore {
   private _providers?: Provider[];
 
   constructor(
-    private config_dir: string = tmpDir() || '/tmp',
+    private config_dir: string = Deno.makeTempDirSync(),
     private provider_filename: string = 'providers.json',
   ) {
     this.getProviders();

@@ -139,37 +139,42 @@ export default class TerraformPlugin implements ArchitectPlugin {
     this.pluginDirectory = pluginDirectory;
   }
 
-  execNoPromise(
-    args: string[],
-    opts: PluginOptions,
-  ): ExecaChildProcess<string> {
+  // TODO(tyler): Test this
+  execNoPromise(args: string[], opts: PluginOptions): Deno.ChildProcess {
     if (Deno.env.get('TEST') === '1') {
-      return {} as ExecaChildProcess<string>;
+      return {} as Deno.ChildProcess;
     }
 
-    const cmd = execa(
+    const cmd = new Deno.Command(
       path.join(this.pluginDirectory, `/${this.binary?.executablePath}`),
-      [
-        ...(opts.execaOptions?.cwd ? [`-chdir=${opts.execaOptions?.cwd}`] : []),
-        ...args,
-      ],
-      opts.execaOptions,
+      {
+        args: [
+          ...(opts.commandOptions?.cwd
+            ? [`-chdir=${opts.commandOptions?.cwd}`]
+            : []),
+          ...args,
+        ],
+        stdin: 'piped',
+        stdout: 'piped',
+      },
     );
+    const child = cmd.spawn();
+
     if (opts.stdout) {
-      cmd.stdout?.pipe(Deno.stdout);
-      cmd.stderr?.pipe(Deno.stderr);
+      child.stdout.pipeTo(Deno.stdout.writable);
+      child.stderr.pipeTo(Deno.stderr.writable);
     }
-    return cmd;
+    return child;
   }
 
-  exec(args: string[], opts: PluginOptions): ExecaChildProcess<string> {
+  exec(args: string[], opts: PluginOptions): Deno.ChildProcess {
     return this.execNoPromise(args, opts);
   }
 
   async init(cwd: string): Promise<void> {
     await this.exec(['init'], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd: cwd,
       },
     });
@@ -178,49 +183,49 @@ export default class TerraformPlugin implements ArchitectPlugin {
   async plan(cwd: string, planFile: string): Promise<string> {
     const cmd = await this.exec(['plan', '--out', planFile], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd: cwd,
       },
     });
-    return cmd?.stdout || '';
+
+    const { stdout } = await cmd.output();
+    return new TextDecoder().decode(stdout);
   }
 
-  apply(cwd: string, planFile: string): ExecaChildProcess<string> {
+  apply(cwd: string, planFile: string): Deno.ChildProcess {
     return this.execNoPromise(['apply', planFile], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd: cwd,
       },
     });
   }
 
   async output(cwd: string, id: string): Promise<string> {
-    const output = await this.exec(['output', '-json', id], {
+    const cmd = await this.exec(['output', '-json', id], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd: cwd,
       },
     });
-    return output!.stdout;
+
+    const { stdout } = await cmd.output();
+    return new TextDecoder().decode(stdout);
   }
 
-  destroy(cwd: string): ExecaChildProcess<string> {
+  destroy(cwd: string): Deno.ChildProcess {
     return this.execNoPromise(['destroy', '--auto-approve'], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd: cwd,
       },
     });
   }
 
-  async import(
-    cwd: string,
-    resourceId: string,
-    cloudId: string,
-  ): Promise<void> {
-    await this.exec(['import', resourceId, cloudId], {
+  import(cwd: string, resourceId: string, cloudId: string): void {
+    this.exec(['import', resourceId, cloudId], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd: cwd,
       },
     });

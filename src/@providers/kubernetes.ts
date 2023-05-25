@@ -8,7 +8,7 @@ import {
 import KubernetesProvider from './kubernetes/provider.ts';
 import { SupportedProviders } from './supported-providers.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
-import { existsSync } from 'https://deno.land/std@0.188.0/fs/exists.ts';
+import { existsSync } from 'std/fs/exists.ts';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 import untildify from 'untildify';

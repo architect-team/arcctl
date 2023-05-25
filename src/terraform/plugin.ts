@@ -6,7 +6,6 @@ import {
   PluginOptions,
   PluginPlatform,
 } from '../plugins/plugin-types.ts';
-import { ExecaChildProcess, execa } from 'execa';
 import * as path from 'std/path/mod.ts';
 
 export type TerraformVersion = '1.4.5' | '1.3.2' | '1.2.9';
@@ -138,12 +137,13 @@ export class TerraformPlugin implements ArchitectPlugin {
     this.binary = binary;
   }
 
-  exec(args: string[], opts?: PluginOptions): ExecaChildProcess<string> {
+  exec(args: string[], opts?: PluginOptions): Deno.ChildProcess {
     if (!this.binary || !this.binaryDir) {
       throw new Error(`Terraform plugin not loaded. Try running setup().`);
     }
 
     const binaryPath = path.join(this.binaryDir, this.binary.executablePath);
-    return execa(binaryPath, args, opts?.execaOptions);
+    const cmd = new Deno.Command(binaryPath, { args, ...opts?.commandOptions });
+    return cmd.spawn();
   }
 }

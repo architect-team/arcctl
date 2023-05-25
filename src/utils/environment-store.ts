@@ -1,7 +1,6 @@
 import { Environment } from '../environments/environment.ts';
 import { parseEnvironment } from '../environments/parser.ts';
 import { ExecutableGraph, ExecutableNode } from '../executable-graph/index.ts';
-import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
 import * as path from 'std/path/mod.ts';
 
 export type EnvironmentRecord = {
@@ -15,7 +14,7 @@ export class EnvironmentStore {
   private _environments?: EnvironmentRecord[];
 
   constructor(
-    private config_dir: string = tmpDir() || '/tmp',
+    private config_dir: string = Deno.makeTempDirSync(),
     private environment_filename: string = 'environments.json',
   ) {
     this.getEnvironments();

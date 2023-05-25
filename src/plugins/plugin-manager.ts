@@ -1,6 +1,5 @@
 import * as path from 'std/path/mod.ts';
-import * as fs from 'https://deno.land/std@0.188.0/fs/mod.ts';
-import { existsSync } from 'https://deno.land/std@0.188.0/fs/exists.ts';
+import { existsSync } from 'std/fs/exists.ts';
 import {
   ArchitectPlugin,
   PluginArchitecture,

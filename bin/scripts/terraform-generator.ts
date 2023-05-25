@@ -5,23 +5,20 @@ import {
 } from '../../src/plugins/plugin-types.ts';
 import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
-import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
-import * as path from 'std/path/mod.ts';
 
-const tmpDirectory = tmpDir() || '/tmp';
+const tmpDirectory = Deno.makeTempDirSync({ prefix: crypto.randomUUID() });
 
 const plugin = new TerraformPlugin();
 const versions = plugin.versions;
 
 const downloadFile = (url: string) => {
-  const location = path.join(tmpDirectory, '/' + crypto.randomUUID());
   return fetch(url).then(async (response) => {
     // Write the file
-    const file = await Deno.create(location);
+    const file = await Deno.create(tmpDirectory);
     await response.body?.pipeTo(file.writable);
 
     // Create and return the hash
-    const fileBuffer = await Deno.readFile(location);
+    const fileBuffer = await Deno.readFile(tmpDirectory);
     const hashSum = crypto.createHash('sha256');
     hashSum.update(fileBuffer);
     return hashSum.setEncoding('utf-8').digest('hex') as string;

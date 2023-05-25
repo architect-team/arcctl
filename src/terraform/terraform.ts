@@ -24,17 +24,14 @@ export class Terraform {
     return new Terraform(plugin);
   }
 
-  public init(
-    cwd: string,
-    stack: CldCtlTerraformStack,
-  ): ExecaChildProcess<string> {
+  public init(cwd: string, stack: CldCtlTerraformStack): Deno.ChildProcess {
     const moduleFile = path.join(cwd, 'main.tf.json');
     Deno.mkdirSync(cwd, { recursive: true });
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
 
     return this.plugin.exec(['init', '-input=false'], {
       stdout: false,
-      execaOptions: {
+      commandOptions: {
         cwd,
       },
     });
@@ -44,7 +41,7 @@ export class Terraform {
     cwd: string,
     outputFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
-  ): ExecaChildProcess<string> {
+  ): Deno.ChildProcess {
     const args = ['plan', '-input=false', `-out=${outputFile}`];
     if (options?.refresh === false) {
       args.push('-refresh=false');
@@ -56,7 +53,7 @@ export class Terraform {
 
     return this.plugin.exec(args, {
       stdout: false,
-      execaOptions: { cwd },
+      commandOptions: { cwd },
     });
   }
 
@@ -64,7 +61,7 @@ export class Terraform {
     cwd: string,
     planFile: string,
     options?: { refresh?: boolean; destroy?: boolean },
-  ): ExecaChildProcess<string> {
+  ): Deno.ChildProcess {
     const args = ['apply'];
     if (options?.refresh === false) {
       args.push('-refresh=false');
@@ -78,14 +75,14 @@ export class Terraform {
 
     return this.plugin.exec(args, {
       stdout: false,
-      execaOptions: { cwd },
+      commandOptions: { cwd },
     });
   }
 
-  public destroy(cwd: string, planFile: string): ExecaChildProcess<string> {
+  public destroy(cwd: string, planFile: string): Deno.ChildProcess {
     return this.plugin.exec(['destroy', planFile], {
       stdout: false,
-      execaOptions: { cwd },
+      commandOptions: { cwd },
     });
   }
 
@@ -93,19 +90,19 @@ export class Terraform {
     cwd: string,
     resourceId: string,
     cloudId: string,
-  ): ExecaChildProcess<string> {
+  ): Deno.ChildProcess {
     return this.plugin.exec(['import', resourceId, cloudId], {
       stdout: false,
-      execaOptions: { cwd },
+      commandOptions: { cwd },
     });
   }
 
-  public output(cwd: string, id?: string): ExecaChildProcess<string> {
+  public output(cwd: string, id?: string): Deno.ChildProcess {
     const args = ['output', '-json'];
     if (id) {
       args.push(id);
     }
 
-    return this.plugin.exec(args, { stdout: false, execaOptions: { cwd } });
+    return this.plugin.exec(args, { stdout: false, commandOptions: { cwd } });
   }
 }

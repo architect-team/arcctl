@@ -6,7 +6,9 @@ type TableOptions = {
   head: string[];
 };
 
-export const createTable = (options: Partial<TableOptions> = {}): Table =>
+export const createTable = (
+  options: Partial<TableOptions> = {},
+): typeof Table =>
   new Table({
     ...options,
     chars: {

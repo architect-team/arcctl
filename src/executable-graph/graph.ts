@@ -10,6 +10,7 @@ import { App } from 'cdktf';
 import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { Logger } from 'winston';
+import { Construct } from 'constructs';
 
 export type ExecutableGraphOptions = {
   before: ExecutableGraph;
@@ -37,7 +38,7 @@ export class ExecutableGraph extends CloudGraph {
   /**
    * @override
    */
-  nodes!: ExecutableNode[];
+  declare nodes: ExecutableNode[];
 
   public static plan(options: PlanOptions): ExecutableGraph {
     const graph = new ExecutableGraph({
@@ -193,12 +194,11 @@ export class ExecutableGraph extends CloudGraph {
     node: T,
     options: ApplyOptions,
   ): Observable<T> {
-    const cwd =
-      options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'cldctl-' });
 
     return new Observable((subscriber) => {
       const nodeDir = path.join(cwd, node.id.replaceAll('/', '--'));
-      fs.mkdirSync(nodeDir, { recursive: true });
+      Deno.mkdirSync(nodeDir, { recursive: true });
       if (!nodeDir) {
         subscriber.error(
           new Error('Unable to create execution directory for terraform'),
@@ -219,7 +219,11 @@ export class ExecutableGraph extends CloudGraph {
             return;
           }
 
-          datacenter.config.configureBackend(stack, `${node.id}.tfstate`);
+          // TODO(tyler): Type error
+          datacenter.config.configureBackend(
+            stack as unknown as Construct,
+            `${node.id}.tfstate`,
+          );
 
           node.inputs = this.replaceRefsWithOutputValues(node.inputs);
           subscriber.next(node);
@@ -252,7 +256,7 @@ export class ExecutableGraph extends CloudGraph {
             return;
           }
 
-          provider.configureTerraformProviders(stack);
+          provider.configureTerraformProviders(stack as unknown as Construct);
           const { module, output: tfOutput } = stack.addModule(
             ModuleConstructor as any,
             node.resource_id,
@@ -365,8 +369,7 @@ export class ExecutableGraph extends CloudGraph {
   }
 
   public async apply(options: ApplyOptions): Promise<void> {
-    const cwd =
-      options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'cldctl-' });
 
     let node: ExecutableNode | undefined;
     while (

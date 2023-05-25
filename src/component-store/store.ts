@@ -3,8 +3,7 @@ import { parseComponent } from '../components/parser.ts';
 import { ComponentStoreDB } from './db.ts';
 import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
-import { existsSync } from 'https://deno.land/std@0.188.0/fs/exists.ts';
-import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
+import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import tar from 'tar';
 
@@ -221,7 +220,11 @@ export class ComponentStore {
     const config_blob = await repository.uploadBlob(config_path);
 
     // Upload the component directory contents
-    const tar_filepath = path.join(tmpDir() || '', 'files-layer.tgz');
+    const tar_filepath = Deno.makeTempFileSync({
+      prefix: 'files-layer',
+      suffix: 'tgz',
+    });
+
     await tar.create(
       { gzip: true, file: tar_filepath, cwd: path.dirname(config_path) },
       ['./'],

@@ -1,5 +1,3 @@
-import { ExecaChildProcess, Options } from 'execa';
-
 export enum PluginArchitecture {
   AMD64,
   ARM64,
@@ -18,7 +16,7 @@ export enum PluginBundleType {
 
 export interface PluginOptions {
   stdout: boolean;
-  execaOptions?: Options<string>;
+  commandOptions?: Deno.CommandOptions;
 }
 
 export interface PluginBinary {
@@ -34,5 +32,5 @@ export interface ArchitectPlugin {
   versions: { [version: string]: PluginBinary[] };
   name: string;
   setup(pluginDirectory: string, binary: PluginBinary): Promise<void>;
-  exec(args: string[], opts: PluginOptions): ExecaChildProcess<string>;
+  exec(args: string[], opts: PluginOptions): Deno.ChildProcess;
 }

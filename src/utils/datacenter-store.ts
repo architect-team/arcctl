@@ -1,6 +1,5 @@
 import { Datacenter } from '../datacenters/datacenter.ts';
 import { parseDatacenter } from '../datacenters/parser.ts';
-import tmpDir from 'https://deno.land/x/tmp_dir@v0.1.0/mod.ts';
 import * as path from 'std/path/mod.ts';
 
 export type DatacenterRecord = {
@@ -12,7 +11,7 @@ export class DatacenterStore {
   private _datacenters?: DatacenterRecord[];
 
   constructor(
-    private config_dir: string = tmpDir() || '/tmp',
+    private config_dir: string = Deno.makeTempDirSync(),
     private datacenter_filename: string = 'datacenters.json',
   ) {
     this.getDatacenters();

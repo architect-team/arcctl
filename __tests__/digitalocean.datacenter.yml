@@ -22,13 +22,13 @@ resources:
 environment:
   resources:
     namespace:
-      type: kubernetesNamespace
-      account: ${{ resources.cluster.provider }}
+      type: namespace
+      account: ${{ resources.cluster.account }}
       name: ${{ environment.name }}
     nginx-ingress-controller:
       type: helmChart
       name: ${{ environment.name }}-ingress-nginx
-      account: ${{ resources.cluster.provider }}
+      account: ${{ resources.cluster.account }}
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
@@ -61,5 +61,5 @@ environment:
           content: ${{ this.outputs.loadBalancerHostname }}
       loadBalancer: nginx
       namespace: ${{ environment.resources.namespace.id }}
-    - account: ${{ resources.cluster.provider }}
+    - account: ${{ resources.cluster.account }}
       namespace: ${{ environment.resources.namespace.id }}

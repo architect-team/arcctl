@@ -3,8 +3,7 @@
   "imports": {
     "std/": "https://deno.land/std@0.189.0/",
     "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
-    "cliffy/": "https://deno.land/x/cliffy@v0.25.7/",
-    "dots-wrapper": "./node_modules/dots-wrapper/src/index.ts"
+    "cliffy/": "https://deno.land/x/cliffy@v0.25.7/"
   },
   "lint": {
     "include": ["src/"],

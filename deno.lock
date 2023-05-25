@@ -339,6 +339,7 @@
       "constructs@^10.1.255": "constructs@10.2.32",
       "digitalocean-js@^2.0.3": "digitalocean-js@2.0.3_asynckit@0.4.0_combined-stream@1.0.8_delayed-stream@1.0.0_fast-deep-equal@3.1.3_follow-redirects@1.15.2_form-data@4.0.0_is-buffer@2.0.5_mime-db@1.51.0_mime-types@2.1.34_proxy-from-env@1.1.0_tslib@2.3.1",
       "digitalocean@^1.2.1": "digitalocean@1.2.1",
+      "dots-wrapper@^3.10.0": "dots-wrapper@3.10.0",
       "eslint-config-oclif-typescript@^1.0.3": "eslint-config-oclif-typescript@1.0.3_@typescript-eslint+parser@4.33.0__eslint@7.32.0__typescript@4.9.5_eslint@8.41.0_typescript@4.9.5",
       "eslint-config-oclif@^4.0.0": "eslint-config-oclif@4.0.0_eslint@8.41.0",
       "eslint-config-prettier@^8.5.0": "eslint-config-prettier@8.8.0_eslint@8.41.0",
@@ -4332,6 +4333,12 @@
         "integrity": "sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==",
         "dependencies": {
           "is-obj": "is-obj@2.0.0"
+        }
+      },
+      "dots-wrapper@3.10.0": {
+        "integrity": "sha512-AbmEfv9ViYW0pX1FjXL2Azq2SPIFE32l/10lSQEStW/nJy9U15Y33r+ghKWaaDiZD74E6fajTB+zXX6WPfIohg==",
+        "dependencies": {
+          "axios": "axios@0.27.2"
         }
       },
       "duplexer2@0.1.4": {

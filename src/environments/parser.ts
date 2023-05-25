@@ -1,6 +1,6 @@
 import { Environment } from './environment.ts';
 import { buildEnvironment, EnvironmentSchema } from './schema.ts';
-import Ajv2019 from 'ajv/dist/2019';
+import Ajv2019 from 'ajv/dist/2019.js';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 

@@ -1,7 +1,7 @@
 import { CloudGraph, CloudNode } from '../../cloud-graph/index.js';
 import type { ComponentStore } from '../../component-store/index.js';
 import { Component, parseComponent } from '../../components/index.js';
-import { Environment } from '../environment.js';
+import { ComponentMetadata, Environment } from '../environment.js';
 
 export default class EnvironmentV1 extends Environment {
   /**
@@ -322,5 +322,20 @@ export default class EnvironmentV1 extends Environment {
     });
 
     return graph;
+  }
+
+  public addComponent(metadata: ComponentMetadata): void {
+    this.components = this.components || {};
+    this.components[metadata.image.repository] =
+      this.components[metadata.image.repository] || {};
+    this.components[metadata.image.repository].source =
+      metadata.image.toString();
+    for (const [key, subdomain] of Object.entries(metadata.ingresses || {})) {
+      this.components[metadata.image.repository].ingresses =
+        this.components[metadata.image.repository].ingresses || {};
+      this.components[metadata.image.repository].ingresses![key] = {
+        subdomain,
+      };
+    }
   }
 }

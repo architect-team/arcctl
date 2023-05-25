@@ -74,7 +74,7 @@ export class CreateDatacenterCmd extends BaseCommand {
         .apply({
           providerStore: this.providerStore,
           logger: logger,
-          cwd: path.resolve('./.terraform'),
+          cwd: path.resolve(path.join('./.terraform', args.name)),
         })
         .then(async () => {
           await this.saveDatacenter(args.name, datacenter, pipeline);

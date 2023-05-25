@@ -86,7 +86,7 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
     let interval: NodeJS.Timer;
     if (!flags.verbose) {
       interval = setInterval(() => {
-        this.renderPipeline(pipeline);
+        this.renderPipeline(pipeline, { clear: true });
       }, 1000 / cliSpinners.dots.frames.length);
     }
 
@@ -103,7 +103,7 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
     return pipeline
       .apply({
         providerStore: this.providerStore,
-        cwd: path.resolve('./.terraform'),
+        cwd: path.resolve(path.join('./.terraform', targetDatacenter.name)),
         logger,
       })
       .then(async () => {

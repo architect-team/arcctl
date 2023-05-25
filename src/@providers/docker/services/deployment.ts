@@ -1,23 +1,115 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DockerCredentials } from '../credentials.js';
-import { DockerDeploymentModule } from '../modules/deployment.js';
+import { DeepPartial } from '../../../utils/types.js';
+import { CrudResourceService } from '../../crud.service.js';
+import { execa } from 'execa';
 
-export class DockerDeploymentService extends TerraformResourceService<
-  'deployment',
-  DockerCredentials
-> {
-  get(id: string): Promise<ResourceOutputs['deployment'] | undefined> {
-    throw new Error('Method not implemented.');
+type DockerPsItem = {
+  Command: string;
+  ID: string;
+  Names: string;
+  Networks: string;
+  State: string;
+};
+
+type DockerInspectionResults = {
+  Id: string;
+  Created: string;
+  Path: string;
+  Args: string[];
+  State: {
+    Status: string;
+    Running: boolean;
+    Paused: boolean;
+    Restarting: boolean;
+    Dead: boolean;
+  };
+  Image: string;
+  ResolvConfPath: string;
+  Name: string;
+  Driver: string;
+  Platform: string;
+};
+
+export class DockerDeploymentService extends CrudResourceService<'deployment'> {
+  async get(id: string): Promise<ResourceOutputs['deployment'] | undefined> {
+    const { stdout } = await execa('docker', ['inspect', id]);
+    const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
+    if (rawContents.length > 0) {
+      return {
+        id: rawContents[0].Name.replace(/^\//, ''),
+      };
+    }
+
+    return undefined;
   }
 
-  list(
+  async list(
     filterOptions?: Partial<ResourceOutputs['deployment']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
-    throw new Error('Method not implemented.');
+    const { stdout } = await execa('docker', ['ps', '--format', 'json']);
+    const rawContents = JSON.parse(stdout);
+    return {
+      total: rawContents.length,
+      rows: rawContents.map((r: DockerPsItem) => ({
+        id: r.Names,
+      })),
+    };
   }
 
-  readonly construct = DockerDeploymentModule;
+  async create(
+    inputs: ResourceInputs['deployment'],
+  ): Promise<ResourceOutputs['deployment']> {
+    const args = ['run', '--detach', '--name', inputs.name];
+    if (inputs.namespace) {
+      args.push('--network', inputs.namespace);
+    }
+
+    if (inputs.environment) {
+      for (const [key, value] of Object.entries(inputs.environment)) {
+        args.push('--env', `${key}="${String(value)}"`);
+      }
+    }
+
+    if (inputs.volume_mounts) {
+      for (const mount of inputs.volume_mounts) {
+        args.push('--volume', `${mount.volume}:${mount.mount_path}`);
+      }
+    }
+
+    if (inputs.entrypoint) {
+      args.push(
+        '--entrypoint',
+        typeof inputs.entrypoint === 'string'
+          ? `"${inputs.entrypoint}"`
+          : `"${inputs.entrypoint.join(' ')}"`,
+      );
+    }
+
+    args.push(inputs.image);
+
+    if (inputs.command) {
+      args.push(
+        typeof inputs.command === 'string'
+          ? `"${inputs.command}"`
+          : `"${inputs.command.join(' ')}"`,
+      );
+    }
+
+    await execa('docker', args);
+    return {
+      id: inputs.name,
+    };
+  }
+
+  async update(
+    inputs: ResourceInputs['deployment'],
+  ): Promise<DeepPartial<ResourceOutputs['deployment']>> {
+    throw new Error('Not yet implemented');
+  }
+
+  async delete(id: string): Promise<void> {
+    await execa('docker', ['stop', id]);
+  }
 }

@@ -59,5 +59,5 @@ export class AwsDnsZoneService extends TerraformResourceService<
     };
   }
 
-  readonly construct = AwsDnsZoneModule;
+  construct = AwsDnsZoneModule;
 }

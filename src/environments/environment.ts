@@ -1,5 +1,11 @@
 import { CloudGraph } from '../cloud-graph/index.js';
 import { ComponentStore } from '../component-store/store.js';
+import { ImageRepository } from '@architect-io/arc-oci';
+
+export type ComponentMetadata = {
+  image: ImageRepository;
+  ingresses?: Record<string, string>;
+};
 
 export abstract class Environment {
   public abstract getGraph(
@@ -18,4 +24,6 @@ export abstract class Environment {
      */
     debug?: boolean,
   ): Promise<CloudGraph>;
+
+  public abstract addComponent(metadata: ComponentMetadata): void;
 }

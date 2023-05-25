@@ -108,5 +108,5 @@ export class AwsDnsRecordService extends TerraformResourceService<
     };
   }
 
-  readonly construct = AwsDnsRecordModule;
+  construct = AwsDnsRecordModule;
 }

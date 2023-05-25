@@ -1,6 +1,7 @@
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
 import KubernetesUtils from '../../kubernetes.js';
-import { ResourceModule, ResourceModuleHooks } from '../../module.js';
+import { ResourceModule } from '../../module.js';
+import { ProviderStore } from '../../store.js';
 import { SupportedProviders } from '../../supported-providers.js';
 import { Eks } from '../.gen/modules/eks.js';
 import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.js';
@@ -257,8 +258,11 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     return results;
   }
 
-  hooks: ResourceModuleHooks = {
-    afterCreate: async (providerStore, getOutputValue) => {
+  hooks = {
+    afterCreate: async (
+      providerStore: ProviderStore,
+      getOutputValue: (id: string) => Promise<any>,
+    ) => {
       const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
       const endpoint = await getOutputValue(
         this.clusterEndpointOutput.friendlyUniqueId,
@@ -304,6 +308,10 @@ users:
           providerStore.saveFile.bind(providerStore),
         ),
       );
+    },
+
+    afterDelete: async () => {
+      await KubernetesUtils.deleteProvider(this.id);
     },
   };
 }

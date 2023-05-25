@@ -9,26 +9,6 @@ export class AwsDatabaseSizeService extends BaseService<'databaseSize'> {
     super();
   }
 
-  private async getInstanceTypes(
-    ec2: AWS.EC2,
-    token?: string,
-  ): Promise<string[]> {
-    const ec2InstanceTypeData = await ec2
-      .describeInstanceTypes({
-        NextToken: token,
-      })
-      .promise();
-    const types: string[] = [
-      ...(ec2InstanceTypeData.InstanceTypes?.map((instance) => {
-        return instance.InstanceType || '';
-      }) || []),
-      ...(ec2InstanceTypeData.NextToken
-        ? await this.getInstanceTypes(ec2, ec2InstanceTypeData.NextToken)
-        : []),
-    ];
-    return types;
-  }
-
   async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
     return undefined;
   }

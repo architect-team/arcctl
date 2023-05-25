@@ -118,7 +118,7 @@ export class CreateEnvironmentCmd extends BaseCommand {
         .apply({
           providerStore: this.providerStore,
           logger: logger,
-          cwd: path.resolve('./.terraform'),
+          cwd: path.resolve(path.join('./.terraform', datacenterRecord.name)),
         })
         .then(async () => {
           await this.saveDatacenter(

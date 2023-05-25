@@ -127,5 +127,5 @@ export class AwsVpcService extends TerraformResourceService<
     };
   }
 
-  readonly construct = AwsVpcModule;
+  construct = AwsVpcModule;
 }

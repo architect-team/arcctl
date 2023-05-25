@@ -66,5 +66,5 @@ export class AwsDatabaseService extends TerraformResourceService<
     ];
   }
 
-  readonly construct = AwsDatabaseModule;
+  construct = AwsDatabaseModule;
 }

@@ -1,10 +1,12 @@
 import { BaseCommand } from '../../base-command.js';
 import { CloudGraph } from '../../cloud-graph/index.js';
+import { EnvironmentRecord } from '../../environments/index.js';
 import { Pipeline } from '../../pipeline/index.js';
-import { EnvironmentRecord } from '../../utils/environment-store.js';
+import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
 import path from 'path';
+import winston, { Logger } from 'winston';
 
 export class DestroyEnvironmentCmd extends BaseCommand {
   static description = 'Destroy all the resources in the specified environment';
@@ -16,10 +18,17 @@ export class DestroyEnvironmentCmd extends BaseCommand {
     },
   ];
 
+  static flags = {
+    verbose: Flags.boolean({
+      char: 'v',
+      description: 'Turn on verbose logs',
+    }),
+  };
+
   private async promptForEnvironment(
     name?: string,
   ): Promise<EnvironmentRecord> {
-    const environmentRecords = await this.environmentStore.getEnvironments();
+    const environmentRecords = await this.environmentStore.find();
 
     if (environmentRecords.length <= 0) {
       this.error('There are no environments to destroy');
@@ -45,41 +54,81 @@ export class DestroyEnvironmentCmd extends BaseCommand {
   }
 
   async run(): Promise<void> {
-    const { args } = await this.parse(DestroyEnvironmentCmd);
+    const { args, flags } = await this.parse(DestroyEnvironmentCmd);
 
-    const {
-      name,
-      graph: previousGraph,
-      datacenter: datacenterName,
-    } = await this.promptForEnvironment(args.name);
+    const environmentRecord = await this.promptForEnvironment(args.name);
+    const datacenterRecord = await this.datacenterStore.get(
+      environmentRecord.datacenter,
+    );
+    if (!datacenterRecord) {
+      const { confirm } = await inquirer.prompt([
+        {
+          name: 'confirm',
+          type: 'confirm',
+          message: `The environment is pointed to an invalid datacenter. The environment can be removed, but the resources can't be destroyed. Would you like to proceed?`,
+        },
+      ]);
 
-    const graphPlan = Pipeline.plan({
-      before: previousGraph,
-      after: new CloudGraph(),
-      datacenter: datacenterName,
+      if (confirm) {
+        await this.environmentStore.remove(environmentRecord.name);
+        this.log(`Environment removed. Resources may still be dangling.`);
+        return;
+      } else {
+        this.log('Environment removal cancelled.');
+        return;
+      }
+    }
+
+    const lastPipeline = await this.getPipelineForDatacenter(datacenterRecord);
+
+    const targetGraph = await datacenterRecord?.config.enrichGraph(
+      new CloudGraph(),
+    );
+    const pipeline = Pipeline.plan({
+      before: lastPipeline,
+      after: targetGraph,
     });
 
-    const interval = setInterval(() => {
-      if (graphPlan.nodes.length > 0) {
-        this.renderPipeline(graphPlan);
-      }
-    }, 1000 / cliSpinners.dots.frames.length);
+    let interval: NodeJS.Timer;
+    if (!flags.verbose) {
+      interval = setInterval(() => {
+        this.renderPipeline(pipeline, { clear: true });
+      }, 1000 / cliSpinners.dots.frames.length);
+    }
 
-    return graphPlan
+    let logger: Logger | undefined;
+    if (flags.verbose) {
+      this.renderPipeline(pipeline);
+      logger = winston.createLogger({
+        level: 'info',
+        format: winston.format.printf(({ message }) => message),
+        transports: [new winston.transports.Console()],
+      });
+    }
+
+    return pipeline
       .apply({
-        datacenterStore: this.datacenterStore,
         providerStore: this.providerStore,
-        cwd: path.resolve('./.terraform'),
+        logger: logger,
+        cwd: path.resolve('./terraform'),
       })
       .then(async () => {
-        await this.environmentStore.removeEnvironment(name);
-        if (graphPlan.nodes.length > 0) {
-          this.renderPipeline(graphPlan);
-        }
+        await this.saveDatacenter(
+          datacenterRecord.name,
+          datacenterRecord.config,
+          pipeline,
+        );
+        await this.environmentStore.remove(environmentRecord.name);
+        this.renderPipeline(pipeline, { clear: !flags.verbose });
         clearInterval(interval);
         this.log('Environment destroyed successfully');
       })
-      .catch((err) => {
+      .catch(async (err) => {
+        await this.saveDatacenter(
+          datacenterRecord.name,
+          datacenterRecord.config,
+          pipeline,
+        );
         clearInterval(interval);
         this.error(err);
       });

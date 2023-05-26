@@ -1,37 +1,27 @@
-import { BaseCommand } from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
-import { Flags } from '@oclif/core';
-import yaml from 'js-yaml';
 
-export class DeployComponentCmd extends BaseCommand {
-  static description = 'Deploy a component into an existing environment';
+type DeployOptions = {
+  environment: string;
+} & GlobalOptions;
 
-  static args = [
-    {
-      name: 'tag',
-      description: 'Component tag to deploy to the environment',
-      required: true,
-    },
-  ];
+const deployCommand = BaseCommand()
+  .description('Deploy a component into an existing environment')
+  .arguments('<tag:string>') // 'Component tag to deploy to the environment'
+  .option('-e, --environment <environment:string>', 'Name of the environment to deploy to', { required: true })
+  .action(deployAction);
 
-  static flags = {
-    environment: Flags.string({
-      char: 'e',
-      description: 'Name of the environment to deploy to',
-    }),
-  };
+async function deployAction(options: DeployOptions, tag: string): Promise<void> {
+  const command_helper = new CommandHelper(options);
 
-  async run(): Promise<void> {
-    const { args } = await this.parse(DeployComponentCmd);
-
-    try {
-      const imageRepository = new ImageRepository(args.tag);
-      const component = await this.componentStore.getComponentConfig(args.tag);
-      const environmentRecord = await this.environmentStore.getEnvironment(
-        args.environment,
-      );
-    } catch (err: any) {
-      this.error(err);
-    }
+  try {
+    const imageRepository = new ImageRepository(tag);
+    const component = await command_helper.componentStore.getComponentConfig(tag);
+    const environmentRecord = await command_helper.environmentStore.getEnvironment(options.environment);
+  } catch (err: any) {
+    console.error(err);
+    Deno.exit(1);
   }
 }
+
+export default deployCommand;

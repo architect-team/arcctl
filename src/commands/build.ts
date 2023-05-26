@@ -4,7 +4,7 @@ import { ImageRepository } from '@architect-io/arc-oci';
 import { execa } from 'execa';
 import * as path from 'std/path/mod.ts';
 
-type BuildComponentOptions = {
+type BuildOptions = {
   tag?: string[];
 } & GlobalOptions;
 
@@ -14,7 +14,7 @@ const buildCommand = BaseCommand()
   .option('-t, --tag <tag:string>', 'Tags to assign to the built image', { collect: true })
   .action(buildAction);
 
-async function buildAction(options: BuildComponentOptions, context_file: string): Promise<void> {
+async function buildAction(options: BuildOptions, context_file: string): Promise<void> {
   const command_helper = new CommandHelper(options);
   const context = Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
 

@@ -102,6 +102,7 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<
   hooks = {
     afterCreate: async (
       providerStore: ProviderStore,
+      outputs: ResourceOutputs['kubernetesCluster'],
       getOutputValue: (id: string) => Promise<any>,
     ) => {
       const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);

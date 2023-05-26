@@ -8,10 +8,11 @@ import { ProviderStore } from './store.js';
 import { TerraformResource } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface ResourceModuleHooks {
+export interface ResourceModuleHooks<T extends ResourceType> {
   afterCreate?: (
     providerStore: ProviderStore,
-    getOutputValue: (id: string) => Promise<any>,
+    outputs: ResourceOutputs[T],
+    getRawOutputValue: (id: string) => Promise<any>,
   ) => Promise<void>;
   afterDelete?: () => Promise<void>;
   afterImport?: () => Promise<void>;
@@ -22,7 +23,7 @@ export abstract class ResourceModule<
   C extends ProviderCredentials,
 > extends Construct {
   abstract outputs: ResourceOutputs[T];
-  hooks: ResourceModuleHooks = {};
+  hooks: ResourceModuleHooks<T> = {};
 
   constructor(
     public readonly scope: Construct,

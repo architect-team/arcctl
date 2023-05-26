@@ -36,7 +36,7 @@
                     "type": "object"
                   },
                   "chart": {
-                    "$ref": "#/definitions/DeepPartial%3Cstring1758974246%3E"
+                    "$ref": "#/definitions/DeepPartial%3Cstring1713698491%3E"
                   },
                   "command": {
                     "anyOf": [
@@ -113,6 +113,9 @@
                     "type": "object"
                   },
                   "external_name": {
+                    "type": "string"
+                  },
+                  "host": {
                     "type": "string"
                   },
                   "hostPath": {
@@ -200,7 +203,29 @@
                     "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
                   },
                   "port": {
-                    "$ref": "#/definitions/DeepPartial%3C(string%7Cnumber)1056285502%3E"
+                    "anyOf": [
+                      {
+                        "description": "Port of the target database",
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      },
+                      {
+                        "description": "The port the underlying database is listening on",
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      },
+                      {
+                        "description": "Port that the ingress rule listens for traffic on",
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      }
+                    ]
                   },
                   "probes": {
                     "additionalProperties": false,
@@ -538,8 +563,23 @@
                                 "description": "Version of the database type the schema creation process expects",
                                 "type": "string"
                               },
+                              "host": {
+                                "description": "Host of the target database",
+                                "type": "string"
+                              },
                               "name": {
                                 "description": "Name to give to the new schema",
+                                "type": "string"
+                              },
+                              "port": {
+                                "description": "Port of the target database",
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "protocol": {
+                                "description": "Protocol the target database responds to",
                                 "type": "string"
                               },
                               "type": {
@@ -631,6 +671,21 @@
                                 "description": "The schema the user should have access to",
                                 "type": "string"
                               },
+                              "host": {
+                                "description": "The host address of the underlying database",
+                                "type": "string"
+                              },
+                              "port": {
+                                "description": "The port the underlying database is listening on",
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "protocol": {
+                                "description": "The protocol of the underlying database",
+                                "type": "string"
+                              },
                               "type": {
                                 "const": "databaseUser",
                                 "type": "string"
@@ -643,6 +698,9 @@
                             "required": [
                               "account",
                               "databaseSchema",
+                              "host",
+                              "port",
+                              "protocol",
                               "type",
                               "username"
                             ],
@@ -1120,7 +1178,7 @@
                                 "type": "string"
                               },
                               "chart": {
-                                "description": "Chart name to be installed",
+                                "description": "Chart to be installed",
                                 "type": "string"
                               },
                               "name": {
@@ -1563,7 +1621,6 @@
                               "account",
                               "data",
                               "name",
-                              "namespace",
                               "type"
                             ],
                             "type": "object"
@@ -1969,7 +2026,7 @@
                         "type": "object"
                       },
                       "chart": {
-                        "$ref": "#/definitions/DeepPartial%3Cstring1758974246%3E"
+                        "$ref": "#/definitions/DeepPartial%3Cstring1713698491%3E"
                       },
                       "command": {
                         "anyOf": [
@@ -2048,6 +2105,9 @@
                       "external_name": {
                         "type": "string"
                       },
+                      "host": {
+                        "type": "string"
+                      },
                       "hostPath": {
                         "type": "string"
                       },
@@ -2118,7 +2178,29 @@
                         "$ref": "#/definitions/DeepPartial%3Cstructure-1603338918-445-687-1603338918-438-688-1603338918-380-689-1603338918-28-691-1603338918-0-692-1603338918-0-724%5B%5D1828872945%3E"
                       },
                       "port": {
-                        "$ref": "#/definitions/DeepPartial%3C(string%7Cnumber)1056285502%3E"
+                        "anyOf": [
+                          {
+                            "description": "Port of the target database",
+                            "type": [
+                              "string",
+                              "number"
+                            ]
+                          },
+                          {
+                            "description": "The port the underlying database is listening on",
+                            "type": [
+                              "string",
+                              "number"
+                            ]
+                          },
+                          {
+                            "description": "Port that the ingress rule listens for traffic on",
+                            "type": [
+                              "string",
+                              "number"
+                            ]
+                          }
+                        ]
                       },
                       "probes": {
                         "additionalProperties": false,
@@ -2533,8 +2615,23 @@
                           "description": "Version of the database type the schema creation process expects",
                           "type": "string"
                         },
+                        "host": {
+                          "description": "Host of the target database",
+                          "type": "string"
+                        },
                         "name": {
                           "description": "Name to give to the new schema",
+                          "type": "string"
+                        },
+                        "port": {
+                          "description": "Port of the target database",
+                          "type": [
+                            "string",
+                            "number"
+                          ]
+                        },
+                        "protocol": {
+                          "description": "Protocol the target database responds to",
                           "type": "string"
                         },
                         "type": {
@@ -2626,6 +2723,21 @@
                           "description": "The schema the user should have access to",
                           "type": "string"
                         },
+                        "host": {
+                          "description": "The host address of the underlying database",
+                          "type": "string"
+                        },
+                        "port": {
+                          "description": "The port the underlying database is listening on",
+                          "type": [
+                            "string",
+                            "number"
+                          ]
+                        },
+                        "protocol": {
+                          "description": "The protocol of the underlying database",
+                          "type": "string"
+                        },
                         "type": {
                           "const": "databaseUser",
                           "type": "string"
@@ -2638,6 +2750,9 @@
                       "required": [
                         "account",
                         "databaseSchema",
+                        "host",
+                        "port",
+                        "protocol",
                         "type",
                         "username"
                       ],
@@ -3115,7 +3230,7 @@
                           "type": "string"
                         },
                         "chart": {
-                          "description": "Chart name to be installed",
+                          "description": "Chart to be installed",
                           "type": "string"
                         },
                         "name": {
@@ -3558,7 +3673,6 @@
                         "account",
                         "data",
                         "name",
-                        "namespace",
                         "type"
                       ],
                       "type": "object"
@@ -4179,8 +4293,23 @@
                       "description": "Version of the database type the schema creation process expects",
                       "type": "string"
                     },
+                    "host": {
+                      "description": "Host of the target database",
+                      "type": "string"
+                    },
                     "name": {
                       "description": "Name to give to the new schema",
+                      "type": "string"
+                    },
+                    "port": {
+                      "description": "Port of the target database",
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    },
+                    "protocol": {
+                      "description": "Protocol the target database responds to",
                       "type": "string"
                     },
                     "type": {
@@ -4272,6 +4401,21 @@
                       "description": "The schema the user should have access to",
                       "type": "string"
                     },
+                    "host": {
+                      "description": "The host address of the underlying database",
+                      "type": "string"
+                    },
+                    "port": {
+                      "description": "The port the underlying database is listening on",
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    },
+                    "protocol": {
+                      "description": "The protocol of the underlying database",
+                      "type": "string"
+                    },
                     "type": {
                       "const": "databaseUser",
                       "type": "string"
@@ -4284,6 +4428,9 @@
                   "required": [
                     "account",
                     "databaseSchema",
+                    "host",
+                    "port",
+                    "protocol",
                     "type",
                     "username"
                   ],
@@ -4761,7 +4908,7 @@
                       "type": "string"
                     },
                     "chart": {
-                      "description": "Chart name to be installed",
+                      "description": "Chart to be installed",
                       "type": "string"
                     },
                     "name": {
@@ -5204,7 +5351,6 @@
                     "account",
                     "data",
                     "name",
-                    "namespace",
                     "type"
                   ],
                   "type": "object"
@@ -5627,13 +5773,6 @@
       "description": "The repository to push the artifact to",
       "type": "string"
     },
-    "DeepPartial<(string|number)1056285502>": {
-      "description": "Port that the ingress rule listens for traffic on",
-      "type": [
-        "string",
-        "number"
-      ]
-    },
     "DeepPartial<(string|string699422260)>": {
       "type": "string"
     },
@@ -5679,8 +5818,8 @@
       "description": "Source of the component that contains the build context",
       "type": "string"
     },
-    "DeepPartial<string1758974246>": {
-      "description": "Chart name to be installed",
+    "DeepPartial<string1713698491>": {
+      "description": "Chart to be installed",
       "type": "string"
     },
     "DeepPartial<string1848820199>": {

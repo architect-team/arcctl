@@ -38,7 +38,7 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
       const newDatacenter = await parseDatacenter(args.config_path);
       const allEnvironments = await this.environmentStore.find();
       const datacenterEnvironments = allEnvironments.filter(
-        (e) => e.datacenter === flags.name,
+        (e) => e.datacenter === args.name,
       );
 
       const targetGraph = await newDatacenter.enrichGraph(new CloudGraph());

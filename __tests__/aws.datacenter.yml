@@ -32,6 +32,10 @@ environment:
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
+    zone:
+      type: dnsZone
+      account: aws-architect
+      name: davidthor.me
 
   hooks:
     - when:
@@ -42,15 +46,27 @@ environment:
           type: database
           account: aws-architect
           region: us-west-2
-          name: test-db
+          name: ${{ this.id }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
           databaseSize: db.t3.medium
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
       account: ${{ this.resources.db.account }}
       database: ${{ this.resources.db.id }}
+      host: ${{ this.resources.db.host }}
+      port: ${{ this.resources.db.port }}
+      protocol: ${{ this.resources.db.protocol }}
     - when:
         type: ingressRule
+      resources:
+        dnsRecord:
+          type: dnsRecord
+          account: aws-architect
+          dnsZone: ${{ environment.resources.zone.id }}
+          subdomain: ${{ this.inputs.listener.subdomain }}
+          recordType: A
+          content: ${{ this.outputs.loadBalancerHostname }}
       loadBalancer: nginx
+      namespace: ${{ environment.resources.namespace.id }}
     - account: ${{ resources.cluster.account }}
       namespace: ${{ environment.resources.namespace.id }}

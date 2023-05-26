@@ -36,7 +36,10 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     super(scope, id, inputs);
 
     if (inputs.region) {
-      (this.scope.node.children[0] as AwsProvider).region = inputs.region;
+      const aws_provider = this.scope.node.children.find(
+        (child) => child instanceof AwsProvider,
+      ) as any;
+      aws_provider.region = inputs.region;
     }
 
     const vpc_parts = inputs.vpc
@@ -145,10 +148,10 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     });
 
     this.outputs = {
-      id: `${this.inputs.region}/${this.eks.clusterNameOutput}`,
+      id: `${this.inputs.region}`,
       kubernetesVersion: this.eks.clusterVersion || '',
       name: this.eks.clusterName || this.inputs.name,
-      vpc: this.eks.vpcId || this.inputs.vpc,
+      vpc: this.eks.vpcId || '',
       account: `kubernetesCluster-${this.inputs.name}`,
     };
   }
@@ -261,6 +264,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
   hooks = {
     afterCreate: async (
       providerStore: ProviderStore,
+      outputs: ResourceOutputs['kubernetesCluster'],
       getOutputValue: (id: string) => Promise<any>,
     ) => {
       const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
@@ -295,21 +299,20 @@ users:
       - ${this.inputs.name}
       command: aws`;
       await KubernetesUtils.createProvider(this.inputs.name, credentialsYaml);
-      const configPath = providerStore.saveFile(
-        this.inputs.name,
+      const configFilePath = providerStore.saveFile(
+        `kubernetesCluster-${this.inputs.name}.yml`,
         credentialsYaml,
       );
       providerStore.saveProvider(
         new SupportedProviders.kubernetes(
           `kubernetesCluster-${this.inputs.name}`,
           {
-            configPath,
+            configPath: configFilePath,
           },
           providerStore.saveFile.bind(providerStore),
         ),
       );
     },
-
     afterDelete: async () => {
       await KubernetesUtils.deleteProvider(this.id);
     },

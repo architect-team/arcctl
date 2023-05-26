@@ -24,7 +24,7 @@ export class AwsDnsZoneModule extends ResourceModule<
     }
 
     this.outputs = {
-      id: this.dns_zone.id,
+      id: this.dns_zone.name,
       name: this.dns_zone.name,
       nameservers: this.dns_zone.nameServers,
     };
@@ -39,7 +39,7 @@ export class AwsDnsZoneModule extends ResourceModule<
       // import is required to be in the format specified here - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone#import
       const dns_zone_service = new AwsDnsZoneService(credentials);
       const dns_zones = await dns_zone_service.list();
-      dns_zone_match = dns_zones.rows.find((z) => z.id === `${resourceId}.`);
+      dns_zone_match = dns_zones.rows.find((z) => z.name === `${resourceId}.`);
     }
 
     return {

@@ -152,6 +152,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       this.inputs || ({} as any),
     );
 
+    this.status.state = 'starting';
+    this.status.message = 'Importing resource state';
+    subscriber.next(this);
+
     if (this.state) {
       // State exists and doesn't need to be imported
       fs.writeFileSync(stateFile, JSON.stringify(this.state));
@@ -216,13 +220,17 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         throw new Error(`Failed to acquired outputs for ${this.id}`);
       }
 
-      await module.hooks.afterCreate(options.providerStore, (id: string) => {
-        if (parsedOutputs[id]) {
-          return parsedOutputs[id].value;
-        }
+      await module.hooks.afterCreate(
+        options.providerStore,
+        outputs,
+        (id: string) => {
+          if (parsedOutputs[id]) {
+            return parsedOutputs[id].value;
+          }
 
-        throw new Error(`Invalid output key, ${id}`);
-      });
+          throw new Error(`Invalid output key, ${id}`);
+        },
+      );
     } else if (this.action === 'delete' && module.hooks.afterDelete) {
       this.status.state = 'destroying';
       this.status.message = `Running post-delete hooks`;
@@ -339,7 +347,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         })
         .catch((err) => {
           this.status.state = 'error';
-          this.status.message = err.message || '';
+          this.status.message = '';
           this.status.endTime = Date.now();
           subscriber.next(this);
           subscriber.error(err);

@@ -22,7 +22,7 @@ resources:
 environment:
   resources:
     namespace:
-      type: kubernetesNamespace
+      type: namespace
       account: ${{ resources.cluster.account }}
       name: ${{ environment.name }}
     nginx-ingress-controller:

@@ -145,7 +145,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     });
 
     this.outputs = {
-      id: `${this.inputs.region}/${this.eks.clusterIdOutput}`,
+      id: `${this.inputs.region}/${this.eks.clusterNameOutput}`,
       kubernetesVersion: this.eks.clusterVersion || '',
       name: this.eks.clusterName || this.inputs.name,
       vpc: this.eks.vpcId || this.inputs.vpc,
@@ -285,7 +285,7 @@ users:
 - name:  ${this.inputs.name}
   user:
     exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
+      apiVersion: client.authentication.k8s.io/v1beta1
       args:
       - --region
       - ${this.inputs.region}

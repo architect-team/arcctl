@@ -40,7 +40,7 @@ export class AwsKubernetesClusterService extends TerraformResourceService<
             vpc: data.cluster?.resourcesVpcConfig?.vpcId || '',
             name: data.cluster?.name || '',
             kubernetesVersion: data.cluster?.version || '',
-            provider: '',
+            account: '',
           });
         },
       );
@@ -90,7 +90,7 @@ export class AwsKubernetesClusterService extends TerraformResourceService<
                 vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
                 name: clusterData.cluster?.name || '',
                 kubernetesVersion: clusterData.cluster?.version || '',
-                provider: '',
+                account: '',
               })),
             });
           },

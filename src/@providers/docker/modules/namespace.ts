@@ -4,7 +4,7 @@ import { Network } from '../.gen/providers/docker/network/index.ts';
 import { DockerCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class DockerNetworkModule extends ResourceModule<
+export class DockerNamespaceModule extends ResourceModule<
   'namespace',
   DockerCredentials
 > {

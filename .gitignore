@@ -5,6 +5,7 @@
 /lib
 /tmp
 /bin/scripts/build
+/bin/arcctl
 node_modules
 oclif.manifest.json
 coverage

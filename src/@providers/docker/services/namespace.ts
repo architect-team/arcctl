@@ -2,7 +2,7 @@ import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../service.ts';
 import { DockerCredentials } from '../credentials.ts';
-import { DockerNetworkModule } from '../modules/namespace.ts';
+import { DockerNamespaceModule } from '../modules/namespace.ts';
 
 export class DockerNamespaceService extends ResourceService<
   'namespace',
@@ -20,6 +20,6 @@ export class DockerNamespaceService extends ResourceService<
   }
 
   manage = {
-    module: DockerNetworkModule,
+    module: DockerNamespaceModule,
   };
 }

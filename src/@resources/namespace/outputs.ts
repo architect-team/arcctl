@@ -1,5 +1,5 @@
 export type NamespaceOutputs = {
-  name: string;
+  id: string;
 };
 
 export default NamespaceOutputs;

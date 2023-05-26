@@ -19,11 +19,11 @@
     "exclude": []
   },
   "tasks": {
-    "compile": "deno compile src/index.ts --import-map deno.json --output test",
-    "generate:component-schema": "deno run --allow-all ./bin/scripts/component-generator.ts",
-    "generate:datacenter-schema": "deno run --allow-all ./bin/scripts/datacenter-generator.ts",
-    "generate:environment-schema": "deno run --allow-all ./bin/scripts/environment-generator.ts",
-    "generate:providers": "deno run --allow-all ./bin/scripts/provider-generator.ts",
-    "generate:resources": "deno run --allow-all ./bin/scripts/resource-generator.ts"
+    "compile": "deno compile -A src/index.ts --no-check --output bin/arcctl",
+    "generate:component-schema": "deno run -A ./bin/scripts/component-generator.ts",
+    "generate:datacenter-schema": "deno run -A ./bin/scripts/datacenter-generator.ts",
+    "generate:environment-schema": "deno run -A ./bin/scripts/environment-generator.ts",
+    "generate:providers": "deno run -A ./bin/scripts/provider-generator.ts",
+    "generate:resources": "deno run -A ./bin/scripts/resource-generator.ts"
   }
 }

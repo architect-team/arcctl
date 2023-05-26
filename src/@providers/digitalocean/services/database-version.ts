@@ -37,6 +37,7 @@ export class DigitaloceanDatabaseVersionService extends ResourceService<
       for (const version of database_options.versions) {
         versions.push({
           id: version,
+          databaseVersion: version,
           databaseType: database_name,
         });
       }

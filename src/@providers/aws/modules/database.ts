@@ -28,10 +28,11 @@ export class AwsDatabaseModule extends ResourceModule<
   ) {
     super(scope, id, inputs);
 
+    const name = inputs.name.replaceAll('/', '-').toLowerCase();
     const vpc_parts = inputs.vpc
       ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/)
       : [];
-    if (!vpc_parts && this.inputs.name) {
+    if (!vpc_parts) {
       throw new Error('VPC must be of the format, <region>/<vpc_id>');
     }
     const [region, vpc_id] = (inputs.vpc || '/').split('/');
@@ -48,9 +49,9 @@ export class AwsDatabaseModule extends ResourceModule<
 
     const database_security_group = new SecurityGroup(
       this,
-      `database-security-group-${inputs.name}`,
+      `database-security-group-${name}`,
       {
-        name: `database-${inputs.name}`,
+        name: `database-${name}`,
         description: 'Allow database access',
         vpcId: vpc_id,
         ingress: [
@@ -64,7 +65,7 @@ export class AwsDatabaseModule extends ResourceModule<
       },
     );
 
-    const subnet_ids = new DataAwsSubnets(this, `subnet_ids-${inputs.name}`, {
+    const subnet_ids = new DataAwsSubnets(this, `subnet_ids-${name}`, {
       filter: [
         {
           name: 'vpc-id',
@@ -73,17 +74,13 @@ export class AwsDatabaseModule extends ResourceModule<
       ],
     });
 
-    const dbSubnetGroup = new DbSubnetGroup(
-      this,
-      `db-subnet-group-${inputs.name}`,
-      {
-        subnetIds: subnet_ids.ids,
-        name: `db-subnet-group-${inputs.name}`,
-      },
-    );
+    const dbSubnetGroup = new DbSubnetGroup(this, `db-subnet-group-${name}`, {
+      subnetIds: subnet_ids.ids,
+      name: `db-subnet-group-${name}`,
+    });
 
-    this.database = new Rds(this, `database-${inputs.name}`, {
-      identifier: inputs.name,
+    this.database = new Rds(this, `database-${name}`, {
+      identifier: name,
       publiclyAccessible: true,
       engine: inputs.databaseType,
       engineVersion: inputs.databaseVersion,
@@ -101,27 +98,19 @@ export class AwsDatabaseModule extends ResourceModule<
       protocol = 'postgresql';
     }
 
-    this.username = new TerraformOutput(
-      this,
-      `database-${inputs.name}-username`,
-      {
-        value: this.database.dbInstanceUsernameOutput,
-        sensitive: true,
-      },
-    );
+    this.username = new TerraformOutput(this, `database-${name}-username`, {
+      value: this.database.dbInstanceUsernameOutput,
+      sensitive: true,
+    });
 
-    this.password = new TerraformOutput(
-      this,
-      `database-${inputs.name}-password`,
-      {
-        value: this.database.dbInstancePasswordOutput,
-        sensitive: true,
-      },
-    );
+    this.password = new TerraformOutput(this, `database-${name}-password`, {
+      value: this.database.dbInstancePasswordOutput,
+      sensitive: true,
+    });
 
     this.certificate = new TerraformOutput(
       this,
-      `database-${inputs.name}-certificate`,
+      `database-${name}-certificate`,
       {
         sensitive: true,
         value: this.database.dbInstanceCaCertIdentifierOutput,
@@ -133,7 +122,7 @@ export class AwsDatabaseModule extends ResourceModule<
       protocol,
       host: this.database.dbInstanceAddressOutput,
       port: Fn.tonumber(this.database.dbInstancePortOutput),
-      account: `postgres-${this.inputs.name}`,
+      account: `postgres-${inputs.name}`,
       certificate: this.certificate.value,
     };
   }

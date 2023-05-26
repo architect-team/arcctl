@@ -5,11 +5,7 @@ import {
   ResourceModule,
   ProviderStore,
 } from './@providers/index.ts';
-import {
-  ResourceInputs,
-  ResourceType,
-  ResourceTypeList,
-} from './@resources/index.ts';
+import { ResourceInputs, ResourceType, ResourceTypeList } from './@resources/index.ts';
 import { ComponentStore } from './component-store/index.ts';
 import { ExecutableGraph } from './executable-graph/index.ts';
 import CloudCtlConfig from './utils/config.ts';
@@ -29,60 +25,28 @@ import * as path from 'std/path/mod.ts';
 import readline from 'node:readline';
 import process from 'node:process';
 
-export type ParentCommandGlobals = {
-  config?: string;
+export type GlobalOptions = {
+  config_home?: string;
 };
 
-type ParentCommandTypes = void;
-
-export abstract class BaseCommand<
-  T extends Record<string, unknown> | void,
-  U extends Array<unknown> = unknown[],
-> extends Command<ParentCommandGlobals, ParentCommandTypes, T, U> {
-  static command_name: string | undefined;
-  static command_description: string | undefined;
-
-  // TODO: DO this somewhere
-  // CloudCtlConfig.setOclifConfig(config);
-
-  constructor() {
-    super();
-    return this.name(this.getName()).description(this.getDescription());
-  }
-
-  getName() {
-    const cls = <typeof BaseCommand>this.constructor;
-    if (!cls.command_name) {
-      throw new Error(`static command_name is not set for ${cls.name}`);
-    }
-    return cls.command_name;
-  }
-
-  getDescription() {
-    const cls = <typeof BaseCommand>this.constructor;
-    if (!cls.command_description) {
-      throw new Error(`static command_description is not set for ${cls.name}`);
-    }
-    return cls.command_description;
-  }
-
-  static getConfig(options: ParentCommandGlobals) {
-    if (options.config) {
-      return options.config;
-    }
-    return '~/.config/test';
-  }
+export function BaseCommand() {
+  return new Command().globalEnv('XDG_CONFIG_HOME=<value:string>', 'Configuration folder location.', {
+    prefix: 'XDG_',
+  });
 }
 
 export class CommandHelper {
   private spinner_frame_index = 0;
+  private options: GlobalOptions;
+
+  constructor(options: GlobalOptions) {
+    this.options = options;
+    CloudCtlConfig.setConfigDirectory(options.config_home);
+  }
 
   get componentStore(): ComponentStore {
     const config_dir = CloudCtlConfig.getConfigDirectory();
-    return new ComponentStore(
-      path.join(config_dir, 'component-store'),
-      'registry.architect.io',
-    );
+    return new ComponentStore(path.join(config_dir, 'component-store'), 'registry.architect.io');
   }
 
   get providerStore(): ProviderStore {
@@ -100,10 +64,7 @@ export class CommandHelper {
   /**
    * Render the executable graph and the status of each resource
    */
-  protected renderGraph(
-    graph: ExecutableGraph,
-    options?: { showEnvironment?: boolean },
-  ): void {
+  protected renderGraph(graph: ExecutableGraph, options?: { showEnvironment?: boolean }): void {
     const headers = ['Name', 'Type', 'Component'];
     if (options?.showEnvironment) {
       headers.push('Environment');
@@ -132,11 +93,7 @@ export class CommandHelper {
           row.push(
             node.action,
             node.status.state,
-            Math.floor(
-              ((node.status.endTime || Date.now()) -
-                (node.status.startTime || Date.now())) /
-                1000,
-            ) + 's',
+            Math.floor(((node.status.endTime || Date.now()) - (node.status.startTime || Date.now())) / 1000) + 's',
             node.status.message || '',
           );
 
@@ -148,8 +105,7 @@ export class CommandHelper {
     readline.clearScreenDown(process.stdout);
 
     const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
-    this.spinner_frame_index =
-      ++this.spinner_frame_index % cliSpinners.dots.frames.length;
+    this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
 
     console.log(spinner + ' Applying changes to environment');
     console.log('\n' + table.toString());
@@ -189,16 +145,11 @@ export class CommandHelper {
       {
         name: 'count',
         type: 'number',
-        message: `How many ${
-          property.schema.description || property.name
-        } should be created?`,
+        message: `How many ${property.schema.description || property.name} should be created?`,
         validate: (input: number) => {
           if (property.schema.minimum && input < property.schema.minimum) {
             return `${property.name} must be greater than ${property.schema.minimum}`;
-          } else if (
-            property.schema.maximum &&
-            input > property.schema.maximum
-          ) {
+          } else if (property.schema.maximum && input > property.schema.maximum) {
             return `${property.name} must be less than ${property.schema.maximum}`;
           }
 
@@ -253,17 +204,9 @@ export class CommandHelper {
             const input = input_string as unknown as number;
             if (property.schema.properties.required && !input) {
               return `${property.name} is required`;
-            } else if (
-              property.schema.minimum &&
-              input &&
-              input < property.schema.minimum
-            ) {
+            } else if (property.schema.minimum && input && input < property.schema.minimum) {
               return `${property.name} must be greater than ${property.schema.minimum}`;
-            } else if (
-              property.schema.maximum &&
-              input &&
-              input > property.schema.maximum
-            ) {
+            } else if (property.schema.maximum && input && input > property.schema.maximum) {
               return `${property.name} must be less than ${property.schema.maximum}`;
             }
 
@@ -335,11 +278,7 @@ export class CommandHelper {
     const results: any = {};
     console.log(`${property.name} is a key/value store.`);
 
-    while (
-      await this.promptForContinuation(
-        `Would you like to add a key/value pair to ${property.name}?`,
-      )
-    ) {
+    while (await this.promptForContinuation(`Would you like to add a key/value pair to ${property.name}?`)) {
       const { key } = await inquirer.prompt([
         {
           name: 'key',
@@ -376,13 +315,9 @@ export class CommandHelper {
   ): Promise<string> {
     const service = provider.resources[property.name];
     if (!service) {
-      throw new Error(
-        `The ${provider.type} provider doesn't support ${property.name}s`,
-      );
+      throw new Error(`The ${provider.type} provider doesn't support ${property.name}s`);
     } else if (!service.list) {
-      throw new Error(
-        `The ${provider.type} provider cannot query ${property.name}s`,
-      );
+      throw new Error(`The ${provider.type} provider cannot query ${property.name}s`);
     }
 
     const { rows: options } = await service.list(data as any);
@@ -417,12 +352,7 @@ export class CommandHelper {
 
     if (answers[property.name as string] === 'create-new') {
       console.log(`Inputs for ${property.name}`);
-      const module = await this.promptForNewResourceModule(
-        stack as any,
-        provider,
-        property.name,
-        data,
-      );
+      const module = await this.promptForNewResourceModule(stack as any, provider, property.name, data);
       console.log(`End ${property.name} inputs`);
       return module.module.outputs.id;
     } else {
@@ -435,18 +365,10 @@ export class CommandHelper {
    * @param resourceType The resource type to check
    * @returns Wether or not the resource is creatable
    */
-  protected async isCreatableResourceType(
-    resourceType: ResourceType,
-  ): Promise<boolean> {
-    for (const [provider_name, provider_constructor] of Object.entries(
-      SupportedProviders,
-    )) {
+  protected async isCreatableResourceType(resourceType: ResourceType): Promise<boolean> {
+    for (const [provider_name, provider_constructor] of Object.entries(SupportedProviders)) {
       const any_value: any = {};
-      const provider = new provider_constructor(
-        provider_name,
-        any_value,
-        any_value,
-      ) as Provider<any>;
+      const provider = new provider_constructor(provider_name, any_value, any_value) as Provider<any>;
       if (provider.resources[resourceType]?.manage?.module) {
         return true;
       }
@@ -471,17 +393,13 @@ export class CommandHelper {
   ): Promise<T> {
     let schema = property.schema as JSONSchemaType<any>;
     if (schema.$ref && schema.definitions) {
-      schema = schema.definitions[
-        schema.$ref.replace('#/definitions/', '')
-      ] as JSONSchemaType<any>;
+      schema = schema.definitions[schema.$ref.replace('#/definitions/', '')] as JSONSchemaType<any>;
     } else if (schema.$ref) {
       console.error('Invalid json schema');
     }
 
     const validators = provider.resources[resourceType]?.manage?.validators;
-    const validator = validators
-      ? (validators as any)[property.name]
-      : undefined;
+    const validator = validators ? (validators as any)[property.name] : undefined;
 
     if (data[property.name]) {
       return data[property.name] as any;
@@ -496,9 +414,7 @@ export class CommandHelper {
       return res;
     } else if (schema.type === 'object' && schema.properties) {
       let res: Record<string, unknown> = {};
-      for (const [propertyName, propertySchema] of Object.entries<any>(
-        schema.properties,
-      )) {
+      for (const [propertyName, propertySchema] of Object.entries<any>(schema.properties)) {
         res[propertyName] = await this.promptForSchemaProperties(
           stack,
           provider,
@@ -623,9 +539,7 @@ export class CommandHelper {
     });
 
     if (resources.length === 0) {
-      console.error(
-        `The cloud provider plugin for ${provider.name} does not support ${action} ${input}s`,
-      );
+      console.error(`The cloud provider plugin for ${provider.name} does not support ${action} ${input}s`);
     }
 
     const res = await inquirer.prompt(
@@ -650,25 +564,15 @@ export class CommandHelper {
    * @param type - The type of resource to create a module for
    * @param data - Optional key/value store of values that can be used repeatedly
    */
-  protected async promptForNewResourceModule<
-    T extends ResourceType,
-    C extends ProviderCredentials,
-  >(
+  protected async promptForNewResourceModule<T extends ResourceType, C extends ProviderCredentials>(
     stack: CldCtlTerraformStack,
     provider: Provider<C>,
     type: T,
     data: Record<string, unknown> = {},
   ): Promise<{ module: ResourceModule<T, C>; output: TerraformOutput }> {
     const __dirname = new URL('.', import.meta.url).pathname;
-    const schemaPath = path.join(
-      __dirname,
-      './@resources',
-      type,
-      './inputs.schema.json',
-    );
-    const schemaString = new TextDecoder().decode(
-      await Deno.readFile(schemaPath),
-    );
+    const schemaPath = path.join(__dirname, './@resources', type, './inputs.schema.json');
+    const schemaString = new TextDecoder().decode(await Deno.readFile(schemaPath));
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {
       schema = schema.definitions[schema.$ref.replace('#/definitions/', '')];
@@ -676,18 +580,14 @@ export class CommandHelper {
 
     const service = provider.resources[type];
     if (!service) {
-      console.error(
-        `The ${provider.type} provider does not work with ${type} resources`,
-      );
+      console.error(`The ${provider.type} provider does not work with ${type} resources`);
       // TODO(tyler): Exit here?
       Deno.exit(1);
     }
 
     const ModuleConstructor = service.manage?.module;
     if (!ModuleConstructor) {
-      console.error(
-        `The ${provider.type} provider cannot create ${type} resources`,
-      );
+      console.error(`The ${provider.type} provider cannot create ${type} resources`);
       // TODO(tyler): Exit here?
       Deno.exit(1);
     }
@@ -697,8 +597,7 @@ export class CommandHelper {
         {
           name: 'result',
           type: 'list',
-          message:
-            'Please select one of our default configurations or customize the creation of your resource.',
+          message: 'Please select one of our default configurations or customize the creation of your resource.',
           choices: [
             ...service.manage.presets.map((p) => ({
               name: p.display,

@@ -1,4 +1,5 @@
 import * as path from 'std/path/mod.ts';
+import { home_dir } from 'deps';
 
 export default class CloudCtlConfig {
   private static dev: boolean;
@@ -6,8 +7,12 @@ export default class CloudCtlConfig {
   private static noCleanup: boolean;
   private static configDirectory?: string;
 
-  public static setConfigDirectory(directory: string): void {
-    this.configDirectory = directory;
+  public static setConfigDirectory(directory?: string): void {
+    if (directory) {
+      this.configDirectory = directory;
+    } else {
+      this.configDirectory = path.join(home_dir() || '~', '.config', 'arcctl');
+    }
   }
 
   public static getConfigDirectory(): string {
@@ -19,11 +24,7 @@ export default class CloudCtlConfig {
 
   public static getTerraformDirectory(): string {
     if (!this.tfDirectory) {
-      this.tfDirectory = path.join(
-        this.getConfigDirectory(),
-        '/tf/',
-        `/${crypto.randomUUID()}/`,
-      );
+      this.tfDirectory = path.join(this.getConfigDirectory(), '/tf/', `/${crypto.randomUUID()}/`);
     }
     return this.tfDirectory!;
   }

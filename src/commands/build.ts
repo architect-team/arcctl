@@ -1,24 +1,22 @@
-import {
-  BaseCommand,
-  CommandHelper,
-  ParentCommandGlobals,
-} from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { Component, parseComponent } from '../components/index.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
 import { execa } from 'execa';
 import * as path from 'std/path/mod.ts';
 
-type BuildComponentFlags = {
-  tag: string;
-};
+type BuildComponentOptions = {
+  tag?: string[];
+} & GlobalOptions;
 
-async function run(
-  flags: ParentCommandGlobals & BuildComponentFlags,
-  context_file: string,
-): Promise<void> {
-  const context = Deno.lstatSync(context_file).isFile
-    ? path.dirname(context_file)
-    : context_file;
+const buildCommand = BaseCommand()
+  .description('Build a component and relevant source services')
+  .arguments('<context:string>') // 'Path to the component to build'
+  .option('-t, --tag <tag:string>', 'Tags to assign to the built image', { collect: true })
+  .action(buildAction);
+
+async function buildAction(options: BuildComponentOptions, context_file: string): Promise<void> {
+  const command_helper = new CommandHelper(options);
+  const context = Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
 
   let component: Component;
   try {
@@ -30,7 +28,7 @@ async function run(
       }
       return;
     } else {
-      console.error(err); // TODO: this should exit
+      console.error(err);
       Deno.exit(1);
     }
   }
@@ -55,19 +53,15 @@ async function run(
     return stdout;
   });
 
-  const command_helper = new CommandHelper();
   const digest = await command_helper.componentStore.add(component);
   console.log(`Digest: ${digest}`);
 
-  if (flags.tag) {
-    for (const tag of flags.tag) {
+  if (options.tag) {
+    for (const tag of options.tag) {
       component.tag(async (sourceRef: string, targetName: string) => {
         const imageRepository = new ImageRepository(tag);
         const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-        const targetRef = path.join(
-          imageRepository.registry,
-          `${targetName}${suffix}`,
-        );
+        const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
 
         await execa('docker', ['tag', sourceRef, targetRef]);
         return targetRef;
@@ -78,38 +72,5 @@ async function run(
     }
   }
 }
-export class BuildComponentCmd extends BaseCommand<
-  BuildComponentFlags,
-  [string]
-> {
-  static command_name = 'build';
-  static command_description = 'Build a component and relevant source services';
 
-  // static flags = {
-  //   tag: Flags.string({
-  //     char: 't',
-  //     description: 'Tags to assign to the built image',
-  //     multiple: true,
-  //   }),
-  // };
-
-  // static args = [
-  //   {
-  //     name: 'context',
-  //     description: 'Path to the component to build',
-  //     required: true,
-  //   },
-  // ];
-
-  constructor() {
-    super();
-    return this.option(
-      '-t, --tag <tag:string>',
-      'Tags to assign to the built image',
-    )
-      .arguments('<context:string>') // 'Path to the component to build'
-      .action(async (options, context) => {
-        await run(options, context);
-      });
-  }
-}
+export default buildCommand;

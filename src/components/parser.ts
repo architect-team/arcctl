@@ -28,6 +28,7 @@ export const parseComponent = async (
     if (lstat.isDirectory) {
       filename = path.join(filename, 'architect.yml');
     }
+
     const raw_contents = await Deno.readTextFile(filename);
     if (filename.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);

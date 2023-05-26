@@ -29,19 +29,14 @@ export class ComponentStore {
     this.default_registry = default_registry;
 
     try {
-      this.db = JSON.parse(
-        Deno.readTextFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME)),
-      );
+      this.db = JSON.parse(Deno.readTextFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME)));
     } catch {
       this.db = {};
     }
   }
 
   private save() {
-    Deno.writeTextFileSync(
-      path.join(this.cache_dir, CACHE_DB_FILENAME),
-      JSON.stringify(this.db),
-    );
+    Deno.writeTextFileSync(path.join(this.cache_dir, CACHE_DB_FILENAME), JSON.stringify(this.db));
   }
 
   /**
@@ -103,9 +98,7 @@ export class ComponentStore {
    */
   async add(component_or_path: string | Component): Promise<string> {
     const component =
-      typeof component_or_path === 'string'
-        ? await parseComponent(component_or_path)
-        : component_or_path;
+      typeof component_or_path === 'string' ? await parseComponent(component_or_path) : component_or_path;
     const component_contents = JSON.stringify(component);
     const artifact_id = crypto
       .createHash('sha256')
@@ -116,10 +109,7 @@ export class ComponentStore {
     if (!existsSync(new_path)) {
       Deno.mkdirSync(new_path, { recursive: true });
     }
-    Deno.writeTextFileSync(
-      path.join(new_path, 'architect.json'),
-      component_contents,
-    );
+    Deno.writeTextFileSync(path.join(new_path, 'architect.json'), component_contents);
     return artifact_id;
   }
 
@@ -145,10 +135,7 @@ export class ComponentStore {
       const { config_path } = await this.getCachedComponentDetails(repo);
       Deno.removeSync(path.dirname(config_path), { recursive: true });
 
-      if (
-        this.db[repo.repository] &&
-        this.db[repo.repository][repo.toString()]
-      ) {
+      if (this.db[repo.repository] && this.db[repo.repository][repo.toString()]) {
         delete this.db[repo.repository][repo.toString()];
       }
     } catch (_err) {
@@ -170,33 +157,20 @@ export class ComponentStore {
 
     if (/^[\dA-Fa-f]{64}/.test(src_ref_or_id)) {
       // If the input is an image ID, look for it in the filesystem
-      const src_path = path.join(
-        this.cache_dir,
-        src_ref_or_id,
-        'architect.json',
-      );
+      const src_path = path.join(this.cache_dir, src_ref_or_id, 'architect.json');
       if (!existsSync(src_path)) {
         throw new MissingComponentRef(src_ref_or_id);
       }
 
-      this.db[dest_match.repository][
-        dest_ref
-      ] = `./${src_ref_or_id}/architect.json`;
+      this.db[dest_match.repository][dest_ref] = `./${src_ref_or_id}/architect.json`;
     } else {
       // If the src is an existing tag, create a new pointer in the DB
-      const src_match = new ImageRepository(
-        src_ref_or_id,
-        this.default_registry,
-      );
-      if (
-        !this.db[src_match.repository] ||
-        !this.db[src_match.repository][src_ref_or_id]
-      ) {
+      const src_match = new ImageRepository(src_ref_or_id, this.default_registry);
+      if (!this.db[src_match.repository] || !this.db[src_match.repository][src_ref_or_id]) {
         throw new MissingComponentRef(src_ref_or_id);
       }
 
-      this.db[dest_match.repository][dest_ref] =
-        this.db[src_match.repository][src_ref_or_id];
+      this.db[dest_match.repository][dest_ref] = this.db[src_match.repository][src_ref_or_id];
     }
 
     this.save();
@@ -211,9 +185,7 @@ export class ComponentStore {
     const repository = new ImageRepository(ref_string, this.default_registry);
     await repository.checkForOciSupport();
 
-    const { component, config_path } = await this.getCachedComponentDetails(
-      repository,
-    );
+    const { component, config_path } = await this.getCachedComponentDetails(repository);
 
     // Upload the component config
     Deno.writeTextFileSync(config_path, JSON.stringify(component));
@@ -225,10 +197,7 @@ export class ComponentStore {
       suffix: 'tgz',
     });
 
-    await tar.create(
-      { gzip: true, file: tar_filepath, cwd: path.dirname(config_path) },
-      ['./'],
-    );
+    await tar.create({ gzip: true, file: tar_filepath, cwd: path.dirname(config_path) }, ['./']);
     const files_blob = await repository.uploadBlob(tar_filepath);
 
     // Create and upload the manifest
@@ -256,14 +225,8 @@ export class ComponentStore {
    * Update the local cache with the full contents of the specified component from the matching
    * remote registry.
    */
-  async pull(
-    ref_string: string,
-    media_type: string = MEDIA_TYPES.OCI_MANIFEST,
-  ): Promise<void> {
-    const repository = new ImageRepository<Component>(
-      ref_string,
-      this.default_registry,
-    );
+  async pull(ref_string: string, media_type: string = MEDIA_TYPES.OCI_MANIFEST): Promise<void> {
+    const repository = new ImageRepository<Component>(ref_string, this.default_registry);
     const manifest = await repository.getManifest(media_type);
 
     if (manifest.layers.length <= 0) {
@@ -272,18 +235,12 @@ export class ComponentStore {
 
     const layer = manifest.layers[0];
     const file = await repository.downloadBlob(layer.digest);
-    const store_dir = path.join(
-      this.cache_dir,
-      manifest.config.digest.replace(/^sha256:/, ''),
-    );
+    const store_dir = path.join(this.cache_dir, manifest.config.digest.replace(/^sha256:/, ''));
     if (!existsSync(store_dir)) {
       Deno.mkdirSync(store_dir, { recursive: true });
     }
 
-    if (
-      layer.mediaType.endsWith('tar+gzip') ||
-      layer.mediaType.endsWith('tar')
-    ) {
+    if (layer.mediaType.endsWith('tar+gzip') || layer.mediaType.endsWith('tar')) {
       await tar.extract({ file, cwd: store_dir });
     }
 

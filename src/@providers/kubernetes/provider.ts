@@ -40,8 +40,12 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
     }
 
     const client = kubeConfig.makeApiClient(k8s.VersionApi);
-    const res = await client.getCode();
-    return Number(res.body.major) >= 1 && Number(res.body.minor) >= 18;
+    try {
+      const res = await client.getCode();
+      return Number(res.body.major) >= 1 && Number(res.body.minor) >= 18;
+    } catch {
+      return false;
+    }
   }
 
   public configureTerraformProviders(scope: Construct): void {

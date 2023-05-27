@@ -7,6 +7,7 @@ import {
 import { PostgresDatabaseSchemaService } from './services/database-schema.js';
 import { PostgresDatabaseUserService } from './services/database-user.js';
 import { Construct } from 'constructs';
+import pg from 'pg';
 
 export default class PostgresProvider extends Provider<PostgresCredentials> {
   readonly type = 'postgres';
@@ -20,7 +21,23 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
   };
 
   public async testCredentials(): Promise<boolean> {
-    return true;
+    try {
+      const client = new pg.Client({
+        host: this.credentials.host,
+        port: this.credentials.port,
+        user: this.credentials.username,
+        password: this.credentials.password,
+        database: this.credentials.database,
+      });
+
+      await client.connect();
+      await client.query('SELECT NOW()');
+      await client.end();
+
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   public configureTerraformProviders(scope: Construct): void {

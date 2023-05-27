@@ -7,8 +7,8 @@
 ## Setting up the project
 To get started we need to clone the repository and install the required dependencies.
 ```
-git clone https://github.com/architect-team/cldctl.git
-cd cldctl
+git clone https://github.com/architect-team/arcctl.git
+cd arcctl
 npm install
 ```
 From there we can run the project locally using
@@ -17,13 +17,13 @@ From there we can run the project locally using
 ```
 If everything is working as expected you should see something like
 ```
-cldctl standardizes the interfaces for common cloud resources like VPCs,     managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure
+arcctl standardizes the interfaces for common cloud resources like VPCs,     managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure
 
 VERSION
-  @architect-io/cldctl/0.1.0 wsl-x64 node-v17.3.0
+  @architect-io/arcctl/0.1.0 wsl-x64 node-v17.3.0
 
 USAGE
-  $ cldctl [COMMAND]
+  $ arcctl [COMMAND]
 
 TOPICS
   create   Create a new cloud resource
@@ -36,14 +36,14 @@ COMMANDS
   delete         Delete a cloud resource
   get            Get the details of a specific cloud resource
   get providers  Get the details of a provider by name
-  help           Display help for cldctl.
+  help           Display help for arcctl.
   list           List all the cloud resources matching the specified criteria
   plugins        List installed plugins.
 ```
 ## Create a Provider
 Providers are the core building blocks of the framework. A provider allows you to list, get or generate terraform for a pre-defined type on a remote system. For the most part providers tend to map to cloud providers such as AWS, GCP or Azure. Though they can also be used to handle resources on things like a Kubernetes cluster.
 ### Resource Types
-CloudCtl contains a list of predefined resource types that a provider is able to work with. https://github.com/architect-team/cldctl/tree/main/src/%40resources Each of these resources defines what the input and output from the resource type should be. If we look at VPC we can see that it takes in...
+CloudCtl contains a list of predefined resource types that a provider is able to work with. https://github.com/architect-team/arcctl/tree/main/src/%40resources Each of these resources defines what the input and output from the resource type should be. If we look at VPC we can see that it takes in...
 ```
 export type VpcApplyInputs = {
   /** Name of the VPC */
@@ -124,13 +124,13 @@ This class has one important functions that must be created as well as event met
 ### generateTerraform
 This function takes in the `ResourceInputs` mentioned earlier and spits out a `BaseTerraformStack`. All the information that you will be able to get from the user is in that object. So remember to be opinionated and help the user down the best possible path. The `BaseTerraformStack` should be a complete Terraform stack. This means it should include backends as well as any resource generation you need.
 ### Testing CDK
-When running the create or delete command you can run them with `--dev`. This will generate the terraform files, but not actually do anything with them. This can let you test them out and tweak them if things do not work as expected. The recommended approach is to run create with `--dev` first. Then go to `~/.cldctl/tf/` and `apply` the terraform yourself. Once that is done you can run `destroy`.
-Once you feel comfortable, you can run create with the `--dev` flag and let cloudctl handle the full lifecycle. Before you test delete however, you should backup the `~/.cldctl/tf/` folder somewhere. This will help you manually destroy the resources later if something goes wrong. Once you have that backed up, testing the delete functionality is the same as the create functionality.
+When running the create or delete command you can run them with `--dev`. This will generate the terraform files, but not actually do anything with them. This can let you test them out and tweak them if things do not work as expected. The recommended approach is to run create with `--dev` first. Then go to `~/.arcctl/tf/` and `apply` the terraform yourself. Once that is done you can run `destroy`.
+Once you feel comfortable, you can run create with the `--dev` flag and let cloudctl handle the full lifecycle. Before you test delete however, you should backup the `~/.arcctl/tf/` folder somewhere. This will help you manually destroy the resources later if something goes wrong. Once you have that backed up, testing the delete functionality is the same as the create functionality.
 One small note. The `main.tf.json` file contains a path that must be updated if you move it somewhere else. You will find something that looks like this.
 ```
 "backend": {
   "local": {
-    "path": "/home/muesch/.config/cldctl/tf/tfstate"
+    "path": "/home/muesch/.config/arcctl/tf/tfstate"
   }
 },
 ```
@@ -221,7 +221,7 @@ rm -rf ./src/gen
 cp -r ./.gen ./src/gen
 ```
 Now we can generate our `BaseTerraformStack` class.
-You can view the final version of what we are building [here](https://github.com/architect-team/cldctl/blob/tf_test/src/%40providers/aws/stacks/vpc.ts).
+You can view the final version of what we are building [here](https://github.com/architect-team/arcctl/blob/tf_test/src/%40providers/aws/stacks/vpc.ts).
 ### Constructor
 ```
 constructor(

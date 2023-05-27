@@ -1,4 +1,4 @@
-import { Provider, ProviderResources } from '../provider.js';
+import { Provider } from '../provider.js';
 import { HelmProvider as TerraformHelmProvider } from './.gen/providers/helm/provider/index.js';
 import { KubernetesProvider as TerraformKubernetesProvider } from './.gen/providers/kubernetes/provider/index.js';
 import {
@@ -19,8 +19,8 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
 
   static readonly CredentialsSchema = KubernetesCredentialsSchema;
 
-  readonly resources: ProviderResources<KubernetesCredentials> = {
-    kubernetesNamespace: new KubernetesNamespaceService(this.credentials),
+  readonly resources = {
+    namespace: new KubernetesNamespaceService(this.credentials),
     deployment: new KubernetesDeploymentService(this.credentials),
     service: new KubernetesServiceService(this.credentials),
     ingressRule: new KubernetesIngressRuleService(this.credentials),

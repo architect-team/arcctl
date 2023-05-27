@@ -1,4 +1,4 @@
-import { Provider, ProviderResources } from '../provider.js';
+import { Provider } from '../provider.js';
 import { CldctlTestResource } from '../tests.js';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from './.gen/providers/digitalocean/provider/index.js';
 import {
@@ -31,7 +31,7 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
 
   static readonly CredentialsSchema = DigitaloceanCredentialsSchema;
 
-  readonly resources: ProviderResources<DigitaloceanCredentials> = {
+  readonly resources = {
     region: new DigitaloceanRegionService(this.credentials),
     vpc: new DigitaloceanVpcService(this.credentials),
     nodeSize: new DigitaloceanNodeSizeService(this.credentials),

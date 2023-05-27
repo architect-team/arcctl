@@ -3,7 +3,6 @@ import KubernetesUtils from '../../kubernetes.js';
 import { ResourceModule } from '../../module.js';
 import { ProviderStore } from '../../store.js';
 import { SupportedProviders } from '../../supported-providers.js';
-import { SaveFileFn } from '../../types.js';
 import { Eks } from '../.gen/modules/eks.js';
 import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.js';
 import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.js';
@@ -37,7 +36,10 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     super(scope, id, inputs);
 
     if (inputs.region) {
-      (this.scope.node.children[0] as AwsProvider).region = inputs.region;
+      const aws_provider = this.scope.node.children.find(
+        (child) => child instanceof AwsProvider,
+      ) as any;
+      aws_provider.region = inputs.region;
     }
 
     const vpc_parts = inputs.vpc
@@ -146,11 +148,11 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     });
 
     this.outputs = {
-      id: `${this.inputs.region}/${this.eks.clusterIdOutput}`,
+      id: `${this.inputs.region}`,
       kubernetesVersion: this.eks.clusterVersion || '',
       name: this.eks.clusterName || this.inputs.name,
-      vpc: this.eks.vpcId || this.inputs.vpc,
-      provider: `kubernetesCluster-${this.inputs.name}`,
+      vpc: this.eks.vpcId || '',
+      account: `kubernetesCluster-${this.inputs.name}`,
     };
   }
 
@@ -261,8 +263,8 @@ export class AwsKubernetesClusterModule extends ResourceModule<
 
   hooks = {
     afterCreate: async (
-      saveFile: SaveFileFn,
-      saveProvider: ProviderStore['saveProvider'],
+      providerStore: ProviderStore,
+      outputs: ResourceOutputs['kubernetesCluster'],
       getOutputValue: (id: string) => Promise<any>,
     ) => {
       const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
@@ -287,7 +289,7 @@ users:
 - name:  ${this.inputs.name}
   user:
     exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
+      apiVersion: client.authentication.k8s.io/v1beta1
       args:
       - --region
       - ${this.inputs.region}
@@ -297,18 +299,20 @@ users:
       - ${this.inputs.name}
       command: aws`;
       await KubernetesUtils.createProvider(this.inputs.name, credentialsYaml);
-      const configPath = saveFile(this.inputs.name, credentialsYaml);
-      saveProvider(
+      const configFilePath = providerStore.saveFile(
+        `kubernetesCluster-${this.inputs.name}.yml`,
+        credentialsYaml,
+      );
+      providerStore.saveProvider(
         new SupportedProviders.kubernetes(
           `kubernetesCluster-${this.inputs.name}`,
           {
-            configPath,
+            configPath: configFilePath,
           },
-          saveFile,
+          providerStore.saveFile.bind(providerStore),
         ),
       );
     },
-
     afterDelete: async () => {
       await KubernetesUtils.deleteProvider(this.id);
     },

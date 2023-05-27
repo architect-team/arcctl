@@ -1,4 +1,4 @@
-import { Provider, ProviderResources } from '../provider.js';
+import { Provider } from '../provider.js';
 import { DockerProvider as TerraformDockerProvider } from './.gen/providers/docker/provider/index.js';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.js';
 import { DockerDeploymentService } from './services/deployment.js';
@@ -12,7 +12,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
 
   static readonly CredentialsSchema = DockerCredentialsSchema;
 
-  readonly resources: ProviderResources<DockerCredentials> = {
+  readonly resources = {
     namespace: new DockerNamespaceService(),
     deployment: new DockerDeploymentService(),
     service: new DockerServiceService(),

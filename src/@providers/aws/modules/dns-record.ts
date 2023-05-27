@@ -30,13 +30,10 @@ export class AwsDnsRecordModule extends ResourceModule<
       });
     } else {
       // creating
-      const dns_zone = new DataAwsRoute53Zone(this, 'dns-zone', {
-        id: inputs.dnsZone,
-      });
       this.dns_record = new Route53Record(this, 'dns-record', {
         name: inputs.subdomain,
         type: inputs.recordType,
-        zoneId: dns_zone.zoneId,
+        zoneId: inputs.dnsZone,
         ttl: inputs.ttl || 24 * 60 * 60,
         records: inputs.content.split(',').map((r) => r.trim()),
       });

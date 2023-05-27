@@ -1,0 +1,72 @@
+secrets:
+  account: local
+
+resources:
+  vpc:
+    type: vpc
+    name: aws-datacenter
+    account: aws-architect
+    region: us-west-2
+  cluster:
+    type: kubernetesCluster
+    account: aws-architect
+    name: aws-datacenter
+    kubernetesVersion: "1.25"
+    region: us-west-2
+    vpc: ${{ resources.vpc.id }}
+    nodePools:
+      - name: pool1
+        count: 3
+        nodeSize: t2.medium
+
+environment:
+  resources:
+    namespace:
+      type: namespace
+      account: ${{ resources.cluster.account }}
+      name: ${{ environment.name }}
+    nginx-ingress-controller:
+      type: helmChart
+      name: ${{ environment.name }}-ingress-nginx
+      account: ${{ resources.cluster.account }}
+      namespace: ${{ environment.resources.namespace.id }}
+      repository: https://kubernetes.github.io/ingress-nginx
+      chart: ingress-nginx
+    zone:
+      type: dnsZone
+      account: aws-architect
+      name: davidthor.me
+
+  hooks:
+    - when:
+        type: databaseSchema
+        databaseType: postgres
+      resources:
+        db:
+          type: database
+          account: aws-architect
+          region: us-west-2
+          name: ${{ this.id }}
+          databaseVersion: ${{ this.inputs.databaseVersion }}
+          databaseSize: db.t3.medium
+          databaseType: ${{ this.inputs.databaseType }}
+          vpc: ${{ resources.vpc.id }}
+      account: ${{ this.resources.db.account }}
+      database: ${{ this.resources.db.id }}
+      host: ${{ this.resources.db.host }}
+      port: ${{ this.resources.db.port }}
+      protocol: ${{ this.resources.db.protocol }}
+    - when:
+        type: ingressRule
+      resources:
+        dnsRecord:
+          type: dnsRecord
+          account: aws-architect
+          dnsZone: ${{ environment.resources.zone.id }}
+          subdomain: ${{ this.inputs.listener.subdomain }}
+          recordType: CNAME
+          content: ${{ this.outputs.loadBalancerHostname }}
+      loadBalancer: nginx
+      namespace: ${{ environment.resources.namespace.id }}
+    - account: ${{ resources.cluster.account }}
+      namespace: ${{ environment.resources.namespace.id }}

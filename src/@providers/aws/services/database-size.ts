@@ -1,35 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { BaseService } from '../../service.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
 
-export class AwsDatabaseSizeService extends ResourceService<
-  'databaseSize',
-  AwsCredentials
-> {
+export class AwsDatabaseSizeService extends BaseService<'databaseSize'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
-  }
-
-  private async getInstanceTypes(
-    ec2: AWS.EC2,
-    token?: string,
-  ): Promise<string[]> {
-    const ec2InstanceTypeData = await ec2
-      .describeInstanceTypes({
-        NextToken: token,
-      })
-      .promise();
-    const types: string[] = [
-      ...(ec2InstanceTypeData.InstanceTypes?.map((instance) => {
-        return instance.InstanceType || '';
-      }) || []),
-      ...(ec2InstanceTypeData.NextToken
-        ? await this.getInstanceTypes(ec2, ec2InstanceTypeData.NextToken)
-        : []),
-    ];
-    return types;
   }
 
   async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {

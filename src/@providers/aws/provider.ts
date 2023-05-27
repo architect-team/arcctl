@@ -25,7 +25,7 @@ export default class AwsProvider extends Provider<AwsCredentials> {
 
   static readonly CredentialsSchema = AwsCredentialsSchema;
 
-  readonly resources: ProviderResources<AwsCredentials> = {
+  readonly resources: ProviderResources = {
     region: new AwsRegionService(this.credentials),
     vpc: new AwsVpcService(this.credentials),
     kubernetesVersion: new AwsKubernetesVersionService(this.credentials),

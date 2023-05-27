@@ -1,11 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { InputValidators } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsDnsRecordModule } from '../modules/dns-record.js';
 import AwsUtils from '../utils.js';
 
-export class AwsDnsRecordService extends ResourceService<
+export class AwsDnsRecordService extends TerraformResourceService<
   'dnsRecord',
   AwsCredentials
 > {
@@ -79,32 +80,33 @@ export class AwsDnsRecordService extends ResourceService<
     };
   }
 
-  allowed_record_types = [
-    'A',
-    'AAAA',
-    'CAA',
-    'CNAME',
-    'MX',
-    'NAPTR',
-    'NS',
-    'PTR',
-    'SOA',
-    'SPF',
-    'SRV',
-    'TXT',
-  ];
-  manage = {
-    validators: {
+  get validators(): InputValidators<'dnsRecord'> {
+    return {
       recordType: (input: string): string | true => {
-        if (!this.allowed_record_types.includes(input)) {
-          return `Record type must be one of ${this.allowed_record_types.join(
+        const allowed_record_types = [
+          'A',
+          'AAAA',
+          'CAA',
+          'CNAME',
+          'MX',
+          'NAPTR',
+          'NS',
+          'PTR',
+          'SOA',
+          'SPF',
+          'SRV',
+          'TXT',
+        ];
+
+        if (!allowed_record_types.includes(input)) {
+          return `Record type must be one of ${allowed_record_types.join(
             ', ',
           )}.`;
         }
         return true;
       },
-    },
+    };
+  }
 
-    module: AwsDnsRecordModule,
-  };
+  construct = AwsDnsRecordModule;
 }

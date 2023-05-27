@@ -911,26 +911,6 @@
             "account": {
               "type": "string"
             },
-            "name": {
-              "type": "string"
-            },
-            "type": {
-              "const": "kubernetesNamespace",
-              "type": "string"
-            }
-          },
-          "required": [
-            "name",
-            "type"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "account": {
-              "type": "string"
-            },
             "type": {
               "const": "kubernetesVersion",
               "type": "string"
@@ -984,6 +964,26 @@
             }
           },
           "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "account": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "const": "namespace",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
             "type"
           ],
           "type": "object"
@@ -1062,7 +1062,6 @@
           "required": [
             "data",
             "name",
-            "namespace",
             "type"
           ],
           "type": "object"

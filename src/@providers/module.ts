@@ -5,15 +5,14 @@ import {
 } from '../@resources/index.js';
 import { ProviderCredentials } from './credentials.js';
 import { ProviderStore } from './store.js';
-import { SaveFileFn } from './types.js';
 import { TerraformResource } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface ResourceModuleHooks {
+export interface ResourceModuleHooks<T extends ResourceType> {
   afterCreate?: (
-    saveFile: SaveFileFn,
-    saveProvider: ProviderStore['saveProvider'],
-    getOutputValue: (id: string) => Promise<any>,
+    providerStore: ProviderStore,
+    outputs: ResourceOutputs[T],
+    getRawOutputValue: (id: string) => Promise<any>,
   ) => Promise<void>;
   afterDelete?: () => Promise<void>;
   afterImport?: () => Promise<void>;
@@ -24,7 +23,7 @@ export abstract class ResourceModule<
   C extends ProviderCredentials,
 > extends Construct {
   abstract outputs: ResourceOutputs[T];
-  hooks: ResourceModuleHooks = {};
+  hooks: ResourceModuleHooks<T> = {};
 
   constructor(
     public readonly scope: Construct,

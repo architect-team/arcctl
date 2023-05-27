@@ -1,5 +1,5 @@
 {{#provider_list}}
-import {{name}} from './{{slug}}/index.js';
+import {{name}} from './{{slug}}/provider.js';
 {{/provider_list}}
 
 export const SupportedProviders = {

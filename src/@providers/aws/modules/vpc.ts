@@ -15,7 +15,10 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
     super(scope, id, inputs);
 
     if (inputs.region) {
-      (this.scope.node.children[0] as AwsProvider).region = inputs.region;
+      const aws_provider = this.scope.node.children.find(
+        (child) => child instanceof AwsProvider,
+      ) as any;
+      aws_provider.region = inputs.region;
     }
 
     const ipRange = '10.0.0.0/16';

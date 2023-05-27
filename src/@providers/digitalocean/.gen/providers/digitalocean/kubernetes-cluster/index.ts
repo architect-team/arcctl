@@ -31,6 +31,10 @@ export interface KubernetesClusterConfig extends cdktf.TerraformMetaArguments {
   */
   readonly region: string;
   /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster#registry_integration KubernetesCluster#registry_integration}
+  */
+  readonly registryIntegration?: boolean | cdktf.IResolvable;
+  /**
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/kubernetes_cluster#surge_upgrade KubernetesCluster#surge_upgrade}
   */
   readonly surgeUpgrade?: boolean | cdktf.IResolvable;
@@ -882,8 +886,8 @@ export class KubernetesCluster extends cdktf.TerraformResource {
       terraformResourceType: 'digitalocean_kubernetes_cluster',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -898,6 +902,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
     this._id = config.id;
     this._name = config.name;
     this._region = config.region;
+    this._registryIntegration = config.registryIntegration;
     this._surgeUpgrade = config.surgeUpgrade;
     this._tags = config.tags;
     this._version = config.version;
@@ -1009,6 +1014,22 @@ export class KubernetesCluster extends cdktf.TerraformResource {
   // Temporarily expose input value. Use with caution.
   public get regionInput() {
     return this._region;
+  }
+
+  // registry_integration - computed: false, optional: true, required: false
+  private _registryIntegration?: boolean | cdktf.IResolvable; 
+  public get registryIntegration() {
+    return this.getBooleanAttribute('registry_integration');
+  }
+  public set registryIntegration(value: boolean | cdktf.IResolvable) {
+    this._registryIntegration = value;
+  }
+  public resetRegistryIntegration() {
+    this._registryIntegration = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get registryIntegrationInput() {
+    return this._registryIntegration;
   }
 
   // service_subnet - computed: true, optional: false, required: false
@@ -1148,6 +1169,7 @@ export class KubernetesCluster extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       region: cdktf.stringToTerraform(this._region),
+      registry_integration: cdktf.booleanToTerraform(this._registryIntegration),
       surge_upgrade: cdktf.booleanToTerraform(this._surgeUpgrade),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
       version: cdktf.stringToTerraform(this._version),

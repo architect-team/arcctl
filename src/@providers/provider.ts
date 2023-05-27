@@ -4,13 +4,13 @@ import {
   ProviderCredentials,
   ProviderCredentialsSchema,
 } from './credentials.js';
-import { ResourceService } from './service.js';
+import { BaseService } from './service.js';
 import { CldctlTestResource } from './tests.js';
 import { SaveFileFn } from './types.js';
 import { Construct } from 'constructs';
 
-export type ProviderResources<C extends ProviderCredentials> = {
-  [T in ResourceType]?: ResourceService<T, C>;
+export type ProviderResources = {
+  [T in ResourceType]?: BaseService<T>;
 };
 
 type Entries<T> = {
@@ -42,7 +42,7 @@ export abstract class Provider<
    * A set of resource types that this provider can interact with, and the
    * methods it supports
    */
-  abstract readonly resources: ProviderResources<C>;
+  abstract readonly resources: ProviderResources;
 
   tests: CldctlTestResource<ProviderCredentials> = [];
 
@@ -55,10 +55,10 @@ export abstract class Provider<
   public abstract testCredentials(): Promise<boolean>;
 
   public getResourceEntries(): Entries<{
-    [T in ResourceType]: ResourceService<T, C>;
+    [T in ResourceType]: BaseService<T>;
   }> {
     return Object.entries(this.resources) as Entries<{
-      [T in ResourceType]: ResourceService<T, C>;
+      [T in ResourceType]: BaseService<T>;
     }>;
   }
 

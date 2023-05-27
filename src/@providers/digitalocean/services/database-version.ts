@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { BaseService } from '../../service.js';
 import { DigitaloceanCredentials } from '../credentials.js';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseVersionService extends ResourceService<
-  'databaseVersion',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseVersionService extends BaseService<'databaseVersion'> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -38,6 +35,7 @@ export class DigitaloceanDatabaseVersionService extends ResourceService<
         versions.push({
           id: version,
           databaseType: database_name,
+          databaseVersion: version,
         });
       }
     }

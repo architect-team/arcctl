@@ -1,12 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { ResourcePresets } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.js';
 import AwsUtils from '../utils.js';
 import { AwsRegionService } from './region.js';
 
-export class AwsKubernetesClusterService extends ResourceService<
+export class AwsKubernetesClusterService extends TerraformResourceService<
   'kubernetesCluster',
   AwsCredentials
 > {
@@ -39,7 +40,7 @@ export class AwsKubernetesClusterService extends ResourceService<
             vpc: data.cluster?.resourcesVpcConfig?.vpcId || '',
             name: data.cluster?.name || '',
             kubernetesVersion: data.cluster?.version || '',
-            provider: '',
+            account: '',
           });
         },
       );
@@ -89,7 +90,7 @@ export class AwsKubernetesClusterService extends ResourceService<
                 vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
                 name: clusterData.cluster?.name || '',
                 kubernetesVersion: clusterData.cluster?.version || '',
-                provider: '',
+                account: '',
               })),
             });
           },
@@ -109,8 +110,8 @@ export class AwsKubernetesClusterService extends ResourceService<
     };
   }
 
-  manage = {
-    presets: [
+  get presets(): ResourcePresets<'kubernetesCluster'> {
+    return [
       {
         display: 'Minimum (Cheapest)',
         values: {
@@ -135,8 +136,8 @@ export class AwsKubernetesClusterService extends ResourceService<
           ],
         },
       },
-    ],
+    ];
+  }
 
-    module: AwsKubernetesClusterModule,
-  };
+  construct = AwsKubernetesClusterModule;
 }

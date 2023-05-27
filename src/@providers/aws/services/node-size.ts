@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { BaseService } from '../../service.js';
 import { AwsCredentials } from '../credentials.js';
 import AwsUtils from '../utils.js';
 
-export class AwsNodeSizeService extends ResourceService<
-  'nodeSize',
-  AwsCredentials
-> {
+export class AwsNodeSizeService extends BaseService<'nodeSize'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }

@@ -1,12 +1,16 @@
 import { ResourceOutputs } from '../../../@resources/index.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { InputValidators } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { AwsCredentials } from '../credentials.js';
 import { AwsVpcModule } from '../modules/vpc.js';
 import AwsUtils from '../utils.js';
 import { AwsRegionService } from './region.js';
 
-export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
+export class AwsVpcService extends TerraformResourceService<
+  'vpc',
+  AwsCredentials
+> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
@@ -109,8 +113,8 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
     return res;
   }
 
-  manage = {
-    validators: {
+  get validators(): InputValidators<'vpc'> {
+    return {
       name: (input: string) => {
         if (!/^[\w.-]+$/.test(input)) {
           return 'Name must only contain alphanumeric characters as well as dashes, underscores and periods.';
@@ -120,8 +124,8 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
 
         return true;
       },
-    },
+    };
+  }
 
-    module: AwsVpcModule,
-  };
+  construct = AwsVpcModule;
 }

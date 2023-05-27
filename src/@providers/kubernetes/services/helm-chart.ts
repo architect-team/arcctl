@@ -1,10 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/types.js';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourceService } from '../../service.js';
+import { TerraformResourceService } from '../../terraform.service.js';
 import { KubernetesCredentials } from '../credentials.js';
 import { KubernetesHelmChartModule } from '../modules/helm-chart.js';
 
-export class KubernetesHelmChartService extends ResourceService<
+export class KubernetesHelmChartService extends TerraformResourceService<
   'helmChart',
   KubernetesCredentials
 > {
@@ -19,7 +19,5 @@ export class KubernetesHelmChartService extends ResourceService<
     throw new Error('Method not implemented.');
   }
 
-  manage = {
-    module: KubernetesHelmChartModule,
-  };
+  readonly construct = KubernetesHelmChartModule;
 }

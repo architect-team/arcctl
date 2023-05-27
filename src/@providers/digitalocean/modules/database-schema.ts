@@ -45,7 +45,7 @@ export class DigitaloceanDatabaseSchemaModule extends ResourceModule<
       port: instance.port,
       protocol: protocol,
       url: `${protocol}://${instance.host}:${instance.port}/${this.db.name}`,
-      provider: inputs.provider || '',
+      account: inputs.account || '',
       certificate: ca.certificate,
     };
   }

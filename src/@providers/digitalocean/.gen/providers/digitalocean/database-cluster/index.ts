@@ -35,6 +35,10 @@ export interface DatabaseClusterConfig extends cdktf.TerraformMetaArguments {
   */
   readonly privateNetworkUuid?: string;
   /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#project_id DatabaseCluster#project_id}
+  */
+  readonly projectId?: string;
+  /**
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#region DatabaseCluster#region}
   */
   readonly region: string;
@@ -55,6 +59,12 @@ export interface DatabaseClusterConfig extends cdktf.TerraformMetaArguments {
   */
   readonly version?: string;
   /**
+  * backup_restore block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#backup_restore DatabaseCluster#backup_restore}
+  */
+  readonly backupRestore?: DatabaseClusterBackupRestore;
+  /**
   * maintenance_window block
   * 
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#maintenance_window DatabaseCluster#maintenance_window}
@@ -66,6 +76,95 @@ export interface DatabaseClusterConfig extends cdktf.TerraformMetaArguments {
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#timeouts DatabaseCluster#timeouts}
   */
   readonly timeouts?: DatabaseClusterTimeouts;
+}
+export interface DatabaseClusterBackupRestore {
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#backup_created_at DatabaseCluster#backup_created_at}
+  */
+  readonly backupCreatedAt?: string;
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#database_name DatabaseCluster#database_name}
+  */
+  readonly databaseName: string;
+}
+
+export function databaseClusterBackupRestoreToTerraform(struct?: DatabaseClusterBackupRestoreOutputReference | DatabaseClusterBackupRestore): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktf.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+  }
+  return {
+    backup_created_at: cdktf.stringToTerraform(struct!.backupCreatedAt),
+    database_name: cdktf.stringToTerraform(struct!.databaseName),
+  }
+}
+
+export class DatabaseClusterBackupRestoreOutputReference extends cdktf.ComplexObject {
+  private isEmptyObject = false;
+
+  /**
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+    super(terraformResource, terraformAttribute, false, 0);
+  }
+
+  public get internalValue(): DatabaseClusterBackupRestore | undefined {
+    let hasAnyValues = this.isEmptyObject;
+    const internalValueResult: any = {};
+    if (this._backupCreatedAt !== undefined) {
+      hasAnyValues = true;
+      internalValueResult.backupCreatedAt = this._backupCreatedAt;
+    }
+    if (this._databaseName !== undefined) {
+      hasAnyValues = true;
+      internalValueResult.databaseName = this._databaseName;
+    }
+    return hasAnyValues ? internalValueResult : undefined;
+  }
+
+  public set internalValue(value: DatabaseClusterBackupRestore | undefined) {
+    if (value === undefined) {
+      this.isEmptyObject = false;
+      this._backupCreatedAt = undefined;
+      this._databaseName = undefined;
+    }
+    else {
+      this.isEmptyObject = Object.keys(value).length === 0;
+      this._backupCreatedAt = value.backupCreatedAt;
+      this._databaseName = value.databaseName;
+    }
+  }
+
+  // backup_created_at - computed: false, optional: true, required: false
+  private _backupCreatedAt?: string; 
+  public get backupCreatedAt() {
+    return this.getStringAttribute('backup_created_at');
+  }
+  public set backupCreatedAt(value: string) {
+    this._backupCreatedAt = value;
+  }
+  public resetBackupCreatedAt() {
+    this._backupCreatedAt = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get backupCreatedAtInput() {
+    return this._backupCreatedAt;
+  }
+
+  // database_name - computed: false, optional: false, required: true
+  private _databaseName?: string; 
+  public get databaseName() {
+    return this.getStringAttribute('database_name');
+  }
+  public set databaseName(value: string) {
+    this._databaseName = value;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get databaseNameInput() {
+    return this._databaseName;
+  }
 }
 export interface DatabaseClusterMaintenanceWindow {
   /**
@@ -287,8 +386,8 @@ export class DatabaseCluster extends cdktf.TerraformResource {
       terraformResourceType: 'digitalocean_database_cluster',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -304,11 +403,13 @@ export class DatabaseCluster extends cdktf.TerraformResource {
     this._name = config.name;
     this._nodeCount = config.nodeCount;
     this._privateNetworkUuid = config.privateNetworkUuid;
+    this._projectId = config.projectId;
     this._region = config.region;
     this._size = config.size;
     this._sqlMode = config.sqlMode;
     this._tags = config.tags;
     this._version = config.version;
+    this._backupRestore.internalValue = config.backupRestore;
     this._maintenanceWindow.internalValue = config.maintenanceWindow;
     this._timeouts.internalValue = config.timeouts;
   }
@@ -434,6 +535,22 @@ export class DatabaseCluster extends cdktf.TerraformResource {
     return this.getStringAttribute('private_uri');
   }
 
+  // project_id - computed: true, optional: true, required: false
+  private _projectId?: string; 
+  public get projectId() {
+    return this.getStringAttribute('project_id');
+  }
+  public set projectId(value: string) {
+    this._projectId = value;
+  }
+  public resetProjectId() {
+    this._projectId = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get projectIdInput() {
+    return this._projectId;
+  }
+
   // region - computed: false, optional: false, required: true
   private _region?: string; 
   public get region() {
@@ -523,6 +640,22 @@ export class DatabaseCluster extends cdktf.TerraformResource {
     return this._version;
   }
 
+  // backup_restore - computed: false, optional: true, required: false
+  private _backupRestore = new DatabaseClusterBackupRestoreOutputReference(this, "backup_restore");
+  public get backupRestore() {
+    return this._backupRestore;
+  }
+  public putBackupRestore(value: DatabaseClusterBackupRestore) {
+    this._backupRestore.internalValue = value;
+  }
+  public resetBackupRestore() {
+    this._backupRestore.internalValue = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get backupRestoreInput() {
+    return this._backupRestore.internalValue;
+  }
+
   // maintenance_window - computed: false, optional: true, required: false
   private _maintenanceWindow = new DatabaseClusterMaintenanceWindowList(this, "maintenance_window", false);
   public get maintenanceWindow() {
@@ -567,11 +700,13 @@ export class DatabaseCluster extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       node_count: cdktf.numberToTerraform(this._nodeCount),
       private_network_uuid: cdktf.stringToTerraform(this._privateNetworkUuid),
+      project_id: cdktf.stringToTerraform(this._projectId),
       region: cdktf.stringToTerraform(this._region),
       size: cdktf.stringToTerraform(this._size),
       sql_mode: cdktf.stringToTerraform(this._sqlMode),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
       version: cdktf.stringToTerraform(this._version),
+      backup_restore: databaseClusterBackupRestoreToTerraform(this._backupRestore.internalValue),
       maintenance_window: cdktf.listMapper(databaseClusterMaintenanceWindowToTerraform, true)(this._maintenanceWindow.internalValue),
       timeouts: databaseClusterTimeoutsToTerraform(this._timeouts.internalValue),
     };

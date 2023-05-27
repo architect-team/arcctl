@@ -50,6 +50,87 @@ export interface ProjectConfig extends cdktf.TerraformMetaArguments {
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#resources Project#resources}
   */
   readonly resources?: string[];
+  /**
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#timeouts Project#timeouts}
+  */
+  readonly timeouts?: ProjectTimeouts;
+}
+export interface ProjectTimeouts {
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#delete Project#delete}
+  */
+  readonly delete?: string;
+}
+
+export function projectTimeoutsToTerraform(struct?: ProjectTimeoutsOutputReference | ProjectTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktf.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+  }
+  return {
+    delete: cdktf.stringToTerraform(struct!.delete),
+  }
+}
+
+export class ProjectTimeoutsOutputReference extends cdktf.ComplexObject {
+  private isEmptyObject = false;
+  private resolvableValue?: cdktf.IResolvable;
+
+  /**
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+    super(terraformResource, terraformAttribute, false, 0);
+  }
+
+  public get internalValue(): ProjectTimeouts | cdktf.IResolvable | undefined {
+    if (this.resolvableValue) {
+      return this.resolvableValue;
+    }
+    let hasAnyValues = this.isEmptyObject;
+    const internalValueResult: any = {};
+    if (this._delete !== undefined) {
+      hasAnyValues = true;
+      internalValueResult.delete = this._delete;
+    }
+    return hasAnyValues ? internalValueResult : undefined;
+  }
+
+  public set internalValue(value: ProjectTimeouts | cdktf.IResolvable | undefined) {
+    if (value === undefined) {
+      this.isEmptyObject = false;
+      this.resolvableValue = undefined;
+      this._delete = undefined;
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
+      this.isEmptyObject = false;
+      this.resolvableValue = value;
+    }
+    else {
+      this.isEmptyObject = Object.keys(value).length === 0;
+      this.resolvableValue = undefined;
+      this._delete = value.delete;
+    }
+  }
+
+  // delete - computed: false, optional: true, required: false
+  private _delete?: string; 
+  public get delete() {
+    return this.getStringAttribute('delete');
+  }
+  public set delete(value: string) {
+    this._delete = value;
+  }
+  public resetDelete() {
+    this._delete = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get deleteInput() {
+    return this._delete;
+  }
 }
 
 /**
@@ -78,8 +159,8 @@ export class Project extends cdktf.TerraformResource {
       terraformResourceType: 'digitalocean_project',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0'
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -96,6 +177,7 @@ export class Project extends cdktf.TerraformResource {
     this._name = config.name;
     this._purpose = config.purpose;
     this._resources = config.resources;
+    this._timeouts.internalValue = config.timeouts;
   }
 
   // ==========
@@ -231,6 +313,22 @@ export class Project extends cdktf.TerraformResource {
     return this.getStringAttribute('updated_at');
   }
 
+  // timeouts - computed: false, optional: true, required: false
+  private _timeouts = new ProjectTimeoutsOutputReference(this, "timeouts");
+  public get timeouts() {
+    return this._timeouts;
+  }
+  public putTimeouts(value: ProjectTimeouts) {
+    this._timeouts.internalValue = value;
+  }
+  public resetTimeouts() {
+    this._timeouts.internalValue = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get timeoutsInput() {
+    return this._timeouts.internalValue;
+  }
+
   // =========
   // SYNTHESIS
   // =========
@@ -244,6 +342,7 @@ export class Project extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       purpose: cdktf.stringToTerraform(this._purpose),
       resources: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resources),
+      timeouts: projectTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

@@ -7,7 +7,7 @@ import cliSpinners from 'cli-spinners';
 import path from 'path';
 import winston, { Logger } from 'winston';
 
-export default class ApplyDatacenterChangesCmd extends BaseCommand {
+export default class UpdateDatacenterCmd extends BaseCommand {
   static description = 'Apply changes to a new or existing datacenter';
 
   static flags = {
@@ -31,7 +31,7 @@ export default class ApplyDatacenterChangesCmd extends BaseCommand {
   ];
 
   async run(): Promise<void> {
-    const { args, flags } = await this.parse(ApplyDatacenterChangesCmd);
+    const { args, flags } = await this.parse(UpdateDatacenterCmd);
 
     try {
       const currentDatacenterRecord = await this.datacenterStore.get(args.name);

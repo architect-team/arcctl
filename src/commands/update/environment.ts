@@ -7,7 +7,7 @@ import cliSpinners from 'cli-spinners';
 import path from 'path';
 import winston, { Logger } from 'winston';
 
-export class ApplyEnvironmentChangesCmd extends BaseCommand {
+export class UpdateEnvironmentCmd extends BaseCommand {
   static description = 'Apply changes to an environment';
 
   static flags = {
@@ -35,7 +35,7 @@ export class ApplyEnvironmentChangesCmd extends BaseCommand {
   ];
 
   async run(): Promise<void> {
-    const { args, flags } = await this.parse(ApplyEnvironmentChangesCmd);
+    const { args, flags } = await this.parse(UpdateEnvironmentCmd);
 
     const environmentRecord = await this.environmentStore.get(args.name);
     if (!flags.datacenter && !environmentRecord) {

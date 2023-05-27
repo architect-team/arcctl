@@ -24,7 +24,7 @@ export class AwsDnsZoneModule extends ResourceModule<
     }
 
     this.outputs = {
-      id: this.dns_zone.name,
+      id: this.dns_zone.zoneId,
       name: this.dns_zone.name,
       nameservers: this.dns_zone.nameServers,
     };

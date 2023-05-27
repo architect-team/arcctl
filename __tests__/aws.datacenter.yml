@@ -64,7 +64,7 @@ environment:
           account: aws-architect
           dnsZone: ${{ environment.resources.zone.id }}
           subdomain: ${{ this.inputs.listener.subdomain }}
-          recordType: A
+          recordType: CNAME
           content: ${{ this.outputs.loadBalancerHostname }}
       loadBalancer: nginx
       namespace: ${{ environment.resources.namespace.id }}

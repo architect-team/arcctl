@@ -1,0 +1,14 @@
+environment:
+  resources:
+    gateway:
+      type: loadBalancer
+      name: my-env-gateway
+      loadBalancerType: traefik
+
+  hooks:
+    - when:
+        type: ingressRule
+      loadBalancer: ${{ resources.gateway.id }}
+      account: ${{ resources.gateway.account }}
+      provider: ${{ resources.gateway.provider }}
+    - provider: docker

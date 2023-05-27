@@ -24,6 +24,11 @@ export class DestroyDatacenterCmd extends BaseCommand {
       char: 'v',
       description: 'Turn on verbose logs',
     }),
+
+    'auto-approve': Flags.boolean({
+      description: 'Skip all prompts and start the requested action',
+      default: false,
+    }),
   };
 
   private async promptForDatacenter(name?: string): Promise<DatacenterRecord> {
@@ -62,6 +67,33 @@ export class DestroyDatacenterCmd extends BaseCommand {
       after: new CloudGraph(),
     });
 
+    const allEnvs = await this.environmentStore.find();
+    const datacenterEnvs = allEnvs.filter(
+      (env) => env.datacenter === datacenterRecord.name,
+    );
+
+    if (datacenterEnvs.length > 0) {
+      this.log('This will also destroy all the following environments:');
+      for (const env of datacenterEnvs) {
+        this.log(`- ${env.name}`);
+      }
+
+      const { confirm } = await inquirer.prompt(
+        [
+          {
+            name: 'confirm',
+            type: 'confirm',
+            message: 'Are you sure you want to proceed?',
+          },
+        ],
+        { confirm: flags['auto-approve'] === true || undefined },
+      );
+
+      if (!confirm) {
+        this.error('Datacenter destruction cancelled');
+      }
+    }
+
     let interval: NodeJS.Timer;
     if (!flags.verbose) {
       interval = setInterval(() => {
@@ -86,6 +118,11 @@ export class DestroyDatacenterCmd extends BaseCommand {
         cwd: path.resolve('./.terraform'),
       })
       .then(async () => {
+        // Remove all the environments backed by this datacenter
+        for (const env of datacenterEnvs) {
+          await this.environmentStore.remove(env.name);
+        }
+
         await this.removeDatacenter(datacenterRecord);
         this.renderPipeline(pipeline, { clear: !flags.verbose });
         clearInterval(interval);

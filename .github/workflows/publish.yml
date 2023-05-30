@@ -33,7 +33,6 @@ jobs:
       - uses: denoland/setup-deno@v1.1.2
       - run: deno task generate:npm
       - run: cd build
-      - run: npm install shx --save-dev
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
           npm publish

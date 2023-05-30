@@ -17,8 +17,23 @@
           "description": "Version of the database type the schema creation process expects",
           "type": "string"
         },
+        "host": {
+          "description": "Host of the target database",
+          "type": "string"
+        },
         "name": {
           "description": "Name to give to the new schema",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port of the target database",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "protocol": {
+          "description": "Protocol the target database responds to",
           "type": "string"
         }
       },

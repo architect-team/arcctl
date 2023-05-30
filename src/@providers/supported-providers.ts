@@ -6,10 +6,10 @@ import local from './local/provider.ts';
 import postgres from './postgres/provider.ts';
 
 export const SupportedProviders = {
-  aws: aws,
-  digitalocean: digitalocean,
-  docker: docker,
-  kubernetes: kubernetes,
-  local: local,
-  postgres: postgres,
+  'aws': aws,
+  'digitalocean': digitalocean,
+  'docker': docker,
+  'kubernetes': kubernetes,
+  'local': local,
+  'postgres': postgres,
 };

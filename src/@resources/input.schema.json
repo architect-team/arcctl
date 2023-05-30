@@ -247,8 +247,23 @@
               "description": "Version of the database type the schema creation process expects",
               "type": "string"
             },
+            "host": {
+              "description": "Host of the target database",
+              "type": "string"
+            },
             "name": {
               "description": "Name to give to the new schema",
+              "type": "string"
+            },
+            "port": {
+              "description": "Port of the target database",
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "protocol": {
+              "description": "Protocol the target database responds to",
               "type": "string"
             },
             "type": {
@@ -307,6 +322,21 @@
               "description": "The schema the user should have access to",
               "type": "string"
             },
+            "host": {
+              "description": "The host address of the underlying database",
+              "type": "string"
+            },
+            "port": {
+              "description": "The port the underlying database is listening on",
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "protocol": {
+              "description": "The protocol of the underlying database",
+              "type": "string"
+            },
             "type": {
               "const": "databaseUser",
               "type": "string"
@@ -318,6 +348,9 @@
           },
           "required": [
             "databaseSchema",
+            "host",
+            "port",
+            "protocol",
             "type",
             "username"
           ],
@@ -730,7 +763,7 @@
               "type": "string"
             },
             "chart": {
-              "description": "Chart name to be installed",
+              "description": "Chart to be installed",
               "type": "string"
             },
             "name": {
@@ -984,22 +1017,6 @@
           },
           "required": [
             "name",
-            "type"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "account": {
-              "type": "string"
-            },
-            "type": {
-              "const": "namespace",
-              "type": "string"
-            }
-          },
-          "required": [
             "type"
           ],
           "type": "object"

@@ -5,13 +5,13 @@ type DeployOptions = {
   environment: string;
 } & GlobalOptions;
 
-const deployCommand = BaseCommand()
+const DeployCommand = BaseCommand()
   .description('Deploy a component into an existing environment')
   .arguments('<tag:string>') // 'Component tag to deploy to the environment'
   .option('-e, --environment <environment:string>', 'Name of the environment to deploy to', { required: true })
-  .action(deployAction);
+  .action(deploy_action);
 
-async function deployAction(options: DeployOptions, tag: string): Promise<void> {
+async function deploy_action(options: DeployOptions, tag: string): Promise<void> {
   const command_helper = new CommandHelper(options);
 
   try {
@@ -24,4 +24,4 @@ async function deployAction(options: DeployOptions, tag: string): Promise<void> 
   }
 }
 
-export default deployCommand;
+export default DeployCommand;

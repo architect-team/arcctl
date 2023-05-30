@@ -8,13 +8,13 @@ type BuildOptions = {
   tag?: string[];
 } & GlobalOptions;
 
-const buildCommand = BaseCommand()
+const BuildCommand = BaseCommand()
   .description('Build a component and relevant source services')
   .arguments('<context:string>') // 'Path to the component to build'
   .option('-t, --tag <tag:string>', 'Tags to assign to the built image', { collect: true })
-  .action(buildAction);
+  .action(build_action);
 
-async function buildAction(options: BuildOptions, context_file: string): Promise<void> {
+async function build_action(options: BuildOptions, context_file: string): Promise<void> {
   const command_helper = new CommandHelper(options);
   const context = Deno.lstatSync(context_file).isFile ? context_file : path.dirname(context_file);
 
@@ -73,4 +73,4 @@ async function buildAction(options: BuildOptions, context_file: string): Promise
   }
 }
 
-export default buildCommand;
+export default BuildCommand;

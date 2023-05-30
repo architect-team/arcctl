@@ -26,7 +26,7 @@ import readline from 'node:readline';
 import process from 'node:process';
 
 export type GlobalOptions = {
-  config_home?: string;
+  configHome?: string;
 };
 
 export function BaseCommand() {
@@ -41,7 +41,7 @@ export class CommandHelper {
 
   constructor(options: GlobalOptions) {
     this.options = options;
-    CloudCtlConfig.setConfigDirectory(options.config_home);
+    CloudCtlConfig.setConfigDirectory(options.configHome);
   }
 
   get componentStore(): ComponentStore {

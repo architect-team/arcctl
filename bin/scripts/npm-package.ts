@@ -1,5 +1,5 @@
-import * as path from 'std/path/mod.ts';
 import { build, emptyDir } from 'dnt';
+import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const build_dir = path.join(__dirname, '..', '..', 'build');
@@ -20,8 +20,7 @@ await build({
   },
   // TODO: Should use the info from existing package.json
   package: {
-    name: 'arcctl',
+    name: '@architect-io/arcctl',
     version: '0.0.1-rc',
-    description: 'arcctl',
   },
 });

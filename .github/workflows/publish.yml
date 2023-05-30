@@ -35,5 +35,5 @@ jobs:
       - run: cd build
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
-          npm publish
+          npm publish --access public
         # GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release

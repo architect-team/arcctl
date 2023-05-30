@@ -10,7 +10,8 @@ const git = [
       'README.md',
       'package.json',
       'package-lock.json',
-      'yarn.lock',
+      'deno.json',
+      'deno.lock',
     ],
   },
 ];
@@ -27,7 +28,7 @@ const github = [
     assets: [
       {
         path: 'dist/*.tar.gz',
-        label: 'Architect-CLI ${nextRelease.version}',
+        label: 'arcctl ${nextRelease.version}',
       },
     ],
   },
@@ -36,14 +37,6 @@ const changelog = [
   '@semantic-release/changelog',
   {
     changelogFile: 'CHANGELOG.md',
-  },
-];
-const backmerge = [
-  '@saithodev/semantic-release-backmerge',
-  {
-    branches: ['rc'],
-    // Makes sure that only pushed changes are backmerged
-    clearWorkspace: true,
   },
 ];
 
@@ -69,11 +62,7 @@ module.exports = {
   branches: [
     'main',
     {
-      name: 'rc',
-      prerelease: true,
-    },
-    {
-      name: 'cldctl-*',
+      name: 'arcctl-*',
       prerelease: true,
     },
   ],

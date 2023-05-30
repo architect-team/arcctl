@@ -6,8 +6,6 @@ const build_dir = path.join(__dirname, '..', '..', 'build');
 
 await emptyDir(build_dir);
 
-// Builds the schema into an npm package. This will convert files to .js and .d.ts with
-// Deno shims so that "ts-json-schema-generator" can be run on it and infer types properly.
 await build({
   typeCheck: false,
   test: false,

@@ -8,14 +8,6 @@ const providerType = new EnumType(Object.keys(SupportedProviders));
 type AddAccountOptions = {
   provider?: string;
 } & GlobalOptions;
-/*
-Types of parameters 'options' and 'options' are incompatible.
-    Type '{ configHome?: string | undefined; provider?: string | undefined; }' is not assignable to type 'AddAccountOptions'.
-      Type '{ configHome?: string | undefined; provider?: string | undefined; }' is not assignable to type '{ provider?: EnumType<string> | undefined; }'.
-        Types of property 'provider' are incompatible.
-          Type 'string | undefined' is not assignable to type 'EnumType<string> | undefined'.
-            Type 'string' is not assignable to type 'EnumType<string>'
-*/
 
 const AddAccountCommand = BaseCommand()
   .description('Register an account for use to provision resources')

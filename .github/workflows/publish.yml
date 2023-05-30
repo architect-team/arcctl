@@ -30,9 +30,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+      - uses: denoland/setup-deno@v1.1.2
+      - run: deno task generate:npm
+      - run: cd build
       - name: npm publish
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc

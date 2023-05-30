@@ -35,8 +35,6 @@ jobs:
       - run: deno task generate:npm
       - run: |
           cd build
-          cat package.json
-      # - run: |
-      #     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
-      #     npm publish --access public
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
+          npm publish --access public
         # GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release

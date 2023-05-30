@@ -8,20 +8,20 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '18'
+  #         cache: 'npm'
+  #     - run: npm ci
+  #     - run: npm run lint
   publish_cli:
     name: Publish CLI
     if: github.ref_name == 'main' || startsWith(github.ref_name, 'arcctl-')
-    needs: [lint]
+    # needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

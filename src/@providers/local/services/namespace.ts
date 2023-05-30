@@ -3,8 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
-import fs from 'fs';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 
 export class LocalNamespaceService extends CrudResourceService<'namespace'> {
   constructor(private credentials: LocalCredentials) {
@@ -13,9 +12,9 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
 
   async get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
     const file = path.join(this.credentials.directory, id);
-    const stat = fs.lstatSync(file);
+    const stat = Deno.lstatSync(file);
 
-    if (!stat.isDirectory()) {
+    if (!stat.isDirectory) {
       return undefined;
     }
 
@@ -28,13 +27,11 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
     filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['namespace']>> {
-    const fileNames = fs.readdirSync(this.credentials.directory, {
-      withFileTypes: true,
-    });
+    const fileNames = Deno.readDirSync(this.credentials.directory);
 
     const namespaces: ResourceOutputs['namespace'][] = [];
     for (const file of fileNames) {
-      if (file.isDirectory()) {
+      if (file.isDirectory) {
         namespaces.push({
           id: file.name,
         });
@@ -49,7 +46,7 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
 
   async create(inputs: ResourceInputs['namespace']): Promise<ResourceOutputs['namespace']> {
     const namespace = path.join(this.credentials.directory, inputs.name);
-    fs.mkdirSync(namespace);
+    Deno.mkdirSync(namespace);
     return {
       id: inputs.name,
     };
@@ -61,6 +58,6 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
 
   async delete(id: string): Promise<void> {
     const namespace = path.join(this.credentials.directory, id);
-    fs.rmSync(namespace, { recursive: true });
+    Deno.removeSync(namespace, { recursive: true });
   }
 }

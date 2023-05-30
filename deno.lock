@@ -120,6 +120,8 @@
     "https://deno.land/std@0.177.0/node/string_decoder.ts": "1a17e3572037c512cc5fc4b29076613e90f225474362d18da908cb7e5ccb7e88",
     "https://deno.land/std@0.189.0/_util/asserts.ts": "178dfc49a464aee693a7e285567b3d0b555dc805ff490505a8aae34f9cfb1462",
     "https://deno.land/std@0.189.0/_util/os.ts": "d932f56d41e4f6a6093d56044e29ce637f8dcc43c5a90af43504a889cf1775e3",
+    "https://deno.land/std@0.189.0/collections/_utils.ts": "5114abc026ddef71207a79609b984614e66a63a4bda17d819d56b0e72c51527e",
+    "https://deno.land/std@0.189.0/collections/deep_merge.ts": "5a8ed29030f4471a5272785c57c3455fa79697b9a8f306013a8feae12bafc99a",
     "https://deno.land/std@0.189.0/fs/exists.ts": "29c26bca8584a22876be7cb8844f1b6c8fc35e9af514576b78f5c6884d7ed02d",
     "https://deno.land/std@0.189.0/path/_constants.ts": "e49961f6f4f48039c0dfed3c3f93e963ca3d92791c9d478ac5b43183413136e0",
     "https://deno.land/std@0.189.0/path/_interface.ts": "6471159dfbbc357e03882c2266d21ef9afdb1e4aa771b0545e90db58a0ba314b",

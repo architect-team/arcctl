@@ -12,7 +12,7 @@ import { createProvider } from './utils/providers.ts';
 import { createTable } from './utils/table.ts';
 import { JSONSchemaType } from 'ajv';
 import cliSpinners from 'cli-spinners';
-import deepmerge from 'deepmerge';
+import { deepMerge } from 'std/collections/deep_merge.ts';
 import inquirer from 'inquirer';
 import { Command } from 'cliffy/command/mod.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
@@ -704,7 +704,7 @@ export class CommandHelper {
         },
       ]);
 
-      data = deepmerge(data, result);
+      data = deepMerge(data, result);
     }
 
     const inputs = await this.promptForSchemaProperties<any>(

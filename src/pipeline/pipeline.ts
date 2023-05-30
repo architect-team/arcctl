@@ -272,7 +272,7 @@ export class Pipeline {
    * Kick off the pipeline
    */
   public async apply(options: ApplyOptions): Promise<void> {
-    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'cldctl-' });
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     let step: PipelineStep | undefined;
     const terraform = await this.getTerraformPlugin();

@@ -3,7 +3,6 @@ import { ResourceModule } from '../../module.ts';
 import { Role } from '../.gen/providers/postgresql/role/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
-import { v4 } from 'uuid';
 
 export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', PostgresCredentials> {
   outputs: ResourceOutputs['databaseUser'];
@@ -12,7 +11,7 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
   constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseUser']) {
     super(scope, id, inputs);
 
-    const password = v4();
+    const password = crypto.randomUUID();
 
     this.role = new Role(this, 'user', {
       name: inputs.username,

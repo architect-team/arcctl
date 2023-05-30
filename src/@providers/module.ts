@@ -1,7 +1,7 @@
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ProviderStore } from './store.ts';
-import { TerraformResource } from 'cdktf';
+import { TerraformResource, TerraformStack } from 'cdktf';
 import { Construct } from 'constructs';
 
 export interface ResourceModuleHooks<T extends ResourceType> {

@@ -8,5 +8,3 @@ await new Command()
   .command('deploy', DeployCommand)
   .command('tag', TagCommand)
   .parse(Deno.args);
-
-console.log('ufh');

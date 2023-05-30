@@ -3,7 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseModule } from '../modules/database.ts';
-import { ResourcePresets } from '@providers/service.ts';
+import { ResourcePresets } from '../../../@providers/service.ts';
 import { createApiClient } from 'dots-wrapper';
 import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.ts';
 

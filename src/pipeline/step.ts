@@ -4,10 +4,8 @@ import { CloudNode } from '../cloud-graph/index.ts';
 import { CldCtlTerraformStack } from '../utils/stack.ts';
 import { ApplyStepOptions, StepAction, StepColor, StepStatus } from './types.ts';
 import { App } from 'cdktf';
-import deepmerge from 'deepmerge';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import { deepMerge } from 'std/collections/deep_merge.ts';
+import * as path from 'std/path/mod.ts';
 import { Observable, Subscriber } from 'rxjs';
 
 export type PipelineStepOptions<T extends ResourceType> = {
@@ -74,14 +72,23 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     // We have to do this before
     const initCmd = options.terraform.init(options.cwd, stack);
     if (options.logger) {
-      initCmd.stdout?.on('data', (chunk) => {
-        options.logger?.info(chunk);
-      });
-      initCmd.stderr?.on('data', (chunk) => {
-        options.logger?.error(chunk);
-      });
+      initCmd.stdout.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.info(chunk);
+          },
+        }),
+      );
+
+      initCmd.stderr.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.error(chunk);
+          },
+        }),
+      );
     }
-    await initCmd;
+    await initCmd.output();
 
     this.status.state = 'starting';
     this.status.message = 'Generating diff';
@@ -89,14 +96,23 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     const planCmd = options.terraform.plan(options.cwd, 'plan');
     if (options.logger) {
-      planCmd.stdout?.on('data', (chunk) => {
-        options.logger?.info(chunk);
-      });
-      planCmd.stderr?.on('data', (chunk) => {
-        options.logger?.error(chunk);
-      });
+      planCmd.stdout.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.info(chunk);
+          },
+        }),
+      );
+
+      planCmd.stderr.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.error(chunk);
+          },
+        }),
+      );
     }
-    await planCmd;
+    await planCmd.output();
 
     this.status.state = options.state;
     this.status.message = 'Applying changes';
@@ -104,14 +120,24 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     const applyCmd = options.terraform.apply(options.cwd, 'plan');
     if (options.logger) {
-      applyCmd.stdout?.on('data', (chunk) => {
-        options.logger?.info(chunk);
-      });
-      applyCmd.stderr?.on('data', (chunk) => {
-        options.logger?.error(chunk);
-      });
+      applyCmd.stdout.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.info(chunk);
+          },
+        }),
+      );
+
+      applyCmd.stderr.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.error(chunk);
+          },
+        }),
+      );
     }
-    await applyCmd;
+
+    await applyCmd.output();
   }
 
   /**
@@ -123,7 +149,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     service: TerraformResourceService<T, any>,
     options: ApplyStepOptions,
   ): Promise<void> {
-    const cwd = options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'arcctl-'));
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
     const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
     const stateFile = path.join(nodeDir, 'terraform.tfstate');
 
@@ -140,7 +166,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     if (this.state) {
       // State exists and doesn't need to be imported
-      fs.writeFileSync(stateFile, JSON.stringify(this.state));
+      Deno.writeTextFileSync(stateFile, JSON.stringify(this.state));
     } else if (this.resource?.id) {
       // State must be imported first
       const imports = await module.genImports(provider.credentials, this.resource.id);
@@ -148,17 +174,27 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       // We have to run this before we can run `terraform import`
       const initCmd = options.terraform.init(nodeDir, stack);
       if (options.logger) {
-        initCmd.stdout?.on('data', (chunk) => {
-          options.logger?.info(chunk);
-        });
-        initCmd.stderr?.on('data', (chunk) => {
-          options.logger?.error(chunk);
-        });
+        initCmd.stdout.pipeTo(
+          new WritableStream({
+            write(chunk) {
+              options.logger?.info(chunk);
+            },
+          }),
+        );
+
+        initCmd.stderr.pipeTo(
+          new WritableStream({
+            write(chunk) {
+              options.logger?.error(chunk);
+            },
+          }),
+        );
       }
-      await initCmd;
+
+      await initCmd.output();
 
       for (const [key, value] of Object.entries(imports)) {
-        await options.terraform.import(nodeDir, key, value);
+        await options.terraform.import(nodeDir, key, value).output();
       }
     }
 
@@ -174,20 +210,29 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       state: this.action === 'delete' ? 'destroying' : 'applying',
     });
 
-    const stateString = fs.readFileSync(stateFile, 'utf8');
+    const stateString = Deno.readTextFileSync(stateFile);
     this.state = JSON.parse(stateString);
 
     const outputCmd = options.terraform.output(nodeDir);
     if (options.logger) {
-      outputCmd.stdout?.on('data', (chunk) => {
-        options.logger?.info(chunk);
-      });
-      outputCmd.stderr?.on('data', (chunk) => {
-        options.logger?.error(chunk);
-      });
+      outputCmd.stdout.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.info(chunk);
+          },
+        }),
+      );
+
+      outputCmd.stderr.pipeTo(
+        new WritableStream({
+          write(chunk) {
+            options.logger?.error(chunk);
+          },
+        }),
+      );
     }
-    const { stdout: rawOutputs } = await outputCmd;
-    const parsedOutputs = JSON.parse(rawOutputs);
+    const { stdout: rawOutputs } = await outputCmd.output();
+    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
 
     if (this.action === 'create' && module.hooks.afterCreate) {
       this.status.state = 'applying';
@@ -238,7 +283,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     } else if (this.state && this.inputs) {
       // Updating
       const partial = await service.update(this.inputs);
-      this.state = deepmerge(this.state, partial);
+      this.state = deepMerge(this.state, partial);
     } else if (this.inputs) {
       // Creating
       this.state = await service.create(this.inputs);
@@ -248,7 +293,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   }
 
   public apply(options: ApplyStepOptions): Observable<PipelineStep<T>> {
-    const cwd = options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'arcctl-'));
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     return new Observable((subscriber) => {
       if (this.action === 'no-op') {
@@ -257,7 +302,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       }
 
       const nodeDir = path.join(cwd, this.id.replaceAll('/', '--'));
-      fs.mkdirSync(nodeDir, { recursive: true });
+      Deno.mkdirSync(nodeDir, { recursive: true });
       if (!nodeDir) {
         subscriber.error(new Error('Unable to create execution directory for terraform'));
         return;
@@ -286,14 +331,14 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       }
 
       promise
-        .then(async () => {
+        .then(() => {
           this.status.state = 'complete';
           this.status.message = '';
           this.status.endTime = Date.now();
           subscriber.next(this);
           subscriber.complete();
 
-          // fs.rmSync(nodeDir, { recursive: true });
+          // Deno.removeSync(nodeDir, { recursive: true });
         })
         .catch((err) => {
           this.status.state = 'error';
@@ -302,7 +347,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           subscriber.next(this);
           subscriber.error(err);
 
-          // fs.rmSync(nodeDir, { recursive: true });
+          // Deno.removeSync(nodeDir, { recursive: true });
         });
     });
   }

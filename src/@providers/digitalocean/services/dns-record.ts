@@ -3,7 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
-import { InputValidators } from '@providers/service.ts';
+import { InputValidators } from '../../../@providers/service.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {

@@ -1,85 +1,89 @@
 import { SupportedProviders } from '../../@providers/index.ts';
-import { BaseCommand } from '../../base-command.ts';
-import { Flags } from '@oclif/core';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { EnumType } from 'cliffy/command/mod.ts';
 import inquirer from 'inquirer';
 
-export default class AddAccountCommand extends BaseCommand {
-  static description = 'Register an account for use to provision resources';
+const providerType = new EnumType(Object.keys(SupportedProviders));
 
-  static aliases: string[] = ['add:accounts', 'account:add', 'accounts:add'];
+type AddAccountOptions = {
+  provider?: string;
+} & GlobalOptions;
+/*
+Types of parameters 'options' and 'options' are incompatible.
+    Type '{ configHome?: string | undefined; provider?: string | undefined; }' is not assignable to type 'AddAccountOptions'.
+      Type '{ configHome?: string | undefined; provider?: string | undefined; }' is not assignable to type '{ provider?: EnumType<string> | undefined; }'.
+        Types of property 'provider' are incompatible.
+          Type 'string | undefined' is not assignable to type 'EnumType<string> | undefined'.
+            Type 'string' is not assignable to type 'EnumType<string>'
+*/
 
-  static args = [
+const AddAccountCommand = BaseCommand()
+  .description('Register an account for use to provision resources')
+  .globalType('providerType', providerType)
+  .option('-p, --provider <provider:providerType>', 'Type of provider to register')
+  .arguments('[account_name:string]')
+  .action(add_account_action);
+
+async function add_account_action(options: AddAccountOptions, account_name?: string) {
+  const command_helper = new CommandHelper(options);
+
+  const name = await command_helper.promptForStringInputs(
     {
       name: 'name',
-      description: 'Name to give to the account',
-    },
-  ];
-
-  static flags = {
-    provider: Flags.enum({
-      char: 'p',
-      description: 'Type of provider to register',
-      options: Object.keys(SupportedProviders),
-    }),
-  };
-
-  async run(): Promise<void> {
-    const { args, flags } = await this.parse(AddAccountCommand);
-
-    const name = await this.promptForStringInputs(
-      {
-        name: 'name',
-        schema: {
-          type: 'string',
-          description: 'Name your new account',
-        },
+      schema: {
+        type: 'string',
+        description: 'Name your new account',
       },
-      undefined,
-      { name: args.name },
-    );
-    if (this.providerStore.getProvider(name)) {
-      this.error(`An account named ${name} already exists`);
-    }
+    },
+    undefined,
+    { name: account_name },
+  );
+  if (command_helper.providerStore.getProvider(name)) {
+    console.error(`An account named ${name} already exists`);
+    Deno.exit(1);
+  }
 
-    const { providerName } = await inquirer.prompt(
-      [
-        {
-          type: 'list',
-          name: 'providerName',
-          message: 'What provider will this account connect to?',
-          choices: Object.keys(SupportedProviders),
-        },
-      ],
-      { providerName: flags.provider },
-    );
+  const { providerName } = await inquirer.prompt(
+    [
+      {
+        type: 'list',
+        name: 'providerName',
+        message: 'What provider will this account connect to?',
+        choices: Object.keys(SupportedProviders),
+      },
+    ],
+    { providerName: options.provider },
+  );
 
-    const providerType = providerName as keyof typeof SupportedProviders;
-    const credentialSchema = SupportedProviders[providerType].CredentialsSchema;
-    const credentials = await inquirer.prompt(
-      Object.entries(credentialSchema.properties).map(([key, value]) => ({
-        name: key,
-        type: 'password',
-        message: key,
-        required: !(value as any).default,
-        default: (value as any).default,
-      })),
-    );
+  const providerType = providerName as keyof typeof SupportedProviders;
+  const credentialSchema = SupportedProviders[providerType].CredentialsSchema;
+  const credentials = await inquirer.prompt(
+    Object.entries(credentialSchema.properties).map(([key, value]) => ({
+      name: key,
+      type: 'password',
+      message: key,
+      required: !(value as any).default,
+      default: (value as any).default,
+    })),
+  );
 
-    const account = new SupportedProviders[providerType](
-      name,
-      credentials,
-      this.providerStore.saveFile.bind(this.providerStore),
-    );
-    const validCredentials = await account.testCredentials();
-    if (!validCredentials) {
-      throw new Error('Invalid credentials');
-    }
+  const account = new SupportedProviders[providerType](
+    name,
+    credentials,
+    command_helper.providerStore.saveFile.bind(command_helper.providerStore),
+  );
+  const validCredentials = await account.testCredentials();
+  if (!validCredentials) {
+    throw new Error('Invalid credentials');
+  }
 
-    try {
-      this.providerStore.saveProvider(account);
-      this.log(`${account.name} account registered`);
-    } catch (ex: any) {
-      this.error(ex.message);
-    }
+  try {
+    command_helper.providerStore.saveProvider(account);
+    console.log(`${account.name} account registered`);
+  } catch (ex: any) {
+    console.error(ex.message);
+    Deno.exit(1);
   }
 }
+
+export default AddAccountCommand;

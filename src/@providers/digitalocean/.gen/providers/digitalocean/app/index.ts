@@ -1,57 +1,52 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/app
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface AppConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#id App#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#id App#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#spec App#spec}
-   */
+  * spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#spec App#spec}
+  */
   readonly spec?: AppSpec;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#timeouts App#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#timeouts App#timeouts}
+  */
   readonly timeouts?: AppTimeouts;
 }
 export interface AppSpecAlert {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
+  */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
+  */
   readonly rule: string;
 }
 
-export function appSpecAlertToTerraform(
-  struct?: AppSpecAlert | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecAlertToTerraform(struct?: AppSpecAlert | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     disabled: cdktf.booleanToTerraform(struct!.disabled),
     rule: cdktf.stringToTerraform(struct!.rule),
-  };
+  }
 }
 
 export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
@@ -59,23 +54,13 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecAlert | cdktf.IResolvable | undefined {
@@ -95,18 +80,18 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecAlert | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecAlert | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._disabled = undefined;
       this._rule = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disabled = value.disabled;
@@ -115,7 +100,7 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable;
+  private _disabled?: boolean | cdktf.IResolvable; 
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -131,7 +116,7 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string;
+  private _rule?: string; 
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -145,88 +130,73 @@ export class AppSpecAlertOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecAlertList extends cdktf.ComplexList {
-  public internalValue?: AppSpecAlert[] | cdktf.IResolvable;
+  public internalValue? : AppSpecAlert[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecAlertOutputReference {
-    return new AppSpecAlertOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecAlertOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecDatabase {
   /**
-   * The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cluster_name App#cluster_name}
-   */
+  * The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cluster_name App#cluster_name}
+  */
   readonly clusterName?: string;
   /**
-   * The name of the MySQL or PostgreSQL database to configure.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#db_name App#db_name}
-   */
+  * The name of the MySQL or PostgreSQL database to configure.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#db_name App#db_name}
+  */
   readonly dbName?: string;
   /**
-   * The name of the MySQL or PostgreSQL user to configure.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#db_user App#db_user}
-   */
+  * The name of the MySQL or PostgreSQL user to configure.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#db_user App#db_user}
+  */
   readonly dbUser?: string;
   /**
-   * The database engine to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#engine App#engine}
-   */
+  * The database engine to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#engine App#engine}
+  */
   readonly engine?: string;
   /**
-   * The name of the component
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the component
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name?: string;
   /**
-   * Whether this is a production or dev database.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#production App#production}
-   */
+  * Whether this is a production or dev database.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#production App#production}
+  */
   readonly production?: boolean | cdktf.IResolvable;
   /**
-   * The version of the database engine.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#version App#version}
-   */
+  * The version of the database engine.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#version App#version}
+  */
   readonly version?: string;
 }
 
-export function appSpecDatabaseToTerraform(
-  struct?: AppSpecDatabase | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecDatabaseToTerraform(struct?: AppSpecDatabase | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     cluster_name: cdktf.stringToTerraform(struct!.clusterName),
@@ -236,7 +206,7 @@ export function appSpecDatabaseToTerraform(
     name: cdktf.stringToTerraform(struct!.name),
     production: cdktf.booleanToTerraform(struct!.production),
     version: cdktf.stringToTerraform(struct!.version),
-  };
+  }
 }
 
 export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
@@ -244,23 +214,13 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecDatabase | cdktf.IResolvable | undefined {
@@ -300,9 +260,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecDatabase | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecDatabase | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -313,10 +271,12 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
       this._name = undefined;
       this._production = undefined;
       this._version = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._clusterName = value.clusterName;
@@ -330,7 +290,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // cluster_name - computed: false, optional: true, required: false
-  private _clusterName?: string;
+  private _clusterName?: string; 
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -346,7 +306,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // db_name - computed: false, optional: true, required: false
-  private _dbName?: string;
+  private _dbName?: string; 
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -362,7 +322,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // db_user - computed: false, optional: true, required: false
-  private _dbUser?: string;
+  private _dbUser?: string; 
   public get dbUser() {
     return this.getStringAttribute('db_user');
   }
@@ -378,7 +338,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // engine - computed: false, optional: true, required: false
-  private _engine?: string;
+  private _engine?: string; 
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -394,7 +354,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -410,7 +370,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // production - computed: false, optional: true, required: false
-  private _production?: boolean | cdktf.IResolvable;
+  private _production?: boolean | cdktf.IResolvable; 
   public get production() {
     return this.getBooleanAttribute('production');
   }
@@ -426,7 +386,7 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string;
+  private _version?: string; 
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -443,77 +403,62 @@ export class AppSpecDatabaseOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecDatabaseList extends cdktf.ComplexList {
-  public internalValue?: AppSpecDatabase[] | cdktf.IResolvable;
+  public internalValue? : AppSpecDatabase[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecDatabaseOutputReference {
-    return new AppSpecDatabaseOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecDatabaseOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecDomain {
   /**
-   * The hostname for the domain.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The hostname for the domain.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * The type of the domain.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the domain.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * Indicates whether the domain includes all sub-domains, in addition to the given domain.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#wildcard App#wildcard}
-   */
+  * Indicates whether the domain includes all sub-domains, in addition to the given domain.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#wildcard App#wildcard}
+  */
   readonly wildcard?: boolean | cdktf.IResolvable;
   /**
-   * If the domain uses DigitalOcean DNS and you would like App Platform to automatically manage it for you, set this to the name of the domain on your account.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#zone App#zone}
-   */
+  * If the domain uses DigitalOcean DNS and you would like App Platform to automatically manage it for you, set this to the name of the domain on your account.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#zone App#zone}
+  */
   readonly zone?: string;
 }
 
-export function appSpecDomainToTerraform(
-  struct?: AppSpecDomain | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecDomainToTerraform(struct?: AppSpecDomain | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     type: cdktf.stringToTerraform(struct!.type),
     wildcard: cdktf.booleanToTerraform(struct!.wildcard),
     zone: cdktf.stringToTerraform(struct!.zone),
-  };
+  }
 }
 
 export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
@@ -521,23 +466,13 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecDomain | cdktf.IResolvable | undefined {
@@ -565,9 +500,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecDomain | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecDomain | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -575,10 +508,12 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
       this._type = undefined;
       this._wildcard = undefined;
       this._zone = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -589,7 +524,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -602,7 +537,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -618,7 +553,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // wildcard - computed: true, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable;
+  private _wildcard?: boolean | cdktf.IResolvable; 
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -634,7 +569,7 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
   }
 
   // zone - computed: false, optional: true, required: false
-  private _zone?: string;
+  private _zone?: string; 
   public get zone() {
     return this.getStringAttribute('zone');
   }
@@ -651,77 +586,62 @@ export class AppSpecDomainOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecDomainList extends cdktf.ComplexList {
-  public internalValue?: AppSpecDomain[] | cdktf.IResolvable;
+  public internalValue? : AppSpecDomain[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecDomainOutputReference {
-    return new AppSpecDomainOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecDomainOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecEnv {
   /**
-   * The name of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
-   */
+  * The name of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
+  */
   readonly key?: string;
   /**
-   * The visibility scope of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
-   */
+  * The visibility scope of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
+  */
   readonly scope?: string;
   /**
-   * The type of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * The value of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * The value of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value?: string;
 }
 
-export function appSpecEnvToTerraform(
-  struct?: AppSpecEnv | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecEnvToTerraform(struct?: AppSpecEnv | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     scope: cdktf.stringToTerraform(struct!.scope),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
@@ -729,23 +649,13 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecEnv | cdktf.IResolvable | undefined {
@@ -781,10 +691,12 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
       this._scope = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -795,7 +707,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -811,7 +723,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -827,7 +739,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -843,7 +755,7 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -860,66 +772,51 @@ export class AppSpecEnvOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecEnvList extends cdktf.ComplexList {
-  public internalValue?: AppSpecEnv[] | cdktf.IResolvable;
+  public internalValue? : AppSpecEnv[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecEnvOutputReference {
-    return new AppSpecEnvOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecFunctionAlert {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
+  */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
+  */
   readonly operator: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
+  */
   readonly rule: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
+  */
   readonly window: string;
 }
 
-export function appSpecFunctionAlertToTerraform(
-  struct?: AppSpecFunctionAlert | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionAlertToTerraform(struct?: AppSpecFunctionAlert | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     disabled: cdktf.booleanToTerraform(struct!.disabled),
@@ -927,7 +824,7 @@ export function appSpecFunctionAlertToTerraform(
     rule: cdktf.stringToTerraform(struct!.rule),
     value: cdktf.numberToTerraform(struct!.value),
     window: cdktf.stringToTerraform(struct!.window),
-  };
+  }
 }
 
 export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
@@ -935,29 +832,16 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecFunctionAlert
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecFunctionAlert | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -986,9 +870,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionAlert | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionAlert | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -997,10 +879,12 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
       this._rule = undefined;
       this._value = undefined;
       this._window = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disabled = value.disabled;
@@ -1012,7 +896,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable;
+  private _disabled?: boolean | cdktf.IResolvable; 
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -1028,7 +912,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string;
+  private _operator?: string; 
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1041,7 +925,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string;
+  private _rule?: string; 
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -1054,7 +938,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number;
+  private _value?: number; 
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -1067,7 +951,7 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string;
+  private _window?: string; 
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -1081,85 +965,65 @@ export class AppSpecFunctionAlertOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecFunctionAlertList extends cdktf.ComplexList {
-  public internalValue?: AppSpecFunctionAlert[] | cdktf.IResolvable;
+  public internalValue? : AppSpecFunctionAlert[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecFunctionAlertOutputReference {
-    return new AppSpecFunctionAlertOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecFunctionAlertOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecFunctionCorsAllowOrigins {
   /**
-   * Exact string match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
-   */
+  * Exact string match.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
+  */
   readonly exact?: string;
   /**
-   * Prefix-based match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
-   */
+  * Prefix-based match. 
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
+  */
   readonly prefix?: string;
   /**
-   * RE2 style regex-based match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
-   */
+  * RE2 style regex-based match.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
+  */
   readonly regex?: string;
 }
 
-export function appSpecFunctionCorsAllowOriginsToTerraform(
-  struct?:
-    | AppSpecFunctionCorsAllowOriginsOutputReference
-    | AppSpecFunctionCorsAllowOrigins,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionCorsAllowOriginsToTerraform(struct?: AppSpecFunctionCorsAllowOriginsOutputReference | AppSpecFunctionCorsAllowOrigins): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     exact: cdktf.stringToTerraform(struct!.exact),
     prefix: cdktf.stringToTerraform(struct!.prefix),
     regex: cdktf.stringToTerraform(struct!.regex),
-  };
+  }
 }
 
 export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1187,7 +1051,8 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
       this._exact = undefined;
       this._prefix = undefined;
       this._regex = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._exact = value.exact;
       this._prefix = value.prefix;
@@ -1196,7 +1061,7 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string;
+  private _exact?: string; 
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -1212,7 +1077,7 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1228,7 +1093,7 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string;
+  private _regex?: string; 
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -1245,86 +1110,66 @@ export class AppSpecFunctionCorsAllowOriginsOutputReference extends cdktf.Comple
 }
 export interface AppSpecFunctionCors {
   /**
-   * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
-   */
+  * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
+  */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
-   * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
-   */
+  * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
+  */
   readonly allowHeaders?: string[];
   /**
-   * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
-   */
+  * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
+  */
   readonly allowMethods?: string[];
   /**
-   * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
-   */
+  * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
+  */
   readonly exposeHeaders?: string[];
   /**
-   * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
-   */
+  * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
+  */
   readonly maxAge?: string;
   /**
-   * allow_origins block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
-   */
+  * allow_origins block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
+  */
   readonly allowOrigins?: AppSpecFunctionCorsAllowOrigins;
 }
 
-export function appSpecFunctionCorsToTerraform(
-  struct?: AppSpecFunctionCorsOutputReference | AppSpecFunctionCors,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionCorsToTerraform(struct?: AppSpecFunctionCorsOutputReference | AppSpecFunctionCors): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     allow_credentials: cdktf.booleanToTerraform(struct!.allowCredentials),
-    allow_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowHeaders),
-    allow_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowMethods),
-    expose_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.exposeHeaders),
+    allow_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowHeaders),
+    allow_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowMethods),
+    expose_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.exposeHeaders),
     max_age: cdktf.stringToTerraform(struct!.maxAge),
-    allow_origins: appSpecFunctionCorsAllowOriginsToTerraform(
-      struct!.allowOrigins,
-    ),
-  };
+    allow_origins: appSpecFunctionCorsAllowOriginsToTerraform(struct!.allowOrigins),
+  }
 }
 
 export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1367,7 +1212,8 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
       this._exposeHeaders = undefined;
       this._maxAge = undefined;
       this._allowOrigins.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowCredentials = value.allowCredentials;
       this._allowHeaders = value.allowHeaders;
@@ -1379,7 +1225,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable;
+  private _allowCredentials?: boolean | cdktf.IResolvable; 
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -1395,7 +1241,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[];
+  private _allowHeaders?: string[]; 
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -1411,7 +1257,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[];
+  private _allowMethods?: string[]; 
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -1427,7 +1273,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[];
+  private _exposeHeaders?: string[]; 
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -1443,7 +1289,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: string;
+  private _maxAge?: string; 
   public get maxAge() {
     return this.getStringAttribute('max_age');
   }
@@ -1459,10 +1305,7 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_origins - computed: false, optional: true, required: false
-  private _allowOrigins = new AppSpecFunctionCorsAllowOriginsOutputReference(
-    this,
-    'allow_origins',
-  );
+  private _allowOrigins = new AppSpecFunctionCorsAllowOriginsOutputReference(this, "allow_origins");
   public get allowOrigins() {
     return this._allowOrigins;
   }
@@ -1479,48 +1322,42 @@ export class AppSpecFunctionCorsOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecFunctionEnv {
   /**
-   * The name of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
-   */
+  * The name of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
+  */
   readonly key?: string;
   /**
-   * The visibility scope of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
-   */
+  * The visibility scope of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
+  */
   readonly scope?: string;
   /**
-   * The type of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * The value of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * The value of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value?: string;
 }
 
-export function appSpecFunctionEnvToTerraform(
-  struct?: AppSpecFunctionEnv | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionEnvToTerraform(struct?: AppSpecFunctionEnv | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     scope: cdktf.stringToTerraform(struct!.scope),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
@@ -1528,29 +1365,16 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecFunctionEnv
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecFunctionEnv | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1575,9 +1399,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionEnv | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionEnv | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1585,10 +1407,12 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
       this._scope = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -1599,7 +1423,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1615,7 +1439,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -1631,7 +1455,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1647,7 +1471,7 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1664,76 +1488,58 @@ export class AppSpecFunctionEnvOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecFunctionEnvList extends cdktf.ComplexList {
-  public internalValue?: AppSpecFunctionEnv[] | cdktf.IResolvable;
+  public internalValue? : AppSpecFunctionEnv[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecFunctionEnvOutputReference {
-    return new AppSpecFunctionEnvOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecFunctionEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecFunctionGit {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * The clone URL of the repo.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
-   */
+  * The clone URL of the repo.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
+  */
   readonly repoCloneUrl?: string;
 }
 
-export function appSpecFunctionGitToTerraform(
-  struct?: AppSpecFunctionGitOutputReference | AppSpecFunctionGit,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionGitToTerraform(struct?: AppSpecFunctionGitOutputReference | AppSpecFunctionGit): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     repo_clone_url: cdktf.stringToTerraform(struct!.repoCloneUrl),
-  };
+  }
 }
 
 export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1756,7 +1562,8 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._branch = undefined;
       this._repoCloneUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._repoCloneUrl = value.repoCloneUrl;
@@ -1764,7 +1571,7 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -1780,7 +1587,7 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string;
+  private _repoCloneUrl?: string; 
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -1797,54 +1604,45 @@ export class AppSpecFunctionGitOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecFunctionGithub {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecFunctionGithubToTerraform(
-  struct?: AppSpecFunctionGithubOutputReference | AppSpecFunctionGithub,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionGithubToTerraform(struct?: AppSpecFunctionGithubOutputReference | AppSpecFunctionGithub): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1872,7 +1670,8 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -1881,7 +1680,7 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -1897,7 +1696,7 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -1913,7 +1712,7 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -1930,54 +1729,45 @@ export class AppSpecFunctionGithubOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecFunctionGitlab {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecFunctionGitlabToTerraform(
-  struct?: AppSpecFunctionGitlabOutputReference | AppSpecFunctionGitlab,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionGitlabToTerraform(struct?: AppSpecFunctionGitlabOutputReference | AppSpecFunctionGitlab): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2005,7 +1795,8 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -2014,7 +1805,7 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -2030,7 +1821,7 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -2046,7 +1837,7 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -2063,49 +1854,38 @@ export class AppSpecFunctionGitlabOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecFunctionLogDestinationDatadog {
   /**
-   * Datadog API key.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
-   */
+  * Datadog API key.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
+  */
   readonly apiKey: string;
   /**
-   * Datadog HTTP log intake endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Datadog HTTP log intake endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint?: string;
 }
 
-export function appSpecFunctionLogDestinationDatadogToTerraform(
-  struct?:
-    | AppSpecFunctionLogDestinationDatadogOutputReference
-    | AppSpecFunctionLogDestinationDatadog,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionLogDestinationDatadogToTerraform(struct?: AppSpecFunctionLogDestinationDatadogOutputReference | AppSpecFunctionLogDestinationDatadog): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     api_key: cdktf.stringToTerraform(struct!.apiKey),
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2123,14 +1903,13 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionLogDestinationDatadog | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionLogDestinationDatadog | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiKey = undefined;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiKey = value.apiKey;
       this._endpoint = value.endpoint;
@@ -2138,7 +1917,7 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string;
+  private _apiKey?: string; 
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -2151,7 +1930,7 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -2168,42 +1947,31 @@ export class AppSpecFunctionLogDestinationDatadogOutputReference extends cdktf.C
 }
 export interface AppSpecFunctionLogDestinationLogtail {
   /**
-   * Logtail token.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
-   */
+  * Logtail token.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
+  */
   readonly token: string;
 }
 
-export function appSpecFunctionLogDestinationLogtailToTerraform(
-  struct?:
-    | AppSpecFunctionLogDestinationLogtailOutputReference
-    | AppSpecFunctionLogDestinationLogtail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionLogDestinationLogtailToTerraform(struct?: AppSpecFunctionLogDestinationLogtailOutputReference | AppSpecFunctionLogDestinationLogtail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     token: cdktf.stringToTerraform(struct!.token),
-  };
+  }
 }
 
 export class AppSpecFunctionLogDestinationLogtailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2217,20 +1985,19 @@ export class AppSpecFunctionLogDestinationLogtailOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionLogDestinationLogtail | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionLogDestinationLogtail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._token = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._token = value.token;
     }
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string;
+  private _token?: string; 
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -2244,48 +2011,35 @@ export class AppSpecFunctionLogDestinationLogtailOutputReference extends cdktf.C
 }
 export interface AppSpecFunctionLogDestinationPapertrail {
   /**
-   * Papertrail syslog endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Papertrail syslog endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint: string;
 }
 
-export function appSpecFunctionLogDestinationPapertrailToTerraform(
-  struct?:
-    | AppSpecFunctionLogDestinationPapertrailOutputReference
-    | AppSpecFunctionLogDestinationPapertrail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionLogDestinationPapertrailToTerraform(struct?: AppSpecFunctionLogDestinationPapertrailOutputReference | AppSpecFunctionLogDestinationPapertrail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecFunctionLogDestinationPapertrailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppSpecFunctionLogDestinationPapertrail
-    | undefined {
+  public get internalValue(): AppSpecFunctionLogDestinationPapertrail | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpoint !== undefined) {
@@ -2295,20 +2049,19 @@ export class AppSpecFunctionLogDestinationPapertrailOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionLogDestinationPapertrail | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionLogDestinationPapertrail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpoint = value.endpoint;
     }
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -2322,50 +2075,42 @@ export class AppSpecFunctionLogDestinationPapertrailOutputReference extends cdkt
 }
 export interface AppSpecFunctionLogDestination {
   /**
-   * Name of the log destination
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * Name of the log destination
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * datadog block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
-   */
+  * datadog block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
+  */
   readonly datadog?: AppSpecFunctionLogDestinationDatadog;
   /**
-   * logtail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
-   */
+  * logtail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
+  */
   readonly logtail?: AppSpecFunctionLogDestinationLogtail;
   /**
-   * papertrail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
-   */
+  * papertrail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
+  */
   readonly papertrail?: AppSpecFunctionLogDestinationPapertrail;
 }
 
-export function appSpecFunctionLogDestinationToTerraform(
-  struct?: AppSpecFunctionLogDestination | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionLogDestinationToTerraform(struct?: AppSpecFunctionLogDestination | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     datadog: appSpecFunctionLogDestinationDatadogToTerraform(struct!.datadog),
     logtail: appSpecFunctionLogDestinationLogtailToTerraform(struct!.logtail),
-    papertrail: appSpecFunctionLogDestinationPapertrailToTerraform(
-      struct!.papertrail,
-    ),
-  };
+    papertrail: appSpecFunctionLogDestinationPapertrailToTerraform(struct!.papertrail),
+  }
 }
 
 export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexObject {
@@ -2373,29 +2118,16 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecFunctionLogDestination
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecFunctionLogDestination | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2420,9 +2152,7 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionLogDestination | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionLogDestination | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2430,10 +2160,12 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
       this._datadog.internalValue = undefined;
       this._logtail.internalValue = undefined;
       this._papertrail.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -2444,7 +2176,7 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2457,10 +2189,7 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog = new AppSpecFunctionLogDestinationDatadogOutputReference(
-    this,
-    'datadog',
-  );
+  private _datadog = new AppSpecFunctionLogDestinationDatadogOutputReference(this, "datadog");
   public get datadog() {
     return this._datadog;
   }
@@ -2476,10 +2205,7 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
   }
 
   // logtail - computed: false, optional: true, required: false
-  private _logtail = new AppSpecFunctionLogDestinationLogtailOutputReference(
-    this,
-    'logtail',
-  );
+  private _logtail = new AppSpecFunctionLogDestinationLogtailOutputReference(this, "logtail");
   public get logtail() {
     return this._logtail;
   }
@@ -2495,11 +2221,7 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
   }
 
   // papertrail - computed: false, optional: true, required: false
-  private _papertrail =
-    new AppSpecFunctionLogDestinationPapertrailOutputReference(
-      this,
-      'papertrail',
-    );
+  private _papertrail = new AppSpecFunctionLogDestinationPapertrailOutputReference(this, "papertrail");
   public get papertrail() {
     return this._papertrail;
   }
@@ -2516,63 +2238,48 @@ export class AppSpecFunctionLogDestinationOutputReference extends cdktf.ComplexO
 }
 
 export class AppSpecFunctionLogDestinationList extends cdktf.ComplexList {
-  public internalValue?: AppSpecFunctionLogDestination[] | cdktf.IResolvable;
+  public internalValue? : AppSpecFunctionLogDestination[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecFunctionLogDestinationOutputReference {
-    return new AppSpecFunctionLogDestinationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecFunctionLogDestinationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecFunctionRoutes {
   /**
-   * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
-   */
+  * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
+  */
   readonly path?: string;
   /**
-   *  An optional flag to preserve the path that is forwarded to the backend service.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
-   */
+  *  An optional flag to preserve the path that is forwarded to the backend service.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
+  */
   readonly preservePathPrefix?: boolean | cdktf.IResolvable;
 }
 
-export function appSpecFunctionRoutesToTerraform(
-  struct?: AppSpecFunctionRoutes | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionRoutesToTerraform(struct?: AppSpecFunctionRoutes | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     preserve_path_prefix: cdktf.booleanToTerraform(struct!.preservePathPrefix),
-  };
+  }
 }
 
 export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
@@ -2580,29 +2287,16 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecFunctionRoutes
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecFunctionRoutes | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2619,18 +2313,18 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunctionRoutes | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunctionRoutes | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._path = undefined;
       this._preservePathPrefix = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._path = value.path;
@@ -2639,7 +2333,7 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string;
+  private _path?: string; 
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -2655,7 +2349,7 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // preserve_path_prefix - computed: false, optional: true, required: false
-  private _preservePathPrefix?: boolean | cdktf.IResolvable;
+  private _preservePathPrefix?: boolean | cdktf.IResolvable; 
   public get preservePathPrefix() {
     return this.getBooleanAttribute('preserve_path_prefix');
   }
@@ -2672,128 +2366,104 @@ export class AppSpecFunctionRoutesOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecFunctionRoutesList extends cdktf.ComplexList {
-  public internalValue?: AppSpecFunctionRoutes[] | cdktf.IResolvable;
+  public internalValue? : AppSpecFunctionRoutes[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecFunctionRoutesOutputReference {
-    return new AppSpecFunctionRoutesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecFunctionRoutesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecFunction {
   /**
-   * The name of the component
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the component
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * An optional path to the working directory to use for the build.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
-   */
+  * An optional path to the working directory to use for the build.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
+  */
   readonly sourceDir?: string;
   /**
-   * alert block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
-   */
+  * alert block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
+  */
   readonly alert?: AppSpecFunctionAlert[] | cdktf.IResolvable;
   /**
-   * cors block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
-   */
+  * cors block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
+  */
   readonly cors?: AppSpecFunctionCors;
   /**
-   * env block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
-   */
+  * env block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
+  */
   readonly env?: AppSpecFunctionEnv[] | cdktf.IResolvable;
   /**
-   * git block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
-   */
+  * git block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
+  */
   readonly git?: AppSpecFunctionGit;
   /**
-   * github block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
-   */
+  * github block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
+  */
   readonly github?: AppSpecFunctionGithub;
   /**
-   * gitlab block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
-   */
+  * gitlab block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
+  */
   readonly gitlab?: AppSpecFunctionGitlab;
   /**
-   * log_destination block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
-   */
+  * log_destination block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
+  */
   readonly logDestination?: AppSpecFunctionLogDestination[] | cdktf.IResolvable;
   /**
-   * routes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
-   */
+  * routes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
+  */
   readonly routes?: AppSpecFunctionRoutes[] | cdktf.IResolvable;
 }
 
-export function appSpecFunctionToTerraform(
-  struct?: AppSpecFunction | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecFunctionToTerraform(struct?: AppSpecFunction | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     source_dir: cdktf.stringToTerraform(struct!.sourceDir),
-    alert: cdktf.listMapper(
-      appSpecFunctionAlertToTerraform,
-      true,
-    )(struct!.alert),
+    alert: cdktf.listMapper(appSpecFunctionAlertToTerraform, true)(struct!.alert),
     cors: appSpecFunctionCorsToTerraform(struct!.cors),
     env: cdktf.listMapper(appSpecFunctionEnvToTerraform, true)(struct!.env),
     git: appSpecFunctionGitToTerraform(struct!.git),
     github: appSpecFunctionGithubToTerraform(struct!.github),
     gitlab: appSpecFunctionGitlabToTerraform(struct!.gitlab),
-    log_destination: cdktf.listMapper(
-      appSpecFunctionLogDestinationToTerraform,
-      true,
-    )(struct!.logDestination),
-    routes: cdktf.listMapper(
-      appSpecFunctionRoutesToTerraform,
-      true,
-    )(struct!.routes),
-  };
+    log_destination: cdktf.listMapper(appSpecFunctionLogDestinationToTerraform, true)(struct!.logDestination),
+    routes: cdktf.listMapper(appSpecFunctionRoutesToTerraform, true)(struct!.routes),
+  }
 }
 
 export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
@@ -2801,23 +2471,13 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecFunction | cdktf.IResolvable | undefined {
@@ -2869,9 +2529,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecFunction | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecFunction | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2885,10 +2543,12 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
       this._gitlab.internalValue = undefined;
       this._logDestination.internalValue = undefined;
       this._routes.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -2905,7 +2565,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2918,7 +2578,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string;
+  private _sourceDir?: string; 
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -2934,7 +2594,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // alert - computed: false, optional: true, required: false
-  private _alert = new AppSpecFunctionAlertList(this, 'alert', false);
+  private _alert = new AppSpecFunctionAlertList(this, "alert", false);
   public get alert() {
     return this._alert;
   }
@@ -2950,7 +2610,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // cors - computed: false, optional: true, required: false
-  private _cors = new AppSpecFunctionCorsOutputReference(this, 'cors');
+  private _cors = new AppSpecFunctionCorsOutputReference(this, "cors");
   public get cors() {
     return this._cors;
   }
@@ -2966,7 +2626,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new AppSpecFunctionEnvList(this, 'env', true);
+  private _env = new AppSpecFunctionEnvList(this, "env", true);
   public get env() {
     return this._env;
   }
@@ -2982,7 +2642,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // git - computed: false, optional: true, required: false
-  private _git = new AppSpecFunctionGitOutputReference(this, 'git');
+  private _git = new AppSpecFunctionGitOutputReference(this, "git");
   public get git() {
     return this._git;
   }
@@ -2998,7 +2658,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // github - computed: false, optional: true, required: false
-  private _github = new AppSpecFunctionGithubOutputReference(this, 'github');
+  private _github = new AppSpecFunctionGithubOutputReference(this, "github");
   public get github() {
     return this._github;
   }
@@ -3014,7 +2674,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // gitlab - computed: false, optional: true, required: false
-  private _gitlab = new AppSpecFunctionGitlabOutputReference(this, 'gitlab');
+  private _gitlab = new AppSpecFunctionGitlabOutputReference(this, "gitlab");
   public get gitlab() {
     return this._gitlab;
   }
@@ -3030,17 +2690,11 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // log_destination - computed: false, optional: true, required: false
-  private _logDestination = new AppSpecFunctionLogDestinationList(
-    this,
-    'log_destination',
-    false,
-  );
+  private _logDestination = new AppSpecFunctionLogDestinationList(this, "log_destination", false);
   public get logDestination() {
     return this._logDestination;
   }
-  public putLogDestination(
-    value: AppSpecFunctionLogDestination[] | cdktf.IResolvable,
-  ) {
+  public putLogDestination(value: AppSpecFunctionLogDestination[] | cdktf.IResolvable) {
     this._logDestination.internalValue = value;
   }
   public resetLogDestination() {
@@ -3052,7 +2706,7 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
   }
 
   // routes - computed: false, optional: true, required: false
-  private _routes = new AppSpecFunctionRoutesList(this, 'routes', false);
+  private _routes = new AppSpecFunctionRoutesList(this, "routes", false);
   public get routes() {
     return this._routes;
   }
@@ -3069,66 +2723,51 @@ export class AppSpecFunctionOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecFunctionList extends cdktf.ComplexList {
-  public internalValue?: AppSpecFunction[] | cdktf.IResolvable;
+  public internalValue? : AppSpecFunction[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecFunctionOutputReference {
-    return new AppSpecFunctionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecFunctionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecJobAlert {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
+  */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
+  */
   readonly operator: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
+  */
   readonly rule: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
+  */
   readonly window: string;
 }
 
-export function appSpecJobAlertToTerraform(
-  struct?: AppSpecJobAlert | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobAlertToTerraform(struct?: AppSpecJobAlert | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     disabled: cdktf.booleanToTerraform(struct!.disabled),
@@ -3136,7 +2775,7 @@ export function appSpecJobAlertToTerraform(
     rule: cdktf.stringToTerraform(struct!.rule),
     value: cdktf.numberToTerraform(struct!.value),
     window: cdktf.stringToTerraform(struct!.window),
-  };
+  }
 }
 
 export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
@@ -3144,23 +2783,13 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecJobAlert | cdktf.IResolvable | undefined {
@@ -3192,9 +2821,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecJobAlert | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecJobAlert | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3203,10 +2830,12 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
       this._rule = undefined;
       this._value = undefined;
       this._window = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disabled = value.disabled;
@@ -3218,7 +2847,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable;
+  private _disabled?: boolean | cdktf.IResolvable; 
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -3234,7 +2863,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string;
+  private _operator?: string; 
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -3247,7 +2876,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string;
+  private _rule?: string; 
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -3260,7 +2889,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number;
+  private _value?: number; 
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -3273,7 +2902,7 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string;
+  private _window?: string; 
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -3287,77 +2916,62 @@ export class AppSpecJobAlertOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecJobAlertList extends cdktf.ComplexList {
-  public internalValue?: AppSpecJobAlert[] | cdktf.IResolvable;
+  public internalValue? : AppSpecJobAlert[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecJobAlertOutputReference {
-    return new AppSpecJobAlertOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecJobAlertOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecJobEnv {
   /**
-   * The name of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
-   */
+  * The name of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
+  */
   readonly key?: string;
   /**
-   * The visibility scope of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
-   */
+  * The visibility scope of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
+  */
   readonly scope?: string;
   /**
-   * The type of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * The value of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * The value of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value?: string;
 }
 
-export function appSpecJobEnvToTerraform(
-  struct?: AppSpecJobEnv | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobEnvToTerraform(struct?: AppSpecJobEnv | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     scope: cdktf.stringToTerraform(struct!.scope),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
@@ -3365,23 +2979,13 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecJobEnv | cdktf.IResolvable | undefined {
@@ -3409,9 +3013,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecJobEnv | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecJobEnv | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3419,10 +3021,12 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
       this._scope = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -3433,7 +3037,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -3449,7 +3053,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -3465,7 +3069,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3481,7 +3085,7 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3498,76 +3102,58 @@ export class AppSpecJobEnvOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecJobEnvList extends cdktf.ComplexList {
-  public internalValue?: AppSpecJobEnv[] | cdktf.IResolvable;
+  public internalValue? : AppSpecJobEnv[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecJobEnvOutputReference {
-    return new AppSpecJobEnvOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecJobEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecJobGit {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * The clone URL of the repo.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
-   */
+  * The clone URL of the repo.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
+  */
   readonly repoCloneUrl?: string;
 }
 
-export function appSpecJobGitToTerraform(
-  struct?: AppSpecJobGitOutputReference | AppSpecJobGit,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobGitToTerraform(struct?: AppSpecJobGitOutputReference | AppSpecJobGit): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     repo_clone_url: cdktf.stringToTerraform(struct!.repoCloneUrl),
-  };
+  }
 }
 
 export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3590,7 +3176,8 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._branch = undefined;
       this._repoCloneUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._repoCloneUrl = value.repoCloneUrl;
@@ -3598,7 +3185,7 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -3614,7 +3201,7 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string;
+  private _repoCloneUrl?: string; 
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -3631,54 +3218,45 @@ export class AppSpecJobGitOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecJobGithub {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecJobGithubToTerraform(
-  struct?: AppSpecJobGithubOutputReference | AppSpecJobGithub,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobGithubToTerraform(struct?: AppSpecJobGithubOutputReference | AppSpecJobGithub): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3706,7 +3284,8 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -3715,7 +3294,7 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -3731,7 +3310,7 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -3747,7 +3326,7 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -3764,54 +3343,45 @@ export class AppSpecJobGithubOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecJobGitlab {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecJobGitlabToTerraform(
-  struct?: AppSpecJobGitlabOutputReference | AppSpecJobGitlab,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobGitlabToTerraform(struct?: AppSpecJobGitlabOutputReference | AppSpecJobGitlab): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3839,7 +3409,8 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -3848,7 +3419,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -3864,7 +3435,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -3880,7 +3451,7 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -3897,27 +3468,21 @@ export class AppSpecJobGitlabOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecJobImageDeployOnPush {
   /**
-   * Whether to automatically deploy images pushed to DOCR.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
-   */
+  * Whether to automatically deploy images pushed to DOCR.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function appSpecJobImageDeployOnPushToTerraform(
-  struct?: AppSpecJobImageDeployOnPush | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobImageDeployOnPushToTerraform(struct?: AppSpecJobImageDeployOnPush | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  };
+  }
 }
 
 export class AppSpecJobImageDeployOnPushOutputReference extends cdktf.ComplexObject {
@@ -3925,29 +3490,16 @@ export class AppSpecJobImageDeployOnPushOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecJobImageDeployOnPush
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecJobImageDeployOnPush | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3960,17 +3512,17 @@ export class AppSpecJobImageDeployOnPushOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecJobImageDeployOnPush | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecJobImageDeployOnPush | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._enabled = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._enabled = value.enabled;
@@ -3978,7 +3530,7 @@ export class AppSpecJobImageDeployOnPushOutputReference extends cdktf.ComplexObj
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3995,100 +3547,79 @@ export class AppSpecJobImageDeployOnPushOutputReference extends cdktf.ComplexObj
 }
 
 export class AppSpecJobImageDeployOnPushList extends cdktf.ComplexList {
-  public internalValue?: AppSpecJobImageDeployOnPush[] | cdktf.IResolvable;
+  public internalValue? : AppSpecJobImageDeployOnPush[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecJobImageDeployOnPushOutputReference {
-    return new AppSpecJobImageDeployOnPushOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecJobImageDeployOnPushOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecJobImage {
   /**
-   * The registry name. Must be left empty for the DOCR registry type.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
-   */
+  * The registry name. Must be left empty for the DOCR registry type.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
+  */
   readonly registry?: string;
   /**
-   * The registry type.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
-   */
+  * The registry type.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
+  */
   readonly registryType: string;
   /**
-   * The repository name.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
-   */
+  * The repository name.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
+  */
   readonly repository: string;
   /**
-   * The repository tag. Defaults to latest if not provided.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
-   */
+  * The repository tag. Defaults to latest if not provided.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
+  */
   readonly tag?: string;
   /**
-   * deploy_on_push block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * deploy_on_push block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: AppSpecJobImageDeployOnPush[] | cdktf.IResolvable;
 }
 
-export function appSpecJobImageToTerraform(
-  struct?: AppSpecJobImageOutputReference | AppSpecJobImage,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobImageToTerraform(struct?: AppSpecJobImageOutputReference | AppSpecJobImage): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     registry: cdktf.stringToTerraform(struct!.registry),
     registry_type: cdktf.stringToTerraform(struct!.registryType),
     repository: cdktf.stringToTerraform(struct!.repository),
     tag: cdktf.stringToTerraform(struct!.tag),
-    deploy_on_push: cdktf.listMapper(
-      appSpecJobImageDeployOnPushToTerraform,
-      true,
-    )(struct!.deployOnPush),
-  };
+    deploy_on_push: cdktf.listMapper(appSpecJobImageDeployOnPushToTerraform, true)(struct!.deployOnPush),
+  }
 }
 
 export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4126,7 +3657,8 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
       this._repository = undefined;
       this._tag = undefined;
       this._deployOnPush.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._registry = value.registry;
       this._registryType = value.registryType;
@@ -4137,7 +3669,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string;
+  private _registry?: string; 
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -4153,7 +3685,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_type - computed: false, optional: false, required: true
-  private _registryType?: string;
+  private _registryType?: string; 
   public get registryType() {
     return this.getStringAttribute('registry_type');
   }
@@ -4166,7 +3698,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string;
+  private _repository?: string; 
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -4179,7 +3711,7 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string;
+  private _tag?: string; 
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -4195,17 +3727,11 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush = new AppSpecJobImageDeployOnPushList(
-    this,
-    'deploy_on_push',
-    false,
-  );
+  private _deployOnPush = new AppSpecJobImageDeployOnPushList(this, "deploy_on_push", false);
   public get deployOnPush() {
     return this._deployOnPush;
   }
-  public putDeployOnPush(
-    value: AppSpecJobImageDeployOnPush[] | cdktf.IResolvable,
-  ) {
+  public putDeployOnPush(value: AppSpecJobImageDeployOnPush[] | cdktf.IResolvable) {
     this._deployOnPush.internalValue = value;
   }
   public resetDeployOnPush() {
@@ -4218,49 +3744,38 @@ export class AppSpecJobImageOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecJobLogDestinationDatadog {
   /**
-   * Datadog API key.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
-   */
+  * Datadog API key.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
+  */
   readonly apiKey: string;
   /**
-   * Datadog HTTP log intake endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Datadog HTTP log intake endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint?: string;
 }
 
-export function appSpecJobLogDestinationDatadogToTerraform(
-  struct?:
-    | AppSpecJobLogDestinationDatadogOutputReference
-    | AppSpecJobLogDestinationDatadog,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobLogDestinationDatadogToTerraform(struct?: AppSpecJobLogDestinationDatadogOutputReference | AppSpecJobLogDestinationDatadog): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     api_key: cdktf.stringToTerraform(struct!.apiKey),
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4283,7 +3798,8 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._apiKey = undefined;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiKey = value.apiKey;
       this._endpoint = value.endpoint;
@@ -4291,7 +3807,7 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string;
+  private _apiKey?: string; 
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -4304,7 +3820,7 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -4321,42 +3837,31 @@ export class AppSpecJobLogDestinationDatadogOutputReference extends cdktf.Comple
 }
 export interface AppSpecJobLogDestinationLogtail {
   /**
-   * Logtail token.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
-   */
+  * Logtail token.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
+  */
   readonly token: string;
 }
 
-export function appSpecJobLogDestinationLogtailToTerraform(
-  struct?:
-    | AppSpecJobLogDestinationLogtailOutputReference
-    | AppSpecJobLogDestinationLogtail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobLogDestinationLogtailToTerraform(struct?: AppSpecJobLogDestinationLogtailOutputReference | AppSpecJobLogDestinationLogtail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     token: cdktf.stringToTerraform(struct!.token),
-  };
+  }
 }
 
 export class AppSpecJobLogDestinationLogtailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4374,14 +3879,15 @@ export class AppSpecJobLogDestinationLogtailOutputReference extends cdktf.Comple
     if (value === undefined) {
       this.isEmptyObject = false;
       this._token = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._token = value.token;
     }
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string;
+  private _token?: string; 
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -4395,42 +3901,31 @@ export class AppSpecJobLogDestinationLogtailOutputReference extends cdktf.Comple
 }
 export interface AppSpecJobLogDestinationPapertrail {
   /**
-   * Papertrail syslog endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Papertrail syslog endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint: string;
 }
 
-export function appSpecJobLogDestinationPapertrailToTerraform(
-  struct?:
-    | AppSpecJobLogDestinationPapertrailOutputReference
-    | AppSpecJobLogDestinationPapertrail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobLogDestinationPapertrailToTerraform(struct?: AppSpecJobLogDestinationPapertrailOutputReference | AppSpecJobLogDestinationPapertrail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecJobLogDestinationPapertrailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4444,20 +3939,19 @@ export class AppSpecJobLogDestinationPapertrailOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecJobLogDestinationPapertrail | undefined,
-  ) {
+  public set internalValue(value: AppSpecJobLogDestinationPapertrail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpoint = value.endpoint;
     }
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -4471,50 +3965,42 @@ export class AppSpecJobLogDestinationPapertrailOutputReference extends cdktf.Com
 }
 export interface AppSpecJobLogDestination {
   /**
-   * Name of the log destination
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * Name of the log destination
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * datadog block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
-   */
+  * datadog block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
+  */
   readonly datadog?: AppSpecJobLogDestinationDatadog;
   /**
-   * logtail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
-   */
+  * logtail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
+  */
   readonly logtail?: AppSpecJobLogDestinationLogtail;
   /**
-   * papertrail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
-   */
+  * papertrail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
+  */
   readonly papertrail?: AppSpecJobLogDestinationPapertrail;
 }
 
-export function appSpecJobLogDestinationToTerraform(
-  struct?: AppSpecJobLogDestination | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobLogDestinationToTerraform(struct?: AppSpecJobLogDestination | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     datadog: appSpecJobLogDestinationDatadogToTerraform(struct!.datadog),
     logtail: appSpecJobLogDestinationLogtailToTerraform(struct!.logtail),
-    papertrail: appSpecJobLogDestinationPapertrailToTerraform(
-      struct!.papertrail,
-    ),
-  };
+    papertrail: appSpecJobLogDestinationPapertrailToTerraform(struct!.papertrail),
+  }
 }
 
 export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject {
@@ -4522,29 +4008,16 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecJobLogDestination
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecJobLogDestination | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4569,9 +4042,7 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecJobLogDestination | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecJobLogDestination | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -4579,10 +4050,12 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
       this._datadog.internalValue = undefined;
       this._logtail.internalValue = undefined;
       this._papertrail.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -4593,7 +4066,7 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4606,10 +4079,7 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog = new AppSpecJobLogDestinationDatadogOutputReference(
-    this,
-    'datadog',
-  );
+  private _datadog = new AppSpecJobLogDestinationDatadogOutputReference(this, "datadog");
   public get datadog() {
     return this._datadog;
   }
@@ -4625,10 +4095,7 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
   }
 
   // logtail - computed: false, optional: true, required: false
-  private _logtail = new AppSpecJobLogDestinationLogtailOutputReference(
-    this,
-    'logtail',
-  );
+  private _logtail = new AppSpecJobLogDestinationLogtailOutputReference(this, "logtail");
   public get logtail() {
     return this._logtail;
   }
@@ -4644,10 +4111,7 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
   }
 
   // papertrail - computed: false, optional: true, required: false
-  private _papertrail = new AppSpecJobLogDestinationPapertrailOutputReference(
-    this,
-    'papertrail',
-  );
+  private _papertrail = new AppSpecJobLogDestinationPapertrailOutputReference(this, "papertrail");
   public get papertrail() {
     return this._papertrail;
   }
@@ -4664,142 +4128,127 @@ export class AppSpecJobLogDestinationOutputReference extends cdktf.ComplexObject
 }
 
 export class AppSpecJobLogDestinationList extends cdktf.ComplexList {
-  public internalValue?: AppSpecJobLogDestination[] | cdktf.IResolvable;
+  public internalValue? : AppSpecJobLogDestination[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecJobLogDestinationOutputReference {
-    return new AppSpecJobLogDestinationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecJobLogDestinationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecJob {
   /**
-   * An optional build command to run while building this component from source.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
-   */
+  * An optional build command to run while building this component from source.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
+  */
   readonly buildCommand?: string;
   /**
-   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
-   */
+  * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
+  */
   readonly dockerfilePath?: string;
   /**
-   * An environment slug describing the type of this app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
-   */
+  * An environment slug describing the type of this app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
+  */
   readonly environmentSlug?: string;
   /**
-   * The amount of instances that this component should be scaled to.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
-   */
+  * The amount of instances that this component should be scaled to.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * The instance size to use for this component.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
-   */
+  * The instance size to use for this component.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
+  */
   readonly instanceSizeSlug?: string;
   /**
-   * The type of job and when it will be run during the deployment process.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#kind App#kind}
-   */
+  * The type of job and when it will be run during the deployment process.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#kind App#kind}
+  */
   readonly kind?: string;
   /**
-   * The name of the component
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the component
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * An optional run command to override the component's default.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
-   */
+  * An optional run command to override the component's default.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
+  */
   readonly runCommand?: string;
   /**
-   * An optional path to the working directory to use for the build.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
-   */
+  * An optional path to the working directory to use for the build.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
+  */
   readonly sourceDir?: string;
   /**
-   * alert block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
-   */
+  * alert block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
+  */
   readonly alert?: AppSpecJobAlert[] | cdktf.IResolvable;
   /**
-   * env block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
-   */
+  * env block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
+  */
   readonly env?: AppSpecJobEnv[] | cdktf.IResolvable;
   /**
-   * git block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
-   */
+  * git block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
+  */
   readonly git?: AppSpecJobGit;
   /**
-   * github block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
-   */
+  * github block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
+  */
   readonly github?: AppSpecJobGithub;
   /**
-   * gitlab block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
-   */
+  * gitlab block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
+  */
   readonly gitlab?: AppSpecJobGitlab;
   /**
-   * image block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
-   */
+  * image block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
+  */
   readonly image?: AppSpecJobImage;
   /**
-   * log_destination block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
-   */
+  * log_destination block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
+  */
   readonly logDestination?: AppSpecJobLogDestination[] | cdktf.IResolvable;
 }
 
-export function appSpecJobToTerraform(
-  struct?: AppSpecJob | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecJobToTerraform(struct?: AppSpecJob | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     build_command: cdktf.stringToTerraform(struct!.buildCommand),
@@ -4817,11 +4266,8 @@ export function appSpecJobToTerraform(
     github: appSpecJobGithubToTerraform(struct!.github),
     gitlab: appSpecJobGitlabToTerraform(struct!.gitlab),
     image: appSpecJobImageToTerraform(struct!.image),
-    log_destination: cdktf.listMapper(
-      appSpecJobLogDestinationToTerraform,
-      true,
-    )(struct!.logDestination),
-  };
+    log_destination: cdktf.listMapper(appSpecJobLogDestinationToTerraform, true)(struct!.logDestination),
+  }
 }
 
 export class AppSpecJobOutputReference extends cdktf.ComplexObject {
@@ -4829,23 +4275,13 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecJob | cdktf.IResolvable | undefined {
@@ -4941,10 +4377,12 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
       this._gitlab.internalValue = undefined;
       this._image.internalValue = undefined;
       this._logDestination.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._buildCommand = value.buildCommand;
@@ -4967,7 +4405,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string;
+  private _buildCommand?: string; 
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -4983,7 +4421,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string;
+  private _dockerfilePath?: string; 
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -4999,7 +4437,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string;
+  private _environmentSlug?: string; 
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -5015,7 +4453,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -5031,7 +4469,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_size_slug - computed: false, optional: true, required: false
-  private _instanceSizeSlug?: string;
+  private _instanceSizeSlug?: string; 
   public get instanceSizeSlug() {
     return this.getStringAttribute('instance_size_slug');
   }
@@ -5047,7 +4485,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // kind - computed: false, optional: true, required: false
-  private _kind?: string;
+  private _kind?: string; 
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -5063,7 +4501,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5076,7 +4514,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // run_command - computed: false, optional: true, required: false
-  private _runCommand?: string;
+  private _runCommand?: string; 
   public get runCommand() {
     return this.getStringAttribute('run_command');
   }
@@ -5092,7 +4530,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string;
+  private _sourceDir?: string; 
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -5108,7 +4546,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // alert - computed: false, optional: true, required: false
-  private _alert = new AppSpecJobAlertList(this, 'alert', false);
+  private _alert = new AppSpecJobAlertList(this, "alert", false);
   public get alert() {
     return this._alert;
   }
@@ -5124,7 +4562,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new AppSpecJobEnvList(this, 'env', true);
+  private _env = new AppSpecJobEnvList(this, "env", true);
   public get env() {
     return this._env;
   }
@@ -5140,7 +4578,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // git - computed: false, optional: true, required: false
-  private _git = new AppSpecJobGitOutputReference(this, 'git');
+  private _git = new AppSpecJobGitOutputReference(this, "git");
   public get git() {
     return this._git;
   }
@@ -5156,7 +4594,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // github - computed: false, optional: true, required: false
-  private _github = new AppSpecJobGithubOutputReference(this, 'github');
+  private _github = new AppSpecJobGithubOutputReference(this, "github");
   public get github() {
     return this._github;
   }
@@ -5172,7 +4610,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // gitlab - computed: false, optional: true, required: false
-  private _gitlab = new AppSpecJobGitlabOutputReference(this, 'gitlab');
+  private _gitlab = new AppSpecJobGitlabOutputReference(this, "gitlab");
   public get gitlab() {
     return this._gitlab;
   }
@@ -5188,7 +4626,7 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // image - computed: false, optional: true, required: false
-  private _image = new AppSpecJobImageOutputReference(this, 'image');
+  private _image = new AppSpecJobImageOutputReference(this, "image");
   public get image() {
     return this._image;
   }
@@ -5204,17 +4642,11 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
   }
 
   // log_destination - computed: false, optional: true, required: false
-  private _logDestination = new AppSpecJobLogDestinationList(
-    this,
-    'log_destination',
-    false,
-  );
+  private _logDestination = new AppSpecJobLogDestinationList(this, "log_destination", false);
   public get logDestination() {
     return this._logDestination;
   }
-  public putLogDestination(
-    value: AppSpecJobLogDestination[] | cdktf.IResolvable,
-  ) {
+  public putLogDestination(value: AppSpecJobLogDestination[] | cdktf.IResolvable) {
     this._logDestination.internalValue = value;
   }
   public resetLogDestination() {
@@ -5227,66 +4659,51 @@ export class AppSpecJobOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecJobList extends cdktf.ComplexList {
-  public internalValue?: AppSpecJob[] | cdktf.IResolvable;
+  public internalValue? : AppSpecJob[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecJobOutputReference {
-    return new AppSpecJobOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecJobOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecServiceAlert {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
+  */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
+  */
   readonly operator: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
+  */
   readonly rule: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
+  */
   readonly window: string;
 }
 
-export function appSpecServiceAlertToTerraform(
-  struct?: AppSpecServiceAlert | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceAlertToTerraform(struct?: AppSpecServiceAlert | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     disabled: cdktf.booleanToTerraform(struct!.disabled),
@@ -5294,7 +4711,7 @@ export function appSpecServiceAlertToTerraform(
     rule: cdktf.stringToTerraform(struct!.rule),
     value: cdktf.numberToTerraform(struct!.value),
     window: cdktf.stringToTerraform(struct!.window),
-  };
+  }
 }
 
 export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
@@ -5302,29 +4719,16 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecServiceAlert
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecServiceAlert | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5353,9 +4757,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceAlert | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceAlert | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -5364,10 +4766,12 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
       this._rule = undefined;
       this._value = undefined;
       this._window = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disabled = value.disabled;
@@ -5379,7 +4783,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable;
+  private _disabled?: boolean | cdktf.IResolvable; 
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -5395,7 +4799,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string;
+  private _operator?: string; 
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -5408,7 +4812,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string;
+  private _rule?: string; 
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -5421,7 +4825,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number;
+  private _value?: number; 
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -5434,7 +4838,7 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string;
+  private _window?: string; 
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -5448,85 +4852,65 @@ export class AppSpecServiceAlertOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecServiceAlertList extends cdktf.ComplexList {
-  public internalValue?: AppSpecServiceAlert[] | cdktf.IResolvable;
+  public internalValue? : AppSpecServiceAlert[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecServiceAlertOutputReference {
-    return new AppSpecServiceAlertOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecServiceAlertOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecServiceCorsAllowOrigins {
   /**
-   * Exact string match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
-   */
+  * Exact string match.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
+  */
   readonly exact?: string;
   /**
-   * Prefix-based match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
-   */
+  * Prefix-based match. 
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
+  */
   readonly prefix?: string;
   /**
-   * RE2 style regex-based match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
-   */
+  * RE2 style regex-based match.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
+  */
   readonly regex?: string;
 }
 
-export function appSpecServiceCorsAllowOriginsToTerraform(
-  struct?:
-    | AppSpecServiceCorsAllowOriginsOutputReference
-    | AppSpecServiceCorsAllowOrigins,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceCorsAllowOriginsToTerraform(struct?: AppSpecServiceCorsAllowOriginsOutputReference | AppSpecServiceCorsAllowOrigins): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     exact: cdktf.stringToTerraform(struct!.exact),
     prefix: cdktf.stringToTerraform(struct!.prefix),
     regex: cdktf.stringToTerraform(struct!.regex),
-  };
+  }
 }
 
 export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5554,7 +4938,8 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
       this._exact = undefined;
       this._prefix = undefined;
       this._regex = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._exact = value.exact;
       this._prefix = value.prefix;
@@ -5563,7 +4948,7 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string;
+  private _exact?: string; 
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -5579,7 +4964,7 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -5595,7 +4980,7 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string;
+  private _regex?: string; 
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -5612,86 +4997,66 @@ export class AppSpecServiceCorsAllowOriginsOutputReference extends cdktf.Complex
 }
 export interface AppSpecServiceCors {
   /**
-   * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
-   */
+  * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
+  */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
-   * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
-   */
+  * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
+  */
   readonly allowHeaders?: string[];
   /**
-   * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
-   */
+  * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
+  */
   readonly allowMethods?: string[];
   /**
-   * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
-   */
+  * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
+  */
   readonly exposeHeaders?: string[];
   /**
-   * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
-   */
+  * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
+  */
   readonly maxAge?: string;
   /**
-   * allow_origins block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
-   */
+  * allow_origins block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
+  */
   readonly allowOrigins?: AppSpecServiceCorsAllowOrigins;
 }
 
-export function appSpecServiceCorsToTerraform(
-  struct?: AppSpecServiceCorsOutputReference | AppSpecServiceCors,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceCorsToTerraform(struct?: AppSpecServiceCorsOutputReference | AppSpecServiceCors): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     allow_credentials: cdktf.booleanToTerraform(struct!.allowCredentials),
-    allow_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowHeaders),
-    allow_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowMethods),
-    expose_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.exposeHeaders),
+    allow_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowHeaders),
+    allow_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowMethods),
+    expose_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.exposeHeaders),
     max_age: cdktf.stringToTerraform(struct!.maxAge),
-    allow_origins: appSpecServiceCorsAllowOriginsToTerraform(
-      struct!.allowOrigins,
-    ),
-  };
+    allow_origins: appSpecServiceCorsAllowOriginsToTerraform(struct!.allowOrigins),
+  }
 }
 
 export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5734,7 +5099,8 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
       this._exposeHeaders = undefined;
       this._maxAge = undefined;
       this._allowOrigins.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowCredentials = value.allowCredentials;
       this._allowHeaders = value.allowHeaders;
@@ -5746,7 +5112,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable;
+  private _allowCredentials?: boolean | cdktf.IResolvable; 
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -5762,7 +5128,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[];
+  private _allowHeaders?: string[]; 
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -5778,7 +5144,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[];
+  private _allowMethods?: string[]; 
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -5794,7 +5160,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[];
+  private _exposeHeaders?: string[]; 
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -5810,7 +5176,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: string;
+  private _maxAge?: string; 
   public get maxAge() {
     return this.getStringAttribute('max_age');
   }
@@ -5826,10 +5192,7 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_origins - computed: false, optional: true, required: false
-  private _allowOrigins = new AppSpecServiceCorsAllowOriginsOutputReference(
-    this,
-    'allow_origins',
-  );
+  private _allowOrigins = new AppSpecServiceCorsAllowOriginsOutputReference(this, "allow_origins");
   public get allowOrigins() {
     return this._allowOrigins;
   }
@@ -5846,48 +5209,42 @@ export class AppSpecServiceCorsOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecServiceEnv {
   /**
-   * The name of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
-   */
+  * The name of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
+  */
   readonly key?: string;
   /**
-   * The visibility scope of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
-   */
+  * The visibility scope of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
+  */
   readonly scope?: string;
   /**
-   * The type of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * The value of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * The value of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value?: string;
 }
 
-export function appSpecServiceEnvToTerraform(
-  struct?: AppSpecServiceEnv | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceEnvToTerraform(struct?: AppSpecServiceEnv | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     scope: cdktf.stringToTerraform(struct!.scope),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
@@ -5895,29 +5252,16 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecServiceEnv
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecServiceEnv | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5942,9 +5286,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceEnv | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceEnv | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -5952,10 +5294,12 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
       this._scope = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -5966,7 +5310,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -5982,7 +5326,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -5998,7 +5342,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -6014,7 +5358,7 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -6031,76 +5375,58 @@ export class AppSpecServiceEnvOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecServiceEnvList extends cdktf.ComplexList {
-  public internalValue?: AppSpecServiceEnv[] | cdktf.IResolvable;
+  public internalValue? : AppSpecServiceEnv[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecServiceEnvOutputReference {
-    return new AppSpecServiceEnvOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecServiceEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecServiceGit {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * The clone URL of the repo.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
-   */
+  * The clone URL of the repo.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
+  */
   readonly repoCloneUrl?: string;
 }
 
-export function appSpecServiceGitToTerraform(
-  struct?: AppSpecServiceGitOutputReference | AppSpecServiceGit,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceGitToTerraform(struct?: AppSpecServiceGitOutputReference | AppSpecServiceGit): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     repo_clone_url: cdktf.stringToTerraform(struct!.repoCloneUrl),
-  };
+  }
 }
 
 export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -6123,7 +5449,8 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._branch = undefined;
       this._repoCloneUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._repoCloneUrl = value.repoCloneUrl;
@@ -6131,7 +5458,7 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -6147,7 +5474,7 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string;
+  private _repoCloneUrl?: string; 
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -6164,54 +5491,45 @@ export class AppSpecServiceGitOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecServiceGithub {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecServiceGithubToTerraform(
-  struct?: AppSpecServiceGithubOutputReference | AppSpecServiceGithub,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceGithubToTerraform(struct?: AppSpecServiceGithubOutputReference | AppSpecServiceGithub): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -6239,7 +5557,8 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -6248,7 +5567,7 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -6264,7 +5583,7 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -6280,7 +5599,7 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -6297,54 +5616,45 @@ export class AppSpecServiceGithubOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecServiceGitlab {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecServiceGitlabToTerraform(
-  struct?: AppSpecServiceGitlabOutputReference | AppSpecServiceGitlab,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceGitlabToTerraform(struct?: AppSpecServiceGitlabOutputReference | AppSpecServiceGitlab): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -6372,7 +5682,8 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -6381,7 +5692,7 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -6397,7 +5708,7 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -6413,7 +5724,7 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -6430,53 +5741,47 @@ export class AppSpecServiceGitlabOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecServiceHealthCheck {
   /**
-   * The number of failed health checks before considered unhealthy.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#failure_threshold App#failure_threshold}
-   */
+  * The number of failed health checks before considered unhealthy.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#failure_threshold App#failure_threshold}
+  */
   readonly failureThreshold?: number;
   /**
-   * The route path used for the HTTP health check ping.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#http_path App#http_path}
-   */
+  * The route path used for the HTTP health check ping.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#http_path App#http_path}
+  */
   readonly httpPath?: string;
   /**
-   * The number of seconds to wait before beginning health checks.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#initial_delay_seconds App#initial_delay_seconds}
-   */
+  * The number of seconds to wait before beginning health checks.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#initial_delay_seconds App#initial_delay_seconds}
+  */
   readonly initialDelaySeconds?: number;
   /**
-   * The number of seconds to wait between health checks.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#period_seconds App#period_seconds}
-   */
+  * The number of seconds to wait between health checks.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#period_seconds App#period_seconds}
+  */
   readonly periodSeconds?: number;
   /**
-   * The number of successful health checks before considered healthy.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#success_threshold App#success_threshold}
-   */
+  * The number of successful health checks before considered healthy.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#success_threshold App#success_threshold}
+  */
   readonly successThreshold?: number;
   /**
-   * The number of seconds after which the check times out.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#timeout_seconds App#timeout_seconds}
-   */
+  * The number of seconds after which the check times out.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#timeout_seconds App#timeout_seconds}
+  */
   readonly timeoutSeconds?: number;
 }
 
-export function appSpecServiceHealthCheckToTerraform(
-  struct?: AppSpecServiceHealthCheckOutputReference | AppSpecServiceHealthCheck,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceHealthCheckToTerraform(struct?: AppSpecServiceHealthCheckOutputReference | AppSpecServiceHealthCheck): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -6485,20 +5790,17 @@ export function appSpecServiceHealthCheckToTerraform(
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-  };
+  }
 }
 
 export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -6541,7 +5843,8 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
       this._periodSeconds = undefined;
       this._successThreshold = undefined;
       this._timeoutSeconds = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._httpPath = value.httpPath;
@@ -6553,7 +5856,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number;
+  private _failureThreshold?: number; 
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -6569,7 +5872,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // http_path - computed: false, optional: true, required: false
-  private _httpPath?: string;
+  private _httpPath?: string; 
   public get httpPath() {
     return this.getStringAttribute('http_path');
   }
@@ -6585,7 +5888,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number;
+  private _initialDelaySeconds?: number; 
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -6601,7 +5904,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number;
+  private _periodSeconds?: number; 
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -6617,7 +5920,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number;
+  private _successThreshold?: number; 
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -6633,7 +5936,7 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number;
+  private _timeoutSeconds?: number; 
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -6650,27 +5953,21 @@ export class AppSpecServiceHealthCheckOutputReference extends cdktf.ComplexObjec
 }
 export interface AppSpecServiceImageDeployOnPush {
   /**
-   * Whether to automatically deploy images pushed to DOCR.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
-   */
+  * Whether to automatically deploy images pushed to DOCR.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function appSpecServiceImageDeployOnPushToTerraform(
-  struct?: AppSpecServiceImageDeployOnPush | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceImageDeployOnPushToTerraform(struct?: AppSpecServiceImageDeployOnPush | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  };
+  }
 }
 
 export class AppSpecServiceImageDeployOnPushOutputReference extends cdktf.ComplexObject {
@@ -6678,29 +5975,16 @@ export class AppSpecServiceImageDeployOnPushOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecServiceImageDeployOnPush
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecServiceImageDeployOnPush | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -6713,17 +5997,17 @@ export class AppSpecServiceImageDeployOnPushOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceImageDeployOnPush | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceImageDeployOnPush | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._enabled = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._enabled = value.enabled;
@@ -6731,7 +6015,7 @@ export class AppSpecServiceImageDeployOnPushOutputReference extends cdktf.Comple
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -6748,100 +6032,79 @@ export class AppSpecServiceImageDeployOnPushOutputReference extends cdktf.Comple
 }
 
 export class AppSpecServiceImageDeployOnPushList extends cdktf.ComplexList {
-  public internalValue?: AppSpecServiceImageDeployOnPush[] | cdktf.IResolvable;
+  public internalValue? : AppSpecServiceImageDeployOnPush[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecServiceImageDeployOnPushOutputReference {
-    return new AppSpecServiceImageDeployOnPushOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecServiceImageDeployOnPushOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecServiceImage {
   /**
-   * The registry name. Must be left empty for the DOCR registry type.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
-   */
+  * The registry name. Must be left empty for the DOCR registry type.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
+  */
   readonly registry?: string;
   /**
-   * The registry type.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
-   */
+  * The registry type.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
+  */
   readonly registryType: string;
   /**
-   * The repository name.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
-   */
+  * The repository name.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
+  */
   readonly repository: string;
   /**
-   * The repository tag. Defaults to latest if not provided.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
-   */
+  * The repository tag. Defaults to latest if not provided.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
+  */
   readonly tag?: string;
   /**
-   * deploy_on_push block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * deploy_on_push block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: AppSpecServiceImageDeployOnPush[] | cdktf.IResolvable;
 }
 
-export function appSpecServiceImageToTerraform(
-  struct?: AppSpecServiceImageOutputReference | AppSpecServiceImage,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceImageToTerraform(struct?: AppSpecServiceImageOutputReference | AppSpecServiceImage): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     registry: cdktf.stringToTerraform(struct!.registry),
     registry_type: cdktf.stringToTerraform(struct!.registryType),
     repository: cdktf.stringToTerraform(struct!.repository),
     tag: cdktf.stringToTerraform(struct!.tag),
-    deploy_on_push: cdktf.listMapper(
-      appSpecServiceImageDeployOnPushToTerraform,
-      true,
-    )(struct!.deployOnPush),
-  };
+    deploy_on_push: cdktf.listMapper(appSpecServiceImageDeployOnPushToTerraform, true)(struct!.deployOnPush),
+  }
 }
 
 export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -6879,7 +6142,8 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
       this._repository = undefined;
       this._tag = undefined;
       this._deployOnPush.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._registry = value.registry;
       this._registryType = value.registryType;
@@ -6890,7 +6154,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string;
+  private _registry?: string; 
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -6906,7 +6170,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_type - computed: false, optional: false, required: true
-  private _registryType?: string;
+  private _registryType?: string; 
   public get registryType() {
     return this.getStringAttribute('registry_type');
   }
@@ -6919,7 +6183,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string;
+  private _repository?: string; 
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -6932,7 +6196,7 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string;
+  private _tag?: string; 
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -6948,17 +6212,11 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush = new AppSpecServiceImageDeployOnPushList(
-    this,
-    'deploy_on_push',
-    false,
-  );
+  private _deployOnPush = new AppSpecServiceImageDeployOnPushList(this, "deploy_on_push", false);
   public get deployOnPush() {
     return this._deployOnPush;
   }
-  public putDeployOnPush(
-    value: AppSpecServiceImageDeployOnPush[] | cdktf.IResolvable,
-  ) {
+  public putDeployOnPush(value: AppSpecServiceImageDeployOnPush[] | cdktf.IResolvable) {
     this._deployOnPush.internalValue = value;
   }
   public resetDeployOnPush() {
@@ -6971,49 +6229,38 @@ export class AppSpecServiceImageOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecServiceLogDestinationDatadog {
   /**
-   * Datadog API key.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
-   */
+  * Datadog API key.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
+  */
   readonly apiKey: string;
   /**
-   * Datadog HTTP log intake endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Datadog HTTP log intake endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint?: string;
 }
 
-export function appSpecServiceLogDestinationDatadogToTerraform(
-  struct?:
-    | AppSpecServiceLogDestinationDatadogOutputReference
-    | AppSpecServiceLogDestinationDatadog,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceLogDestinationDatadogToTerraform(struct?: AppSpecServiceLogDestinationDatadogOutputReference | AppSpecServiceLogDestinationDatadog): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     api_key: cdktf.stringToTerraform(struct!.apiKey),
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -7031,14 +6278,13 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceLogDestinationDatadog | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceLogDestinationDatadog | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiKey = undefined;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiKey = value.apiKey;
       this._endpoint = value.endpoint;
@@ -7046,7 +6292,7 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string;
+  private _apiKey?: string; 
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -7059,7 +6305,7 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -7076,42 +6322,31 @@ export class AppSpecServiceLogDestinationDatadogOutputReference extends cdktf.Co
 }
 export interface AppSpecServiceLogDestinationLogtail {
   /**
-   * Logtail token.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
-   */
+  * Logtail token.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
+  */
   readonly token: string;
 }
 
-export function appSpecServiceLogDestinationLogtailToTerraform(
-  struct?:
-    | AppSpecServiceLogDestinationLogtailOutputReference
-    | AppSpecServiceLogDestinationLogtail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceLogDestinationLogtailToTerraform(struct?: AppSpecServiceLogDestinationLogtailOutputReference | AppSpecServiceLogDestinationLogtail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     token: cdktf.stringToTerraform(struct!.token),
-  };
+  }
 }
 
 export class AppSpecServiceLogDestinationLogtailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -7125,20 +6360,19 @@ export class AppSpecServiceLogDestinationLogtailOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceLogDestinationLogtail | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceLogDestinationLogtail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._token = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._token = value.token;
     }
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string;
+  private _token?: string; 
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -7152,48 +6386,35 @@ export class AppSpecServiceLogDestinationLogtailOutputReference extends cdktf.Co
 }
 export interface AppSpecServiceLogDestinationPapertrail {
   /**
-   * Papertrail syslog endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Papertrail syslog endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint: string;
 }
 
-export function appSpecServiceLogDestinationPapertrailToTerraform(
-  struct?:
-    | AppSpecServiceLogDestinationPapertrailOutputReference
-    | AppSpecServiceLogDestinationPapertrail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceLogDestinationPapertrailToTerraform(struct?: AppSpecServiceLogDestinationPapertrailOutputReference | AppSpecServiceLogDestinationPapertrail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecServiceLogDestinationPapertrailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppSpecServiceLogDestinationPapertrail
-    | undefined {
+  public get internalValue(): AppSpecServiceLogDestinationPapertrail | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpoint !== undefined) {
@@ -7203,20 +6424,19 @@ export class AppSpecServiceLogDestinationPapertrailOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceLogDestinationPapertrail | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceLogDestinationPapertrail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpoint = value.endpoint;
     }
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -7230,50 +6450,42 @@ export class AppSpecServiceLogDestinationPapertrailOutputReference extends cdktf
 }
 export interface AppSpecServiceLogDestination {
   /**
-   * Name of the log destination
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * Name of the log destination
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * datadog block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
-   */
+  * datadog block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
+  */
   readonly datadog?: AppSpecServiceLogDestinationDatadog;
   /**
-   * logtail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
-   */
+  * logtail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
+  */
   readonly logtail?: AppSpecServiceLogDestinationLogtail;
   /**
-   * papertrail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
-   */
+  * papertrail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
+  */
   readonly papertrail?: AppSpecServiceLogDestinationPapertrail;
 }
 
-export function appSpecServiceLogDestinationToTerraform(
-  struct?: AppSpecServiceLogDestination | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceLogDestinationToTerraform(struct?: AppSpecServiceLogDestination | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     datadog: appSpecServiceLogDestinationDatadogToTerraform(struct!.datadog),
     logtail: appSpecServiceLogDestinationLogtailToTerraform(struct!.logtail),
-    papertrail: appSpecServiceLogDestinationPapertrailToTerraform(
-      struct!.papertrail,
-    ),
-  };
+    papertrail: appSpecServiceLogDestinationPapertrailToTerraform(struct!.papertrail),
+  }
 }
 
 export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexObject {
@@ -7281,29 +6493,16 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecServiceLogDestination
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecServiceLogDestination | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7328,9 +6527,7 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceLogDestination | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceLogDestination | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -7338,10 +6535,12 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
       this._datadog.internalValue = undefined;
       this._logtail.internalValue = undefined;
       this._papertrail.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -7352,7 +6551,7 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7365,10 +6564,7 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog = new AppSpecServiceLogDestinationDatadogOutputReference(
-    this,
-    'datadog',
-  );
+  private _datadog = new AppSpecServiceLogDestinationDatadogOutputReference(this, "datadog");
   public get datadog() {
     return this._datadog;
   }
@@ -7384,10 +6580,7 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
   }
 
   // logtail - computed: false, optional: true, required: false
-  private _logtail = new AppSpecServiceLogDestinationLogtailOutputReference(
-    this,
-    'logtail',
-  );
+  private _logtail = new AppSpecServiceLogDestinationLogtailOutputReference(this, "logtail");
   public get logtail() {
     return this._logtail;
   }
@@ -7403,11 +6596,7 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
   }
 
   // papertrail - computed: false, optional: true, required: false
-  private _papertrail =
-    new AppSpecServiceLogDestinationPapertrailOutputReference(
-      this,
-      'papertrail',
-    );
+  private _papertrail = new AppSpecServiceLogDestinationPapertrailOutputReference(this, "papertrail");
   public get papertrail() {
     return this._papertrail;
   }
@@ -7424,63 +6613,48 @@ export class AppSpecServiceLogDestinationOutputReference extends cdktf.ComplexOb
 }
 
 export class AppSpecServiceLogDestinationList extends cdktf.ComplexList {
-  public internalValue?: AppSpecServiceLogDestination[] | cdktf.IResolvable;
+  public internalValue? : AppSpecServiceLogDestination[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecServiceLogDestinationOutputReference {
-    return new AppSpecServiceLogDestinationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecServiceLogDestinationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecServiceRoutes {
   /**
-   * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
-   */
+  * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
+  */
   readonly path?: string;
   /**
-   *  An optional flag to preserve the path that is forwarded to the backend service.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
-   */
+  *  An optional flag to preserve the path that is forwarded to the backend service.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
+  */
   readonly preservePathPrefix?: boolean | cdktf.IResolvable;
 }
 
-export function appSpecServiceRoutesToTerraform(
-  struct?: AppSpecServiceRoutes | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceRoutesToTerraform(struct?: AppSpecServiceRoutes | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     preserve_path_prefix: cdktf.booleanToTerraform(struct!.preservePathPrefix),
-  };
+  }
 }
 
 export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
@@ -7488,29 +6662,16 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecServiceRoutes
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecServiceRoutes | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7527,18 +6688,18 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecServiceRoutes | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecServiceRoutes | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._path = undefined;
       this._preservePathPrefix = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._path = value.path;
@@ -7547,7 +6708,7 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string;
+  private _path?: string; 
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7563,7 +6724,7 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
   }
 
   // preserve_path_prefix - computed: false, optional: true, required: false
-  private _preservePathPrefix?: boolean | cdktf.IResolvable;
+  private _preservePathPrefix?: boolean | cdktf.IResolvable; 
   public get preservePathPrefix() {
     return this.getBooleanAttribute('preserve_path_prefix');
   }
@@ -7580,164 +6741,149 @@ export class AppSpecServiceRoutesOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecServiceRoutesList extends cdktf.ComplexList {
-  public internalValue?: AppSpecServiceRoutes[] | cdktf.IResolvable;
+  public internalValue? : AppSpecServiceRoutes[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecServiceRoutesOutputReference {
-    return new AppSpecServiceRoutesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecServiceRoutesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecService {
   /**
-   * An optional build command to run while building this component from source.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
-   */
+  * An optional build command to run while building this component from source.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
+  */
   readonly buildCommand?: string;
   /**
-   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
-   */
+  * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
+  */
   readonly dockerfilePath?: string;
   /**
-   * An environment slug describing the type of this app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
-   */
+  * An environment slug describing the type of this app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
+  */
   readonly environmentSlug?: string;
   /**
-   * The internal port on which this service's run command will listen.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#http_port App#http_port}
-   */
+  * The internal port on which this service's run command will listen.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#http_port App#http_port}
+  */
   readonly httpPort?: number;
   /**
-   * The amount of instances that this component should be scaled to.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
-   */
+  * The amount of instances that this component should be scaled to.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * The instance size to use for this component.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
-   */
+  * The instance size to use for this component.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
+  */
   readonly instanceSizeSlug?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#internal_ports App#internal_ports}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#internal_ports App#internal_ports}
+  */
   readonly internalPorts?: number[];
   /**
-   * The name of the component
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the component
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * An optional run command to override the component's default.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
-   */
+  * An optional run command to override the component's default.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
+  */
   readonly runCommand?: string;
   /**
-   * An optional path to the working directory to use for the build.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
-   */
+  * An optional path to the working directory to use for the build.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
+  */
   readonly sourceDir?: string;
   /**
-   * alert block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
-   */
+  * alert block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
+  */
   readonly alert?: AppSpecServiceAlert[] | cdktf.IResolvable;
   /**
-   * cors block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
-   */
+  * cors block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
+  */
   readonly cors?: AppSpecServiceCors;
   /**
-   * env block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
-   */
+  * env block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
+  */
   readonly env?: AppSpecServiceEnv[] | cdktf.IResolvable;
   /**
-   * git block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
-   */
+  * git block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
+  */
   readonly git?: AppSpecServiceGit;
   /**
-   * github block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
-   */
+  * github block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
+  */
   readonly github?: AppSpecServiceGithub;
   /**
-   * gitlab block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
-   */
+  * gitlab block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
+  */
   readonly gitlab?: AppSpecServiceGitlab;
   /**
-   * health_check block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#health_check App#health_check}
-   */
+  * health_check block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#health_check App#health_check}
+  */
   readonly healthCheck?: AppSpecServiceHealthCheck;
   /**
-   * image block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
-   */
+  * image block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
+  */
   readonly image?: AppSpecServiceImage;
   /**
-   * log_destination block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
-   */
+  * log_destination block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
+  */
   readonly logDestination?: AppSpecServiceLogDestination[] | cdktf.IResolvable;
   /**
-   * routes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
-   */
+  * routes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
+  */
   readonly routes?: AppSpecServiceRoutes[] | cdktf.IResolvable;
 }
 
-export function appSpecServiceToTerraform(
-  struct?: AppSpecService | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecServiceToTerraform(struct?: AppSpecService | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     build_command: cdktf.stringToTerraform(struct!.buildCommand),
@@ -7746,17 +6892,11 @@ export function appSpecServiceToTerraform(
     http_port: cdktf.numberToTerraform(struct!.httpPort),
     instance_count: cdktf.numberToTerraform(struct!.instanceCount),
     instance_size_slug: cdktf.stringToTerraform(struct!.instanceSizeSlug),
-    internal_ports: cdktf.listMapper(
-      cdktf.numberToTerraform,
-      false,
-    )(struct!.internalPorts),
+    internal_ports: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.internalPorts),
     name: cdktf.stringToTerraform(struct!.name),
     run_command: cdktf.stringToTerraform(struct!.runCommand),
     source_dir: cdktf.stringToTerraform(struct!.sourceDir),
-    alert: cdktf.listMapper(
-      appSpecServiceAlertToTerraform,
-      true,
-    )(struct!.alert),
+    alert: cdktf.listMapper(appSpecServiceAlertToTerraform, true)(struct!.alert),
     cors: appSpecServiceCorsToTerraform(struct!.cors),
     env: cdktf.listMapper(appSpecServiceEnvToTerraform, true)(struct!.env),
     git: appSpecServiceGitToTerraform(struct!.git),
@@ -7764,15 +6904,9 @@ export function appSpecServiceToTerraform(
     gitlab: appSpecServiceGitlabToTerraform(struct!.gitlab),
     health_check: appSpecServiceHealthCheckToTerraform(struct!.healthCheck),
     image: appSpecServiceImageToTerraform(struct!.image),
-    log_destination: cdktf.listMapper(
-      appSpecServiceLogDestinationToTerraform,
-      true,
-    )(struct!.logDestination),
-    routes: cdktf.listMapper(
-      appSpecServiceRoutesToTerraform,
-      true,
-    )(struct!.routes),
-  };
+    log_destination: cdktf.listMapper(appSpecServiceLogDestinationToTerraform, true)(struct!.logDestination),
+    routes: cdktf.listMapper(appSpecServiceRoutesToTerraform, true)(struct!.routes),
+  }
 }
 
 export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
@@ -7780,23 +6914,13 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecService | cdktf.IResolvable | undefined {
@@ -7888,9 +7012,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecService | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecService | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -7914,10 +7036,12 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
       this._image.internalValue = undefined;
       this._logDestination.internalValue = undefined;
       this._routes.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._buildCommand = value.buildCommand;
@@ -7944,7 +7068,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string;
+  private _buildCommand?: string; 
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -7960,7 +7084,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string;
+  private _dockerfilePath?: string; 
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -7976,7 +7100,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string;
+  private _environmentSlug?: string; 
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -7992,7 +7116,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // http_port - computed: true, optional: true, required: false
-  private _httpPort?: number;
+  private _httpPort?: number; 
   public get httpPort() {
     return this.getNumberAttribute('http_port');
   }
@@ -8008,7 +7132,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -8024,7 +7148,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_size_slug - computed: false, optional: true, required: false
-  private _instanceSizeSlug?: string;
+  private _instanceSizeSlug?: string; 
   public get instanceSizeSlug() {
     return this.getStringAttribute('instance_size_slug');
   }
@@ -8040,11 +7164,9 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // internal_ports - computed: false, optional: true, required: false
-  private _internalPorts?: number[];
+  private _internalPorts?: number[]; 
   public get internalPorts() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('internal_ports')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('internal_ports')));
   }
   public set internalPorts(value: number[]) {
     this._internalPorts = value;
@@ -8058,7 +7180,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -8071,7 +7193,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // run_command - computed: true, optional: true, required: false
-  private _runCommand?: string;
+  private _runCommand?: string; 
   public get runCommand() {
     return this.getStringAttribute('run_command');
   }
@@ -8087,7 +7209,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string;
+  private _sourceDir?: string; 
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -8103,7 +7225,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // alert - computed: false, optional: true, required: false
-  private _alert = new AppSpecServiceAlertList(this, 'alert', false);
+  private _alert = new AppSpecServiceAlertList(this, "alert", false);
   public get alert() {
     return this._alert;
   }
@@ -8119,7 +7241,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // cors - computed: false, optional: true, required: false
-  private _cors = new AppSpecServiceCorsOutputReference(this, 'cors');
+  private _cors = new AppSpecServiceCorsOutputReference(this, "cors");
   public get cors() {
     return this._cors;
   }
@@ -8135,7 +7257,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new AppSpecServiceEnvList(this, 'env', true);
+  private _env = new AppSpecServiceEnvList(this, "env", true);
   public get env() {
     return this._env;
   }
@@ -8151,7 +7273,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // git - computed: false, optional: true, required: false
-  private _git = new AppSpecServiceGitOutputReference(this, 'git');
+  private _git = new AppSpecServiceGitOutputReference(this, "git");
   public get git() {
     return this._git;
   }
@@ -8167,7 +7289,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // github - computed: false, optional: true, required: false
-  private _github = new AppSpecServiceGithubOutputReference(this, 'github');
+  private _github = new AppSpecServiceGithubOutputReference(this, "github");
   public get github() {
     return this._github;
   }
@@ -8183,7 +7305,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // gitlab - computed: false, optional: true, required: false
-  private _gitlab = new AppSpecServiceGitlabOutputReference(this, 'gitlab');
+  private _gitlab = new AppSpecServiceGitlabOutputReference(this, "gitlab");
   public get gitlab() {
     return this._gitlab;
   }
@@ -8199,10 +7321,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // health_check - computed: false, optional: true, required: false
-  private _healthCheck = new AppSpecServiceHealthCheckOutputReference(
-    this,
-    'health_check',
-  );
+  private _healthCheck = new AppSpecServiceHealthCheckOutputReference(this, "health_check");
   public get healthCheck() {
     return this._healthCheck;
   }
@@ -8218,7 +7337,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // image - computed: false, optional: true, required: false
-  private _image = new AppSpecServiceImageOutputReference(this, 'image');
+  private _image = new AppSpecServiceImageOutputReference(this, "image");
   public get image() {
     return this._image;
   }
@@ -8234,17 +7353,11 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // log_destination - computed: false, optional: true, required: false
-  private _logDestination = new AppSpecServiceLogDestinationList(
-    this,
-    'log_destination',
-    false,
-  );
+  private _logDestination = new AppSpecServiceLogDestinationList(this, "log_destination", false);
   public get logDestination() {
     return this._logDestination;
   }
-  public putLogDestination(
-    value: AppSpecServiceLogDestination[] | cdktf.IResolvable,
-  ) {
+  public putLogDestination(value: AppSpecServiceLogDestination[] | cdktf.IResolvable) {
     this._logDestination.internalValue = value;
   }
   public resetLogDestination() {
@@ -8256,7 +7369,7 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
   }
 
   // routes - computed: false, optional: true, required: false
-  private _routes = new AppSpecServiceRoutesList(this, 'routes', false);
+  private _routes = new AppSpecServiceRoutesList(this, "routes", false);
   public get routes() {
     return this._routes;
   }
@@ -8273,85 +7386,65 @@ export class AppSpecServiceOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecServiceList extends cdktf.ComplexList {
-  public internalValue?: AppSpecService[] | cdktf.IResolvable;
+  public internalValue? : AppSpecService[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecServiceOutputReference {
-    return new AppSpecServiceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecServiceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecStaticSiteCorsAllowOrigins {
   /**
-   * Exact string match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
-   */
+  * Exact string match.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#exact App#exact}
+  */
   readonly exact?: string;
   /**
-   * Prefix-based match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
-   */
+  * Prefix-based match. 
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#prefix App#prefix}
+  */
   readonly prefix?: string;
   /**
-   * RE2 style regex-based match.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
-   */
+  * RE2 style regex-based match.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#regex App#regex}
+  */
   readonly regex?: string;
 }
 
-export function appSpecStaticSiteCorsAllowOriginsToTerraform(
-  struct?:
-    | AppSpecStaticSiteCorsAllowOriginsOutputReference
-    | AppSpecStaticSiteCorsAllowOrigins,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteCorsAllowOriginsToTerraform(struct?: AppSpecStaticSiteCorsAllowOriginsOutputReference | AppSpecStaticSiteCorsAllowOrigins): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     exact: cdktf.stringToTerraform(struct!.exact),
     prefix: cdktf.stringToTerraform(struct!.prefix),
     regex: cdktf.stringToTerraform(struct!.regex),
-  };
+  }
 }
 
 export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -8373,15 +7466,14 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecStaticSiteCorsAllowOrigins | undefined,
-  ) {
+  public set internalValue(value: AppSpecStaticSiteCorsAllowOrigins | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._exact = undefined;
       this._prefix = undefined;
       this._regex = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._exact = value.exact;
       this._prefix = value.prefix;
@@ -8390,7 +7482,7 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
   }
 
   // exact - computed: false, optional: true, required: false
-  private _exact?: string;
+  private _exact?: string; 
   public get exact() {
     return this.getStringAttribute('exact');
   }
@@ -8406,7 +7498,7 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -8422,7 +7514,7 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string;
+  private _regex?: string; 
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -8439,86 +7531,66 @@ export class AppSpecStaticSiteCorsAllowOriginsOutputReference extends cdktf.Comp
 }
 export interface AppSpecStaticSiteCors {
   /**
-   * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
-   */
+  * Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is `include`. This configures the Access-Control-Allow-Credentials header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_credentials App#allow_credentials}
+  */
   readonly allowCredentials?: boolean | cdktf.IResolvable;
   /**
-   * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
-   */
+  * The set of allowed HTTP request headers. This configures the Access-Control-Allow-Headers header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_headers App#allow_headers}
+  */
   readonly allowHeaders?: string[];
   /**
-   * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
-   */
+  * The set of allowed HTTP methods. This configures the Access-Control-Allow-Methods header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_methods App#allow_methods}
+  */
   readonly allowMethods?: string[];
   /**
-   * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
-   */
+  * The set of HTTP response headers that browsers are allowed to access. This configures the Access-Control-Expose-Headers header.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#expose_headers App#expose_headers}
+  */
   readonly exposeHeaders?: string[];
   /**
-   * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
-   */
+  * An optional duration specifying how long browsers can cache the results of a preflight request. This configures the Access-Control-Max-Age header. Example: `5h30m`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#max_age App#max_age}
+  */
   readonly maxAge?: string;
   /**
-   * allow_origins block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
-   */
+  * allow_origins block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#allow_origins App#allow_origins}
+  */
   readonly allowOrigins?: AppSpecStaticSiteCorsAllowOrigins;
 }
 
-export function appSpecStaticSiteCorsToTerraform(
-  struct?: AppSpecStaticSiteCorsOutputReference | AppSpecStaticSiteCors,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteCorsToTerraform(struct?: AppSpecStaticSiteCorsOutputReference | AppSpecStaticSiteCors): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     allow_credentials: cdktf.booleanToTerraform(struct!.allowCredentials),
-    allow_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowHeaders),
-    allow_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowMethods),
-    expose_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.exposeHeaders),
+    allow_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowHeaders),
+    allow_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowMethods),
+    expose_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.exposeHeaders),
     max_age: cdktf.stringToTerraform(struct!.maxAge),
-    allow_origins: appSpecStaticSiteCorsAllowOriginsToTerraform(
-      struct!.allowOrigins,
-    ),
-  };
+    allow_origins: appSpecStaticSiteCorsAllowOriginsToTerraform(struct!.allowOrigins),
+  }
 }
 
 export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -8561,7 +7633,8 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
       this._exposeHeaders = undefined;
       this._maxAge = undefined;
       this._allowOrigins.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowCredentials = value.allowCredentials;
       this._allowHeaders = value.allowHeaders;
@@ -8573,7 +7646,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_credentials - computed: false, optional: true, required: false
-  private _allowCredentials?: boolean | cdktf.IResolvable;
+  private _allowCredentials?: boolean | cdktf.IResolvable; 
   public get allowCredentials() {
     return this.getBooleanAttribute('allow_credentials');
   }
@@ -8589,7 +7662,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_headers - computed: false, optional: true, required: false
-  private _allowHeaders?: string[];
+  private _allowHeaders?: string[]; 
   public get allowHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_headers'));
   }
@@ -8605,7 +7678,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_methods - computed: false, optional: true, required: false
-  private _allowMethods?: string[];
+  private _allowMethods?: string[]; 
   public get allowMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allow_methods'));
   }
@@ -8621,7 +7694,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[];
+  private _exposeHeaders?: string[]; 
   public get exposeHeaders() {
     return cdktf.Fn.tolist(this.getListAttribute('expose_headers'));
   }
@@ -8637,7 +7710,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age - computed: false, optional: true, required: false
-  private _maxAge?: string;
+  private _maxAge?: string; 
   public get maxAge() {
     return this.getStringAttribute('max_age');
   }
@@ -8653,10 +7726,7 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
   }
 
   // allow_origins - computed: false, optional: true, required: false
-  private _allowOrigins = new AppSpecStaticSiteCorsAllowOriginsOutputReference(
-    this,
-    'allow_origins',
-  );
+  private _allowOrigins = new AppSpecStaticSiteCorsAllowOriginsOutputReference(this, "allow_origins");
   public get allowOrigins() {
     return this._allowOrigins;
   }
@@ -8673,48 +7743,42 @@ export class AppSpecStaticSiteCorsOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecStaticSiteEnv {
   /**
-   * The name of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
-   */
+  * The name of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
+  */
   readonly key?: string;
   /**
-   * The visibility scope of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
-   */
+  * The visibility scope of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
+  */
   readonly scope?: string;
   /**
-   * The type of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * The value of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * The value of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value?: string;
 }
 
-export function appSpecStaticSiteEnvToTerraform(
-  struct?: AppSpecStaticSiteEnv | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteEnvToTerraform(struct?: AppSpecStaticSiteEnv | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     scope: cdktf.stringToTerraform(struct!.scope),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
@@ -8722,29 +7786,16 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecStaticSiteEnv
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecStaticSiteEnv | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8769,9 +7820,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecStaticSiteEnv | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecStaticSiteEnv | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -8779,10 +7828,12 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
       this._scope = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -8793,7 +7844,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -8809,7 +7860,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -8825,7 +7876,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -8841,7 +7892,7 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -8858,76 +7909,58 @@ export class AppSpecStaticSiteEnvOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecStaticSiteEnvList extends cdktf.ComplexList {
-  public internalValue?: AppSpecStaticSiteEnv[] | cdktf.IResolvable;
+  public internalValue? : AppSpecStaticSiteEnv[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecStaticSiteEnvOutputReference {
-    return new AppSpecStaticSiteEnvOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecStaticSiteEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecStaticSiteGit {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * The clone URL of the repo.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
-   */
+  * The clone URL of the repo.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
+  */
   readonly repoCloneUrl?: string;
 }
 
-export function appSpecStaticSiteGitToTerraform(
-  struct?: AppSpecStaticSiteGitOutputReference | AppSpecStaticSiteGit,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteGitToTerraform(struct?: AppSpecStaticSiteGitOutputReference | AppSpecStaticSiteGit): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     repo_clone_url: cdktf.stringToTerraform(struct!.repoCloneUrl),
-  };
+  }
 }
 
 export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -8950,7 +7983,8 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._branch = undefined;
       this._repoCloneUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._repoCloneUrl = value.repoCloneUrl;
@@ -8958,7 +7992,7 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -8974,7 +8008,7 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string;
+  private _repoCloneUrl?: string; 
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -8991,54 +8025,45 @@ export class AppSpecStaticSiteGitOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecStaticSiteGithub {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecStaticSiteGithubToTerraform(
-  struct?: AppSpecStaticSiteGithubOutputReference | AppSpecStaticSiteGithub,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteGithubToTerraform(struct?: AppSpecStaticSiteGithubOutputReference | AppSpecStaticSiteGithub): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -9066,7 +8091,8 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -9075,7 +8101,7 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -9091,7 +8117,7 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -9107,7 +8133,7 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -9124,54 +8150,45 @@ export class AppSpecStaticSiteGithubOutputReference extends cdktf.ComplexObject 
 }
 export interface AppSpecStaticSiteGitlab {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecStaticSiteGitlabToTerraform(
-  struct?: AppSpecStaticSiteGitlabOutputReference | AppSpecStaticSiteGitlab,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteGitlabToTerraform(struct?: AppSpecStaticSiteGitlabOutputReference | AppSpecStaticSiteGitlab): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -9199,7 +8216,8 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -9208,7 +8226,7 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -9224,7 +8242,7 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -9240,7 +8258,7 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -9257,34 +8275,28 @@ export class AppSpecStaticSiteGitlabOutputReference extends cdktf.ComplexObject 
 }
 export interface AppSpecStaticSiteRoutes {
   /**
-   * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
-   */
+  * Path specifies an route by HTTP path prefix. Paths must start with / and must be unique within the app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#path App#path}
+  */
   readonly path?: string;
   /**
-   *  An optional flag to preserve the path that is forwarded to the backend service.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
-   */
+  *  An optional flag to preserve the path that is forwarded to the backend service.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#preserve_path_prefix App#preserve_path_prefix}
+  */
   readonly preservePathPrefix?: boolean | cdktf.IResolvable;
 }
 
-export function appSpecStaticSiteRoutesToTerraform(
-  struct?: AppSpecStaticSiteRoutes | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteRoutesToTerraform(struct?: AppSpecStaticSiteRoutes | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     preserve_path_prefix: cdktf.booleanToTerraform(struct!.preservePathPrefix),
-  };
+  }
 }
 
 export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject {
@@ -9292,29 +8304,16 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecStaticSiteRoutes
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecStaticSiteRoutes | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9331,18 +8330,18 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecStaticSiteRoutes | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecStaticSiteRoutes | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._path = undefined;
       this._preservePathPrefix = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._path = value.path;
@@ -9351,7 +8350,7 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string;
+  private _path?: string; 
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -9367,7 +8366,7 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
   }
 
   // preserve_path_prefix - computed: false, optional: true, required: false
-  private _preservePathPrefix?: boolean | cdktf.IResolvable;
+  private _preservePathPrefix?: boolean | cdktf.IResolvable; 
   public get preservePathPrefix() {
     return this.getBooleanAttribute('preserve_path_prefix');
   }
@@ -9384,136 +8383,121 @@ export class AppSpecStaticSiteRoutesOutputReference extends cdktf.ComplexObject 
 }
 
 export class AppSpecStaticSiteRoutesList extends cdktf.ComplexList {
-  public internalValue?: AppSpecStaticSiteRoutes[] | cdktf.IResolvable;
+  public internalValue? : AppSpecStaticSiteRoutes[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecStaticSiteRoutesOutputReference {
-    return new AppSpecStaticSiteRoutesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecStaticSiteRoutesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecStaticSite {
   /**
-   * An optional build command to run while building this component from source.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
-   */
+  * An optional build command to run while building this component from source.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
+  */
   readonly buildCommand?: string;
   /**
-   * The name of the document to use as the fallback for any requests to documents that are not found when serving this static site.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#catchall_document App#catchall_document}
-   */
+  * The name of the document to use as the fallback for any requests to documents that are not found when serving this static site.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#catchall_document App#catchall_document}
+  */
   readonly catchallDocument?: string;
   /**
-   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
-   */
+  * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
+  */
   readonly dockerfilePath?: string;
   /**
-   * An environment slug describing the type of this app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
-   */
+  * An environment slug describing the type of this app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
+  */
   readonly environmentSlug?: string;
   /**
-   * The name of the error document to use when serving this static site.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#error_document App#error_document}
-   */
+  * The name of the error document to use when serving this static site.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#error_document App#error_document}
+  */
   readonly errorDocument?: string;
   /**
-   * The name of the index document to use when serving this static site.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#index_document App#index_document}
-   */
+  * The name of the index document to use when serving this static site.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#index_document App#index_document}
+  */
   readonly indexDocument?: string;
   /**
-   * The name of the component
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the component
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#output_dir App#output_dir}
-   */
+  * An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#output_dir App#output_dir}
+  */
   readonly outputDir?: string;
   /**
-   * An optional path to the working directory to use for the build.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
-   */
+  * An optional path to the working directory to use for the build.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
+  */
   readonly sourceDir?: string;
   /**
-   * cors block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
-   */
+  * cors block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#cors App#cors}
+  */
   readonly cors?: AppSpecStaticSiteCors;
   /**
-   * env block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
-   */
+  * env block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
+  */
   readonly env?: AppSpecStaticSiteEnv[] | cdktf.IResolvable;
   /**
-   * git block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
-   */
+  * git block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
+  */
   readonly git?: AppSpecStaticSiteGit;
   /**
-   * github block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
-   */
+  * github block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
+  */
   readonly github?: AppSpecStaticSiteGithub;
   /**
-   * gitlab block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
-   */
+  * gitlab block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
+  */
   readonly gitlab?: AppSpecStaticSiteGitlab;
   /**
-   * routes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
-   */
+  * routes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#routes App#routes}
+  */
   readonly routes?: AppSpecStaticSiteRoutes[] | cdktf.IResolvable;
 }
 
-export function appSpecStaticSiteToTerraform(
-  struct?: AppSpecStaticSite | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecStaticSiteToTerraform(struct?: AppSpecStaticSite | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     build_command: cdktf.stringToTerraform(struct!.buildCommand),
@@ -9530,11 +8514,8 @@ export function appSpecStaticSiteToTerraform(
     git: appSpecStaticSiteGitToTerraform(struct!.git),
     github: appSpecStaticSiteGithubToTerraform(struct!.github),
     gitlab: appSpecStaticSiteGitlabToTerraform(struct!.gitlab),
-    routes: cdktf.listMapper(
-      appSpecStaticSiteRoutesToTerraform,
-      true,
-    )(struct!.routes),
-  };
+    routes: cdktf.listMapper(appSpecStaticSiteRoutesToTerraform, true)(struct!.routes),
+  }
 }
 
 export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
@@ -9542,29 +8523,16 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecStaticSite
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecStaticSite | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9633,9 +8601,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecStaticSite | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecStaticSite | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -9654,10 +8620,12 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
       this._github.internalValue = undefined;
       this._gitlab.internalValue = undefined;
       this._routes.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._buildCommand = value.buildCommand;
@@ -9679,7 +8647,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string;
+  private _buildCommand?: string; 
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -9695,7 +8663,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // catchall_document - computed: false, optional: true, required: false
-  private _catchallDocument?: string;
+  private _catchallDocument?: string; 
   public get catchallDocument() {
     return this.getStringAttribute('catchall_document');
   }
@@ -9711,7 +8679,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string;
+  private _dockerfilePath?: string; 
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -9727,7 +8695,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string;
+  private _environmentSlug?: string; 
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -9743,7 +8711,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // error_document - computed: false, optional: true, required: false
-  private _errorDocument?: string;
+  private _errorDocument?: string; 
   public get errorDocument() {
     return this.getStringAttribute('error_document');
   }
@@ -9759,7 +8727,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // index_document - computed: false, optional: true, required: false
-  private _indexDocument?: string;
+  private _indexDocument?: string; 
   public get indexDocument() {
     return this.getStringAttribute('index_document');
   }
@@ -9775,7 +8743,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -9788,7 +8756,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // output_dir - computed: false, optional: true, required: false
-  private _outputDir?: string;
+  private _outputDir?: string; 
   public get outputDir() {
     return this.getStringAttribute('output_dir');
   }
@@ -9804,7 +8772,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string;
+  private _sourceDir?: string; 
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -9820,7 +8788,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // cors - computed: false, optional: true, required: false
-  private _cors = new AppSpecStaticSiteCorsOutputReference(this, 'cors');
+  private _cors = new AppSpecStaticSiteCorsOutputReference(this, "cors");
   public get cors() {
     return this._cors;
   }
@@ -9836,7 +8804,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new AppSpecStaticSiteEnvList(this, 'env', true);
+  private _env = new AppSpecStaticSiteEnvList(this, "env", true);
   public get env() {
     return this._env;
   }
@@ -9852,7 +8820,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // git - computed: false, optional: true, required: false
-  private _git = new AppSpecStaticSiteGitOutputReference(this, 'git');
+  private _git = new AppSpecStaticSiteGitOutputReference(this, "git");
   public get git() {
     return this._git;
   }
@@ -9868,7 +8836,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // github - computed: false, optional: true, required: false
-  private _github = new AppSpecStaticSiteGithubOutputReference(this, 'github');
+  private _github = new AppSpecStaticSiteGithubOutputReference(this, "github");
   public get github() {
     return this._github;
   }
@@ -9884,7 +8852,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // gitlab - computed: false, optional: true, required: false
-  private _gitlab = new AppSpecStaticSiteGitlabOutputReference(this, 'gitlab');
+  private _gitlab = new AppSpecStaticSiteGitlabOutputReference(this, "gitlab");
   public get gitlab() {
     return this._gitlab;
   }
@@ -9900,7 +8868,7 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
   }
 
   // routes - computed: false, optional: true, required: false
-  private _routes = new AppSpecStaticSiteRoutesList(this, 'routes', false);
+  private _routes = new AppSpecStaticSiteRoutesList(this, "routes", false);
   public get routes() {
     return this._routes;
   }
@@ -9917,66 +8885,51 @@ export class AppSpecStaticSiteOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecStaticSiteList extends cdktf.ComplexList {
-  public internalValue?: AppSpecStaticSite[] | cdktf.IResolvable;
+  public internalValue? : AppSpecStaticSite[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecStaticSiteOutputReference {
-    return new AppSpecStaticSiteOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecStaticSiteOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecWorkerAlert {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#disabled App#disabled}
+  */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#operator App#operator}
+  */
   readonly operator: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#rule App#rule}
+  */
   readonly rule: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#window App#window}
+  */
   readonly window: string;
 }
 
-export function appSpecWorkerAlertToTerraform(
-  struct?: AppSpecWorkerAlert | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerAlertToTerraform(struct?: AppSpecWorkerAlert | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     disabled: cdktf.booleanToTerraform(struct!.disabled),
@@ -9984,7 +8937,7 @@ export function appSpecWorkerAlertToTerraform(
     rule: cdktf.stringToTerraform(struct!.rule),
     value: cdktf.numberToTerraform(struct!.value),
     window: cdktf.stringToTerraform(struct!.window),
-  };
+  }
 }
 
 export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
@@ -9992,29 +8945,16 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecWorkerAlert
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecWorkerAlert | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -10043,9 +8983,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerAlert | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerAlert | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -10054,10 +8992,12 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
       this._rule = undefined;
       this._value = undefined;
       this._window = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._disabled = value.disabled;
@@ -10069,7 +9009,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable;
+  private _disabled?: boolean | cdktf.IResolvable; 
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -10085,7 +9025,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string;
+  private _operator?: string; 
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -10098,7 +9038,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule?: string;
+  private _rule?: string; 
   public get rule() {
     return this.getStringAttribute('rule');
   }
@@ -10111,7 +9051,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number;
+  private _value?: number; 
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -10124,7 +9064,7 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
   }
 
   // window - computed: false, optional: false, required: true
-  private _window?: string;
+  private _window?: string; 
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -10138,77 +9078,62 @@ export class AppSpecWorkerAlertOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecWorkerAlertList extends cdktf.ComplexList {
-  public internalValue?: AppSpecWorkerAlert[] | cdktf.IResolvable;
+  public internalValue? : AppSpecWorkerAlert[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecWorkerAlertOutputReference {
-    return new AppSpecWorkerAlertOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecWorkerAlertOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecWorkerEnv {
   /**
-   * The name of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
-   */
+  * The name of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#key App#key}
+  */
   readonly key?: string;
   /**
-   * The visibility scope of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
-   */
+  * The visibility scope of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#scope App#scope}
+  */
   readonly scope?: string;
   /**
-   * The type of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
-   */
+  * The type of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#type App#type}
+  */
   readonly type?: string;
   /**
-   * The value of the environment variable.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
-   */
+  * The value of the environment variable.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#value App#value}
+  */
   readonly value?: string;
 }
 
-export function appSpecWorkerEnvToTerraform(
-  struct?: AppSpecWorkerEnv | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerEnvToTerraform(struct?: AppSpecWorkerEnv | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     scope: cdktf.stringToTerraform(struct!.scope),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
@@ -10216,23 +9141,13 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecWorkerEnv | cdktf.IResolvable | undefined {
@@ -10260,9 +9175,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerEnv | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerEnv | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -10270,10 +9183,12 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
       this._scope = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -10284,7 +9199,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -10300,7 +9215,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -10316,7 +9231,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -10332,7 +9247,7 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -10349,76 +9264,58 @@ export class AppSpecWorkerEnvOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecWorkerEnvList extends cdktf.ComplexList {
-  public internalValue?: AppSpecWorkerEnv[] | cdktf.IResolvable;
+  public internalValue? : AppSpecWorkerEnv[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecWorkerEnvOutputReference {
-    return new AppSpecWorkerEnvOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecWorkerEnvOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecWorkerGit {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * The clone URL of the repo.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
-   */
+  * The clone URL of the repo.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo_clone_url App#repo_clone_url}
+  */
   readonly repoCloneUrl?: string;
 }
 
-export function appSpecWorkerGitToTerraform(
-  struct?: AppSpecWorkerGitOutputReference | AppSpecWorkerGit,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerGitToTerraform(struct?: AppSpecWorkerGitOutputReference | AppSpecWorkerGit): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     repo_clone_url: cdktf.stringToTerraform(struct!.repoCloneUrl),
-  };
+  }
 }
 
 export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -10441,7 +9338,8 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._branch = undefined;
       this._repoCloneUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._repoCloneUrl = value.repoCloneUrl;
@@ -10449,7 +9347,7 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -10465,7 +9363,7 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
   }
 
   // repo_clone_url - computed: false, optional: true, required: false
-  private _repoCloneUrl?: string;
+  private _repoCloneUrl?: string; 
   public get repoCloneUrl() {
     return this.getStringAttribute('repo_clone_url');
   }
@@ -10482,54 +9380,45 @@ export class AppSpecWorkerGitOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecWorkerGithub {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecWorkerGithubToTerraform(
-  struct?: AppSpecWorkerGithubOutputReference | AppSpecWorkerGithub,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerGithubToTerraform(struct?: AppSpecWorkerGithubOutputReference | AppSpecWorkerGithub): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -10557,7 +9446,8 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -10566,7 +9456,7 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -10582,7 +9472,7 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -10598,7 +9488,7 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -10615,54 +9505,45 @@ export class AppSpecWorkerGithubOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecWorkerGitlab {
   /**
-   * The name of the branch to use.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
-   */
+  * The name of the branch to use.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#branch App#branch}
+  */
   readonly branch?: string;
   /**
-   * Whether to automatically deploy new commits made to the repo
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * Whether to automatically deploy new commits made to the repo
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: boolean | cdktf.IResolvable;
   /**
-   * The name of the repo in the format `owner/repo`.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
-   */
+  * The name of the repo in the format `owner/repo`.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repo App#repo}
+  */
   readonly repo?: string;
 }
 
-export function appSpecWorkerGitlabToTerraform(
-  struct?: AppSpecWorkerGitlabOutputReference | AppSpecWorkerGitlab,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerGitlabToTerraform(struct?: AppSpecWorkerGitlabOutputReference | AppSpecWorkerGitlab): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     deploy_on_push: cdktf.booleanToTerraform(struct!.deployOnPush),
     repo: cdktf.stringToTerraform(struct!.repo),
-  };
+  }
 }
 
 export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -10690,7 +9571,8 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
       this._branch = undefined;
       this._deployOnPush = undefined;
       this._repo = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._deployOnPush = value.deployOnPush;
@@ -10699,7 +9581,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -10715,7 +9597,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush?: boolean | cdktf.IResolvable;
+  private _deployOnPush?: boolean | cdktf.IResolvable; 
   public get deployOnPush() {
     return this.getBooleanAttribute('deploy_on_push');
   }
@@ -10731,7 +9613,7 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
   }
 
   // repo - computed: false, optional: true, required: false
-  private _repo?: string;
+  private _repo?: string; 
   public get repo() {
     return this.getStringAttribute('repo');
   }
@@ -10748,27 +9630,21 @@ export class AppSpecWorkerGitlabOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecWorkerImageDeployOnPush {
   /**
-   * Whether to automatically deploy images pushed to DOCR.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
-   */
+  * Whether to automatically deploy images pushed to DOCR.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#enabled App#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function appSpecWorkerImageDeployOnPushToTerraform(
-  struct?: AppSpecWorkerImageDeployOnPush | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerImageDeployOnPushToTerraform(struct?: AppSpecWorkerImageDeployOnPush | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  };
+  }
 }
 
 export class AppSpecWorkerImageDeployOnPushOutputReference extends cdktf.ComplexObject {
@@ -10776,29 +9652,16 @@ export class AppSpecWorkerImageDeployOnPushOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecWorkerImageDeployOnPush
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecWorkerImageDeployOnPush | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -10811,17 +9674,17 @@ export class AppSpecWorkerImageDeployOnPushOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerImageDeployOnPush | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerImageDeployOnPush | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._enabled = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._enabled = value.enabled;
@@ -10829,7 +9692,7 @@ export class AppSpecWorkerImageDeployOnPushOutputReference extends cdktf.Complex
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -10846,100 +9709,79 @@ export class AppSpecWorkerImageDeployOnPushOutputReference extends cdktf.Complex
 }
 
 export class AppSpecWorkerImageDeployOnPushList extends cdktf.ComplexList {
-  public internalValue?: AppSpecWorkerImageDeployOnPush[] | cdktf.IResolvable;
+  public internalValue? : AppSpecWorkerImageDeployOnPush[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecWorkerImageDeployOnPushOutputReference {
-    return new AppSpecWorkerImageDeployOnPushOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecWorkerImageDeployOnPushOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecWorkerImage {
   /**
-   * The registry name. Must be left empty for the DOCR registry type.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
-   */
+  * The registry name. Must be left empty for the DOCR registry type.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry App#registry}
+  */
   readonly registry?: string;
   /**
-   * The registry type.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
-   */
+  * The registry type.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#registry_type App#registry_type}
+  */
   readonly registryType: string;
   /**
-   * The repository name.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
-   */
+  * The repository name.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#repository App#repository}
+  */
   readonly repository: string;
   /**
-   * The repository tag. Defaults to latest if not provided.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
-   */
+  * The repository tag. Defaults to latest if not provided.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#tag App#tag}
+  */
   readonly tag?: string;
   /**
-   * deploy_on_push block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
-   */
+  * deploy_on_push block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#deploy_on_push App#deploy_on_push}
+  */
   readonly deployOnPush?: AppSpecWorkerImageDeployOnPush[] | cdktf.IResolvable;
 }
 
-export function appSpecWorkerImageToTerraform(
-  struct?: AppSpecWorkerImageOutputReference | AppSpecWorkerImage,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerImageToTerraform(struct?: AppSpecWorkerImageOutputReference | AppSpecWorkerImage): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     registry: cdktf.stringToTerraform(struct!.registry),
     registry_type: cdktf.stringToTerraform(struct!.registryType),
     repository: cdktf.stringToTerraform(struct!.repository),
     tag: cdktf.stringToTerraform(struct!.tag),
-    deploy_on_push: cdktf.listMapper(
-      appSpecWorkerImageDeployOnPushToTerraform,
-      true,
-    )(struct!.deployOnPush),
-  };
+    deploy_on_push: cdktf.listMapper(appSpecWorkerImageDeployOnPushToTerraform, true)(struct!.deployOnPush),
+  }
 }
 
 export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -10977,7 +9819,8 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
       this._repository = undefined;
       this._tag = undefined;
       this._deployOnPush.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._registry = value.registry;
       this._registryType = value.registryType;
@@ -10988,7 +9831,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string;
+  private _registry?: string; 
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -11004,7 +9847,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // registry_type - computed: false, optional: false, required: true
-  private _registryType?: string;
+  private _registryType?: string; 
   public get registryType() {
     return this.getStringAttribute('registry_type');
   }
@@ -11017,7 +9860,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository?: string;
+  private _repository?: string; 
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -11030,7 +9873,7 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string;
+  private _tag?: string; 
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -11046,17 +9889,11 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
   }
 
   // deploy_on_push - computed: false, optional: true, required: false
-  private _deployOnPush = new AppSpecWorkerImageDeployOnPushList(
-    this,
-    'deploy_on_push',
-    false,
-  );
+  private _deployOnPush = new AppSpecWorkerImageDeployOnPushList(this, "deploy_on_push", false);
   public get deployOnPush() {
     return this._deployOnPush;
   }
-  public putDeployOnPush(
-    value: AppSpecWorkerImageDeployOnPush[] | cdktf.IResolvable,
-  ) {
+  public putDeployOnPush(value: AppSpecWorkerImageDeployOnPush[] | cdktf.IResolvable) {
     this._deployOnPush.internalValue = value;
   }
   public resetDeployOnPush() {
@@ -11069,49 +9906,38 @@ export class AppSpecWorkerImageOutputReference extends cdktf.ComplexObject {
 }
 export interface AppSpecWorkerLogDestinationDatadog {
   /**
-   * Datadog API key.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
-   */
+  * Datadog API key.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#api_key App#api_key}
+  */
   readonly apiKey: string;
   /**
-   * Datadog HTTP log intake endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Datadog HTTP log intake endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint?: string;
 }
 
-export function appSpecWorkerLogDestinationDatadogToTerraform(
-  struct?:
-    | AppSpecWorkerLogDestinationDatadogOutputReference
-    | AppSpecWorkerLogDestinationDatadog,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerLogDestinationDatadogToTerraform(struct?: AppSpecWorkerLogDestinationDatadogOutputReference | AppSpecWorkerLogDestinationDatadog): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     api_key: cdktf.stringToTerraform(struct!.apiKey),
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11129,14 +9955,13 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerLogDestinationDatadog | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerLogDestinationDatadog | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiKey = undefined;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiKey = value.apiKey;
       this._endpoint = value.endpoint;
@@ -11144,7 +9969,7 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
   }
 
   // api_key - computed: false, optional: false, required: true
-  private _apiKey?: string;
+  private _apiKey?: string; 
   public get apiKey() {
     return this.getStringAttribute('api_key');
   }
@@ -11157,7 +9982,7 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
   }
 
   // endpoint - computed: false, optional: true, required: false
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -11174,42 +9999,31 @@ export class AppSpecWorkerLogDestinationDatadogOutputReference extends cdktf.Com
 }
 export interface AppSpecWorkerLogDestinationLogtail {
   /**
-   * Logtail token.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
-   */
+  * Logtail token.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#token App#token}
+  */
   readonly token: string;
 }
 
-export function appSpecWorkerLogDestinationLogtailToTerraform(
-  struct?:
-    | AppSpecWorkerLogDestinationLogtailOutputReference
-    | AppSpecWorkerLogDestinationLogtail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerLogDestinationLogtailToTerraform(struct?: AppSpecWorkerLogDestinationLogtailOutputReference | AppSpecWorkerLogDestinationLogtail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     token: cdktf.stringToTerraform(struct!.token),
-  };
+  }
 }
 
 export class AppSpecWorkerLogDestinationLogtailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11223,20 +10037,19 @@ export class AppSpecWorkerLogDestinationLogtailOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerLogDestinationLogtail | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerLogDestinationLogtail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._token = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._token = value.token;
     }
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string;
+  private _token?: string; 
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -11250,48 +10063,35 @@ export class AppSpecWorkerLogDestinationLogtailOutputReference extends cdktf.Com
 }
 export interface AppSpecWorkerLogDestinationPapertrail {
   /**
-   * Papertrail syslog endpoint.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
-   */
+  * Papertrail syslog endpoint.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#endpoint App#endpoint}
+  */
   readonly endpoint: string;
 }
 
-export function appSpecWorkerLogDestinationPapertrailToTerraform(
-  struct?:
-    | AppSpecWorkerLogDestinationPapertrailOutputReference
-    | AppSpecWorkerLogDestinationPapertrail,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerLogDestinationPapertrailToTerraform(struct?: AppSpecWorkerLogDestinationPapertrailOutputReference | AppSpecWorkerLogDestinationPapertrail): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     endpoint: cdktf.stringToTerraform(struct!.endpoint),
-  };
+  }
 }
 
 export class AppSpecWorkerLogDestinationPapertrailOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppSpecWorkerLogDestinationPapertrail
-    | undefined {
+  public get internalValue(): AppSpecWorkerLogDestinationPapertrail | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpoint !== undefined) {
@@ -11301,20 +10101,19 @@ export class AppSpecWorkerLogDestinationPapertrailOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerLogDestinationPapertrail | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerLogDestinationPapertrail | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpoint = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpoint = value.endpoint;
     }
   }
 
   // endpoint - computed: false, optional: false, required: true
-  private _endpoint?: string;
+  private _endpoint?: string; 
   public get endpoint() {
     return this.getStringAttribute('endpoint');
   }
@@ -11328,50 +10127,42 @@ export class AppSpecWorkerLogDestinationPapertrailOutputReference extends cdktf.
 }
 export interface AppSpecWorkerLogDestination {
   /**
-   * Name of the log destination
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * Name of the log destination
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * datadog block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
-   */
+  * datadog block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#datadog App#datadog}
+  */
   readonly datadog?: AppSpecWorkerLogDestinationDatadog;
   /**
-   * logtail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
-   */
+  * logtail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#logtail App#logtail}
+  */
   readonly logtail?: AppSpecWorkerLogDestinationLogtail;
   /**
-   * papertrail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
-   */
+  * papertrail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#papertrail App#papertrail}
+  */
   readonly papertrail?: AppSpecWorkerLogDestinationPapertrail;
 }
 
-export function appSpecWorkerLogDestinationToTerraform(
-  struct?: AppSpecWorkerLogDestination | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerLogDestinationToTerraform(struct?: AppSpecWorkerLogDestination | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     datadog: appSpecWorkerLogDestinationDatadogToTerraform(struct!.datadog),
     logtail: appSpecWorkerLogDestinationLogtailToTerraform(struct!.logtail),
-    papertrail: appSpecWorkerLogDestinationPapertrailToTerraform(
-      struct!.papertrail,
-    ),
-  };
+    papertrail: appSpecWorkerLogDestinationPapertrailToTerraform(struct!.papertrail),
+  }
 }
 
 export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObject {
@@ -11379,29 +10170,16 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppSpecWorkerLogDestination
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppSpecWorkerLogDestination | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11426,9 +10204,7 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorkerLogDestination | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorkerLogDestination | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -11436,10 +10212,12 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
       this._datadog.internalValue = undefined;
       this._logtail.internalValue = undefined;
       this._papertrail.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -11450,7 +10228,7 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11463,10 +10241,7 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog = new AppSpecWorkerLogDestinationDatadogOutputReference(
-    this,
-    'datadog',
-  );
+  private _datadog = new AppSpecWorkerLogDestinationDatadogOutputReference(this, "datadog");
   public get datadog() {
     return this._datadog;
   }
@@ -11482,10 +10257,7 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
   }
 
   // logtail - computed: false, optional: true, required: false
-  private _logtail = new AppSpecWorkerLogDestinationLogtailOutputReference(
-    this,
-    'logtail',
-  );
+  private _logtail = new AppSpecWorkerLogDestinationLogtailOutputReference(this, "logtail");
   public get logtail() {
     return this._logtail;
   }
@@ -11501,11 +10273,7 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
   }
 
   // papertrail - computed: false, optional: true, required: false
-  private _papertrail =
-    new AppSpecWorkerLogDestinationPapertrailOutputReference(
-      this,
-      'papertrail',
-    );
+  private _papertrail = new AppSpecWorkerLogDestinationPapertrailOutputReference(this, "papertrail");
   public get papertrail() {
     return this._papertrail;
   }
@@ -11522,136 +10290,121 @@ export class AppSpecWorkerLogDestinationOutputReference extends cdktf.ComplexObj
 }
 
 export class AppSpecWorkerLogDestinationList extends cdktf.ComplexList {
-  public internalValue?: AppSpecWorkerLogDestination[] | cdktf.IResolvable;
+  public internalValue? : AppSpecWorkerLogDestination[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecWorkerLogDestinationOutputReference {
-    return new AppSpecWorkerLogDestinationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecWorkerLogDestinationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpecWorker {
   /**
-   * An optional build command to run while building this component from source.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
-   */
+  * An optional build command to run while building this component from source.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#build_command App#build_command}
+  */
   readonly buildCommand?: string;
   /**
-   * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
-   */
+  * The path to a Dockerfile relative to the root of the repo. If set, overrides usage of buildpacks.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#dockerfile_path App#dockerfile_path}
+  */
   readonly dockerfilePath?: string;
   /**
-   * An environment slug describing the type of this app.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
-   */
+  * An environment slug describing the type of this app.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#environment_slug App#environment_slug}
+  */
   readonly environmentSlug?: string;
   /**
-   * The amount of instances that this component should be scaled to.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
-   */
+  * The amount of instances that this component should be scaled to.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_count App#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * The instance size to use for this component.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
-   */
+  * The instance size to use for this component.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#instance_size_slug App#instance_size_slug}
+  */
   readonly instanceSizeSlug?: string;
   /**
-   * The name of the component
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the component
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * An optional run command to override the component's default.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
-   */
+  * An optional run command to override the component's default.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#run_command App#run_command}
+  */
   readonly runCommand?: string;
   /**
-   * An optional path to the working directory to use for the build.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
-   */
+  * An optional path to the working directory to use for the build.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#source_dir App#source_dir}
+  */
   readonly sourceDir?: string;
   /**
-   * alert block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
-   */
+  * alert block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
+  */
   readonly alert?: AppSpecWorkerAlert[] | cdktf.IResolvable;
   /**
-   * env block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
-   */
+  * env block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
+  */
   readonly env?: AppSpecWorkerEnv[] | cdktf.IResolvable;
   /**
-   * git block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
-   */
+  * git block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#git App#git}
+  */
   readonly git?: AppSpecWorkerGit;
   /**
-   * github block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
-   */
+  * github block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#github App#github}
+  */
   readonly github?: AppSpecWorkerGithub;
   /**
-   * gitlab block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
-   */
+  * gitlab block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#gitlab App#gitlab}
+  */
   readonly gitlab?: AppSpecWorkerGitlab;
   /**
-   * image block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
-   */
+  * image block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#image App#image}
+  */
   readonly image?: AppSpecWorkerImage;
   /**
-   * log_destination block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
-   */
+  * log_destination block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#log_destination App#log_destination}
+  */
   readonly logDestination?: AppSpecWorkerLogDestination[] | cdktf.IResolvable;
 }
 
-export function appSpecWorkerToTerraform(
-  struct?: AppSpecWorker | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecWorkerToTerraform(struct?: AppSpecWorker | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     build_command: cdktf.stringToTerraform(struct!.buildCommand),
@@ -11668,11 +10421,8 @@ export function appSpecWorkerToTerraform(
     github: appSpecWorkerGithubToTerraform(struct!.github),
     gitlab: appSpecWorkerGitlabToTerraform(struct!.gitlab),
     image: appSpecWorkerImageToTerraform(struct!.image),
-    log_destination: cdktf.listMapper(
-      appSpecWorkerLogDestinationToTerraform,
-      true,
-    )(struct!.logDestination),
-  };
+    log_destination: cdktf.listMapper(appSpecWorkerLogDestinationToTerraform, true)(struct!.logDestination),
+  }
 }
 
 export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
@@ -11680,23 +10430,13 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): AppSpecWorker | cdktf.IResolvable | undefined {
@@ -11768,9 +10508,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppSpecWorker | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppSpecWorker | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -11789,10 +10527,12 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
       this._gitlab.internalValue = undefined;
       this._image.internalValue = undefined;
       this._logDestination.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._buildCommand = value.buildCommand;
@@ -11814,7 +10554,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // build_command - computed: false, optional: true, required: false
-  private _buildCommand?: string;
+  private _buildCommand?: string; 
   public get buildCommand() {
     return this.getStringAttribute('build_command');
   }
@@ -11830,7 +10570,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // dockerfile_path - computed: false, optional: true, required: false
-  private _dockerfilePath?: string;
+  private _dockerfilePath?: string; 
   public get dockerfilePath() {
     return this.getStringAttribute('dockerfile_path');
   }
@@ -11846,7 +10586,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // environment_slug - computed: false, optional: true, required: false
-  private _environmentSlug?: string;
+  private _environmentSlug?: string; 
   public get environmentSlug() {
     return this.getStringAttribute('environment_slug');
   }
@@ -11862,7 +10602,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -11878,7 +10618,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_size_slug - computed: false, optional: true, required: false
-  private _instanceSizeSlug?: string;
+  private _instanceSizeSlug?: string; 
   public get instanceSizeSlug() {
     return this.getStringAttribute('instance_size_slug');
   }
@@ -11894,7 +10634,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -11907,7 +10647,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // run_command - computed: false, optional: true, required: false
-  private _runCommand?: string;
+  private _runCommand?: string; 
   public get runCommand() {
     return this.getStringAttribute('run_command');
   }
@@ -11923,7 +10663,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // source_dir - computed: false, optional: true, required: false
-  private _sourceDir?: string;
+  private _sourceDir?: string; 
   public get sourceDir() {
     return this.getStringAttribute('source_dir');
   }
@@ -11939,7 +10679,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // alert - computed: false, optional: true, required: false
-  private _alert = new AppSpecWorkerAlertList(this, 'alert', false);
+  private _alert = new AppSpecWorkerAlertList(this, "alert", false);
   public get alert() {
     return this._alert;
   }
@@ -11955,7 +10695,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new AppSpecWorkerEnvList(this, 'env', true);
+  private _env = new AppSpecWorkerEnvList(this, "env", true);
   public get env() {
     return this._env;
   }
@@ -11971,7 +10711,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // git - computed: false, optional: true, required: false
-  private _git = new AppSpecWorkerGitOutputReference(this, 'git');
+  private _git = new AppSpecWorkerGitOutputReference(this, "git");
   public get git() {
     return this._git;
   }
@@ -11987,7 +10727,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // github - computed: false, optional: true, required: false
-  private _github = new AppSpecWorkerGithubOutputReference(this, 'github');
+  private _github = new AppSpecWorkerGithubOutputReference(this, "github");
   public get github() {
     return this._github;
   }
@@ -12003,7 +10743,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // gitlab - computed: false, optional: true, required: false
-  private _gitlab = new AppSpecWorkerGitlabOutputReference(this, 'gitlab');
+  private _gitlab = new AppSpecWorkerGitlabOutputReference(this, "gitlab");
   public get gitlab() {
     return this._gitlab;
   }
@@ -12019,7 +10759,7 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // image - computed: false, optional: true, required: false
-  private _image = new AppSpecWorkerImageOutputReference(this, 'image');
+  private _image = new AppSpecWorkerImageOutputReference(this, "image");
   public get image() {
     return this._image;
   }
@@ -12035,17 +10775,11 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
   }
 
   // log_destination - computed: false, optional: true, required: false
-  private _logDestination = new AppSpecWorkerLogDestinationList(
-    this,
-    'log_destination',
-    false,
-  );
+  private _logDestination = new AppSpecWorkerLogDestinationList(this, "log_destination", false);
   public get logDestination() {
     return this._logDestination;
   }
-  public putLogDestination(
-    value: AppSpecWorkerLogDestination[] | cdktf.IResolvable,
-  ) {
+  public putLogDestination(value: AppSpecWorkerLogDestination[] | cdktf.IResolvable) {
     this._logDestination.internalValue = value;
   }
   public resetLogDestination() {
@@ -12058,153 +10792,126 @@ export class AppSpecWorkerOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppSpecWorkerList extends cdktf.ComplexList {
-  public internalValue?: AppSpecWorker[] | cdktf.IResolvable;
+  public internalValue? : AppSpecWorker[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppSpecWorkerOutputReference {
-    return new AppSpecWorkerOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppSpecWorkerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#domains App#domains}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#domains App#domains}
+  */
   readonly domains?: string[];
   /**
-   * The name of the app. Must be unique across all apps in the same account.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
-   */
+  * The name of the app. Must be unique across all apps in the same account.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#name App#name}
+  */
   readonly name: string;
   /**
-   * The slug for the DigitalOcean data center region hosting the app
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#region App#region}
-   */
+  * The slug for the DigitalOcean data center region hosting the app
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#region App#region}
+  */
   readonly region?: string;
   /**
-   * alert block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
-   */
+  * alert block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#alert App#alert}
+  */
   readonly alert?: AppSpecAlert[] | cdktf.IResolvable;
   /**
-   * database block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#database App#database}
-   */
+  * database block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#database App#database}
+  */
   readonly database?: AppSpecDatabase[] | cdktf.IResolvable;
   /**
-   * domain block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#domain App#domain}
-   */
+  * domain block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#domain App#domain}
+  */
   readonly domain?: AppSpecDomain[] | cdktf.IResolvable;
   /**
-   * env block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
-   */
+  * env block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#env App#env}
+  */
   readonly env?: AppSpecEnv[] | cdktf.IResolvable;
   /**
-   * function block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#function App#function}
-   */
+  * function block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#function App#function}
+  */
   readonly function?: AppSpecFunction[] | cdktf.IResolvable;
   /**
-   * job block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#job App#job}
-   */
+  * job block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#job App#job}
+  */
   readonly job?: AppSpecJob[] | cdktf.IResolvable;
   /**
-   * service block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#service App#service}
-   */
+  * service block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#service App#service}
+  */
   readonly service?: AppSpecService[] | cdktf.IResolvable;
   /**
-   * static_site block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#static_site App#static_site}
-   */
+  * static_site block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#static_site App#static_site}
+  */
   readonly staticSite?: AppSpecStaticSite[] | cdktf.IResolvable;
   /**
-   * worker block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#worker App#worker}
-   */
+  * worker block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#worker App#worker}
+  */
   readonly worker?: AppSpecWorker[] | cdktf.IResolvable;
 }
 
-export function appSpecToTerraform(
-  struct?: AppSpecOutputReference | AppSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appSpecToTerraform(struct?: AppSpecOutputReference | AppSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     domains: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.domains),
     name: cdktf.stringToTerraform(struct!.name),
     region: cdktf.stringToTerraform(struct!.region),
     alert: cdktf.listMapper(appSpecAlertToTerraform, true)(struct!.alert),
-    database: cdktf.listMapper(
-      appSpecDatabaseToTerraform,
-      true,
-    )(struct!.database),
+    database: cdktf.listMapper(appSpecDatabaseToTerraform, true)(struct!.database),
     domain: cdktf.listMapper(appSpecDomainToTerraform, true)(struct!.domain),
     env: cdktf.listMapper(appSpecEnvToTerraform, true)(struct!.env),
-    function: cdktf.listMapper(
-      appSpecFunctionToTerraform,
-      true,
-    )(struct!.function),
+    function: cdktf.listMapper(appSpecFunctionToTerraform, true)(struct!.function),
     job: cdktf.listMapper(appSpecJobToTerraform, true)(struct!.job),
     service: cdktf.listMapper(appSpecServiceToTerraform, true)(struct!.service),
-    static_site: cdktf.listMapper(
-      appSpecStaticSiteToTerraform,
-      true,
-    )(struct!.staticSite),
+    static_site: cdktf.listMapper(appSpecStaticSiteToTerraform, true)(struct!.staticSite),
     worker: cdktf.listMapper(appSpecWorkerToTerraform, true)(struct!.worker),
-  };
+  }
 }
 
 export class AppSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -12277,7 +10984,8 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
       this._service.internalValue = undefined;
       this._staticSite.internalValue = undefined;
       this._worker.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domains = value.domains;
       this._name = value.name;
@@ -12295,7 +11003,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // domains - computed: true, optional: true, required: false
-  private _domains?: string[];
+  private _domains?: string[]; 
   public get domains() {
     return cdktf.Fn.tolist(this.getListAttribute('domains'));
   }
@@ -12311,7 +11019,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -12324,7 +11032,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -12340,7 +11048,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // alert - computed: false, optional: true, required: false
-  private _alert = new AppSpecAlertList(this, 'alert', true);
+  private _alert = new AppSpecAlertList(this, "alert", true);
   public get alert() {
     return this._alert;
   }
@@ -12356,7 +11064,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // database - computed: false, optional: true, required: false
-  private _database = new AppSpecDatabaseList(this, 'database', false);
+  private _database = new AppSpecDatabaseList(this, "database", false);
   public get database() {
     return this._database;
   }
@@ -12372,7 +11080,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // domain - computed: false, optional: true, required: false
-  private _domain = new AppSpecDomainList(this, 'domain', false);
+  private _domain = new AppSpecDomainList(this, "domain", false);
   public get domain() {
     return this._domain;
   }
@@ -12388,7 +11096,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new AppSpecEnvList(this, 'env', true);
+  private _env = new AppSpecEnvList(this, "env", true);
   public get env() {
     return this._env;
   }
@@ -12404,7 +11112,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // function - computed: false, optional: true, required: false
-  private _function = new AppSpecFunctionList(this, 'function', false);
+  private _function = new AppSpecFunctionList(this, "function", false);
   public get function() {
     return this._function;
   }
@@ -12420,7 +11128,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // job - computed: false, optional: true, required: false
-  private _job = new AppSpecJobList(this, 'job', false);
+  private _job = new AppSpecJobList(this, "job", false);
   public get job() {
     return this._job;
   }
@@ -12436,7 +11144,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // service - computed: false, optional: true, required: false
-  private _service = new AppSpecServiceList(this, 'service', false);
+  private _service = new AppSpecServiceList(this, "service", false);
   public get service() {
     return this._service;
   }
@@ -12452,7 +11160,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // static_site - computed: false, optional: true, required: false
-  private _staticSite = new AppSpecStaticSiteList(this, 'static_site', false);
+  private _staticSite = new AppSpecStaticSiteList(this, "static_site", false);
   public get staticSite() {
     return this._staticSite;
   }
@@ -12468,7 +11176,7 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // worker - computed: false, optional: true, required: false
-  private _worker = new AppSpecWorkerList(this, 'worker', false);
+  private _worker = new AppSpecWorkerList(this, "worker", false);
   public get worker() {
     return this._worker;
   }
@@ -12485,25 +11193,19 @@ export class AppSpecOutputReference extends cdktf.ComplexObject {
 }
 export interface AppTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#create App#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/app#create App#create}
+  */
   readonly create?: string;
 }
 
-export function appTimeoutsToTerraform(
-  struct?: AppTimeoutsOutputReference | AppTimeouts | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appTimeoutsToTerraform(struct?: AppTimeoutsOutputReference | AppTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  };
+  }
 }
 
 export class AppTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -12511,13 +11213,10 @@ export class AppTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -12539,10 +11238,12 @@ export class AppTimeoutsOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -12550,7 +11251,7 @@ export class AppTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -12567,32 +11268,33 @@ export class AppTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/app digitalocean_app}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/app digitalocean_app}
+*/
 export class App extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_app';
+  public static readonly tfResourceType = "digitalocean_app";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/app digitalocean_app} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppConfig = {}
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/app digitalocean_app} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppConfig = {}
+  */
   public constructor(scope: Construct, id: string, config: AppConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_app',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -12600,7 +11302,7 @@ export class App extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._spec.internalValue = config.spec;
@@ -12627,7 +11329,7 @@ export class App extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -12658,7 +11360,7 @@ export class App extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: true, required: false
-  private _spec = new AppSpecOutputReference(this, 'spec');
+  private _spec = new AppSpecOutputReference(this, "spec");
   public get spec() {
     return this._spec;
   }
@@ -12674,7 +11376,7 @@ export class App extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new AppTimeoutsOutputReference(this, 'timeouts');
+  private _timeouts = new AppTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }

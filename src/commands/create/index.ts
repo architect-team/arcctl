@@ -1,47 +1,32 @@
-import {
-  ResourceOutputs,
-  ResourceType,
-  ResourceTypeList,
-} from '../../@resources/index.ts';
+import { ResourceTypeList } from '../../@resources/index.ts';
 import { BaseCommand } from '../../base-command.ts';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { Pipeline } from '../../pipeline/index.ts';
+import { Terraform } from '../../terraform/terraform.ts';
 import CloudCtlConfig from '../../utils/config.ts';
-import { CldCtlTerraformStack } from '../../utils/stack.ts';
-import TaskManager from '../../utils/task-manager.ts';
-import Terraform from '../../utils/terraform.ts';
 import { Flags } from '@oclif/core';
-import { ResourceModule } from '@providers/module.ts';
-import { ResourceStatus } from '@providers/status.ts';
-import { App } from 'cdktf';
-import chalk from 'chalk';
-import { colors } from 'cliffy/ansi/colors.ts';
-import * as fs from 'fs';
+import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
-import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
-import { inspect } from 'util';
+import { inspect } from 'node:util';
+import winston, { Logger } from 'winston';
 
 export default class CreateResourceCommand extends BaseCommand {
   static description = 'Create a new cloud resource';
 
   static flags = {
-    credentials: Flags.string({
-      char: 'c',
-      description:
-        'The cloud provider credentials to use to apply this resource',
+    account: Flags.string({
+      char: 'a',
+      description: 'The cloud provider credentials to use to apply this resource',
     }),
+
     inputs: Flags.string({
       char: 'i',
-      description:
-        'A yaml file that represents the answers to some or all of the input questions',
+      description: 'A yaml file that represents the answers to some or all of the input questions',
     }),
-    'no-cleanup': Flags.boolean({
-      description: 'When enabled the terraform files are not deleted',
-      default: false,
-      hidden: true,
-    }),
-    dev: Flags.boolean({
-      description: 'When enabled no actual terraform is applied',
-      default: false,
-      hidden: true,
+
+    verbose: Flags.boolean({
+      char: 'v',
+      description: 'Turn on verbose logs',
     }),
   };
 
@@ -57,9 +42,6 @@ export default class CreateResourceCommand extends BaseCommand {
   async run(): Promise<void> {
     const { args, flags } = await this.parse(CreateResourceCommand);
 
-    CloudCtlConfig.setDev(flags.dev);
-    CloudCtlConfig.setNoCleanup(flags['no-cleanup']);
-
     if (args.type) {
       const is_creatable_type = await this.isCreatableResourceType(args.type);
       if (!is_creatable_type) {
@@ -67,49 +49,25 @@ export default class CreateResourceCommand extends BaseCommand {
       }
     }
 
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const account = await this.promptForAccount({
+      account: flags.account,
       type: args.type,
-      action: 'manage',
+      action: 'create',
     });
 
-    const type = await this.promptForResourceType(
-      provider,
-      'manage',
-      args.type,
-    );
+    const type = await this.promptForResourceType(account, 'create', args.type);
 
-    const service = provider.resources[type];
-    if (!service) {
-      this.error(
-        `The ${provider.type} provider cannot create the ${type} resource`,
-      );
-    }
+    const graph = new CloudGraph();
+    const rootNode = await this.promptForNewResource(graph, account, type);
 
-    await Deno.mkdir(CloudCtlConfig.getTerraformDirectory(), {
-      recursive: true,
+    const pipeline = Pipeline.plan({
+      before: new Pipeline(),
+      after: graph,
     });
-    const app = new App({
-      outdir: CloudCtlConfig.getTerraformDirectory(),
-    });
-    const stack = new CldCtlTerraformStack(app, 'cldctl');
-    provider.configureTerraformProviders(stack);
-    const { module, output: tfOutput } = await this.promptForNewResourceModule(
-      stack,
-      provider,
-      type,
-    );
 
-    const inputs = module.inputs as any;
-    for (const key of Object.keys(inputs)) {
-      const child = stack.node.tryFindChild(key);
-      if (ResourceTypeList.includes(key as ResourceType) && child) {
-        inputs[key] = (child as ResourceModule<any, any>).inputs;
-      }
-    }
-
-    this.log('\nAbout to create the following resource:');
-    this.log(inputs);
+    this.log('\nAbout to create the following resources:');
+    this.renderPipeline(pipeline);
+    this.log('');
     const { proceed } = await inquirer.prompt([
       {
         name: 'proceed',
@@ -123,87 +81,45 @@ export default class CreateResourceCommand extends BaseCommand {
       this.exit(0);
     }
 
-    let outputs: ResourceOutputs[ResourceType] | undefined;
+    let interval: NodeJS.Timer;
+    if (!flags.verbose) {
+      interval = setInterval(() => {
+        this.renderPipeline(pipeline, { clear: true });
+      }, 1000 / cliSpinners.dots.frames.length);
+    }
 
-    const taskManager = new TaskManager([
-      {
-        title:
-          'Creating your resources (this can take a while depending on the resource type)...',
-        finished: false,
-        action: () => {
-          const subject = new BehaviorSubject<
-            ResourceOutputs[ResourceType] | ResourceStatus
-          >({
-            state: 'pending',
-          });
+    let logger: Logger | undefined;
+    if (flags.verbose) {
+      this.renderPipeline(pipeline);
+      logger = winston.createLogger({
+        level: 'info',
+        format: winston.format.printf(({ message }) => message),
+        transports: [new winston.transports.Console()],
+      });
+    }
 
-          const fn = async () => {
-            subject.next({
-              state: 'initializing',
-              message: 'Getting everything ready',
-            });
-
-            try {
-              await Terraform.upsert(
-                provider.terraform_version,
-                stack,
-                subject,
-              );
-            } catch (err) {
-              this.handleTerraformError(err);
-            }
-
-            outputs = await Terraform.getOutput(tfOutput);
-            if (module.hooks?.afterCreate) {
-              await module.hooks.afterCreate();
-            }
-            await Terraform.cleanup();
-            subject.complete();
-          };
-          fn();
-
-          const subscriber = subject.asObservable();
-
-          const terraformSubscribers: {
-            [key: string]: Subscriber<ResourceStatus>;
-          } = {};
-          subscriber.subscribe({
-            next: (res: ResourceOutputs[ResourceType] | ResourceStatus) => {
-              if ('state' in res) {
-                const key = res.message as string;
-                if (res.state === 'creating') {
-                  taskManager.add({
-                    title: `Creating: ${key}`,
-                    action: () =>
-                      new Observable((observer) => {
-                        terraformSubscribers[key] = observer;
-                      }),
-                    finished: false,
-                  });
-                } else if (res.state === 'complete') {
-                  terraformSubscribers[key]?.complete();
-                }
-              } else {
-                outputs = res;
-              }
-            },
-            error: (err: any) => {
-              subject.error(err);
-            },
-            complete: () => {
-              subject.complete();
-            },
-          });
-
-          return subscriber;
-        },
-      },
-    ]);
-
-    console.time('Time');
-    await taskManager.run();
-    this.log(inspect(outputs));
-    this.log(colors.green(`${type} resource created successfully`));
-    console.timeEnd('Time');
+    return pipeline
+      .apply({
+        providerStore: this.providerStore,
+        logger: logger,
+      })
+      .then(async () => {
+        this.renderPipeline(pipeline, { clear: true });
+        clearInterval(interval);
+        const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
+        const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
+        const outputs = await step?.getOutputs({
+          providerStore: this.providerStore,
+          terraform,
+        });
+        this.log('');
+        this.log(chalk.green(`${type} created successfully!`));
+        this.log('Please record the results for your records. Some fields may not be retrievable again.');
+        this.log(inspect(outputs));
+      })
+      .catch((err) => {
+        clearInterval(interval);
+        this.error(err);
+      });
   }
 }

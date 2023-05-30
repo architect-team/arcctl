@@ -1,51 +1,48 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/ssh_key
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanSshKeyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanSshKeyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * name of the ssh key
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_key#name DataDigitaloceanSshKey#name}
-   */
+  * name of the ssh key
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_key#name DataDigitaloceanSshKey#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_key digitalocean_ssh_key}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_key digitalocean_ssh_key}
+*/
 export class DataDigitaloceanSshKey extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_ssh_key';
+  public static readonly tfResourceType = "digitalocean_ssh_key";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_key digitalocean_ssh_key} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanSshKeyConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanSshKeyConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_key digitalocean_ssh_key} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanSshKeyConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanSshKeyConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_ssh_key',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -53,7 +50,7 @@ export class DataDigitaloceanSshKey extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._name = config.name;
   }
@@ -73,7 +70,7 @@ export class DataDigitaloceanSshKey extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }

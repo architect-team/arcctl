@@ -1,63 +1,61 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/project_resources
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ProjectResourcesConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#id ProjectResources#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#id ProjectResources#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * project ID
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#project ProjectResources#project}
-   */
+  * project ID
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#project ProjectResources#project}
+  */
   readonly project: string;
   /**
-   * the resources associated with the project
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#resources ProjectResources#resources}
-   */
+  * the resources associated with the project
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources#resources ProjectResources#resources}
+  */
   readonly resources: string[];
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources digitalocean_project_resources}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources digitalocean_project_resources}
+*/
 export class ProjectResources extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_project_resources';
+  public static readonly tfResourceType = "digitalocean_project_resources";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources digitalocean_project_resources} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ProjectResourcesConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ProjectResourcesConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/project_resources digitalocean_project_resources} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ProjectResourcesConfig
+  */
+  public constructor(scope: Construct, id: string, config: ProjectResourcesConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_project_resources',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -65,7 +63,7 @@ export class ProjectResources extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._project = config.project;
@@ -77,7 +75,7 @@ export class ProjectResources extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -93,7 +91,7 @@ export class ProjectResources extends cdktf.TerraformResource {
   }
 
   // project - computed: false, optional: false, required: true
-  private _project?: string;
+  private _project?: string; 
   public get project() {
     return this.getStringAttribute('project');
   }
@@ -106,7 +104,7 @@ export class ProjectResources extends cdktf.TerraformResource {
   }
 
   // resources - computed: false, optional: false, required: true
-  private _resources?: string[];
+  private _resources?: string[]; 
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }
@@ -126,10 +124,7 @@ export class ProjectResources extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       project: cdktf.stringToTerraform(this._project),
-      resources: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._resources),
+      resources: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resources),
     };
   }
 }

@@ -1,63 +1,61 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/container_registry
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ContainerRegistryConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#id ContainerRegistry#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#id ContainerRegistry#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#name ContainerRegistry#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#name ContainerRegistry#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#region ContainerRegistry#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#region ContainerRegistry#region}
+  */
   readonly region?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#subscription_tier_slug ContainerRegistry#subscription_tier_slug}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry#subscription_tier_slug ContainerRegistry#subscription_tier_slug}
+  */
   readonly subscriptionTierSlug: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry digitalocean_container_registry}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry digitalocean_container_registry}
+*/
 export class ContainerRegistry extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_container_registry';
+  public static readonly tfResourceType = "digitalocean_container_registry";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry digitalocean_container_registry} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ContainerRegistryConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ContainerRegistryConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/container_registry digitalocean_container_registry} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ContainerRegistryConfig
+  */
+  public constructor(scope: Construct, id: string, config: ContainerRegistryConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_container_registry',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -65,7 +63,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -88,7 +86,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -104,7 +102,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -117,7 +115,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -143,7 +141,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
   }
 
   // subscription_tier_slug - computed: false, optional: false, required: true
-  private _subscriptionTierSlug?: string;
+  private _subscriptionTierSlug?: string; 
   public get subscriptionTierSlug() {
     return this.getStringAttribute('subscription_tier_slug');
   }
@@ -164,9 +162,7 @@ export class ContainerRegistry extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       region: cdktf.stringToTerraform(this._region),
-      subscription_tier_slug: cdktf.stringToTerraform(
-        this._subscriptionTierSlug,
-      ),
+      subscription_tier_slug: cdktf.stringToTerraform(this._subscriptionTierSlug),
     };
   }
 }

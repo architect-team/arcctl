@@ -1,60 +1,57 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ReservedIpAssignmentConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ReservedIpAssignmentConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment#droplet_id ReservedIpAssignment#droplet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment#droplet_id ReservedIpAssignment#droplet_id}
+  */
   readonly dropletId: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment#id ReservedIpAssignment#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment#id ReservedIpAssignment#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment#ip_address ReservedIpAssignment#ip_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment#ip_address ReservedIpAssignment#ip_address}
+  */
   readonly ipAddress: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment digitalocean_reserved_ip_assignment}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment digitalocean_reserved_ip_assignment}
+*/
 export class ReservedIpAssignment extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_reserved_ip_assignment';
+  public static readonly tfResourceType = "digitalocean_reserved_ip_assignment";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment digitalocean_reserved_ip_assignment} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ReservedIpAssignmentConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ReservedIpAssignmentConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/reserved_ip_assignment digitalocean_reserved_ip_assignment} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ReservedIpAssignmentConfig
+  */
+  public constructor(scope: Construct, id: string, config: ReservedIpAssignmentConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_reserved_ip_assignment',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -62,7 +59,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._dropletId = config.dropletId;
     this._id = config.id;
@@ -74,7 +71,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
   // ==========
 
   // droplet_id - computed: false, optional: false, required: true
-  private _dropletId?: number;
+  private _dropletId?: number; 
   public get dropletId() {
     return this.getNumberAttribute('droplet_id');
   }
@@ -87,7 +84,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -103,7 +100,7 @@ export class ReservedIpAssignment extends cdktf.TerraformResource {
   }
 
   // ip_address - computed: false, optional: false, required: true
-  private _ipAddress?: string;
+  private _ipAddress?: string; 
   public get ipAddress() {
     return this.getStringAttribute('ip_address');
   }

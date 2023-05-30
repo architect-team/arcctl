@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesHelmChartModule } from '../modules/helm-chart.ts';
 
-export class KubernetesHelmChartService extends ResourceService<
-  'helmChart',
-  KubernetesCredentials
-> {
+export class KubernetesHelmChartService extends TerraformResourceService<'helmChart', KubernetesCredentials> {
   get(id: string): Promise<ResourceOutputs['helmChart'] | undefined> {
     throw new Error('Method not implemented.');
   }
@@ -19,7 +16,5 @@ export class KubernetesHelmChartService extends ResourceService<
     throw new Error('Method not implemented.');
   }
 
-  manage = {
-    module: KubernetesHelmChartModule,
-  };
+  readonly construct = KubernetesHelmChartModule;
 }

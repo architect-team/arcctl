@@ -2,7 +2,7 @@ export type SecretInputs = {
   /**
    * Namespace the secret should be place in
    */
-  namespace: string;
+  namespace?: string;
 
   /**
    * Name for the secret

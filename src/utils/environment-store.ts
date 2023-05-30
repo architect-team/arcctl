@@ -1,12 +1,12 @@
 import { Environment } from '../environments/environment.ts';
 import { parseEnvironment } from '../environments/parser.ts';
-import { ExecutableGraph, ExecutableNode } from '../executable-graph/index.ts';
+import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import * as path from 'std/path/mod.ts';
 
 export type EnvironmentRecord = {
   name: string;
   datacenter: string;
-  graph: ExecutableGraph;
+  graph: Pipeline;
   config?: Environment;
 };
 
@@ -49,9 +49,9 @@ export class EnvironmentStore {
       for (const raw of rawEnvironmentRecords) {
         const record: EnvironmentRecord = {
           name: raw.name,
-          graph: new ExecutableGraph({
+          graph: new Pipeline({
             edges: raw.graph.edges,
-            nodes: raw.graph.nodes.map((n: any) => new ExecutableNode(n)),
+            nodes: raw.graph.nodes.map((n: any) => new PipelineStep(n)),
           }),
           datacenter: raw.datacenter,
         };
@@ -97,9 +97,6 @@ export class EnvironmentStore {
     await Deno.mkdir(path.dirname(this.environments_config_file), {
       recursive: true,
     });
-    await Deno.writeTextFile(
-      this.environments_config_file,
-      JSON.stringify(records, null, 2),
-    );
+    await Deno.writeTextFile(this.environments_config_file, JSON.stringify(records, null, 2));
   }
 }

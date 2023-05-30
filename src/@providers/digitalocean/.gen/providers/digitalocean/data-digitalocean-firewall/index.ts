@@ -1,101 +1,80 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/firewall
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanFirewallConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanFirewallConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#droplet_ids DataDigitaloceanFirewall#droplet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#droplet_ids DataDigitaloceanFirewall#droplet_ids}
+  */
   readonly dropletIds?: number[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#firewall_id DataDigitaloceanFirewall#firewall_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#firewall_id DataDigitaloceanFirewall#firewall_id}
+  */
   readonly firewallId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#id DataDigitaloceanFirewall#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#id DataDigitaloceanFirewall#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#tags DataDigitaloceanFirewall#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#tags DataDigitaloceanFirewall#tags}
+  */
   readonly tags?: string[];
   /**
-   * inbound_rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#inbound_rule DataDigitaloceanFirewall#inbound_rule}
-   */
-  readonly inboundRule?:
-    | DataDigitaloceanFirewallInboundRule[]
-    | cdktf.IResolvable;
+  * inbound_rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#inbound_rule DataDigitaloceanFirewall#inbound_rule}
+  */
+  readonly inboundRule?: DataDigitaloceanFirewallInboundRule[] | cdktf.IResolvable;
   /**
-   * outbound_rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#outbound_rule DataDigitaloceanFirewall#outbound_rule}
-   */
-  readonly outboundRule?:
-    | DataDigitaloceanFirewallOutboundRule[]
-    | cdktf.IResolvable;
+  * outbound_rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#outbound_rule DataDigitaloceanFirewall#outbound_rule}
+  */
+  readonly outboundRule?: DataDigitaloceanFirewallOutboundRule[] | cdktf.IResolvable;
 }
-export interface DataDigitaloceanFirewallPendingChanges {}
+export interface DataDigitaloceanFirewallPendingChanges {
+}
 
-export function dataDigitaloceanFirewallPendingChangesToTerraform(
-  struct?: DataDigitaloceanFirewallPendingChanges,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanFirewallPendingChangesToTerraform(struct?: DataDigitaloceanFirewallPendingChanges): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanFirewallPendingChangesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanFirewallPendingChanges
-    | undefined {
+  public get internalValue(): DataDigitaloceanFirewallPendingChanges | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanFirewallPendingChanges | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanFirewallPendingChanges | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -117,99 +96,68 @@ export class DataDigitaloceanFirewallPendingChangesOutputReference extends cdktf
 }
 
 export class DataDigitaloceanFirewallPendingChangesList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanFirewallPendingChangesOutputReference {
-    return new DataDigitaloceanFirewallPendingChangesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanFirewallPendingChangesOutputReference {
+    return new DataDigitaloceanFirewallPendingChangesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataDigitaloceanFirewallInboundRule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#port_range DataDigitaloceanFirewall#port_range}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#port_range DataDigitaloceanFirewall#port_range}
+  */
   readonly portRange?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#protocol DataDigitaloceanFirewall#protocol}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#protocol DataDigitaloceanFirewall#protocol}
+  */
   readonly protocol: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_addresses DataDigitaloceanFirewall#source_addresses}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_addresses DataDigitaloceanFirewall#source_addresses}
+  */
   readonly sourceAddresses?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_droplet_ids DataDigitaloceanFirewall#source_droplet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_droplet_ids DataDigitaloceanFirewall#source_droplet_ids}
+  */
   readonly sourceDropletIds?: number[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_kubernetes_ids DataDigitaloceanFirewall#source_kubernetes_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_kubernetes_ids DataDigitaloceanFirewall#source_kubernetes_ids}
+  */
   readonly sourceKubernetesIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_load_balancer_uids DataDigitaloceanFirewall#source_load_balancer_uids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_load_balancer_uids DataDigitaloceanFirewall#source_load_balancer_uids}
+  */
   readonly sourceLoadBalancerUids?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_tags DataDigitaloceanFirewall#source_tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#source_tags DataDigitaloceanFirewall#source_tags}
+  */
   readonly sourceTags?: string[];
 }
 
-export function dataDigitaloceanFirewallInboundRuleToTerraform(
-  struct?: DataDigitaloceanFirewallInboundRule | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanFirewallInboundRuleToTerraform(struct?: DataDigitaloceanFirewallInboundRule | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     port_range: cdktf.stringToTerraform(struct!.portRange),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-    source_addresses: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.sourceAddresses),
-    source_droplet_ids: cdktf.listMapper(
-      cdktf.numberToTerraform,
-      false,
-    )(struct!.sourceDropletIds),
-    source_kubernetes_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.sourceKubernetesIds),
-    source_load_balancer_uids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.sourceLoadBalancerUids),
-    source_tags: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.sourceTags),
-  };
+    source_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.sourceAddresses),
+    source_droplet_ids: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.sourceDropletIds),
+    source_kubernetes_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.sourceKubernetesIds),
+    source_load_balancer_uids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.sourceLoadBalancerUids),
+    source_tags: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.sourceTags),
+  }
 }
 
 export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.ComplexObject {
@@ -217,29 +165,16 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanFirewallInboundRule
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataDigitaloceanFirewallInboundRule | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -276,9 +211,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanFirewallInboundRule | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanFirewallInboundRule | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -289,10 +222,12 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
       this._sourceKubernetesIds = undefined;
       this._sourceLoadBalancerUids = undefined;
       this._sourceTags = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._portRange = value.portRange;
@@ -306,7 +241,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // port_range - computed: false, optional: true, required: false
-  private _portRange?: string;
+  private _portRange?: string; 
   public get portRange() {
     return this.getStringAttribute('port_range');
   }
@@ -322,7 +257,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string;
+  private _protocol?: string; 
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -335,7 +270,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_addresses - computed: false, optional: true, required: false
-  private _sourceAddresses?: string[];
+  private _sourceAddresses?: string[]; 
   public get sourceAddresses() {
     return cdktf.Fn.tolist(this.getListAttribute('source_addresses'));
   }
@@ -351,11 +286,9 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_droplet_ids - computed: false, optional: true, required: false
-  private _sourceDropletIds?: number[];
+  private _sourceDropletIds?: number[]; 
   public get sourceDropletIds() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('source_droplet_ids')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('source_droplet_ids')));
   }
   public set sourceDropletIds(value: number[]) {
     this._sourceDropletIds = value;
@@ -369,7 +302,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_kubernetes_ids - computed: false, optional: true, required: false
-  private _sourceKubernetesIds?: string[];
+  private _sourceKubernetesIds?: string[]; 
   public get sourceKubernetesIds() {
     return cdktf.Fn.tolist(this.getListAttribute('source_kubernetes_ids'));
   }
@@ -385,7 +318,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_load_balancer_uids - computed: false, optional: true, required: false
-  private _sourceLoadBalancerUids?: string[];
+  private _sourceLoadBalancerUids?: string[]; 
   public get sourceLoadBalancerUids() {
     return cdktf.Fn.tolist(this.getListAttribute('source_load_balancer_uids'));
   }
@@ -401,7 +334,7 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
   }
 
   // source_tags - computed: false, optional: true, required: false
-  private _sourceTags?: string[];
+  private _sourceTags?: string[]; 
   public get sourceTags() {
     return cdktf.Fn.tolist(this.getListAttribute('source_tags'));
   }
@@ -418,103 +351,69 @@ export class DataDigitaloceanFirewallInboundRuleOutputReference extends cdktf.Co
 }
 
 export class DataDigitaloceanFirewallInboundRuleList extends cdktf.ComplexList {
-  public internalValue?:
-    | DataDigitaloceanFirewallInboundRule[]
-    | cdktf.IResolvable;
+  public internalValue? : DataDigitaloceanFirewallInboundRule[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanFirewallInboundRuleOutputReference {
-    return new DataDigitaloceanFirewallInboundRuleOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanFirewallInboundRuleOutputReference {
+    return new DataDigitaloceanFirewallInboundRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataDigitaloceanFirewallOutboundRule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_addresses DataDigitaloceanFirewall#destination_addresses}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_addresses DataDigitaloceanFirewall#destination_addresses}
+  */
   readonly destinationAddresses?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_droplet_ids DataDigitaloceanFirewall#destination_droplet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_droplet_ids DataDigitaloceanFirewall#destination_droplet_ids}
+  */
   readonly destinationDropletIds?: number[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_kubernetes_ids DataDigitaloceanFirewall#destination_kubernetes_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_kubernetes_ids DataDigitaloceanFirewall#destination_kubernetes_ids}
+  */
   readonly destinationKubernetesIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_load_balancer_uids DataDigitaloceanFirewall#destination_load_balancer_uids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_load_balancer_uids DataDigitaloceanFirewall#destination_load_balancer_uids}
+  */
   readonly destinationLoadBalancerUids?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_tags DataDigitaloceanFirewall#destination_tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#destination_tags DataDigitaloceanFirewall#destination_tags}
+  */
   readonly destinationTags?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#port_range DataDigitaloceanFirewall#port_range}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#port_range DataDigitaloceanFirewall#port_range}
+  */
   readonly portRange?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#protocol DataDigitaloceanFirewall#protocol}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall#protocol DataDigitaloceanFirewall#protocol}
+  */
   readonly protocol: string;
 }
 
-export function dataDigitaloceanFirewallOutboundRuleToTerraform(
-  struct?: DataDigitaloceanFirewallOutboundRule | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanFirewallOutboundRuleToTerraform(struct?: DataDigitaloceanFirewallOutboundRule | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    destination_addresses: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.destinationAddresses),
-    destination_droplet_ids: cdktf.listMapper(
-      cdktf.numberToTerraform,
-      false,
-    )(struct!.destinationDropletIds),
-    destination_kubernetes_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.destinationKubernetesIds),
-    destination_load_balancer_uids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.destinationLoadBalancerUids),
-    destination_tags: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.destinationTags),
+    destination_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.destinationAddresses),
+    destination_droplet_ids: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.destinationDropletIds),
+    destination_kubernetes_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.destinationKubernetesIds),
+    destination_load_balancer_uids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.destinationLoadBalancerUids),
+    destination_tags: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.destinationTags),
     port_range: cdktf.stringToTerraform(struct!.portRange),
     protocol: cdktf.stringToTerraform(struct!.protocol),
-  };
+  }
 }
 
 export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.ComplexObject {
@@ -522,29 +421,16 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanFirewallOutboundRule
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataDigitaloceanFirewallOutboundRule | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -560,13 +446,11 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
     }
     if (this._destinationKubernetesIds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.destinationKubernetesIds =
-        this._destinationKubernetesIds;
+      internalValueResult.destinationKubernetesIds = this._destinationKubernetesIds;
     }
     if (this._destinationLoadBalancerUids !== undefined) {
       hasAnyValues = true;
-      internalValueResult.destinationLoadBalancerUids =
-        this._destinationLoadBalancerUids;
+      internalValueResult.destinationLoadBalancerUids = this._destinationLoadBalancerUids;
     }
     if (this._destinationTags !== undefined) {
       hasAnyValues = true;
@@ -583,9 +467,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanFirewallOutboundRule | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanFirewallOutboundRule | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -596,10 +478,12 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
       this._destinationTags = undefined;
       this._portRange = undefined;
       this._protocol = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._destinationAddresses = value.destinationAddresses;
@@ -613,7 +497,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_addresses - computed: false, optional: true, required: false
-  private _destinationAddresses?: string[];
+  private _destinationAddresses?: string[]; 
   public get destinationAddresses() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_addresses'));
   }
@@ -629,11 +513,9 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_droplet_ids - computed: false, optional: true, required: false
-  private _destinationDropletIds?: number[];
+  private _destinationDropletIds?: number[]; 
   public get destinationDropletIds() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('destination_droplet_ids')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('destination_droplet_ids')));
   }
   public set destinationDropletIds(value: number[]) {
     this._destinationDropletIds = value;
@@ -647,7 +529,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_kubernetes_ids - computed: false, optional: true, required: false
-  private _destinationKubernetesIds?: string[];
+  private _destinationKubernetesIds?: string[]; 
   public get destinationKubernetesIds() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_kubernetes_ids'));
   }
@@ -663,11 +545,9 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_load_balancer_uids - computed: false, optional: true, required: false
-  private _destinationLoadBalancerUids?: string[];
+  private _destinationLoadBalancerUids?: string[]; 
   public get destinationLoadBalancerUids() {
-    return cdktf.Fn.tolist(
-      this.getListAttribute('destination_load_balancer_uids'),
-    );
+    return cdktf.Fn.tolist(this.getListAttribute('destination_load_balancer_uids'));
   }
   public set destinationLoadBalancerUids(value: string[]) {
     this._destinationLoadBalancerUids = value;
@@ -681,7 +561,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // destination_tags - computed: false, optional: true, required: false
-  private _destinationTags?: string[];
+  private _destinationTags?: string[]; 
   public get destinationTags() {
     return cdktf.Fn.tolist(this.getListAttribute('destination_tags'));
   }
@@ -697,7 +577,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // port_range - computed: false, optional: true, required: false
-  private _portRange?: string;
+  private _portRange?: string; 
   public get portRange() {
     return this.getStringAttribute('port_range');
   }
@@ -713,7 +593,7 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string;
+  private _protocol?: string; 
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -727,69 +607,53 @@ export class DataDigitaloceanFirewallOutboundRuleOutputReference extends cdktf.C
 }
 
 export class DataDigitaloceanFirewallOutboundRuleList extends cdktf.ComplexList {
-  public internalValue?:
-    | DataDigitaloceanFirewallOutboundRule[]
-    | cdktf.IResolvable;
+  public internalValue? : DataDigitaloceanFirewallOutboundRule[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanFirewallOutboundRuleOutputReference {
-    return new DataDigitaloceanFirewallOutboundRuleOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanFirewallOutboundRuleOutputReference {
+    return new DataDigitaloceanFirewallOutboundRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall digitalocean_firewall}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall digitalocean_firewall}
+*/
 export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_firewall';
+  public static readonly tfResourceType = "digitalocean_firewall";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall digitalocean_firewall} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanFirewallConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanFirewallConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/firewall digitalocean_firewall} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanFirewallConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanFirewallConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_firewall',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -797,7 +661,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._dropletIds = config.dropletIds;
     this._firewallId = config.firewallId;
@@ -817,11 +681,9 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // droplet_ids - computed: true, optional: true, required: false
-  private _dropletIds?: number[];
+  private _dropletIds?: number[]; 
   public get dropletIds() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
   }
   public set dropletIds(value: number[]) {
     this._dropletIds = value;
@@ -835,7 +697,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // firewall_id - computed: false, optional: false, required: true
-  private _firewallId?: string;
+  private _firewallId?: string; 
   public get firewallId() {
     return this.getStringAttribute('firewall_id');
   }
@@ -848,7 +710,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -869,11 +731,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // pending_changes - computed: true, optional: false, required: false
-  private _pendingChanges = new DataDigitaloceanFirewallPendingChangesList(
-    this,
-    'pending_changes',
-    false,
-  );
+  private _pendingChanges = new DataDigitaloceanFirewallPendingChangesList(this, "pending_changes", false);
   public get pendingChanges() {
     return this._pendingChanges;
   }
@@ -884,7 +742,7 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: string[];
+  private _tags?: string[]; 
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -900,17 +758,11 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // inbound_rule - computed: false, optional: true, required: false
-  private _inboundRule = new DataDigitaloceanFirewallInboundRuleList(
-    this,
-    'inbound_rule',
-    true,
-  );
+  private _inboundRule = new DataDigitaloceanFirewallInboundRuleList(this, "inbound_rule", true);
   public get inboundRule() {
     return this._inboundRule;
   }
-  public putInboundRule(
-    value: DataDigitaloceanFirewallInboundRule[] | cdktf.IResolvable,
-  ) {
+  public putInboundRule(value: DataDigitaloceanFirewallInboundRule[] | cdktf.IResolvable) {
     this._inboundRule.internalValue = value;
   }
   public resetInboundRule() {
@@ -922,17 +774,11 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
   }
 
   // outbound_rule - computed: false, optional: true, required: false
-  private _outboundRule = new DataDigitaloceanFirewallOutboundRuleList(
-    this,
-    'outbound_rule',
-    true,
-  );
+  private _outboundRule = new DataDigitaloceanFirewallOutboundRuleList(this, "outbound_rule", true);
   public get outboundRule() {
     return this._outboundRule;
   }
-  public putOutboundRule(
-    value: DataDigitaloceanFirewallOutboundRule[] | cdktf.IResolvable,
-  ) {
+  public putOutboundRule(value: DataDigitaloceanFirewallOutboundRule[] | cdktf.IResolvable) {
     this._outboundRule.internalValue = value;
   }
   public resetOutboundRule() {
@@ -949,21 +795,12 @@ export class DataDigitaloceanFirewall extends cdktf.TerraformDataSource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      droplet_ids: cdktf.listMapper(
-        cdktf.numberToTerraform,
-        false,
-      )(this._dropletIds),
+      droplet_ids: cdktf.listMapper(cdktf.numberToTerraform, false)(this._dropletIds),
       firewall_id: cdktf.stringToTerraform(this._firewallId),
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
-      inbound_rule: cdktf.listMapper(
-        dataDigitaloceanFirewallInboundRuleToTerraform,
-        true,
-      )(this._inboundRule.internalValue),
-      outbound_rule: cdktf.listMapper(
-        dataDigitaloceanFirewallOutboundRuleToTerraform,
-        true,
-      )(this._outboundRule.internalValue),
+      inbound_rule: cdktf.listMapper(dataDigitaloceanFirewallInboundRuleToTerraform, true)(this._inboundRule.internalValue),
+      outbound_rule: cdktf.listMapper(dataDigitaloceanFirewallOutboundRuleToTerraform, true)(this._outboundRule.internalValue),
     };
   }
 }

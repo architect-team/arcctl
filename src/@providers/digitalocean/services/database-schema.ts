@@ -1,11 +1,11 @@
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseSchemaModule } from '../modules/database-schema.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseSchemaService extends ResourceService<
+export class DigitaloceanDatabaseSchemaService extends TerraformResourceService<
   'databaseSchema',
   DigitaloceanCredentials
 > {
@@ -27,7 +27,5 @@ export class DigitaloceanDatabaseSchemaService extends ResourceService<
     throw new Error('Method not implemented.');
   }
 
-  manage = {
-    module: DigitaloceanDatabaseSchemaModule,
-  };
+  readonly construct = DigitaloceanDatabaseSchemaModule;
 }

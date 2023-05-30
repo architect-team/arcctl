@@ -1,14 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseModule } from '../modules/database.ts';
-import { createApiClient, modules } from 'dots-wrapper';
+import { ResourcePresets } from '@providers/service.ts';
+import { createApiClient } from 'dots-wrapper';
+import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.ts';
 
-export class DigitaloceanDatabaseService extends ResourceService<
-  'database',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseService extends TerraformResourceService<'database', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -16,14 +15,12 @@ export class DigitaloceanDatabaseService extends ResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  private normalizeDatabase(
-    database: modules.database.IDatabaseCluster,
-  ): ResourceOutputs['database'] {
+  private normalizeDatabase(database: IDatabaseCluster): ResourceOutputs['database'] {
     return {
       id: database.id,
       host: database.connection.host,
       port: database.connection.port,
-      provider: '',
+      account: '',
       protocol: database.engine === 'pg' ? 'postgresql' : database.engine,
     };
   }
@@ -51,8 +48,8 @@ export class DigitaloceanDatabaseService extends ResourceService<
     };
   }
 
-  manage = {
-    presets: [
+  get presets(): ResourcePresets<'database'> {
+    return [
       {
         display: 'Development',
         values: {
@@ -61,8 +58,8 @@ export class DigitaloceanDatabaseService extends ResourceService<
           databaseSize: 'db-s-1vcpu-1gb',
         },
       },
-    ],
+    ];
+  }
 
-    module: DigitaloceanDatabaseModule,
-  };
+  readonly construct = DigitaloceanDatabaseModule;
 }

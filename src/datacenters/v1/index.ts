@@ -1,20 +1,13 @@
-import {
-  InputSchema,
-  ResourceInputs,
-  ResourceType,
-} from '../../@resources/index.ts';
+/* eslint-disable unicorn/consistent-function-scoping */
+import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
-import { Datacenter } from '../datacenter.ts';
-import { StateBackends } from './backends.ts';
-import { LocalBackend, S3Backend } from 'cdktf';
-import { Construct } from 'constructs';
-import * as path from 'std/path/mod.ts';
+import { Datacenter, DatacenterSecretsConfig } from '../datacenter.ts';
 
 /**
  * @discriminator type
  */
-type FullResource = { provider: string } & InputSchema;
+type FullResource = { account: string } & InputSchema;
 
 type Hook<T extends ResourceType = ResourceType> = {
   when?: { type: T } & DeepPartial<ResourceInputs[T]>;
@@ -30,17 +23,30 @@ type Hook<T extends ResourceType = ResourceType> = {
 
 export default class DatacenterV1 extends Datacenter {
   /**
-   * Configure where terraform state files should be stored
+   * Configure how secrets should be stored.
    */
-  state!: StateBackends;
+  secrets!: {
+    /**
+     * Which account secrets should be stored in
+     */
+    account: string;
+
+    /**
+     * What additional namespacing to use for secrets hosted by the datacenter
+     */
+    namespace?: string;
+  };
 
   /**
-   * Configure what resources must exist in each environment in the datacenter
+   * Create resources that live and die with the lifecycle of the datacenter
    */
   resources?: {
     [key: string]: FullResource;
   };
 
+  /**
+   * Create terraform modules that live and die with the lifecycle of the datacenter
+   */
   modules?: {
     [key: string]: {
       source: string;
@@ -48,9 +54,30 @@ export default class DatacenterV1 extends Datacenter {
   };
 
   /**
-   * Configure rules for how application resources should behave in the environment
+   * A template for how environments inside the datacenter should behave
    */
-  hooks?: Hook[];
+  environment?: {
+    /**
+     * Configure what resources must exist in each environment in the datacenter
+     */
+    resources?: {
+      [key: string]: FullResource;
+    };
+
+    /**
+     * Create terraform modules that should be applied to each environment in the datacenter
+     */
+    modules?: {
+      [key: string]: {
+        source: string;
+      } & Record<string, unknown>;
+    };
+
+    /**
+     * Configure rules for how application resources should behave in the environment
+     */
+    hooks?: Hook[];
+  };
 
   public constructor(data: Record<string, any>) {
     super();
@@ -71,6 +98,35 @@ export default class DatacenterV1 extends Datacenter {
     }
   }
 
+  private replaceDatacenterResourceRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
+    return JSON.parse(
+      JSON.stringify(contents).replace(
+        /\${{\s?resources\.([\w-]+)\.(\S+)\s?}}/g,
+        (full_ref, resource_id, resource_key) => {
+          const resource = this.resources?.[resource_id];
+          if (!resource) {
+            throw new Error(`Invalid expression: ${full_ref}`);
+          }
+
+          const target_node_id = CloudNode.genId({
+            type: resource.type,
+            name: resource_id,
+          });
+
+          graph.insertEdges(
+            new CloudEdge({
+              from: from_node_id,
+              to: target_node_id,
+              required: true,
+            }),
+          );
+
+          return `\${{ ${target_node_id}.${resource_key} }}`;
+        },
+      ),
+    );
+  }
+
   private replaceEnvironmentResourceRefs<T>(
     graph: CloudGraph,
     environmentName: string,
@@ -79,9 +135,9 @@ export default class DatacenterV1 extends Datacenter {
   ): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?resources\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s?environment\.resources\.([\w-]+)\.(\S+)\s?}}/g,
         (full_ref, resource_id, resource_key) => {
-          const resource = this.resources?.[resource_id];
+          const resource = this.environment?.resources?.[resource_id];
           if (!resource) {
             throw new Error(`Invalid expression: ${full_ref}`);
           }
@@ -106,55 +162,65 @@ export default class DatacenterV1 extends Datacenter {
     );
   }
 
-  public async enrichGraph(
-    graph: CloudGraph,
-    environmentName: string,
-  ): Promise<CloudGraph> {
-    // Create nodes for explicit resources
+  private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
+    return JSON.parse(JSON.stringify(contents).replace(/\${{\s?environment\.name\s?}}/g, environmentName));
+  }
+
+  public async enrichGraph(graph: CloudGraph, environmentName?: string): Promise<CloudGraph> {
+    // Create nodes for explicit resources of the datacenter
     for (const [key, value] of Object.entries(this.resources || {})) {
       const node = new CloudNode({
         name: key,
-        environment: environmentName,
         inputs: value,
       });
 
-      node.inputs = this.replaceEnvironmentResourceRefs(
-        graph,
-        environmentName,
-        node.id,
-        node.inputs,
-      );
+      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
 
       graph.insertNodes(node);
     }
 
-    // Run hooks on each node
-    for (const node of graph.nodes) {
-      // Skip nodes that already have a provider
-      if (node.account) continue;
+    // Fill the graph with things that should be in the environment
+    if (environmentName) {
+      // Create nodes for explicit resources that should be in each environment
+      for (const [key, value] of Object.entries(this.environment?.resources || {})) {
+        const node = new CloudNode({
+          name: key,
+          environment: environmentName,
+          inputs: value,
+        });
 
-      // See if the node matches any hooks
-      for (const hook of this.hooks || []) {
-        const doesMatchNode =
-          !hook.when ||
-          Object.entries(hook.when || {}).every(
-            ([key, value]) =>
-              key in node.inputs && (node.inputs as any)[key] === value,
-          );
+        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
 
-        if (!doesMatchNode) continue;
+        node.inputs = this.replaceEnvironmentResourceRefs(graph, environmentName, node.id, node.inputs);
+        node.inputs = this.replaceEnvironmentNameRefs(environmentName, node.inputs);
 
-        const replaceHookExpressions = <T>(
-          resources: { [key: string]: InputSchema },
-          from_node_name: string,
-          from_node_id: string,
-          contents: T,
-        ): T =>
-          JSON.parse(
-            JSON.stringify(contents)
-              .replace(
-                /\${{\s?this\.resources\.([\w-]+)\.(\S+)\s?}}/g,
-                (full_ref, resource_id, resource_key) => {
+        graph.insertNodes(node);
+      }
+
+      // Run hooks on each node
+      for (const node of graph.nodes) {
+        // Skip nodes that already have an account
+        if (node.account) continue;
+
+        // See if the node matches any hooks
+        for (const hook of this.environment?.hooks || []) {
+          const doesMatchNode =
+            !hook.when ||
+            Object.entries(hook.when || {}).every(
+              ([key, value]) => key in node.inputs && (node.inputs as any)[key] === value,
+            );
+
+          if (!doesMatchNode) continue;
+
+          const replaceHookExpressions = <T>(
+            resources: { [key: string]: InputSchema },
+            from_node_name: string,
+            from_node_id: string,
+            contents: T,
+          ): T =>
+            JSON.parse(
+              JSON.stringify(contents)
+                .replace(/\${{\s?this\.resources\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, resource_id, resource_key) => {
                   const resource = resources?.[resource_id];
                   if (!resource) {
                     throw new Error(`Invalid expression: ${full_ref}`);
@@ -175,81 +241,90 @@ export default class DatacenterV1 extends Datacenter {
                   );
 
                   return `\${{ ${target_node_id}.${resource_key} }}`;
-                },
-              )
-              .replace(/\${{\s?this\.(\S+)\s?}}/g, (_, node_key: string) =>
-                this.getNestedValue(node, node_key.split('.')),
-              ),
-          );
+                })
+                .replace(/\${{\s?this\.(\S+)\s?}}/g, (_, node_key: string) =>
+                  this.getNestedValue(node, node_key.split('.')),
+                ),
+            );
 
-        // Create inline resources defined by the hook
-        for (const [resource_key, resource_config] of Object.entries(
-          hook.resources || {},
-        )) {
-          const newResourceName = `${node.name}/${resource_key}`;
+          // Create inline resources defined by the hook
+          for (const [resource_key, resource_config] of Object.entries(hook.resources || {})) {
+            const newResourceName = `${node.name}/${resource_key}`;
 
-          const hook_node_id = CloudNode.genId({
-            type: resource_config.type,
-            name: newResourceName,
-            component: node.component,
-            environment: environmentName,
-          });
-          graph.insertNodes(
-            new CloudNode({
+            const hook_node_id = CloudNode.genId({
+              type: resource_config.type,
               name: newResourceName,
-              environment: environmentName,
               component: node.component,
-              inputs: this.replaceEnvironmentResourceRefs(
-                graph,
-                environmentName,
-                hook_node_id,
-                replaceHookExpressions(
-                  hook.resources || {},
-                  newResourceName,
+              environment: environmentName,
+            });
+            graph.insertNodes(
+              new CloudNode({
+                name: newResourceName,
+                environment: environmentName,
+                component: node.component,
+                inputs: this.replaceDatacenterResourceRefs(
+                  graph,
                   hook_node_id,
-                  JSON.parse(
-                    JSON.stringify(resource_config).replace(
-                      /\${{\s?this\.outputs\.(\S+)\s?}}/g,
-                      (_, key: string) => {
-                        graph.insertEdges(
-                          new CloudEdge({
-                            from: hook_node_id,
-                            to: node.id,
-                            required: true,
-                          }),
-                        );
+                  this.replaceEnvironmentNameRefs(
+                    environmentName,
+                    this.replaceEnvironmentResourceRefs(
+                      graph,
+                      environmentName,
+                      hook_node_id,
+                      replaceHookExpressions(
+                        hook.resources || {},
+                        newResourceName,
+                        hook_node_id,
+                        JSON.parse(
+                          JSON.stringify(resource_config).replace(
+                            /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                            (_, key: string) => {
+                              graph.insertEdges(
+                                new CloudEdge({
+                                  from: hook_node_id,
+                                  to: node.id,
+                                  required: true,
+                                }),
+                              );
 
-                        return `\${{ ${node.id}.${key} }}`;
-                      },
+                              return `\${{ ${node.id}.${key} }}`;
+                            },
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            }),
+              }),
+            );
+          }
+
+          // Update
+          const hookData = { ...hook };
+          const hookResources = hookData.resources || {};
+          delete hookData.when;
+          delete hookData.resources;
+
+          node.inputs = this.replaceDatacenterResourceRefs(
+            graph,
+            node.id,
+            this.replaceEnvironmentResourceRefs(
+              graph,
+              environmentName,
+              node.id,
+              replaceHookExpressions(hookResources, node.name, node.id, {
+                ...node.inputs,
+                ...hookData,
+                account: node.inputs.account || hookData.account,
+              } as any),
+            ),
           );
-        }
 
-        // Update
-        const hookData = { ...hook };
-        const hookResources = hookData.resources || {};
-        delete hookData.when;
-        delete hookData.resources;
+          graph.insertNodes(node);
 
-        node.inputs = this.replaceEnvironmentResourceRefs(
-          graph,
-          environmentName,
-          node.id,
-          replaceHookExpressions(hookResources, node.name, node.id, {
-            ...node.inputs,
-            ...hookData,
-            account: node.inputs.account || hookData.account,
-          } as any),
-        );
-
-        graph.insertNodes(node);
-
-        if (node.account) {
-          break;
+          if (node.account) {
+            break;
+          }
         }
       }
     }
@@ -257,22 +332,7 @@ export default class DatacenterV1 extends Datacenter {
     return graph;
   }
 
-  configureBackend(scope: Construct, filename: string): void {
-    switch (this.state.type) {
-      case 'digitalocean': {
-        new S3Backend(scope, {
-          key: filename,
-          bucket: this.state.bucket,
-          accessKey: this.state.accessKey,
-          secretKey: this.state.secretKey,
-        });
-        return;
-      }
-      case 'local': {
-        new LocalBackend(scope, {
-          path: path.join(this.state.path, filename),
-        });
-      }
-    }
+  public getSecretsConfig(): DatacenterSecretsConfig {
+    return this.secrets;
   }
 }

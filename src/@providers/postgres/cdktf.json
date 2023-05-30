@@ -1,0 +1,13 @@
+{
+  "language": "typescript",
+  "app": "<not-required>",
+  "terraformModules": [],
+  "terraformProviders": [
+    {
+      "name": "postgresql",
+      "source": "cyrilgdn/postgresql",
+      "version": "1.19.0"
+    }
+  ],
+  "projectId": "0c09db6d-fae0-44ea-89fb-67e554ccb8c2"
+}

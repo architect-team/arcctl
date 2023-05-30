@@ -1,115 +1,113 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface SpacesBucketObjectConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#acl SpacesBucketObject#acl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#acl SpacesBucketObject#acl}
+  */
   readonly acl?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#bucket SpacesBucketObject#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#bucket SpacesBucketObject#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#cache_control SpacesBucketObject#cache_control}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#cache_control SpacesBucketObject#cache_control}
+  */
   readonly cacheControl?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content SpacesBucketObject#content}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content SpacesBucketObject#content}
+  */
   readonly content?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_base64 SpacesBucketObject#content_base64}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_base64 SpacesBucketObject#content_base64}
+  */
   readonly contentBase64?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_disposition SpacesBucketObject#content_disposition}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_disposition SpacesBucketObject#content_disposition}
+  */
   readonly contentDisposition?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_encoding SpacesBucketObject#content_encoding}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_encoding SpacesBucketObject#content_encoding}
+  */
   readonly contentEncoding?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_language SpacesBucketObject#content_language}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_language SpacesBucketObject#content_language}
+  */
   readonly contentLanguage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_type SpacesBucketObject#content_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#content_type SpacesBucketObject#content_type}
+  */
   readonly contentType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#etag SpacesBucketObject#etag}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#etag SpacesBucketObject#etag}
+  */
   readonly etag?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#force_destroy SpacesBucketObject#force_destroy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#force_destroy SpacesBucketObject#force_destroy}
+  */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#id SpacesBucketObject#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#id SpacesBucketObject#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#key SpacesBucketObject#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#key SpacesBucketObject#key}
+  */
   readonly key: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#metadata SpacesBucketObject#metadata}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#metadata SpacesBucketObject#metadata}
+  */
   readonly metadata?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#region SpacesBucketObject#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#region SpacesBucketObject#region}
+  */
   readonly region: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#source SpacesBucketObject#source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#source SpacesBucketObject#source}
+  */
   readonly source?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#website_redirect SpacesBucketObject#website_redirect}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object#website_redirect SpacesBucketObject#website_redirect}
+  */
   readonly websiteRedirect?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object}
+*/
 export class SpacesBucketObject extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_spaces_bucket_object';
+  public static readonly tfResourceType = "digitalocean_spaces_bucket_object";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SpacesBucketObjectConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SpacesBucketObjectConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket_object digitalocean_spaces_bucket_object} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SpacesBucketObjectConfig
+  */
+  public constructor(scope: Construct, id: string, config: SpacesBucketObjectConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_spaces_bucket_object',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -117,7 +115,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._acl = config.acl;
     this._bucket = config.bucket;
@@ -143,7 +141,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   // ==========
 
   // acl - computed: false, optional: true, required: false
-  private _acl?: string;
+  private _acl?: string; 
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -159,7 +157,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -172,7 +170,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // cache_control - computed: false, optional: true, required: false
-  private _cacheControl?: string;
+  private _cacheControl?: string; 
   public get cacheControl() {
     return this.getStringAttribute('cache_control');
   }
@@ -188,7 +186,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content - computed: false, optional: true, required: false
-  private _content?: string;
+  private _content?: string; 
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -204,7 +202,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_base64 - computed: false, optional: true, required: false
-  private _contentBase64?: string;
+  private _contentBase64?: string; 
   public get contentBase64() {
     return this.getStringAttribute('content_base64');
   }
@@ -220,7 +218,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_disposition - computed: false, optional: true, required: false
-  private _contentDisposition?: string;
+  private _contentDisposition?: string; 
   public get contentDisposition() {
     return this.getStringAttribute('content_disposition');
   }
@@ -236,7 +234,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_encoding - computed: false, optional: true, required: false
-  private _contentEncoding?: string;
+  private _contentEncoding?: string; 
   public get contentEncoding() {
     return this.getStringAttribute('content_encoding');
   }
@@ -252,7 +250,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_language - computed: false, optional: true, required: false
-  private _contentLanguage?: string;
+  private _contentLanguage?: string; 
   public get contentLanguage() {
     return this.getStringAttribute('content_language');
   }
@@ -268,7 +266,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // content_type - computed: true, optional: true, required: false
-  private _contentType?: string;
+  private _contentType?: string; 
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -284,7 +282,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // etag - computed: true, optional: true, required: false
-  private _etag?: string;
+  private _etag?: string; 
   public get etag() {
     return this.getStringAttribute('etag');
   }
@@ -300,7 +298,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable;
+  private _forceDestroy?: boolean | cdktf.IResolvable; 
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -316,7 +314,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -332,7 +330,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -345,7 +343,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: true, required: false
-  private _metadata?: { [key: string]: string };
+  private _metadata?: { [key: string]: string }; 
   public get metadata() {
     return this.getStringMapAttribute('metadata');
   }
@@ -361,7 +359,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -374,7 +372,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string;
+  private _source?: string; 
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -395,7 +393,7 @@ export class SpacesBucketObject extends cdktf.TerraformResource {
   }
 
   // website_redirect - computed: false, optional: true, required: false
-  private _websiteRedirect?: string;
+  private _websiteRedirect?: string; 
   public get websiteRedirect() {
     return this.getStringAttribute('website_redirect');
   }

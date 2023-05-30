@@ -1,81 +1,64 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanKubernetesClusterConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanKubernetesClusterConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster#id DataDigitaloceanKubernetesCluster#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster#id DataDigitaloceanKubernetesCluster#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster#name DataDigitaloceanKubernetesCluster#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster#name DataDigitaloceanKubernetesCluster#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster#tags DataDigitaloceanKubernetesCluster#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster#tags DataDigitaloceanKubernetesCluster#tags}
+  */
   readonly tags?: string[];
 }
-export interface DataDigitaloceanKubernetesClusterKubeConfig {}
+export interface DataDigitaloceanKubernetesClusterKubeConfig {
+}
 
-export function dataDigitaloceanKubernetesClusterKubeConfigToTerraform(
-  struct?: DataDigitaloceanKubernetesClusterKubeConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanKubernetesClusterKubeConfigToTerraform(struct?: DataDigitaloceanKubernetesClusterKubeConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanKubernetesClusterKubeConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanKubernetesClusterKubeConfig
-    | undefined {
+  public get internalValue(): DataDigitaloceanKubernetesClusterKubeConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanKubernetesClusterKubeConfig | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanKubernetesClusterKubeConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -117,86 +100,59 @@ export class DataDigitaloceanKubernetesClusterKubeConfigOutputReference extends 
 }
 
 export class DataDigitaloceanKubernetesClusterKubeConfigList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanKubernetesClusterKubeConfigOutputReference {
-    return new DataDigitaloceanKubernetesClusterKubeConfigOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanKubernetesClusterKubeConfigOutputReference {
+    return new DataDigitaloceanKubernetesClusterKubeConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanKubernetesClusterMaintenancePolicy {}
+export interface DataDigitaloceanKubernetesClusterMaintenancePolicy {
+}
 
-export function dataDigitaloceanKubernetesClusterMaintenancePolicyToTerraform(
-  struct?: DataDigitaloceanKubernetesClusterMaintenancePolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanKubernetesClusterMaintenancePolicyToTerraform(struct?: DataDigitaloceanKubernetesClusterMaintenancePolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanKubernetesClusterMaintenancePolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanKubernetesClusterMaintenancePolicy
-    | undefined {
+  public get internalValue(): DataDigitaloceanKubernetesClusterMaintenancePolicy | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanKubernetesClusterMaintenancePolicy | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanKubernetesClusterMaintenancePolicy | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -218,86 +174,59 @@ export class DataDigitaloceanKubernetesClusterMaintenancePolicyOutputReference e
 }
 
 export class DataDigitaloceanKubernetesClusterMaintenancePolicyList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanKubernetesClusterMaintenancePolicyOutputReference {
-    return new DataDigitaloceanKubernetesClusterMaintenancePolicyOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanKubernetesClusterMaintenancePolicyOutputReference {
+    return new DataDigitaloceanKubernetesClusterMaintenancePolicyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanKubernetesClusterNodePoolNodes {}
+export interface DataDigitaloceanKubernetesClusterNodePoolNodes {
+}
 
-export function dataDigitaloceanKubernetesClusterNodePoolNodesToTerraform(
-  struct?: DataDigitaloceanKubernetesClusterNodePoolNodes,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanKubernetesClusterNodePoolNodesToTerraform(struct?: DataDigitaloceanKubernetesClusterNodePoolNodes): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanKubernetesClusterNodePoolNodesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanKubernetesClusterNodePoolNodes
-    | undefined {
+  public get internalValue(): DataDigitaloceanKubernetesClusterNodePoolNodes | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanKubernetesClusterNodePoolNodes | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanKubernetesClusterNodePoolNodes | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -334,86 +263,59 @@ export class DataDigitaloceanKubernetesClusterNodePoolNodesOutputReference exten
 }
 
 export class DataDigitaloceanKubernetesClusterNodePoolNodesList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanKubernetesClusterNodePoolNodesOutputReference {
-    return new DataDigitaloceanKubernetesClusterNodePoolNodesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanKubernetesClusterNodePoolNodesOutputReference {
+    return new DataDigitaloceanKubernetesClusterNodePoolNodesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanKubernetesClusterNodePoolTaint {}
+export interface DataDigitaloceanKubernetesClusterNodePoolTaint {
+}
 
-export function dataDigitaloceanKubernetesClusterNodePoolTaintToTerraform(
-  struct?: DataDigitaloceanKubernetesClusterNodePoolTaint,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanKubernetesClusterNodePoolTaintToTerraform(struct?: DataDigitaloceanKubernetesClusterNodePoolTaint): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanKubernetesClusterNodePoolTaintOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanKubernetesClusterNodePoolTaint
-    | undefined {
+  public get internalValue(): DataDigitaloceanKubernetesClusterNodePoolTaint | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanKubernetesClusterNodePoolTaint | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanKubernetesClusterNodePoolTaint | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -435,86 +337,59 @@ export class DataDigitaloceanKubernetesClusterNodePoolTaintOutputReference exten
 }
 
 export class DataDigitaloceanKubernetesClusterNodePoolTaintList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanKubernetesClusterNodePoolTaintOutputReference {
-    return new DataDigitaloceanKubernetesClusterNodePoolTaintOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanKubernetesClusterNodePoolTaintOutputReference {
+    return new DataDigitaloceanKubernetesClusterNodePoolTaintOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanKubernetesClusterNodePool {}
+export interface DataDigitaloceanKubernetesClusterNodePool {
+}
 
-export function dataDigitaloceanKubernetesClusterNodePoolToTerraform(
-  struct?: DataDigitaloceanKubernetesClusterNodePool,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanKubernetesClusterNodePoolToTerraform(struct?: DataDigitaloceanKubernetesClusterNodePool): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanKubernetesClusterNodePoolOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanKubernetesClusterNodePool
-    | undefined {
+  public get internalValue(): DataDigitaloceanKubernetesClusterNodePool | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanKubernetesClusterNodePool | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanKubernetesClusterNodePool | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -535,7 +410,7 @@ export class DataDigitaloceanKubernetesClusterNodePoolOutputReference extends cd
   }
 
   // labels - computed: true, optional: false, required: false
-  private _labels = new cdktf.StringMap(this, 'labels');
+  private _labels = new cdktf.StringMap(this, "labels");
   public get labels() {
     return this._labels;
   }
@@ -561,11 +436,7 @@ export class DataDigitaloceanKubernetesClusterNodePoolOutputReference extends cd
   }
 
   // nodes - computed: true, optional: false, required: false
-  private _nodes = new DataDigitaloceanKubernetesClusterNodePoolNodesList(
-    this,
-    'nodes',
-    false,
-  );
+  private _nodes = new DataDigitaloceanKubernetesClusterNodePoolNodesList(this, "nodes", false);
   public get nodes() {
     return this._nodes;
   }
@@ -581,76 +452,59 @@ export class DataDigitaloceanKubernetesClusterNodePoolOutputReference extends cd
   }
 
   // taint - computed: true, optional: false, required: false
-  private _taint = new DataDigitaloceanKubernetesClusterNodePoolTaintList(
-    this,
-    'taint',
-    true,
-  );
+  private _taint = new DataDigitaloceanKubernetesClusterNodePoolTaintList(this, "taint", true);
   public get taint() {
     return this._taint;
   }
 }
 
 export class DataDigitaloceanKubernetesClusterNodePoolList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanKubernetesClusterNodePoolOutputReference {
-    return new DataDigitaloceanKubernetesClusterNodePoolOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanKubernetesClusterNodePoolOutputReference {
+    return new DataDigitaloceanKubernetesClusterNodePoolOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster digitalocean_kubernetes_cluster}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster digitalocean_kubernetes_cluster}
+*/
 export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_kubernetes_cluster';
+  public static readonly tfResourceType = "digitalocean_kubernetes_cluster";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster digitalocean_kubernetes_cluster} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanKubernetesClusterConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanKubernetesClusterConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/kubernetes_cluster digitalocean_kubernetes_cluster} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanKubernetesClusterConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanKubernetesClusterConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_kubernetes_cluster',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -658,7 +512,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -695,7 +549,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -716,28 +570,19 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // kube_config - computed: true, optional: false, required: false
-  private _kubeConfig = new DataDigitaloceanKubernetesClusterKubeConfigList(
-    this,
-    'kube_config',
-    false,
-  );
+  private _kubeConfig = new DataDigitaloceanKubernetesClusterKubeConfigList(this, "kube_config", false);
   public get kubeConfig() {
     return this._kubeConfig;
   }
 
   // maintenance_policy - computed: true, optional: false, required: false
-  private _maintenancePolicy =
-    new DataDigitaloceanKubernetesClusterMaintenancePolicyList(
-      this,
-      'maintenance_policy',
-      false,
-    );
+  private _maintenancePolicy = new DataDigitaloceanKubernetesClusterMaintenancePolicyList(this, "maintenance_policy", false);
   public get maintenancePolicy() {
     return this._maintenancePolicy;
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -750,11 +595,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // node_pool - computed: true, optional: false, required: false
-  private _nodePool = new DataDigitaloceanKubernetesClusterNodePoolList(
-    this,
-    'node_pool',
-    false,
-  );
+  private _nodePool = new DataDigitaloceanKubernetesClusterNodePoolList(this, "node_pool", false);
   public get nodePool() {
     return this._nodePool;
   }
@@ -780,7 +621,7 @@ export class DataDigitaloceanKubernetesCluster extends cdktf.TerraformDataSource
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[];
+  private _tags?: string[]; 
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }

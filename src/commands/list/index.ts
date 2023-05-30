@@ -8,10 +8,9 @@ export default class ListResourcesCommand extends BaseCommand {
     'List all the cloud resources matching the specified criteria';
 
   static flags = {
-    credentials: Flags.string({
-      char: 'c',
-      description:
-        'The cloud provider credentials to use to apply this resource',
+    account: Flags.string({
+      char: 'a',
+      description: 'The cloud provider account to query resources from',
     }),
 
     filter: Flags.string({
@@ -33,13 +32,13 @@ export default class ListResourcesCommand extends BaseCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(ListResourcesCommand);
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const account = await this.promptForAccount({
+      account: flags.account,
       type: args.type,
       action: 'list',
     });
     const type = (await this.promptForResourceType(
-      provider,
+      account,
       'list',
       args.type,
     )) as ResourceType;
@@ -50,7 +49,7 @@ export default class ListResourcesCommand extends BaseCommand {
       filter[key] = value;
     }
 
-    const list = provider.resources[type]?.list?.bind(provider.resources[type]);
+    const list = account.resources[type]?.list?.bind(account.resources[type]);
     if (!list) {
       throw new Error(`Unable to list the resources for ${type}`);
     }

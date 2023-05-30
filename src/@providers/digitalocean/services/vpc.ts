@@ -1,14 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanVpcModule } from '../modules/vpc.ts';
-import { createApiClient, modules } from 'dots-wrapper';
+import { createApiClient } from 'dots-wrapper';
+import { IVpc } from 'dots-wrapper/dist/vpc/index.ts';
 
-export class DigitaloceanVpcService extends ResourceService<
-  'vpc',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanVpcService extends TerraformResourceService<'vpc', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -16,7 +15,7 @@ export class DigitaloceanVpcService extends ResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  private normalizeVpc(vpc: modules.vpc.IVpc): ResourceOutputs['vpc'] {
+  private normalizeVpc(vpc: IVpc): ResourceOutputs['vpc'] {
     return {
       id: vpc.id,
       name: vpc.name,
@@ -50,8 +49,8 @@ export class DigitaloceanVpcService extends ResourceService<
     };
   }
 
-  manage = {
-    validators: {
+  get validators(): InputValidators<'vpc'> {
+    return {
       name: (input: string) => {
         return (
           /^[\d.A-Za-z-]+$/.test(input) ||
@@ -60,14 +59,10 @@ export class DigitaloceanVpcService extends ResourceService<
       },
 
       description: (input?: string) => {
-        return (
-          !input ||
-          input.length <= 255 ||
-          'Description must be less than 255 characters.'
-        );
+        return !input || input.length <= 255 || 'Description must be less than 255 characters.';
       },
-    },
+    };
+  }
 
-    module: DigitaloceanVpcModule,
-  };
+  readonly construct = DigitaloceanVpcModule;
 }

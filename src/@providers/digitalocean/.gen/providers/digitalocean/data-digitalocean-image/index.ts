@@ -1,70 +1,67 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/image
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanImageConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanImageConfig extends cdktf.TerraformMetaArguments {
   /**
-   * id of the image
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#id DataDigitaloceanImage#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * id of the image
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#id DataDigitaloceanImage#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: number;
   /**
-   * name of the image
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#name DataDigitaloceanImage#name}
-   */
+  * name of the image
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#name DataDigitaloceanImage#name}
+  */
   readonly name?: string;
   /**
-   * slug of the image
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#slug DataDigitaloceanImage#slug}
-   */
+  * slug of the image
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#slug DataDigitaloceanImage#slug}
+  */
   readonly slug?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#source DataDigitaloceanImage#source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#source DataDigitaloceanImage#source}
+  */
   readonly source?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/image digitalocean_image}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/image digitalocean_image}
+*/
 export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_image';
+  public static readonly tfResourceType = "digitalocean_image";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/image digitalocean_image} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanImageConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanImageConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/image digitalocean_image} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanImageConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanImageConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_image',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -72,7 +69,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -105,7 +102,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: number;
+  private _id?: number; 
   public get id() {
     return this.getNumberAttribute('id');
   }
@@ -131,7 +128,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -162,7 +159,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // slug - computed: true, optional: true, required: false
-  private _slug?: string;
+  private _slug?: string; 
   public get slug() {
     return this.getStringAttribute('slug');
   }
@@ -178,7 +175,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string;
+  private _source?: string; 
   public get source() {
     return this.getStringAttribute('source');
   }

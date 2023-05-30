@@ -21,13 +21,6 @@ export class DatacenterStore {
     return path.join(this.config_dir, this.datacenter_filename);
   }
 
-  saveFile(name: string, content: string): string {
-    const file_path = path.join(this.config_dir, name);
-    Deno.mkdirSync(path.dirname(file_path), { recursive: true });
-    Deno.writeTextFileSync(file_path, content);
-    return file_path;
-  }
-
   async getDatacenter(name: string): Promise<DatacenterRecord | undefined> {
     const datacenters = await this.getDatacenters();
     return datacenters.find((record) => record.name === name);
@@ -84,9 +77,6 @@ export class DatacenterStore {
     await Deno.mkdir(path.dirname(this.datacenters_config_file), {
       recursive: true,
     });
-    await Deno.writeTextFile(
-      this.datacenters_config_file,
-      JSON.stringify(datacenters, null, 2),
-    );
+    await Deno.writeTextFile(this.datacenters_config_file, JSON.stringify(datacenters, null, 2));
   }
 }

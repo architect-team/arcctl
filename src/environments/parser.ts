@@ -1,6 +1,6 @@
 import { Environment } from './environment.ts';
 import { buildEnvironment, EnvironmentSchema } from './schema.ts';
-import _Ajv2019 from 'ajv/dist/2019.js';
+import _Ajv2019 from 'ajv/dist/2019.ts';
 import yaml from 'js-yaml';
 import * as path from 'std/path/mod.ts';
 // https://github.com/ajv-validator/ajv/issues/2132#issuecomment-1290409907
@@ -10,16 +10,10 @@ const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 const __dirname = new URL('.', import.meta.url).pathname;
 
-const environment_schema_contents = await Deno.readTextFile(
-  path.join(__dirname, './environment.schema.json'),
-);
-const validateEnvironment = ajv.compile<EnvironmentSchema>(
-  JSON.parse(environment_schema_contents),
-);
+const environment_schema_contents = await Deno.readTextFile(path.join(__dirname, './environment.schema.json'));
+const validateEnvironment = ajv.compile<EnvironmentSchema>(JSON.parse(environment_schema_contents));
 
-export const parseEnvironment = async (
-  input: Record<string, unknown> | string,
-): Promise<Environment> => {
+export const parseEnvironment = async (input: Record<string, unknown> | string): Promise<Environment> => {
   let raw_obj: any;
   if (typeof input === 'string') {
     const raw_contents = await Deno.readTextFile(input);

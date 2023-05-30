@@ -1,15 +1,13 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { ResourcePresets } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDatabaseModule } from '../modules/database.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
 
-export class AwsDatabaseService extends ResourceService<
-  'database',
-  AwsCredentials
-> {
+export class AwsDatabaseService extends TerraformResourceService<'database', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
@@ -37,7 +35,7 @@ export class AwsDatabaseService extends ResourceService<
               host: rds_database.Endpoint?.HostedZoneId || '',
               port: rds_database.Endpoint?.Port || 5432,
               protocol: rds_database.Engine || '',
-              provider: '',
+              account: '',
             });
           }
           resolve();
@@ -52,8 +50,8 @@ export class AwsDatabaseService extends ResourceService<
     };
   }
 
-  manage = {
-    presets: [
+  get presets(): ResourcePresets<'database'> {
+    return [
       {
         display: 'Development',
         values: {
@@ -62,8 +60,8 @@ export class AwsDatabaseService extends ResourceService<
           databaseSize: 'db.t3.medium',
         },
       },
-    ],
+    ];
+  }
 
-    module: AwsDatabaseModule,
-  };
+  construct = AwsDatabaseModule;
 }

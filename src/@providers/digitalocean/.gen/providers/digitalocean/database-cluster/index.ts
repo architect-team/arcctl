@@ -1,99 +1,191 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_cluster
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DatabaseClusterConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#engine DatabaseCluster#engine}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#engine DatabaseCluster#engine}
+  */
   readonly engine: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#eviction_policy DatabaseCluster#eviction_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#eviction_policy DatabaseCluster#eviction_policy}
+  */
   readonly evictionPolicy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#id DatabaseCluster#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#id DatabaseCluster#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#name DatabaseCluster#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#name DatabaseCluster#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#node_count DatabaseCluster#node_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#node_count DatabaseCluster#node_count}
+  */
   readonly nodeCount: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#private_network_uuid DatabaseCluster#private_network_uuid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#private_network_uuid DatabaseCluster#private_network_uuid}
+  */
   readonly privateNetworkUuid?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#region DatabaseCluster#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#project_id DatabaseCluster#project_id}
+  */
+  readonly projectId?: string;
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#region DatabaseCluster#region}
+  */
   readonly region: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#size DatabaseCluster#size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#size DatabaseCluster#size}
+  */
   readonly size: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#sql_mode DatabaseCluster#sql_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#sql_mode DatabaseCluster#sql_mode}
+  */
   readonly sqlMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#tags DatabaseCluster#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#tags DatabaseCluster#tags}
+  */
   readonly tags?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#version DatabaseCluster#version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#version DatabaseCluster#version}
+  */
   readonly version?: string;
   /**
-   * maintenance_window block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#maintenance_window DatabaseCluster#maintenance_window}
-   */
-  readonly maintenanceWindow?:
-    | DatabaseClusterMaintenanceWindow[]
-    | cdktf.IResolvable;
+  * backup_restore block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#backup_restore DatabaseCluster#backup_restore}
+  */
+  readonly backupRestore?: DatabaseClusterBackupRestore;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#timeouts DatabaseCluster#timeouts}
-   */
+  * maintenance_window block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#maintenance_window DatabaseCluster#maintenance_window}
+  */
+  readonly maintenanceWindow?: DatabaseClusterMaintenanceWindow[] | cdktf.IResolvable;
+  /**
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#timeouts DatabaseCluster#timeouts}
+  */
   readonly timeouts?: DatabaseClusterTimeouts;
+}
+export interface DatabaseClusterBackupRestore {
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#backup_created_at DatabaseCluster#backup_created_at}
+  */
+  readonly backupCreatedAt?: string;
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#database_name DatabaseCluster#database_name}
+  */
+  readonly databaseName: string;
+}
+
+export function databaseClusterBackupRestoreToTerraform(struct?: DatabaseClusterBackupRestoreOutputReference | DatabaseClusterBackupRestore): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktf.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+  }
+  return {
+    backup_created_at: cdktf.stringToTerraform(struct!.backupCreatedAt),
+    database_name: cdktf.stringToTerraform(struct!.databaseName),
+  }
+}
+
+export class DatabaseClusterBackupRestoreOutputReference extends cdktf.ComplexObject {
+  private isEmptyObject = false;
+
+  /**
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+    super(terraformResource, terraformAttribute, false, 0);
+  }
+
+  public get internalValue(): DatabaseClusterBackupRestore | undefined {
+    let hasAnyValues = this.isEmptyObject;
+    const internalValueResult: any = {};
+    if (this._backupCreatedAt !== undefined) {
+      hasAnyValues = true;
+      internalValueResult.backupCreatedAt = this._backupCreatedAt;
+    }
+    if (this._databaseName !== undefined) {
+      hasAnyValues = true;
+      internalValueResult.databaseName = this._databaseName;
+    }
+    return hasAnyValues ? internalValueResult : undefined;
+  }
+
+  public set internalValue(value: DatabaseClusterBackupRestore | undefined) {
+    if (value === undefined) {
+      this.isEmptyObject = false;
+      this._backupCreatedAt = undefined;
+      this._databaseName = undefined;
+    }
+    else {
+      this.isEmptyObject = Object.keys(value).length === 0;
+      this._backupCreatedAt = value.backupCreatedAt;
+      this._databaseName = value.databaseName;
+    }
+  }
+
+  // backup_created_at - computed: false, optional: true, required: false
+  private _backupCreatedAt?: string; 
+  public get backupCreatedAt() {
+    return this.getStringAttribute('backup_created_at');
+  }
+  public set backupCreatedAt(value: string) {
+    this._backupCreatedAt = value;
+  }
+  public resetBackupCreatedAt() {
+    this._backupCreatedAt = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get backupCreatedAtInput() {
+    return this._backupCreatedAt;
+  }
+
+  // database_name - computed: false, optional: false, required: true
+  private _databaseName?: string; 
+  public get databaseName() {
+    return this.getStringAttribute('database_name');
+  }
+  public set databaseName(value: string) {
+    this._databaseName = value;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get databaseNameInput() {
+    return this._databaseName;
+  }
 }
 export interface DatabaseClusterMaintenanceWindow {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#day DatabaseCluster#day}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#day DatabaseCluster#day}
+  */
   readonly day: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#hour DatabaseCluster#hour}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#hour DatabaseCluster#hour}
+  */
   readonly hour: string;
 }
 
-export function databaseClusterMaintenanceWindowToTerraform(
-  struct?: DatabaseClusterMaintenanceWindow | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function databaseClusterMaintenanceWindowToTerraform(struct?: DatabaseClusterMaintenanceWindow | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     day: cdktf.stringToTerraform(struct!.day),
     hour: cdktf.stringToTerraform(struct!.hour),
-  };
+  }
 }
 
 export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.ComplexObject {
@@ -101,29 +193,16 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DatabaseClusterMaintenanceWindow
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DatabaseClusterMaintenanceWindow | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -140,18 +219,18 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DatabaseClusterMaintenanceWindow | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DatabaseClusterMaintenanceWindow | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._day = undefined;
       this._hour = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._day = value.day;
@@ -160,7 +239,7 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
   }
 
   // day - computed: false, optional: false, required: true
-  private _day?: string;
+  private _day?: string; 
   public get day() {
     return this.getStringAttribute('day');
   }
@@ -173,7 +252,7 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
   }
 
   // hour - computed: false, optional: false, required: true
-  private _hour?: string;
+  private _hour?: string; 
   public get hour() {
     return this.getStringAttribute('hour');
   }
@@ -187,57 +266,39 @@ export class DatabaseClusterMaintenanceWindowOutputReference extends cdktf.Compl
 }
 
 export class DatabaseClusterMaintenanceWindowList extends cdktf.ComplexList {
-  public internalValue?: DatabaseClusterMaintenanceWindow[] | cdktf.IResolvable;
+  public internalValue? : DatabaseClusterMaintenanceWindow[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DatabaseClusterMaintenanceWindowOutputReference {
-    return new DatabaseClusterMaintenanceWindowOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DatabaseClusterMaintenanceWindowOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DatabaseClusterTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#create DatabaseCluster#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster#create DatabaseCluster#create}
+  */
   readonly create?: string;
 }
 
-export function databaseClusterTimeoutsToTerraform(
-  struct?:
-    | DatabaseClusterTimeoutsOutputReference
-    | DatabaseClusterTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function databaseClusterTimeoutsToTerraform(struct?: DatabaseClusterTimeoutsOutputReference | DatabaseClusterTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  };
+  }
 }
 
 export class DatabaseClusterTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -245,20 +306,14 @@ export class DatabaseClusterTimeoutsOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DatabaseClusterTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DatabaseClusterTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -271,17 +326,17 @@ export class DatabaseClusterTimeoutsOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DatabaseClusterTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DatabaseClusterTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -289,7 +344,7 @@ export class DatabaseClusterTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -306,36 +361,33 @@ export class DatabaseClusterTimeoutsOutputReference extends cdktf.ComplexObject 
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster digitalocean_database_cluster}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster digitalocean_database_cluster}
+*/
 export class DatabaseCluster extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_database_cluster';
+  public static readonly tfResourceType = "digitalocean_database_cluster";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster digitalocean_database_cluster} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DatabaseClusterConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DatabaseClusterConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/database_cluster digitalocean_database_cluster} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DatabaseClusterConfig
+  */
+  public constructor(scope: Construct, id: string, config: DatabaseClusterConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_database_cluster',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -343,7 +395,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._engine = config.engine;
     this._evictionPolicy = config.evictionPolicy;
@@ -351,11 +403,13 @@ export class DatabaseCluster extends cdktf.TerraformResource {
     this._name = config.name;
     this._nodeCount = config.nodeCount;
     this._privateNetworkUuid = config.privateNetworkUuid;
+    this._projectId = config.projectId;
     this._region = config.region;
     this._size = config.size;
     this._sqlMode = config.sqlMode;
     this._tags = config.tags;
     this._version = config.version;
+    this._backupRestore.internalValue = config.backupRestore;
     this._maintenanceWindow.internalValue = config.maintenanceWindow;
     this._timeouts.internalValue = config.timeouts;
   }
@@ -370,7 +424,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: false, optional: false, required: true
-  private _engine?: string;
+  private _engine?: string; 
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -383,7 +437,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // eviction_policy - computed: false, optional: true, required: false
-  private _evictionPolicy?: string;
+  private _evictionPolicy?: string; 
   public get evictionPolicy() {
     return this.getStringAttribute('eviction_policy');
   }
@@ -404,7 +458,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -420,7 +474,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -433,7 +487,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // node_count - computed: false, optional: false, required: true
-  private _nodeCount?: number;
+  private _nodeCount?: number; 
   public get nodeCount() {
     return this.getNumberAttribute('node_count');
   }
@@ -461,7 +515,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // private_network_uuid - computed: true, optional: true, required: false
-  private _privateNetworkUuid?: string;
+  private _privateNetworkUuid?: string; 
   public get privateNetworkUuid() {
     return this.getStringAttribute('private_network_uuid');
   }
@@ -481,8 +535,24 @@ export class DatabaseCluster extends cdktf.TerraformResource {
     return this.getStringAttribute('private_uri');
   }
 
+  // project_id - computed: true, optional: true, required: false
+  private _projectId?: string; 
+  public get projectId() {
+    return this.getStringAttribute('project_id');
+  }
+  public set projectId(value: string) {
+    this._projectId = value;
+  }
+  public resetProjectId() {
+    this._projectId = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get projectIdInput() {
+    return this._projectId;
+  }
+
   // region - computed: false, optional: false, required: true
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -495,7 +565,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: string;
+  private _size?: string; 
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -508,7 +578,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // sql_mode - computed: false, optional: true, required: false
-  private _sqlMode?: string;
+  private _sqlMode?: string; 
   public get sqlMode() {
     return this.getStringAttribute('sql_mode');
   }
@@ -524,7 +594,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[];
+  private _tags?: string[]; 
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -555,7 +625,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string;
+  private _version?: string; 
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -570,18 +640,28 @@ export class DatabaseCluster extends cdktf.TerraformResource {
     return this._version;
   }
 
+  // backup_restore - computed: false, optional: true, required: false
+  private _backupRestore = new DatabaseClusterBackupRestoreOutputReference(this, "backup_restore");
+  public get backupRestore() {
+    return this._backupRestore;
+  }
+  public putBackupRestore(value: DatabaseClusterBackupRestore) {
+    this._backupRestore.internalValue = value;
+  }
+  public resetBackupRestore() {
+    this._backupRestore.internalValue = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get backupRestoreInput() {
+    return this._backupRestore.internalValue;
+  }
+
   // maintenance_window - computed: false, optional: true, required: false
-  private _maintenanceWindow = new DatabaseClusterMaintenanceWindowList(
-    this,
-    'maintenance_window',
-    false,
-  );
+  private _maintenanceWindow = new DatabaseClusterMaintenanceWindowList(this, "maintenance_window", false);
   public get maintenanceWindow() {
     return this._maintenanceWindow;
   }
-  public putMaintenanceWindow(
-    value: DatabaseClusterMaintenanceWindow[] | cdktf.IResolvable,
-  ) {
+  public putMaintenanceWindow(value: DatabaseClusterMaintenanceWindow[] | cdktf.IResolvable) {
     this._maintenanceWindow.internalValue = value;
   }
   public resetMaintenanceWindow() {
@@ -593,10 +673,7 @@ export class DatabaseCluster extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DatabaseClusterTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new DatabaseClusterTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -623,18 +700,15 @@ export class DatabaseCluster extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       node_count: cdktf.numberToTerraform(this._nodeCount),
       private_network_uuid: cdktf.stringToTerraform(this._privateNetworkUuid),
+      project_id: cdktf.stringToTerraform(this._projectId),
       region: cdktf.stringToTerraform(this._region),
       size: cdktf.stringToTerraform(this._size),
       sql_mode: cdktf.stringToTerraform(this._sqlMode),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
       version: cdktf.stringToTerraform(this._version),
-      maintenance_window: cdktf.listMapper(
-        databaseClusterMaintenanceWindowToTerraform,
-        true,
-      )(this._maintenanceWindow.internalValue),
-      timeouts: databaseClusterTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      backup_restore: databaseClusterBackupRestoreToTerraform(this._backupRestore.internalValue),
+      maintenance_window: cdktf.listMapper(databaseClusterMaintenanceWindowToTerraform, true)(this._maintenanceWindow.internalValue),
+      timeouts: databaseClusterTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

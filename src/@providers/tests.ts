@@ -1,10 +1,6 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../@resources/index.ts';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { ProviderCredentials } from './credentials.ts';
-import { ResourceModule, ResourceModuleHooks } from './module.ts';
+import { ResourceModule } from './module.ts';
 import { TerraformOutput } from 'cdktf';
 
 export interface CldctlTestStack {
@@ -24,15 +20,13 @@ export interface CldctlTestStackOutputs extends CldctlTestStack {
 export interface CldctlTest<C extends Partial<ProviderCredentials>> {
   name: string;
   stacks: CldctlTestStack[];
-  hooks?: ResourceModuleHooks;
   validateCreate?: (context: CldctlTestContext<C>) => Promise<void>;
   validateList?: (context: CldctlTestContext<C>) => Promise<void>;
   validateGet?: (context: CldctlTestContext<C>) => Promise<void>;
   validateDelete?: (context: CldctlTestContext<C>) => Promise<void>;
 }
 
-export type CldctlTestResource<C extends Partial<ProviderCredentials>> =
-  CldctlTest<C>[];
+export type CldctlTestResource<C extends Partial<ProviderCredentials>> = CldctlTest<C>[];
 
 export interface CldctlTestContext<C extends Partial<ProviderCredentials>> {
   stacks: CldctlTestStackOutputs[];

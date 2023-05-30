@@ -1,11 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { InputValidators, ResourcePresets } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanKubernetesClusterService extends ResourceService<
+export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
   'kubernetesCluster',
   DigitaloceanCredentials
 > {
@@ -16,9 +17,7 @@ export class DigitaloceanKubernetesClusterService extends ResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     try {
       const {
         data: { kubernetes_cluster },
@@ -31,7 +30,7 @@ export class DigitaloceanKubernetesClusterService extends ResourceService<
         vpc: kubernetes_cluster.vpc_uuid,
         name: kubernetes_cluster.name,
         kubernetesVersion: kubernetes_cluster.version,
-        provider: '',
+        account: '',
       };
     } catch {
       return undefined;
@@ -60,26 +59,26 @@ export class DigitaloceanKubernetesClusterService extends ResourceService<
         name: cluster.name,
         vpc: cluster.vpc_uuid,
         kubernetesVersion: cluster.version,
-        provider: '',
+        account: '',
       })),
     };
   }
 
-  manage = {
-    validators: {
+  get validators(): InputValidators<'kubernetesCluster'> {
+    return {
       name: (input: string) =>
         /^[\d.A-Za-z-]+$/.test(input) ||
         'Must be unique and contain alphanumeric characters, dashes, and periods only.',
-      'nodePools.name': (input: string) =>
-        /^[\d.A-Za-z-]+$/.test(input) ||
-        'Must be unique and contain alphanumeric characters, dashes, and periods only.',
-      description: (input?: string) =>
-        !input ||
-        input.length <= 255 ||
-        'Description must be less than 255 characters',
-    },
+      // TODO: Fix typing on this
+      // 'nodePools.name': (input: string) =>
+      //   /^[\d.A-Za-z-]+$/.test(input) ||
+      //   'Must be unique and contain alphanumeric characters, dashes, and periods only.',
+      description: (input?: string) => !input || input.length <= 255 || 'Description must be less than 255 characters',
+    };
+  }
 
-    presets: [
+  get presets(): ResourcePresets<'kubernetesCluster'> {
+    return [
       {
         display: 'Minimum (Cheapest)',
         values: {
@@ -104,8 +103,8 @@ export class DigitaloceanKubernetesClusterService extends ResourceService<
           ],
         },
       },
-    ],
+    ];
+  }
 
-    module: DigitaloceanKubernetesClusterModule,
-  };
+  readonly construct = DigitaloceanKubernetesClusterModule;
 }

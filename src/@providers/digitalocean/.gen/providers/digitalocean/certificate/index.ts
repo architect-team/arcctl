@@ -1,71 +1,73 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/certificate
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface CertificateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#certificate_chain Certificate#certificate_chain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#certificate_chain Certificate#certificate_chain}
+  */
   readonly certificateChain?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#domains Certificate#domains}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#domains Certificate#domains}
+  */
   readonly domains?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#id Certificate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#id Certificate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#leaf_certificate Certificate#leaf_certificate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#leaf_certificate Certificate#leaf_certificate}
+  */
   readonly leafCertificate?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#name Certificate#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#name Certificate#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#private_key Certificate#private_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#private_key Certificate#private_key}
+  */
   readonly privateKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#type Certificate#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate#type Certificate#type}
+  */
   readonly type?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate digitalocean_certificate}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate digitalocean_certificate}
+*/
 export class Certificate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_certificate';
+  public static readonly tfResourceType = "digitalocean_certificate";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate digitalocean_certificate} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CertificateConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/certificate digitalocean_certificate} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CertificateConfig
+  */
   public constructor(scope: Construct, id: string, config: CertificateConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_certificate',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -73,7 +75,7 @@ export class Certificate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._certificateChain = config.certificateChain;
     this._domains = config.domains;
@@ -89,7 +91,7 @@ export class Certificate extends cdktf.TerraformResource {
   // ==========
 
   // certificate_chain - computed: false, optional: true, required: false
-  private _certificateChain?: string;
+  private _certificateChain?: string; 
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -105,7 +107,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // domains - computed: false, optional: true, required: false
-  private _domains?: string[];
+  private _domains?: string[]; 
   public get domains() {
     return cdktf.Fn.tolist(this.getListAttribute('domains'));
   }
@@ -121,7 +123,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -137,7 +139,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // leaf_certificate - computed: false, optional: true, required: false
-  private _leafCertificate?: string;
+  private _leafCertificate?: string; 
   public get leafCertificate() {
     return this.getStringAttribute('leaf_certificate');
   }
@@ -153,7 +155,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -171,7 +173,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // private_key - computed: false, optional: true, required: false
-  private _privateKey?: string;
+  private _privateKey?: string; 
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -197,7 +199,7 @@ export class Certificate extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }

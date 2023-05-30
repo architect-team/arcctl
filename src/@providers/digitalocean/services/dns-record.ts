@@ -1,14 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
+import { InputValidators } from '@providers/service.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDnsRecordService extends ResourceService<
-  'dnsRecord',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(private readonly credentials: DigitaloceanCredentials) {
@@ -74,32 +72,12 @@ export class DigitaloceanDnsRecordService extends ResourceService<
     };
   }
 
-  allowed_record_types = [
-    'A',
-    'AAAA',
-    'CAA',
-    'CNAME',
-    'MX',
-    'NS',
-    'SOA',
-    'SRV',
-    'TXT',
-  ];
-
-  manage = {
-    validators: {
-      name: (input: string): string | true => {
-        if (!/^[\w-]*[\dA-Za-z]$/.test(input)) {
-          return `Name must contain only contain upper and lowercase letters, numbers, dashes, and underscores and can't end with a dash or underscore.`;
-        }
-        return true;
-      },
-
+  get validators(): InputValidators<'dnsRecord'> {
+    return {
       recordType: (input: string): string | true => {
-        if (!this.allowed_record_types.includes(input)) {
-          return `Record type must be one of ${this.allowed_record_types.join(
-            ', ',
-          )}.`;
+        const allowed_record_types = ['A', 'AAAA', 'CAA', 'CNAME', 'MX', 'NS', 'SOA', 'SRV', 'TXT'];
+        if (!allowed_record_types.includes(input)) {
+          return `Record type must be one of ${allowed_record_types.join(', ')}.`;
         }
         return true;
       },
@@ -110,8 +88,8 @@ export class DigitaloceanDnsRecordService extends ResourceService<
         }
         return true;
       },
-    },
+    };
+  }
 
-    module: DigitaloceanDnsRecordModule,
-  };
+  readonly construct = DigitaloceanDnsRecordModule;
 }

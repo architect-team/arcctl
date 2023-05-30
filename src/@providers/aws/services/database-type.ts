@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { BaseService } from '../../service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsDatabaseTypeService extends ResourceService<
-  'databaseType',
-  AwsCredentials
-> {
+export class AwsDatabaseTypeService extends BaseService<'databaseType'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }

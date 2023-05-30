@@ -1,10 +1,7 @@
-import { Provider, ProviderResources } from '../provider.ts';
+import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from './.gen/providers/digitalocean/provider/index.ts';
-import {
-  DigitaloceanCredentials,
-  DigitaloceanCredentialsSchema,
-} from './credentials.ts';
+import { DigitaloceanCredentials, DigitaloceanCredentialsSchema } from './credentials.ts';
 import { DigitaloceanDatabaseSchemaService } from './services/database-schema.ts';
 import { DigitaloceanDatabaseSizeService } from './services/database-size.ts';
 import { DigitaloceanDatabaseTypeService } from './services/database-type.ts';
@@ -31,16 +28,12 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
 
   static readonly CredentialsSchema = DigitaloceanCredentialsSchema;
 
-  readonly resources: ProviderResources<DigitaloceanCredentials> = {
+  readonly resources = {
     region: new DigitaloceanRegionService(this.credentials),
     vpc: new DigitaloceanVpcService(this.credentials),
     nodeSize: new DigitaloceanNodeSizeService(this.credentials),
-    kubernetesVersion: new DigitaloceanKubernetesVersionService(
-      this.credentials,
-    ),
-    kubernetesCluster: new DigitaloceanKubernetesClusterService(
-      this.credentials,
-    ),
+    kubernetesVersion: new DigitaloceanKubernetesVersionService(this.credentials),
+    kubernetesCluster: new DigitaloceanKubernetesClusterService(this.credentials),
     database: new DigitaloceanDatabaseService(this.credentials),
     databaseSize: new DigitaloceanDatabaseSizeService(this.credentials),
     databaseType: new DigitaloceanDatabaseTypeService(this.credentials),
@@ -61,9 +54,7 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
     return true;
   }
 
-  public configureTerraformProviders(
-    scope: Construct,
-  ): TerraformDigitaloceanProvider {
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
     return new TerraformDigitaloceanProvider(scope, this.name, {
       token: this.credentials.token,
     });

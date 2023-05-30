@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { BaseService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseTypeService extends ResourceService<
-  'databaseType',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseTypeService extends BaseService<'databaseType'> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {

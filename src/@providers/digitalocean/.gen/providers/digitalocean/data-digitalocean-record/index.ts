@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/record
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanRecordConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanRecordConfig extends cdktf.TerraformMetaArguments {
   /**
-   * domain of the name record
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#domain DataDigitaloceanRecord#domain}
-   */
+  * domain of the name record
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#domain DataDigitaloceanRecord#domain}
+  */
   readonly domain: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#id DataDigitaloceanRecord#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#id DataDigitaloceanRecord#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * name of the record
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#name DataDigitaloceanRecord#name}
-   */
+  * name of the record
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/record#name DataDigitaloceanRecord#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/record digitalocean_record}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/record digitalocean_record}
+*/
 export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_record';
+  public static readonly tfResourceType = "digitalocean_record";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/record digitalocean_record} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanRecordConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanRecordConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/record digitalocean_record} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanRecordConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanRecordConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_record',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._domain = config.domain;
     this._id = config.id;
@@ -83,7 +80,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string;
+  private _domain?: string; 
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -101,7 +98,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -117,7 +114,7 @@ export class DataDigitaloceanRecord extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }

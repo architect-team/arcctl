@@ -2,7 +2,7 @@ export type DatabaseApplyOutputs = {
   protocol: string;
   host: string;
   port: number;
-  provider: string;
+  account: string;
   certificate?: string;
 };
 

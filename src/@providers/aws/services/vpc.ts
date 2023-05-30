@@ -1,25 +1,22 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsVpcModule } from '../modules/vpc.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
 
-export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
+export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
-  private normalizeVpc(
-    region: string,
-    vpc: AWS.EC2.Vpc,
-  ): ResourceOutputs['vpc'] {
+  private normalizeVpc(region: string, vpc: AWS.EC2.Vpc): ResourceOutputs['vpc'] {
     return {
       id: `${region}/${vpc.VpcId}`,
       name: vpc.Tags?.find((tag) => tag.Key === 'Name')?.Value || '',
-      description:
-        vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
+      description: vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
       region: region,
     };
   }
@@ -33,21 +30,18 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
       }
 
       const [_, region, uuid] = match;
-      AwsUtils.getEC2(this.credentials, region).describeVpcs(
-        { VpcIds: [uuid] },
-        (err, data) => {
-          if (err) {
-            reject(err);
-            return;
-          }
+      AwsUtils.getEC2(this.credentials, region).describeVpcs({ VpcIds: [uuid] }, (err, data) => {
+        if (err) {
+          reject(err);
+          return;
+        }
 
-          if (!data.Vpcs || data.Vpcs.length <= 0) {
-            resolve(undefined);
-          } else {
-            resolve(this.normalizeVpc(region, data.Vpcs[0]));
-          }
-        },
-      );
+        if (!data.Vpcs || data.Vpcs.length <= 0) {
+          resolve(undefined);
+        } else {
+          resolve(this.normalizeVpc(region, data.Vpcs[0]));
+        }
+      });
     });
   }
 
@@ -71,9 +65,7 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
     ];
 
     const vpcPromises = [];
-    for (const region of regions.rows.filter((r) =>
-      filterBy.region ? r.id === filterBy.region : true,
-    )) {
+    for (const region of regions.rows.filter((r) => (filterBy.region ? r.id === filterBy.region : true))) {
       vpcPromises.push(
         new Promise<void>(async (resolve, reject) => {
           const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
@@ -94,11 +86,7 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
             )
             .promise();
           res.total += vpcData?.Vpcs?.length || 0;
-          res.rows.push(
-            ...(vpcData?.Vpcs || []).map((vpc) =>
-              this.normalizeVpc(region.id, vpc),
-            ),
-          );
+          res.rows.push(...(vpcData?.Vpcs || []).map((vpc) => this.normalizeVpc(region.id, vpc)));
           resolve();
         }),
       );
@@ -109,8 +97,8 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
     return res;
   }
 
-  manage = {
-    validators: {
+  get validators(): InputValidators<'vpc'> {
+    return {
       name: (input: string) => {
         if (!/^[\w.-]+$/.test(input)) {
           return 'Name must only contain alphanumeric characters as well as dashes, underscores and periods.';
@@ -120,8 +108,8 @@ export class AwsVpcService extends ResourceService<'vpc', AwsCredentials> {
 
         return true;
       },
-    },
+    };
+  }
 
-    module: AwsVpcModule,
-  };
+  construct = AwsVpcModule;
 }

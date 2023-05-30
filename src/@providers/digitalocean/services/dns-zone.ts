@@ -1,14 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsZoneModule } from '../modules/dns-zone.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDnsZoneService extends ResourceService<
-  'dnsZone',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZone', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(private readonly credentials: DigitaloceanCredentials) {
@@ -55,23 +53,16 @@ export class DigitaloceanDnsZoneService extends ResourceService<
     };
   }
 
-  manage = {
-    validators: {
-      dnsName: (input: string): string | true => {
-        if (!/^\*?\S+\.\S+\.$/.test(input)) {
-          return 'DNS name must end with a period, have more than two parts separated by periods, and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
-        }
-        return true;
-      },
-
+  get validators(): InputValidators<'dnsZone'> {
+    return {
       name: (input: string): string | true => {
         if (!/^\*?\S+\.\S+$/.test(input)) {
           return 'Name must have more than two parts separated by periods and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
         }
         return true;
       },
-    },
+    };
+  }
 
-    module: DigitaloceanDnsZoneModule,
-  };
+  readonly construct = DigitaloceanDnsZoneModule;
 }

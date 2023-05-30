@@ -1,14 +1,11 @@
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesIngressRuleModule } from '../modules/ingress-rule.ts';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesIngressRuleService extends ResourceService<
-  'ingressRule',
-  KubernetesCredentials
-> {
+export class KubernetesIngressRuleService extends TerraformResourceService<'ingressRule', KubernetesCredentials> {
   private _client?: k8s.AppsV1Api;
 
   constructor(private readonly credentials: KubernetesCredentials) {
@@ -46,7 +43,5 @@ export class KubernetesIngressRuleService extends ResourceService<
     throw new Error('Method not implemented.');
   }
 
-  manage = {
-    module: KubernetesIngressRuleModule,
-  };
+  readonly construct = KubernetesIngressRuleModule;
 }

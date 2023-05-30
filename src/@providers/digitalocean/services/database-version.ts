@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { BaseService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseVersionService extends ResourceService<
-  'databaseVersion',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseVersionService extends BaseService<'databaseVersion'> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -15,9 +12,7 @@ export class DigitaloceanDatabaseVersionService extends ResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['databaseVersion'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['databaseVersion'] | undefined> {
     return undefined;
   }
 
@@ -37,8 +32,8 @@ export class DigitaloceanDatabaseVersionService extends ResourceService<
       for (const version of database_options.versions) {
         versions.push({
           id: version,
-          databaseVersion: version,
           databaseType: database_name,
+          databaseVersion: version,
         });
       }
     }

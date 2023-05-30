@@ -5,16 +5,16 @@ import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class KubernetesNamespaceModule extends ResourceModule<
-  'kubernetesNamespace',
+  'namespace',
   KubernetesCredentials
 > {
   private namespace: Namespace;
-  outputs: ResourceOutputs['kubernetesNamespace'];
+  outputs: ResourceOutputs['namespace'];
 
   constructor(
     scope: Construct,
     id: string,
-    inputs: ResourceInputs['kubernetesNamespace'],
+    inputs: ResourceInputs['namespace'],
   ) {
     super(scope, id, inputs);
 

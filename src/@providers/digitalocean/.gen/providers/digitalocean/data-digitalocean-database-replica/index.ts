@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/database_replica
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanDatabaseReplicaConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanDatabaseReplicaConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#cluster_id DataDigitaloceanDatabaseReplica#cluster_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#cluster_id DataDigitaloceanDatabaseReplica#cluster_id}
+  */
   readonly clusterId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#id DataDigitaloceanDatabaseReplica#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#id DataDigitaloceanDatabaseReplica#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#name DataDigitaloceanDatabaseReplica#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#name DataDigitaloceanDatabaseReplica#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#tags DataDigitaloceanDatabaseReplica#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica#tags DataDigitaloceanDatabaseReplica#tags}
+  */
   readonly tags?: string[];
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica digitalocean_database_replica}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica digitalocean_database_replica}
+*/
 export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_database_replica';
+  public static readonly tfResourceType = "digitalocean_database_replica";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica digitalocean_database_replica} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanDatabaseReplicaConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanDatabaseReplicaConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/database_replica digitalocean_database_replica} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanDatabaseReplicaConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanDatabaseReplicaConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_database_replica',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._clusterId = config.clusterId;
     this._id = config.id;
@@ -79,7 +76,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string;
+  private _clusterId?: string; 
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -102,7 +99,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +115,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -161,7 +158,7 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[];
+  private _tags?: string[]; 
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -184,6 +181,11 @@ export class DataDigitaloceanDatabaseReplica extends cdktf.TerraformDataSource {
   // user - computed: true, optional: false, required: false
   public get user() {
     return this.getStringAttribute('user');
+  }
+
+  // uuid - computed: true, optional: false, required: false
+  public get uuid() {
+    return this.getStringAttribute('uuid');
   }
 
   // =========

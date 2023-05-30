@@ -1,59 +1,61 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_user
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DatabaseUserConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#cluster_id DatabaseUser#cluster_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#cluster_id DatabaseUser#cluster_id}
+  */
   readonly clusterId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#id DatabaseUser#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#id DatabaseUser#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#mysql_auth_plugin DatabaseUser#mysql_auth_plugin}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#mysql_auth_plugin DatabaseUser#mysql_auth_plugin}
+  */
   readonly mysqlAuthPlugin?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#name DatabaseUser#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user#name DatabaseUser#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user digitalocean_database_user}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user digitalocean_database_user}
+*/
 export class DatabaseUser extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_database_user';
+  public static readonly tfResourceType = "digitalocean_database_user";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user digitalocean_database_user} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DatabaseUserConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/database_user digitalocean_database_user} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DatabaseUserConfig
+  */
   public constructor(scope: Construct, id: string, config: DatabaseUserConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_database_user',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -61,7 +63,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._clusterId = config.clusterId;
     this._id = config.id;
@@ -74,7 +76,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string;
+  private _clusterId?: string; 
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -87,7 +89,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -103,7 +105,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   }
 
   // mysql_auth_plugin - computed: false, optional: true, required: false
-  private _mysqlAuthPlugin?: string;
+  private _mysqlAuthPlugin?: string; 
   public get mysqlAuthPlugin() {
     return this.getStringAttribute('mysql_auth_plugin');
   }
@@ -119,7 +121,7 @@ export class DatabaseUser extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }

@@ -26,8 +26,6 @@ import type ingressRuleInputs from './ingressRule/inputs.ts';
 import type ingressRuleOutputs from './ingressRule/outputs.ts';
 import type kubernetesClusterInputs from './kubernetesCluster/inputs.ts';
 import type kubernetesClusterOutputs from './kubernetesCluster/outputs.ts';
-import type kubernetesNamespaceInputs from './kubernetesNamespace/inputs.ts';
-import type kubernetesNamespaceOutputs from './kubernetesNamespace/outputs.ts';
 import type kubernetesVersionInputs from './kubernetesVersion/inputs.ts';
 import type kubernetesVersionOutputs from './kubernetesVersion/outputs.ts';
 import type loadBalancerInputs from './loadBalancer/inputs.ts';
@@ -68,7 +66,6 @@ export type ResourceType =
   | 'helmChart'
   | 'ingressRule'
   | 'kubernetesCluster'
-  | 'kubernetesNamespace'
   | 'kubernetesVersion'
   | 'loadBalancer'
   | 'loadBalancerType'
@@ -80,8 +77,7 @@ export type ResourceType =
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc'
-;
+  | 'vpc';
 
 export const ResourceTypeList: ResourceType[] = [
   'cronjob',
@@ -98,7 +94,6 @@ export const ResourceTypeList: ResourceType[] = [
   'helmChart',
   'ingressRule',
   'kubernetesCluster',
-  'kubernetesNamespace',
   'kubernetesVersion',
   'loadBalancer',
   'loadBalancerType',
@@ -114,196 +109,189 @@ export const ResourceTypeList: ResourceType[] = [
 ];
 
 export type ResourceInputs = {
-  'cronjob': {
-    type: 'cronjob',
-    account?: string,
+  cronjob: {
+    type: 'cronjob';
+    account?: string;
   } & cronjobInputs;
-  'database': {
-    type: 'database',
-    account?: string,
+  database: {
+    type: 'database';
+    account?: string;
   } & databaseInputs;
-  'databaseSchema': {
-    type: 'databaseSchema',
-    account?: string,
+  databaseSchema: {
+    type: 'databaseSchema';
+    account?: string;
   } & databaseSchemaInputs;
-  'databaseSize': {
-    type: 'databaseSize',
-    account?: string,
+  databaseSize: {
+    type: 'databaseSize';
+    account?: string;
   } & databaseSizeInputs;
-  'databaseType': {
-    type: 'databaseType',
-    account?: string,
+  databaseType: {
+    type: 'databaseType';
+    account?: string;
   } & databaseTypeInputs;
-  'databaseUser': {
-    type: 'databaseUser',
-    account?: string,
+  databaseUser: {
+    type: 'databaseUser';
+    account?: string;
   } & databaseUserInputs;
-  'databaseVersion': {
-    type: 'databaseVersion',
-    account?: string,
+  databaseVersion: {
+    type: 'databaseVersion';
+    account?: string;
   } & databaseVersionInputs;
-  'deployment': {
-    type: 'deployment',
-    account?: string,
+  deployment: {
+    type: 'deployment';
+    account?: string;
   } & deploymentInputs;
-  'dnsRecord': {
-    type: 'dnsRecord',
-    account?: string,
+  dnsRecord: {
+    type: 'dnsRecord';
+    account?: string;
   } & dnsRecordInputs;
-  'dnsZone': {
-    type: 'dnsZone',
-    account?: string,
+  dnsZone: {
+    type: 'dnsZone';
+    account?: string;
   } & dnsZoneInputs;
-  'dockerBuild': {
-    type: 'dockerBuild',
-    account?: string,
+  dockerBuild: {
+    type: 'dockerBuild';
+    account?: string;
   } & dockerBuildInputs;
-  'helmChart': {
-    type: 'helmChart',
-    account?: string,
+  helmChart: {
+    type: 'helmChart';
+    account?: string;
   } & helmChartInputs;
-  'ingressRule': {
-    type: 'ingressRule',
-    account?: string,
+  ingressRule: {
+    type: 'ingressRule';
+    account?: string;
   } & ingressRuleInputs;
-  'kubernetesCluster': {
-    type: 'kubernetesCluster',
-    account?: string,
+  kubernetesCluster: {
+    type: 'kubernetesCluster';
+    account?: string;
   } & kubernetesClusterInputs;
-  'kubernetesNamespace': {
-    type: 'kubernetesNamespace',
-    account?: string,
-  } & kubernetesNamespaceInputs;
-  'kubernetesVersion': {
-    type: 'kubernetesVersion',
-    account?: string,
+  kubernetesVersion: {
+    type: 'kubernetesVersion';
+    account?: string;
   } & kubernetesVersionInputs;
-  'loadBalancer': {
-    type: 'loadBalancer',
-    account?: string,
+  loadBalancer: {
+    type: 'loadBalancer';
+    account?: string;
   } & loadBalancerInputs;
-  'loadBalancerType': {
-    type: 'loadBalancerType',
-    account?: string,
+  loadBalancerType: {
+    type: 'loadBalancerType';
+    account?: string;
   } & loadBalancerTypeInputs;
-  'namespace': {
-    type: 'namespace',
-    account?: string,
+  namespace: {
+    type: 'namespace';
+    account?: string;
   } & namespaceInputs;
-  'node': {
-    type: 'node',
-    account?: string,
+  node: {
+    type: 'node';
+    account?: string;
   } & nodeInputs;
-  'nodeSize': {
-    type: 'nodeSize',
-    account?: string,
+  nodeSize: {
+    type: 'nodeSize';
+    account?: string;
   } & nodeSizeInputs;
-  'region': {
-    type: 'region',
-    account?: string,
+  region: {
+    type: 'region';
+    account?: string;
   } & regionInputs;
-  'secret': {
-    type: 'secret',
-    account?: string,
+  secret: {
+    type: 'secret';
+    account?: string;
   } & secretInputs;
-  'service': {
-    type: 'service',
-    account?: string,
+  service: {
+    type: 'service';
+    account?: string;
   } & serviceInputs;
-  'task': {
-    type: 'task',
-    account?: string,
+  task: {
+    type: 'task';
+    account?: string;
   } & taskInputs;
-  'volume': {
-    type: 'volume',
-    account?: string,
+  volume: {
+    type: 'volume';
+    account?: string;
   } & volumeInputs;
-  'vpc': {
-    type: 'vpc',
-    account?: string,
+  vpc: {
+    type: 'vpc';
+    account?: string;
   } & vpcInputs;
 };
 
 export type ResourceOutputs = {
-  'cronjob': {
+  cronjob: {
     id: string;
   } & cronjobOutputs;
-  'database': {
+  database: {
     id: string;
   } & databaseOutputs;
-  'databaseSchema': {
+  databaseSchema: {
     id: string;
   } & databaseSchemaOutputs;
-  'databaseSize': {
+  databaseSize: {
     id: string;
   } & databaseSizeOutputs;
-  'databaseType': {
+  databaseType: {
     id: string;
   } & databaseTypeOutputs;
-  'databaseUser': {
+  databaseUser: {
     id: string;
   } & databaseUserOutputs;
-  'databaseVersion': {
+  databaseVersion: {
     id: string;
   } & databaseVersionOutputs;
-  'deployment': {
+  deployment: {
     id: string;
   } & deploymentOutputs;
-  'dnsRecord': {
+  dnsRecord: {
     id: string;
   } & dnsRecordOutputs;
-  'dnsZone': {
+  dnsZone: {
     id: string;
   } & dnsZoneOutputs;
-  'dockerBuild': {
+  dockerBuild: {
     id: string;
   } & dockerBuildOutputs;
-  'helmChart': {
+  helmChart: {
     id: string;
   } & helmChartOutputs;
-  'ingressRule': {
+  ingressRule: {
     id: string;
   } & ingressRuleOutputs;
-  'kubernetesCluster': {
+  kubernetesCluster: {
     id: string;
   } & kubernetesClusterOutputs;
-  'kubernetesNamespace': {
-    id: string;
-  } & kubernetesNamespaceOutputs;
-  'kubernetesVersion': {
+  kubernetesVersion: {
     id: string;
   } & kubernetesVersionOutputs;
-  'loadBalancer': {
+  loadBalancer: {
     id: string;
   } & loadBalancerOutputs;
-  'loadBalancerType': {
+  loadBalancerType: {
     id: string;
   } & loadBalancerTypeOutputs;
-  'namespace': {
+  namespace: {
     id: string;
   } & namespaceOutputs;
-  'node': {
+  node: {
     id: string;
   } & nodeOutputs;
-  'nodeSize': {
+  nodeSize: {
     id: string;
   } & nodeSizeOutputs;
-  'region': {
+  region: {
     id: string;
   } & regionOutputs;
-  'secret': {
+  secret: {
     id: string;
   } & secretOutputs;
-  'service': {
+  service: {
     id: string;
   } & serviceOutputs;
-  'task': {
+  task: {
     id: string;
   } & taskOutputs;
-  'volume': {
+  volume: {
     id: string;
   } & volumeOutputs;
-  'vpc': {
+  vpc: {
     id: string;
   } & vpcOutputs;
 };

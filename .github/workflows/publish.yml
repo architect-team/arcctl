@@ -33,9 +33,9 @@ jobs:
           node-version: '18'
       - uses: denoland/setup-deno@v1.1.2
       - run: deno task generate:npm
-      - run: cd build
-      - run: git branch
-      - run: cat package.json
+      - run: |
+          cd build
+          cat package.json
       # - run: |
       #     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
       #     npm publish --access public

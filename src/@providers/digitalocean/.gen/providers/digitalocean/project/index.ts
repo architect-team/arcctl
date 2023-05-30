@@ -1,83 +1,166 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/project
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ProjectConfig extends cdktf.TerraformMetaArguments {
   /**
-   * the description of the project
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#description Project#description}
-   */
+  * the description of the project
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#description Project#description}
+  */
   readonly description?: string;
   /**
-   * the environment of the project's resources
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#environment Project#environment}
-   */
+  * the environment of the project's resources
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#environment Project#environment}
+  */
   readonly environment?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#id Project#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#id Project#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * determine if the project is the default or not.
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#is_default Project#is_default}
-   */
+  * determine if the project is the default or not.
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#is_default Project#is_default}
+  */
   readonly isDefault?: boolean | cdktf.IResolvable;
   /**
-   * the human-readable name for the project
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#name Project#name}
-   */
+  * the human-readable name for the project
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#name Project#name}
+  */
   readonly name: string;
   /**
-   * the purpose of the project
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#purpose Project#purpose}
-   */
+  * the purpose of the project
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#purpose Project#purpose}
+  */
   readonly purpose?: string;
   /**
-   * the resources associated with the project
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#resources Project#resources}
-   */
+  * the resources associated with the project
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#resources Project#resources}
+  */
   readonly resources?: string[];
+  /**
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#timeouts Project#timeouts}
+  */
+  readonly timeouts?: ProjectTimeouts;
+}
+export interface ProjectTimeouts {
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#delete Project#delete}
+  */
+  readonly delete?: string;
+}
+
+export function projectTimeoutsToTerraform(struct?: ProjectTimeoutsOutputReference | ProjectTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktf.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+  }
+  return {
+    delete: cdktf.stringToTerraform(struct!.delete),
+  }
+}
+
+export class ProjectTimeoutsOutputReference extends cdktf.ComplexObject {
+  private isEmptyObject = false;
+  private resolvableValue?: cdktf.IResolvable;
+
+  /**
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+    super(terraformResource, terraformAttribute, false, 0);
+  }
+
+  public get internalValue(): ProjectTimeouts | cdktf.IResolvable | undefined {
+    if (this.resolvableValue) {
+      return this.resolvableValue;
+    }
+    let hasAnyValues = this.isEmptyObject;
+    const internalValueResult: any = {};
+    if (this._delete !== undefined) {
+      hasAnyValues = true;
+      internalValueResult.delete = this._delete;
+    }
+    return hasAnyValues ? internalValueResult : undefined;
+  }
+
+  public set internalValue(value: ProjectTimeouts | cdktf.IResolvable | undefined) {
+    if (value === undefined) {
+      this.isEmptyObject = false;
+      this.resolvableValue = undefined;
+      this._delete = undefined;
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
+      this.isEmptyObject = false;
+      this.resolvableValue = value;
+    }
+    else {
+      this.isEmptyObject = Object.keys(value).length === 0;
+      this.resolvableValue = undefined;
+      this._delete = value.delete;
+    }
+  }
+
+  // delete - computed: false, optional: true, required: false
+  private _delete?: string; 
+  public get delete() {
+    return this.getStringAttribute('delete');
+  }
+  public set delete(value: string) {
+    this._delete = value;
+  }
+  public resetDelete() {
+    this._delete = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get deleteInput() {
+    return this._delete;
+  }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/project digitalocean_project}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/project digitalocean_project}
+*/
 export class Project extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_project';
+  public static readonly tfResourceType = "digitalocean_project";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/project digitalocean_project} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ProjectConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/project digitalocean_project} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ProjectConfig
+  */
   public constructor(scope: Construct, id: string, config: ProjectConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_project',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -85,7 +168,7 @@ export class Project extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._environment = config.environment;
@@ -94,6 +177,7 @@ export class Project extends cdktf.TerraformResource {
     this._name = config.name;
     this._purpose = config.purpose;
     this._resources = config.resources;
+    this._timeouts.internalValue = config.timeouts;
   }
 
   // ==========
@@ -106,7 +190,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -122,7 +206,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment?: string;
+  private _environment?: string; 
   public get environment() {
     return this.getStringAttribute('environment');
   }
@@ -138,7 +222,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -154,7 +238,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // is_default - computed: false, optional: true, required: false
-  private _isDefault?: boolean | cdktf.IResolvable;
+  private _isDefault?: boolean | cdktf.IResolvable; 
   public get isDefault() {
     return this.getBooleanAttribute('is_default');
   }
@@ -170,7 +254,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -193,7 +277,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // purpose - computed: false, optional: true, required: false
-  private _purpose?: string;
+  private _purpose?: string; 
   public get purpose() {
     return this.getStringAttribute('purpose');
   }
@@ -209,7 +293,7 @@ export class Project extends cdktf.TerraformResource {
   }
 
   // resources - computed: true, optional: true, required: false
-  private _resources?: string[];
+  private _resources?: string[]; 
   public get resources() {
     return cdktf.Fn.tolist(this.getListAttribute('resources'));
   }
@@ -229,6 +313,22 @@ export class Project extends cdktf.TerraformResource {
     return this.getStringAttribute('updated_at');
   }
 
+  // timeouts - computed: false, optional: true, required: false
+  private _timeouts = new ProjectTimeoutsOutputReference(this, "timeouts");
+  public get timeouts() {
+    return this._timeouts;
+  }
+  public putTimeouts(value: ProjectTimeouts) {
+    this._timeouts.internalValue = value;
+  }
+  public resetTimeouts() {
+    this._timeouts.internalValue = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get timeoutsInput() {
+    return this._timeouts.internalValue;
+  }
+
   // =========
   // SYNTHESIS
   // =========
@@ -241,10 +341,8 @@ export class Project extends cdktf.TerraformResource {
       is_default: cdktf.booleanToTerraform(this._isDefault),
       name: cdktf.stringToTerraform(this._name),
       purpose: cdktf.stringToTerraform(this._purpose),
-      resources: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._resources),
+      resources: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resources),
+      timeouts: projectTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

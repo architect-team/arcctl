@@ -65,16 +65,23 @@ export class KubernetesIngressRuleModule extends ResourceModule<
     }
     url += inputs.listener?.path || '/';
 
+    const ip_address = this.ingress.status
+      .get(0)
+      .loadBalancer.get(0)
+      .ingress.get(0).ip;
+
+    const hostname = this.ingress.status
+      .get(0)
+      .loadBalancer.get(0)
+      .ingress.get(0).hostname;
+
     this.outputs = {
       id: `${this.ingress.metadata.namespace}/${this.ingress.metadata.name}`,
       host,
       port: inputs.port,
       path: inputs.listener?.path || '/',
       url,
-      loadBalancerHostname: this.ingress.status
-        .get(0)
-        .loadBalancer.get(0)
-        .ingress.get(0).ip,
+      loadBalancerHostname: `\${${ip_address} != "" ? ${ip_address} : ${hostname}}`,
     };
   }
 

@@ -1,35 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { BaseService } from '../../service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsDatabaseSizeService extends ResourceService<
-  'databaseSize',
-  AwsCredentials
-> {
+export class AwsDatabaseSizeService extends BaseService<'databaseSize'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
-  }
-
-  private async getInstanceTypes(
-    ec2: AWS.EC2,
-    token?: string,
-  ): Promise<string[]> {
-    const ec2InstanceTypeData = await ec2
-      .describeInstanceTypes({
-        NextToken: token,
-      })
-      .promise();
-    const types: string[] = [
-      ...(ec2InstanceTypeData.InstanceTypes?.map((instance) => {
-        return instance.InstanceType || '';
-      }) || []),
-      ...(ec2InstanceTypeData.NextToken
-        ? await this.getInstanceTypes(ec2, ec2InstanceTypeData.NextToken)
-        : []),
-    ];
-    return types;
   }
 
   async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
@@ -48,8 +25,7 @@ export class AwsDatabaseSizeService extends ResourceService<
         .describeOrderableDBInstanceOptions({
           Marker: marker,
           Engine: filterOptions?.databaseType || 'mysql',
-          EngineVersion:
-            filterOptions?.databaseVersion?.split('/')[0] || '5.7.33',
+          EngineVersion: filterOptions?.databaseVersion?.split('/')[0] || '5.7.33',
         })
         .promise();
       for (const instance_option of data.OrderableDBInstanceOptions || []) {

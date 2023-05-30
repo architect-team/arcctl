@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { BaseService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseSizeService extends ResourceService<
-  'databaseSize',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseSizeService extends BaseService<'databaseSize'> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -29,16 +26,10 @@ export class DigitaloceanDatabaseSizeService extends ResourceService<
     const results: ResourceOutputs['databaseSize'][] = [];
     const included_sizes: string[] = [];
     for (const [engine, engine_options] of Object.entries(options)) {
-      if (
-        filterOptions?.databaseType &&
-        engine.toLowerCase() !== filterOptions?.databaseType.toLowerCase()
-      ) {
+      if (filterOptions?.databaseType && engine.toLowerCase() !== filterOptions?.databaseType.toLowerCase()) {
         continue;
       }
-      if (
-        filterOptions?.databaseVersion &&
-        !engine_options.versions?.includes(filterOptions?.databaseVersion)
-      ) {
+      if (filterOptions?.databaseVersion && !engine_options.versions?.includes(filterOptions?.databaseVersion)) {
         continue;
       }
       for (const layout of engine_options.layouts) {

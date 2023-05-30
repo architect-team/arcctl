@@ -16,7 +16,7 @@ export type HelmChartInputs = {
   repository: string;
 
   /**
-   * Chart name to be installed
+   * Chart to be installed
    */
   chart: string;
 

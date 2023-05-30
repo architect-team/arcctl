@@ -1,120 +1,119 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/droplet
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DropletConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#backups Droplet#backups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#backups Droplet#backups}
+  */
   readonly backups?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#droplet_agent Droplet#droplet_agent}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#droplet_agent Droplet#droplet_agent}
+  */
   readonly dropletAgent?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#graceful_shutdown Droplet#graceful_shutdown}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#graceful_shutdown Droplet#graceful_shutdown}
+  */
   readonly gracefulShutdown?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#id Droplet#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#id Droplet#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#image Droplet#image}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#image Droplet#image}
+  */
   readonly image: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#ipv6 Droplet#ipv6}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#ipv6 Droplet#ipv6}
+  */
   readonly ipv6?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#monitoring Droplet#monitoring}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#ipv6_address Droplet#ipv6_address}
+  */
+  readonly ipv6Address?: string;
+  /**
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#monitoring Droplet#monitoring}
+  */
   readonly monitoring?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#name Droplet#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#name Droplet#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#private_networking Droplet#private_networking}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#private_networking Droplet#private_networking}
+  */
   readonly privateNetworking?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#region Droplet#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#region Droplet#region}
+  */
   readonly region?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#resize_disk Droplet#resize_disk}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#resize_disk Droplet#resize_disk}
+  */
   readonly resizeDisk?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#size Droplet#size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#size Droplet#size}
+  */
   readonly size: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#ssh_keys Droplet#ssh_keys}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#ssh_keys Droplet#ssh_keys}
+  */
   readonly sshKeys?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#tags Droplet#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#tags Droplet#tags}
+  */
   readonly tags?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#user_data Droplet#user_data}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#user_data Droplet#user_data}
+  */
   readonly userData?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#volume_ids Droplet#volume_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#volume_ids Droplet#volume_ids}
+  */
   readonly volumeIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#vpc_uuid Droplet#vpc_uuid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#vpc_uuid Droplet#vpc_uuid}
+  */
   readonly vpcUuid?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#timeouts Droplet#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#timeouts Droplet#timeouts}
+  */
   readonly timeouts?: DropletTimeouts;
 }
 export interface DropletTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#create Droplet#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#create Droplet#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#delete Droplet#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#delete Droplet#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#update Droplet#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet#update Droplet#update}
+  */
   readonly update?: string;
 }
 
-export function dropletTimeoutsToTerraform(
-  struct?: DropletTimeoutsOutputReference | DropletTimeouts | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dropletTimeoutsToTerraform(struct?: DropletTimeoutsOutputReference | DropletTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -122,13 +121,10 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -153,19 +149,19 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DropletTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DropletTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -175,7 +171,7 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -191,7 +187,7 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -207,7 +203,7 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -224,32 +220,33 @@ export class DropletTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet digitalocean_droplet}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet digitalocean_droplet}
+*/
 export class Droplet extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_droplet';
+  public static readonly tfResourceType = "digitalocean_droplet";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet digitalocean_droplet} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DropletConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet digitalocean_droplet} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DropletConfig
+  */
   public constructor(scope: Construct, id: string, config: DropletConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_droplet',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -257,7 +254,7 @@ export class Droplet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._backups = config.backups;
     this._dropletAgent = config.dropletAgent;
@@ -265,6 +262,7 @@ export class Droplet extends cdktf.TerraformResource {
     this._id = config.id;
     this._image = config.image;
     this._ipv6 = config.ipv6;
+    this._ipv6Address = config.ipv6Address;
     this._monitoring = config.monitoring;
     this._name = config.name;
     this._privateNetworking = config.privateNetworking;
@@ -284,7 +282,7 @@ export class Droplet extends cdktf.TerraformResource {
   // ==========
 
   // backups - computed: false, optional: true, required: false
-  private _backups?: boolean | cdktf.IResolvable;
+  private _backups?: boolean | cdktf.IResolvable; 
   public get backups() {
     return this.getBooleanAttribute('backups');
   }
@@ -310,7 +308,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // droplet_agent - computed: false, optional: true, required: false
-  private _dropletAgent?: boolean | cdktf.IResolvable;
+  private _dropletAgent?: boolean | cdktf.IResolvable; 
   public get dropletAgent() {
     return this.getBooleanAttribute('droplet_agent');
   }
@@ -326,7 +324,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // graceful_shutdown - computed: false, optional: true, required: false
-  private _gracefulShutdown?: boolean | cdktf.IResolvable;
+  private _gracefulShutdown?: boolean | cdktf.IResolvable; 
   public get gracefulShutdown() {
     return this.getBooleanAttribute('graceful_shutdown');
   }
@@ -342,7 +340,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -358,7 +356,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string;
+  private _image?: string; 
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -381,7 +379,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // ipv6 - computed: false, optional: true, required: false
-  private _ipv6?: boolean | cdktf.IResolvable;
+  private _ipv6?: boolean | cdktf.IResolvable; 
   public get ipv6() {
     return this.getBooleanAttribute('ipv6');
   }
@@ -396,9 +394,20 @@ export class Droplet extends cdktf.TerraformResource {
     return this._ipv6;
   }
 
-  // ipv6_address - computed: true, optional: false, required: false
+  // ipv6_address - computed: true, optional: true, required: false
+  private _ipv6Address?: string; 
   public get ipv6Address() {
     return this.getStringAttribute('ipv6_address');
+  }
+  public set ipv6Address(value: string) {
+    this._ipv6Address = value;
+  }
+  public resetIpv6Address() {
+    this._ipv6Address = undefined;
+  }
+  // Temporarily expose input value. Use with caution.
+  public get ipv6AddressInput() {
+    return this._ipv6Address;
   }
 
   // locked - computed: true, optional: false, required: false
@@ -412,7 +421,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // monitoring - computed: false, optional: true, required: false
-  private _monitoring?: boolean | cdktf.IResolvable;
+  private _monitoring?: boolean | cdktf.IResolvable; 
   public get monitoring() {
     return this.getBooleanAttribute('monitoring');
   }
@@ -428,7 +437,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -451,7 +460,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // private_networking - computed: true, optional: true, required: false
-  private _privateNetworking?: boolean | cdktf.IResolvable;
+  private _privateNetworking?: boolean | cdktf.IResolvable; 
   public get privateNetworking() {
     return this.getBooleanAttribute('private_networking');
   }
@@ -467,7 +476,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -483,7 +492,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // resize_disk - computed: false, optional: true, required: false
-  private _resizeDisk?: boolean | cdktf.IResolvable;
+  private _resizeDisk?: boolean | cdktf.IResolvable; 
   public get resizeDisk() {
     return this.getBooleanAttribute('resize_disk');
   }
@@ -499,7 +508,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: string;
+  private _size?: string; 
   public get size() {
     return this.getStringAttribute('size');
   }
@@ -512,7 +521,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // ssh_keys - computed: false, optional: true, required: false
-  private _sshKeys?: string[];
+  private _sshKeys?: string[]; 
   public get sshKeys() {
     return cdktf.Fn.tolist(this.getListAttribute('ssh_keys'));
   }
@@ -533,7 +542,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[];
+  private _tags?: string[]; 
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -554,7 +563,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // user_data - computed: false, optional: true, required: false
-  private _userData?: string;
+  private _userData?: string; 
   public get userData() {
     return this.getStringAttribute('user_data');
   }
@@ -575,7 +584,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // volume_ids - computed: true, optional: true, required: false
-  private _volumeIds?: string[];
+  private _volumeIds?: string[]; 
   public get volumeIds() {
     return cdktf.Fn.tolist(this.getListAttribute('volume_ids'));
   }
@@ -591,7 +600,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // vpc_uuid - computed: true, optional: true, required: false
-  private _vpcUuid?: string;
+  private _vpcUuid?: string; 
   public get vpcUuid() {
     return this.getStringAttribute('vpc_uuid');
   }
@@ -607,7 +616,7 @@ export class Droplet extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DropletTimeoutsOutputReference(this, 'timeouts');
+  private _timeouts = new DropletTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -634,6 +643,7 @@ export class Droplet extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       image: cdktf.stringToTerraform(this._image),
       ipv6: cdktf.booleanToTerraform(this._ipv6),
+      ipv6_address: cdktf.stringToTerraform(this._ipv6Address),
       monitoring: cdktf.booleanToTerraform(this._monitoring),
       name: cdktf.stringToTerraform(this._name),
       private_networking: cdktf.booleanToTerraform(this._privateNetworking),
@@ -643,10 +653,7 @@ export class Droplet extends cdktf.TerraformResource {
       ssh_keys: cdktf.listMapper(cdktf.stringToTerraform, false)(this._sshKeys),
       tags: cdktf.listMapper(cdktf.stringToTerraform, false)(this._tags),
       user_data: cdktf.stringToTerraform(this._userData),
-      volume_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._volumeIds),
+      volume_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._volumeIds),
       vpc_uuid: cdktf.stringToTerraform(this._vpcUuid),
       timeouts: dropletTimeoutsToTerraform(this._timeouts.internalValue),
     };

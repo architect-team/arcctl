@@ -1,4 +1,4 @@
-# cldctl - Digitalocean Provider
+# arcctl - Digitalocean Provider
 
 ## Getting started
 

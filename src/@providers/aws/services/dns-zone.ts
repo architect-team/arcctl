@@ -1,23 +1,19 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsZoneModule } from '../modules/dns-zone.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsDnsZoneService extends ResourceService<
-  'dnsZone',
-  AwsCredentials
-> {
+export class AwsDnsZoneService extends TerraformResourceService<'dnsZone', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
   async get(id: string): Promise<ResourceOutputs['dnsZone'] | undefined> {
     try {
-      const dns_zone = await AwsUtils.getRoute53(this.credentials)
-        .getHostedZone({ Id: id })
-        .promise();
+      const dns_zone = await AwsUtils.getRoute53(this.credentials).getHostedZone({ Id: id }).promise();
 
       return {
         id: dns_zone.HostedZone.Id || '',
@@ -33,9 +29,7 @@ export class AwsDnsZoneService extends ResourceService<
     filterOptions?: Partial<ResourceOutputs['dnsZone']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsZone']>> {
-    const dns_zones = await AwsUtils.getRoute53(this.credentials)
-      .listHostedZones()
-      .promise();
+    const dns_zones = await AwsUtils.getRoute53(this.credentials).listHostedZones().promise();
 
     return {
       total: dns_zones.HostedZones?.length || 0,
@@ -47,23 +41,16 @@ export class AwsDnsZoneService extends ResourceService<
     };
   }
 
-  manage = {
-    validators: {
-      dnsName: (input: string): string | true => {
-        if (!/^\*?\S+\.\S+\.$/.test(input)) {
-          return 'DNS name must end with a period, have more than two parts separated by periods, and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
-        }
-        return true;
-      },
-
+  get validators(): InputValidators<'dnsZone'> {
+    return {
       name: (input: string): string | true => {
         if (!/^\*?\S+\.\S+\.$/.test(input)) {
           return 'Name must end with a period, have more than two parts separated by periods, and can have an optional asterisk at the beginning. Whitespace characters are not allowed.';
         }
         return true;
       },
-    },
+    };
+  }
 
-    module: AwsDnsZoneModule,
-  };
+  construct = AwsDnsZoneModule;
 }

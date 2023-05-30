@@ -1,73 +1,59 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/records
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanRecordsConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanRecordsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#domain DataDigitaloceanRecords#domain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#domain DataDigitaloceanRecords#domain}
+  */
   readonly domain: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#id DataDigitaloceanRecords#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#id DataDigitaloceanRecords#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#filter DataDigitaloceanRecords#filter}
-   */
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#filter DataDigitaloceanRecords#filter}
+  */
   readonly filter?: DataDigitaloceanRecordsFilter[] | cdktf.IResolvable;
   /**
-   * sort block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#sort DataDigitaloceanRecords#sort}
-   */
+  * sort block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#sort DataDigitaloceanRecords#sort}
+  */
   readonly sort?: DataDigitaloceanRecordsSort[] | cdktf.IResolvable;
 }
-export interface DataDigitaloceanRecordsRecords {}
+export interface DataDigitaloceanRecordsRecords {
+}
 
-export function dataDigitaloceanRecordsRecordsToTerraform(
-  struct?: DataDigitaloceanRecordsRecords,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanRecordsRecordsToTerraform(struct?: DataDigitaloceanRecordsRecords): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanRecordsRecordsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): DataDigitaloceanRecordsRecords | undefined {
@@ -79,7 +65,8 @@ export class DataDigitaloceanRecordsRecordsOutputReference extends cdktf.Complex
   public set internalValue(value: DataDigitaloceanRecordsRecords | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -141,67 +128,53 @@ export class DataDigitaloceanRecordsRecordsOutputReference extends cdktf.Complex
 }
 
 export class DataDigitaloceanRecordsRecordsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataDigitaloceanRecordsRecordsOutputReference {
-    return new DataDigitaloceanRecordsRecordsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataDigitaloceanRecordsRecordsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataDigitaloceanRecordsFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#all DataDigitaloceanRecords#all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#all DataDigitaloceanRecords#all}
+  */
   readonly all?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#key DataDigitaloceanRecords#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#key DataDigitaloceanRecords#key}
+  */
   readonly key: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#match_by DataDigitaloceanRecords#match_by}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#match_by DataDigitaloceanRecords#match_by}
+  */
   readonly matchBy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#values DataDigitaloceanRecords#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#values DataDigitaloceanRecords#values}
+  */
   readonly values: string[];
 }
 
-export function dataDigitaloceanRecordsFilterToTerraform(
-  struct?: DataDigitaloceanRecordsFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanRecordsFilterToTerraform(struct?: DataDigitaloceanRecordsFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     all: cdktf.booleanToTerraform(struct!.all),
     key: cdktf.stringToTerraform(struct!.key),
     match_by: cdktf.stringToTerraform(struct!.matchBy),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexObject {
@@ -209,29 +182,16 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanRecordsFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataDigitaloceanRecordsFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -256,9 +216,7 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanRecordsFilter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanRecordsFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -266,10 +224,12 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
       this._key = undefined;
       this._matchBy = undefined;
       this._values = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._all = value.all;
@@ -280,7 +240,7 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
   }
 
   // all - computed: false, optional: true, required: false
-  private _all?: boolean | cdktf.IResolvable;
+  private _all?: boolean | cdktf.IResolvable; 
   public get all() {
     return this.getBooleanAttribute('all');
   }
@@ -296,7 +256,7 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -309,7 +269,7 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
   }
 
   // match_by - computed: false, optional: true, required: false
-  private _matchBy?: string;
+  private _matchBy?: string; 
   public get matchBy() {
     return this.getStringAttribute('match_by');
   }
@@ -325,7 +285,7 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return this.getListAttribute('values');
   }
@@ -339,59 +299,44 @@ export class DataDigitaloceanRecordsFilterOutputReference extends cdktf.ComplexO
 }
 
 export class DataDigitaloceanRecordsFilterList extends cdktf.ComplexList {
-  public internalValue?: DataDigitaloceanRecordsFilter[] | cdktf.IResolvable;
+  public internalValue? : DataDigitaloceanRecordsFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataDigitaloceanRecordsFilterOutputReference {
-    return new DataDigitaloceanRecordsFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataDigitaloceanRecordsFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataDigitaloceanRecordsSort {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#direction DataDigitaloceanRecords#direction}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#direction DataDigitaloceanRecords#direction}
+  */
   readonly direction?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#key DataDigitaloceanRecords#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#key DataDigitaloceanRecords#key}
+  */
   readonly key: string;
 }
 
-export function dataDigitaloceanRecordsSortToTerraform(
-  struct?: DataDigitaloceanRecordsSort | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanRecordsSortToTerraform(struct?: DataDigitaloceanRecordsSort | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     direction: cdktf.stringToTerraform(struct!.direction),
     key: cdktf.stringToTerraform(struct!.key),
-  };
+  }
 }
 
 export class DataDigitaloceanRecordsSortOutputReference extends cdktf.ComplexObject {
@@ -399,29 +344,16 @@ export class DataDigitaloceanRecordsSortOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanRecordsSort
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataDigitaloceanRecordsSort | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -438,18 +370,18 @@ export class DataDigitaloceanRecordsSortOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanRecordsSort | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanRecordsSort | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._direction = undefined;
       this._key = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._direction = value.direction;
@@ -458,7 +390,7 @@ export class DataDigitaloceanRecordsSortOutputReference extends cdktf.ComplexObj
   }
 
   // direction - computed: false, optional: true, required: false
-  private _direction?: string;
+  private _direction?: string; 
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -474,7 +406,7 @@ export class DataDigitaloceanRecordsSortOutputReference extends cdktf.ComplexObj
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -488,65 +420,53 @@ export class DataDigitaloceanRecordsSortOutputReference extends cdktf.ComplexObj
 }
 
 export class DataDigitaloceanRecordsSortList extends cdktf.ComplexList {
-  public internalValue?: DataDigitaloceanRecordsSort[] | cdktf.IResolvable;
+  public internalValue? : DataDigitaloceanRecordsSort[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataDigitaloceanRecordsSortOutputReference {
-    return new DataDigitaloceanRecordsSortOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataDigitaloceanRecordsSortOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/records digitalocean_records}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/records digitalocean_records}
+*/
 export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_records';
+  public static readonly tfResourceType = "digitalocean_records";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/records digitalocean_records} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanRecordsConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanRecordsConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/records digitalocean_records} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanRecordsConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanRecordsConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_records',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -554,7 +474,7 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._domain = config.domain;
     this._id = config.id;
@@ -567,7 +487,7 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
   // ==========
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string;
+  private _domain?: string; 
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -580,7 +500,7 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -596,17 +516,13 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
   }
 
   // records - computed: true, optional: false, required: false
-  private _records = new DataDigitaloceanRecordsRecordsList(
-    this,
-    'records',
-    false,
-  );
+  private _records = new DataDigitaloceanRecordsRecordsList(this, "records", false);
   public get records() {
     return this._records;
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataDigitaloceanRecordsFilterList(this, 'filter', true);
+  private _filter = new DataDigitaloceanRecordsFilterList(this, "filter", true);
   public get filter() {
     return this._filter;
   }
@@ -622,7 +538,7 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
   }
 
   // sort - computed: false, optional: true, required: false
-  private _sort = new DataDigitaloceanRecordsSortList(this, 'sort', false);
+  private _sort = new DataDigitaloceanRecordsSortList(this, "sort", false);
   public get sort() {
     return this._sort;
   }
@@ -645,14 +561,8 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
     return {
       domain: cdktf.stringToTerraform(this._domain),
       id: cdktf.stringToTerraform(this._id),
-      filter: cdktf.listMapper(
-        dataDigitaloceanRecordsFilterToTerraform,
-        true,
-      )(this._filter.internalValue),
-      sort: cdktf.listMapper(
-        dataDigitaloceanRecordsSortToTerraform,
-        true,
-      )(this._sort.internalValue),
+      filter: cdktf.listMapper(dataDigitaloceanRecordsFilterToTerraform, true)(this._filter.internalValue),
+      sort: cdktf.listMapper(dataDigitaloceanRecordsSortToTerraform, true)(this._sort.internalValue),
     };
   }
 }

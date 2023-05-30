@@ -26,8 +26,6 @@ import type ingressRuleInputs from './ingressRule/inputs.ts';
 import type ingressRuleOutputs from './ingressRule/outputs.ts';
 import type kubernetesClusterInputs from './kubernetesCluster/inputs.ts';
 import type kubernetesClusterOutputs from './kubernetesCluster/outputs.ts';
-import type kubernetesNamespaceInputs from './kubernetesNamespace/inputs.ts';
-import type kubernetesNamespaceOutputs from './kubernetesNamespace/outputs.ts';
 import type kubernetesVersionInputs from './kubernetesVersion/inputs.ts';
 import type kubernetesVersionOutputs from './kubernetesVersion/outputs.ts';
 import type loadBalancerInputs from './loadBalancer/inputs.ts';
@@ -68,7 +66,6 @@ export type ResourceType =
   | 'helmChart'
   | 'ingressRule'
   | 'kubernetesCluster'
-  | 'kubernetesNamespace'
   | 'kubernetesVersion'
   | 'loadBalancer'
   | 'loadBalancerType'
@@ -98,7 +95,6 @@ export const ResourceTypeList: ResourceType[] = [
   'helmChart',
   'ingressRule',
   'kubernetesCluster',
-  'kubernetesNamespace',
   'kubernetesVersion',
   'loadBalancer',
   'loadBalancerType',
@@ -170,10 +166,6 @@ export type ResourceInputs = {
     type: 'kubernetesCluster',
     account?: string,
   } & kubernetesClusterInputs;
-  'kubernetesNamespace': {
-    type: 'kubernetesNamespace',
-    account?: string,
-  } & kubernetesNamespaceInputs;
   'kubernetesVersion': {
     type: 'kubernetesVersion',
     account?: string,
@@ -267,9 +259,6 @@ export type ResourceOutputs = {
   'kubernetesCluster': {
     id: string;
   } & kubernetesClusterOutputs;
-  'kubernetesNamespace': {
-    id: string;
-  } & kubernetesNamespaceOutputs;
   'kubernetesVersion': {
     id: string;
   } & kubernetesVersionOutputs;

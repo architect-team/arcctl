@@ -1,6 +1,5 @@
 import { ResourceType } from '../../@resources/index.ts';
 import { BaseCommand } from '../../base-command.ts';
-import { getProviders } from '../../utils/providers.ts';
 import { createTable } from '../../utils/table.ts';
 
 export default class GetAccountCommand extends BaseCommand {
@@ -17,14 +16,13 @@ export default class GetAccountCommand extends BaseCommand {
 
   async run(): Promise<void> {
     const { args } = await this.parse(GetAccountCommand);
-    const providers = await getProviders(this.config.configDir);
-    const provider = providers.find((p) => p.name === args.name);
-    if (!provider) {
-      this.error(`Account with name ${args.name} not found`);
-    }
+
+    const account = await this.promptForAccount({
+      account: args.name,
+    });
 
     const table1 = createTable({ head: ['Name', 'Type'] });
-    table1.push([provider.name, provider.type]);
+    table1.push([account.name, account.type]);
     this.log(`${table1.toString()}\n`);
 
     const table2 = createTable({
@@ -32,19 +30,11 @@ export default class GetAccountCommand extends BaseCommand {
     });
 
     const capabilities: { [key in ResourceType]?: string[] } = {};
-    for (const [type, impl] of provider.getResourceEntries()) {
-      capabilities[type] = capabilities[type] || [];
+    for (const [type, impl] of account.getResourceEntries()) {
+      capabilities[type] = capabilities[type] || ['list', 'get'];
 
-      if (impl.list) {
-        capabilities[type]?.push('list');
-      }
-
-      if (impl.get) {
-        capabilities[type]?.push('get');
-      }
-
-      if (impl.manage?.module) {
-        capabilities[type]?.push('create', 'delete');
+      if ('construct' in impl || 'create' in impl) {
+        capabilities[type]?.push('create', 'update', 'delete');
       }
     }
 

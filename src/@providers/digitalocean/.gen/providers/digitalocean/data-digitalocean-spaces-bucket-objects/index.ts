@@ -1,76 +1,73 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanSpacesBucketObjectsConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanSpacesBucketObjectsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#bucket DataDigitaloceanSpacesBucketObjects#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#bucket DataDigitaloceanSpacesBucketObjects#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#delimiter DataDigitaloceanSpacesBucketObjects#delimiter}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#delimiter DataDigitaloceanSpacesBucketObjects#delimiter}
+  */
   readonly delimiter?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#encoding_type DataDigitaloceanSpacesBucketObjects#encoding_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#encoding_type DataDigitaloceanSpacesBucketObjects#encoding_type}
+  */
   readonly encodingType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#id DataDigitaloceanSpacesBucketObjects#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#id DataDigitaloceanSpacesBucketObjects#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#max_keys DataDigitaloceanSpacesBucketObjects#max_keys}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#max_keys DataDigitaloceanSpacesBucketObjects#max_keys}
+  */
   readonly maxKeys?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#prefix DataDigitaloceanSpacesBucketObjects#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#prefix DataDigitaloceanSpacesBucketObjects#prefix}
+  */
   readonly prefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#region DataDigitaloceanSpacesBucketObjects#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects#region DataDigitaloceanSpacesBucketObjects#region}
+  */
   readonly region: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects}
+*/
 export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_spaces_bucket_objects';
+  public static readonly tfResourceType = "digitalocean_spaces_bucket_objects";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanSpacesBucketObjectsConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanSpacesBucketObjectsConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_objects digitalocean_spaces_bucket_objects} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanSpacesBucketObjectsConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanSpacesBucketObjectsConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_spaces_bucket_objects',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -78,7 +75,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._bucket = config.bucket;
     this._delimiter = config.delimiter;
@@ -94,7 +91,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -112,7 +109,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // delimiter - computed: false, optional: true, required: false
-  private _delimiter?: string;
+  private _delimiter?: string; 
   public get delimiter() {
     return this.getStringAttribute('delimiter');
   }
@@ -128,7 +125,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // encoding_type - computed: false, optional: true, required: false
-  private _encodingType?: string;
+  private _encodingType?: string; 
   public get encodingType() {
     return this.getStringAttribute('encoding_type');
   }
@@ -144,7 +141,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -165,7 +162,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // max_keys - computed: false, optional: true, required: false
-  private _maxKeys?: number;
+  private _maxKeys?: number; 
   public get maxKeys() {
     return this.getNumberAttribute('max_keys');
   }
@@ -186,7 +183,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -202,7 +199,7 @@ export class DataDigitaloceanSpacesBucketObjects extends cdktf.TerraformDataSour
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }

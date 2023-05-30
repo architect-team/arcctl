@@ -1,58 +1,55 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/tag
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanTagConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanTagConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/tag#id DataDigitaloceanTag#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/tag#id DataDigitaloceanTag#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * name of the tag
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/tag#name DataDigitaloceanTag#name}
-   */
+  * name of the tag
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/tag#name DataDigitaloceanTag#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/tag digitalocean_tag}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/tag digitalocean_tag}
+*/
 export class DataDigitaloceanTag extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_tag';
+  public static readonly tfResourceType = "digitalocean_tag";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/tag digitalocean_tag} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanTagConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanTagConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/tag digitalocean_tag} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanTagConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanTagConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_tag',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -60,7 +57,7 @@ export class DataDigitaloceanTag extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -81,7 +78,7 @@ export class DataDigitaloceanTag extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +99,7 @@ export class DataDigitaloceanTag extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }

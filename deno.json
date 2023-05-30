@@ -21,6 +21,7 @@
   },
   "tasks": {
     "compile": "deno compile -A src/index.ts --no-check --output bin/arcctl",
+    "generate:npm": "deno run -A ./bin/scripts/npm-package.ts",
     "generate:component-schema": "deno run -A ./bin/scripts/component-generator.ts",
     "generate:datacenter-schema": "deno run -A ./bin/scripts/datacenter-generator.ts",
     "generate:environment-schema": "deno run -A ./bin/scripts/environment-generator.ts",

@@ -1,14 +1,12 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsRecordModule } from '../modules/dns-record.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsDnsRecordService extends ResourceService<
-  'dnsRecord',
-  AwsCredentials
-> {
+export class AwsDnsRecordService extends TerraformResourceService<'dnsRecord', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
@@ -29,9 +27,7 @@ export class AwsDnsRecordService extends ResourceService<
         throw new Error(`DNS record set ${id} not found`);
       }
 
-      const record_data = dns_record.ResourceRecordSets[0].ResourceRecords?.map(
-        (r) => r.Value,
-      );
+      const record_data = dns_record.ResourceRecordSets[0].ResourceRecords?.map((r) => r.Value);
 
       return {
         id: dns_record.ResourceRecordSets[0].Name || '',
@@ -49,9 +45,7 @@ export class AwsDnsRecordService extends ResourceService<
     filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsRecord']>> {
-    const dns_zones = await AwsUtils.getRoute53(this.credentials)
-      .listHostedZones()
-      .promise();
+    const dns_zones = await AwsUtils.getRoute53(this.credentials).listHostedZones().promise();
 
     const dns_record_rows: ResourceOutputs['dnsRecord'][] = [];
     for (const dns_zone of dns_zones.HostedZones || []) {
@@ -79,32 +73,31 @@ export class AwsDnsRecordService extends ResourceService<
     };
   }
 
-  allowed_record_types = [
-    'A',
-    'AAAA',
-    'CAA',
-    'CNAME',
-    'MX',
-    'NAPTR',
-    'NS',
-    'PTR',
-    'SOA',
-    'SPF',
-    'SRV',
-    'TXT',
-  ];
-  manage = {
-    validators: {
+  get validators(): InputValidators<'dnsRecord'> {
+    return {
       recordType: (input: string): string | true => {
-        if (!this.allowed_record_types.includes(input)) {
-          return `Record type must be one of ${this.allowed_record_types.join(
-            ', ',
-          )}.`;
+        const allowed_record_types = [
+          'A',
+          'AAAA',
+          'CAA',
+          'CNAME',
+          'MX',
+          'NAPTR',
+          'NS',
+          'PTR',
+          'SOA',
+          'SPF',
+          'SRV',
+          'TXT',
+        ];
+
+        if (!allowed_record_types.includes(input)) {
+          return `Record type must be one of ${allowed_record_types.join(', ')}.`;
         }
         return true;
       },
-    },
+    };
+  }
 
-    module: AwsDnsRecordModule,
-  };
+  construct = AwsDnsRecordModule;
 }

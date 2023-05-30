@@ -10,16 +10,12 @@ const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 const __dirname = new URL('.', import.meta.url).pathname;
 
-const datacenter_schema_contents = await Deno.readTextFile(
-  path.join(__dirname, './datacenter.schema.json'),
-);
-const validateDatacenter = ajv.compile<DatacenterSchema>(
-  JSON.parse(datacenter_schema_contents),
-);
+const datacenterValidator = async () => {
+  const datacenter_schema_contents = await Deno.readTextFile(path.join(__dirname, './datacenter.schema.json'));
+  return ajv.compile<DatacenterSchema>(JSON.parse(datacenter_schema_contents));
+};
 
-export const parseDatacenter = async (
-  input: Record<string, unknown> | string,
-): Promise<Datacenter> => {
+export const parseDatacenter = async (input: Record<string, unknown> | string): Promise<Datacenter> => {
   let raw_obj: any;
   if (typeof input === 'string') {
     const filename = input;
@@ -37,8 +33,10 @@ export const parseDatacenter = async (
     raw_obj.version = DEFAULT_SCHEMA_VERSION;
   }
 
-  if (!validateDatacenter(raw_obj)) {
-    throw validateDatacenter.errors;
+  const validator = await datacenterValidator();
+
+  if (!validator(raw_obj)) {
+    throw validator.errors;
   }
 
   return buildDatacenter(raw_obj);

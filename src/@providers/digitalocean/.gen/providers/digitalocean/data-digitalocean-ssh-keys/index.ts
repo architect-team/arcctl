@@ -1,69 +1,55 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanSshKeysConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanSshKeysConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#id DataDigitaloceanSshKeys#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#id DataDigitaloceanSshKeys#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#filter DataDigitaloceanSshKeys#filter}
-   */
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#filter DataDigitaloceanSshKeys#filter}
+  */
   readonly filter?: DataDigitaloceanSshKeysFilter[] | cdktf.IResolvable;
   /**
-   * sort block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#sort DataDigitaloceanSshKeys#sort}
-   */
+  * sort block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#sort DataDigitaloceanSshKeys#sort}
+  */
   readonly sort?: DataDigitaloceanSshKeysSort[] | cdktf.IResolvable;
 }
-export interface DataDigitaloceanSshKeysSshKeys {}
+export interface DataDigitaloceanSshKeysSshKeys {
+}
 
-export function dataDigitaloceanSshKeysSshKeysToTerraform(
-  struct?: DataDigitaloceanSshKeysSshKeys,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanSshKeysSshKeysToTerraform(struct?: DataDigitaloceanSshKeysSshKeys): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanSshKeysSshKeysOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): DataDigitaloceanSshKeysSshKeys | undefined {
@@ -75,7 +61,8 @@ export class DataDigitaloceanSshKeysSshKeysOutputReference extends cdktf.Complex
   public set internalValue(value: DataDigitaloceanSshKeysSshKeys | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -102,67 +89,53 @@ export class DataDigitaloceanSshKeysSshKeysOutputReference extends cdktf.Complex
 }
 
 export class DataDigitaloceanSshKeysSshKeysList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataDigitaloceanSshKeysSshKeysOutputReference {
-    return new DataDigitaloceanSshKeysSshKeysOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataDigitaloceanSshKeysSshKeysOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataDigitaloceanSshKeysFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#all DataDigitaloceanSshKeys#all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#all DataDigitaloceanSshKeys#all}
+  */
   readonly all?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#key DataDigitaloceanSshKeys#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#key DataDigitaloceanSshKeys#key}
+  */
   readonly key: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#match_by DataDigitaloceanSshKeys#match_by}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#match_by DataDigitaloceanSshKeys#match_by}
+  */
   readonly matchBy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#values DataDigitaloceanSshKeys#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#values DataDigitaloceanSshKeys#values}
+  */
   readonly values: string[];
 }
 
-export function dataDigitaloceanSshKeysFilterToTerraform(
-  struct?: DataDigitaloceanSshKeysFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanSshKeysFilterToTerraform(struct?: DataDigitaloceanSshKeysFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     all: cdktf.booleanToTerraform(struct!.all),
     key: cdktf.stringToTerraform(struct!.key),
     match_by: cdktf.stringToTerraform(struct!.matchBy),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexObject {
@@ -170,29 +143,16 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanSshKeysFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataDigitaloceanSshKeysFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -217,9 +177,7 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanSshKeysFilter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanSshKeysFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -227,10 +185,12 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
       this._key = undefined;
       this._matchBy = undefined;
       this._values = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._all = value.all;
@@ -241,7 +201,7 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
   }
 
   // all - computed: false, optional: true, required: false
-  private _all?: boolean | cdktf.IResolvable;
+  private _all?: boolean | cdktf.IResolvable; 
   public get all() {
     return this.getBooleanAttribute('all');
   }
@@ -257,7 +217,7 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -270,7 +230,7 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
   }
 
   // match_by - computed: false, optional: true, required: false
-  private _matchBy?: string;
+  private _matchBy?: string; 
   public get matchBy() {
     return this.getStringAttribute('match_by');
   }
@@ -286,7 +246,7 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return this.getListAttribute('values');
   }
@@ -300,59 +260,44 @@ export class DataDigitaloceanSshKeysFilterOutputReference extends cdktf.ComplexO
 }
 
 export class DataDigitaloceanSshKeysFilterList extends cdktf.ComplexList {
-  public internalValue?: DataDigitaloceanSshKeysFilter[] | cdktf.IResolvable;
+  public internalValue? : DataDigitaloceanSshKeysFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataDigitaloceanSshKeysFilterOutputReference {
-    return new DataDigitaloceanSshKeysFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataDigitaloceanSshKeysFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataDigitaloceanSshKeysSort {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#direction DataDigitaloceanSshKeys#direction}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#direction DataDigitaloceanSshKeys#direction}
+  */
   readonly direction?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#key DataDigitaloceanSshKeys#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#key DataDigitaloceanSshKeys#key}
+  */
   readonly key: string;
 }
 
-export function dataDigitaloceanSshKeysSortToTerraform(
-  struct?: DataDigitaloceanSshKeysSort | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanSshKeysSortToTerraform(struct?: DataDigitaloceanSshKeysSort | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     direction: cdktf.stringToTerraform(struct!.direction),
     key: cdktf.stringToTerraform(struct!.key),
-  };
+  }
 }
 
 export class DataDigitaloceanSshKeysSortOutputReference extends cdktf.ComplexObject {
@@ -360,29 +305,16 @@ export class DataDigitaloceanSshKeysSortOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanSshKeysSort
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataDigitaloceanSshKeysSort | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -399,18 +331,18 @@ export class DataDigitaloceanSshKeysSortOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanSshKeysSort | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanSshKeysSort | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._direction = undefined;
       this._key = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._direction = value.direction;
@@ -419,7 +351,7 @@ export class DataDigitaloceanSshKeysSortOutputReference extends cdktf.ComplexObj
   }
 
   // direction - computed: false, optional: true, required: false
-  private _direction?: string;
+  private _direction?: string; 
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -435,7 +367,7 @@ export class DataDigitaloceanSshKeysSortOutputReference extends cdktf.ComplexObj
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -449,65 +381,53 @@ export class DataDigitaloceanSshKeysSortOutputReference extends cdktf.ComplexObj
 }
 
 export class DataDigitaloceanSshKeysSortList extends cdktf.ComplexList {
-  public internalValue?: DataDigitaloceanSshKeysSort[] | cdktf.IResolvable;
+  public internalValue? : DataDigitaloceanSshKeysSort[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataDigitaloceanSshKeysSortOutputReference {
-    return new DataDigitaloceanSshKeysSortOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataDigitaloceanSshKeysSortOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys digitalocean_ssh_keys}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys digitalocean_ssh_keys}
+*/
 export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_ssh_keys';
+  public static readonly tfResourceType = "digitalocean_ssh_keys";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys digitalocean_ssh_keys} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanSshKeysConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanSshKeysConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys digitalocean_ssh_keys} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanSshKeysConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanSshKeysConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_ssh_keys',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -515,7 +435,7 @@ export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._filter.internalValue = config.filter;
@@ -527,7 +447,7 @@ export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -543,17 +463,13 @@ export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
   }
 
   // ssh_keys - computed: true, optional: false, required: false
-  private _sshKeys = new DataDigitaloceanSshKeysSshKeysList(
-    this,
-    'ssh_keys',
-    false,
-  );
+  private _sshKeys = new DataDigitaloceanSshKeysSshKeysList(this, "ssh_keys", false);
   public get sshKeys() {
     return this._sshKeys;
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataDigitaloceanSshKeysFilterList(this, 'filter', true);
+  private _filter = new DataDigitaloceanSshKeysFilterList(this, "filter", true);
   public get filter() {
     return this._filter;
   }
@@ -569,7 +485,7 @@ export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
   }
 
   // sort - computed: false, optional: true, required: false
-  private _sort = new DataDigitaloceanSshKeysSortList(this, 'sort', false);
+  private _sort = new DataDigitaloceanSshKeysSortList(this, "sort", false);
   public get sort() {
     return this._sort;
   }
@@ -591,14 +507,8 @@ export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      filter: cdktf.listMapper(
-        dataDigitaloceanSshKeysFilterToTerraform,
-        true,
-      )(this._filter.internalValue),
-      sort: cdktf.listMapper(
-        dataDigitaloceanSshKeysSortToTerraform,
-        true,
-      )(this._sort.internalValue),
+      filter: cdktf.listMapper(dataDigitaloceanSshKeysFilterToTerraform, true)(this._filter.internalValue),
+      sort: cdktf.listMapper(dataDigitaloceanSshKeysSortToTerraform, true)(this._sort.internalValue),
     };
   }
 }

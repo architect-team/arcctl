@@ -6,7 +6,7 @@
       "additionalProperties": false,
       "properties": {
         "chart": {
-          "description": "Chart name to be installed",
+          "description": "Chart to be installed",
           "type": "string"
         },
         "name": {

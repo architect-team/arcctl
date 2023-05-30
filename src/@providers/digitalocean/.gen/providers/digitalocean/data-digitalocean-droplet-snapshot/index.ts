@@ -1,68 +1,65 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanDropletSnapshotConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanDropletSnapshotConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#id DataDigitaloceanDropletSnapshot#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#id DataDigitaloceanDropletSnapshot#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#most_recent DataDigitaloceanDropletSnapshot#most_recent}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#most_recent DataDigitaloceanDropletSnapshot#most_recent}
+  */
   readonly mostRecent?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#name DataDigitaloceanDropletSnapshot#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#name DataDigitaloceanDropletSnapshot#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#name_regex DataDigitaloceanDropletSnapshot#name_regex}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#name_regex DataDigitaloceanDropletSnapshot#name_regex}
+  */
   readonly nameRegex?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#region DataDigitaloceanDropletSnapshot#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot#region DataDigitaloceanDropletSnapshot#region}
+  */
   readonly region?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot digitalocean_droplet_snapshot}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot digitalocean_droplet_snapshot}
+*/
 export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_droplet_snapshot';
+  public static readonly tfResourceType = "digitalocean_droplet_snapshot";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot digitalocean_droplet_snapshot} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanDropletSnapshotConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanDropletSnapshotConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet_snapshot digitalocean_droplet_snapshot} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanDropletSnapshotConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanDropletSnapshotConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_droplet_snapshot',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -70,7 +67,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._mostRecent = config.mostRecent;
@@ -94,7 +91,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +112,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable;
+  private _mostRecent?: boolean | cdktf.IResolvable; 
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -131,7 +128,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -147,7 +144,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // name_regex - computed: false, optional: true, required: false
-  private _nameRegex?: string;
+  private _nameRegex?: string; 
   public get nameRegex() {
     return this.getStringAttribute('name_regex');
   }
@@ -163,7 +160,7 @@ export class DataDigitaloceanDropletSnapshot extends cdktf.TerraformDataSource {
   }
 
   // region - computed: false, optional: true, required: false
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }

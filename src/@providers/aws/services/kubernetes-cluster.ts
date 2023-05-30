@@ -1,22 +1,18 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { ResourcePresets } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
 
-export class AwsKubernetesClusterService extends ResourceService<
-  'kubernetesCluster',
-  AwsCredentials
-> {
+export class AwsKubernetesClusterService extends TerraformResourceService<'kubernetesCluster', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     const match = id.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
       throw new Error('ID must be of the format, <region>/<uuid>');
@@ -39,7 +35,7 @@ export class AwsKubernetesClusterService extends ResourceService<
             vpc: data.cluster?.resourcesVpcConfig?.vpcId || '',
             name: data.cluster?.name || '',
             kubernetesVersion: data.cluster?.version || '',
-            provider: '',
+            account: '',
           });
         },
       );
@@ -52,48 +48,39 @@ export class AwsKubernetesClusterService extends ResourceService<
   ): Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>> {
     const regions = await new AwsRegionService(this.credentials).list();
 
-    const eksPromises: Promise<
-      PagingResponse<ResourceOutputs['kubernetesCluster']>
-    >[] = [];
+    const eksPromises: Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>[] = [];
     for (const region of regions.rows) {
       eksPromises.push(
-        new Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>(
-          async (resolve, reject) => {
-            const eksClustersData = await AwsUtils.getEKS(
-              this.credentials,
-              region.id,
-            )
-              .listClusters()
-              .promise();
-            const clusters = eksClustersData.clusters || [];
-            const clusterPromises = [];
-            for (const clusterName of clusters) {
-              clusterPromises.push(
-                AwsUtils.getEKS(this.credentials, region.id)
-                  .describeCluster({
-                    name: clusterName,
-                  })
-                  .promise(),
-              );
-            }
+        new Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>(async (resolve, reject) => {
+          const eksClustersData = await AwsUtils.getEKS(this.credentials, region.id).listClusters().promise();
+          const clusters = eksClustersData.clusters || [];
+          const clusterPromises = [];
+          for (const clusterName of clusters) {
+            clusterPromises.push(
+              AwsUtils.getEKS(this.credentials, region.id)
+                .describeCluster({
+                  name: clusterName,
+                })
+                .promise(),
+            );
+          }
 
-            const clusterResultsRequest = await Promise.all(clusterPromises);
-            const clusterResults = clusterResultsRequest.filter((cluster) => {
-              return cluster.cluster?.status === 'ACTIVE';
-            });
+          const clusterResultsRequest = await Promise.all(clusterPromises);
+          const clusterResults = clusterResultsRequest.filter((cluster) => {
+            return cluster.cluster?.status === 'ACTIVE';
+          });
 
-            resolve({
-              total: clusterResults.length,
-              rows: clusterResults.map((clusterData) => ({
-                id: `${region?.id}/${clusterData?.cluster?.name}`,
-                vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
-                name: clusterData.cluster?.name || '',
-                kubernetesVersion: clusterData.cluster?.version || '',
-                provider: '',
-              })),
-            });
-          },
-        ),
+          resolve({
+            total: clusterResults.length,
+            rows: clusterResults.map((clusterData) => ({
+              id: `${region?.id}/${clusterData?.cluster?.name}`,
+              vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
+              name: clusterData.cluster?.name || '',
+              kubernetesVersion: clusterData.cluster?.version || '',
+              account: '',
+            })),
+          });
+        }),
       );
     }
 
@@ -109,8 +96,8 @@ export class AwsKubernetesClusterService extends ResourceService<
     };
   }
 
-  manage = {
-    presets: [
+  get presets(): ResourcePresets<'kubernetesCluster'> {
+    return [
       {
         display: 'Minimum (Cheapest)',
         values: {
@@ -135,8 +122,8 @@ export class AwsKubernetesClusterService extends ResourceService<
           ],
         },
       },
-    ],
+    ];
+  }
 
-    module: AwsKubernetesClusterModule,
-  };
+  construct = AwsKubernetesClusterModule;
 }

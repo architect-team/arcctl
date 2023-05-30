@@ -1,7 +1,7 @@
-import { Flags } from '@oclif/core';
-import inquirer from 'inquirer';
 import { ResourceTypeList } from '../../@resources/index.ts';
 import { BaseCommand } from '../../base-command.ts';
+import { Flags } from '@oclif/core';
+import inquirer from 'inquirer';
 
 export default class GetResourceCommand extends BaseCommand {
   static description = 'Get the details of a specific cloud resource';
@@ -10,8 +10,7 @@ export default class GetResourceCommand extends BaseCommand {
   static flags = {
     credentials: Flags.string({
       char: 'c',
-      description:
-        'The cloud provider credentials to use to apply this resource',
+      description: 'The cloud provider credentials to use to apply this resource',
     }),
   };
 
@@ -31,8 +30,8 @@ export default class GetResourceCommand extends BaseCommand {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(GetResourceCommand);
-    const provider = await this.promptForProvider({
-      provider: flags.credentials,
+    const provider = await this.promptForAccount({
+      account: flags.credentials,
       type: args.type,
       action: 'list',
     });

@@ -1,30 +1,22 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../@resources/index.ts';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ProviderStore } from './store.ts';
-import { SaveFileFn } from './types.ts';
 import { TerraformResource, TerraformStack } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface ResourceModuleHooks {
+export interface ResourceModuleHooks<T extends ResourceType> {
   afterCreate?: (
-    saveFile: SaveFileFn,
-    saveProvider: ProviderStore['saveProvider'],
-    getOutputValue: (id: string) => Promise<any>,
+    providerStore: ProviderStore,
+    outputs: ResourceOutputs[T],
+    getRawOutputValue: (id: string) => Promise<any>,
   ) => Promise<void>;
   afterDelete?: () => Promise<void>;
   afterImport?: () => Promise<void>;
 }
 
-export abstract class ResourceModule<
-  T extends ResourceType,
-  C extends ProviderCredentials,
-> extends TerraformStack {
+export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends TerraformStack {
   abstract outputs: ResourceOutputs[T];
-  hooks: ResourceModuleHooks = {};
+  hooks: ResourceModuleHooks<T> = {};
 
   constructor(
     public readonly scope: Construct,
@@ -40,10 +32,7 @@ export abstract class ResourceModule<
     return [type, id].join('.');
   }
 
-  abstract genImports(
-    credentials: C,
-    resourceId: string,
-  ): Promise<Record<string, string>>;
+  abstract genImports(credentials: C, resourceId: string): Promise<Record<string, string>>;
 
   abstract getDisplayNames(): Record<string, string>;
 }

@@ -1,65 +1,51 @@
 // https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataDigitaloceanLoadbalancerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataDigitaloceanLoadbalancerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * id of the load balancer
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#id DataDigitaloceanLoadbalancer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * id of the load balancer
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#id DataDigitaloceanLoadbalancer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * name of the load balancer
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#name DataDigitaloceanLoadbalancer#name}
-   */
+  * name of the load balancer
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#name DataDigitaloceanLoadbalancer#name}
+  */
   readonly name?: string;
 }
-export interface DataDigitaloceanLoadbalancerFirewall {}
+export interface DataDigitaloceanLoadbalancerFirewall {
+}
 
-export function dataDigitaloceanLoadbalancerFirewallToTerraform(
-  struct?: DataDigitaloceanLoadbalancerFirewall,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanLoadbalancerFirewallToTerraform(struct?: DataDigitaloceanLoadbalancerFirewall): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanLoadbalancerFirewallOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): DataDigitaloceanLoadbalancerFirewall | undefined {
@@ -68,12 +54,11 @@ export class DataDigitaloceanLoadbalancerFirewallOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanLoadbalancerFirewall | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanLoadbalancerFirewall | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -90,86 +75,59 @@ export class DataDigitaloceanLoadbalancerFirewallOutputReference extends cdktf.C
 }
 
 export class DataDigitaloceanLoadbalancerFirewallList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanLoadbalancerFirewallOutputReference {
-    return new DataDigitaloceanLoadbalancerFirewallOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanLoadbalancerFirewallOutputReference {
+    return new DataDigitaloceanLoadbalancerFirewallOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanLoadbalancerForwardingRule {}
+export interface DataDigitaloceanLoadbalancerForwardingRule {
+}
 
-export function dataDigitaloceanLoadbalancerForwardingRuleToTerraform(
-  struct?: DataDigitaloceanLoadbalancerForwardingRule,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanLoadbalancerForwardingRuleToTerraform(struct?: DataDigitaloceanLoadbalancerForwardingRule): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanLoadbalancerForwardingRuleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanLoadbalancerForwardingRule
-    | undefined {
+  public get internalValue(): DataDigitaloceanLoadbalancerForwardingRule | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanLoadbalancerForwardingRule | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanLoadbalancerForwardingRule | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -211,86 +169,59 @@ export class DataDigitaloceanLoadbalancerForwardingRuleOutputReference extends c
 }
 
 export class DataDigitaloceanLoadbalancerForwardingRuleList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanLoadbalancerForwardingRuleOutputReference {
-    return new DataDigitaloceanLoadbalancerForwardingRuleOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanLoadbalancerForwardingRuleOutputReference {
+    return new DataDigitaloceanLoadbalancerForwardingRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanLoadbalancerHealthcheck {}
+export interface DataDigitaloceanLoadbalancerHealthcheck {
+}
 
-export function dataDigitaloceanLoadbalancerHealthcheckToTerraform(
-  struct?: DataDigitaloceanLoadbalancerHealthcheck,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanLoadbalancerHealthcheckToTerraform(struct?: DataDigitaloceanLoadbalancerHealthcheck): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanLoadbalancerHealthcheckOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanLoadbalancerHealthcheck
-    | undefined {
+  public get internalValue(): DataDigitaloceanLoadbalancerHealthcheck | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanLoadbalancerHealthcheck | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanLoadbalancerHealthcheck | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -332,86 +263,59 @@ export class DataDigitaloceanLoadbalancerHealthcheckOutputReference extends cdkt
 }
 
 export class DataDigitaloceanLoadbalancerHealthcheckList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanLoadbalancerHealthcheckOutputReference {
-    return new DataDigitaloceanLoadbalancerHealthcheckOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanLoadbalancerHealthcheckOutputReference {
+    return new DataDigitaloceanLoadbalancerHealthcheckOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataDigitaloceanLoadbalancerStickySessions {}
+export interface DataDigitaloceanLoadbalancerStickySessions {
+}
 
-export function dataDigitaloceanLoadbalancerStickySessionsToTerraform(
-  struct?: DataDigitaloceanLoadbalancerStickySessions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataDigitaloceanLoadbalancerStickySessionsToTerraform(struct?: DataDigitaloceanLoadbalancerStickySessions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataDigitaloceanLoadbalancerStickySessionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataDigitaloceanLoadbalancerStickySessions
-    | undefined {
+  public get internalValue(): DataDigitaloceanLoadbalancerStickySessions | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataDigitaloceanLoadbalancerStickySessions | undefined,
-  ) {
+  public set internalValue(value: DataDigitaloceanLoadbalancerStickySessions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -433,65 +337,52 @@ export class DataDigitaloceanLoadbalancerStickySessionsOutputReference extends c
 }
 
 export class DataDigitaloceanLoadbalancerStickySessionsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataDigitaloceanLoadbalancerStickySessionsOutputReference {
-    return new DataDigitaloceanLoadbalancerStickySessionsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataDigitaloceanLoadbalancerStickySessionsOutputReference {
+    return new DataDigitaloceanLoadbalancerStickySessionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer digitalocean_loadbalancer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer digitalocean_loadbalancer}
+*/
 export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_loadbalancer';
+  public static readonly tfResourceType = "digitalocean_loadbalancer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer digitalocean_loadbalancer} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataDigitaloceanLoadbalancerConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataDigitaloceanLoadbalancerConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer digitalocean_loadbalancer} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataDigitaloceanLoadbalancerConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataDigitaloceanLoadbalancerConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_loadbalancer',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -499,7 +390,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -521,9 +412,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
 
   // droplet_ids - computed: true, optional: false, required: false
   public get dropletIds() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('droplet_ids')));
   }
 
   // droplet_tag - computed: true, optional: false, required: false
@@ -542,31 +431,19 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   }
 
   // firewall - computed: true, optional: false, required: false
-  private _firewall = new DataDigitaloceanLoadbalancerFirewallList(
-    this,
-    'firewall',
-    false,
-  );
+  private _firewall = new DataDigitaloceanLoadbalancerFirewallList(this, "firewall", false);
   public get firewall() {
     return this._firewall;
   }
 
   // forwarding_rule - computed: true, optional: false, required: false
-  private _forwardingRule = new DataDigitaloceanLoadbalancerForwardingRuleList(
-    this,
-    'forwarding_rule',
-    true,
-  );
+  private _forwardingRule = new DataDigitaloceanLoadbalancerForwardingRuleList(this, "forwarding_rule", true);
   public get forwardingRule() {
     return this._forwardingRule;
   }
 
   // healthcheck - computed: true, optional: false, required: false
-  private _healthcheck = new DataDigitaloceanLoadbalancerHealthcheckList(
-    this,
-    'healthcheck',
-    false,
-  );
+  private _healthcheck = new DataDigitaloceanLoadbalancerHealthcheckList(this, "healthcheck", false);
   public get healthcheck() {
     return this._healthcheck;
   }
@@ -577,7 +454,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -598,7 +475,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -644,11 +521,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   }
 
   // sticky_sessions - computed: true, optional: false, required: false
-  private _stickySessions = new DataDigitaloceanLoadbalancerStickySessionsList(
-    this,
-    'sticky_sessions',
-    false,
-  );
+  private _stickySessions = new DataDigitaloceanLoadbalancerStickySessionsList(this, "sticky_sessions", false);
   public get stickySessions() {
     return this._stickySessions;
   }

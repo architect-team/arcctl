@@ -1,63 +1,61 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface VolumeSnapshotConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#id VolumeSnapshot#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#id VolumeSnapshot#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#name VolumeSnapshot#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#name VolumeSnapshot#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#tags VolumeSnapshot#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#tags VolumeSnapshot#tags}
+  */
   readonly tags?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#volume_id VolumeSnapshot#volume_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot#volume_id VolumeSnapshot#volume_id}
+  */
   readonly volumeId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot digitalocean_volume_snapshot}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot digitalocean_volume_snapshot}
+*/
 export class VolumeSnapshot extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_volume_snapshot';
+  public static readonly tfResourceType = "digitalocean_volume_snapshot";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot digitalocean_volume_snapshot} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options VolumeSnapshotConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: VolumeSnapshotConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/volume_snapshot digitalocean_volume_snapshot} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options VolumeSnapshotConfig
+  */
+  public constructor(scope: Construct, id: string, config: VolumeSnapshotConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_volume_snapshot',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -65,7 +63,7 @@ export class VolumeSnapshot extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -83,7 +81,7 @@ export class VolumeSnapshot extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -104,7 +102,7 @@ export class VolumeSnapshot extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -127,7 +125,7 @@ export class VolumeSnapshot extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: string[];
+  private _tags?: string[]; 
   public get tags() {
     return cdktf.Fn.tolist(this.getListAttribute('tags'));
   }
@@ -143,7 +141,7 @@ export class VolumeSnapshot extends cdktf.TerraformResource {
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string;
+  private _volumeId?: string; 
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }

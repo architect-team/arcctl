@@ -87,7 +87,7 @@ export const createProvider = async (
 ): Promise<Provider> => {
   const providers = Object.keys(SupportedProviders);
   if (name && (await doesProviderExist(name))) {
-    console.log(`A set of credentials with the name ${name} already exists.`);
+    console.log(`An account with the name ${name} already exists.`);
     name = undefined;
   }
   const res = await inquirer.prompt(
@@ -95,10 +95,10 @@ export const createProvider = async (
       {
         type: 'input',
         name: 'name',
-        message: 'What would you like to name the credentials?',
+        message: 'What would you like to name the new account?',
         validate: async (input: string) => {
           if (await doesProviderExist(input)) {
-            return 'A set of credentials with that name already exists.';
+            return 'An account with that name already exists.';
           }
           return true;
         },

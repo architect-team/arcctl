@@ -1,10 +1,7 @@
-import { Provider, ProviderResources } from '../provider.ts';
+import { Provider } from '../provider.ts';
 import { HelmProvider as TerraformHelmProvider } from './.gen/providers/helm/provider/index.ts';
 import { KubernetesProvider as TerraformKubernetesProvider } from './.gen/providers/kubernetes/provider/index.ts';
-import {
-  KubernetesCredentials,
-  KubernetesCredentialsSchema,
-} from './credentials.ts';
+import { KubernetesCredentials, KubernetesCredentialsSchema } from './credentials.ts';
 import { KubernetesDeploymentService } from './services/deployment.ts';
 import { KubernetesHelmChartService } from './services/helm-chart.ts';
 import { KubernetesIngressRuleService } from './services/ingress-rule.ts';
@@ -19,8 +16,8 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
 
   static readonly CredentialsSchema = KubernetesCredentialsSchema;
 
-  readonly resources: ProviderResources<KubernetesCredentials> = {
-    kubernetesNamespace: new KubernetesNamespaceService(this.credentials),
+  readonly resources = {
+    namespace: new KubernetesNamespaceService(this.credentials),
     deployment: new KubernetesDeploymentService(this.credentials),
     service: new KubernetesServiceService(this.credentials),
     ingressRule: new KubernetesIngressRuleService(this.credentials),
@@ -40,8 +37,12 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
     }
 
     const client = kubeConfig.makeApiClient(k8s.VersionApi);
-    const res = await client.getCode();
-    return Number(res.body.major) >= 1 && Number(res.body.minor) >= 18;
+    try {
+      const res = await client.getCode();
+      return Number(res.body.major) >= 1 && Number(res.body.minor) >= 18;
+    } catch {
+      return false;
+    }
   }
 
   public configureTerraformProviders(scope: Construct): void {

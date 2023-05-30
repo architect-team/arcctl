@@ -1,4 +1,4 @@
-import { Provider, ProviderResources } from '../provider.ts';
+import { Provider } from '../provider.ts';
 import { DockerProvider as TerraformDockerProvider } from './.gen/providers/docker/provider/index.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
@@ -12,7 +12,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
 
   static readonly CredentialsSchema = DockerCredentialsSchema;
 
-  readonly resources: ProviderResources<DockerCredentials> = {
+  readonly resources = {
     namespace: new DockerNamespaceService(),
     deployment: new DockerDeploymentService(),
     service: new DockerServiceService(),

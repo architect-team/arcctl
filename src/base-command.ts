@@ -1,23 +1,18 @@
-import {
-  Provider,
-  SupportedProviders,
-  ProviderCredentials,
-  ResourceModule,
-  ProviderStore,
-} from './@providers/index.ts';
-import { ResourceInputs, ResourceType, ResourceTypeList } from './@resources/index.ts';
+import { Provider, SupportedProviders, ProviderStore } from './@providers/index.ts';
+import { ResourceType, ResourceTypeList } from './@resources/index.ts';
+import { CloudEdge, CloudGraph, CloudNode } from './cloud-graph/index.ts';
 import { ComponentStore } from './component-store/index.ts';
-import { ExecutableGraph } from './executable-graph/index.ts';
+import { Datacenter, DatacenterRecord, DatacenterStore } from './datacenters/index.ts';
+import { EnvironmentStore } from './environments/index.ts';
+import { Pipeline, PipelineStep } from './pipeline/index.ts';
+import { Terraform } from './terraform/terraform.ts';
 import CloudCtlConfig from './utils/config.ts';
-import { DatacenterStore } from './utils/datacenter-store.ts';
-import { EnvironmentStore } from './utils/environment-store.ts';
 import { CldCtlProviderStore } from './utils/provider-store.ts';
-import { createProvider, getProviders } from './utils/providers.ts';
-import { CldCtlTerraformStack } from './utils/stack.ts';
+import { createProvider } from './utils/providers.ts';
 import { createTable } from './utils/table.ts';
 import { JSONSchemaType } from 'ajv';
-import { TerraformOutput, TerraformStack } from 'cdktf';
 import cliSpinners from 'cli-spinners';
+import { deepMerge } from 'std/collections/deep_merge.ts';
 import inquirer from 'inquirer';
 import { Command } from 'cliffy/command/mod.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
@@ -26,7 +21,7 @@ import readline from 'node:readline';
 import process from 'node:process';
 
 export type GlobalOptions = {
-  config_home?: string;
+  configHome?: string;
 };
 
 export function BaseCommand() {
@@ -41,7 +36,7 @@ export class CommandHelper {
 
   constructor(options: GlobalOptions) {
     this.options = options;
-    CloudCtlConfig.setConfigDirectory(options.config_home);
+    CloudCtlConfig.setConfigDirectory(options.configHome);
   }
 
   get componentStore(): ComponentStore {
@@ -62,53 +57,177 @@ export class CommandHelper {
   }
 
   /**
+   * Store the pipeline in the datacenters secret manager and then log
+   * it to the datacenter store
+   */
+  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'create',
+        type: 'secret',
+        name: `${datacenterName}-datacenter-pipeline`,
+        inputs: {
+          type: 'secret',
+          name: `datacenter-pipeline`,
+          namespace: datacenterName,
+          account: datacenter.getSecretsConfig().account,
+          data: JSON.stringify(pipeline),
+        },
+      });
+
+      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
+
+      secretStep
+        .apply({
+          providerStore: this.providerStore,
+          terraform: terraform,
+        })
+        .subscribe({
+          complete: async () => {
+            const outputs = await secretStep.getOutputs({
+              providerStore: this.providerStore,
+              terraform: terraform,
+            });
+
+            if (!outputs) {
+              console.error('Something went wrong storing the pipeline');
+              Deno.exit(1);
+            }
+
+            await this.datacenterStore.save({
+              name: datacenterName,
+              config: datacenter,
+              lastPipeline: {
+                account: datacenter.getSecretsConfig().account,
+                secret: outputs.id,
+              },
+            });
+            resolve();
+          },
+          error: reject,
+        });
+    });
+  }
+
+  public async removeDatacenter(record: DatacenterRecord): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'delete',
+        type: 'secret',
+        name: `${record.name}-datacenter-pipeline`,
+        resource: {
+          account: record.config.getSecretsConfig().account,
+          id: `${record.name}/datacenter-pipeline`,
+        },
+      });
+
+      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
+
+      secretStep
+        .apply({
+          providerStore: this.providerStore,
+          terraform: terraform,
+        })
+        .subscribe({
+          complete: async () => {
+            await this.datacenterStore.remove(record.name);
+            resolve();
+          },
+          error: reject,
+        });
+    });
+  }
+
+  public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
+    const secretAccount = this.providerStore.getProvider(record.lastPipeline.account);
+    if (!secretAccount) {
+      console.error(`Invalid account used by datacenter for secrets: ${record.lastPipeline.account}`);
+      Deno.exit(1);
+    }
+
+    const service = secretAccount.resources.secret;
+    if (!service) {
+      console.error(`The ${secretAccount.type} provider doesn't support secrets`);
+      Deno.exit(1);
+    }
+
+    const secret = await service.get(record.lastPipeline.secret);
+    if (!secret) {
+      console.error(`Invalid secret housing datacenter pipeline: ${record.lastPipeline.secret}`);
+      Deno.exit(1);
+    }
+
+    const rawPipeline = JSON.parse(secret.data);
+
+    return new Pipeline({
+      steps: rawPipeline.steps.map((step: any) => new PipelineStep(step)),
+      edges: rawPipeline.edges.map((edge: any) => new CloudEdge(edge)),
+    });
+  }
+
+  /**
    * Render the executable graph and the status of each resource
    */
-  protected renderGraph(graph: ExecutableGraph, options?: { showEnvironment?: boolean }): void {
-    const headers = ['Name', 'Type', 'Component'];
-    if (options?.showEnvironment) {
+  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean }): void {
+    const headers = ['Name', 'Type'];
+    const showEnvironment = pipeline.steps.some((s) => s.environment);
+    const showComponent = pipeline.steps.some((s) => s.component);
+
+    if (showComponent) {
+      headers.push('Component');
+    }
+
+    if (showEnvironment) {
       headers.push('Environment');
     }
 
     headers.push('Action', 'Status', 'Time');
-
     const table = createTable({
       head: headers,
     });
 
     table.push(
-      ...graph.nodes
+      ...pipeline.steps
         .sort(
-          (first, second) =>
+          (first: PipelineStep, second: PipelineStep) =>
             second.environment?.localeCompare(first.environment || '') ||
             second.component?.localeCompare(first.component || '') ||
             0,
         )
-        .map((node) => {
-          const row = [node.name, node.type, node.component || ''];
-          if (options?.showEnvironment) {
-            row.push(node.environment || '');
+        .map((step: PipelineStep) => {
+          const row = [step.name, step.type];
+
+          if (showComponent) {
+            row.push(step.component || '');
+          }
+
+          if (showEnvironment) {
+            row.push(step.environment || '');
           }
 
           row.push(
-            node.action,
-            node.status.state,
-            Math.floor(((node.status.endTime || Date.now()) - (node.status.startTime || Date.now())) / 1000) + 's',
-            node.status.message || '',
+            step.action,
+            step.status.state,
+            Math.floor(((step.status.endTime || Date.now()) - (step.status.startTime || Date.now())) / 1000) + 's',
+            step.status.message || '',
           );
 
           return row;
         }),
     );
 
-    readline.cursorTo(process.stdout, 0, 0);
-    readline.clearScreenDown(process.stdout);
+    if (options?.clear) {
+      readline.cursorTo(process.stdout, 0, 0);
+      readline.clearScreenDown(process.stdout);
 
-    const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
-    this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
+      const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
+      this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
 
-    console.log(spinner + ' Applying changes to environment');
-    console.log('\n' + table.toString());
+      console.log(spinner + ' Applying changes');
+      console.log('\n' + table.toString());
+    } else {
+      console.log(table.toString());
+    }
   }
 
   /**
@@ -128,12 +247,9 @@ export class CommandHelper {
 
   /**
    * Prompts users for array inputs based on a provided json schema
-   * @param provider Provider used to query property options matching cldctl resources
-   * @param property.name Name of the array property in the parent schema
-   * @param property.schema Nested schema associated with the property
    */
   private async promptForArrayInputs<T = any>(
-    stack: TerraformStack,
+    graph: CloudGraph,
     provider: Provider,
     property: { name: string; schema: JSONSchemaType<any> },
     existingValues: Record<string, unknown>,
@@ -162,7 +278,7 @@ export class CommandHelper {
       console.log(`Inputs for ${property.name}[${i}]:`);
       results.push(
         await this.promptForSchemaProperties(
-          stack,
+          graph,
           provider,
           property.name as ResourceType,
           { name: `${property.name}[${i}]`, schema: property.schema.items },
@@ -176,9 +292,6 @@ export class CommandHelper {
 
   /**
    * Prompt the user to provide a numerical value that matches the schema requirements
-   * @param property.name Name of the array property in the parent schema
-   * @param property.schema Nested schema associated with the property
-   * @param validator Optional validation function used for additional enforcement
    */
   private async promptForNumberInputs(
     property: { name: string; schema: JSONSchemaType<number> },
@@ -189,7 +302,7 @@ export class CommandHelper {
       [
         {
           name: 'result',
-          type: 'input', // https://github.com/SBoudrias/Inquirer.js/issues/866
+          type: 'input', // https://github.com/SBoudrias/Inquirer.ts/issues/866
           message: `${property.schema.description || property.name}${
             property.schema.properties.required ? '' : ' (optional)'
           }`,
@@ -225,11 +338,8 @@ export class CommandHelper {
 
   /**
    * Prompt the user to provider a string value that matches the schema requirements
-   * @param property.name Name of the array property in the parent schema
-   * @param property.schema Nested schema associated with the property
-   * @param validator Optional validation function used for additional enforcement
    */
-  private async promptForStringInputs(
+  public async promptForStringInputs(
     property: { name: string; schema: JSONSchemaType<string> },
     validator?: (input?: string) => string | true,
     existingValues: Record<string, unknown> = {},
@@ -262,15 +372,9 @@ export class CommandHelper {
 
   /**
    * Prompts the user for misc key/value inputs matching the structure of the JSON schema provided
-   * @param stack - A TerraformStack object that's passed through for nested modules to attach to
-   * @param provider - A cldctl Provider used to query nested resource items
-   * @param property.name - Name of the array property in the parent schema
-   * @param property.schema - Nested schema associated with the property
-   * @param data - Optional key/value store of values that can be used repeatedly
-   * @returns
    */
   private async promptForKeyValueInputs<T extends Record<string, unknown>>(
-    stack: TerraformStack,
+    graph: CloudGraph,
     provider: Provider,
     property: { name: string; schema: JSONSchemaType<any> },
     data: Record<string, unknown> = {},
@@ -288,7 +392,7 @@ export class CommandHelper {
       ]);
 
       results[key] = await this.promptForSchemaProperties<any>(
-        stack,
+        graph,
         provider,
         key,
         { name: key, schema: property.schema.additionalProperties },
@@ -301,18 +405,13 @@ export class CommandHelper {
 
   /**
    * Prompt the user to select from a list of available resources or create a new one
-   * @param stack - A TerraformStack object that's passed through for nested modules to attach to
-   * @param provider - A cldctl Provider used to query nested resource items
-   * @param property.name - Name of the array property in the parent schema
-   * @param property.schema - Nested schema associated with the property
-   * @param data - Optional key/value store of values that can be used repeatedly
    */
-  private async promptForResourceID<T extends ResourceType>(
-    stack: TerraformStack,
+  private async promptForResourceID(
+    graph: CloudGraph,
     provider: Provider,
-    property: { name: T; schema: JSONSchemaType<string> },
+    property: { name: ResourceType; schema: JSONSchemaType<string> },
     data: Record<string, unknown> = {},
-  ): Promise<string> {
+  ): Promise<string | undefined> {
     const service = provider.resources[property.name];
     if (!service) {
       throw new Error(`The ${provider.type} provider doesn't support ${property.name}s`);
@@ -334,14 +433,13 @@ export class CommandHelper {
               name: row.id,
               value: row.id,
             })),
-            ...(service.manage
+            ...('construct' in service || 'create' in service
               ? [
                   new inquirer.Separator(),
                   {
                     value: 'create-new',
                     name: `Create a new ${property.name}`,
                   },
-                  new inquirer.Separator(),
                 ]
               : []),
           ],
@@ -352,9 +450,11 @@ export class CommandHelper {
 
     if (answers[property.name as string] === 'create-new') {
       console.log(`Inputs for ${property.name}`);
-      const module = await this.promptForNewResourceModule(stack as any, provider, property.name, data);
+      const node = await this.promptForNewResource(graph, provider, property.name, data);
       console.log(`End ${property.name} inputs`);
-      return module.module.outputs.id;
+      return `\${{ ${node.id}.id }}`;
+    } else if (answers[property.name as string] === 'none') {
+      return undefined;
     } else {
       return answers[property.name];
     }
@@ -362,14 +462,14 @@ export class CommandHelper {
 
   /**
    * Look through all providers and determine if a resource type is creatable
-   * @param resourceType The resource type to check
-   * @returns Wether or not the resource is creatable
    */
-  protected async isCreatableResourceType(resourceType: ResourceType): Promise<boolean> {
+  public async isCreatableResourceType(resourceType: ResourceType): Promise<boolean> {
     for (const [provider_name, provider_constructor] of Object.entries(SupportedProviders)) {
       const any_value: any = {};
       const provider = new provider_constructor(provider_name, any_value, any_value) as Provider<any>;
-      if (provider.resources[resourceType]?.manage?.module) {
+
+      const service = provider.resources[resourceType];
+      if (service && ('construct' in service || 'create' in service)) {
         return true;
       }
     }
@@ -378,14 +478,9 @@ export class CommandHelper {
 
   /**
    * Prompt the user to input property values matching the JSON schema provided
-   * @param stack - A TerraformStack object that's passed through for nested modules to attach to
-   * @param provider - A cldctl Provider used to query nested resource items
-   * @param property.name - Name of the array property in the parent schema
-   * @param property.schema - Nested schema associated with the property
-   * @param data - Optional key/value store of values that can be used repeatedly
    */
   private async promptForSchemaProperties<T>(
-    stack: TerraformStack,
+    graph: CloudGraph,
     provider: Provider,
     resourceType: ResourceType,
     property: { name: string; schema: JSONSchemaType<T> },
@@ -398,14 +493,14 @@ export class CommandHelper {
       console.error('Invalid json schema');
     }
 
-    const validators = provider.resources[resourceType]?.manage?.validators;
+    const validators = provider.resources[resourceType]?.validators;
     const validator = validators ? (validators as any)[property.name] : undefined;
 
     if (data[property.name]) {
       return data[property.name] as any;
     } else if (ResourceTypeList.includes(property.name as ResourceType)) {
       const res = (await this.promptForResourceID(
-        stack,
+        graph,
         provider,
         { name: property.name as ResourceType, schema: schema as any },
         data,
@@ -416,7 +511,7 @@ export class CommandHelper {
       let res: Record<string, unknown> = {};
       for (const [propertyName, propertySchema] of Object.entries<any>(schema.properties)) {
         res[propertyName] = await this.promptForSchemaProperties(
-          stack,
+          graph,
           provider,
           resourceType,
           { name: propertyName, schema: propertySchema },
@@ -427,7 +522,7 @@ export class CommandHelper {
       if (property.schema.additionalProperties) {
         res = {
           ...res,
-          ...(await this.promptForKeyValueInputs(stack, provider, {
+          ...(await this.promptForKeyValueInputs(graph, provider, {
             name: property.name,
             schema,
           }),
@@ -438,7 +533,7 @@ export class CommandHelper {
       return res as any;
     } else if (property.schema.type === 'array') {
       return this.promptForArrayInputs(
-        stack,
+        graph,
         provider,
         {
           name: property.name,
@@ -470,76 +565,81 @@ export class CommandHelper {
   /**
    * Prompt the user to select a provider they've registered locally. This will also allow them to create a new provider in-line.
    */
-  protected async promptForProvider(
+  public async promptForAccount(
     options: {
-      provider?: string;
+      account?: string;
       type?: ResourceType;
-      action?: 'list' | 'get' | 'manage';
+      action?: 'list' | 'get' | 'create' | 'update' | 'delete';
       message?: string;
     } = {},
   ): Promise<Provider> {
-    const providers: Provider[] = [];
-    const config_dir = CloudCtlConfig.getConfigDirectory();
-    for (const p of await getProviders(config_dir)) {
+    const allAccounts = this.providerStore.getProviders();
+    const filteredAccounts: Provider[] = [];
+    for (const p of allAccounts) {
       if (options.type && p.resources[options.type]) {
         const service = p.resources[options.type]!;
-        if (!options.action || (options.action && service[options.action])) {
-          providers.push(p);
+        if (
+          !options.action ||
+          options.action in service ||
+          (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
+        ) {
+          filteredAccounts.push(p);
         }
       } else if (!options.type) {
-        providers.push(p);
+        filteredAccounts.push(p);
       }
     }
 
-    const newProviderTitle = 'Add a new set of credentials';
+    const newAccountName = 'Add a new account';
 
     const res = await inquirer.prompt(
       [
         {
-          name: 'provider',
+          name: 'account',
           type: 'list',
-          message: options.message || 'Select a set of credentials',
+          message: options.message || 'Select an account',
           choices: [
-            ...providers.map((p) => ({
+            ...filteredAccounts.map((p) => ({
               name: `${p.name} (${p.type})`,
               value: p.name,
             })),
-            newProviderTitle,
+            newAccountName,
           ],
         },
       ],
-      { provider: options.provider },
+      { account: options.account },
     );
 
-    if (res.provider === newProviderTitle) {
+    if (res.account === newAccountName) {
       return createProvider();
     }
 
-    const provider = providers.find((p) => p.name === res.provider);
-    if (!provider) {
-      console.error(`Credentials ${res.provider} not found`);
-      // TODO(tyler): Exit here?
+    const account = filteredAccounts.find((p) => p.name === res.account);
+    if (!account) {
+      console.error(`Account ${res.account} not found`);
       Deno.exit(1);
     }
 
-    return provider;
+    return account;
   }
 
   /**
    * Prompt the user to select a resource type that matches the provider and action specified.
    */
-  protected async promptForResourceType(
+  public async promptForResourceType(
     provider: Provider,
-    action: 'list' | 'get' | 'manage',
+    action: 'list' | 'get' | 'create' | 'update' | 'delete',
     input?: string,
+    optional?: boolean,
   ): Promise<ResourceType> {
     const resources = provider.getResourceEntries();
     resources.filter(([type, service]) => {
-      return service[action] && (!input || type === input);
+      return action in service && (!input || type === input);
     });
 
     if (resources.length === 0) {
-      console.error(`The cloud provider plugin for ${provider.name} does not support ${action} ${input}s`);
+      console.error(`The cloud provider for ${provider.name} does not support ${action} ${input}s`);
+      Deno.exit(1);
     }
 
     const res = await inquirer.prompt(
@@ -559,47 +659,40 @@ export class CommandHelper {
 
   /**
    * Prompt the user for the inputs required to create a new cloud resource module
-   * @param stack - A TerraformStack object that's passed through for nested modules to attach to
-   * @param provider - A cldctl Provider used to query nested resource items
-   * @param type - The type of resource to create a module for
-   * @param data - Optional key/value store of values that can be used repeatedly
    */
-  protected async promptForNewResourceModule<T extends ResourceType, C extends ProviderCredentials>(
-    stack: CldCtlTerraformStack,
-    provider: Provider<C>,
+  public async promptForNewResource<T extends ResourceType>(
+    graph: CloudGraph,
+    account: Provider,
     type: T,
     data: Record<string, unknown> = {},
-  ): Promise<{ module: ResourceModule<T, C>; output: TerraformOutput }> {
+  ): Promise<CloudNode<T>> {
     const __dirname = new URL('.', import.meta.url).pathname;
-    const schemaPath = path.join(__dirname, './@resources', type, './inputs.schema.json');
-    const schemaString = new TextDecoder().decode(await Deno.readFile(schemaPath));
+    const schemaPath = path.join(__dirname, './@resources', type, './inputs.schema.tson');
+    const schemaString = await Deno.readTextFile(schemaPath);
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {
       schema = schema.definitions[schema.$ref.replace('#/definitions/', '')];
     }
 
-    const service = provider.resources[type];
+    const service = account.resources[type];
     if (!service) {
-      console.error(`The ${provider.type} provider does not work with ${type} resources`);
-      // TODO(tyler): Exit here?
+      console.error(`The ${account.type} provider does not work with ${type} resources`);
       Deno.exit(1);
     }
 
-    const ModuleConstructor = service.manage?.module;
-    if (!ModuleConstructor) {
-      console.error(`The ${provider.type} provider cannot create ${type} resources`);
-      // TODO(tyler): Exit here?
+    if (!('construct' in service) && !('create' in service)) {
+      console.error(`The ${account.type} provider cannot create ${type} resources`);
       Deno.exit(1);
     }
 
-    if (service.manage?.presets?.length) {
+    if (service.presets?.length) {
       const { result } = await inquirer.prompt([
         {
           name: 'result',
           type: 'list',
           message: 'Please select one of our default configurations or customize the creation of your resource.',
           choices: [
-            ...service.manage.presets.map((p) => ({
+            ...service.presets.map((p) => ({
               name: p.display,
               value: p.values,
             })),
@@ -611,15 +704,12 @@ export class CommandHelper {
         },
       ]);
 
-      data = {
-        ...data,
-        ...result,
-      };
+      data = deepMerge(data, result);
     }
 
-    const inputs = await this.promptForSchemaProperties<ResourceInputs[T]>(
-      stack,
-      provider,
+    const inputs = await this.promptForSchemaProperties<any>(
+      graph,
+      account,
       type,
       {
         name: '',
@@ -628,10 +718,20 @@ export class CommandHelper {
       data,
     );
 
-    return stack.addModule(ModuleConstructor, type, inputs);
+    const node = new CloudNode<T>({
+      name: type,
+      inputs: {
+        type,
+        account: account.name,
+        ...inputs,
+      },
+    });
+    graph.insertNodes(node);
+
+    return node;
   }
 
-  protected handleTerraformError(ex: any): void {
+  publichandleTerraformError(ex: any): void {
     if (!ex.stderr) {
       throw ex;
     }

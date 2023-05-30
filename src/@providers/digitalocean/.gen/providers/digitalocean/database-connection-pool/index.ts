@@ -1,77 +1,73 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DatabaseConnectionPoolConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DatabaseConnectionPoolConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#cluster_id DatabaseConnectionPool#cluster_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#cluster_id DatabaseConnectionPool#cluster_id}
+  */
   readonly clusterId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#db_name DatabaseConnectionPool#db_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#db_name DatabaseConnectionPool#db_name}
+  */
   readonly dbName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#id DatabaseConnectionPool#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#id DatabaseConnectionPool#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#mode DatabaseConnectionPool#mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#mode DatabaseConnectionPool#mode}
+  */
   readonly mode: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#name DatabaseConnectionPool#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#name DatabaseConnectionPool#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#size DatabaseConnectionPool#size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#size DatabaseConnectionPool#size}
+  */
   readonly size: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#user DatabaseConnectionPool#user}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool#user DatabaseConnectionPool#user}
+  */
   readonly user?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool digitalocean_database_connection_pool}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool digitalocean_database_connection_pool}
+*/
 export class DatabaseConnectionPool extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'digitalocean_database_connection_pool';
+  public static readonly tfResourceType = "digitalocean_database_connection_pool";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool digitalocean_database_connection_pool} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DatabaseConnectionPoolConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DatabaseConnectionPoolConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/database_connection_pool digitalocean_database_connection_pool} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DatabaseConnectionPoolConfig
+  */
+  public constructor(scope: Construct, id: string, config: DatabaseConnectionPoolConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_database_connection_pool',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -79,7 +75,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._clusterId = config.clusterId;
     this._dbName = config.dbName;
@@ -95,7 +91,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   // ==========
 
   // cluster_id - computed: false, optional: false, required: true
-  private _clusterId?: string;
+  private _clusterId?: string; 
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -108,7 +104,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // db_name - computed: false, optional: false, required: true
-  private _dbName?: string;
+  private _dbName?: string; 
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -126,7 +122,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -142,7 +138,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string;
+  private _mode?: string; 
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -155,7 +151,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -188,7 +184,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number;
+  private _size?: number; 
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -206,7 +202,7 @@ export class DatabaseConnectionPool extends cdktf.TerraformResource {
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string;
+  private _user?: string; 
   public get user() {
     return this.getStringAttribute('user');
   }

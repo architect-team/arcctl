@@ -1,13 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourceService } from '../../service.ts';
+import { BaseService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanKubernetesVersionService extends ResourceService<
-  'kubernetesVersion',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanKubernetesVersionService extends BaseService<'kubernetesVersion'> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -15,9 +12,7 @@ export class DigitaloceanKubernetesVersionService extends ResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['kubernetesVersion'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['kubernetesVersion'] | undefined> {
     const {
       data: { options },
     } = await this.client.kubernetes.listAvailableOptionsOfKubernetes();

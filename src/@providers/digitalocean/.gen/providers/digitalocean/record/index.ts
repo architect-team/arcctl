@@ -1,87 +1,89 @@
 // https://www.terraform.io/docs/providers/digitalocean/r/record
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface RecordConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#domain Record#domain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#domain Record#domain}
+  */
   readonly domain: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#flags Record#flags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#flags Record#flags}
+  */
   readonly flags?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#id Record#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#id Record#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#name Record#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#name Record#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#port Record#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#port Record#port}
+  */
   readonly port?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#priority Record#priority}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#priority Record#priority}
+  */
   readonly priority?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#tag Record#tag}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#tag Record#tag}
+  */
   readonly tag?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#ttl Record#ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#ttl Record#ttl}
+  */
   readonly ttl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#type Record#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#type Record#type}
+  */
   readonly type: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#value Record#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#value Record#value}
+  */
   readonly value: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#weight Record#weight}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#weight Record#weight}
+  */
   readonly weight?: number;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/record digitalocean_record}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/record digitalocean_record}
+*/
 export class Record extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'digitalocean_record';
+  public static readonly tfResourceType = "digitalocean_record";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/record digitalocean_record} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options RecordConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/record digitalocean_record} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options RecordConfig
+  */
   public constructor(scope: Construct, id: string, config: RecordConfig) {
     super(scope, id, {
       terraformResourceType: 'digitalocean_record',
       terraformGeneratorMetadata: {
         providerName: 'digitalocean',
-        providerVersion: '2.26.0',
-        providerVersionConstraint: '2.26.0',
+        providerVersion: '2.28.1',
+        providerVersionConstraint: '2.28.1'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -89,7 +91,7 @@ export class Record extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._domain = config.domain;
     this._flags = config.flags;
@@ -109,7 +111,7 @@ export class Record extends cdktf.TerraformResource {
   // ==========
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string;
+  private _domain?: string; 
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -122,7 +124,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // flags - computed: false, optional: true, required: false
-  private _flags?: number;
+  private _flags?: number; 
   public get flags() {
     return this.getNumberAttribute('flags');
   }
@@ -143,7 +145,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -159,7 +161,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -172,7 +174,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -188,7 +190,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number;
+  private _priority?: number; 
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -204,7 +206,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // tag - computed: false, optional: true, required: false
-  private _tag?: string;
+  private _tag?: string; 
   public get tag() {
     return this.getStringAttribute('tag');
   }
@@ -220,7 +222,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // ttl - computed: true, optional: true, required: false
-  private _ttl?: number;
+  private _ttl?: number; 
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }
@@ -236,7 +238,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -249,7 +251,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -262,7 +264,7 @@ export class Record extends cdktf.TerraformResource {
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number;
+  private _weight?: number; 
   public get weight() {
     return this.getNumberAttribute('weight');
   }

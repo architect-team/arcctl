@@ -1,5 +1,9 @@
 import { CloudGraph } from '../cloud-graph/index.ts';
-import { Construct } from 'constructs';
+
+export type DatacenterSecretsConfig = {
+  account: string;
+  namespace?: string;
+};
 
 export abstract class Datacenter {
   public abstract enrichGraph(
@@ -9,9 +13,9 @@ export abstract class Datacenter {
     graph: CloudGraph,
 
     /**
-     * Name of the environment so that resources can be named correctly
+     * Name of an environment to enrich resources for
      */
-    environmentName: string,
+    environmentName?: string,
 
     /**
      * Whether or not to build the graph using debug features
@@ -19,5 +23,5 @@ export abstract class Datacenter {
     debug?: boolean,
   ): Promise<CloudGraph>;
 
-  public abstract configureBackend(scope: Construct, filename: string): void;
+  public abstract getSecretsConfig(): DatacenterSecretsConfig;
 }

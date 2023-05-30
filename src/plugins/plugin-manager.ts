@@ -1,11 +1,6 @@
 import * as path from 'std/path/mod.ts';
 import { existsSync } from 'std/fs/exists.ts';
-import {
-  ArchitectPlugin,
-  PluginArchitecture,
-  PluginBundleType,
-  PluginPlatform,
-} from './plugin-types.ts';
+import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 import PluginUtils from './plugin-utils.ts';
 
 type Dictionary<T> = { [key: string]: T };
@@ -14,12 +9,12 @@ export default class PluginManager {
   private static readonly plugins: Dictionary<ArchitectPlugin> = {};
 
   private static readonly ARCHITECTUREMAP: Dictionary<PluginArchitecture> = {
-    x64: PluginArchitecture.AMD64,
-    arm64: PluginArchitecture.ARM64,
+    x86_64: PluginArchitecture.AMD64,
+    aarch64: PluginArchitecture.ARM64,
   };
 
   private static readonly OPERATINSYSTEMMAP: Dictionary<PluginPlatform> = {
-    win32: PluginPlatform.WINDOWS,
+    windows: PluginPlatform.WINDOWS,
     darwin: PluginPlatform.DARWIN,
     linux: PluginPlatform.LINUX,
   };
@@ -32,10 +27,7 @@ export default class PluginManager {
     return this.ARCHITECTUREMAP[Deno.build.arch];
   }
 
-  private static async removeOldPluginVersions(
-    pluginDirectory: string,
-    plugin: ArchitectPlugin,
-  ) {
+  private static async removeOldPluginVersions(pluginDirectory: string, plugin: ArchitectPlugin) {
     if (!existsSync(pluginDirectory)) {
       return;
     }
@@ -65,50 +57,29 @@ export default class PluginManager {
       throw new Error(`Unable to find version ${version} of ${ctor.name}`);
     }
     const pluginDirectory = configDirectory;
-    const currentPluginDirectory = path.join(
-      pluginDirectory,
-      `/${plugin.name}`,
-    );
+    const currentPluginDirectory = path.join(pluginDirectory, `/${plugin.name}`);
     const versionPath = path.join(currentPluginDirectory, `/${version}`);
 
     await this.removeOldPluginVersions(currentPluginDirectory, plugin);
     await Deno.mkdir(versionPath, { recursive: true });
 
-    const binary = PluginUtils.getBinary(
-      plugin.versions[version],
-      this.getPlatform(),
-      this.getArchitecture(),
-    );
+    const binary = PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture());
     const downloadedFilePath = path.join(
       versionPath,
-      `/${plugin.name}.${
-        binary.bundleType === PluginBundleType.ZIP ? 'zip' : 'tar.gz'
-      }`,
+      `/${plugin.name}.${binary.bundleType === PluginBundleType.ZIP ? 'zip' : 'tar.gz'}`,
     );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);
     if (!existsSync(executablePath)) {
-      await PluginUtils.downloadFile(
-        binary.url,
-        downloadedFilePath,
-        binary.sha256,
-      );
-      await PluginUtils.extractFile(
-        downloadedFilePath,
-        versionPath,
-        binary.bundleType,
-      );
+      await PluginUtils.downloadFile(binary.url, downloadedFilePath, binary.sha256);
+      await PluginUtils.extractFile(downloadedFilePath, versionPath, binary.bundleType);
       await Deno.chmod(executablePath, 0o755);
       await Deno.remove(downloadedFilePath);
     }
 
     await plugin.setup(
       versionPath,
-      PluginUtils.getBinary(
-        plugin.versions[version],
-        this.getPlatform(),
-        this.getArchitecture(),
-      ),
+      PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture()),
     );
 
     this.plugins[id] = plugin;

@@ -667,7 +667,7 @@ export class CommandHelper {
     data: Record<string, unknown> = {},
   ): Promise<CloudNode<T>> {
     const __dirname = new URL('.', import.meta.url).pathname;
-    const schemaPath = path.join(__dirname, './@resources', type, './inputs.schema.tson');
+    const schemaPath = path.join(__dirname, './@resources', type, './inputs.schema.json');
     const schemaString = await Deno.readTextFile(schemaPath);
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {

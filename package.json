@@ -36,7 +36,6 @@
     "chai": "^4.3.7",
     "chalk": "^5.1.2",
     "cli-spinners": "^2.7.0",
-    "cli-table": "^0.3.11",
     "constructs": "^10.1.255",
     "digitalocean": "^1.2.1",
     "digitalocean-js": "^2.0.3",

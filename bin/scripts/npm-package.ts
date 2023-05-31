@@ -21,6 +21,6 @@ await build({
   // TODO: Should use the info from existing package.json
   package: {
     name: '@architect-io/arcctl',
-    version: '0.0.1-rc',
+    version: '0.0.2-rc',
   },
 });

@@ -26,6 +26,12 @@
     "generate:datacenter-schema": "deno run -A ./bin/scripts/datacenter-generator.ts",
     "generate:environment-schema": "deno run -A ./bin/scripts/environment-generator.ts",
     "generate:providers": "deno run -A ./bin/scripts/provider-generator.ts",
-    "generate:resources": "deno run -A ./bin/scripts/resource-generator.ts"
+    "generate:resources": "deno run -A ./bin/scripts/resource-generator.ts",
+    "test": "deno test -A --no-check"
+  },
+  "test": {
+    "include": [
+      "src/**/store.test.ts"
+    ]
   }
 }

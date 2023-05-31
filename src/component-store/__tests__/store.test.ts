@@ -2,24 +2,28 @@ import { Component } from '../../components/index.ts';
 import { parseComponent } from '../../components/parser.ts';
 import { ComponentStore } from '../store.ts';
 import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
-import jest from 'jest-mock';
-import mock_fs from 'mock-fs';
-import os from 'os';
 import * as path from 'std/path/mod.ts';
+import { assertEquals, assertRejects } from 'std/testing/asserts.ts';
+import { assertSpyCall, assertSpyCalls, stub } from 'std/testing/mock.ts';
+import { describe, it } from 'std/testing/bdd.ts';
+import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import tar from 'tar';
 
 const DEFAULT_REGISTRY = 'registry.architect.io';
 
-describe('ComponentStore', () => {
-  afterEach(() => {
-    mock_fs.restore();
-  });
+describe(
+  'ComponentStore',
+  {
+    sanitizeResources: false,
+    sanitizeOps: false,
+  },
+  () => {
+    it('should add components to the local store', async () => {
+      const tmp_dir = Deno.makeTempDirSync();
 
-  test('it should add components to the local store', async () => {
-    const tmp_dir = os.tmpdir();
-    const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
+      const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
 
-    const component_config = `
+      const component_config = `
       name: test/this
       description: Some description
       keywords:
@@ -32,26 +36,22 @@ describe('ComponentStore', () => {
           image: node:12
     `;
 
-    mock_fs({
-      '/component': {
-        'architect.yml': component_config,
-      },
+      mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
+
+      const component_id = await store.add('/component/architect.yml');
+      assertEquals(component_id.length, 64);
+
+      // Make sure what got stored is the same as what we put in
+      const original_config = await parseComponent('/component/architect.yml');
+      const stored_config = await store.getComponentConfig(component_id);
+      assertEquals(stored_config, original_config);
     });
 
-    const component_id = await store.add('/component/architect.yml');
-    expect(component_id.length).toEqual(64);
+    it('should create tags for stored components', async () => {
+      const tmp_dir = Deno.makeTempDirSync();
+      const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
 
-    // Make sure what got stored is the same as what we put in
-    const original_config = await parseComponent('/component/architect.yml');
-    const stored_config = await store.getComponentConfig(component_id);
-    expect(stored_config).toEqual(original_config);
-  });
-
-  test('it should create tags for stored components', async () => {
-    const tmp_dir = os.tmpdir();
-    const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
-
-    const component_config = `
+      const component_config = `
       name: test/this
       description: Some description
       keywords:
@@ -64,27 +64,21 @@ describe('ComponentStore', () => {
           image: postgres:12
     `;
 
-    mock_fs({
-      '/component': {
-        'architect.yml': component_config,
-      },
+      mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
+
+      const component_id = await store.add('/component/architect.yml');
+      store.tag(component_id, 'new/component:latest');
+
+      const original_config = await parseComponent('/component/architect.yml');
+      const stored_config = await store.getComponentConfig('new/component:latest');
+      assertEquals(stored_config, original_config);
     });
 
-    const component_id = await store.add('/component/architect.yml');
-    store.tag(component_id, 'new/component:latest');
+    it('should remove stored components', async () => {
+      const tmp_dir = Deno.makeTempDirSync();
+      const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
 
-    const original_config = await parseComponent('/component/architect.yml');
-    const stored_config = await store.getComponentConfig(
-      'new/component:latest',
-    );
-    expect(stored_config).toEqual(original_config);
-  });
-
-  test('it should remove stored components', async () => {
-    const tmp_dir = os.tmpdir();
-    const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
-
-    const component_config = `
+      const component_config = `
       name: test/this
       description: Some description
       keywords:
@@ -97,26 +91,54 @@ describe('ComponentStore', () => {
           image: node:12
     `;
 
-    mock_fs({
-      '/component': {
-        'architect.yml': component_config,
-      },
-    });
+      mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
 
-    const component_id = await store.add('/component/architect.yml');
-    await store.getComponentConfig(component_id);
-    await store.remove(component_id);
-    try {
+      const component_id = await store.add('/component/architect.yml');
       await store.getComponentConfig(component_id);
-      fail(`Should have failed to retrieve missing component: ${component_id}`);
-    } catch {}
-  });
+      await store.remove(component_id);
 
-  test('it should remove stored components by tag', async () => {
-    const tmp_dir = os.tmpdir();
-    const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
+      assertRejects(async () => {
+        await store.getComponentConfig(component_id);
+      });
+    });
 
-    const component_config = `
+    it('should remove stored components by tag', async () => {
+      const tmp_dir = Deno.makeTempDirSync();
+      const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
+
+      const component_config = `
+        name: test/this
+        description: Some description
+        keywords:
+          - test
+          - this
+        services:
+          db:
+            image: postgres:13
+          api:
+            image: node:12
+      `;
+
+      mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
+
+      const component_id = await store.add('/component/architect.yml');
+      await store.getComponentConfig(component_id);
+
+      const tag = 'namespace/component:latest';
+      store.tag(component_id, tag);
+      await store.remove(tag);
+
+      assertRejects(async () => {
+        await store.getComponentConfig(tag);
+      });
+    });
+
+    it('should push stored components to remote registries', async () => {
+      const tmp_dir = Deno.makeTempDirSync();
+      const tmp_store = path.join(tmp_dir, 'component-store');
+      const store = new ComponentStore(tmp_store, DEFAULT_REGISTRY);
+
+      const component_config = `
       name: test/this
       description: Some description
       keywords:
@@ -129,201 +151,145 @@ describe('ComponentStore', () => {
           image: node:12
     `;
 
-    mock_fs({
-      '/component': {
-        'architect.yml': component_config,
-      },
-    });
+      mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
 
-    const component_id = await store.add('/component/architect.yml');
-    await store.getComponentConfig(component_id);
+      const tag = 'localhost:5000/namespace/component:latest';
+      const component_id = await store.add('/component/architect.yml');
+      store.tag(component_id, tag);
 
-    const tag = 'namespace/component:latest';
-    store.tag(component_id, tag);
-    await store.remove(tag);
-    try {
-      await store.getComponentConfig(tag);
-      fail(`Should have failed to retrieve missing component: ${tag}`);
-    } catch {}
-  });
+      const repo = new ImageRepository(tag, DEFAULT_REGISTRY);
+      const details = await store.getCachedComponentDetails(repo);
 
-  test('it should push stored components to remote registries', async () => {
-    const tmp_dir = path.join(os.tmpdir(), 'component-store');
-    const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
-
-    const component_config = `
-      name: test/this
-      description: Some description
-      keywords:
-        - test
-        - this
-      services:
-        db:
-          image: postgres:13
-        api:
-          image: node:12
-    `;
-
-    mock_fs({
-      '/component': {
-        'architect.yml': component_config,
-      },
-    });
-
-    const tag = 'localhost:5000/namespace/component:latest';
-    const component_id = await store.add('/component/architect.yml');
-    store.tag(component_id, tag);
-
-    const repo = new ImageRepository(tag, DEFAULT_REGISTRY);
-    const details = await store.getCachedComponentDetails(repo);
-
-    // Mock the `ImageRepository.uploadBlob()` method
-    const mockUploadBlob = jest.fn((file: string) => {
-      switch (file) {
-        case details.config_path: {
-          return Promise.resolve({
-            digest:
-              'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
-            size: 127,
-          });
+      // Mock the `ImageRepository.uploadBlob()` method
+      const mockUploadBlob = (file: string) => {
+        switch (file) {
+          case details.config_path: {
+            return Promise.resolve({
+              digest: 'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
+              size: 127,
+            });
+          }
+          case path.join(tmp_dir, 'files-layer.tgz'): {
+            return Promise.resolve({
+              digest: 'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
+              size: 300,
+            });
+          }
+          default: {
+            throw new Error(`Invalid blob path: ${file} ${tmp_dir}`);
+          }
         }
-        case path.join(os.tmpdir(), 'files-layer.tgz'): {
-          return Promise.resolve({
-            digest:
-              'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
-            size: 300,
-          });
-        }
-        default: {
-          throw new Error('Invalid blob path');
-        }
-      }
-    });
-    jest
-      .spyOn(ImageRepository.prototype, 'uploadBlob')
-      .mockImplementation(mockUploadBlob);
+      };
 
-    // Mock the `ImageRepository.checkForOciSupport()` method
-    const mockCheckForOciSupport = jest.fn(() => Promise.resolve());
-    jest
-      .spyOn(ImageRepository.prototype, 'checkForOciSupport')
-      .mockImplementation(mockCheckForOciSupport);
+      const mockUpload = stub(ImageRepository.prototype, 'uploadBlob', mockUploadBlob);
 
-    // Mock the `ImageRepository.uploadManifest()` method
-    const mockUploadManifest = jest.fn((manifest: ImageManifest) =>
-      Promise.resolve(),
-    );
-    jest
-      .spyOn(ImageRepository.prototype, 'uploadManifest')
-      .mockImplementation(mockUploadManifest);
+      // Mock the `ImageRepository.checkForOciSupport()` method
+      const mockCheckForOciSupport = () => Promise.resolve();
+      const mockCheckForOciStub = stub(ImageRepository.prototype, 'checkForOciSupport', mockCheckForOciSupport);
 
-    await store.push('localhost:5000/namespace/component:latest');
+      // Mock the `ImageRepository.uploadManifest()` method
+      const mockUploadManifestFn = (_manifest: ImageManifest) => Promise.resolve();
+      const mockUploadManifest = stub(ImageRepository.prototype, 'uploadManifest', mockUploadManifestFn);
 
-    expect(mockCheckForOciSupport).toHaveBeenCalledTimes(1);
-    expect(mockUploadBlob).toHaveBeenCalledTimes(2);
-    expect(mockUploadBlob.mock.calls[0][0]).toEqual(
-      path.join(
-        tmp_dir,
-        'f24572215a3fbb037dcf66fd4c923dbfb8e8672d7f5673cde24d337fffcbbf6f',
-        'architect.json',
-      ),
-    );
-    expect(mockUploadBlob.mock.calls[1][0]).toEqual(
-      path.join(os.tmpdir(), 'files-layer.tgz'),
-    );
-    expect(mockUploadManifest).toHaveBeenCalledTimes(1);
-    expect(mockUploadManifest.mock.calls[0][0]).toEqual({
-      config: {
-        digest:
-          'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
-        mediaType: 'application/vnd.architect.component.config.v1+json',
-        size: 127,
-      },
-      layers: [
-        {
-          digest:
-            'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
-          mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
-          size: 300,
-        },
-      ],
-      mediaType: 'application/vnd.oci.image.manifest.v1+json',
-      schemaVersion: 2,
-    });
-  });
+      await store.push('localhost:5000/namespace/component:latest', tmp_dir);
 
-  test('it should pull stored components from remote registries', async () => {
-    const tmp_dir = path.join(os.tmpdir(), 'component-store');
-    const store = new ComponentStore(tmp_dir, DEFAULT_REGISTRY);
+      assertSpyCalls(mockCheckForOciStub, 1);
 
-    const component_config = `
-      name: test/this
-      description: Some description
-      keywords:
-        - test
-        - this
-      services:
-        db:
-          image: postgres:13
-        api:
-          image: node:12
-          command: echo "test"
-    `;
+      assertSpyCalls(mockUpload, 2);
+      assertSpyCall(mockUpload, 0, {
+        args: [
+          path.join(tmp_store, 'f24572215a3fbb037dcf66fd4c923dbfb8e8672d7f5673cde24d337fffcbbf6f', 'architect.json'),
+        ],
+      });
+      assertSpyCall(mockUpload, 1, {
+        args: [path.join(tmp_dir, 'files-layer.tgz')],
+      });
 
-    mock_fs({
-      '/component': {
-        'architect.yml': component_config,
-      },
-    });
-
-    const tar_file = path.join(os.tmpdir(), 'files-layer.tgz');
-    await tar.create({ gzip: true, file: tar_file, cwd: '/component' }, ['./']);
-
-    const mockGetManifest = jest.fn(() =>
-      Promise.resolve({
-        config: {
-          digest:
-            'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
-          mediaType: 'application/vnd.architect.component.config.v1+json',
-          size: 127,
-        },
-        layers: [
+      assertSpyCalls(mockUploadManifest, 1);
+      assertSpyCall(mockUploadManifest, 0, {
+        args: [
           {
-            digest:
-              'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
-            mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
-            size: 300,
+            config: {
+              digest: 'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
+              mediaType: 'application/vnd.architect.component.config.v1+json',
+              size: 127,
+            },
+            layers: [
+              {
+                digest: 'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
+                mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
+                size: 300,
+              },
+            ],
+            mediaType: 'application/vnd.oci.image.manifest.v1+json',
+            schemaVersion: 2,
           },
         ],
-        mediaType: 'application/vnd.oci.image.manifest.v1+json',
-        schemaVersion: 2,
-      }),
-    );
-    jest
-      .spyOn(ImageRepository.prototype, 'getManifest')
-      .mockImplementation(mockGetManifest);
+      });
+    });
 
-    const mockDownloadBlob = jest.fn(() => Promise.resolve(tar_file));
-    jest
-      .spyOn(ImageRepository.prototype, 'downloadBlob')
-      .mockImplementation(mockDownloadBlob);
+    it('should pull stored components from remote registries', async () => {
+      const tmp_dir = Deno.makeTempDirSync();
+      const tmp_store = path.join(tmp_dir, 'component-store');
+      const store = new ComponentStore(tmp_store, DEFAULT_REGISTRY);
 
-    const mockStoreAdd = jest.fn((_: string | Component) =>
-      Promise.resolve(''),
-    );
-    jest.spyOn(store, 'add').mockImplementation(mockStoreAdd);
+      const component_config = `
+        name: test/this
+        description: Some description
+        keywords:
+          - test
+          - this
+        services:
+          db:
+            image: postgres:13
+          api:
+            image: node:12
+            command: echo "test"
+      `;
 
-    await store.pull('localhost:5000/namespace/component:latest');
+      mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component_config));
 
-    expect(mockGetManifest).toBeCalledTimes(1);
-    expect(mockDownloadBlob).toBeCalledTimes(1);
-    expect(mockStoreAdd).toBeCalledTimes(1);
-    expect(mockStoreAdd.mock.calls[0][0]).toEqual(
-      path.join(
-        tmp_dir,
-        'bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
-        'architect.json',
-      ),
-    );
-  });
-});
+      const tar_file = path.join(tmp_dir, 'files-layer.tgz');
+      await tar.create({ gzip: true, file: tar_file, cwd: tmp_dir }, ['./']);
+
+      const mockGetManifestFn = () => {
+        return Promise.resolve({
+          config: {
+            digest: 'sha256:bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6',
+            mediaType: 'application/vnd.architect.component.config.v1+json',
+            size: 127,
+          },
+          layers: [
+            {
+              digest: 'sha256:7df640a8589662e0107b068811c9333b86484a908250a742a91fb1cdd5e2aecd',
+              mediaType: 'application/vnd.oci.image.layer.v1.tar+gzip',
+              size: 300,
+            },
+          ],
+          mediaType: 'application/vnd.oci.image.manifest.v1+json',
+          schemaVersion: 2,
+        });
+      };
+
+      const mockGetManifest = stub(ImageRepository.prototype, 'getManifest', mockGetManifestFn);
+
+      const mockDownloadBlobFn = () => Promise.resolve(tar_file);
+      const mockDownloadBlob = stub(ImageRepository.prototype, 'downloadBlob', mockDownloadBlobFn);
+
+      const mockStoreAddFn = (_: string | Component) => Promise.resolve('');
+      const mockStoreAdd = stub(store, 'add', mockStoreAddFn);
+
+      await store.pull('localhost:5000/namespace/component:latest');
+
+      assertSpyCalls(mockGetManifest, 1);
+      assertSpyCalls(mockDownloadBlob, 1);
+      assertSpyCalls(mockStoreAdd, 1);
+
+      assertSpyCall(mockStoreAdd, 0, {
+        args: [
+          path.join(tmp_store, 'bb3eb5374dc00e5f8850460d216afc78ea6741013bc996baa75cb7f176a5b7a6', 'architect.json'),
+        ],
+      });
+    });
+  },
+);

@@ -1,68 +1,54 @@
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
 import { createTable } from '../../utils/table.ts';
-import { Flags } from '@oclif/core';
+import { EnumType } from 'cliffy/command/mod.ts';
 
-export default class ListResourcesCommand extends BaseCommand {
-  static description =
-    'List all the cloud resources matching the specified criteria';
+const resourceType = new EnumType(ResourceTypeList);
 
-  static flags = {
-    account: Flags.string({
-      char: 'a',
-      description: 'The cloud provider account to query resources from',
-    }),
+type ListResourceOptions = {
+  account?: string;
+  filter?: string[];
+} & GlobalOptions;
 
-    filter: Flags.string({
-      char: 'f',
-      description: 'Values to filter results by',
-      multiple: true,
-      default: [],
-    }),
-  };
+const ListResourceCommand = BaseCommand()
+  .description('List all the cloud resources matching the specified criteria')
+  .type('resourceType', resourceType)
+  .option('-a, --account <account:string>', 'The cloud provider account to query resources from')
+  .option('-f, --filter <filter:string>', 'Values to filter results by', { collect: true })
+  .arguments('[type:resourceType]')
+  .action(list_resource_action);
 
-  static args = [
-    {
-      name: 'type',
-      description: 'The name of the resource type to list',
-      type: 'enum',
-      options: ResourceTypeList,
-    },
-  ];
+async function list_resource_action(options: ListResourceOptions, resource_type?: ResourceType) {
+  const command_helper = new CommandHelper(options);
 
-  public async run(): Promise<void> {
-    const { args, flags } = await this.parse(ListResourcesCommand);
-    const account = await this.promptForAccount({
-      account: flags.account,
-      type: args.type,
-      action: 'list',
+  const account = await command_helper.promptForAccount({
+    account: options.account,
+    type: resource_type,
+    action: 'list',
+  });
+  const type = (await command_helper.promptForResourceType(account, 'list', args.type)) as ResourceType;
+
+  const filter: Record<string, string> = {};
+  for (const f of options.filter || []) {
+    const [key, value] = f.split('=');
+    filter[key] = value;
+  }
+
+  const list = account.resources[type]?.list?.bind(account.resources[type]);
+  if (!list) {
+    throw new Error(`Unable to list the resources for ${type}`);
+  }
+  const results = await list(filter);
+
+  if (results.rows.length > 0) {
+    const table = createTable({
+      head: Object.keys(results.rows[0]),
     });
-    const type = (await this.promptForResourceType(
-      account,
-      'list',
-      args.type,
-    )) as ResourceType;
-
-    const filter = {} as any;
-    for (const f of flags.filter) {
-      const [key, value] = f.split('=');
-      filter[key] = value;
-    }
-
-    const list = account.resources[type]?.list?.bind(account.resources[type]);
-    if (!list) {
-      throw new Error(`Unable to list the resources for ${type}`);
-    }
-    const results = await list(filter);
-
-    if (results.rows.length > 0) {
-      const table = createTable({
-        head: Object.keys(results.rows[0]),
-      });
-      table.push(...results.rows.map((r) => Object.values(r).map(String)));
-      this.log(table.toString());
-    } else {
-      this.log(`No results`);
-    }
+    table.push(...results.rows.map((r) => Object.values(r).map(String)));
+    console.log(table.toString());
+  } else {
+    console.log(`No results`);
   }
 }
+
+export default ListResourceCommand;

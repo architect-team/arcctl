@@ -4,24 +4,22 @@ on: push
 
 env:
   CI: true
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '18'
-  #         cache: 'npm'
-  #     - run: npm ci
-  #     - run: npm run lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          clean: true
+          ref: ${{ github.ref_name }}
+      - uses: denoland/setup-deno@v1.1.2
+      - run: deno lint
+        continue-on-error: true # TODO: remove
   publish_cli:
     name: Publish CLI
     if: github.ref_name == 'main' || startsWith(github.ref_name, 'arcctl-')
-    # needs: [lint]
+    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -37,4 +35,3 @@ jobs:
           cd build
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
           npm publish --access public
-        # GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) npm run semantic-release

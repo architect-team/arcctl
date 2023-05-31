@@ -6,6 +6,8 @@ const build_dir = path.join(__dirname, '..', '..', 'build');
 
 await emptyDir(build_dir);
 
+const package_json = JSON.parse(await Deno.readTextFile(path.join(build_dir, '..', 'package.json')));
+
 await build({
   typeCheck: false,
   test: false,
@@ -21,7 +23,8 @@ await build({
   // TODO: Should use the info from existing package.json
   package: {
     name: '@architect-io/arcctl',
-    version: '0.0.3-rc',
+    version: '0.0.4-rc',
+    dependencies: package_json.dependencies
   },
   importMap: path.join(build_dir, '..', 'deno.json'),
 });

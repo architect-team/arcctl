@@ -14,8 +14,13 @@ import GetResourceCommand from './commands/get/index.ts';
 import GetAccountCommand from './commands/get/account.ts';
 import GetComponentManifestCommand from './commands/get/component.ts';
 import ListResourceCommand from './commands/list/index.ts';
+import ListAllResourcesCommand from './commands/list/all.ts';
+import ListAccountCommand from './commands/list/accounts.ts';
 import ListEnvironmentCommand from './commands/list/environments.ts';
 import ListDatacenterCommand from './commands/list/datacenters.ts';
+import RemoveAccountCommand from './commands/remove/account.ts';
+import UpdateDatacenterCommand from './commands/update/datacenter.ts';
+import UpdateEnvironmentCommand from './commands/update/environment.ts';
 
 export default async function arcctl() {
   await new Command()
@@ -34,7 +39,12 @@ export default async function arcctl() {
     .command('get:account', GetAccountCommand)
     .command('get:component', GetComponentManifestCommand)
     .command('list', ListResourceCommand)
+    .command('list:all', ListAllResourcesCommand)
+    .command('list:account', ListAccountCommand)
     .command('list:environment', ListEnvironmentCommand)
     .command('list:datacenter', ListDatacenterCommand)
+    .command('remove:account', RemoveAccountCommand)
+    .command('update:datacenter', UpdateDatacenterCommand)
+    .command('update:environment', UpdateEnvironmentCommand)
     .parse(Deno.args);
 }

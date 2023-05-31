@@ -5,6 +5,7 @@ import { createTable } from '../../utils/table.ts';
 const GetAccountCommand = BaseCommand()
   .alias('get:accounts')
   .description('Get the details of an account by name')
+  .arguments('[name:string]')
   .action(get_account_action);
 
 async function get_account_action(options: GlobalOptions, name?: string) {

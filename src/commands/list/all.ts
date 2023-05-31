@@ -1,46 +1,50 @@
-import { ResourceType } from '../../@resources/index.ts';
-import { BaseCommand } from '../../base-command.ts';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
 import { createTable } from '../../utils/table.ts';
-import { Flags } from '@oclif/core';
+import { EnumType } from 'cliffy/command/mod.ts';
 
-export default class ListAllResourcesCommand extends BaseCommand {
-  static description = 'List all the cloud resources for each supported type';
-  static displayName = 'list all';
+const resourceType = new EnumType(ResourceTypeList);
 
-  static flags = {
-    credentials: Flags.string({
-      char: 'c',
-      description: 'The cloud provider credentials to use to apply this resource',
-    }),
-  };
+type ListAllResourceOptions = {
+  account?: string;
+} & GlobalOptions;
 
-  public async run(): Promise<void> {
-    const { args, flags } = await this.parse(ListAllResourcesCommand);
-    const provider = await this.promptForAccount({
-      account: flags.credentials,
-      type: args.type,
-      action: 'list',
-    });
+const ListAllResourcesCommand = BaseCommand()
+  .description('List all the cloud resources for each supported type')
+  .type('resourceType', resourceType)
+  .option('-a, --account <account:string>', 'The cloud account to use to destroy this resource')
+  .arguments('[type:resourceType]')
+  .action(list_all_resources_action);
 
-    const displayableTypes: Set<ResourceType> = new Set(['kubernetesCluster', 'vpc']);
+async function list_all_resources_action(options: ListAllResourceOptions, resource_type?: ResourceType) {
+  const command_helper = new CommandHelper(options);
 
-    for (const [resourceType, resourceImpl] of provider.getResourceEntries()) {
-      if (!displayableTypes.has(resourceType) || !resourceImpl.list) {
-        continue;
-      }
+  const provider = await command_helper.promptForAccount({
+    account: options.account,
+    type: resource_type,
+    action: 'list',
+  });
 
-      const results = await resourceImpl.list();
-      if (results.rows.length === 0) {
-        continue;
-      }
+  const displayableTypes: Set<ResourceType> = new Set(['kubernetesCluster', 'vpc']);
 
-      this.log(`Resource: ${resourceType}`);
-      const table = createTable({
-        head: Object.keys(results.rows[0]),
-      });
-      table.push(...results.rows.map((r) => Object.values(r).map(String)));
-      this.log(table.toString());
-      this.log();
+  for (const [resourceType, resourceImpl] of provider.getResourceEntries()) {
+    if (!displayableTypes.has(resourceType) || !resourceImpl.list) {
+      continue;
     }
+
+    const results = await resourceImpl.list();
+    if (results.rows.length === 0) {
+      continue;
+    }
+
+    console.log(`Resource: ${resourceType}`);
+    const table = createTable({
+      head: Object.keys(results.rows[0]),
+    });
+    table.push(...results.rows.map((r) => Object.values(r).map(String)));
+    console.log(table.toString());
+    console.log();
   }
 }
+
+export default ListAllResourcesCommand;

@@ -2,9 +2,8 @@ import { parseComponent } from '../parser.ts';
 import ComponentV1 from '../v1/index.ts';
 import ComponentV2 from '../v2/index.ts';
 import yaml from 'js-yaml';
-import url from 'url';
-
-const __dirname = new URL('.', import.meta.url).pathname;
+import { assertArrayIncludes, assertInstanceOf } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component parser', () => {
   it('should parse default schema', async () => {
@@ -15,7 +14,7 @@ describe('Component parser', () => {
           image: nginx:latest
     `) as Record<string, unknown>;
     const component_obj = await parseComponent(raw_obj);
-    expect(component_obj).toBeInstanceOf(ComponentV1);
+    assertInstanceOf(component_obj, ComponentV1);
   });
 
   it('should parse specific schema', async () => {
@@ -26,7 +25,7 @@ describe('Component parser', () => {
           image: nginx:latest
     `) as Record<string, unknown>;
     const component_obj = await parseComponent(raw_obj);
-    expect(component_obj).toBeInstanceOf(ComponentV2);
+    assertInstanceOf(component_obj, ComponentV2);
   });
 
   it('should fail to parse schema with bad field', async () => {
@@ -41,18 +40,15 @@ describe('Component parser', () => {
     try {
       await parseComponent(raw_obj);
     } catch (errs) {
-      expect(errs).toEqual(
-        expect.arrayContaining([
-          {
-            instancePath: '/services/main',
-            schemaPath:
-              '#/oneOf/0/properties/services/additionalProperties/anyOf/0/additionalProperties',
-            keyword: 'additionalProperties',
-            params: { additionalProperty: 'bad-key' },
-            message: 'must NOT have additional properties',
-          },
-        ]),
-      );
+      assertArrayIncludes(errs, [
+        {
+          instancePath: '/services/main',
+          schemaPath: '#/oneOf/0/properties/services/additionalProperties/anyOf/0/additionalProperties',
+          keyword: 'additionalProperties',
+          params: { additionalProperty: 'bad-key' },
+          message: 'must NOT have additional properties',
+        },
+      ]);
       return;
     }
 

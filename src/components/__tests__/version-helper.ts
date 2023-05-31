@@ -1,8 +1,9 @@
-import { CloudEdge, CloudNode } from '../../cloud-graph';
-import { Component } from '../component';
+import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
+import { Component } from '../component.ts';
 import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
 
-export const testDatabaseGeneration = async (
+export const testDatabaseGeneration = (
   contents: string,
   constructor: new (data: object) => Component,
   options: {
@@ -10,7 +11,7 @@ export const testDatabaseGeneration = async (
     database_type: string;
     database_version: string;
   },
-): Promise<void> => {
+): void => {
   const component = new constructor(yaml.load(contents) as any);
   const graph = component.getGraph({
     component: {
@@ -37,15 +38,15 @@ export const testDatabaseGeneration = async (
     },
   });
 
-  expect(graph.nodes).toEqual(expect.arrayContaining([database_schema]));
+  assertArrayIncludes(graph.nodes, [database_schema]);
 };
 
-export const testDatabaseIntegration = async (
+export const testDatabaseIntegration = (
   contents: string,
   constructor: new (data: object) => Component,
   options: { database_name: string; deployment_name: string },
-): Promise<void> => {
-  const component = new constructor(yaml.load(contents) as any);
+): void => {
+  const component = new constructor(yaml.load(contents));
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -93,31 +94,27 @@ export const testDatabaseIntegration = async (
     },
   });
 
-  expect(graph.nodes).toEqual(
-    expect.arrayContaining([database_user_node, deployment_node]),
-  );
-  expect(graph.edges).toEqual(
-    expect.arrayContaining([
-      new CloudEdge({
-        from: database_user_node.id,
-        to: database_schema_node_id,
-        required: true,
-      }),
-      new CloudEdge({
-        from: deployment_node.id,
-        to: database_user_node.id,
-        required: true,
-      }),
-    ]),
-  );
+  assertArrayIncludes(graph.nodes, [database_user_node, deployment_node]);
+  assertArrayIncludes(graph.edges, [
+    new CloudEdge({
+      from: database_user_node.id,
+      to: database_schema_node_id,
+      required: true,
+    }),
+    new CloudEdge({
+      from: deployment_node.id,
+      to: database_user_node.id,
+      required: true,
+    }),
+  ]);
 };
 
-export const testDeploymentGeneration = async (
+export const testDeploymentGeneration = (
   contents: string,
   constructor: new (data: object) => Component,
   options: { deployment_name: string },
-): Promise<void> => {
-  const component = new constructor(yaml.load(contents) as any);
+): void => {
+  const component = new constructor(yaml.load(contents));
   const graph = component.getGraph({
     component: {
       name: 'test',
@@ -143,15 +140,15 @@ export const testDeploymentGeneration = async (
     },
   });
 
-  expect(graph.nodes).toEqual([deployment_node]);
+  assertArrayIncludes(graph.nodes, [deployment_node]);
 };
 
-export const testServiceGeneration = async (
+export const testServiceGeneration = (
   contents: string,
   constructor: new (data: object) => Component,
   options: { deployment_name: string; service_name: string },
-): Promise<void> => {
-  const component = new constructor(yaml.load(contents) as any);
+): void => {
+  const component = new constructor(yaml.load(contents));
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -181,32 +178,30 @@ export const testServiceGeneration = async (
     },
   });
 
-  expect(graph.nodes).toEqual(expect.arrayContaining([service_node]));
-  expect(graph.edges).toEqual(
-    expect.arrayContaining([
-      new CloudEdge({
-        from: service_node.id,
-        to: CloudNode.genId({
-          type: 'deployment',
-          name: options.deployment_name,
-          component: 'component',
-          environment: 'environment',
-        }),
-        required: false,
+  assertArrayIncludes(graph.nodes, [service_node]);
+  assertArrayIncludes(graph.edges, [
+    new CloudEdge({
+      from: service_node.id,
+      to: CloudNode.genId({
+        type: 'deployment',
+        name: options.deployment_name,
+        component: 'component',
+        environment: 'environment',
       }),
-    ]),
-  );
+      required: false,
+    }),
+  ]);
 };
 
-export const testServiceIntegration = async (
+export const testServiceIntegration = (
   contents: string,
   constructor: new (data: object) => Component,
   options: {
     service_name: string;
     deployment_name: string;
   },
-): Promise<void> => {
-  const component = new constructor(yaml.load(contents) as any);
+): void => {
+  const component = new constructor(yaml.load(contents));
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -242,14 +237,12 @@ export const testServiceIntegration = async (
     },
   });
 
-  expect(graph.nodes).toEqual(expect.arrayContaining([second_deployment_node]));
-  expect(graph.edges).toEqual(
-    expect.arrayContaining([
-      new CloudEdge({
-        from: second_deployment_node.id,
-        to: first_service_node_id,
-        required: true,
-      }),
-    ]),
-  );
+  assertArrayIncludes(graph.nodes, [second_deployment_node]);
+  assertArrayIncludes(graph.edges, [
+    new CloudEdge({
+      from: second_deployment_node.id,
+      to: first_service_node_id,
+      required: true,
+    }),
+  ]);
 };

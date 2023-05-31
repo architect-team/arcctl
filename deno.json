@@ -31,7 +31,7 @@
   },
   "test": {
     "include": [
-      "src/**/store.test.ts"
+      "src/**/*.test.ts"
     ]
   }
 }

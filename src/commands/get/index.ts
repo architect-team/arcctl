@@ -1,67 +1,56 @@
-import { ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand } from '../../base-command.ts';
-import { Flags } from '@oclif/core';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { EnumType } from 'cliffy/command/mod.ts';
 import inquirer from 'inquirer';
 
-export default class GetResourceCommand extends BaseCommand {
-  static description = 'Get the details of a specific cloud resource';
-  static displayName = 'get';
+const resourceType = new EnumType(ResourceTypeList);
 
-  static flags = {
-    credentials: Flags.string({
-      char: 'c',
-      description: 'The cloud provider credentials to use to apply this resource',
-    }),
-  };
+type GetResourceOption = {
+  account?: string;
+} & GlobalOptions;
 
-  static args = [
-    {
-      name: 'type',
-      description: 'The name of the resource type to list',
-      type: 'enum',
-      options: ResourceTypeList,
-    },
-    {
-      name: 'id',
-      description: 'Name or ID of the resource',
-      type: 'string',
-    },
-  ];
+const GetResourceCommand = BaseCommand()
+  .description('Get the details of a specific cloud resource')
+  .type('resourceType', resourceType)
+  .option('-a, --account <account:string>', 'The cloud account to use to destroy this resource')
+  .arguments('[type:resourceType] [id:string]')
+  .action(get_resource_action);
 
-  public async run(): Promise<void> {
-    const { args, flags } = await this.parse(GetResourceCommand);
-    const provider = await this.promptForAccount({
-      account: flags.credentials,
-      type: args.type,
-      action: 'list',
-    });
-    const type = await this.promptForResourceType(provider, 'list', args.type);
+async function get_resource_action(options: GetResourceOption, resource_type?: ResourceType, resource_id?: string) {
+  const command_helper = new CommandHelper(options);
 
-    let id = args.id;
-    if (!id) {
-      if (!provider.resources[type]?.list) {
-        throw new Error(`Unable to list the resources for ${type}`);
-      }
-      const results = (await provider.resources[type]?.list!()) || {
-        total: 0,
-        rows: [],
-      };
+  const provider = await command_helper.promptForAccount({
+    account: options.account,
+    type: resource_type,
+    action: 'list',
+  });
+  const type = await command_helper.promptForResourceType(provider, 'list', resource_type);
 
-      const answers = await inquirer.prompt([
-        {
-          type: 'list',
-          name: 'id',
-          message: `Which ${type}?`,
-          choices: results.rows.map((r) => r.id),
-        },
-      ]);
-      id = answers.id;
+  if (!resource_id) {
+    if (!provider.resources[type]?.list) {
+      throw new Error(`Unable to list the resources for ${type}`);
     }
+    const results = (await provider.resources[type]?.list!()) || {
+      total: 0,
+      rows: [],
+    };
 
-    if (!provider.resources[type]?.get) {
-      throw new Error(`Unable to get the resource for ${type}`);
-    }
-    const results = await provider.resources[type]?.get!(id);
-    this.log(JSON.stringify(results, null, 2));
+    const answers = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'id',
+        message: `Which ${type}?`,
+        choices: results.rows.map((r) => r.id),
+      },
+    ]);
+    resource_id = answers.id;
   }
+
+  if (!provider.resources[type]?.get) {
+    throw new Error(`Unable to get the resource for ${type}`);
+  }
+  const results = await provider.resources[type]?.get!(resource_id!);
+  console.log(JSON.stringify(results, null, 2));
 }
+
+export default GetResourceCommand;

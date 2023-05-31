@@ -24,4 +24,5 @@ await build({
     version: '0.0.1-rc',
     description: 'arcctl',
   },
+  importMap: path.join(build_dir, '..', 'deno.json'),
 });

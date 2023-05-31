@@ -1,125 +1,116 @@
-import { ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand } from '../../base-command.ts';
+import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import { Terraform } from '../../terraform/terraform.ts';
 import CloudCtlConfig from '../../utils/config.ts';
-import { Flags } from '@oclif/core';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
 import { inspect } from 'node:util';
 import winston, { Logger } from 'winston';
+import { EnumType } from 'cliffy/command/mod.ts';
+import { colors } from 'cliffy/ansi/colors.ts';
 
-export default class CreateResourceCommand extends BaseCommand {
-  static description = 'Create a new cloud resource';
+const resourceType = new EnumType(ResourceTypeList);
 
-  static flags = {
-    account: Flags.string({
-      char: 'a',
-      description: 'The cloud provider credentials to use to apply this resource',
-    }),
+type CreateResourceOptions = {
+  account?: string;
+  inputs?: string;
+  verbose?: boolean;
+} & GlobalOptions;
 
-    inputs: Flags.string({
-      char: 'i',
-      description: 'A yaml file that represents the answers to some or all of the input questions',
-    }),
+const CreateResourceCommand = BaseCommand()
+  .alias('create:resource')
+  .description('Create a new cloud resource')
+  .type('resourceType', resourceType)
+  .option('-a, --account <account:string>', 'The cloud provider credentials to use to apply this resource')
+  .arguments('[type:resourceType]')
+  .action(create_resource_action);
 
-    verbose: Flags.boolean({
-      char: 'v',
-      description: 'Turn on verbose logs',
-    }),
-  };
+async function create_resource_action(options: CreateResourceOptions, resource_type?: ResourceType) {
+  const command_helper = new CommandHelper(options);
 
-  static args = [
-    {
-      name: 'type',
-      description: 'The name of the resource type to create',
-      type: 'enum',
-      options: ResourceTypeList,
-    },
-  ];
-
-  async run(): Promise<void> {
-    const { args, flags } = await this.parse(CreateResourceCommand);
-
-    if (args.type) {
-      const is_creatable_type = await this.isCreatableResourceType(args.type);
-      if (!is_creatable_type) {
-        this.error(`Creation of ${args.type} resources is not supported`);
-      }
+  if (resource_type) {
+    const is_creatable_type = await command_helper.isCreatableResourceType(resource_type);
+    if (!is_creatable_type) {
+      console.error(`Creation of ${resource_type} resources is not supported`);
+      Deno.exit(1);
     }
-
-    const account = await this.promptForAccount({
-      account: flags.account,
-      type: args.type,
-      action: 'create',
-    });
-
-    const type = await this.promptForResourceType(account, 'create', args.type);
-
-    const graph = new CloudGraph();
-    const rootNode = await this.promptForNewResource(graph, account, type);
-
-    const pipeline = Pipeline.plan({
-      before: new Pipeline(),
-      after: graph,
-    });
-
-    this.log('\nAbout to create the following resources:');
-    this.renderPipeline(pipeline);
-    this.log('');
-    const { proceed } = await inquirer.prompt([
-      {
-        name: 'proceed',
-        type: 'confirm',
-        message: 'Do you want to proceed?',
-      },
-    ]);
-
-    if (!proceed) {
-      this.log(`${type} creation cancelled`);
-      this.exit(0);
-    }
-
-    let interval: NodeJS.Timer;
-    if (!flags.verbose) {
-      interval = setInterval(() => {
-        this.renderPipeline(pipeline, { clear: true });
-      }, 1000 / cliSpinners.dots.frames.length);
-    }
-
-    let logger: Logger | undefined;
-    if (flags.verbose) {
-      this.renderPipeline(pipeline);
-      logger = winston.createLogger({
-        level: 'info',
-        format: winston.format.printf(({ message }) => message),
-        transports: [new winston.transports.Console()],
-      });
-    }
-
-    return pipeline
-      .apply({
-        providerStore: this.providerStore,
-        logger: logger,
-      })
-      .then(async () => {
-        this.renderPipeline(pipeline, { clear: true });
-        clearInterval(interval);
-        const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
-        const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-        const outputs = await step?.getOutputs({
-          providerStore: this.providerStore,
-          terraform,
-        });
-        this.log('');
-        this.log(chalk.green(`${type} created successfully!`));
-        this.log('Please record the results for your records. Some fields may not be retrievable again.');
-        this.log(inspect(outputs));
-      })
-      .catch((err) => {
-        clearInterval(interval);
-        this.error(err);
-      });
   }
+
+  const account = await command_helper.promptForAccount({
+    account: options.account,
+    type: resource_type,
+    action: 'create',
+  });
+
+  const type = await command_helper.promptForResourceType(account, 'create', resource_type);
+
+  const graph = new CloudGraph();
+  const rootNode = await command_helper.promptForNewResource(graph, account, type);
+
+  const pipeline = Pipeline.plan({
+    before: new Pipeline(),
+    after: graph,
+  });
+
+  console.log('\nAbout to create the following resources:');
+  command_helper.renderPipeline(pipeline);
+  console.log('');
+  const { proceed } = await inquirer.prompt([
+    {
+      name: 'proceed',
+      type: 'confirm',
+      message: 'Do you want to proceed?',
+    },
+  ]);
+
+  if (!proceed) {
+    console.log(`${type} creation cancelled`);
+    Deno.exit(0);
+  }
+
+  let interval: number;
+  if (!options.verbose) {
+    interval = setInterval(() => {
+      command_helper.renderPipeline(pipeline, { clear: true });
+    }, 1000 / cliSpinners.dots.frames.length);
+  }
+
+  let logger: Logger | undefined;
+  if (options.verbose) {
+    command_helper.renderPipeline(pipeline);
+    logger = winston.createLogger({
+      level: 'info',
+      format: winston.format.printf(({ message }) => message),
+      transports: [new winston.transports.Console()],
+    });
+  }
+
+  return pipeline
+    .apply({
+      providerStore: command_helper.providerStore,
+      logger: logger,
+    })
+    .then(async () => {
+      command_helper.renderPipeline(pipeline, { clear: true });
+      clearInterval(interval);
+      const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
+      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
+      const outputs = await step?.getOutputs({
+        providerStore: command_helper.providerStore,
+        terraform,
+      });
+      console.log('');
+      console.log(colors.green(`${type} created successfully!`));
+      console.log('Please record the results for your records. Some fields may not be retrievable again.');
+      console.log(inspect(outputs));
+    })
+    .catch((err) => {
+      clearInterval(interval);
+      console.error(err);
+      Deno.exit(1);
+    });
 }
+
+export default CreateResourceCommand;

@@ -1,32 +1,46 @@
-import Table from 'cli-table';
+import { Table } from 'cliffy/table/mod.ts';
 
 type TableOptions = {
-  colWidths: number[];
-  colAligns: Array<'left' | 'middle' | 'right'>;
+  minWidth: number;
+  maxWidth: number;
+  alignment: 'left' | 'center' | 'right';
   head: string[];
 };
 
-export const createTable = (
-  options: Partial<TableOptions> = {},
-): typeof Table =>
-  new Table({
-    ...options,
-    chars: {
+export const createTable = (options: Partial<TableOptions> = {}): Table => {
+  let table = new Table()
+    .chars({
       top: '',
-      'top-mid': '',
-      'top-left': '',
-      'top-right': '',
+      topMid: '',
+      topLeft: '',
+      topRight: '',
       bottom: '',
-      'bottom-mid': '',
-      'bottom-left': '',
-      'bottom-right': '',
+      bottomMid: '',
+      bottomLeft: '',
+      bottomRight: '',
       left: '',
-      'left-mid': '',
+      leftMid: '',
       mid: '',
-      'mid-mid': '',
+      midMid: '',
       right: '',
-      'right-mid': '',
+      rightMid: '',
       middle: '   ',
-    },
-    style: { 'padding-left': 0, 'padding-right': 0 },
-  });
+    })
+    .indent(2)
+    .padding(2);
+
+  if (options.head) {
+    table = table.header(options.head);
+  }
+  if (options.alignment) {
+    table = table.align(options.alignment);
+  }
+  if (options.minWidth) {
+    table = table.minColWidth(options.minWidth);
+  }
+  if (options.maxWidth) {
+    table = table.maxColWidth(options.maxWidth);
+  }
+
+  return table;
+};

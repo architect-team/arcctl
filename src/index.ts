@@ -1,6 +1,9 @@
 import { Command } from 'cliffy/command/mod.ts';
 import AddAccountCommand from './commands/add/account.ts';
 import BuildCommand from './commands/build.ts';
+import CreateDatacenterCommand from './commands/create/datacenter.ts';
+import CreateEnvironmentCommand from './commands/create/environment.ts';
+import CreateResourceCommand from './commands/create/index.ts';
 import DeployCommand from './commands/deploy.ts';
 import TagCommand from './commands/tag.ts';
 
@@ -10,6 +13,9 @@ export default async function arcctl() {
     .command('deploy', DeployCommand)
     .command('tag', TagCommand)
     .command('add:account', AddAccountCommand)
+    .command('create:datacenter', CreateDatacenterCommand)
+    .command('create:environment', CreateEnvironmentCommand)
+    .command('create', CreateResourceCommand)
     .parse(Deno.args);
 }
 

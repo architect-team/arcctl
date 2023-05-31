@@ -731,7 +731,7 @@ export class CommandHelper {
     return node;
   }
 
-  publichandleTerraformError(ex: any): void {
+  public handleTerraformError(ex: any): void {
     if (!ex.stderr) {
       throw ex;
     }

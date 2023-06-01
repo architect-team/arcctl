@@ -28,10 +28,8 @@
   ],
   "dependencies": {
     "@architect-io/arc-oci": "0.1.0",
-    "@kubernetes/client-node": "^0.18.1",
     "adm-zip": "^0.5.9",
     "ajv": "^8.11.0",
-    "aws-sdk": "^2.1229.0",
     "cdktf": "^0.16.3",
     "chai": "^4.3.7",
     "chalk": "^5.1.2",
@@ -73,20 +71,12 @@
     "@types/mustache": "^4.2.1",
     "@types/pg": "^8.6.5",
     "@types/tar": "^6.1.2",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/typescript-estree": "^5.43.0",
-    "eslint": "^8.23.0",
-    "eslint-config-oclif": "^4.0.0",
-    "eslint-config-oclif-typescript": "^1.0.3",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-unicorn": "^44.0.2",
     "mustache": "^4.2.0",
     "prettier": "^2.6.2",
     "shx": "^0.3.4",
     "ts-json-schema-generator": "^1.0.0",
     "ts-node": "^10.7.0",
-    "ts-xor": "^1.0.8",
-    "typescript": "^4.9.5"
+    "ts-xor": "^1.0.8"
   },
   "scripts": {
     "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js",

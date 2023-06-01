@@ -4,7 +4,7 @@ import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesServiceModule } from '../modules/service.ts';
 import { KubernetesNamespaceService } from './namespace.ts';
-import k8s from '@kubernetes/client-node';
+import { k8s } from 'deps';
 
 export class KubernetesServiceService extends TerraformResourceService<'service', KubernetesCredentials> {
   private _client?: k8s.CoreV1Api;

@@ -103,7 +103,7 @@ export class ComponentStore {
     const artifact_id = crypto
       .createHash('sha256')
       .update(component_contents)
-      .setEncoding('utf-8') // TODO(tyler): Test this
+      .setEncoding('utf-8')
       .digest('hex') as string;
     const new_path = path.join(this.cache_dir, artifact_id);
     if (!existsSync(new_path)) {

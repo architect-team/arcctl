@@ -12,7 +12,7 @@ type CreateDatacenterOptions = {
 
 const CreateDatacenterCommand = BaseCommand()
   .description('Create a new datacenter')
-  .option('-v, --verbose', 'Verbose output') // TODO(tyler): Global option?;
+  .option('-v, --verbose', 'Verbose output')
   .arguments('<name:string> <config_path:string>')
   .action(create_datacenter_action);
 

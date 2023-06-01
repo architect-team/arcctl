@@ -26,7 +26,7 @@ async function list_resource_action(options: ListResourceOptions, resource_type?
     type: resource_type,
     action: 'list',
   });
-  const type = (await command_helper.promptForResourceType(account, 'list', args.type)) as ResourceType;
+  const type = (await command_helper.promptForResourceType(account, 'list', resource_type)) as ResourceType;
 
   const filter: Record<string, string> = {};
   for (const f of options.filter || []) {

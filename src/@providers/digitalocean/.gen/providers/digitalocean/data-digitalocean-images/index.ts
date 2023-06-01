@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/d/images
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,7 +8,7 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanImagesConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#id DataDigitaloceanImages#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#id DataDigitaloceanImages#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -17,13 +17,13 @@ export interface DataDigitaloceanImagesConfig extends cdktf.TerraformMetaArgumen
   /**
   * filter block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#filter DataDigitaloceanImages#filter}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#filter DataDigitaloceanImages#filter}
   */
   readonly filter?: DataDigitaloceanImagesFilter[] | cdktf.IResolvable;
   /**
   * sort block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#sort DataDigitaloceanImages#sort}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#sort DataDigitaloceanImages#sort}
   */
   readonly sort?: DataDigitaloceanImagesSort[] | cdktf.IResolvable;
 }
@@ -163,19 +163,19 @@ export class DataDigitaloceanImagesImagesList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanImagesFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#all DataDigitaloceanImages#all}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#all DataDigitaloceanImages#all}
   */
   readonly all?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#key DataDigitaloceanImages#key}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#key DataDigitaloceanImages#key}
   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#match_by DataDigitaloceanImages#match_by}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#match_by DataDigitaloceanImages#match_by}
   */
   readonly matchBy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#values DataDigitaloceanImages#values}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#values DataDigitaloceanImages#values}
   */
   readonly values: string[];
 }
@@ -335,11 +335,11 @@ export class DataDigitaloceanImagesFilterList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanImagesSort {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#direction DataDigitaloceanImages#direction}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#direction DataDigitaloceanImages#direction}
   */
   readonly direction?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/images#key DataDigitaloceanImages#key}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images#key DataDigitaloceanImages#key}
   */
   readonly key: string;
 }
@@ -456,7 +456,7 @@ export class DataDigitaloceanImagesSortList extends cdktf.ComplexList {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/images digitalocean_images}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images digitalocean_images}
 */
 export class DataDigitaloceanImages extends cdktf.TerraformDataSource {
 
@@ -470,7 +470,7 @@ export class DataDigitaloceanImages extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/images digitalocean_images} Data Source
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/images digitalocean_images} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

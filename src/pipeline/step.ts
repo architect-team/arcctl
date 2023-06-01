@@ -75,7 +75,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       initCmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.info(chunk);
+            options.logger?.info(new TextDecoder().decode(chunk));
           },
         }),
       );
@@ -83,12 +83,12 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       initCmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.error(chunk);
+            options.logger?.error(new TextDecoder().decode(chunk));
           },
         }),
       );
     }
-    await initCmd.output();
+    await initCmd.status;
 
     this.status.state = 'starting';
     this.status.message = 'Generating diff';
@@ -99,7 +99,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       planCmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.info(chunk);
+            options.logger?.info(new TextDecoder().decode(chunk));
           },
         }),
       );
@@ -107,12 +107,12 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       planCmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.error(chunk);
+            options.logger?.error(new TextDecoder().decode(chunk));
           },
         }),
       );
     }
-    await planCmd.output();
+    await planCmd.status;
 
     this.status.state = options.state;
     this.status.message = 'Applying changes';
@@ -123,7 +123,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       applyCmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.info(chunk);
+            options.logger?.info(new TextDecoder().decode(chunk));
           },
         }),
       );
@@ -131,13 +131,13 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       applyCmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.error(chunk);
+            options.logger?.error(new TextDecoder().decode(chunk));
           },
         }),
       );
     }
 
-    await applyCmd.output();
+    await applyCmd.status;
   }
 
   /**
@@ -177,7 +177,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         initCmd.stdout.pipeTo(
           new WritableStream({
             write(chunk) {
-              options.logger?.info(chunk);
+              options.logger?.info(new TextDecoder().decode(chunk));
             },
           }),
         );
@@ -185,13 +185,13 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         initCmd.stderr.pipeTo(
           new WritableStream({
             write(chunk) {
-              options.logger?.error(chunk);
+              options.logger?.error(new TextDecoder().decode(chunk));
             },
           }),
         );
       }
 
-      await initCmd.output();
+      await initCmd.status;
 
       for (const [key, value] of Object.entries(imports)) {
         await options.terraform.import(nodeDir, key, value).output();
@@ -218,7 +218,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       outputCmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.info(chunk);
+            options.logger?.info(new TextDecoder().decode(chunk));
           },
         }),
       );
@@ -226,7 +226,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       outputCmd.stderr.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.error(chunk);
+            options.logger?.error(new TextDecoder().decode(chunk));
           },
         }),
       );

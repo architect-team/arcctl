@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/d/image
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,7 +10,7 @@ export interface DataDigitaloceanImageConfig extends cdktf.TerraformMetaArgument
   /**
   * id of the image
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#id DataDigitaloceanImage#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image#id DataDigitaloceanImage#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -19,23 +19,23 @@ export interface DataDigitaloceanImageConfig extends cdktf.TerraformMetaArgument
   /**
   * name of the image
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#name DataDigitaloceanImage#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image#name DataDigitaloceanImage#name}
   */
   readonly name?: string;
   /**
   * slug of the image
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#slug DataDigitaloceanImage#slug}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image#slug DataDigitaloceanImage#slug}
   */
   readonly slug?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/image#source DataDigitaloceanImage#source}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image#source DataDigitaloceanImage#source}
   */
   readonly source?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/image digitalocean_image}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image digitalocean_image}
 */
 export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
 
@@ -49,7 +49,7 @@ export class DataDigitaloceanImage extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/image digitalocean_image} Data Source
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/image digitalocean_image} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

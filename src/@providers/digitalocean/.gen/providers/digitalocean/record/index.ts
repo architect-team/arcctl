@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/r/record
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,56 +8,56 @@ import * as cdktf from 'cdktf';
 
 export interface RecordConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#domain Record#domain}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#domain Record#domain}
   */
   readonly domain: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#flags Record#flags}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#flags Record#flags}
   */
   readonly flags?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#id Record#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#id Record#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#name Record#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#name Record#name}
   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#port Record#port}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#port Record#port}
   */
   readonly port?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#priority Record#priority}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#priority Record#priority}
   */
   readonly priority?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#tag Record#tag}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#tag Record#tag}
   */
   readonly tag?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#ttl Record#ttl}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#ttl Record#ttl}
   */
   readonly ttl?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#type Record#type}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#type Record#type}
   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#value Record#value}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#value Record#value}
   */
   readonly value: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/record#weight Record#weight}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record#weight Record#weight}
   */
   readonly weight?: number;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/record digitalocean_record}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record digitalocean_record}
 */
 export class Record extends cdktf.TerraformResource {
 
@@ -71,7 +71,7 @@ export class Record extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/record digitalocean_record} Resource
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/record digitalocean_record} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

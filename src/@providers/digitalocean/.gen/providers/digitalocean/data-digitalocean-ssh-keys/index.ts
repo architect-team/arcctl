@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,7 +8,7 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanSshKeysConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#id DataDigitaloceanSshKeys#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#id DataDigitaloceanSshKeys#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -17,13 +17,13 @@ export interface DataDigitaloceanSshKeysConfig extends cdktf.TerraformMetaArgume
   /**
   * filter block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#filter DataDigitaloceanSshKeys#filter}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#filter DataDigitaloceanSshKeys#filter}
   */
   readonly filter?: DataDigitaloceanSshKeysFilter[] | cdktf.IResolvable;
   /**
   * sort block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#sort DataDigitaloceanSshKeys#sort}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#sort DataDigitaloceanSshKeys#sort}
   */
   readonly sort?: DataDigitaloceanSshKeysSort[] | cdktf.IResolvable;
 }
@@ -108,19 +108,19 @@ export class DataDigitaloceanSshKeysSshKeysList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanSshKeysFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#all DataDigitaloceanSshKeys#all}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#all DataDigitaloceanSshKeys#all}
   */
   readonly all?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#key DataDigitaloceanSshKeys#key}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#key DataDigitaloceanSshKeys#key}
   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#match_by DataDigitaloceanSshKeys#match_by}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#match_by DataDigitaloceanSshKeys#match_by}
   */
   readonly matchBy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#values DataDigitaloceanSshKeys#values}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#values DataDigitaloceanSshKeys#values}
   */
   readonly values: string[];
 }
@@ -280,11 +280,11 @@ export class DataDigitaloceanSshKeysFilterList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanSshKeysSort {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#direction DataDigitaloceanSshKeys#direction}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#direction DataDigitaloceanSshKeys#direction}
   */
   readonly direction?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys#key DataDigitaloceanSshKeys#key}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys#key DataDigitaloceanSshKeys#key}
   */
   readonly key: string;
 }
@@ -401,7 +401,7 @@ export class DataDigitaloceanSshKeysSortList extends cdktf.ComplexList {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys digitalocean_ssh_keys}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys digitalocean_ssh_keys}
 */
 export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
 
@@ -415,7 +415,7 @@ export class DataDigitaloceanSshKeys extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/ssh_keys digitalocean_ssh_keys} Data Source
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/ssh_keys digitalocean_ssh_keys} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

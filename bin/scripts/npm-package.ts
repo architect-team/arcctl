@@ -23,13 +23,13 @@ await build({
   // TODO: Should use the info from existing package.json
   package: {
     name: '@architect-io/arcctl',
-    version: '0.0.7-rc',
+    version: '0.0.8-rc',
     dependencies: package_json.dependencies
   },
   importMap: path.join(build_dir, '..', 'deno.json'),
   postBuild() {
     Deno.copyFileSync("src/components/component.schema.json", "build/esm/components/component.schema.json");
-    Deno.copyFileSync("src/components/component.schema.json", "build/script/components/component.schema.json");
-    Deno.copyFileSync("src/components/component.schema.json", "build/src/components/component.schema.json");
+    Deno.copyFileSync("src/environments/environment.schema.json", "build/esm/environments/environment.schema.json");
+    Deno.copyFileSync("src/datacenters/datacenter.schema.json", "build/esm/datacenters/datacenter.schema.json");
   },
 });

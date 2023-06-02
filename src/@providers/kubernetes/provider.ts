@@ -7,7 +7,7 @@ import { KubernetesHelmChartService } from './services/helm-chart.ts';
 import { KubernetesIngressRuleService } from './services/ingress-rule.ts';
 import { KubernetesNamespaceService } from './services/namespace.ts';
 import { KubernetesServiceService } from './services/service.ts';
-import { k8s } from 'deps';
+import k8s from '@kubernetes/client-node';
 import { Construct } from 'constructs';
 
 export default class KubernetesProvider extends Provider<KubernetesCredentials> {

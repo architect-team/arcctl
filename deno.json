@@ -1,13 +1,9 @@
 {
   "nodeModulesDir": true,
-  "imports": {
-    "std/": "https://deno.land/std@0.189.0/",
-    "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
-    "deps": "./src/deps.ts",
-    "cliffy/": "https://deno.land/x/cliffy@v0.25.7/"
-  },
   "lint": {
-    "include": ["src/"],
+    "include": [
+      "src/"
+    ],
     "exclude": []
   },
   "fmt": {
@@ -16,7 +12,9 @@
     "indentWidth": 2,
     "singleQuote": true,
     "proseWrap": "preserve",
-    "include": ["src/"],
+    "include": [
+      "src/"
+    ],
     "exclude": []
   },
   "tasks": {
@@ -27,11 +25,15 @@
     "generate:environment-schema": "deno run -A ./bin/scripts/environment-generator.ts",
     "generate:providers": "deno run -A ./bin/scripts/provider-generator.ts",
     "generate:resources": "deno run -A ./bin/scripts/resource-generator.ts",
-    "test": "deno test -A --no-check"
+    "test": "deno test -A --no-check",
+    "esm:add": "deno run -A https://esm.sh/v124 add",
+    "esm:update": "deno run -A https://esm.sh/v124 update",
+    "esm:remove": "deno run -A https://esm.sh/v124 remove"
   },
   "test": {
     "include": [
       "src/**/*.test.ts"
     ]
-  }
+  },
+  "importMap": "import_map.json"
 }

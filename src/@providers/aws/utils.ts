@@ -1,6 +1,6 @@
 import { ResourceInputs } from '../../@resources/index.ts';
 import { AwsCredentials } from './credentials.ts';
-import { AWS, EC2 } from 'deps';
+import AWS, { EC2 } from 'aws-sdk';
 
 export interface AwsIds {
   private: string[];

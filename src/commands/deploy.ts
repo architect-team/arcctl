@@ -1,4 +1,4 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import EnvironmentV1 from '../environments/v1/index.ts';
 import { Pipeline } from '../pipeline/index.ts';
 import * as path from 'std/path/mod.ts';

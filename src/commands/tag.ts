@@ -1,4 +1,4 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
 import { execa } from 'execa';
 import * as path from 'std/path/mod.ts';

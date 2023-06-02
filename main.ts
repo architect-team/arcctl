@@ -1,4 +1,4 @@
-import arcctl from './src/index.ts';
+import arcctl from './src/commands/index.ts';
 
 if (import.meta.main) {
   await arcctl();

@@ -19,7 +19,7 @@ import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
 import readline from 'node:readline';
 import process from 'node:process';
-import { Select } from 'cliffy/prompt/select.ts';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -235,15 +235,7 @@ export class CommandHelper {
    * Helper method to prompt users to confirm they're ready to proceed
    */
   private async promptForContinuation(message: string): Promise<boolean> {
-    const { proceed } = await inquirer.prompt([
-      {
-        name: 'proceed',
-        type: 'confirm',
-        message,
-        default: false,
-      },
-    ]);
-    return proceed;
+    return await Confirm.prompt(message);
   }
 
   /**

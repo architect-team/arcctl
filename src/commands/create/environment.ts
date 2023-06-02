@@ -4,9 +4,9 @@ import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
-import inquirer from 'inquirer';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { Select } from 'cliffy/prompt/mod.ts';
 
 type CreateEnvironmentOptions = {
   datacenter?: string;
@@ -109,23 +109,25 @@ async function promptForDatacenter(command_helper: CommandHelper, name?: string)
     Deno.exit(1);
   }
 
-  const selected = datacenterRecords.find((d) => d.name === name);
-  const { datacenter } = await inquirer.prompt(
-    [
-      {
-        name: 'datacenter',
-        type: 'list',
-        message: 'Select a datacenter to host the environment',
-        choices: datacenterRecords.map((r) => ({
-          name: r.name,
-          value: r,
-        })),
-      },
-    ],
-    { datacenter: selected },
-  );
+  let selected = datacenterRecords.find((d) => d.name === name);
+  // { datacenter: selected },
+  if (!selected) {
+    const datacenter = await Select.prompt({
+      message: 'Select a datacenter to host the environment',
+      options: datacenterRecords.map((r) => ({
+        name: r.name,
+        value: r.name,
+      })),
+    });
+    selected = datacenterRecords.find((d) => d.name === datacenter);
 
-  return datacenter;
+    if (!selected) {
+      console.log(`Unable to find datacenter: ${datacenter}`);
+      Deno.exit(1);
+    }
+  }
+
+  return selected;
 }
 
 export default CreateEnvironmentCommand;

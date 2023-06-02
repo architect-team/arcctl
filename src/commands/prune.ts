@@ -1,6 +1,6 @@
 import { Provider } from '../@providers/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
-import inquirer from 'inquirer';
+import { Checkbox } from 'cliffy/prompt/mod.ts';
 
 const PruneAccountsCommand = BaseCommand()
   .description('Remove accounts that are no longer active')
@@ -23,17 +23,13 @@ async function prune_accounts_action(options: GlobalOptions) {
   }
 
   console.log(`${invalidAccounts.length} accounts have invalid credentials.`);
-  const { accountsToPrune } = await inquirer.prompt([
-    {
-      name: 'accountsToPrune',
-      type: 'checkbox',
-      message: 'Which accounts would you like to remove?',
-      choices: invalidAccounts.map((account) => ({
-        name: `${account.name} (${account.type})`,
-        value: account.name,
-      })),
-    },
-  ]);
+  const accountsToPrune = await Checkbox.prompt({
+    message: 'Which accounts would you like to remove? (Use Spacebar to select)',
+    options: invalidAccounts.map((account) => ({
+      name: `${account.name} (${account.type})`,
+      value: account.name,
+    })),
+  });
 
   for (const accountName of accountsToPrune) {
     command_helper.providerStore.deleteProvider(accountName);

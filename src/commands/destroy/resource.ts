@@ -6,6 +6,7 @@ import { EnumType } from 'cliffy/command/mod.ts';
 import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
 import winston, { Logger } from 'winston';
+import { Confirm } from 'cliffy/prompt/mod.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -77,13 +78,9 @@ async function destroy_resource_action(
     { id: resource_id },
   );
 
-  const { proceed } = await inquirer.prompt([
-    {
-      name: 'proceed',
-      type: 'confirm',
-      message: `Are you sure you would like to delete this resource? Don't interrupt the process once it starts!`,
-    },
-  ]);
+  const proceed = await Confirm.prompt(
+    `Are you sure you would like to delete this resource? Don't interrupt the process once it starts!`,
+  );
 
   if (!proceed) {
     Deno.exit(0);

@@ -5,12 +5,11 @@ import { Pipeline } from '../../pipeline/index.ts';
 import { Terraform } from '../../terraform/terraform.ts';
 import CloudCtlConfig from '../../utils/config.ts';
 import cliSpinners from 'cli-spinners';
-import inquirer from 'inquirer';
-import { inspect } from 'node:util';
 import winston, { Logger } from 'winston';
 import { EnumType } from 'cliffy/command/mod.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
+import { Confirm } from 'cliffy/prompt/mod.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -58,13 +57,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
   console.log('\nAbout to create the following resources:');
   command_helper.renderPipeline(pipeline);
   console.log('');
-  const { proceed } = await inquirer.prompt([
-    {
-      name: 'proceed',
-      type: 'confirm',
-      message: 'Do you want to proceed?',
-    },
-  ]);
+  const proceed = await Confirm.prompt('Do you want to proceed?');
 
   if (!proceed) {
     console.log(`${type} creation cancelled`);
@@ -106,7 +99,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
       console.log('');
       console.log(colors.green(`${type} created successfully!`));
       console.log('Please record the results for your records. Some fields may not be retrievable again.');
-      console.log(inspect(outputs));
+      console.log(outputs);
     })
     .catch((err) => {
       clearInterval(interval);

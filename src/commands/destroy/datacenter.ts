@@ -6,6 +6,7 @@ import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { Confirm } from 'cliffy/prompt/mod.ts';
 
 type DestroyDatacenterOptions = {
   verbose: boolean;
@@ -38,16 +39,7 @@ async function destroy_datacenter_action(options: DestroyDatacenterOptions, name
       console.log(`- ${env.name}`);
     }
 
-    const { confirm } = await inquirer.prompt(
-      [
-        {
-          name: 'confirm',
-          type: 'confirm',
-          message: 'Are you sure you want to proceed?',
-        },
-      ],
-      { confirm: options.autoApprove === true || undefined },
-    );
+    const confirm = options.autoApprove === true || (await Confirm.prompt('Are you sure you want to proceed?'));
 
     if (!confirm) {
       console.error('Datacenter destruction cancelled');

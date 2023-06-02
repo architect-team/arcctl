@@ -5,12 +5,14 @@ import {
   testDeploymentGeneration,
   testServiceGeneration,
   testServiceIntegration,
-} from '../../__tests__/version-helper';
+} from '../../__tests__/version-helper.ts';
 import ComponentV2 from '../index.ts';
 import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component Schema: v2', () => {
-  it('should generate deployments', async () =>
+  it('should generate deployments', () =>
     testDeploymentGeneration(
       `
       version: v2
@@ -24,7 +26,7 @@ describe('Component Schema: v2', () => {
       },
     ));
 
-  it('should generate services', async () =>
+  it('should generate services', () =>
     testServiceGeneration(
       `
       version: v2
@@ -40,7 +42,7 @@ describe('Component Schema: v2', () => {
       { deployment_name: 'api', service_name: 'api' },
     ));
 
-  it('should connect deployments to services', async () =>
+  it('should connect deployments to services', () =>
     testServiceIntegration(
       `
       version: v2
@@ -64,14 +66,14 @@ describe('Component Schema: v2', () => {
       },
     ));
 
-  it('should support build steps', async () => {
+  it('should support build steps', () => {
     const component = new ComponentV2(
       yaml.load(`
         name: test
         builds:
           test:
             context: ./
-      `) as any,
+      `),
     );
 
     const graph = component.getGraph({
@@ -96,10 +98,10 @@ describe('Component Schema: v2', () => {
       },
     });
 
-    expect(graph.nodes).toEqual(expect.arrayContaining([build_node]));
+    assertArrayIncludes(graph.nodes, [build_node]);
   });
 
-  it('should generate databases', async () =>
+  it('should generate databases', () =>
     testDatabaseGeneration(
       `
         databases:
@@ -114,7 +116,7 @@ describe('Component Schema: v2', () => {
       },
     ));
 
-  it('should connect deployments to databases', async () =>
+  it('should connect deployments to databases', () =>
     testDatabaseIntegration(
       `
       databases:

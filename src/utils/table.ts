@@ -1,4 +1,5 @@
 import { Table } from 'cliffy/table/mod.ts';
+import { colors } from 'cliffy/ansi/colors.ts';
 
 type TableOptions = {
   minWidth: number;
@@ -30,7 +31,8 @@ export const createTable = (options: Partial<TableOptions> = {}): Table => {
     .padding(2);
 
   if (options.head) {
-    table = table.header(options.head);
+    // Color header red
+    table = table.header(options.head.map((s) => colors.red(s)));
   }
   if (options.alignment) {
     table = table.align(options.alignment);

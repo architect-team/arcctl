@@ -10,10 +10,8 @@ const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
 const __dirname = new URL('.', import.meta.url).pathname;
 
-const componentValidator = async () => {
-  const component_schema_contents = await Deno.readTextFile(path.join(__dirname, './component.schema.json'));
-  return ajv.compile<ComponentSchema>(JSON.parse(component_schema_contents));
-};
+const component_schema_contents = Deno.readTextFileSync(path.join(__dirname, './component.schema.json'));
+const component_validator = ajv.compile<ComponentSchema>(JSON.parse(component_schema_contents));
 
 export const parseComponent = async (input: Record<string, unknown> | string): Promise<Component> => {
   let raw_obj: any;
@@ -38,10 +36,8 @@ export const parseComponent = async (input: Record<string, unknown> | string): P
     raw_obj.version = DEFAULT_SCHEMA_VERSION;
   }
 
-  const validator = await componentValidator();
-
-  if (!validator(raw_obj)) {
-    throw validator.errors;
+  if (!component_validator(raw_obj)) {
+    throw component_validator.errors;
   }
 
   return buildComponent(raw_obj);

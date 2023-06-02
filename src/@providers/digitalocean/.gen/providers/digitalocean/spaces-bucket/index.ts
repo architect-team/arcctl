@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,17 +10,17 @@ export interface SpacesBucketConfig extends cdktf.TerraformMetaArguments {
   /**
   * Canned ACL applied on bucket creation
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#acl SpacesBucket#acl}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#acl SpacesBucket#acl}
   */
   readonly acl?: string;
   /**
   * Unless true, the bucket will only be destroyed if empty
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#force_destroy SpacesBucket#force_destroy}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#force_destroy SpacesBucket#force_destroy}
   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#id SpacesBucket#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#id SpacesBucket#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -29,31 +29,31 @@ export interface SpacesBucketConfig extends cdktf.TerraformMetaArguments {
   /**
   * Bucket name
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#name SpacesBucket#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#name SpacesBucket#name}
   */
   readonly name: string;
   /**
   * Bucket region
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#region SpacesBucket#region}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#region SpacesBucket#region}
   */
   readonly region?: string;
   /**
   * cors_rule block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#cors_rule SpacesBucket#cors_rule}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#cors_rule SpacesBucket#cors_rule}
   */
   readonly corsRule?: SpacesBucketCorsRule[] | cdktf.IResolvable;
   /**
   * lifecycle_rule block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#lifecycle_rule SpacesBucket#lifecycle_rule}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#lifecycle_rule SpacesBucket#lifecycle_rule}
   */
   readonly lifecycleRule?: SpacesBucketLifecycleRule[] | cdktf.IResolvable;
   /**
   * versioning block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#versioning SpacesBucket#versioning}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#versioning SpacesBucket#versioning}
   */
   readonly versioning?: SpacesBucketVersioning;
 }
@@ -61,23 +61,23 @@ export interface SpacesBucketCorsRule {
   /**
   * A list of headers that will be included in the CORS preflight request's Access-Control-Request-Headers. A header may contain one wildcard (e.g. x-amz-*).
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_headers SpacesBucket#allowed_headers}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#allowed_headers SpacesBucket#allowed_headers}
   */
   readonly allowedHeaders?: string[];
   /**
   * A list of HTTP methods (e.g. GET) which are allowed from the specified origin.
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_methods SpacesBucket#allowed_methods}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#allowed_methods SpacesBucket#allowed_methods}
   */
   readonly allowedMethods: string[];
   /**
   * A list of hosts from which requests using the specified methods are allowed. A host may contain one wildcard (e.g. http://*.example.com).
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#allowed_origins SpacesBucket#allowed_origins}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#allowed_origins SpacesBucket#allowed_origins}
   */
   readonly allowedOrigins: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#max_age_seconds SpacesBucket#max_age_seconds}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#max_age_seconds SpacesBucket#max_age_seconds}
   */
   readonly maxAgeSeconds?: number;
 }
@@ -237,15 +237,15 @@ export class SpacesBucketCorsRuleList extends cdktf.ComplexList {
 }
 export interface SpacesBucketLifecycleRuleExpiration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#date SpacesBucket#date}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#date SpacesBucket#date}
   */
   readonly date?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#days SpacesBucket#days}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#days SpacesBucket#days}
   */
   readonly days?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expired_object_delete_marker SpacesBucket#expired_object_delete_marker}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#expired_object_delete_marker SpacesBucket#expired_object_delete_marker}
   */
   readonly expiredObjectDeleteMarker?: boolean | cdktf.IResolvable;
 }
@@ -356,7 +356,7 @@ export class SpacesBucketLifecycleRuleExpirationOutputReference extends cdktf.Co
 }
 export interface SpacesBucketLifecycleRuleNoncurrentVersionExpiration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#days SpacesBucket#days}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#days SpacesBucket#days}
   */
   readonly days?: number;
 }
@@ -421,34 +421,34 @@ export class SpacesBucketLifecycleRuleNoncurrentVersionExpirationOutputReference
 }
 export interface SpacesBucketLifecycleRule {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#abort_incomplete_multipart_upload_days SpacesBucket#abort_incomplete_multipart_upload_days}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#abort_incomplete_multipart_upload_days SpacesBucket#abort_incomplete_multipart_upload_days}
   */
   readonly abortIncompleteMultipartUploadDays?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#enabled SpacesBucket#enabled}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#enabled SpacesBucket#enabled}
   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#id SpacesBucket#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#id SpacesBucket#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#prefix SpacesBucket#prefix}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#prefix SpacesBucket#prefix}
   */
   readonly prefix?: string;
   /**
   * expiration block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#expiration SpacesBucket#expiration}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#expiration SpacesBucket#expiration}
   */
   readonly expiration?: SpacesBucketLifecycleRuleExpiration;
   /**
   * noncurrent_version_expiration block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#noncurrent_version_expiration SpacesBucket#noncurrent_version_expiration}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#noncurrent_version_expiration SpacesBucket#noncurrent_version_expiration}
   */
   readonly noncurrentVersionExpiration?: SpacesBucketLifecycleRuleNoncurrentVersionExpiration;
 }
@@ -657,7 +657,7 @@ export class SpacesBucketLifecycleRuleList extends cdktf.ComplexList {
 }
 export interface SpacesBucketVersioning {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket#enabled SpacesBucket#enabled}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket#enabled SpacesBucket#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
@@ -722,7 +722,7 @@ export class SpacesBucketVersioningOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket digitalocean_spaces_bucket}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket digitalocean_spaces_bucket}
 */
 export class SpacesBucket extends cdktf.TerraformResource {
 
@@ -736,7 +736,7 @@ export class SpacesBucket extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/spaces_bucket digitalocean_spaces_bucket} Resource
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/spaces_bucket digitalocean_spaces_bucket} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

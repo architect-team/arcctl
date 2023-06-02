@@ -103,7 +103,7 @@ export class ComponentStore {
     const artifact_id = crypto
       .createHash('sha256')
       .update(component_contents)
-      .setEncoding('utf-8') // TODO(tyler): Test this
+      .setEncoding('utf-8')
       .digest('hex') as string;
     const new_path = path.join(this.cache_dir, artifact_id);
     if (!existsSync(new_path)) {
@@ -181,7 +181,7 @@ export class ComponentStore {
    *
    * @param {string} ref_string - The component tag to push
    */
-  async push(ref_string: string): Promise<void> {
+  async push(ref_string: string, tar_directory?: string): Promise<void> {
     const repository = new ImageRepository(ref_string, this.default_registry);
     await repository.checkForOciSupport();
 
@@ -192,10 +192,10 @@ export class ComponentStore {
     const config_blob = await repository.uploadBlob(config_path);
 
     // Upload the component directory contents
-    const tar_filepath = Deno.makeTempFileSync({
-      prefix: 'files-layer',
-      suffix: 'tgz',
-    });
+    if (!tar_directory) {
+      tar_directory = Deno.makeTempDirSync();
+    }
+    const tar_filepath = path.join(tar_directory, 'files-layer.tgz');
 
     await tar.create({ gzip: true, file: tar_filepath, cwd: path.dirname(config_path) }, ['./']);
     const files_blob = await repository.uploadBlob(tar_filepath);

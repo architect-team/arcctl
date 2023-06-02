@@ -19,6 +19,7 @@ import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
 import readline from 'node:readline';
 import process from 'node:process';
+import { Select } from 'cliffy/prompt/select.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -590,33 +591,36 @@ export class CommandHelper {
       }
     }
 
-    const newAccountName = 'Add a new account';
+    let account;
+    let selected_account = options.account;
+    if (options.account) {
+      account = filteredAccounts.find((a) => a.name === options.account);
+    } else {
+      const newAccountName = 'Add a new account';
 
-    const res = await inquirer.prompt(
-      [
-        {
-          name: 'account',
-          type: 'list',
-          message: options.message || 'Select an account',
-          choices: [
-            ...filteredAccounts.map((p) => ({
-              name: `${p.name} (${p.type})`,
-              value: p.name,
-            })),
-            newAccountName,
-          ],
-        },
-      ],
-      { account: options.account },
-    );
+      selected_account = await Select.prompt({
+        message: options.message || 'Select an account',
+        options: [
+          ...filteredAccounts.map((p) => ({
+            name: `${p.name} (${p.type})`,
+            value: p.name,
+          })),
+          {
+            name: newAccountName,
+            value: newAccountName,
+          },
+        ],
+      });
 
-    if (res.account === newAccountName) {
-      return createProvider();
+      if (selected_account === newAccountName) {
+        return createProvider();
+      }
+
+      account = filteredAccounts.find((p) => p.name === selected_account);
     }
 
-    const account = filteredAccounts.find((p) => p.name === res.account);
     if (!account) {
-      console.error(`Account ${res.account} not found`);
+      console.error(`Account ${selected_account} not found`);
       Deno.exit(1);
     }
 
@@ -632,8 +636,7 @@ export class CommandHelper {
     input?: string,
     optional?: boolean,
   ): Promise<ResourceType> {
-    const resources = provider.getResourceEntries();
-    resources.filter(([type, service]) => {
+    const resources = provider.getResourceEntries().filter(([type, service]) => {
       return action in service && (!input || type === input);
     });
 
@@ -642,19 +645,17 @@ export class CommandHelper {
       Deno.exit(1);
     }
 
-    const res = await inquirer.prompt(
-      [
-        {
-          name: 'type',
-          type: 'list',
-          message: `What type of resource do you want to ${action}?`,
-          choices: resources.map(([type, _]) => type),
-        },
-      ],
-      { type: input },
-    );
-
-    return res.type;
+    if (input && resources.length === 1) {
+      return resources.map(([type, _]) => type)[0];
+    } else {
+      return (await Select.prompt({
+        message: `What type of resource do you want to ${action}?`,
+        options: resources.map(([type, _]) => ({
+          name: type,
+          value: type,
+        })),
+      })) as ResourceType;
+    }
   }
 
   /**
@@ -731,7 +732,7 @@ export class CommandHelper {
     return node;
   }
 
-  publichandleTerraformError(ex: any): void {
+  public handleTerraformError(ex: any): void {
     if (!ex.stderr) {
       throw ex;
     }

@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/d/volume
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,11 +10,11 @@ export interface DataDigitaloceanVolumeConfig extends cdktf.TerraformMetaArgumen
   /**
   * volume description
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#description DataDigitaloceanVolume#description}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume#description DataDigitaloceanVolume#description}
   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#id DataDigitaloceanVolume#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume#id DataDigitaloceanVolume#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -23,19 +23,19 @@ export interface DataDigitaloceanVolumeConfig extends cdktf.TerraformMetaArgumen
   /**
   * name of the volume
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#name DataDigitaloceanVolume#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume#name DataDigitaloceanVolume#name}
   */
   readonly name: string;
   /**
   * the region that the volume is provisioned in
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/volume#region DataDigitaloceanVolume#region}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume#region DataDigitaloceanVolume#region}
   */
   readonly region?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/volume digitalocean_volume}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume digitalocean_volume}
 */
 export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
 
@@ -49,7 +49,7 @@ export class DataDigitaloceanVolume extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/volume digitalocean_volume} Data Source
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/volume digitalocean_volume} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -17,7 +17,7 @@ const DeployCommand = BaseCommand()
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
     collect: true,
   })
-  .option('-v, --verbose', 'Verbose output') // TODO(tyler): Global option?
+  .option('-v, --verbose', 'Verbose output')
   .action(deploy_action);
 
 async function deploy_action(options: DeployOptions, tag: string, environment_name: string): Promise<void> {

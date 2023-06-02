@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/d/records
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,11 +8,11 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanRecordsConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#domain DataDigitaloceanRecords#domain}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#domain DataDigitaloceanRecords#domain}
   */
   readonly domain: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#id DataDigitaloceanRecords#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#id DataDigitaloceanRecords#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -21,13 +21,13 @@ export interface DataDigitaloceanRecordsConfig extends cdktf.TerraformMetaArgume
   /**
   * filter block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#filter DataDigitaloceanRecords#filter}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#filter DataDigitaloceanRecords#filter}
   */
   readonly filter?: DataDigitaloceanRecordsFilter[] | cdktf.IResolvable;
   /**
   * sort block
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#sort DataDigitaloceanRecords#sort}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#sort DataDigitaloceanRecords#sort}
   */
   readonly sort?: DataDigitaloceanRecordsSort[] | cdktf.IResolvable;
 }
@@ -147,19 +147,19 @@ export class DataDigitaloceanRecordsRecordsList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanRecordsFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#all DataDigitaloceanRecords#all}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#all DataDigitaloceanRecords#all}
   */
   readonly all?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#key DataDigitaloceanRecords#key}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#key DataDigitaloceanRecords#key}
   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#match_by DataDigitaloceanRecords#match_by}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#match_by DataDigitaloceanRecords#match_by}
   */
   readonly matchBy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#values DataDigitaloceanRecords#values}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#values DataDigitaloceanRecords#values}
   */
   readonly values: string[];
 }
@@ -319,11 +319,11 @@ export class DataDigitaloceanRecordsFilterList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanRecordsSort {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#direction DataDigitaloceanRecords#direction}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#direction DataDigitaloceanRecords#direction}
   */
   readonly direction?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/records#key DataDigitaloceanRecords#key}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records#key DataDigitaloceanRecords#key}
   */
   readonly key: string;
 }
@@ -440,7 +440,7 @@ export class DataDigitaloceanRecordsSortList extends cdktf.ComplexList {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/records digitalocean_records}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records digitalocean_records}
 */
 export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
 
@@ -454,7 +454,7 @@ export class DataDigitaloceanRecords extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/records digitalocean_records} Data Source
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/records digitalocean_records} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

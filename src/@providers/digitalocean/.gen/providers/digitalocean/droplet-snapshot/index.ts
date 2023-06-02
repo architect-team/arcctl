@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/r/droplet_snapshot
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/droplet_snapshot
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,24 +8,24 @@ import * as cdktf from 'cdktf';
 
 export interface DropletSnapshotConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet_snapshot#droplet_id DropletSnapshot#droplet_id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/droplet_snapshot#droplet_id DropletSnapshot#droplet_id}
   */
   readonly dropletId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet_snapshot#id DropletSnapshot#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/droplet_snapshot#id DropletSnapshot#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet_snapshot#name DropletSnapshot#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/droplet_snapshot#name DropletSnapshot#name}
   */
   readonly name: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet_snapshot digitalocean_droplet_snapshot}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/droplet_snapshot digitalocean_droplet_snapshot}
 */
 export class DropletSnapshot extends cdktf.TerraformResource {
 
@@ -39,7 +39,7 @@ export class DropletSnapshot extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/droplet_snapshot digitalocean_droplet_snapshot} Resource
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/droplet_snapshot digitalocean_droplet_snapshot} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

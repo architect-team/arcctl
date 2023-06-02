@@ -5,19 +5,11 @@ import { Construct } from 'constructs';
 
 export class CldCtlTerraformStack extends TerraformStack {
   addModule<T extends ResourceType>(
-    ModuleConstructor: new (
-      scope: Construct,
-      id: string,
-      inputs: ResourceInputs[T],
-    ) => ResourceModule<T, any>,
+    ModuleConstructor: new (scope: Construct, id: string, inputs: ResourceInputs[T]) => ResourceModule<T, any>,
     id: string,
     inputs: ResourceInputs[T],
   ): { module: ResourceModule<T, any>; output: TerraformOutput } {
-    const module = new ModuleConstructor(
-      this as unknown as Construct,
-      id,
-      inputs,
-    );
+    const module = new ModuleConstructor(this as unknown as Construct, id, inputs);
     const output = new TerraformOutput(this, `${id}-output`, {
       value: module.outputs,
       sensitive: true,
@@ -26,11 +18,10 @@ export class CldCtlTerraformStack extends TerraformStack {
   }
 
   findModules(): ResourceModule<any, any>[] {
-    return this.node
-      .findAll()
-      .filter(
-        (child) => child instanceof ResourceModule,
-      ) as unknown as ResourceModule<any, any>[];
+    return this.node.findAll().filter((child) => child instanceof ResourceModule) as unknown as ResourceModule<
+      any,
+      any
+    >[];
   }
 
   getResourceDisplayNames(): Record<string, string> {

@@ -1,36 +1,39 @@
-import { BaseCommand } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
 import { createTable } from '../../utils/table.ts';
 
-export class ListEnvironmentsCmd extends BaseCommand {
-  static description = 'List registered environments';
+const ListEnvironmentCommand = BaseCommand()
+  .alias('list:envs')
+  .alias('list:env')
+  .alias('list:environments')
+  .description('List registered environments')
+  .action(list_environments_action);
 
-  static aliases = ['list:envs', 'list:env', 'list:environment'];
+async function list_environments_action(options: GlobalOptions) {
+  const command_helper = new CommandHelper(options);
 
-  async run(): Promise<void> {
-    const environments = await this.environmentStore.find();
-    if (environments.length <= 0) {
-      this.log('No environments found');
-      return;
-    }
-
-    const table = createTable({
-      head: ['Name', 'Datacenter', 'Resources'],
-    });
-
-    for (const { name, datacenter } of environments) {
-      const datacenterRecord = await this.datacenterStore.get(datacenter);
-
-      let resourceCount = 0;
-      if (datacenterRecord) {
-        const pipeline = await this.getPipelineForDatacenter(datacenterRecord);
-        resourceCount = pipeline.steps.filter(
-          (step) => step.action !== 'delete' && step.environment === name,
-        ).length;
-      }
-
-      table.push([name, datacenter, String(resourceCount)]);
-    }
-
-    this.log(table.toString());
+  const environments = await command_helper.environmentStore.find();
+  if (environments.length <= 0) {
+    console.log('No environments found');
+    return;
   }
+
+  const table = createTable({
+    head: ['Name', 'Datacenter', 'Resources'],
+  });
+
+  for (const { name, datacenter } of environments) {
+    const datacenterRecord = await command_helper.datacenterStore.get(datacenter);
+
+    let resourceCount = 0;
+    if (datacenterRecord) {
+      const pipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
+      resourceCount = pipeline.steps.filter((step) => step.action !== 'delete' && step.environment === name).length;
+    }
+
+    table.push([name, datacenter, String(resourceCount)]);
+  }
+
+  console.log(table.toString());
 }
+
+export default ListEnvironmentCommand;

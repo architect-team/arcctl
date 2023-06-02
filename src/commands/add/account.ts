@@ -10,7 +10,6 @@ type AddAccountOptions = {
 } & GlobalOptions;
 
 const AddAccountCommand = BaseCommand()
-  .alias('accounts')
   .description('Register an account to use to provision resources')
   .type('providerType', providerType)
   .option('-p, --provider <provider:providerType>', 'Type of provider to register')

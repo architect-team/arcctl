@@ -6,9 +6,9 @@ import ListAllResourcesCommand from './all.ts';
 
 const ListCommands = ListResourcesCommand;
 
-ListCommands.command('accounts', ListAccountsCommand)
-  .command('datacenters', ListDatacentersCommand)
-  .command('environments', ListEnvironmentsCommand)
-  .command('all', ListAllResourcesCommand);
+ListCommands.command('accounts', ListAccountsCommand.alias('account'));
+ListCommands.command('datacenters', ListDatacentersCommand.alias('datacenter').alias('dcs').alias('dc'));
+ListCommands.command('environments', ListEnvironmentsCommand.alias('environment').alias('envs').alias('env'));
+ListCommands.command('all', ListAllResourcesCommand);
 
 export default ListCommands;

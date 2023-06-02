@@ -3,9 +3,6 @@ import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
 
 const ListAccountCommand = BaseCommand()
-  .alias('list account')
-  .alias('ls account')
-  .alias('ls accounts')
   .description('List the accounts registered with the CLI')
   .action(list_account_action);
 

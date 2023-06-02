@@ -4,6 +4,7 @@ import GetResourceCommand from './resource.ts';
 
 const GetCommands = GetResourceCommand;
 
-GetCommands.command('account', GetAccountCommand).command('component', GetComponentCommand);
+GetCommands.command('account', GetAccountCommand.alias('accounts'));
+GetCommands.command('component', GetComponentCommand.alias('components'));
 
 export default GetCommands;

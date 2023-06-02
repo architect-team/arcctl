@@ -11,7 +11,6 @@ type UpdateDatacenterOptions = {
 } & GlobalOptions;
 
 const UpdateDatacenterCommand = BaseCommand()
-  .alias('update dc')
   .description('Apply changes to a new or existing datacenter')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })
   .arguments('<name:string> <config_path:string>')

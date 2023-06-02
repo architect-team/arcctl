@@ -12,7 +12,6 @@ type UpdateEnvironmentOptions = {
 } & GlobalOptions;
 
 const UpdateEnvironmentCommand = BaseCommand()
-  .alias('update env')
   .description('Apply changes to an environment')
   .option('-d, --datacenter <datacenter:string>', 'New datacenter for the environment')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })

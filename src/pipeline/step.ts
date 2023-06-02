@@ -239,6 +239,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await outputCmd.status;
     } else {
       const { stdout } = await outputCmd.output();
       rawOutputs = new TextDecoder().decode(stdout);

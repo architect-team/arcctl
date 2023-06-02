@@ -11,7 +11,7 @@ resources:
     type: kubernetesCluster
     account: do-personal
     name: arcctl-datacenter
-    kubernetesVersion: 1.26.3-do.0
+    kubernetesVersion: 1.26.5-do.0
     region: nyc1
     vpc: ${{ resources.vpc.id }}
     nodePools:

@@ -1,4 +1,4 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import yaml from 'js-yaml';
 
 const GetComponentManifestCommand = BaseCommand()

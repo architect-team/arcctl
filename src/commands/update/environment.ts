@@ -1,4 +1,4 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
@@ -12,6 +12,7 @@ type UpdateEnvironmentOptions = {
 } & GlobalOptions;
 
 const UpdateEnvironmentCommand = BaseCommand()
+  .alias('update env')
   .description('Apply changes to an environment')
   .option('-d, --datacenter <datacenter:string>', 'New datacenter for the environment')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })

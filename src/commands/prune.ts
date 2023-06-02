@@ -1,5 +1,5 @@
 import { Provider } from '../@providers/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import inquirer from 'inquirer';
 
 const PruneAccountsCommand = BaseCommand()

@@ -1,5 +1,5 @@
 import { SupportedProviders } from '../../@providers/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import inquirer from 'inquirer';
 
@@ -10,10 +10,8 @@ type AddAccountOptions = {
 } & GlobalOptions;
 
 const AddAccountCommand = BaseCommand()
-  .alias('add:accounts')
-  .alias('account:add')
-  .alias('accounts:add')
-  .description('Register an account for use to provision resources')
+  .alias('accounts')
+  .description('Register an account to use to provision resources')
   .type('providerType', providerType)
   .option('-p, --provider <provider:providerType>', 'Type of provider to register')
   .arguments('[account_name:string]')

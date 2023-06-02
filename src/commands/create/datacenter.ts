@@ -1,4 +1,4 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { parseDatacenter } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';

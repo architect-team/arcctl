@@ -1,5 +1,5 @@
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 

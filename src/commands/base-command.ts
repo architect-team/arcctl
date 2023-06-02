@@ -1,15 +1,15 @@
-import { Provider, SupportedProviders, ProviderStore } from './@providers/index.ts';
-import { ResourceType, ResourceTypeList } from './@resources/index.ts';
-import { CloudEdge, CloudGraph, CloudNode } from './cloud-graph/index.ts';
-import { ComponentStore } from './component-store/index.ts';
-import { Datacenter, DatacenterRecord, DatacenterStore } from './datacenters/index.ts';
-import { EnvironmentStore } from './environments/index.ts';
-import { Pipeline, PipelineStep } from './pipeline/index.ts';
-import { Terraform } from './terraform/terraform.ts';
-import CloudCtlConfig from './utils/config.ts';
-import { CldCtlProviderStore } from './utils/provider-store.ts';
-import { createProvider } from './utils/providers.ts';
-import { createTable } from './utils/table.ts';
+import { Provider, SupportedProviders, ProviderStore } from '../@providers/index.ts';
+import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
+import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
+import { ComponentStore } from '../component-store/index.ts';
+import { Datacenter, DatacenterRecord, DatacenterStore } from '../datacenters/index.ts';
+import { EnvironmentStore } from '../environments/index.ts';
+import { Pipeline, PipelineStep } from '../pipeline/index.ts';
+import { Terraform } from '../terraform/terraform.ts';
+import CloudCtlConfig from '../utils/config.ts';
+import { CldCtlProviderStore } from '../utils/provider-store.ts';
+import { createProvider } from '../utils/providers.ts';
+import { createTable } from '../utils/table.ts';
 import { JSONSchemaType } from 'ajv';
 import cliSpinners from 'cli-spinners';
 import { deepMerge } from 'std/collections/deep_merge.ts';
@@ -61,7 +61,7 @@ export class CommandHelper {
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public async saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+  public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
     return new Promise(async (resolve, reject) => {
       const secretStep = new PipelineStep({
         action: 'create',
@@ -110,7 +110,7 @@ export class CommandHelper {
     });
   }
 
-  public async removeDatacenter(record: DatacenterRecord): Promise<void> {
+  public removeDatacenter(record: DatacenterRecord): Promise<void> {
     return new Promise(async (resolve, reject) => {
       const secretStep = new PipelineStep({
         action: 'delete',
@@ -637,11 +637,11 @@ export class CommandHelper {
     optional?: boolean,
   ): Promise<ResourceType> {
     const resources = provider.getResourceEntries().filter(([type, service]) => {
-      return action in service && (!input || type === input);
+      return (action in service || 'construct' in service) && (!input || type === input);
     });
 
     if (resources.length === 0) {
-      console.error(`The cloud provider for ${provider.name} does not support ${action} ${input}s`);
+      console.error(`The cloud provider ${provider.type} cannot ${action} ${input}s`);
       Deno.exit(1);
     }
 
@@ -668,7 +668,7 @@ export class CommandHelper {
     data: Record<string, unknown> = {},
   ): Promise<CloudNode<T>> {
     const __dirname = new URL('.', import.meta.url).pathname;
-    const schemaPath = path.join(__dirname, './@resources', type, './inputs.schema.json');
+    const schemaPath = path.join(__dirname, '../@resources', type, './inputs.schema.json');
     const schemaString = await Deno.readTextFile(schemaPath);
     let schema = JSON.parse(schemaString);
     if (schema.$ref && schema.definitions) {

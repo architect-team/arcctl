@@ -28,13 +28,8 @@
   ],
   "dependencies": {
     "@architect-io/arc-oci": "0.1.0",
-    "adm-zip": "^0.5.9",
-    "ajv": "^8.11.0",
-    "cdktf": "^0.15.5",
-    "chai": "^4.3.7",
     "chalk": "^5.1.2",
     "cli-spinners": "^2.7.0",
-    "constructs": "^10.1.255",
     "digitalocean": "^1.2.1",
     "digitalocean-js": "^2.0.3",
     "dots-wrapper": "^3.10.0",

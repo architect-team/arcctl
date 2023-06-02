@@ -2236,7 +2236,43 @@
                             "type": "object"
                           }
                         }
-                      ]
+                      ],
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "cronjob",
+                            "database",
+                            "databaseSchema",
+                            "databaseSize",
+                            "databaseType",
+                            "databaseUser",
+                            "databaseVersion",
+                            "deployment",
+                            "dnsRecord",
+                            "dnsZone",
+                            "dockerBuild",
+                            "helmChart",
+                            "ingressRule",
+                            "kubernetesCluster",
+                            "kubernetesVersion",
+                            "loadBalancer",
+                            "loadBalancerType",
+                            "namespace",
+                            "node",
+                            "nodeSize",
+                            "region",
+                            "secret",
+                            "service",
+                            "task",
+                            "volume",
+                            "vpc"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ],
+                      "type": "object"
                     },
                     "type": "object"
                   },
@@ -4635,7 +4671,43 @@
                       "type": "object"
                     }
                   }
-                ]
+                ],
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "cronjob",
+                      "database",
+                      "databaseSchema",
+                      "databaseSize",
+                      "databaseType",
+                      "databaseUser",
+                      "databaseVersion",
+                      "deployment",
+                      "dnsRecord",
+                      "dnsZone",
+                      "dockerBuild",
+                      "helmChart",
+                      "ingressRule",
+                      "kubernetesCluster",
+                      "kubernetesVersion",
+                      "loadBalancer",
+                      "loadBalancerType",
+                      "namespace",
+                      "node",
+                      "nodeSize",
+                      "region",
+                      "secret",
+                      "service",
+                      "task",
+                      "volume",
+                      "vpc"
+                    ]
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
               },
               "description": "Configure what resources must exist in each environment in the datacenter",
               "type": "object"
@@ -6571,7 +6643,43 @@
                   "type": "object"
                 }
               }
-            ]
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "cronjob",
+                  "database",
+                  "databaseSchema",
+                  "databaseSize",
+                  "databaseType",
+                  "databaseUser",
+                  "databaseVersion",
+                  "deployment",
+                  "dnsRecord",
+                  "dnsZone",
+                  "dockerBuild",
+                  "helmChart",
+                  "ingressRule",
+                  "kubernetesCluster",
+                  "kubernetesVersion",
+                  "loadBalancer",
+                  "loadBalancerType",
+                  "namespace",
+                  "node",
+                  "nodeSize",
+                  "region",
+                  "secret",
+                  "service",
+                  "task",
+                  "volume",
+                  "vpc"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
           },
           "description": "Create resources that live and die with the lifecycle of the datacenter",
           "type": "object"

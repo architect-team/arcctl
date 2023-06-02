@@ -1482,7 +1482,7 @@
       "@types/tar@^6.1.2": "@types/tar@6.1.5",
       "adm-zip@^0.5.9": "adm-zip@0.5.10",
       "ajv@^8.11.0": "ajv@8.12.0",
-      "cdktf@^0.16.3": "cdktf@0.16.3_constructs@10.2.39",
+      "cdktf@^0.15.5": "cdktf@0.15.5_constructs@10.2.39",
       "chai@^4.3.7": "chai@4.3.7",
       "chalk@^5.1.2": "chalk@5.2.0",
       "cli-spinners@^2.7.0": "cli-spinners@2.9.0",
@@ -3434,8 +3434,8 @@
         "integrity": "sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==",
         "dependencies": {}
       },
-      "cdktf@0.16.3_constructs@10.2.39": {
-        "integrity": "sha512-rE+/RVDaLfZsQlJB/ATMhe226pFfIzOXMYWXqWmIEiHPZXlkbdUCVM2rmJNBWJdMvs58yWmDLwFrqg+HakjA6Q==",
+      "cdktf@0.15.5_constructs@10.2.39": {
+        "integrity": "sha512-fcamLs7SKz+kTbQFf+fOXDGvmwT5bH4bHwp+jkVKjGTRsu6C8z5oFVAjKYm+aP1tC7sSWG967+ihSx6+uPNAGw==",
         "dependencies": {
           "archiver": "archiver@5.3.1",
           "constructs": "constructs@10.2.39",

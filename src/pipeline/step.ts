@@ -87,8 +87,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await initCmd.status;
+    } else {
+      await initCmd.output();
     }
-    await initCmd.status;
 
     this.status.state = 'starting';
     this.status.message = 'Generating diff';
@@ -111,8 +113,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await planCmd.status;
+    } else {
+      await planCmd.output();
     }
-    await planCmd.status;
 
     this.status.state = options.state;
     this.status.message = 'Applying changes';
@@ -135,9 +139,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await applyCmd.status;
+    } else {
+      await applyCmd.output();
     }
-
-    await applyCmd.status;
   }
 
   /**
@@ -189,9 +194,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
             },
           }),
         );
+        await initCmd.status;
+      } else {
+        await initCmd.output();
       }
-
-      await initCmd.status;
 
       for (const [key, value] of Object.entries(imports)) {
         await options.terraform.import(nodeDir, key, value).output();

@@ -19,6 +19,11 @@ export class Terraform {
   public init(cwd: string, stack: CldCtlTerraformStack): Deno.ChildProcess {
     const moduleFile = path.join(cwd, 'main.tf.json');
     Deno.mkdirSync(cwd, { recursive: true });
+    // console.log(stack);
+    // console.log(stack.toTerraform());
+    stack.prepareStack();
+    console.log(stack.toTerraform());
+    console.log('yo?');
     Deno.writeTextFileSync(moduleFile, JSON.stringify(stack.toTerraform()));
 
     return this.plugin.exec(['init', '-input=false'], {

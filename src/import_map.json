@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "deps": "./src/deps.ts",
+    "std/": "https://deno.land/std@0.189.0/",
+    "cliffy/": "https://deno.land/x/cliffy@v0.25.7/",
+    "dnt": "https://deno.land/x/dnt@0.36.0/mod.ts",
+    "aws-sdk": "https://esm.sh/v124/*aws-sdk@2.1229.0",
+    "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1"
+  },
+  "scopes": {
+    "https://esm.sh/v124/": {
+      "buffer": "https://esm.sh/v124/buffer@4.9.2",
+      "events": "https://esm.sh/v124/events@1.1.1",
+      "ieee754": "https://esm.sh/v124/ieee754@1.1.13",
+      "jmespath": "https://esm.sh/v124/jmespath@0.16.0",
+      "querystring": "https://esm.sh/v124/querystring@0.2.0",
+      "sax": "https://esm.sh/v124/sax@1.2.1",
+      "url": "https://esm.sh/v124/url@0.10.3",
+      "util": "https://esm.sh/v124/util@0.12.5",
+      "uuid": "https://esm.sh/v124/uuid@8.0.0",
+      "xml2js": "https://esm.sh/v124/xml2js@0.4.19"
+    }
+  }
+}

@@ -220,11 +220,14 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.state = JSON.parse(stateString);
 
     const outputCmd = options.terraform.output(nodeDir);
+    let rawOutputs = '';
     if (options.logger) {
       outputCmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.info(new TextDecoder().decode(chunk));
+            const chunk_str = new TextDecoder().decode(chunk);
+            options.logger?.info(chunk_str);
+            rawOutputs += chunk_str;
           },
         }),
       );
@@ -236,9 +239,12 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+    } else {
+      const { stdout } = await outputCmd.output();
+      rawOutputs = new TextDecoder().decode(stdout);
     }
-    const { stdout: rawOutputs } = await outputCmd.output();
-    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
+
+    const parsedOutputs = JSON.parse(rawOutputs);
 
     if (this.action === 'create' && module.hooks.afterCreate) {
       this.status.state = 'applying';

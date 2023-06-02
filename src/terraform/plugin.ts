@@ -131,8 +131,7 @@ export class TerraformPlugin implements ArchitectPlugin {
     }
 
     const binaryPath = path.join(this.binaryDir, this.binary.executablePath);
-    // const cmd = new Deno.Command(binaryPath, { args, ...opts?.commandOptions, stdout: 'piped', stderr: 'piped' });
-    const cmd = new Deno.Command(binaryPath, { args, ...opts?.commandOptions });
+    const cmd = new Deno.Command(binaryPath, { args, ...opts?.commandOptions, stdout: 'piped', stderr: 'piped' });
     return cmd.spawn();
   }
 }

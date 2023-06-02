@@ -23,7 +23,7 @@ await build({
   // TODO: Should use the info from existing package.json
   package: {
     name: '@architect-io/arcctl',
-    version: '0.0.5-rc',
+    version: '0.0.6-rc',
     dependencies: package_json.dependencies
   },
   importMap: path.join(build_dir, '..', 'deno.json'),

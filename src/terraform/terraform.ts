@@ -1,8 +1,7 @@
+import * as path from 'std/path/mod.ts';
 import PluginManager from '../plugins/plugin-manager.ts';
 import { CldCtlTerraformStack } from '../utils/stack.ts';
 import { TerraformPlugin, TerraformVersion } from './plugin.ts';
-import { ExecaChildProcess } from 'execa';
-import * as path from 'std/path/mod.ts';
 
 export class Terraform {
   private plugin: TerraformPlugin;

@@ -4,18 +4,11 @@ import { Service } from '../.gen/providers/docker/service/index.ts';
 import { DockerCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class DockerDeploymentModule extends ResourceModule<
-  'deployment',
-  DockerCredentials
-> {
+export class DockerDeploymentModule extends ResourceModule<'deployment', DockerCredentials> {
   private service: Service;
   outputs: ResourceOutputs['deployment'];
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['deployment'],
-  ) {
+  constructor(scope: Construct, id: string, inputs: ResourceInputs['deployment']) {
     super(scope, id, inputs);
 
     const stringEnvVars: Record<string, string> = {};
@@ -27,16 +20,11 @@ export class DockerDeploymentModule extends ResourceModule<
       name: inputs.name,
       taskSpec: {
         runtime: 'container',
-        networksAdvanced: inputs.namespace
-          ? [{ name: inputs.namespace }]
-          : undefined,
+        networksAdvanced: inputs.namespace ? [{ name: inputs.namespace }] : undefined,
         containerSpec: {
           image: inputs.image,
           env: stringEnvVars,
-          command:
-            typeof inputs.command === 'string'
-              ? inputs.command.split(' ')
-              : inputs.command,
+          command: typeof inputs.command === 'string' ? inputs.command.split(' ') : inputs.command,
           mounts: inputs.volume_mounts.map((mount) => ({
             target: mount.mount_path,
             type: 'volume',
@@ -52,13 +40,10 @@ export class DockerDeploymentModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: DockerCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(_credentials: DockerCredentials, resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.service)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

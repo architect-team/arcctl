@@ -4,10 +4,7 @@ import { Domain } from '../.gen/providers/digitalocean/domain/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class DigitaloceanDnsZoneModule extends ResourceModule<
-  'dnsZone',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDnsZoneModule extends ResourceModule<'dnsZone', DigitaloceanCredentials> {
   dns_zone: Domain;
   outputs: ResourceOutputs['dnsZone'];
 
@@ -33,13 +30,10 @@ export class DigitaloceanDnsZoneModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: DigitaloceanCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.dns_zone)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

@@ -85,13 +85,13 @@ export class KubernetesIngressRuleModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: KubernetesCredentials,
-    resourceId: string,
+  genImports(
+    _credentials: KubernetesCredentials,
+    _resourceId: string,
   ): Promise<Record<string, string>> {
-    return {
+    return Promise.resolve({
       [this.getResourceRef(this.ingress)]: 'Ingress Rule',
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

@@ -1,47 +1,70 @@
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
+import { DockerCredentials } from '../credentials.ts';
+import { ApplyOutputs } from '../../base.service.ts';
+import { Observable } from 'rxjs';
 
-export class DockerServiceService extends CrudResourceService<'service'> {
-  get(id: string): Promise<ResourceOutputs['service'] | undefined> {
+export class DockerServiceService extends CrudResourceService<'service', DockerCredentials> {
+  get(_id: string): Promise<ResourceOutputs['service'] | undefined> {
     throw new Error('Method not implemented.');
   }
+
   list(
-    filterOptions?: Partial<ResourceOutputs['service']> | undefined,
-    pagingOptions?: Partial<PagingOptions> | undefined,
+    _filterOptions?: Partial<ResourceOutputs['service']> | undefined,
+    _pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['service']>> {
     throw new Error('Method not implemented.');
   }
 
-  async create(inputs: ResourceInputs['service']): Promise<ResourceOutputs['service']> {
-    const protocol = inputs.protocol || 'http';
-    const host = inputs.selector || '';
-    const url = `${protocol}://${host}:${inputs.target_port}`;
+  create(inputs: ResourceInputs['service']): Observable<ApplyOutputs<'service'>> {
+    return new Observable((subscriber) => {
+      const startTime = Date.now();
+      subscriber.next({
+        status: {
+          state: 'applying',
+          message: 'Creating service',
+          startTime,
+        },
+      });
 
-    return {
-      host,
-      id: inputs.name,
-      port: inputs.target_port,
-      protocol,
-      url,
-    };
+      const protocol = inputs.protocol || 'http';
+      const host = inputs.selector || '';
+      const url = `${protocol}://${host}:${inputs.target_port}`;
+
+      subscriber.next({
+        status: {
+          state: 'complete',
+          message: '',
+          startTime,
+          endTime: Date.now(),
+        },
+        outputs: {
+          host,
+          id: inputs.name,
+          port: inputs.target_port,
+          protocol,
+          url,
+        },
+        state: {
+          host,
+          id: inputs.name,
+          port: inputs.target_port,
+          protocol,
+          url,
+        },
+      });
+
+      subscriber.complete();
+    });
   }
 
-  async update(inputs: ResourceInputs['service']): Promise<DeepPartial<ResourceOutputs['service']>> {
-    const protocol = inputs.protocol || 'http';
-    const host = inputs.selector || '';
-    const url = `${protocol}://${host}:${inputs.target_port}`;
-
-    return {
-      host,
-      id: inputs.name,
-      port: inputs.target_port,
-      protocol,
-      url,
-    };
+  update(_id: string, _inputs: ResourceInputs['service']): Observable<ApplyOutputs<'service'>> {
+    throw new Error('Method not implemented');
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  async delete(id: string): Promise<void> {}
+  delete(_id: string): Observable<ApplyOutputs<'service'>> {
+    throw new Error('Method not implemented');
+  }
 }

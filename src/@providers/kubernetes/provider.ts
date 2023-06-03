@@ -1,6 +1,4 @@
 import { Provider } from '../provider.ts';
-import { HelmProvider as TerraformHelmProvider } from './.gen/providers/helm/provider/index.ts';
-import { KubernetesProvider as TerraformKubernetesProvider } from './.gen/providers/kubernetes/provider/index.ts';
 import { KubernetesCredentials, KubernetesCredentialsSchema } from './credentials.ts';
 import { KubernetesDeploymentService } from './services/deployment.ts';
 import { KubernetesHelmChartService } from './services/helm-chart.ts';
@@ -8,7 +6,6 @@ import { KubernetesIngressRuleService } from './services/ingress-rule.ts';
 import { KubernetesNamespaceService } from './services/namespace.ts';
 import { KubernetesServiceService } from './services/service.ts';
 import k8s from '@kubernetes/client-node';
-import { Construct } from 'constructs';
 
 export default class KubernetesProvider extends Provider<KubernetesCredentials> {
   readonly type = 'kubernetes';
@@ -21,7 +18,7 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
     deployment: new KubernetesDeploymentService(this.credentials),
     service: new KubernetesServiceService(this.credentials),
     ingressRule: new KubernetesIngressRuleService(this.credentials),
-    helmChart: new KubernetesHelmChartService(),
+    helmChart: new KubernetesHelmChartService(this.credentials),
   };
 
   public async testCredentials(): Promise<boolean> {
@@ -43,19 +40,5 @@ export default class KubernetesProvider extends Provider<KubernetesCredentials> 
     } catch {
       return false;
     }
-  }
-
-  public configureTerraformProviders(scope: Construct): void {
-    new TerraformKubernetesProvider(scope, this.name, {
-      configPath: this.credentials.configPath,
-      configContext: this.credentials.configContext,
-    });
-
-    new TerraformHelmProvider(scope, `${this.name}-helm`, {
-      kubernetes: {
-        configPath: this.credentials.configPath,
-        configContext: this.credentials.configContext,
-      },
-    });
   }
 }

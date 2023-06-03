@@ -1,24 +1,24 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { BaseService } from '../../service.ts';
+import { ResourceService } from '../../base.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseSizeService extends BaseService<'databaseSize'> {
+export class DigitaloceanDatabaseSizeService extends ResourceService<'databaseSize', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
-    super();
+    super(credentials);
     this.client = createApiClient({ token: credentials.token });
   }
 
-  async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
-    return undefined;
+  get(_id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
+    return Promise.resolve(undefined);
   }
 
   async list(
     filterOptions?: Partial<ResourceOutputs['databaseSize']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseSize']>> {
     const {
       data: { options },

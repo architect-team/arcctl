@@ -1,14 +1,22 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { InputValidators } from '../../service.ts';
+import { InputValidators } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsRecordModule } from '../modules/dns-record.ts';
 import AwsUtils from '../utils.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { Construct } from 'constructs';
 
 export class AwsDnsRecordService extends TerraformResourceService<'dnsRecord', AwsCredentials> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = AwsDnsRecordModule;
+
+  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
+    return new TerraformAwsProvider(scope, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
   }
 
   async get(id: string): Promise<ResourceOutputs['dnsRecord'] | undefined> {
@@ -42,8 +50,8 @@ export class AwsDnsRecordService extends TerraformResourceService<'dnsRecord', A
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsRecord']>> {
     const dns_zones = await AwsUtils.getRoute53(this.credentials).listHostedZones().promise();
 
@@ -98,6 +106,4 @@ export class AwsDnsRecordService extends TerraformResourceService<'dnsRecord', A
       },
     };
   }
-
-  construct = AwsDnsRecordModule;
 }

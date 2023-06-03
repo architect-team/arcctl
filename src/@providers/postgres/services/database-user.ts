@@ -3,13 +3,18 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseUserModule } from '../modules/database-user.ts';
+import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
+import { Construct } from 'constructs';
 import pg from 'pg';
 
 export class PostgresDatabaseUserService extends TerraformResourceService<'databaseUser', PostgresCredentials> {
-  client: pg.Client;
+  private client: pg.Client;
 
-  constructor(private credentials: PostgresCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = PostgresDatabaseUserModule;
+
+  constructor(credentials: PostgresCredentials) {
+    super(credentials);
 
     this.client = new pg.Client({
       host: credentials.host,
@@ -31,7 +36,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
 
   async list(
     filterOptions?: Partial<ResourceOutputs['databaseUser']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseUser']>> {
     await this.client.connect();
     let query = `SELECT usename FROM pg_catalog.pg_user`;
@@ -44,7 +49,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
 
     return {
       total: res.rowCount,
-      rows: res.rows.map((r) => ({
+      rows: res.rows.map((r: { usename: string }) => ({
         id: r.usename,
         username: r.usename,
         password: '',
@@ -57,5 +62,13 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
     };
   }
 
-  construct = PostgresDatabaseUserModule;
+  configureTerraformProviders(scope: Construct): void {
+    new PostgresqlProvider(scope, 'postgres', {
+      host: this.credentials.host,
+      port: this.credentials.port,
+      username: this.credentials.username,
+      password: this.credentials.password,
+      superuser: false,
+    });
+  }
 }

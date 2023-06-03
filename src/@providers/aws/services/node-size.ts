@@ -1,14 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { BaseService } from '../../service.ts';
+import { ResourceService } from '../../base.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsNodeSizeService extends BaseService<'nodeSize'> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
-
+export class AwsNodeSizeService extends ResourceService<'nodeSize', AwsCredentials> {
   private async getInstanceTypes(ec2: AWS.EC2, token?: string): Promise<string[]> {
     const ec2InstanceTypeData = await ec2
       .describeInstanceTypes({
@@ -39,8 +35,8 @@ export class AwsNodeSizeService extends BaseService<'nodeSize'> {
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['nodeSize']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['nodeSize']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['nodeSize']>> {
     const ec2 = AwsUtils.getEC2(this.credentials);
     const data = await this.getInstanceTypes(ec2);

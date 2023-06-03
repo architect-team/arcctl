@@ -1,25 +1,22 @@
 import { ResourceType } from '../@resources/index.ts';
-import { TerraformVersion } from '../plugins/terraform-plugin.ts';
-import { ProviderCredentials, ProviderCredentialsSchema } from './credentials.ts';
-import { BaseService } from './service.ts';
+import { ResourceService } from './base.service.ts';
+import {
+  ProviderCredentials,
+  ProviderCredentialsSchema,
+} from './credentials.ts';
 import { CldctlTestResource } from './tests.ts';
-import { SaveFileFn } from './types.ts';
-import { Construct } from 'constructs';
 
-export type ProviderResources = {
-  [T in ResourceType]?: BaseService<T>;
+export type ProviderResources<C extends ProviderCredentials> = {
+  [T in ResourceType]?: ResourceService<T, C>;
 };
 
 type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
 
-export abstract class Provider<C extends ProviderCredentials = ProviderCredentials> {
-  /**
-   * The version of terraform to use
-   */
-  abstract readonly terraform_version: TerraformVersion;
-
+export abstract class Provider<
+  C extends ProviderCredentials = ProviderCredentials,
+> {
   /**
    * A unique name for the provider
    */
@@ -29,7 +26,7 @@ export abstract class Provider<C extends ProviderCredentials = ProviderCredentia
    * The schema of the credentials used to authenticate with the provider. Uses
    * JSON schema and the AJV package
    *
-   * @see https://ajv.ts.org/
+   * @see https://ajv.js.org/
    */
   static readonly CredentialsSchema: ProviderCredentialsSchema;
 
@@ -37,19 +34,19 @@ export abstract class Provider<C extends ProviderCredentials = ProviderCredentia
    * A set of resource types that this provider can interact with, and the
    * methods it supports
    */
-  abstract readonly resources: ProviderResources;
+  abstract readonly resources: ProviderResources<C>;
 
   tests: CldctlTestResource<ProviderCredentials> = [];
 
-  constructor(readonly name: string, readonly credentials: C, readonly saveFile: SaveFileFn) {}
+  constructor(readonly name: string, readonly credentials: C) {}
 
   public abstract testCredentials(): Promise<boolean>;
 
   public getResourceEntries(): Entries<{
-    [T in ResourceType]: BaseService<T>;
+    [T in ResourceType]: ResourceService<T, C>;
   }> {
     return Object.entries(this.resources) as Entries<{
-      [T in ResourceType]: BaseService<T>;
+      [T in ResourceType]: ResourceService<T, C>;
     }>;
   }
 
@@ -60,6 +57,4 @@ export abstract class Provider<C extends ProviderCredentials = ProviderCredentia
       credentials: this.credentials,
     };
   }
-
-  abstract configureTerraformProviders(scope: Construct): void;
 }

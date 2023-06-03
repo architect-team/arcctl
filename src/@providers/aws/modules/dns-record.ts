@@ -1,6 +1,5 @@
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
-import { DataAwsRoute53Zone } from '../.gen/providers/aws/data-aws-route53-zone/index.ts';
 import { Route53Record } from '../.gen/providers/aws/route53-record/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsRecordService } from '../services/dns-record.ts';

@@ -3,13 +3,18 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesNamespaceModule } from '../modules/namespace.ts';
+import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import k8s from '@kubernetes/client-node';
+import { Construct } from 'constructs';
 
 export class KubernetesNamespaceService extends TerraformResourceService<'namespace', KubernetesCredentials> {
   private client: k8s.CoreV1Api;
 
+  readonly terraform_version = '1.4.5';
+  readonly construct = KubernetesNamespaceModule;
+
   constructor(credentials: KubernetesCredentials) {
-    super();
+    super(credentials);
     const kubeConfig = new k8s.KubeConfig();
 
     if (credentials.configPath) {
@@ -23,6 +28,13 @@ export class KubernetesNamespaceService extends TerraformResourceService<'namesp
     }
 
     this.client = kubeConfig.makeApiClient(k8s.CoreV1Api);
+  }
+
+  public configureTerraformProviders(scope: Construct): void {
+    new TerraformKubernetesProvider(scope, 'kubernetes', {
+      configPath: this.credentials.configPath,
+      configContext: this.credentials.configContext,
+    });
   }
 
   async get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
@@ -42,8 +54,8 @@ export class KubernetesNamespaceService extends TerraformResourceService<'namesp
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['namespace']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['namespace']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['namespace']>> {
     const { body } = await this.client.listNamespace();
 
@@ -63,6 +75,4 @@ export class KubernetesNamespaceService extends TerraformResourceService<'namesp
       rows: rows,
     };
   }
-
-  readonly construct = KubernetesNamespaceModule;
 }

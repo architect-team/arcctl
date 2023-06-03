@@ -1,9 +1,11 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { InputValidators, ResourcePresets } from '../../service.ts';
+import { InputValidators, ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
+import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
@@ -12,9 +14,18 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
 > {
   private client: ReturnType<typeof createApiClient>;
 
+  readonly terraform_version = '1.4.5';
+  readonly construct = DigitaloceanKubernetesClusterModule;
+
   constructor(credentials: DigitaloceanCredentials) {
-    super();
+    super(credentials);
     this.client = createApiClient({ token: credentials.token });
+  }
+
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
+    return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
+      token: this.credentials.token,
+    });
   }
 
   async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
@@ -39,7 +50,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
 
   // TODO: Implement filterOptions
   async list(
-    filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
+    _filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>> {
     const {
@@ -105,6 +116,4 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
       },
     ];
   }
-
-  readonly construct = DigitaloceanKubernetesClusterModule;
 }

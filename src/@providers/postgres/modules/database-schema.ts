@@ -28,10 +28,10 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     };
   }
 
-  async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
-    return {
+  genImports(_credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.db)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

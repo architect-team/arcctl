@@ -36,10 +36,10 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
     };
   }
 
-  async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
-    return {
+  genImports(_credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.role)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

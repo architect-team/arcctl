@@ -1,24 +1,32 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourcePresets } from '../../service.ts';
+import { ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDatabaseModule } from '../modules/database.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { Construct } from 'constructs';
 
 export class AwsDatabaseService extends TerraformResourceService<'database', AwsCredentials> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = AwsDatabaseModule;
+
+  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
+    return new TerraformAwsProvider(scope, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
   }
 
-  async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
-    return undefined;
+  get(_id: string): Promise<ResourceOutputs['database'] | undefined> {
+    return Promise.resolve(undefined);
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['database']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['database']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['database']>> {
     const regions = await new AwsRegionService(this.credentials).list();
 
@@ -26,7 +34,7 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     const databases: ResourceOutputs['database'][] = [];
     for (const region of regions.rows) {
       databasePromises.push(
-        new Promise<void>(async (resolve, reject) => {
+        new Promise<void>(async (resolve) => {
           const rds = AwsUtils.getRDS(this.credentials, region.id);
           const rds_databases = await rds.describeDBInstances({}).promise();
           for (const rds_database of rds_databases.DBInstances || []) {
@@ -62,6 +70,4 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
       },
     ];
   }
-
-  construct = AwsDatabaseModule;
 }

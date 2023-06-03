@@ -1,16 +1,17 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { InputValidators } from '../../service.ts';
+import { InputValidators } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsVpcModule } from '../modules/vpc.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { Construct } from 'constructs';
 
 export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredentials> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
+  readonly terraform_version = '1.4.5';
+  readonly construct = AwsVpcModule;
 
   private normalizeVpc(region: string, vpc: AWS.EC2.Vpc): ResourceOutputs['vpc'] {
     return {
@@ -19,6 +20,13 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
       description: vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
       region: region,
     };
+  }
+
+  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
+    return new TerraformAwsProvider(scope, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
   }
 
   get(id: string): Promise<ResourceOutputs['vpc'] | undefined> {
@@ -47,7 +55,7 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
 
   async list(
     filterOptions?: Partial<ResourceOutputs['vpc']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['vpc']>> {
     const regions = await new AwsRegionService(this.credentials).list();
 
@@ -67,7 +75,7 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
     const vpcPromises = [];
     for (const region of regions.rows.filter((r) => (filterBy.region ? r.id === filterBy.region : true))) {
       vpcPromises.push(
-        new Promise<void>(async (resolve, reject) => {
+        new Promise<void>(async (resolve) => {
           const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
             .describeVpcs(
               filterBy.name
@@ -110,6 +118,4 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
       },
     };
   }
-
-  construct = AwsVpcModule;
 }

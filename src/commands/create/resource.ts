@@ -87,19 +87,14 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
       logger: logger,
       cwd: path.resolve('./.terraform'),
     })
-    .then(async () => {
+    .then(() => {
       command_helper.renderPipeline(pipeline, { clear: true });
       clearInterval(interval);
       const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
-      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-      const outputs = await step?.getOutputs({
-        providerStore: command_helper.providerStore,
-        terraform,
-      });
       console.log('');
       console.log(colors.green(`${type} created successfully!`));
       console.log('Please record the results for your records. Some fields may not be retrievable again.');
-      console.log(outputs);
+      console.log(step?.outputs);
     })
     .catch((err) => {
       clearInterval(interval);

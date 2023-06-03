@@ -3,10 +3,7 @@ import { ResourceModule } from '../../module.ts';
 import { DockerCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class DockerServiceModule extends ResourceModule<
-  'service',
-  DockerCredentials
-> {
+export class DockerServiceModule extends ResourceModule<'service', DockerCredentials> {
   outputs: ResourceOutputs['service'];
 
   constructor(scope: Construct, id: string, inputs: ResourceInputs['service']) {
@@ -26,11 +23,8 @@ export class DockerServiceModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: DockerCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {};
+  genImports(_credentials: DockerCredentials, _resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({});
   }
 
   getDisplayNames(): Record<string, string> {

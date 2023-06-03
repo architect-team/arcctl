@@ -3,15 +3,26 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
-import { InputValidators } from '../../../@providers/service.ts';
+import { InputValidators } from '../../base.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
+import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
-  constructor(private readonly credentials: DigitaloceanCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = DigitaloceanDnsRecordModule;
+
+  constructor(credentials: DigitaloceanCredentials) {
+    super(credentials);
     this.client = createApiClient({ token: credentials.token });
+  }
+
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
+    return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
+      token: this.credentials.token,
+    });
   }
 
   async get(id: string): Promise<ResourceOutputs['dnsRecord'] | undefined> {
@@ -38,8 +49,8 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsR
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsRecord']>> {
     const {
       data: { domains },
@@ -90,6 +101,4 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsR
       },
     };
   }
-
-  readonly construct = DigitaloceanDnsRecordModule;
 }

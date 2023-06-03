@@ -110,16 +110,16 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
     };
   }
 
-  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(_credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
     const moduleId = ['module', this.database.friendlyUniqueId].join('.');
 
     const [region, id] = resourceId.split('/');
     const aws_provider = this.scope.node.children[0] as AwsProvider;
     aws_provider.region = region;
 
-    return {
+    return Promise.resolve({
       [`${moduleId}.module.db_instance.aws_db_instance.this[0]`]: id,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {
@@ -140,17 +140,13 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
       const host = outputs.host;
       const port = outputs.port;
       providerStore.saveProvider(
-        new SupportedProviders.postgres(
-          `postgres-${this.inputs.name}`,
-          {
-            host,
-            port,
-            username,
-            password,
-            database: 'postgres',
-          },
-          providerStore.saveFile.bind(providerStore),
-        ),
+        new SupportedProviders.postgres(`postgres-${this.inputs.name}`, {
+          host,
+          port,
+          username,
+          password,
+          database: 'postgres',
+        }),
       );
     },
   };

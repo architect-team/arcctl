@@ -33,13 +33,13 @@ export class KubernetesHelmChartModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: KubernetesCredentials,
+  genImports(
+    _credentials: KubernetesCredentials,
     resourceId: string,
   ): Promise<Record<string, string>> {
-    return {
+    return Promise.resolve({
       [this.getResourceRef(this.release)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

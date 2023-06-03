@@ -1,6 +1,5 @@
 import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from './.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials, DigitaloceanCredentialsSchema } from './credentials.ts';
 import { DigitaloceanDatabaseSchemaService } from './services/database-schema.ts';
 import { DigitaloceanDatabaseSizeService } from './services/database-size.ts';
@@ -19,7 +18,6 @@ import { DigitalOceanDatabaseTest } from './tests/database.ts';
 import { DigitalOceanDnsRecordTest } from './tests/dns-record.ts';
 import { DigitalOceanDnsZoneTest } from './tests/dns-zone.ts';
 import { DigitalOceanVpcTest } from './tests/vpc.ts';
-import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
 
 export default class DigitaloceanProvider extends Provider<DigitaloceanCredentials> {
@@ -52,12 +50,6 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
       return false;
     }
     return true;
-  }
-
-  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
-    return new TerraformDigitaloceanProvider(scope, this.name, {
-      token: this.credentials.token,
-    });
   }
 
   tests: CldctlTestResource<Partial<DigitaloceanCredentials>> = [

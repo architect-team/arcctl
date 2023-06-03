@@ -3,26 +3,27 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseUserModule } from '../modules/database-user.ts';
-import { createApiClient } from 'dots-wrapper';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
+import { Construct } from 'constructs';
 
 export class DigitaloceanDatabaseUserService extends TerraformResourceService<'databaseUser', DigitaloceanCredentials> {
-  private client: ReturnType<typeof createApiClient>;
+  readonly terraform_version = '1.4.5';
+  readonly construct = DigitaloceanDatabaseUserModule;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super();
-    this.client = createApiClient({ token: credentials.token });
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
+    return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
+      token: this.credentials.token,
+    });
   }
 
-  get(id: string): Promise<ResourceOutputs['databaseUser'] | undefined> {
+  get(_id: string): Promise<ResourceOutputs['databaseUser'] | undefined> {
     throw new Error('Method not implemented.');
   }
 
   list(
-    filterOptions?: Partial<ResourceOutputs['databaseUser']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['databaseUser']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseUser']>> {
     throw new Error('Method not implemented.');
   }
-
-  readonly construct = DigitaloceanDatabaseUserModule;
 }

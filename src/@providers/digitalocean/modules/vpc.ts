@@ -25,10 +25,10 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
     };
   }
 
-  async genImports(credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
-    return {
+  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.vpc)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

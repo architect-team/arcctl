@@ -6,18 +6,11 @@ import { DatabaseDb } from '../.gen/providers/digitalocean/database-db/index.ts'
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class DigitaloceanDatabaseSchemaModule extends ResourceModule<
-  'databaseSchema',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseSchemaModule extends ResourceModule<'databaseSchema', DigitaloceanCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
   db: DatabaseDb;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['databaseSchema'],
-  ) {
+  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseSchema']) {
     super(scope, id, inputs);
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
@@ -50,13 +43,10 @@ export class DigitaloceanDatabaseSchemaModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: DigitaloceanCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.db)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

@@ -1,9 +1,8 @@
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { Terraform } from '../terraform/terraform.ts';
 import CloudCtlConfig from '../utils/config.ts';
-import { replaceAsync } from '../utils/string.ts';
 import { PipelineStep } from './step.ts';
-import { ApplyOptions, ApplyStepOptions } from './types.ts';
+import { ApplyOptions } from './types.ts';
 
 export type PlanOptions = {
   before: Pipeline;
@@ -59,20 +58,20 @@ export class Pipeline {
   /**
    * Replace step references with actual output values
    */
-  private async replaceRefsWithOutputValues<T>(input: T, options: ApplyStepOptions): Promise<T> {
-    const strVal = await replaceAsync(JSON.stringify(input), /\${{\s?([^.]+).(\S+)\s?}}/g, async (_, step_id, key) => {
-      const step = this.steps.find((s) => s.id === step_id);
-      const outputs = await step?.getOutputs(options);
-      if (!step || !outputs) {
-        throw new Error(`Missing outputs for ${step_id}`);
-      } else if (!(outputs as any)[key]) {
-        throw new Error(`Invalid key, ${key}, for ${step.type}`);
-      }
+  private replaceRefsWithOutputValues<T>(input: T): T {
+    return JSON.parse(
+      JSON.stringify(input).replace(/\${{\s?([^.]+).(\S+)\s?}}/g, (_, step_id, key) => {
+        const step = this.steps.find((s) => s.id === step_id);
+        const outputs = step?.outputs;
+        if (!step || !outputs) {
+          throw new Error(`Missing outputs for ${step_id}`);
+        } else if (!(outputs as any)[key]) {
+          throw new Error(`Invalid key, ${key}, for ${step.type}`);
+        }
 
-      return (outputs as any)[key];
-    });
-
-    return JSON.parse(strVal);
+        return (outputs as any)[key];
+      }),
+    );
   }
 
   private async getTerraformPlugin(): Promise<Terraform> {
@@ -287,11 +286,7 @@ export class Pipeline {
 
       if (step.inputs) {
         try {
-          step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
-            ...options,
-            terraform,
-            cwd,
-          });
+          step.inputs = this.replaceRefsWithOutputValues(step.inputs);
         } catch (err: any) {
           step.status.state = 'error';
           step.status.message = err.message;

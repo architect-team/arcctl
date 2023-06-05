@@ -9,7 +9,7 @@ await emptyDir(build_dir);
 await build({
   typeCheck: false,
   test: false,
-  entryPoints: [path.join(build_dir, '..', 'src', 'index.ts')],
+  entryPoints: [path.join(build_dir, '..', 'src', 'commands', 'index.ts')],
   outDir: build_dir,
   compilerOptions: {
     lib: ['ES2022'],

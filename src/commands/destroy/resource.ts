@@ -73,7 +73,7 @@ async function destroy_resource_action(
       options: choices,
     }));
 
-  if (!choices.find((r) => r.name === resource_id)) {
+  if (!choices.find((r) => r.value === resource_id)) {
     console.log(`Invalid resource ID: ${resource_id}`);
     Deno.exit(1);
   }

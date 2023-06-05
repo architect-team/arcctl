@@ -1,5 +1,5 @@
 import CloudCtlConfig from '../utils/config.ts';
-import { deleteProvider, getProviders, saveFile, saveProvider } from '../utils/providers.ts';
+import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import KubernetesProvider from './kubernetes/provider.ts';
 import { SupportedProviders } from './supported-providers.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
@@ -9,6 +9,10 @@ import * as path from 'std/path/mod.ts';
 import untildify from 'untildify';
 
 export default class KubernetesUtils {
+  private static get providerStore(): CldCtlProviderStore {
+    return new CldCtlProviderStore(CloudCtlConfig.getConfigDirectory());
+  }
+
   private static getProviderName(clusterName: string): string {
     return `cldctl--cluster--${clusterName}`;
   }
@@ -23,15 +27,15 @@ export default class KubernetesUtils {
         configPath: filePath,
       },
       // Not being used so does not matter if its correct
-      saveFile(),
+      this.providerStore.saveFile.bind(this.providerStore),
     );
-    await saveProvider(newProvider);
+    this.providerStore.saveProvider(newProvider);
     await this.addToKubeConfig(kubeConfig);
   }
 
   static async deleteProvider(clusterName: string): Promise<void> {
     const providerName = this.getProviderName(clusterName);
-    const providers = await getProviders();
+    const providers = this.providerStore.getProviders();
     const provider = providers.find((provider) => {
       return provider.name === providerName;
     }) as KubernetesProvider | undefined;
@@ -39,7 +43,7 @@ export default class KubernetesUtils {
     if (!provider) {
       return;
     }
-    await deleteProvider(providerName);
+    this.providerStore.deleteProvider(providerName);
     await this.removeFromKubeConfig(clusterName);
     if (provider.credentials.configPath) {
       await Deno.remove(provider.credentials.configPath);

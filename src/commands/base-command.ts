@@ -1,4 +1,4 @@
-import { Provider, SupportedProviders, ProviderStore } from '../@providers/index.ts';
+import { Provider, SupportedProviders, ProviderStore, ProviderCredentials } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
@@ -8,7 +8,6 @@ import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import { Terraform } from '../terraform/terraform.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
-import { createProvider } from '../utils/providers.ts';
 import { createTable } from '../utils/table.ts';
 import { JSONSchemaType } from 'ajv';
 import cliSpinners from 'cli-spinners';
@@ -19,7 +18,7 @@ import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
 import readline from 'node:readline';
 import process from 'node:process';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import { Confirm, Secret, Select } from 'cliffy/prompt/mod.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -605,7 +604,7 @@ export class CommandHelper {
       });
 
       if (selected_account === newAccountName) {
-        return createProvider();
+        return this.createAccount();
       }
 
       account = filteredAccounts.find((p) => p.name === selected_account);
@@ -722,6 +721,73 @@ export class CommandHelper {
     graph.insertNodes(node);
 
     return node;
+  }
+
+  public async promptForCredentials(provider_type: keyof typeof SupportedProviders): Promise<Record<string, string>> {
+    const credential_schema = SupportedProviders[provider_type].CredentialsSchema;
+
+    const credentials: Record<string, string> = {};
+    for (const [key, value] of Object.entries(credential_schema.properties)) {
+      const cred = await Secret.prompt({
+        message: key,
+        default: (value as any).default || '',
+      });
+      if (!(value as any).default && cred === '') {
+        console.log('Required credential requires input');
+        Deno.exit(1);
+      }
+      credentials[key] = cred;
+    }
+
+    return credentials;
+  }
+
+  private async createAccount(): Promise<Provider> {
+    const allAccounts = this.providerStore.getProviders();
+    const providers = Object.keys(SupportedProviders);
+    const res = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What would you like to name the new account?',
+        validate: (input: string) => {
+          if (allAccounts.some((a) => a.name === input)) {
+            return 'An account with that name already exists.';
+          }
+          return true;
+        },
+      },
+      {
+        type: 'list',
+        name: 'type',
+        message: 'What type of provider are you registering the credentials for?',
+        choices: providers,
+      },
+    ]);
+
+    const providerType = res.type as keyof typeof SupportedProviders;
+    const credentials = await this.promptForCredentials(providerType);
+
+    const account = new SupportedProviders[providerType](
+      res.name,
+      credentials as any,
+      this.providerStore.saveFile.bind(this.providerStore),
+    );
+
+    const validCredentials = await account.testCredentials();
+    if (!validCredentials) {
+      throw new Error('Invalid credentials');
+    }
+
+    try {
+      this.providerStore.saveProvider(account);
+      console.log(`${account.name} account registered`);
+    } catch (ex: any) {
+      console.error(ex.message);
+      Deno.exit(1);
+    }
+
+    return account;
   }
 
   public handleTerraformError(ex: any): void {

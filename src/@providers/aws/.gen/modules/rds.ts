@@ -2,7 +2,6 @@
 // terraform-aws-modules/rds/aws
 import { TerraformModule, TerraformModuleUserConfig } from 'cdktf';
 import { Construct } from 'constructs';
-
 export interface RdsConfig extends TerraformModuleUserConfig {
   /**
    * The allocated storage in gigabytes
@@ -156,7 +155,7 @@ export interface RdsConfig extends TerraformModuleUserConfig {
   readonly domainIamRoleName?: string;
   /**
    * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on engine): alert, audit, error, general, listener, slowquery, trace, postgresql (PostgreSQL), upgrade (PostgreSQL)
-   * @default
+   * @default 
    */
   readonly enabledCloudwatchLogsExports?: string[];
   /**
@@ -270,7 +269,7 @@ export interface RdsConfig extends TerraformModuleUserConfig {
   readonly optionGroupUseNamePrefix?: boolean;
   /**
    * A list of Options to apply
-   * @default
+   * @default 
    */
   readonly options?: any;
   /**
@@ -288,7 +287,7 @@ export interface RdsConfig extends TerraformModuleUserConfig {
   readonly parameterGroupUseNamePrefix?: boolean;
   /**
    * A list of DB parameters (map) to apply
-   * @default
+   * @default 
    * The property type contains a map, they have special handling, please see {@link cdk.tf/module-map-inputs the docs}
    */
   readonly parameters?: { [key: string]: string }[];
@@ -370,7 +369,7 @@ export interface RdsConfig extends TerraformModuleUserConfig {
   readonly storageType?: string;
   /**
    * A list of VPC subnet IDs
-   * @default
+   * @default 
    */
   readonly subnetIds?: string[];
   /**
@@ -395,12 +394,12 @@ export interface RdsConfig extends TerraformModuleUserConfig {
   readonly username?: string;
   /**
    * List of VPC security groups to associate
-   * @default
+   * @default 
    */
   readonly vpcSecurityGroupIds?: string[];
 }
 export class Rds extends TerraformModule {
-  private readonly inputs: { [name: string]: any } = {};
+  private readonly inputs: { [name: string]: any } = { }
   public constructor(scope: Construct, id: string, config: RdsConfig) {
     super(scope, id, {
       ...config,
@@ -418,8 +417,7 @@ export class Rds extends TerraformModule {
     this.caCertIdentifier = config.caCertIdentifier;
     this.characterSetName = config.characterSetName;
     this.cloudwatchLogGroupKmsKeyId = config.cloudwatchLogGroupKmsKeyId;
-    this.cloudwatchLogGroupRetentionInDays =
-      config.cloudwatchLogGroupRetentionInDays;
+    this.cloudwatchLogGroupRetentionInDays = config.cloudwatchLogGroupRetentionInDays;
     this.copyTagsToSnapshot = config.copyTagsToSnapshot;
     this.createCloudwatchLogGroup = config.createCloudwatchLogGroup;
     this.createDbInstance = config.createDbInstance;
@@ -446,8 +444,7 @@ export class Rds extends TerraformModule {
     this.engineVersion = config.engineVersion;
     this.family = config.family;
     this.finalSnapshotIdentifierPrefix = config.finalSnapshotIdentifierPrefix;
-    this.iamDatabaseAuthenticationEnabled =
-      config.iamDatabaseAuthenticationEnabled;
+    this.iamDatabaseAuthenticationEnabled = config.iamDatabaseAuthenticationEnabled;
     this.identifier = config.identifier;
     this.instanceClass = config.instanceClass;
     this.instanceUseIdentifierPrefix = config.instanceUseIdentifierPrefix;
@@ -461,8 +458,7 @@ export class Rds extends TerraformModule {
     this.monitoringRoleArn = config.monitoringRoleArn;
     this.monitoringRoleDescription = config.monitoringRoleDescription;
     this.monitoringRoleName = config.monitoringRoleName;
-    this.monitoringRolePermissionsBoundary =
-      config.monitoringRolePermissionsBoundary;
+    this.monitoringRolePermissionsBoundary = config.monitoringRolePermissionsBoundary;
     this.monitoringRoleUseNamePrefix = config.monitoringRoleUseNamePrefix;
     this.multiAz = config.multiAz;
     this.networkType = config.networkType;
@@ -478,8 +474,7 @@ export class Rds extends TerraformModule {
     this.password = config.password;
     this.performanceInsightsEnabled = config.performanceInsightsEnabled;
     this.performanceInsightsKmsKeyId = config.performanceInsightsKmsKeyId;
-    this.performanceInsightsRetentionPeriod =
-      config.performanceInsightsRetentionPeriod;
+    this.performanceInsightsRetentionPeriod = config.performanceInsightsRetentionPeriod;
     this.port = config.port;
     this.publiclyAccessible = config.publiclyAccessible;
     this.putinKhuylo = config.putinKhuylo;
@@ -543,9 +538,7 @@ export class Rds extends TerraformModule {
     this.inputs['backup_window'] = value;
   }
   public get blueGreenUpdate(): { [key: string]: string } | undefined {
-    return this.inputs['blue_green_update'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['blue_green_update'] as { [key: string]: string } | undefined;
   }
   public set blueGreenUpdate(value: { [key: string]: string } | undefined) {
     this.inputs['blue_green_update'] = value;
@@ -569,9 +562,7 @@ export class Rds extends TerraformModule {
     this.inputs['cloudwatch_log_group_kms_key_id'] = value;
   }
   public get cloudwatchLogGroupRetentionInDays(): number | undefined {
-    return this.inputs['cloudwatch_log_group_retention_in_days'] as
-      | number
-      | undefined;
+    return this.inputs['cloudwatch_log_group_retention_in_days'] as number | undefined;
   }
   public set cloudwatchLogGroupRetentionInDays(value: number | undefined) {
     this.inputs['cloudwatch_log_group_retention_in_days'] = value;
@@ -631,9 +622,7 @@ export class Rds extends TerraformModule {
     this.inputs['custom_iam_instance_profile'] = value;
   }
   public get dbInstanceTags(): { [key: string]: string } | undefined {
-    return this.inputs['db_instance_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['db_instance_tags'] as { [key: string]: string } | undefined;
   }
   public set dbInstanceTags(value: { [key: string]: string } | undefined) {
     this.inputs['db_instance_tags'] = value;
@@ -645,21 +634,15 @@ export class Rds extends TerraformModule {
     this.inputs['db_name'] = value;
   }
   public get dbOptionGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['db_option_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['db_option_group_tags'] as { [key: string]: string } | undefined;
   }
   public set dbOptionGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['db_option_group_tags'] = value;
   }
   public get dbParameterGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['db_parameter_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['db_parameter_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set dbParameterGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set dbParameterGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['db_parameter_group_tags'] = value;
   }
   public get dbSubnetGroupDescription(): string | undefined {
@@ -675,17 +658,13 @@ export class Rds extends TerraformModule {
     this.inputs['db_subnet_group_name'] = value;
   }
   public get dbSubnetGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['db_subnet_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['db_subnet_group_tags'] as { [key: string]: string } | undefined;
   }
   public set dbSubnetGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['db_subnet_group_tags'] = value;
   }
   public get dbSubnetGroupUseNamePrefix(): boolean | undefined {
-    return this.inputs['db_subnet_group_use_name_prefix'] as
-      | boolean
-      | undefined;
+    return this.inputs['db_subnet_group_use_name_prefix'] as boolean | undefined;
   }
   public set dbSubnetGroupUseNamePrefix(value: boolean | undefined) {
     this.inputs['db_subnet_group_use_name_prefix'] = value;
@@ -715,9 +694,7 @@ export class Rds extends TerraformModule {
     this.inputs['domain_iam_role_name'] = value;
   }
   public get enabledCloudwatchLogsExports(): string[] | undefined {
-    return this.inputs['enabled_cloudwatch_logs_exports'] as
-      | string[]
-      | undefined;
+    return this.inputs['enabled_cloudwatch_logs_exports'] as string[] | undefined;
   }
   public set enabledCloudwatchLogsExports(value: string[] | undefined) {
     this.inputs['enabled_cloudwatch_logs_exports'] = value;
@@ -741,17 +718,13 @@ export class Rds extends TerraformModule {
     this.inputs['family'] = value;
   }
   public get finalSnapshotIdentifierPrefix(): string | undefined {
-    return this.inputs['final_snapshot_identifier_prefix'] as
-      | string
-      | undefined;
+    return this.inputs['final_snapshot_identifier_prefix'] as string | undefined;
   }
   public set finalSnapshotIdentifierPrefix(value: string | undefined) {
     this.inputs['final_snapshot_identifier_prefix'] = value;
   }
   public get iamDatabaseAuthenticationEnabled(): boolean | undefined {
-    return this.inputs['iam_database_authentication_enabled'] as
-      | boolean
-      | undefined;
+    return this.inputs['iam_database_authentication_enabled'] as boolean | undefined;
   }
   public set iamDatabaseAuthenticationEnabled(value: boolean | undefined) {
     this.inputs['iam_database_authentication_enabled'] = value;
@@ -835,17 +808,13 @@ export class Rds extends TerraformModule {
     this.inputs['monitoring_role_name'] = value;
   }
   public get monitoringRolePermissionsBoundary(): string | undefined {
-    return this.inputs['monitoring_role_permissions_boundary'] as
-      | string
-      | undefined;
+    return this.inputs['monitoring_role_permissions_boundary'] as string | undefined;
   }
   public set monitoringRolePermissionsBoundary(value: string | undefined) {
     this.inputs['monitoring_role_permissions_boundary'] = value;
   }
   public get monitoringRoleUseNamePrefix(): boolean | undefined {
-    return this.inputs['monitoring_role_use_name_prefix'] as
-      | boolean
-      | undefined;
+    return this.inputs['monitoring_role_use_name_prefix'] as boolean | undefined;
   }
   public set monitoringRoleUseNamePrefix(value: boolean | undefined) {
     this.inputs['monitoring_role_use_name_prefix'] = value;
@@ -875,9 +844,7 @@ export class Rds extends TerraformModule {
     this.inputs['option_group_name'] = value;
   }
   public get optionGroupTimeouts(): { [key: string]: string } | undefined {
-    return this.inputs['option_group_timeouts'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['option_group_timeouts'] as { [key: string]: string } | undefined;
   }
   public set optionGroupTimeouts(value: { [key: string]: string } | undefined) {
     this.inputs['option_group_timeouts'] = value;
@@ -907,9 +874,7 @@ export class Rds extends TerraformModule {
     this.inputs['parameter_group_name'] = value;
   }
   public get parameterGroupUseNamePrefix(): boolean | undefined {
-    return this.inputs['parameter_group_use_name_prefix'] as
-      | boolean
-      | undefined;
+    return this.inputs['parameter_group_use_name_prefix'] as boolean | undefined;
   }
   public set parameterGroupUseNamePrefix(value: boolean | undefined) {
     this.inputs['parameter_group_use_name_prefix'] = value;
@@ -939,9 +904,7 @@ export class Rds extends TerraformModule {
     this.inputs['performance_insights_kms_key_id'] = value;
   }
   public get performanceInsightsRetentionPeriod(): number | undefined {
-    return this.inputs['performance_insights_retention_period'] as
-      | number
-      | undefined;
+    return this.inputs['performance_insights_retention_period'] as number | undefined;
   }
   public set performanceInsightsRetentionPeriod(value: number | undefined) {
     this.inputs['performance_insights_retention_period'] = value;
@@ -983,13 +946,9 @@ export class Rds extends TerraformModule {
     this.inputs['replicate_source_db'] = value;
   }
   public get restoreToPointInTime(): { [key: string]: string } | undefined {
-    return this.inputs['restore_to_point_in_time'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['restore_to_point_in_time'] as { [key: string]: string } | undefined;
   }
-  public set restoreToPointInTime(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set restoreToPointInTime(value: { [key: string]: string } | undefined) {
     this.inputs['restore_to_point_in_time'] = value;
   }
   public get s3Import(): { [key: string]: string } | undefined {
@@ -1065,82 +1024,82 @@ export class Rds extends TerraformModule {
     this.inputs['vpc_security_group_ids'] = value;
   }
   public get dbInstanceAddressOutput() {
-    return this.getString('db_instance_address');
+    return this.getString('db_instance_address')
   }
   public get dbInstanceArnOutput() {
-    return this.getString('db_instance_arn');
+    return this.getString('db_instance_arn')
   }
   public get dbInstanceAvailabilityZoneOutput() {
-    return this.getString('db_instance_availability_zone');
+    return this.getString('db_instance_availability_zone')
   }
   public get dbInstanceCaCertIdentifierOutput() {
-    return this.getString('db_instance_ca_cert_identifier');
+    return this.getString('db_instance_ca_cert_identifier')
   }
   public get dbInstanceCloudwatchLogGroupsOutput() {
-    return this.getString('db_instance_cloudwatch_log_groups');
+    return this.getString('db_instance_cloudwatch_log_groups')
   }
   public get dbInstanceDomainOutput() {
-    return this.getString('db_instance_domain');
+    return this.getString('db_instance_domain')
   }
   public get dbInstanceDomainIamRoleNameOutput() {
-    return this.getString('db_instance_domain_iam_role_name');
+    return this.getString('db_instance_domain_iam_role_name')
   }
   public get dbInstanceEndpointOutput() {
-    return this.getString('db_instance_endpoint');
+    return this.getString('db_instance_endpoint')
   }
   public get dbInstanceEngineOutput() {
-    return this.getString('db_instance_engine');
+    return this.getString('db_instance_engine')
   }
   public get dbInstanceEngineVersionActualOutput() {
-    return this.getString('db_instance_engine_version_actual');
+    return this.getString('db_instance_engine_version_actual')
   }
   public get dbInstanceHostedZoneIdOutput() {
-    return this.getString('db_instance_hosted_zone_id');
+    return this.getString('db_instance_hosted_zone_id')
   }
   public get dbInstanceIdOutput() {
-    return this.getString('db_instance_id');
+    return this.getString('db_instance_id')
   }
   public get dbInstanceNameOutput() {
-    return this.getString('db_instance_name');
+    return this.getString('db_instance_name')
   }
   public get dbInstancePasswordOutput() {
-    return this.getString('db_instance_password');
+    return this.getString('db_instance_password')
   }
   public get dbInstancePortOutput() {
-    return this.getString('db_instance_port');
+    return this.getString('db_instance_port')
   }
   public get dbInstanceResourceIdOutput() {
-    return this.getString('db_instance_resource_id');
+    return this.getString('db_instance_resource_id')
   }
   public get dbInstanceStatusOutput() {
-    return this.getString('db_instance_status');
+    return this.getString('db_instance_status')
   }
   public get dbInstanceUsernameOutput() {
-    return this.getString('db_instance_username');
+    return this.getString('db_instance_username')
   }
   public get dbOptionGroupArnOutput() {
-    return this.getString('db_option_group_arn');
+    return this.getString('db_option_group_arn')
   }
   public get dbOptionGroupIdOutput() {
-    return this.getString('db_option_group_id');
+    return this.getString('db_option_group_id')
   }
   public get dbParameterGroupArnOutput() {
-    return this.getString('db_parameter_group_arn');
+    return this.getString('db_parameter_group_arn')
   }
   public get dbParameterGroupIdOutput() {
-    return this.getString('db_parameter_group_id');
+    return this.getString('db_parameter_group_id')
   }
   public get dbSubnetGroupArnOutput() {
-    return this.getString('db_subnet_group_arn');
+    return this.getString('db_subnet_group_arn')
   }
   public get dbSubnetGroupIdOutput() {
-    return this.getString('db_subnet_group_id');
+    return this.getString('db_subnet_group_id')
   }
   public get enhancedMonitoringIamRoleArnOutput() {
-    return this.getString('enhanced_monitoring_iam_role_arn');
+    return this.getString('enhanced_monitoring_iam_role_arn')
   }
   public get enhancedMonitoringIamRoleNameOutput() {
-    return this.getString('enhanced_monitoring_iam_role_name');
+    return this.getString('enhanced_monitoring_iam_role_name')
   }
   protected synthesizeAttributes() {
     return this.inputs;

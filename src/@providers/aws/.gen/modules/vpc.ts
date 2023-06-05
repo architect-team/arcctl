@@ -2,7 +2,6 @@
 // terraform-aws-modules/vpc/aws
 import { TerraformModule, TerraformModuleUserConfig } from 'cdktf';
 import { Construct } from 'constructs';
-
 export interface VpcConfig extends TerraformModuleUserConfig {
   /**
    * The Autonomous System Number (ASN) for the Amazon side of the gateway. By default the virtual private gateway is created with the current default Amazon ASN.
@@ -15,7 +14,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly assignIpv6AddressOnCreation?: boolean;
   /**
    * A list of availability zones names or ids in the region
-   * @default
+   * @default 
    */
   readonly azs?: string[];
   /**
@@ -137,12 +136,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly databaseSubnetGroupTags?: { [key: string]: string };
   /**
    * Assigns IPv6 database subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly databaseSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on database subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly databaseSubnetNames?: string[];
   /**
@@ -158,7 +157,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly databaseSubnetTags?: { [key: string]: string };
   /**
    * A list of database subnets
-   * @default
+   * @default 
    */
   readonly databaseSubnets?: string[];
   /**
@@ -189,12 +188,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly defaultRouteTableName?: string;
   /**
    * List of virtual gateways for propagation
-   * @default
+   * @default 
    */
   readonly defaultRouteTablePropagatingVgws?: string[];
   /**
    * Configuration block of routes. See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table#route
-   * @default
+   * @default 
    * The property type contains a map, they have special handling, please see {@link cdk.tf/module-map-inputs the docs}
    */
   readonly defaultRouteTableRoutes?: { [key: string]: string }[];
@@ -206,13 +205,13 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly defaultRouteTableTags?: { [key: string]: string };
   /**
    * List of maps of egress rules to set on the default security group
-   * @default
+   * @default 
    * The property type contains a map, they have special handling, please see {@link cdk.tf/module-map-inputs the docs}
    */
   readonly defaultSecurityGroupEgress?: { [key: string]: string }[];
   /**
    * List of maps of ingress rules to set on the default security group
-   * @default
+   * @default 
    * The property type contains a map, they have special handling, please see {@link cdk.tf/module-map-inputs the docs}
    */
   readonly defaultSecurityGroupIngress?: { [key: string]: string }[];
@@ -260,7 +259,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly dhcpOptionsDomainNameServers?: string[];
   /**
    * Specify a list of netbios servers for DHCP options set (requires enable_dhcp_options set to true)
-   * @default
+   * @default 
    */
   readonly dhcpOptionsNetbiosNameServers?: string[];
   /**
@@ -269,7 +268,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly dhcpOptionsNetbiosNodeType?: string;
   /**
    * Specify a list of NTP servers for DHCP options set (requires enable_dhcp_options set to true)
-   * @default
+   * @default 
    */
   readonly dhcpOptionsNtpServers?: string[];
   /**
@@ -322,12 +321,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly elasticacheSubnetGroupTags?: { [key: string]: string };
   /**
    * Assigns IPv6 elasticache subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly elasticacheSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on elasticache subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly elasticacheSubnetNames?: string[];
   /**
@@ -343,7 +342,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly elasticacheSubnetTags?: { [key: string]: string };
   /**
    * A list of elasticache subnets
-   * @default
+   * @default 
    */
   readonly elasticacheSubnets?: string[];
   /**
@@ -389,12 +388,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly enableVpnGateway?: boolean;
   /**
    * List of EIP IDs to be assigned to the NAT Gateways (used in combination with reuse_nat_ips)
-   * @default
+   * @default 
    */
   readonly externalNatIpIds?: string[];
   /**
    * List of EIPs to be used for `nat_public_ips` output (used in combination with reuse_nat_ips and external_nat_ip_ids)
-   * @default
+   * @default 
    */
   readonly externalNatIps?: string[];
   /**
@@ -499,12 +498,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly intraSubnetAssignIpv6AddressOnCreation?: boolean;
   /**
    * Assigns IPv6 intra subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly intraSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on intra subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly intraSubnetNames?: string[];
   /**
@@ -520,7 +519,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly intraSubnetTags?: { [key: string]: string };
   /**
    * A list of intra subnets
-   * @default
+   * @default 
    */
   readonly intraSubnets?: string[];
   /**
@@ -625,12 +624,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly outpostSubnetAssignIpv6AddressOnCreation?: boolean;
   /**
    * Assigns IPv6 outpost subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly outpostSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on outpost subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly outpostSubnetNames?: string[];
   /**
@@ -646,7 +645,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly outpostSubnetTags?: { [key: string]: string };
   /**
    * A list of outpost subnets inside the VPC
-   * @default
+   * @default 
    */
   readonly outpostSubnets?: string[];
   /**
@@ -683,12 +682,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly privateSubnetAssignIpv6AddressOnCreation?: boolean;
   /**
    * Assigns IPv6 private subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly privateSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on private subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly privateSubnetNames?: string[];
   /**
@@ -707,12 +706,10 @@ export interface VpcConfig extends TerraformModuleUserConfig {
    * @default [object Object]
    * The property type contains a map, they have special handling, please see {@link cdk.tf/module-map-inputs the docs}
    */
-  readonly privateSubnetTagsPerAz?: {
-    [key: string]: { [key: string]: string };
-  };
+  readonly privateSubnetTagsPerAz?: { [key: string]: { [key: string]: string } };
   /**
    * A list of private subnets inside the VPC
-   * @default
+   * @default 
    */
   readonly privateSubnets?: string[];
   /**
@@ -761,12 +758,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly publicSubnetAssignIpv6AddressOnCreation?: boolean;
   /**
    * Assigns IPv6 public subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly publicSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on public subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly publicSubnetNames?: string[];
   /**
@@ -788,7 +785,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly publicSubnetTagsPerAz?: { [key: string]: { [key: string]: string } };
   /**
    * A list of public subnets inside the VPC
-   * @default
+   * @default 
    */
   readonly publicSubnets?: string[];
   /**
@@ -840,12 +837,12 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly redshiftSubnetGroupTags?: { [key: string]: string };
   /**
    * Assigns IPv6 redshift subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list
-   * @default
+   * @default 
    */
   readonly redshiftSubnetIpv6Prefixes?: string[];
   /**
    * Explicit values to use in the Name tag on redshift subnets. If empty, Name tags are generated.
-   * @default
+   * @default 
    */
   readonly redshiftSubnetNames?: string[];
   /**
@@ -861,7 +858,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly redshiftSubnetTags?: { [key: string]: string };
   /**
    * A list of redshift subnets
-   * @default
+   * @default 
    */
   readonly redshiftSubnets?: string[];
   /**
@@ -870,7 +867,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly reuseNatIps?: boolean;
   /**
    * List of secondary CIDR blocks to associate with the VPC to extend the IP Address pool
-   * @default
+   * @default 
    */
   readonly secondaryCidrBlocks?: string[];
   /**
@@ -919,7 +916,7 @@ export interface VpcConfig extends TerraformModuleUserConfig {
   readonly vpnGatewayTags?: { [key: string]: string };
 }
 export class Vpc extends TerraformModule {
-  private readonly inputs: { [name: string]: any } = {};
+  private readonly inputs: { [name: string]: any } = { }
   public constructor(scope: Construct, id: string, config: VpcConfig = {}) {
     super(scope, id, {
       ...config,
@@ -930,18 +927,15 @@ export class Vpc extends TerraformModule {
     this.assignIpv6AddressOnCreation = config.assignIpv6AddressOnCreation;
     this.azs = config.azs;
     this.cidr = config.cidr;
-    this.createDatabaseInternetGatewayRoute =
-      config.createDatabaseInternetGatewayRoute;
+    this.createDatabaseInternetGatewayRoute = config.createDatabaseInternetGatewayRoute;
     this.createDatabaseNatGatewayRoute = config.createDatabaseNatGatewayRoute;
     this.createDatabaseSubnetGroup = config.createDatabaseSubnetGroup;
     this.createDatabaseSubnetRouteTable = config.createDatabaseSubnetRouteTable;
     this.createEgressOnlyIgw = config.createEgressOnlyIgw;
     this.createElasticacheSubnetGroup = config.createElasticacheSubnetGroup;
-    this.createElasticacheSubnetRouteTable =
-      config.createElasticacheSubnetRouteTable;
+    this.createElasticacheSubnetRouteTable = config.createElasticacheSubnetRouteTable;
     this.createFlowLogCloudwatchIamRole = config.createFlowLogCloudwatchIamRole;
-    this.createFlowLogCloudwatchLogGroup =
-      config.createFlowLogCloudwatchLogGroup;
+    this.createFlowLogCloudwatchLogGroup = config.createFlowLogCloudwatchLogGroup;
     this.createIgw = config.createIgw;
     this.createRedshiftSubnetGroup = config.createRedshiftSubnetGroup;
     this.createRedshiftSubnetRouteTable = config.createRedshiftSubnetRouteTable;
@@ -953,8 +947,7 @@ export class Vpc extends TerraformModule {
     this.databaseInboundAclRules = config.databaseInboundAclRules;
     this.databaseOutboundAclRules = config.databaseOutboundAclRules;
     this.databaseRouteTableTags = config.databaseRouteTableTags;
-    this.databaseSubnetAssignIpv6AddressOnCreation =
-      config.databaseSubnetAssignIpv6AddressOnCreation;
+    this.databaseSubnetAssignIpv6AddressOnCreation = config.databaseSubnetAssignIpv6AddressOnCreation;
     this.databaseSubnetGroupName = config.databaseSubnetGroupName;
     this.databaseSubnetGroupTags = config.databaseSubnetGroupTags;
     this.databaseSubnetIpv6Prefixes = config.databaseSubnetIpv6Prefixes;
@@ -967,8 +960,7 @@ export class Vpc extends TerraformModule {
     this.defaultNetworkAclName = config.defaultNetworkAclName;
     this.defaultNetworkAclTags = config.defaultNetworkAclTags;
     this.defaultRouteTableName = config.defaultRouteTableName;
-    this.defaultRouteTablePropagatingVgws =
-      config.defaultRouteTablePropagatingVgws;
+    this.defaultRouteTablePropagatingVgws = config.defaultRouteTablePropagatingVgws;
     this.defaultRouteTableRoutes = config.defaultRouteTableRoutes;
     this.defaultRouteTableTags = config.defaultRouteTableTags;
     this.defaultSecurityGroupEgress = config.defaultSecurityGroupEgress;
@@ -991,8 +983,7 @@ export class Vpc extends TerraformModule {
     this.elasticacheInboundAclRules = config.elasticacheInboundAclRules;
     this.elasticacheOutboundAclRules = config.elasticacheOutboundAclRules;
     this.elasticacheRouteTableTags = config.elasticacheRouteTableTags;
-    this.elasticacheSubnetAssignIpv6AddressOnCreation =
-      config.elasticacheSubnetAssignIpv6AddressOnCreation;
+    this.elasticacheSubnetAssignIpv6AddressOnCreation = config.elasticacheSubnetAssignIpv6AddressOnCreation;
     this.elasticacheSubnetGroupName = config.elasticacheSubnetGroupName;
     this.elasticacheSubnetGroupTags = config.elasticacheSubnetGroupTags;
     this.elasticacheSubnetIpv6Prefixes = config.elasticacheSubnetIpv6Prefixes;
@@ -1013,19 +1004,14 @@ export class Vpc extends TerraformModule {
     this.externalNatIpIds = config.externalNatIpIds;
     this.externalNatIps = config.externalNatIps;
     this.flowLogCloudwatchIamRoleArn = config.flowLogCloudwatchIamRoleArn;
-    this.flowLogCloudwatchLogGroupKmsKeyId =
-      config.flowLogCloudwatchLogGroupKmsKeyId;
-    this.flowLogCloudwatchLogGroupNamePrefix =
-      config.flowLogCloudwatchLogGroupNamePrefix;
-    this.flowLogCloudwatchLogGroupNameSuffix =
-      config.flowLogCloudwatchLogGroupNameSuffix;
-    this.flowLogCloudwatchLogGroupRetentionInDays =
-      config.flowLogCloudwatchLogGroupRetentionInDays;
+    this.flowLogCloudwatchLogGroupKmsKeyId = config.flowLogCloudwatchLogGroupKmsKeyId;
+    this.flowLogCloudwatchLogGroupNamePrefix = config.flowLogCloudwatchLogGroupNamePrefix;
+    this.flowLogCloudwatchLogGroupNameSuffix = config.flowLogCloudwatchLogGroupNameSuffix;
+    this.flowLogCloudwatchLogGroupRetentionInDays = config.flowLogCloudwatchLogGroupRetentionInDays;
     this.flowLogDestinationArn = config.flowLogDestinationArn;
     this.flowLogDestinationType = config.flowLogDestinationType;
     this.flowLogFileFormat = config.flowLogFileFormat;
-    this.flowLogHiveCompatiblePartitions =
-      config.flowLogHiveCompatiblePartitions;
+    this.flowLogHiveCompatiblePartitions = config.flowLogHiveCompatiblePartitions;
     this.flowLogLogFormat = config.flowLogLogFormat;
     this.flowLogMaxAggregationInterval = config.flowLogMaxAggregationInterval;
     this.flowLogPerHourPartition = config.flowLogPerHourPartition;
@@ -1037,8 +1023,7 @@ export class Vpc extends TerraformModule {
     this.intraInboundAclRules = config.intraInboundAclRules;
     this.intraOutboundAclRules = config.intraOutboundAclRules;
     this.intraRouteTableTags = config.intraRouteTableTags;
-    this.intraSubnetAssignIpv6AddressOnCreation =
-      config.intraSubnetAssignIpv6AddressOnCreation;
+    this.intraSubnetAssignIpv6AddressOnCreation = config.intraSubnetAssignIpv6AddressOnCreation;
     this.intraSubnetIpv6Prefixes = config.intraSubnetIpv6Prefixes;
     this.intraSubnetNames = config.intraSubnetNames;
     this.intraSubnetSuffix = config.intraSubnetSuffix;
@@ -1065,8 +1050,7 @@ export class Vpc extends TerraformModule {
     this.outpostDedicatedNetworkAcl = config.outpostDedicatedNetworkAcl;
     this.outpostInboundAclRules = config.outpostInboundAclRules;
     this.outpostOutboundAclRules = config.outpostOutboundAclRules;
-    this.outpostSubnetAssignIpv6AddressOnCreation =
-      config.outpostSubnetAssignIpv6AddressOnCreation;
+    this.outpostSubnetAssignIpv6AddressOnCreation = config.outpostSubnetAssignIpv6AddressOnCreation;
     this.outpostSubnetIpv6Prefixes = config.outpostSubnetIpv6Prefixes;
     this.outpostSubnetNames = config.outpostSubnetNames;
     this.outpostSubnetSuffix = config.outpostSubnetSuffix;
@@ -1077,8 +1061,7 @@ export class Vpc extends TerraformModule {
     this.privateInboundAclRules = config.privateInboundAclRules;
     this.privateOutboundAclRules = config.privateOutboundAclRules;
     this.privateRouteTableTags = config.privateRouteTableTags;
-    this.privateSubnetAssignIpv6AddressOnCreation =
-      config.privateSubnetAssignIpv6AddressOnCreation;
+    this.privateSubnetAssignIpv6AddressOnCreation = config.privateSubnetAssignIpv6AddressOnCreation;
     this.privateSubnetIpv6Prefixes = config.privateSubnetIpv6Prefixes;
     this.privateSubnetNames = config.privateSubnetNames;
     this.privateSubnetSuffix = config.privateSubnetSuffix;
@@ -1093,8 +1076,7 @@ export class Vpc extends TerraformModule {
     this.publicInboundAclRules = config.publicInboundAclRules;
     this.publicOutboundAclRules = config.publicOutboundAclRules;
     this.publicRouteTableTags = config.publicRouteTableTags;
-    this.publicSubnetAssignIpv6AddressOnCreation =
-      config.publicSubnetAssignIpv6AddressOnCreation;
+    this.publicSubnetAssignIpv6AddressOnCreation = config.publicSubnetAssignIpv6AddressOnCreation;
     this.publicSubnetIpv6Prefixes = config.publicSubnetIpv6Prefixes;
     this.publicSubnetNames = config.publicSubnetNames;
     this.publicSubnetSuffix = config.publicSubnetSuffix;
@@ -1107,8 +1089,7 @@ export class Vpc extends TerraformModule {
     this.redshiftInboundAclRules = config.redshiftInboundAclRules;
     this.redshiftOutboundAclRules = config.redshiftOutboundAclRules;
     this.redshiftRouteTableTags = config.redshiftRouteTableTags;
-    this.redshiftSubnetAssignIpv6AddressOnCreation =
-      config.redshiftSubnetAssignIpv6AddressOnCreation;
+    this.redshiftSubnetAssignIpv6AddressOnCreation = config.redshiftSubnetAssignIpv6AddressOnCreation;
     this.redshiftSubnetGroupName = config.redshiftSubnetGroupName;
     this.redshiftSubnetGroupTags = config.redshiftSubnetGroupTags;
     this.redshiftSubnetIpv6Prefixes = config.redshiftSubnetIpv6Prefixes;
@@ -1135,9 +1116,7 @@ export class Vpc extends TerraformModule {
     this.inputs['amazon_side_asn'] = value;
   }
   public get assignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['assign_ipv6_address_on_creation'] as boolean | undefined;
   }
   public set assignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['assign_ipv6_address_on_creation'] = value;
@@ -1155,17 +1134,13 @@ export class Vpc extends TerraformModule {
     this.inputs['cidr'] = value;
   }
   public get createDatabaseInternetGatewayRoute(): boolean | undefined {
-    return this.inputs['create_database_internet_gateway_route'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_database_internet_gateway_route'] as boolean | undefined;
   }
   public set createDatabaseInternetGatewayRoute(value: boolean | undefined) {
     this.inputs['create_database_internet_gateway_route'] = value;
   }
   public get createDatabaseNatGatewayRoute(): boolean | undefined {
-    return this.inputs['create_database_nat_gateway_route'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_database_nat_gateway_route'] as boolean | undefined;
   }
   public set createDatabaseNatGatewayRoute(value: boolean | undefined) {
     this.inputs['create_database_nat_gateway_route'] = value;
@@ -1177,9 +1152,7 @@ export class Vpc extends TerraformModule {
     this.inputs['create_database_subnet_group'] = value;
   }
   public get createDatabaseSubnetRouteTable(): boolean | undefined {
-    return this.inputs['create_database_subnet_route_table'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_database_subnet_route_table'] as boolean | undefined;
   }
   public set createDatabaseSubnetRouteTable(value: boolean | undefined) {
     this.inputs['create_database_subnet_route_table'] = value;
@@ -1191,33 +1164,25 @@ export class Vpc extends TerraformModule {
     this.inputs['create_egress_only_igw'] = value;
   }
   public get createElasticacheSubnetGroup(): boolean | undefined {
-    return this.inputs['create_elasticache_subnet_group'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_elasticache_subnet_group'] as boolean | undefined;
   }
   public set createElasticacheSubnetGroup(value: boolean | undefined) {
     this.inputs['create_elasticache_subnet_group'] = value;
   }
   public get createElasticacheSubnetRouteTable(): boolean | undefined {
-    return this.inputs['create_elasticache_subnet_route_table'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_elasticache_subnet_route_table'] as boolean | undefined;
   }
   public set createElasticacheSubnetRouteTable(value: boolean | undefined) {
     this.inputs['create_elasticache_subnet_route_table'] = value;
   }
   public get createFlowLogCloudwatchIamRole(): boolean | undefined {
-    return this.inputs['create_flow_log_cloudwatch_iam_role'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_flow_log_cloudwatch_iam_role'] as boolean | undefined;
   }
   public set createFlowLogCloudwatchIamRole(value: boolean | undefined) {
     this.inputs['create_flow_log_cloudwatch_iam_role'] = value;
   }
   public get createFlowLogCloudwatchLogGroup(): boolean | undefined {
-    return this.inputs['create_flow_log_cloudwatch_log_group'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_flow_log_cloudwatch_log_group'] as boolean | undefined;
   }
   public set createFlowLogCloudwatchLogGroup(value: boolean | undefined) {
     this.inputs['create_flow_log_cloudwatch_log_group'] = value;
@@ -1235,9 +1200,7 @@ export class Vpc extends TerraformModule {
     this.inputs['create_redshift_subnet_group'] = value;
   }
   public get createRedshiftSubnetRouteTable(): boolean | undefined {
-    return this.inputs['create_redshift_subnet_route_table'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_redshift_subnet_route_table'] as boolean | undefined;
   }
   public set createRedshiftSubnetRouteTable(value: boolean | undefined) {
     this.inputs['create_redshift_subnet_route_table'] = value;
@@ -1249,29 +1212,19 @@ export class Vpc extends TerraformModule {
     this.inputs['create_vpc'] = value;
   }
   public get customerGatewayTags(): { [key: string]: string } | undefined {
-    return this.inputs['customer_gateway_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['customer_gateway_tags'] as { [key: string]: string } | undefined;
   }
   public set customerGatewayTags(value: { [key: string]: string } | undefined) {
     this.inputs['customer_gateway_tags'] = value;
   }
-  public get customerGateways():
-    | { [key: string]: { [key: string]: any } }
-    | undefined {
-    return this.inputs['customer_gateways'] as
-      | { [key: string]: { [key: string]: any } }
-      | undefined;
+  public get customerGateways(): { [key: string]: { [key: string]: any } } | undefined {
+    return this.inputs['customer_gateways'] as { [key: string]: { [key: string]: any } } | undefined;
   }
-  public set customerGateways(
-    value: { [key: string]: { [key: string]: any } } | undefined,
-  ) {
+  public set customerGateways(value: { [key: string]: { [key: string]: any } } | undefined) {
     this.inputs['customer_gateways'] = value;
   }
   public get databaseAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['database_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['database_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set databaseAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['database_acl_tags'] = value;
@@ -1282,48 +1235,28 @@ export class Vpc extends TerraformModule {
   public set databaseDedicatedNetworkAcl(value: boolean | undefined) {
     this.inputs['database_dedicated_network_acl'] = value;
   }
-  public get databaseInboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['database_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get databaseInboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['database_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set databaseInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set databaseInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['database_inbound_acl_rules'] = value;
   }
-  public get databaseOutboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['database_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get databaseOutboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['database_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set databaseOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set databaseOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['database_outbound_acl_rules'] = value;
   }
   public get databaseRouteTableTags(): { [key: string]: string } | undefined {
-    return this.inputs['database_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['database_route_table_tags'] as { [key: string]: string } | undefined;
   }
-  public set databaseRouteTableTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set databaseRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['database_route_table_tags'] = value;
   }
   public get databaseSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['database_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['database_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set databaseSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set databaseSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['database_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get databaseSubnetGroupName(): string | undefined {
@@ -1333,13 +1266,9 @@ export class Vpc extends TerraformModule {
     this.inputs['database_subnet_group_name'] = value;
   }
   public get databaseSubnetGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['database_subnet_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['database_subnet_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set databaseSubnetGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set databaseSubnetGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['database_subnet_group_tags'] = value;
   }
   public get databaseSubnetIpv6Prefixes(): string[] | undefined {
@@ -1361,9 +1290,7 @@ export class Vpc extends TerraformModule {
     this.inputs['database_subnet_suffix'] = value;
   }
   public get databaseSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['database_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['database_subnet_tags'] as { [key: string]: string } | undefined;
   }
   public set databaseSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['database_subnet_tags'] = value;
@@ -1374,28 +1301,16 @@ export class Vpc extends TerraformModule {
   public set databaseSubnets(value: string[] | undefined) {
     this.inputs['database_subnets'] = value;
   }
-  public get defaultNetworkAclEgress():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['default_network_acl_egress'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get defaultNetworkAclEgress(): { [key: string]: string }[] | undefined {
+    return this.inputs['default_network_acl_egress'] as { [key: string]: string }[] | undefined;
   }
-  public set defaultNetworkAclEgress(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set defaultNetworkAclEgress(value: { [key: string]: string }[] | undefined) {
     this.inputs['default_network_acl_egress'] = value;
   }
-  public get defaultNetworkAclIngress():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['default_network_acl_ingress'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get defaultNetworkAclIngress(): { [key: string]: string }[] | undefined {
+    return this.inputs['default_network_acl_ingress'] as { [key: string]: string }[] | undefined;
   }
-  public set defaultNetworkAclIngress(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set defaultNetworkAclIngress(value: { [key: string]: string }[] | undefined) {
     this.inputs['default_network_acl_ingress'] = value;
   }
   public get defaultNetworkAclName(): string | undefined {
@@ -1405,13 +1320,9 @@ export class Vpc extends TerraformModule {
     this.inputs['default_network_acl_name'] = value;
   }
   public get defaultNetworkAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['default_network_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['default_network_acl_tags'] as { [key: string]: string } | undefined;
   }
-  public set defaultNetworkAclTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set defaultNetworkAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['default_network_acl_tags'] = value;
   }
   public get defaultRouteTableName(): string | undefined {
@@ -1421,57 +1332,33 @@ export class Vpc extends TerraformModule {
     this.inputs['default_route_table_name'] = value;
   }
   public get defaultRouteTablePropagatingVgws(): string[] | undefined {
-    return this.inputs['default_route_table_propagating_vgws'] as
-      | string[]
-      | undefined;
+    return this.inputs['default_route_table_propagating_vgws'] as string[] | undefined;
   }
   public set defaultRouteTablePropagatingVgws(value: string[] | undefined) {
     this.inputs['default_route_table_propagating_vgws'] = value;
   }
-  public get defaultRouteTableRoutes():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['default_route_table_routes'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get defaultRouteTableRoutes(): { [key: string]: string }[] | undefined {
+    return this.inputs['default_route_table_routes'] as { [key: string]: string }[] | undefined;
   }
-  public set defaultRouteTableRoutes(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set defaultRouteTableRoutes(value: { [key: string]: string }[] | undefined) {
     this.inputs['default_route_table_routes'] = value;
   }
   public get defaultRouteTableTags(): { [key: string]: string } | undefined {
-    return this.inputs['default_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['default_route_table_tags'] as { [key: string]: string } | undefined;
   }
-  public set defaultRouteTableTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set defaultRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['default_route_table_tags'] = value;
   }
-  public get defaultSecurityGroupEgress():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['default_security_group_egress'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get defaultSecurityGroupEgress(): { [key: string]: string }[] | undefined {
+    return this.inputs['default_security_group_egress'] as { [key: string]: string }[] | undefined;
   }
-  public set defaultSecurityGroupEgress(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set defaultSecurityGroupEgress(value: { [key: string]: string }[] | undefined) {
     this.inputs['default_security_group_egress'] = value;
   }
-  public get defaultSecurityGroupIngress():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['default_security_group_ingress'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get defaultSecurityGroupIngress(): { [key: string]: string }[] | undefined {
+    return this.inputs['default_security_group_ingress'] as { [key: string]: string }[] | undefined;
   }
-  public set defaultSecurityGroupIngress(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set defaultSecurityGroupIngress(value: { [key: string]: string }[] | undefined) {
     this.inputs['default_security_group_ingress'] = value;
   }
   public get defaultSecurityGroupName(): string | undefined {
@@ -1481,13 +1368,9 @@ export class Vpc extends TerraformModule {
     this.inputs['default_security_group_name'] = value;
   }
   public get defaultSecurityGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['default_security_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['default_security_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set defaultSecurityGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set defaultSecurityGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['default_security_group_tags'] = value;
   }
   public get defaultVpcEnableClassiclink(): boolean | undefined {
@@ -1497,9 +1380,7 @@ export class Vpc extends TerraformModule {
     this.inputs['default_vpc_enable_classiclink'] = value;
   }
   public get defaultVpcEnableDnsHostnames(): boolean | undefined {
-    return this.inputs['default_vpc_enable_dns_hostnames'] as
-      | boolean
-      | undefined;
+    return this.inputs['default_vpc_enable_dns_hostnames'] as boolean | undefined;
   }
   public set defaultVpcEnableDnsHostnames(value: boolean | undefined) {
     this.inputs['default_vpc_enable_dns_hostnames'] = value;
@@ -1517,9 +1398,7 @@ export class Vpc extends TerraformModule {
     this.inputs['default_vpc_name'] = value;
   }
   public get defaultVpcTags(): { [key: string]: string } | undefined {
-    return this.inputs['default_vpc_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['default_vpc_tags'] as { [key: string]: string } | undefined;
   }
   public set defaultVpcTags(value: { [key: string]: string } | undefined) {
     this.inputs['default_vpc_tags'] = value;
@@ -1531,17 +1410,13 @@ export class Vpc extends TerraformModule {
     this.inputs['dhcp_options_domain_name'] = value;
   }
   public get dhcpOptionsDomainNameServers(): string[] | undefined {
-    return this.inputs['dhcp_options_domain_name_servers'] as
-      | string[]
-      | undefined;
+    return this.inputs['dhcp_options_domain_name_servers'] as string[] | undefined;
   }
   public set dhcpOptionsDomainNameServers(value: string[] | undefined) {
     this.inputs['dhcp_options_domain_name_servers'] = value;
   }
   public get dhcpOptionsNetbiosNameServers(): string[] | undefined {
-    return this.inputs['dhcp_options_netbios_name_servers'] as
-      | string[]
-      | undefined;
+    return this.inputs['dhcp_options_netbios_name_servers'] as string[] | undefined;
   }
   public set dhcpOptionsNetbiosNameServers(value: string[] | undefined) {
     this.inputs['dhcp_options_netbios_name_servers'] = value;
@@ -1559,75 +1434,45 @@ export class Vpc extends TerraformModule {
     this.inputs['dhcp_options_ntp_servers'] = value;
   }
   public get dhcpOptionsTags(): { [key: string]: string } | undefined {
-    return this.inputs['dhcp_options_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['dhcp_options_tags'] as { [key: string]: string } | undefined;
   }
   public set dhcpOptionsTags(value: { [key: string]: string } | undefined) {
     this.inputs['dhcp_options_tags'] = value;
   }
   public get elasticacheAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['elasticache_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['elasticache_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set elasticacheAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['elasticache_acl_tags'] = value;
   }
   public get elasticacheDedicatedNetworkAcl(): boolean | undefined {
-    return this.inputs['elasticache_dedicated_network_acl'] as
-      | boolean
-      | undefined;
+    return this.inputs['elasticache_dedicated_network_acl'] as boolean | undefined;
   }
   public set elasticacheDedicatedNetworkAcl(value: boolean | undefined) {
     this.inputs['elasticache_dedicated_network_acl'] = value;
   }
-  public get elasticacheInboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['elasticache_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get elasticacheInboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['elasticache_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set elasticacheInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set elasticacheInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['elasticache_inbound_acl_rules'] = value;
   }
-  public get elasticacheOutboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['elasticache_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get elasticacheOutboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['elasticache_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set elasticacheOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set elasticacheOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['elasticache_outbound_acl_rules'] = value;
   }
-  public get elasticacheRouteTableTags():
-    | { [key: string]: string }
-    | undefined {
-    return this.inputs['elasticache_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+  public get elasticacheRouteTableTags(): { [key: string]: string } | undefined {
+    return this.inputs['elasticache_route_table_tags'] as { [key: string]: string } | undefined;
   }
-  public set elasticacheRouteTableTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set elasticacheRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['elasticache_route_table_tags'] = value;
   }
-  public get elasticacheSubnetAssignIpv6AddressOnCreation():
-    | boolean
-    | undefined {
-    return this.inputs['elasticache_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+  public get elasticacheSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
+    return this.inputs['elasticache_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set elasticacheSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set elasticacheSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['elasticache_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get elasticacheSubnetGroupName(): string | undefined {
@@ -1636,22 +1481,14 @@ export class Vpc extends TerraformModule {
   public set elasticacheSubnetGroupName(value: string | undefined) {
     this.inputs['elasticache_subnet_group_name'] = value;
   }
-  public get elasticacheSubnetGroupTags():
-    | { [key: string]: string }
-    | undefined {
-    return this.inputs['elasticache_subnet_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+  public get elasticacheSubnetGroupTags(): { [key: string]: string } | undefined {
+    return this.inputs['elasticache_subnet_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set elasticacheSubnetGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set elasticacheSubnetGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['elasticache_subnet_group_tags'] = value;
   }
   public get elasticacheSubnetIpv6Prefixes(): string[] | undefined {
-    return this.inputs['elasticache_subnet_ipv6_prefixes'] as
-      | string[]
-      | undefined;
+    return this.inputs['elasticache_subnet_ipv6_prefixes'] as string[] | undefined;
   }
   public set elasticacheSubnetIpv6Prefixes(value: string[] | undefined) {
     this.inputs['elasticache_subnet_ipv6_prefixes'] = value;
@@ -1669,13 +1506,9 @@ export class Vpc extends TerraformModule {
     this.inputs['elasticache_subnet_suffix'] = value;
   }
   public get elasticacheSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['elasticache_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['elasticache_subnet_tags'] as { [key: string]: string } | undefined;
   }
-  public set elasticacheSubnetTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set elasticacheSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['elasticache_subnet_tags'] = value;
   }
   public get elasticacheSubnets(): string[] | undefined {
@@ -1757,45 +1590,33 @@ export class Vpc extends TerraformModule {
     this.inputs['external_nat_ips'] = value;
   }
   public get flowLogCloudwatchIamRoleArn(): string | undefined {
-    return this.inputs['flow_log_cloudwatch_iam_role_arn'] as
-      | string
-      | undefined;
+    return this.inputs['flow_log_cloudwatch_iam_role_arn'] as string | undefined;
   }
   public set flowLogCloudwatchIamRoleArn(value: string | undefined) {
     this.inputs['flow_log_cloudwatch_iam_role_arn'] = value;
   }
   public get flowLogCloudwatchLogGroupKmsKeyId(): string | undefined {
-    return this.inputs['flow_log_cloudwatch_log_group_kms_key_id'] as
-      | string
-      | undefined;
+    return this.inputs['flow_log_cloudwatch_log_group_kms_key_id'] as string | undefined;
   }
   public set flowLogCloudwatchLogGroupKmsKeyId(value: string | undefined) {
     this.inputs['flow_log_cloudwatch_log_group_kms_key_id'] = value;
   }
   public get flowLogCloudwatchLogGroupNamePrefix(): string | undefined {
-    return this.inputs['flow_log_cloudwatch_log_group_name_prefix'] as
-      | string
-      | undefined;
+    return this.inputs['flow_log_cloudwatch_log_group_name_prefix'] as string | undefined;
   }
   public set flowLogCloudwatchLogGroupNamePrefix(value: string | undefined) {
     this.inputs['flow_log_cloudwatch_log_group_name_prefix'] = value;
   }
   public get flowLogCloudwatchLogGroupNameSuffix(): string | undefined {
-    return this.inputs['flow_log_cloudwatch_log_group_name_suffix'] as
-      | string
-      | undefined;
+    return this.inputs['flow_log_cloudwatch_log_group_name_suffix'] as string | undefined;
   }
   public set flowLogCloudwatchLogGroupNameSuffix(value: string | undefined) {
     this.inputs['flow_log_cloudwatch_log_group_name_suffix'] = value;
   }
   public get flowLogCloudwatchLogGroupRetentionInDays(): number | undefined {
-    return this.inputs['flow_log_cloudwatch_log_group_retention_in_days'] as
-      | number
-      | undefined;
+    return this.inputs['flow_log_cloudwatch_log_group_retention_in_days'] as number | undefined;
   }
-  public set flowLogCloudwatchLogGroupRetentionInDays(
-    value: number | undefined,
-  ) {
+  public set flowLogCloudwatchLogGroupRetentionInDays(value: number | undefined) {
     this.inputs['flow_log_cloudwatch_log_group_retention_in_days'] = value;
   }
   public get flowLogDestinationArn(): string | undefined {
@@ -1817,9 +1638,7 @@ export class Vpc extends TerraformModule {
     this.inputs['flow_log_file_format'] = value;
   }
   public get flowLogHiveCompatiblePartitions(): boolean | undefined {
-    return this.inputs['flow_log_hive_compatible_partitions'] as
-      | boolean
-      | undefined;
+    return this.inputs['flow_log_hive_compatible_partitions'] as boolean | undefined;
   }
   public set flowLogHiveCompatiblePartitions(value: boolean | undefined) {
     this.inputs['flow_log_hive_compatible_partitions'] = value;
@@ -1831,9 +1650,7 @@ export class Vpc extends TerraformModule {
     this.inputs['flow_log_log_format'] = value;
   }
   public get flowLogMaxAggregationInterval(): number | undefined {
-    return this.inputs['flow_log_max_aggregation_interval'] as
-      | number
-      | undefined;
+    return this.inputs['flow_log_max_aggregation_interval'] as number | undefined;
   }
   public set flowLogMaxAggregationInterval(value: number | undefined) {
     this.inputs['flow_log_max_aggregation_interval'] = value;
@@ -1863,9 +1680,7 @@ export class Vpc extends TerraformModule {
     this.inputs['instance_tenancy'] = value;
   }
   public get intraAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['intra_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['intra_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set intraAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['intra_acl_tags'] = value;
@@ -1877,41 +1692,27 @@ export class Vpc extends TerraformModule {
     this.inputs['intra_dedicated_network_acl'] = value;
   }
   public get intraInboundAclRules(): { [key: string]: string }[] | undefined {
-    return this.inputs['intra_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+    return this.inputs['intra_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set intraInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set intraInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['intra_inbound_acl_rules'] = value;
   }
   public get intraOutboundAclRules(): { [key: string]: string }[] | undefined {
-    return this.inputs['intra_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+    return this.inputs['intra_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set intraOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set intraOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['intra_outbound_acl_rules'] = value;
   }
   public get intraRouteTableTags(): { [key: string]: string } | undefined {
-    return this.inputs['intra_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['intra_route_table_tags'] as { [key: string]: string } | undefined;
   }
   public set intraRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['intra_route_table_tags'] = value;
   }
   public get intraSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['intra_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['intra_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set intraSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set intraSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['intra_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get intraSubnetIpv6Prefixes(): string[] | undefined {
@@ -1933,9 +1734,7 @@ export class Vpc extends TerraformModule {
     this.inputs['intra_subnet_suffix'] = value;
   }
   public get intraSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['intra_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['intra_subnet_tags'] as { [key: string]: string } | undefined;
   }
   public set intraSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['intra_subnet_tags'] = value;
@@ -2019,17 +1818,13 @@ export class Vpc extends TerraformModule {
     this.inputs['nat_eip_tags'] = value;
   }
   public get natGatewayDestinationCidrBlock(): string | undefined {
-    return this.inputs['nat_gateway_destination_cidr_block'] as
-      | string
-      | undefined;
+    return this.inputs['nat_gateway_destination_cidr_block'] as string | undefined;
   }
   public set natGatewayDestinationCidrBlock(value: string | undefined) {
     this.inputs['nat_gateway_destination_cidr_block'] = value;
   }
   public get natGatewayTags(): { [key: string]: string } | undefined {
-    return this.inputs['nat_gateway_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['nat_gateway_tags'] as { [key: string]: string } | undefined;
   }
   public set natGatewayTags(value: { [key: string]: string } | undefined) {
     this.inputs['nat_gateway_tags'] = value;
@@ -2041,9 +1836,7 @@ export class Vpc extends TerraformModule {
     this.inputs['one_nat_gateway_per_az'] = value;
   }
   public get outpostAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['outpost_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['outpost_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set outpostAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['outpost_acl_tags'] = value;
@@ -2067,35 +1860,21 @@ export class Vpc extends TerraformModule {
     this.inputs['outpost_dedicated_network_acl'] = value;
   }
   public get outpostInboundAclRules(): { [key: string]: string }[] | undefined {
-    return this.inputs['outpost_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+    return this.inputs['outpost_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set outpostInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set outpostInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['outpost_inbound_acl_rules'] = value;
   }
-  public get outpostOutboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['outpost_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get outpostOutboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['outpost_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set outpostOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set outpostOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['outpost_outbound_acl_rules'] = value;
   }
   public get outpostSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['outpost_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['outpost_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set outpostSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set outpostSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['outpost_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get outpostSubnetIpv6Prefixes(): string[] | undefined {
@@ -2117,9 +1896,7 @@ export class Vpc extends TerraformModule {
     this.inputs['outpost_subnet_suffix'] = value;
   }
   public get outpostSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['outpost_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['outpost_subnet_tags'] as { [key: string]: string } | undefined;
   }
   public set outpostSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['outpost_subnet_tags'] = value;
@@ -2131,9 +1908,7 @@ export class Vpc extends TerraformModule {
     this.inputs['outpost_subnets'] = value;
   }
   public get privateAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['private_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['private_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set privateAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['private_acl_tags'] = value;
@@ -2145,45 +1920,27 @@ export class Vpc extends TerraformModule {
     this.inputs['private_dedicated_network_acl'] = value;
   }
   public get privateInboundAclRules(): { [key: string]: string }[] | undefined {
-    return this.inputs['private_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+    return this.inputs['private_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set privateInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set privateInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['private_inbound_acl_rules'] = value;
   }
-  public get privateOutboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['private_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get privateOutboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['private_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set privateOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set privateOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['private_outbound_acl_rules'] = value;
   }
   public get privateRouteTableTags(): { [key: string]: string } | undefined {
-    return this.inputs['private_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['private_route_table_tags'] as { [key: string]: string } | undefined;
   }
-  public set privateRouteTableTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set privateRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['private_route_table_tags'] = value;
   }
   public get privateSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['private_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['private_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set privateSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set privateSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['private_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get privateSubnetIpv6Prefixes(): string[] | undefined {
@@ -2205,23 +1962,15 @@ export class Vpc extends TerraformModule {
     this.inputs['private_subnet_suffix'] = value;
   }
   public get privateSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['private_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['private_subnet_tags'] as { [key: string]: string } | undefined;
   }
   public set privateSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['private_subnet_tags'] = value;
   }
-  public get privateSubnetTagsPerAz():
-    | { [key: string]: { [key: string]: string } }
-    | undefined {
-    return this.inputs['private_subnet_tags_per_az'] as
-      | { [key: string]: { [key: string]: string } }
-      | undefined;
+  public get privateSubnetTagsPerAz(): { [key: string]: { [key: string]: string } } | undefined {
+    return this.inputs['private_subnet_tags_per_az'] as { [key: string]: { [key: string]: string } } | undefined;
   }
-  public set privateSubnetTagsPerAz(
-    value: { [key: string]: { [key: string]: string } } | undefined,
-  ) {
+  public set privateSubnetTagsPerAz(value: { [key: string]: { [key: string]: string } } | undefined) {
     this.inputs['private_subnet_tags_per_az'] = value;
   }
   public get privateSubnets(): string[] | undefined {
@@ -2231,33 +1980,25 @@ export class Vpc extends TerraformModule {
     this.inputs['private_subnets'] = value;
   }
   public get propagateIntraRouteTablesVgw(): boolean | undefined {
-    return this.inputs['propagate_intra_route_tables_vgw'] as
-      | boolean
-      | undefined;
+    return this.inputs['propagate_intra_route_tables_vgw'] as boolean | undefined;
   }
   public set propagateIntraRouteTablesVgw(value: boolean | undefined) {
     this.inputs['propagate_intra_route_tables_vgw'] = value;
   }
   public get propagatePrivateRouteTablesVgw(): boolean | undefined {
-    return this.inputs['propagate_private_route_tables_vgw'] as
-      | boolean
-      | undefined;
+    return this.inputs['propagate_private_route_tables_vgw'] as boolean | undefined;
   }
   public set propagatePrivateRouteTablesVgw(value: boolean | undefined) {
     this.inputs['propagate_private_route_tables_vgw'] = value;
   }
   public get propagatePublicRouteTablesVgw(): boolean | undefined {
-    return this.inputs['propagate_public_route_tables_vgw'] as
-      | boolean
-      | undefined;
+    return this.inputs['propagate_public_route_tables_vgw'] as boolean | undefined;
   }
   public set propagatePublicRouteTablesVgw(value: boolean | undefined) {
     this.inputs['propagate_public_route_tables_vgw'] = value;
   }
   public get publicAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['public_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['public_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set publicAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['public_acl_tags'] = value;
@@ -2269,43 +2010,27 @@ export class Vpc extends TerraformModule {
     this.inputs['public_dedicated_network_acl'] = value;
   }
   public get publicInboundAclRules(): { [key: string]: string }[] | undefined {
-    return this.inputs['public_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+    return this.inputs['public_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set publicInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set publicInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['public_inbound_acl_rules'] = value;
   }
   public get publicOutboundAclRules(): { [key: string]: string }[] | undefined {
-    return this.inputs['public_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+    return this.inputs['public_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set publicOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set publicOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['public_outbound_acl_rules'] = value;
   }
   public get publicRouteTableTags(): { [key: string]: string } | undefined {
-    return this.inputs['public_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['public_route_table_tags'] as { [key: string]: string } | undefined;
   }
-  public set publicRouteTableTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set publicRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['public_route_table_tags'] = value;
   }
   public get publicSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['public_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['public_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set publicSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set publicSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['public_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get publicSubnetIpv6Prefixes(): string[] | undefined {
@@ -2327,23 +2052,15 @@ export class Vpc extends TerraformModule {
     this.inputs['public_subnet_suffix'] = value;
   }
   public get publicSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['public_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['public_subnet_tags'] as { [key: string]: string } | undefined;
   }
   public set publicSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['public_subnet_tags'] = value;
   }
-  public get publicSubnetTagsPerAz():
-    | { [key: string]: { [key: string]: string } }
-    | undefined {
-    return this.inputs['public_subnet_tags_per_az'] as
-      | { [key: string]: { [key: string]: string } }
-      | undefined;
+  public get publicSubnetTagsPerAz(): { [key: string]: { [key: string]: string } } | undefined {
+    return this.inputs['public_subnet_tags_per_az'] as { [key: string]: { [key: string]: string } } | undefined;
   }
-  public set publicSubnetTagsPerAz(
-    value: { [key: string]: { [key: string]: string } } | undefined,
-  ) {
+  public set publicSubnetTagsPerAz(value: { [key: string]: { [key: string]: string } } | undefined) {
     this.inputs['public_subnet_tags_per_az'] = value;
   }
   public get publicSubnets(): string[] | undefined {
@@ -2359,9 +2076,7 @@ export class Vpc extends TerraformModule {
     this.inputs['putin_khuylo'] = value;
   }
   public get redshiftAclTags(): { [key: string]: string } | undefined {
-    return this.inputs['redshift_acl_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['redshift_acl_tags'] as { [key: string]: string } | undefined;
   }
   public set redshiftAclTags(value: { [key: string]: string } | undefined) {
     this.inputs['redshift_acl_tags'] = value;
@@ -2372,48 +2087,28 @@ export class Vpc extends TerraformModule {
   public set redshiftDedicatedNetworkAcl(value: boolean | undefined) {
     this.inputs['redshift_dedicated_network_acl'] = value;
   }
-  public get redshiftInboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['redshift_inbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get redshiftInboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['redshift_inbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set redshiftInboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set redshiftInboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['redshift_inbound_acl_rules'] = value;
   }
-  public get redshiftOutboundAclRules():
-    | { [key: string]: string }[]
-    | undefined {
-    return this.inputs['redshift_outbound_acl_rules'] as
-      | { [key: string]: string }[]
-      | undefined;
+  public get redshiftOutboundAclRules(): { [key: string]: string }[] | undefined {
+    return this.inputs['redshift_outbound_acl_rules'] as { [key: string]: string }[] | undefined;
   }
-  public set redshiftOutboundAclRules(
-    value: { [key: string]: string }[] | undefined,
-  ) {
+  public set redshiftOutboundAclRules(value: { [key: string]: string }[] | undefined) {
     this.inputs['redshift_outbound_acl_rules'] = value;
   }
   public get redshiftRouteTableTags(): { [key: string]: string } | undefined {
-    return this.inputs['redshift_route_table_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['redshift_route_table_tags'] as { [key: string]: string } | undefined;
   }
-  public set redshiftRouteTableTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set redshiftRouteTableTags(value: { [key: string]: string } | undefined) {
     this.inputs['redshift_route_table_tags'] = value;
   }
   public get redshiftSubnetAssignIpv6AddressOnCreation(): boolean | undefined {
-    return this.inputs['redshift_subnet_assign_ipv6_address_on_creation'] as
-      | boolean
-      | undefined;
+    return this.inputs['redshift_subnet_assign_ipv6_address_on_creation'] as boolean | undefined;
   }
-  public set redshiftSubnetAssignIpv6AddressOnCreation(
-    value: boolean | undefined,
-  ) {
+  public set redshiftSubnetAssignIpv6AddressOnCreation(value: boolean | undefined) {
     this.inputs['redshift_subnet_assign_ipv6_address_on_creation'] = value;
   }
   public get redshiftSubnetGroupName(): string | undefined {
@@ -2423,13 +2118,9 @@ export class Vpc extends TerraformModule {
     this.inputs['redshift_subnet_group_name'] = value;
   }
   public get redshiftSubnetGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['redshift_subnet_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['redshift_subnet_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set redshiftSubnetGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set redshiftSubnetGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['redshift_subnet_group_tags'] = value;
   }
   public get redshiftSubnetIpv6Prefixes(): string[] | undefined {
@@ -2451,9 +2142,7 @@ export class Vpc extends TerraformModule {
     this.inputs['redshift_subnet_suffix'] = value;
   }
   public get redshiftSubnetTags(): { [key: string]: string } | undefined {
-    return this.inputs['redshift_subnet_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['redshift_subnet_tags'] as { [key: string]: string } | undefined;
   }
   public set redshiftSubnetTags(value: { [key: string]: string } | undefined) {
     this.inputs['redshift_subnet_tags'] = value;
@@ -2495,17 +2184,13 @@ export class Vpc extends TerraformModule {
     this.inputs['use_ipam_pool'] = value;
   }
   public get vpcFlowLogPermissionsBoundary(): string | undefined {
-    return this.inputs['vpc_flow_log_permissions_boundary'] as
-      | string
-      | undefined;
+    return this.inputs['vpc_flow_log_permissions_boundary'] as string | undefined;
   }
   public set vpcFlowLogPermissionsBoundary(value: string | undefined) {
     this.inputs['vpc_flow_log_permissions_boundary'] = value;
   }
   public get vpcFlowLogTags(): { [key: string]: string } | undefined {
-    return this.inputs['vpc_flow_log_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['vpc_flow_log_tags'] as { [key: string]: string } | undefined;
   }
   public set vpcFlowLogTags(value: { [key: string]: string } | undefined) {
     this.inputs['vpc_flow_log_tags'] = value;
@@ -2529,339 +2214,337 @@ export class Vpc extends TerraformModule {
     this.inputs['vpn_gateway_id'] = value;
   }
   public get vpnGatewayTags(): { [key: string]: string } | undefined {
-    return this.inputs['vpn_gateway_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['vpn_gateway_tags'] as { [key: string]: string } | undefined;
   }
   public set vpnGatewayTags(value: { [key: string]: string } | undefined) {
     this.inputs['vpn_gateway_tags'] = value;
   }
   public get azsOutput() {
-    return this.getString('azs');
+    return this.getString('azs')
   }
   public get cgwArnsOutput() {
-    return this.getString('cgw_arns');
+    return this.getString('cgw_arns')
   }
   public get cgwIdsOutput() {
-    return this.getString('cgw_ids');
+    return this.getString('cgw_ids')
   }
   public get databaseInternetGatewayRouteIdOutput() {
-    return this.getString('database_internet_gateway_route_id');
+    return this.getString('database_internet_gateway_route_id')
   }
   public get databaseIpv6EgressRouteIdOutput() {
-    return this.getString('database_ipv6_egress_route_id');
+    return this.getString('database_ipv6_egress_route_id')
   }
   public get databaseNatGatewayRouteIdsOutput() {
-    return this.getString('database_nat_gateway_route_ids');
+    return this.getString('database_nat_gateway_route_ids')
   }
   public get databaseNetworkAclArnOutput() {
-    return this.getString('database_network_acl_arn');
+    return this.getString('database_network_acl_arn')
   }
   public get databaseNetworkAclIdOutput() {
-    return this.getString('database_network_acl_id');
+    return this.getString('database_network_acl_id')
   }
   public get databaseRouteTableAssociationIdsOutput() {
-    return this.getString('database_route_table_association_ids');
+    return this.getString('database_route_table_association_ids')
   }
   public get databaseRouteTableIdsOutput() {
-    return this.getString('database_route_table_ids');
+    return this.getString('database_route_table_ids')
   }
   public get databaseSubnetArnsOutput() {
-    return this.getString('database_subnet_arns');
+    return this.getString('database_subnet_arns')
   }
   public get databaseSubnetGroupOutput() {
-    return this.getString('database_subnet_group');
+    return this.getString('database_subnet_group')
   }
   public get databaseSubnetGroupNameOutput() {
-    return this.getString('database_subnet_group_name');
+    return this.getString('database_subnet_group_name')
   }
   public get databaseSubnetsOutput() {
-    return this.getString('database_subnets');
+    return this.getString('database_subnets')
   }
   public get databaseSubnetsCidrBlocksOutput() {
-    return this.getString('database_subnets_cidr_blocks');
+    return this.getString('database_subnets_cidr_blocks')
   }
   public get databaseSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('database_subnets_ipv6_cidr_blocks');
+    return this.getString('database_subnets_ipv6_cidr_blocks')
   }
   public get defaultNetworkAclIdOutput() {
-    return this.getString('default_network_acl_id');
+    return this.getString('default_network_acl_id')
   }
   public get defaultRouteTableIdOutput() {
-    return this.getString('default_route_table_id');
+    return this.getString('default_route_table_id')
   }
   public get defaultSecurityGroupIdOutput() {
-    return this.getString('default_security_group_id');
+    return this.getString('default_security_group_id')
   }
   public get defaultVpcArnOutput() {
-    return this.getString('default_vpc_arn');
+    return this.getString('default_vpc_arn')
   }
   public get defaultVpcCidrBlockOutput() {
-    return this.getString('default_vpc_cidr_block');
+    return this.getString('default_vpc_cidr_block')
   }
   public get defaultVpcDefaultNetworkAclIdOutput() {
-    return this.getString('default_vpc_default_network_acl_id');
+    return this.getString('default_vpc_default_network_acl_id')
   }
   public get defaultVpcDefaultRouteTableIdOutput() {
-    return this.getString('default_vpc_default_route_table_id');
+    return this.getString('default_vpc_default_route_table_id')
   }
   public get defaultVpcDefaultSecurityGroupIdOutput() {
-    return this.getString('default_vpc_default_security_group_id');
+    return this.getString('default_vpc_default_security_group_id')
   }
   public get defaultVpcEnableDnsHostnamesOutput() {
-    return this.getString('default_vpc_enable_dns_hostnames');
+    return this.getString('default_vpc_enable_dns_hostnames')
   }
   public get defaultVpcEnableDnsSupportOutput() {
-    return this.getString('default_vpc_enable_dns_support');
+    return this.getString('default_vpc_enable_dns_support')
   }
   public get defaultVpcIdOutput() {
-    return this.getString('default_vpc_id');
+    return this.getString('default_vpc_id')
   }
   public get defaultVpcInstanceTenancyOutput() {
-    return this.getString('default_vpc_instance_tenancy');
+    return this.getString('default_vpc_instance_tenancy')
   }
   public get defaultVpcMainRouteTableIdOutput() {
-    return this.getString('default_vpc_main_route_table_id');
+    return this.getString('default_vpc_main_route_table_id')
   }
   public get dhcpOptionsIdOutput() {
-    return this.getString('dhcp_options_id');
+    return this.getString('dhcp_options_id')
   }
   public get egressOnlyInternetGatewayIdOutput() {
-    return this.getString('egress_only_internet_gateway_id');
+    return this.getString('egress_only_internet_gateway_id')
   }
   public get elasticacheNetworkAclArnOutput() {
-    return this.getString('elasticache_network_acl_arn');
+    return this.getString('elasticache_network_acl_arn')
   }
   public get elasticacheNetworkAclIdOutput() {
-    return this.getString('elasticache_network_acl_id');
+    return this.getString('elasticache_network_acl_id')
   }
   public get elasticacheRouteTableAssociationIdsOutput() {
-    return this.getString('elasticache_route_table_association_ids');
+    return this.getString('elasticache_route_table_association_ids')
   }
   public get elasticacheRouteTableIdsOutput() {
-    return this.getString('elasticache_route_table_ids');
+    return this.getString('elasticache_route_table_ids')
   }
   public get elasticacheSubnetArnsOutput() {
-    return this.getString('elasticache_subnet_arns');
+    return this.getString('elasticache_subnet_arns')
   }
   public get elasticacheSubnetGroupOutput() {
-    return this.getString('elasticache_subnet_group');
+    return this.getString('elasticache_subnet_group')
   }
   public get elasticacheSubnetGroupNameOutput() {
-    return this.getString('elasticache_subnet_group_name');
+    return this.getString('elasticache_subnet_group_name')
   }
   public get elasticacheSubnetsOutput() {
-    return this.getString('elasticache_subnets');
+    return this.getString('elasticache_subnets')
   }
   public get elasticacheSubnetsCidrBlocksOutput() {
-    return this.getString('elasticache_subnets_cidr_blocks');
+    return this.getString('elasticache_subnets_cidr_blocks')
   }
   public get elasticacheSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('elasticache_subnets_ipv6_cidr_blocks');
+    return this.getString('elasticache_subnets_ipv6_cidr_blocks')
   }
   public get igwArnOutput() {
-    return this.getString('igw_arn');
+    return this.getString('igw_arn')
   }
   public get igwIdOutput() {
-    return this.getString('igw_id');
+    return this.getString('igw_id')
   }
   public get intraNetworkAclArnOutput() {
-    return this.getString('intra_network_acl_arn');
+    return this.getString('intra_network_acl_arn')
   }
   public get intraNetworkAclIdOutput() {
-    return this.getString('intra_network_acl_id');
+    return this.getString('intra_network_acl_id')
   }
   public get intraRouteTableAssociationIdsOutput() {
-    return this.getString('intra_route_table_association_ids');
+    return this.getString('intra_route_table_association_ids')
   }
   public get intraRouteTableIdsOutput() {
-    return this.getString('intra_route_table_ids');
+    return this.getString('intra_route_table_ids')
   }
   public get intraSubnetArnsOutput() {
-    return this.getString('intra_subnet_arns');
+    return this.getString('intra_subnet_arns')
   }
   public get intraSubnetsOutput() {
-    return this.getString('intra_subnets');
+    return this.getString('intra_subnets')
   }
   public get intraSubnetsCidrBlocksOutput() {
-    return this.getString('intra_subnets_cidr_blocks');
+    return this.getString('intra_subnets_cidr_blocks')
   }
   public get intraSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('intra_subnets_ipv6_cidr_blocks');
+    return this.getString('intra_subnets_ipv6_cidr_blocks')
   }
   public get nameOutput() {
-    return this.getString('name');
+    return this.getString('name')
   }
   public get natIdsOutput() {
-    return this.getString('nat_ids');
+    return this.getString('nat_ids')
   }
   public get natPublicIpsOutput() {
-    return this.getString('nat_public_ips');
+    return this.getString('nat_public_ips')
   }
   public get natgwIdsOutput() {
-    return this.getString('natgw_ids');
+    return this.getString('natgw_ids')
   }
   public get outpostNetworkAclArnOutput() {
-    return this.getString('outpost_network_acl_arn');
+    return this.getString('outpost_network_acl_arn')
   }
   public get outpostNetworkAclIdOutput() {
-    return this.getString('outpost_network_acl_id');
+    return this.getString('outpost_network_acl_id')
   }
   public get outpostSubnetArnsOutput() {
-    return this.getString('outpost_subnet_arns');
+    return this.getString('outpost_subnet_arns')
   }
   public get outpostSubnetsOutput() {
-    return this.getString('outpost_subnets');
+    return this.getString('outpost_subnets')
   }
   public get outpostSubnetsCidrBlocksOutput() {
-    return this.getString('outpost_subnets_cidr_blocks');
+    return this.getString('outpost_subnets_cidr_blocks')
   }
   public get outpostSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('outpost_subnets_ipv6_cidr_blocks');
+    return this.getString('outpost_subnets_ipv6_cidr_blocks')
   }
   public get privateIpv6EgressRouteIdsOutput() {
-    return this.getString('private_ipv6_egress_route_ids');
+    return this.getString('private_ipv6_egress_route_ids')
   }
   public get privateNatGatewayRouteIdsOutput() {
-    return this.getString('private_nat_gateway_route_ids');
+    return this.getString('private_nat_gateway_route_ids')
   }
   public get privateNetworkAclArnOutput() {
-    return this.getString('private_network_acl_arn');
+    return this.getString('private_network_acl_arn')
   }
   public get privateNetworkAclIdOutput() {
-    return this.getString('private_network_acl_id');
+    return this.getString('private_network_acl_id')
   }
   public get privateRouteTableAssociationIdsOutput() {
-    return this.getString('private_route_table_association_ids');
+    return this.getString('private_route_table_association_ids')
   }
   public get privateRouteTableIdsOutput() {
-    return this.getString('private_route_table_ids');
+    return this.getString('private_route_table_ids')
   }
   public get privateSubnetArnsOutput() {
-    return this.getString('private_subnet_arns');
+    return this.getString('private_subnet_arns')
   }
   public get privateSubnetsOutput() {
-    return this.getString('private_subnets');
+    return this.getString('private_subnets')
   }
   public get privateSubnetsCidrBlocksOutput() {
-    return this.getString('private_subnets_cidr_blocks');
+    return this.getString('private_subnets_cidr_blocks')
   }
   public get privateSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('private_subnets_ipv6_cidr_blocks');
+    return this.getString('private_subnets_ipv6_cidr_blocks')
   }
   public get publicInternetGatewayIpv6RouteIdOutput() {
-    return this.getString('public_internet_gateway_ipv6_route_id');
+    return this.getString('public_internet_gateway_ipv6_route_id')
   }
   public get publicInternetGatewayRouteIdOutput() {
-    return this.getString('public_internet_gateway_route_id');
+    return this.getString('public_internet_gateway_route_id')
   }
   public get publicNetworkAclArnOutput() {
-    return this.getString('public_network_acl_arn');
+    return this.getString('public_network_acl_arn')
   }
   public get publicNetworkAclIdOutput() {
-    return this.getString('public_network_acl_id');
+    return this.getString('public_network_acl_id')
   }
   public get publicRouteTableAssociationIdsOutput() {
-    return this.getString('public_route_table_association_ids');
+    return this.getString('public_route_table_association_ids')
   }
   public get publicRouteTableIdsOutput() {
-    return this.getString('public_route_table_ids');
+    return this.getString('public_route_table_ids')
   }
   public get publicSubnetArnsOutput() {
-    return this.getString('public_subnet_arns');
+    return this.getString('public_subnet_arns')
   }
   public get publicSubnetsOutput() {
-    return this.getString('public_subnets');
+    return this.getString('public_subnets')
   }
   public get publicSubnetsCidrBlocksOutput() {
-    return this.getString('public_subnets_cidr_blocks');
+    return this.getString('public_subnets_cidr_blocks')
   }
   public get publicSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('public_subnets_ipv6_cidr_blocks');
+    return this.getString('public_subnets_ipv6_cidr_blocks')
   }
   public get redshiftNetworkAclArnOutput() {
-    return this.getString('redshift_network_acl_arn');
+    return this.getString('redshift_network_acl_arn')
   }
   public get redshiftNetworkAclIdOutput() {
-    return this.getString('redshift_network_acl_id');
+    return this.getString('redshift_network_acl_id')
   }
   public get redshiftPublicRouteTableAssociationIdsOutput() {
-    return this.getString('redshift_public_route_table_association_ids');
+    return this.getString('redshift_public_route_table_association_ids')
   }
   public get redshiftRouteTableAssociationIdsOutput() {
-    return this.getString('redshift_route_table_association_ids');
+    return this.getString('redshift_route_table_association_ids')
   }
   public get redshiftRouteTableIdsOutput() {
-    return this.getString('redshift_route_table_ids');
+    return this.getString('redshift_route_table_ids')
   }
   public get redshiftSubnetArnsOutput() {
-    return this.getString('redshift_subnet_arns');
+    return this.getString('redshift_subnet_arns')
   }
   public get redshiftSubnetGroupOutput() {
-    return this.getString('redshift_subnet_group');
+    return this.getString('redshift_subnet_group')
   }
   public get redshiftSubnetsOutput() {
-    return this.getString('redshift_subnets');
+    return this.getString('redshift_subnets')
   }
   public get redshiftSubnetsCidrBlocksOutput() {
-    return this.getString('redshift_subnets_cidr_blocks');
+    return this.getString('redshift_subnets_cidr_blocks')
   }
   public get redshiftSubnetsIpv6CidrBlocksOutput() {
-    return this.getString('redshift_subnets_ipv6_cidr_blocks');
+    return this.getString('redshift_subnets_ipv6_cidr_blocks')
   }
   public get thisCustomerGatewayOutput() {
-    return this.getString('this_customer_gateway');
+    return this.getString('this_customer_gateway')
   }
   public get vgwArnOutput() {
-    return this.getString('vgw_arn');
+    return this.getString('vgw_arn')
   }
   public get vgwIdOutput() {
-    return this.getString('vgw_id');
+    return this.getString('vgw_id')
   }
   public get vpcArnOutput() {
-    return this.getString('vpc_arn');
+    return this.getString('vpc_arn')
   }
   public get vpcCidrBlockOutput() {
-    return this.getString('vpc_cidr_block');
+    return this.getString('vpc_cidr_block')
   }
   public get vpcEnableDnsHostnamesOutput() {
-    return this.getString('vpc_enable_dns_hostnames');
+    return this.getString('vpc_enable_dns_hostnames')
   }
   public get vpcEnableDnsSupportOutput() {
-    return this.getString('vpc_enable_dns_support');
+    return this.getString('vpc_enable_dns_support')
   }
   public get vpcFlowLogCloudwatchIamRoleArnOutput() {
-    return this.getString('vpc_flow_log_cloudwatch_iam_role_arn');
+    return this.getString('vpc_flow_log_cloudwatch_iam_role_arn')
   }
   public get vpcFlowLogDestinationArnOutput() {
-    return this.getString('vpc_flow_log_destination_arn');
+    return this.getString('vpc_flow_log_destination_arn')
   }
   public get vpcFlowLogDestinationTypeOutput() {
-    return this.getString('vpc_flow_log_destination_type');
+    return this.getString('vpc_flow_log_destination_type')
   }
   public get vpcFlowLogIdOutput() {
-    return this.getString('vpc_flow_log_id');
+    return this.getString('vpc_flow_log_id')
   }
   public get vpcIdOutput() {
-    return this.getString('vpc_id');
+    return this.getString('vpc_id')
   }
   public get vpcInstanceTenancyOutput() {
-    return this.getString('vpc_instance_tenancy');
+    return this.getString('vpc_instance_tenancy')
   }
   public get vpcIpv6AssociationIdOutput() {
-    return this.getString('vpc_ipv6_association_id');
+    return this.getString('vpc_ipv6_association_id')
   }
   public get vpcIpv6CidrBlockOutput() {
-    return this.getString('vpc_ipv6_cidr_block');
+    return this.getString('vpc_ipv6_cidr_block')
   }
   public get vpcMainRouteTableIdOutput() {
-    return this.getString('vpc_main_route_table_id');
+    return this.getString('vpc_main_route_table_id')
   }
   public get vpcOwnerIdOutput() {
-    return this.getString('vpc_owner_id');
+    return this.getString('vpc_owner_id')
   }
   public get vpcSecondaryCidrBlocksOutput() {
-    return this.getString('vpc_secondary_cidr_blocks');
+    return this.getString('vpc_secondary_cidr_blocks')
   }
   protected synthesizeAttributes() {
     return this.inputs;

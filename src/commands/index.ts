@@ -12,7 +12,7 @@ import UpdateCommands from './update/index.ts';
 import { BaseCommand } from './base-command.ts';
 
 export default async function arcctl() {
-  await BaseCommand()
+  const command = BaseCommand()
     .command('build', BuildCommand)
     .command('deploy', DeployCommand)
     .command('tag', TagCommand)
@@ -23,6 +23,12 @@ export default async function arcctl() {
     .command('get', GetCommands)
     .command('list', ListCommands.alias('ls'))
     .command('remove', RemoveCommands.alias('rm'))
-    .command('update', UpdateCommands)
-    .parse(Deno.args);
+    .command('update', UpdateCommands);
+
+  // Print help when empty command is executed
+  const finalCommand = command.reset().action(() => {
+    command.showHelp();
+  });
+
+  await finalCommand.parse(Deno.args);
 }

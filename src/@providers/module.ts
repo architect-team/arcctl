@@ -1,7 +1,7 @@
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ProviderStore } from './store.ts';
-import { TerraformResource, TerraformStack } from 'cdktf';
+import { TerraformResource } from 'cdktf';
 import { Construct } from 'constructs';
 
 export interface ResourceModuleHooks<T extends ResourceType> {
@@ -14,7 +14,7 @@ export interface ResourceModuleHooks<T extends ResourceType> {
   afterImport?: () => Promise<void>;
 }
 
-export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends TerraformStack {
+export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends Construct {
   abstract outputs: ResourceOutputs[T];
   hooks: ResourceModuleHooks<T> = {};
 

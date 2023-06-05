@@ -3,7 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesIngressRuleModule } from '../modules/ingress-rule.ts';
-import { k8s } from 'deps';
+import k8s from '@kubernetes/client-node';
 
 export class KubernetesIngressRuleService extends TerraformResourceService<'ingressRule', KubernetesCredentials> {
   private _client?: k8s.AppsV1Api;

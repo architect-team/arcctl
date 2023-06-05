@@ -1,7 +1,7 @@
-import { execa } from 'execa';
 import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
 import Mustache from 'mustache';
 import * as path from 'std/path/mod.ts';
+import { exec } from '../../src/utils/command.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const environments_dir = path.join(__dirname, '../../src/environments');
@@ -20,12 +20,9 @@ all_versions.sort((a, b) => a.localeCompare(b));
 // Create the updated schema.ts file for all available schemas.
 Deno.writeTextFile(
   path.join(environments_dir, 'schema.ts'),
-  Mustache.render(
-    await Deno.readTextFile(path.join(environments_dir, 'schema.ts.stache')),
-    {
-      versions: all_versions,
-    },
-  ),
+  Mustache.render(await Deno.readTextFile(path.join(environments_dir, 'schema.ts.stache')), {
+    versions: all_versions,
+  }),
 );
 
 // Builds the schema into an npm package. This will convert files to .js and .d.ts with
@@ -50,20 +47,22 @@ await build({
 });
 
 console.log('Finishing building temp package, generating JSON schema...');
-const { stdout: type_schema_string } = await execa('deno', [
-  'run',
-  '--allow-read',
-  'npm:ts-json-schema-generator',
-  '--path',
-  path.join(build_dir, 'src', 'environments', 'schema.ts'),
-  '--expose',
-  'none',
-  '--type',
-  'EnvironmentSchema',
-  '--tsconfig',
-  path.join(__dirname, '..', '..', 'tsconfig.json'),
-  '--no-type-check',
-]);
+const { stdout: type_schema_string } = await exec('deno', {
+  args: [
+    'run',
+    '--allow-read',
+    'npm:ts-json-schema-generator',
+    '--path',
+    path.join(build_dir, 'src', 'environments', 'schema.ts'),
+    '--expose',
+    'none',
+    '--type',
+    'EnvironmentSchema',
+    '--tsconfig',
+    path.join(__dirname, '..', '..', 'tsconfig.json'),
+    '--no-type-check',
+  ],
+});
 
 let type_schema = JSON.parse(type_schema_string);
 if (type_schema.definitions.EnvironmentSchema.anyOf) {
@@ -86,11 +85,6 @@ await Deno.writeTextFile(
   path.join(environments_dir, './environment.schema.json'),
   JSON.stringify(type_schema, null, 2),
 );
-console.log(
-  `Done! Updated schema is located at ${path.join(
-    environments_dir,
-    './environment.schema.json',
-  )}`,
-);
+console.log(`Done! Updated schema is located at ${path.join(environments_dir, './environment.schema.json')}`);
 
 Deno.removeSync(build_dir, { recursive: true });

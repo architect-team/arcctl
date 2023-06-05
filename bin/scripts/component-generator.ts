@@ -1,7 +1,7 @@
-import { execa } from 'execa';
 import Mustache from 'mustache';
 import * as path from 'std/path/mod.ts';
 import { build, emptyDir } from 'dnt';
+import { exec } from '../../src/utils/command.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const components_dir = path.join(__dirname, '../../src/components');
@@ -20,12 +20,9 @@ all_versions.sort((a, b) => a.localeCompare(b));
 // Create the updated schema.ts file for all available schemas.
 Deno.writeTextFile(
   path.join(components_dir, 'schema.ts'),
-  Mustache.render(
-    await Deno.readTextFile(path.join(components_dir, 'schema.ts.stache')),
-    {
-      versions: all_versions,
-    },
-  ),
+  Mustache.render(await Deno.readTextFile(path.join(components_dir, 'schema.ts.stache')), {
+    versions: all_versions,
+  }),
 );
 
 // Builds the schema into an npm package. This will convert files to .js and .d.ts with
@@ -49,21 +46,25 @@ await build({
   },
 });
 
+// const cmd = new Deno.Command(binaryPath, { args, ...opts?.commandOptions, stdout: 'piped', stderr: 'piped' });
 console.log('Finishing building temp package, generating JSON schema...');
-const { stdout: type_schema_string } = await execa('deno', [
-  'run',
-  '--allow-read',
-  'npm:ts-json-schema-generator',
-  '--path',
-  path.join(build_dir, 'src', 'components', 'schema.ts'),
-  '--expose',
-  'none',
-  '--type',
-  'ComponentSchema',
-  '--tsconfig',
-  path.join(__dirname, '..', '..', 'tsconfig.json'),
-  '--no-type-check',
-]);
+const { stdout: type_schema_string } = await exec('deno', {
+  args: [
+    'run',
+    '--allow-read',
+    'npm:ts-json-schema-generator',
+    '--path',
+    path.join(build_dir, 'src', 'components', 'schema.ts'),
+    '--expose',
+    'none',
+    '--type',
+    'ComponentSchema',
+    '--tsconfig',
+    path.join(__dirname, '..', '..', 'tsconfig.json'),
+    '--no-type-check',
+  ],
+  stdout: 'piped',
+});
 
 let type_schema = JSON.parse(type_schema_string);
 type_schema = {
@@ -77,15 +78,7 @@ type_schema = {
   },
 };
 
-await Deno.writeTextFile(
-  path.join(components_dir, './component.schema.json'),
-  JSON.stringify(type_schema, null, 2),
-);
-console.log(
-  `Done! Updated schema is located at ${path.join(
-    components_dir,
-    './component.schema.json',
-  )}`,
-);
+await Deno.writeTextFile(path.join(components_dir, './component.schema.json'), JSON.stringify(type_schema, null, 2));
+console.log(`Done! Updated schema is located at ${path.join(components_dir, './component.schema.json')}`);
 
 Deno.removeSync(build_dir, { recursive: true });

@@ -87,8 +87,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await initCmd.status;
+    } else {
+      await initCmd.output();
     }
-    await initCmd.status;
 
     this.status.state = 'starting';
     this.status.message = 'Generating diff';
@@ -111,8 +113,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await planCmd.status;
+    } else {
+      await planCmd.output();
     }
-    await planCmd.status;
 
     this.status.state = options.state;
     this.status.message = 'Applying changes';
@@ -135,9 +139,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await applyCmd.status;
+    } else {
+      await applyCmd.output();
     }
-
-    await applyCmd.status;
   }
 
   /**
@@ -189,9 +194,10 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
             },
           }),
         );
+        await initCmd.status;
+      } else {
+        await initCmd.output();
       }
-
-      await initCmd.status;
 
       for (const [key, value] of Object.entries(imports)) {
         await options.terraform.import(nodeDir, key, value).output();
@@ -214,11 +220,14 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.state = JSON.parse(stateString);
 
     const outputCmd = options.terraform.output(nodeDir);
+    let rawOutputs = '';
     if (options.logger) {
       outputCmd.stdout.pipeTo(
         new WritableStream({
           write(chunk) {
-            options.logger?.info(new TextDecoder().decode(chunk));
+            const chunk_str = new TextDecoder().decode(chunk);
+            options.logger?.info(chunk_str);
+            rawOutputs += chunk_str;
           },
         }),
       );
@@ -230,9 +239,13 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           },
         }),
       );
+      await outputCmd.status;
+    } else {
+      const { stdout } = await outputCmd.output();
+      rawOutputs = new TextDecoder().decode(stdout);
     }
-    const { stdout: rawOutputs } = await outputCmd.output();
-    const parsedOutputs = JSON.parse(new TextDecoder().decode(rawOutputs));
+
+    const parsedOutputs = JSON.parse(rawOutputs);
 
     if (this.action === 'create' && module.hooks.afterCreate) {
       this.status.state = 'applying';

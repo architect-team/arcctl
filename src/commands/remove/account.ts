@@ -1,7 +1,6 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const RemoveAccountCommand = BaseCommand()
-  .alias('remove:accounts')
   .description('Delete the specified account')
   .arguments('[name:string]')
   .action(remove_account_action);

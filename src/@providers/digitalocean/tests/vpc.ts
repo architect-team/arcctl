@@ -1,15 +1,9 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../../../@resources/types.ts';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../../../@resources/types.ts';
 import { CldctlTest, CldctlTestContext } from '../../tests.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { expect } from 'chai';
+import { assertEquals } from 'std/testing/asserts.ts';
 
-export class DigitalOceanVpcTest
-  implements CldctlTest<DigitaloceanCredentials>
-{
+export class DigitalOceanVpcTest implements CldctlTest<DigitaloceanCredentials> {
   name = 'Basic VPC Test';
 
   stacks = [
@@ -24,13 +18,12 @@ export class DigitalOceanVpcTest
     },
   ];
 
-  validateCreate = async (
-    context: CldctlTestContext<Partial<DigitaloceanCredentials>>,
-  ) => {
+  // deno-lint-ignore require-await
+  validateCreate = async (context: CldctlTestContext<Partial<DigitaloceanCredentials>>) => {
     const vpcStack = context.stacks[0];
     const inputs = vpcStack.inputs as ResourceInputs['vpc'];
     const outputs = vpcStack.outputs as ResourceOutputs['vpc'];
-    expect(inputs.name).to.equal(outputs.name);
-    expect(inputs.region).to.equal(outputs.region);
+    assertEquals(inputs.name, outputs.name);
+    assertEquals(inputs.region, outputs.region);
   };
 }

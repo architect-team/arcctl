@@ -1,8 +1,8 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { Component, parseComponent } from '../components/index.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
-import { execa } from 'execa';
 import * as path from 'std/path/mod.ts';
+import { exec } from '../utils/command.ts';
 
 type BuildOptions = {
   tag?: string[];
@@ -49,7 +49,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
       }
     }
     buildArgs.push(path.join(Deno.cwd(), context, options.context));
-    const { stdout } = await execa('docker', buildArgs);
+    const { stdout } = await exec('docker', { args: buildArgs });
     return stdout;
   });
 
@@ -63,7 +63,7 @@ async function build_action(options: BuildOptions, context_file: string): Promis
         const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
         const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
 
-        await execa('docker', ['tag', sourceRef, targetRef]);
+        await exec('docker', { args: ['tag', sourceRef, targetRef] });
         return targetRef;
       });
 

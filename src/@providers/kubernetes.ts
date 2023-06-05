@@ -1,10 +1,5 @@
 import CloudCtlConfig from '../utils/config.ts';
-import {
-  deleteProvider,
-  getProviders,
-  saveFile,
-  saveProvider,
-} from '../utils/providers.ts';
+import { deleteProvider, getProviders, saveFile, saveProvider } from '../utils/providers.ts';
 import KubernetesProvider from './kubernetes/provider.ts';
 import { SupportedProviders } from './supported-providers.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
@@ -18,15 +13,9 @@ export default class KubernetesUtils {
     return `cldctl--cluster--${clusterName}`;
   }
 
-  static async createProvider(
-    clusterName: string,
-    kubeConfig: string,
-  ): Promise<void> {
+  static async createProvider(clusterName: string, kubeConfig: string): Promise<void> {
     const newProviderName = this.getProviderName(clusterName);
-    const filePath = path.join(
-      CloudCtlConfig.getConfigDirectory(),
-      `${newProviderName}.yml`,
-    );
+    const filePath = path.join(CloudCtlConfig.getConfigDirectory(), `${newProviderName}.yml`);
     await Deno.writeTextFile(filePath, kubeConfig);
     const newProvider = new SupportedProviders.kubernetes(
       newProviderName,
@@ -75,14 +64,8 @@ export default class KubernetesUtils {
       }
     }
 
-    await Deno.writeTextFile(
-      untildify('~/.kube/cldctl-backup'),
-      kubeConfigContents,
-    );
-    await Deno.writeTextFile(
-      untildify('~/.kube/config'),
-      yaml.dump(credentials),
-    );
+    await Deno.writeTextFile(untildify('~/.kube/cldctl-backup'), kubeConfigContents);
+    await Deno.writeTextFile(untildify('~/.kube/config'), yaml.dump(credentials));
   }
 
   static async addToKubeConfig(credentialsYaml: string): Promise<void> {
@@ -94,8 +77,8 @@ export default class KubernetesUtils {
       Deno.writeTextFile(kubeConfigPath, credentialsYaml);
     }
     const newCredentials = yaml.load(credentialsYaml) as any;
-    const kubeConfigContents = await Deno.readFile(kubeConfigPath);
-    const credentials = yaml.load(kubeConfigContents.toString()) as any;
+    const kubeConfigContents = await Deno.readTextFile(kubeConfigPath);
+    const credentials = yaml.load(kubeConfigContents) as any;
 
     for (const key of ['clusters', 'users', 'contexts']) {
       const name = newCredentials[key][0].name;
@@ -111,26 +94,16 @@ export default class KubernetesUtils {
       }
     }
 
-    await Deno.writeFile(
-      untildify('~/.kube/cldctl-backup'),
-      kubeConfigContents,
-    );
-    await Deno.writeTextFile(
-      untildify('~/.kube/config'),
-      yaml.dump(credentials),
-    );
+    await Deno.writeTextFile(untildify('~/.kube/cldctl-backup'), kubeConfigContents);
+    await Deno.writeTextFile(untildify('~/.kube/config'), yaml.dump(credentials));
   }
 
   static afterCreateClusterHelpText(): void {
     console.log(`
 Now that your cluster has finished creating, we will modify your kube config file to add its credentials.
-You can view your kube config file using the Kubernetes command line tool ${colors.yellow(
-      '$ kubectl config view',
-    )}
+You can view your kube config file using the Kubernetes command line tool ${colors.yellow('$ kubectl config view')}
 To explore other kubectl commands to communicate with your cluster, goto https://kubernetes.io/docs/reference/kubectl/
-To register your cluster with Architect cloud, use command ${colors.yellow(
-      '$ architect cluster:create',
-    )}
+To register your cluster with Architect cloud, use command ${colors.yellow('$ architect cluster:create')}
     `);
   }
 }

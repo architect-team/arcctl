@@ -1,7 +1,7 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
-import { execa } from 'execa';
 import * as path from 'std/path/mod.ts';
+import { exec } from '../utils/command.ts';
 
 const TagCommand = BaseCommand()
   .description('Tag a component and its associated build artifacts')
@@ -20,7 +20,7 @@ async function tag_action(options: GlobalOptions, source: string, target: string
       const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
       const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
 
-      await execa('docker', ['tag', sourceRef, targetRef]);
+      await exec('docker', { args: ['tag', sourceRef, targetRef] });
       return targetRef;
     });
 

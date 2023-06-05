@@ -1,8 +1,7 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
 
 const ListDatacenterCommand = BaseCommand()
-  .alias('list:datacenters')
   .description('List datacenters registered with the CLI')
   .action(list_datacenter_action);
 

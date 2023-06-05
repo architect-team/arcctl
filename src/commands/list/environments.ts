@@ -1,10 +1,7 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { createTable } from '../../utils/table.ts';
 
 const ListEnvironmentCommand = BaseCommand()
-  .alias('list:envs')
-  .alias('list:env')
-  .alias('list:environments')
   .description('List registered environments')
   .action(list_environments_action);
 

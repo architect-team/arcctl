@@ -1,4 +1,4 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../../base-command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
@@ -6,6 +6,7 @@ import cliSpinners from 'cli-spinners';
 import inquirer from 'inquirer';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { Confirm } from 'cliffy/prompt/mod.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
@@ -23,15 +24,12 @@ async function destroy_environment_action(options: DestroyResourceOptons, name?:
   const environmentRecord = await promptForEnvironment(command_helper, name);
   const datacenterRecord = await command_helper.datacenterStore.get(environmentRecord.datacenter);
   if (!datacenterRecord) {
-    const { confirm } = await inquirer.prompt([
-      {
-        name: 'confirm',
-        type: 'confirm',
-        message: `The environment is pointed to an invalid datacenter. The environment can be removed, but the resources can't be destroyed. Would you like to proceed?`,
-      },
-    ]);
+    const confirmed = await Confirm.prompt(
+      'The environment is pointed to an invalid datacenter. ' +
+        "The environment can be removed, but the resources can't be destroyed. Would you like to proceed?",
+    );
 
-    if (confirm) {
+    if (confirmed) {
       await command_helper.environmentStore.remove(environmentRecord.name);
       console.log(`Environment removed. Resources may still be dangling.`);
       return;

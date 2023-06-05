@@ -1,4 +1,4 @@
-import { Provider, SupportedProviders, ProviderStore, ProviderCredentials } from '../@providers/index.ts';
+import { Provider, SupportedProviders, ProviderStore } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
@@ -18,7 +18,7 @@ import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
 import readline from 'node:readline';
 import process from 'node:process';
-import { Confirm, Secret, Select } from 'cliffy/prompt/mod.ts';
+import { Confirm, Input, Number as NumberPrompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -248,23 +248,23 @@ export class CommandHelper {
   ): Promise<Array<T>> {
     const results: Array<T> = [];
 
-    // TODO: Replace inquirer
-    const { count } = await inquirer.prompt([
-      {
-        name: 'count',
-        type: 'number',
-        message: `How many ${property.schema.description || property.name} should be created?`,
-        validate: (input: number) => {
-          if (property.schema.minimum && input < property.schema.minimum) {
-            return `${property.name} must be greater than ${property.schema.minimum}`;
-          } else if (property.schema.maximum && input > property.schema.maximum) {
-            return `${property.name} must be less than ${property.schema.maximum}`;
-          }
+    const count = await NumberPrompt.prompt({
+      message: `How many ${property.schema.description || property.name} should be created?`,
+      validate: (value: string) => {
+        if (!(typeof value === 'number' || (!!value && !isNaN(Number(value))))) {
+          return false;
+        }
 
-          return true;
-        },
+        const val = parseFloat(value);
+
+        if (property.schema.minimum && val < property.schema.minimum) {
+          return `${property.name} must be greater than ${property.schema.minimum}`;
+        } else if (property.schema.maximum && val > property.schema.maximum) {
+          return `${property.name} must be less than ${property.schema.maximum}`;
+        }
+        return false;
       },
-    ]);
+    });
 
     for (let i = 0; i < count; i++) {
       console.log(`Inputs for ${property.name}[${i}]:`);
@@ -290,42 +290,33 @@ export class CommandHelper {
     validator?: (input?: number) => string | true,
     existingValues: Record<string, unknown> = {},
   ): Promise<number> {
-    const { result } = await inquirer.prompt(
-      [
-        {
-          name: 'result',
-          type: 'input', // https://github.com/SBoudrias/Inquirer.ts/issues/866
-          message: `${property.schema.description || property.name}${
-            property.schema.properties.required ? '' : ' (optional)'
-          }`,
-          validate: (input_string?: string) => {
-            if (input_string) {
-              const number = Number.parseFloat(input_string);
-              if (Number.isNaN(number)) {
-                return 'Must be a number';
-              }
-            }
+    if (existingValues[property.name]) {
+      return existingValues[property.name] as number;
+    }
 
-            const input = input_string as unknown as number;
-            if (property.schema.properties.required && !input) {
-              return `${property.name} is required`;
-            } else if (property.schema.minimum && input && input < property.schema.minimum) {
-              return `${property.name} must be greater than ${property.schema.minimum}`;
-            } else if (property.schema.maximum && input && input > property.schema.maximum) {
-              return `${property.name} must be less than ${property.schema.maximum}`;
-            }
+    const result = await Input.prompt({
+      message: `${property.schema.description || property.name}${
+        property.schema.properties.required ? '' : ' (optional)'
+      }`,
+      validate: (value?: string) => {
+        const number = Number.parseFloat(value || '');
+        if (value && Number.isNaN(number)) {
+          return 'Must be a number';
+        }
 
-            return validator ? validator(input) : true;
-          },
-        },
-      ],
-      existingValues[property.name]
-        ? {
-            result: existingValues[property.name] as number,
-          }
-        : {},
-    );
-    return result;
+        if (property.schema.properties.required && !value) {
+          return `${property.name} is required`;
+        } else if (property.schema.minimum && value && number < property.schema.minimum) {
+          return `${property.name} must be greater than ${property.schema.minimum}`;
+        } else if (property.schema.maximum && value && number > property.schema.maximum) {
+          return `${property.name} must be less than ${property.schema.maximum}`;
+        }
+
+        return validator ? validator(number) : true;
+      },
+    });
+
+    return Number.parseFloat(result);
   }
 
   /**

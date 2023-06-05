@@ -32,7 +32,6 @@
     "digitalocean": "^1.2.1",
     "digitalocean-js": "^2.0.3",
     "dots-wrapper": "^3.10.0",
-    "inquirer": "^8.2.4",
     "log-symbols": "^5.1.0",
     "log-update": "^5.0.1",
     "mongodb": "^4.10.0",

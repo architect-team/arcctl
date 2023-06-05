@@ -1,7 +1,7 @@
 import { SupportedProviders } from '../../@providers/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
-import { prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
+import { Select } from 'cliffy/prompt/mod.ts';
 
 const providerType = new EnumType(Object.keys(SupportedProviders));
 
@@ -43,21 +43,8 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
     }));
 
   const providerType = providerName as keyof typeof SupportedProviders;
-  const credentialSchema = SupportedProviders[providerType].CredentialsSchema;
 
-  const credentials: Record<string, string> = {};
-  for (const [key, value] of Object.entries(credentialSchema.properties)) {
-    const cred = await Secret.prompt({
-      message: key,
-      default: (value as any).default || '',
-    });
-    if (!(value as any).default && cred === '') {
-      console.log('Required credential requires input');
-      Deno.exit(1);
-    }
-    credentials[key] = cred;
-  }
-
+  const credentials = await command_helper.promptForCredentials(providerType);
   const account = new SupportedProviders[providerType](
     name,
     credentials as any,

@@ -8,7 +8,6 @@ import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import { Terraform } from '../terraform/terraform.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
-import { createProvider } from '../utils/providers.ts';
 import { createTable } from '../utils/table.ts';
 import { JSONSchemaType } from 'ajv';
 import cliSpinners from 'cli-spinners';
@@ -19,7 +18,7 @@ import { colors } from 'cliffy/ansi/colors.ts';
 import * as path from 'std/path/mod.ts';
 import readline from 'node:readline';
 import process from 'node:process';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import { Confirm, Input, Number as NumberPrompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -249,23 +248,23 @@ export class CommandHelper {
   ): Promise<Array<T>> {
     const results: Array<T> = [];
 
-    // TODO: Replace inquirer
-    const { count } = await inquirer.prompt([
-      {
-        name: 'count',
-        type: 'number',
-        message: `How many ${property.schema.description || property.name} should be created?`,
-        validate: (input: number) => {
-          if (property.schema.minimum && input < property.schema.minimum) {
-            return `${property.name} must be greater than ${property.schema.minimum}`;
-          } else if (property.schema.maximum && input > property.schema.maximum) {
-            return `${property.name} must be less than ${property.schema.maximum}`;
-          }
+    const count = await NumberPrompt.prompt({
+      message: `How many ${property.schema.description || property.name} should be created?`,
+      validate: (value: string) => {
+        if (!(typeof value === 'number' || (!!value && !isNaN(Number(value))))) {
+          return false;
+        }
 
-          return true;
-        },
+        const val = parseFloat(value);
+
+        if (property.schema.minimum && val < property.schema.minimum) {
+          return `${property.name} must be greater than ${property.schema.minimum}`;
+        } else if (property.schema.maximum && val > property.schema.maximum) {
+          return `${property.name} must be less than ${property.schema.maximum}`;
+        }
+        return false;
       },
-    ]);
+    });
 
     for (let i = 0; i < count; i++) {
       console.log(`Inputs for ${property.name}[${i}]:`);
@@ -291,42 +290,33 @@ export class CommandHelper {
     validator?: (input?: number) => string | true,
     existingValues: Record<string, unknown> = {},
   ): Promise<number> {
-    const { result } = await inquirer.prompt(
-      [
-        {
-          name: 'result',
-          type: 'input', // https://github.com/SBoudrias/Inquirer.ts/issues/866
-          message: `${property.schema.description || property.name}${
-            property.schema.properties.required ? '' : ' (optional)'
-          }`,
-          validate: (input_string?: string) => {
-            if (input_string) {
-              const number = Number.parseFloat(input_string);
-              if (Number.isNaN(number)) {
-                return 'Must be a number';
-              }
-            }
+    if (existingValues[property.name]) {
+      return existingValues[property.name] as number;
+    }
 
-            const input = input_string as unknown as number;
-            if (property.schema.properties.required && !input) {
-              return `${property.name} is required`;
-            } else if (property.schema.minimum && input && input < property.schema.minimum) {
-              return `${property.name} must be greater than ${property.schema.minimum}`;
-            } else if (property.schema.maximum && input && input > property.schema.maximum) {
-              return `${property.name} must be less than ${property.schema.maximum}`;
-            }
+    const result = await Input.prompt({
+      message: `${property.schema.description || property.name}${
+        property.schema.properties.required ? '' : ' (optional)'
+      }`,
+      validate: (value?: string) => {
+        const number = Number.parseFloat(value || '');
+        if (value && Number.isNaN(number)) {
+          return 'Must be a number';
+        }
 
-            return validator ? validator(input) : true;
-          },
-        },
-      ],
-      existingValues[property.name]
-        ? {
-            result: existingValues[property.name] as number,
-          }
-        : {},
-    );
-    return result;
+        if (property.schema.properties.required && !value) {
+          return `${property.name} is required`;
+        } else if (property.schema.minimum && value && number < property.schema.minimum) {
+          return `${property.name} must be greater than ${property.schema.minimum}`;
+        } else if (property.schema.maximum && value && number > property.schema.maximum) {
+          return `${property.name} must be less than ${property.schema.maximum}`;
+        }
+
+        return validator ? validator(number) : true;
+      },
+    });
+
+    return Number.parseFloat(result);
   }
 
   /**
@@ -605,7 +595,7 @@ export class CommandHelper {
       });
 
       if (selected_account === newAccountName) {
-        return createProvider();
+        return this.createAccount();
       }
 
       account = filteredAccounts.find((p) => p.name === selected_account);
@@ -722,6 +712,73 @@ export class CommandHelper {
     graph.insertNodes(node);
 
     return node;
+  }
+
+  public async promptForCredentials(provider_type: keyof typeof SupportedProviders): Promise<Record<string, string>> {
+    const credential_schema = SupportedProviders[provider_type].CredentialsSchema;
+
+    const credentials: Record<string, string> = {};
+    for (const [key, value] of Object.entries(credential_schema.properties)) {
+      const cred = await Secret.prompt({
+        message: key,
+        default: (value as any).default || '',
+      });
+      if (!(value as any).default && cred === '') {
+        console.log('Required credential requires input');
+        Deno.exit(1);
+      }
+      credentials[key] = cred;
+    }
+
+    return credentials;
+  }
+
+  private async createAccount(): Promise<Provider> {
+    const allAccounts = this.providerStore.getProviders();
+    const providers = Object.keys(SupportedProviders);
+    const res = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What would you like to name the new account?',
+        validate: (input: string) => {
+          if (allAccounts.some((a) => a.name === input)) {
+            return 'An account with that name already exists.';
+          }
+          return true;
+        },
+      },
+      {
+        type: 'list',
+        name: 'type',
+        message: 'What type of provider are you registering the credentials for?',
+        choices: providers,
+      },
+    ]);
+
+    const providerType = res.type as keyof typeof SupportedProviders;
+    const credentials = await this.promptForCredentials(providerType);
+
+    const account = new SupportedProviders[providerType](
+      res.name,
+      credentials as any,
+      this.providerStore.saveFile.bind(this.providerStore),
+    );
+
+    const validCredentials = await account.testCredentials();
+    if (!validCredentials) {
+      throw new Error('Invalid credentials');
+    }
+
+    try {
+      this.providerStore.saveProvider(account);
+      console.log(`${account.name} account registered`);
+    } catch (ex: any) {
+      console.error(ex.message);
+      Deno.exit(1);
+    }
+
+    return account;
   }
 
   public handleTerraformError(ex: any): void {

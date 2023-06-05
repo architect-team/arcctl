@@ -89,7 +89,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment'> {
       args.push(typeof inputs.command === 'string' ? `"${inputs.command}"` : `"${inputs.command.join(' ')}"`);
     }
 
-    await exec('docker', args);
+    await exec('docker', { args });
     return {
       id: inputs.name,
     };

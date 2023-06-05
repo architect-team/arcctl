@@ -14,7 +14,7 @@ describe('Environment schema: v1', () => {
           account/component:
             secrets:
               secret: value
-      `),
+      `) as Record<string, unknown>,
     );
 
     const tmp_dir = Deno.makeTempDirSync();
@@ -31,7 +31,7 @@ describe('Environment schema: v1', () => {
         components:
           account/component:
             source: account/component:latest
-      `),
+      `) as Record<string, unknown>,
     );
 
     const component = `
@@ -77,7 +77,7 @@ describe('Environment schema: v1', () => {
       components:
         account/component:
           source: account/component:latest
-    `),
+    `) as Record<string, unknown>,
     );
 
     const component = `

@@ -73,7 +73,7 @@ describe('Component Schema: v2', () => {
         builds:
           test:
             context: ./
-      `),
+      `) as object,
     );
 
     const graph = component.getGraph({

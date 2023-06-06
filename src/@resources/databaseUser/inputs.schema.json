@@ -31,10 +31,7 @@
       },
       "required": [
         "username",
-        "databaseSchema",
-        "protocol",
-        "host",
-        "port"
+        "databaseSchema"
       ],
       "type": "object"
     }

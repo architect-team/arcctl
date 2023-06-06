@@ -379,9 +379,6 @@
           },
           "required": [
             "databaseSchema",
-            "host",
-            "port",
-            "protocol",
             "type",
             "username"
           ],

@@ -1,23 +1,22 @@
+import { App } from 'cdktf';
+import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
 import { Observable, Subscriber } from 'rxjs';
+import * as path from 'std/path/mod.ts';
+import { Logger } from 'winston';
 import { ResourceInputs, ResourceType } from '../@resources/index.ts';
+import { createProviderFileConstructor } from '../cdktf-modules/provider-file.ts';
+import { TerraformVersion } from '../terraform/plugin.ts';
+import { Terraform } from '../terraform/terraform.ts';
+import CloudCtlConfig from '../utils/config.ts';
+import { CldCtlTerraformStack } from '../utils/stack.ts';
 import { ApplyOptions, ApplyOutputs, WritableResourceService } from './base.service.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ResourceModuleConstructor } from './module.ts';
-import { Construct } from 'constructs';
-import { App } from 'cdktf';
-import { CldCtlTerraformStack } from '../utils/stack.ts';
-import CloudCtlConfig from '../utils/config.ts';
-import { Terraform } from '../terraform/terraform.ts';
-import { Logger } from 'winston';
-import { TerraformVersion } from '../terraform/plugin.ts';
-import { createProviderFileConstructor } from '../cdktf-modules/provider-file.ts';
-import * as path from 'std/path/mod.ts';
-import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
 
 type TerraformResourceState =
   | {
-      id: string;
-    }
+    id: string;
+  }
   | { terraform_version: string; [key: string]: any };
 
 export abstract class TerraformResourceService<
@@ -36,7 +35,7 @@ export abstract class TerraformResourceService<
 
   abstract readonly terraform_version: TerraformVersion;
 
-  abstract configureTerraformProviders(scope: Construct): void;
+  abstract configureTerraformProviders(scope: CldCtlTerraformStack): void;
 
   private async getTerraformPlugin(): Promise<Terraform> {
     if (this._terraform) {

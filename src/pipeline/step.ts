@@ -1,9 +1,9 @@
-import { ResourceService, WritableResourceService, ApplyOutputs } from '../@providers/index.ts';
+import { Observable } from 'rxjs';
+import * as path from 'std/path/mod.ts';
+import { ApplyOutputs, ResourceService, WritableResourceService } from '../@providers/index.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
-import * as path from 'std/path/mod.ts';
-import { Observable } from 'rxjs';
 
 export type PipelineStepOptions<T extends ResourceType> = {
   name: string;
@@ -93,12 +93,11 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           cwd: nodeDir,
           providerStore: options.providerStore,
           logger: options.logger,
-          state:
-            this.state ||
+          state: this.state ||
             (this.outputs
               ? {
-                  id: this.outputs.id,
-                }
+                id: this.outputs.id,
+              }
               : undefined),
         });
       } else if (!this.inputs) {

@@ -114,8 +114,8 @@ export const ResourceTypeList: ResourceType[] = [
 
 export type ResourceInputs = {
   'arcctlAccount': {
-    type: 'arcctlAccount',
-    account?: string,
+    type: 'arcctlAccount';
+    account?: string;
   } & arcctlAccountInputs;
   'cronjob': {
     type: 'cronjob';

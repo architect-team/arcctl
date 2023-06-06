@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Role } from '../.gen/providers/postgresql/role/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', PostgresCredentials> {
   outputs: ResourceOutputs['databaseUser'];
@@ -31,7 +31,8 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
       host: this.inputs?.host || 'unknown',
       port: Number(this.inputs?.port || 5432),
       protocol,
-      url: `${protocol}://${this.role.name}:${this.role.password}@${this.inputs?.host}:${this.inputs?.port}/${this.inputs?.databaseSchema}`,
+      url:
+        `${protocol}://${this.role.name}:${this.role.password}@${this.inputs?.host}:${this.inputs?.port}/${this.inputs?.databaseSchema}`,
       database: this.inputs?.databaseSchema || 'unknown',
     };
   }

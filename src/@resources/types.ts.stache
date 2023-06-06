@@ -17,8 +17,8 @@ export const ResourceTypeList: ResourceType[] = [
 export type ResourceInputs = {
 {{#types}}
   '{{name}}': {
-    type: '{{name}}',
-    account?: string,
+    type: '{{name}}';
+    account?: string;
   } & {{slug}}Inputs;
 {{/types}}
 };

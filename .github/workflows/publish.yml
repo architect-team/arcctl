@@ -35,3 +35,5 @@ jobs:
           cd build
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}" > .npmrc
           npm publish --access public
+
+# TODO: condense workflows

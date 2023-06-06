@@ -1,8 +1,8 @@
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { BaseService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDatabaseSizeService extends BaseService<'databaseSize'> {
   private client: ReturnType<typeof createApiClient>;
@@ -12,6 +12,7 @@ export class DigitaloceanDatabaseSizeService extends BaseService<'databaseSize'>
     this.client = createApiClient({ token: credentials.token });
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
     return undefined;
   }

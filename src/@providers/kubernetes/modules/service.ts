@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
 import { Service } from '../.gen/providers/kubernetes/service/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class KubernetesServiceModule extends ResourceModule<
   'service',
@@ -55,6 +55,7 @@ export class KubernetesServiceModule extends ResourceModule<
     };
   }
 
+  // deno-lint-ignore require-await
   async genImports(
     credentials: KubernetesCredentials,
     resourceId: string,

@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
 import { Vpc } from '../.gen/providers/digitalocean/vpc/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCredentials> {
   vpc: Vpc;
@@ -25,6 +25,7 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
     };
   }
 
+  // deno-lint-ignore require-await
   async genImports(credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.vpc)]: resourceId,

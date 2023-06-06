@@ -95,6 +95,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment'> {
     };
   }
 
+  // deno-lint-ignore require-await
   async update(inputs: ResourceInputs['deployment']): Promise<DeepPartial<ResourceOutputs['deployment']>> {
     throw new Error('Not yet implemented');
   }

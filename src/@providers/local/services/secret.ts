@@ -1,16 +1,17 @@
+import { existsSync } from 'std/fs/exists.ts';
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
-import * as path from 'std/path/mod.ts';
-import { existsSync } from 'std/fs/exists.ts';
 
 export class LocalSecretService extends CrudResourceService<'secret'> {
   constructor(private credentials: LocalCredentials) {
     super();
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['secret'] | undefined> {
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {
@@ -24,6 +25,7 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     };
   }
 
+  // deno-lint-ignore require-await
   async list(
     filterOptions?: Partial<ResourceOutputs['secret']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
@@ -47,6 +49,7 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     };
   }
 
+  // deno-lint-ignore require-await
   async create(inputs: ResourceInputs['secret']): Promise<ResourceOutputs['secret']> {
     let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
@@ -67,6 +70,7 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     throw new Error('Method not implemented.');
   }
 
+  // deno-lint-ignore require-await
   async delete(id: string): Promise<void> {
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {

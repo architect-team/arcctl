@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
 import { Database } from '../.gen/providers/postgresql/database/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema', PostgresCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
@@ -28,6 +28,7 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     };
   }
 
+  // deno-lint-ignore require-await
   async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.db)]: resourceId,

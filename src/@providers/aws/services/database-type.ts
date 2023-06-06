@@ -9,6 +9,7 @@ export class AwsDatabaseTypeService extends BaseService<'databaseType'> {
     super();
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['databaseType'] | undefined> {
     return undefined;
   }

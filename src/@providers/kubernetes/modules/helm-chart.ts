@@ -1,9 +1,9 @@
+import { Construct } from 'constructs';
+import yaml from 'js-yaml';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
 import { ResourceModule } from '../../module.ts';
 import { Release } from '../.gen/providers/helm/release/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
-import yaml from 'js-yaml';
 
 export class KubernetesHelmChartModule extends ResourceModule<
   'helmChart',
@@ -33,6 +33,7 @@ export class KubernetesHelmChartModule extends ResourceModule<
     };
   }
 
+  // deno-lint-ignore require-await
   async genImports(
     credentials: KubernetesCredentials,
     resourceId: string,

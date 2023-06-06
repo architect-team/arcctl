@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
 import { Domain } from '../.gen/providers/digitalocean/domain/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class DigitaloceanDnsZoneModule extends ResourceModule<
   'dnsZone',
@@ -33,6 +33,7 @@ export class DigitaloceanDnsZoneModule extends ResourceModule<
     };
   }
 
+  // deno-lint-ignore require-await
   async genImports(
     credentials: DigitaloceanCredentials,
     resourceId: string,

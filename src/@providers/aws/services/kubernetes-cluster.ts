@@ -12,6 +12,7 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
     super();
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     const match = id.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
@@ -50,38 +51,36 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
 
     const eksPromises: Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>[] = [];
     for (const region of regions.rows) {
-      eksPromises.push(
-        new Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>(async (resolve, reject) => {
-          const eksClustersData = await AwsUtils.getEKS(this.credentials, region.id).listClusters().promise();
-          const clusters = eksClustersData.clusters || [];
-          const clusterPromises = [];
-          for (const clusterName of clusters) {
-            clusterPromises.push(
-              AwsUtils.getEKS(this.credentials, region.id)
-                .describeCluster({
-                  name: clusterName,
-                })
-                .promise(),
-            );
-          }
+      eksPromises.push((async () => {
+        const eksClustersData = await AwsUtils.getEKS(this.credentials, region.id).listClusters().promise();
+        const clusters = eksClustersData.clusters || [];
+        const clusterPromises = [];
+        for (const clusterName of clusters) {
+          clusterPromises.push(
+            AwsUtils.getEKS(this.credentials, region.id)
+              .describeCluster({
+                name: clusterName,
+              })
+              .promise(),
+          );
+        }
 
-          const clusterResultsRequest = await Promise.all(clusterPromises);
-          const clusterResults = clusterResultsRequest.filter((cluster) => {
-            return cluster.cluster?.status === 'ACTIVE';
-          });
+        const clusterResultsRequest = await Promise.all(clusterPromises);
+        const clusterResults = clusterResultsRequest.filter((cluster) => {
+          return cluster.cluster?.status === 'ACTIVE';
+        });
 
-          resolve({
-            total: clusterResults.length,
-            rows: clusterResults.map((clusterData) => ({
-              id: `${region?.id}/${clusterData?.cluster?.name}`,
-              vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
-              name: clusterData.cluster?.name || '',
-              kubernetesVersion: clusterData.cluster?.version || '',
-              account: '',
-            })),
-          });
-        }),
-      );
+        return {
+          total: clusterResults.length,
+          rows: clusterResults.map((clusterData) => ({
+            id: `${region?.id}/${clusterData?.cluster?.name}`,
+            vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
+            name: clusterData.cluster?.name || '',
+            kubernetesVersion: clusterData.cluster?.version || '',
+            account: '',
+          })),
+        };
+      })());
     }
 
     const responses = await Promise.all(eksPromises);

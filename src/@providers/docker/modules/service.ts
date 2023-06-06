@@ -1,7 +1,7 @@
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
 import { DockerCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class DockerServiceModule extends ResourceModule<
   'service',
@@ -26,6 +26,7 @@ export class DockerServiceModule extends ResourceModule<
     };
   }
 
+  // deno-lint-ignore require-await
   async genImports(
     credentials: DockerCredentials,
     resourceId: string,

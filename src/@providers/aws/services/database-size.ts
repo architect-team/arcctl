@@ -9,6 +9,7 @@ export class AwsDatabaseSizeService extends BaseService<'databaseSize'> {
     super();
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
     return undefined;
   }

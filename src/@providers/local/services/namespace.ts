@@ -1,15 +1,16 @@
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
-import * as path from 'std/path/mod.ts';
 
 export class LocalNamespaceService extends CrudResourceService<'namespace'> {
   constructor(private credentials: LocalCredentials) {
     super();
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
     const file = path.join(this.credentials.directory, id);
     const stat = Deno.lstatSync(file);
@@ -23,6 +24,7 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
     };
   }
 
+  // deno-lint-ignore require-await
   async list(
     filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
@@ -44,6 +46,7 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
     };
   }
 
+  // deno-lint-ignore require-await
   async create(inputs: ResourceInputs['namespace']): Promise<ResourceOutputs['namespace']> {
     const namespace = path.join(this.credentials.directory, inputs.name);
     Deno.mkdirSync(namespace);
@@ -56,6 +59,7 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
     throw new Error('Method not implemented.');
   }
 
+  // deno-lint-ignore require-await
   async delete(id: string): Promise<void> {
     const namespace = path.join(this.credentials.directory, id);
     Deno.removeSync(namespace, { recursive: true });

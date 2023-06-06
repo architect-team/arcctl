@@ -1,10 +1,10 @@
+import { Construct } from 'constructs';
 import { Provider } from '../provider.ts';
 import { DockerProvider as TerraformDockerProvider } from './.gen/providers/docker/provider/index.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
 import { DockerServiceService } from './services/service.ts';
-import { Construct } from 'constructs';
 
 export default class DockerProvider extends Provider<DockerCredentials> {
   readonly type = 'docker';
@@ -18,6 +18,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     service: new DockerServiceService(),
   };
 
+  // deno-lint-ignore require-await
   public async testCredentials(): Promise<boolean> {
     return true;
   }

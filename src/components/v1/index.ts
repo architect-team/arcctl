@@ -83,7 +83,6 @@ export default class ComponentV1 extends Component {
     Object.assign(this, data);
   }
 
-  // eslint-disable-next-line complexity
   private addServicesToGraph(
     graph: CloudGraph,
     context: GraphContext,

@@ -12,6 +12,7 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     super();
   }
 
+  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
     return undefined;
   }
@@ -25,22 +26,19 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     const databasePromises = [];
     const databases: ResourceOutputs['database'][] = [];
     for (const region of regions.rows) {
-      databasePromises.push(
-        new Promise<void>(async (resolve, reject) => {
-          const rds = AwsUtils.getRDS(this.credentials, region.id);
-          const rds_databases = await rds.describeDBInstances({}).promise();
-          for (const rds_database of rds_databases.DBInstances || []) {
-            databases.push({
-              id: `${region.id}/${rds_database.DBInstanceIdentifier}` || '',
-              host: rds_database.Endpoint?.HostedZoneId || '',
-              port: rds_database.Endpoint?.Port || 5432,
-              protocol: rds_database.Engine || '',
-              account: '',
-            });
-          }
-          resolve();
-        }),
-      );
+      databasePromises.push((async () => {
+        const rds = AwsUtils.getRDS(this.credentials, region.id);
+        const rds_databases = await rds.describeDBInstances({}).promise();
+        for (const rds_database of rds_databases.DBInstances || []) {
+          databases.push({
+            id: `${region.id}/${rds_database.DBInstanceIdentifier}` || '',
+            host: rds_database.Endpoint?.HostedZoneId || '',
+            port: rds_database.Endpoint?.Port || 5432,
+            protocol: rds_database.Engine || '',
+            account: '',
+          });
+        }
+      })());
     }
 
     await Promise.all(databasePromises);

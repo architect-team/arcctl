@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/consistent-function-scoping */
 import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
@@ -166,6 +165,7 @@ export default class DatacenterV1 extends Datacenter {
     return JSON.parse(JSON.stringify(contents).replace(/\${{\s?environment\.name\s?}}/g, environmentName));
   }
 
+  // deno-lint-ignore require-await
   public async enrichGraph(graph: CloudGraph, environmentName?: string): Promise<CloudGraph> {
     // Create nodes for explicit resources of the datacenter
     for (const [key, value] of Object.entries(this.resources || {})) {

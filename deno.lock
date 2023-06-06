@@ -1262,6 +1262,7 @@
       "@semantic-release/release-notes-generator@^10.0.3": "@semantic-release/release-notes-generator@10.0.3_semantic-release@19.0.5__marked@4.3.0",
       "@trivago/prettier-plugin-sort-imports@^4.1.0": "@trivago/prettier-plugin-sort-imports@4.1.1_prettier@2.8.8",
       "@types/mustache@^4.2.1": "@types/mustache@4.2.2",
+      "@types/node": "@types/node@18.11.18",
       "@types/pg@^8.6.5": "@types/pg@8.10.1",
       "@types/tar@^6.1.2": "@types/tar@6.1.5",
       "cli-spinners@^2.7.0": "cli-spinners@2.9.0",
@@ -2751,6 +2752,10 @@
       },
       "@types/mustache@4.2.2": {
         "integrity": "sha512-MUSpfpW0yZbTgjekDbH0shMYBUD+X/uJJJMm9LXN1d5yjl5lCY1vN/eWKD6D1tOtjA6206K0zcIPnUaFMurdNA==",
+        "dependencies": {}
+      },
+      "@types/node@18.11.18": {
+        "integrity": "sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==",
         "dependencies": {}
       },
       "@types/node@18.16.16": {

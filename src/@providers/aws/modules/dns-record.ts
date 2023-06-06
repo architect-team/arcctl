@@ -65,8 +65,7 @@ export class AwsDnsRecordModule extends ResourceModule<
     }
 
     return {
-      [this.getResourceRef(this.dns_record)]:
-        dns_record_match?.name || resourceId,
+      [this.getResourceRef(this.dns_record)]: dns_record_match?.name || resourceId,
     };
   }
 

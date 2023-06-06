@@ -136,7 +136,7 @@ describe('Component Schema: v1', () => {
             url: \${{ services.api.interfaces.main.url }}
             ingress:
               subdomain: app
-      `),
+      `) as object,
     );
 
     const graph = component.getGraph({
@@ -209,7 +209,7 @@ describe('Component Schema: v1', () => {
                 port: 80
                 ingress:
                   subdomain: app
-      `),
+      `) as object,
     );
 
     const graph = component.getGraph({

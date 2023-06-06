@@ -30,7 +30,7 @@ async function destroy_resource_action(
   const command_helper = new CommandHelper(options);
 
   if (resource_type) {
-    const is_creatable_type = await command_helper.isCreatableResourceType(resource_type);
+    const is_creatable_type = command_helper.isCreatableResourceType(resource_type);
     if (!is_creatable_type) {
       console.error(`Deletion of ${resource_type} resources is not supported`);
       Deno.exit(1);
@@ -66,14 +66,13 @@ async function destroy_resource_action(
     Deno.exit(0);
   }
 
-  resource_id =
-    resource_id ||
+  resource_id = resource_id ||
     (await Select.prompt({
       message: `Which ${type} resource should be deleted?`,
       options: choices,
     }));
 
-  if (!choices.find((r) => r.name === resource_id)) {
+  if (!choices.find((r) => r.value === resource_id)) {
     console.log(`Invalid resource ID: ${resource_id}`);
     Deno.exit(1);
   }

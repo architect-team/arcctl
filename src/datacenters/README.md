@@ -7,15 +7,15 @@ operations teams to define "what production means" to them.
 ## Examples
 
 The example datacenter file below represents a template that stores terraform
-state locally and deploys cloud resources to digitalocean. 
+state locally and deploys cloud resources to digitalocean.
 
 The `resources` define individual resources that must exist in each environment
 managed by this datacenter. The below example includes:
 
-* A VPC
-* A K8s cluster that lives within said VPC
-* A kubernetes namespace to host our resources, and
-* The nginx ingress controller installed to k8s via helm
+- A VPC
+- A K8s cluster that lives within said VPC
+- A kubernetes namespace to host our resources, and
+- The nginx ingress controller installed to k8s via helm
 
 Additionally, the template below includes `hook` that instruct application resources
 like deployments, services, volumes, and more on how they should behave in the environment.

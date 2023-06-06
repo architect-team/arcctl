@@ -27,16 +27,11 @@ export class DockerDeploymentModule extends ResourceModule<
       name: inputs.name,
       taskSpec: {
         runtime: 'container',
-        networksAdvanced: inputs.namespace
-          ? [{ name: inputs.namespace }]
-          : undefined,
+        networksAdvanced: inputs.namespace ? [{ name: inputs.namespace }] : undefined,
         containerSpec: {
           image: inputs.image,
           env: stringEnvVars,
-          command:
-            typeof inputs.command === 'string'
-              ? inputs.command.split(' ')
-              : inputs.command,
+          command: typeof inputs.command === 'string' ? inputs.command.split(' ') : inputs.command,
           mounts: inputs.volume_mounts.map((mount) => ({
             target: mount.mount_path,
             type: 'volume',

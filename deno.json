@@ -1,30 +1,48 @@
 {
   "nodeModulesDir": true,
   "lint": {
-    "include": ["src/"],
-    "exclude": ["**/.gen/*"]
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/**/.gen/**/*.ts",
+      "src/**/*.schema.json"
+    ],
+    "rules": {
+      "exclude": [
+        "no-explicit-any",
+        "no-unused-vars"
+      ]
+    }
   },
   "fmt": {
-    "useTabs": true,
+    "useTabs": false,
     "lineWidth": 120,
     "indentWidth": 2,
     "singleQuote": true,
     "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["**/.gen/*"]
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/**/.gen/**/*.ts",
+      "src/**/*.schema.json"
+    ]
   },
   "tasks": {
-    "compile": "deno compile -A main.ts --no-check --output bin/arcctl",
+    "compile": "deno compile -A main.ts --output bin/arcctl",
     "generate:npm": "deno run -A ./bin/scripts/npm-package.ts",
     "generate:component-schema": "deno run -A ./bin/scripts/component-generator.ts",
     "generate:datacenter-schema": "deno run -A ./bin/scripts/datacenter-generator.ts",
     "generate:environment-schema": "deno run -A ./bin/scripts/environment-generator.ts",
     "generate:providers": "deno run -A ./bin/scripts/provider-generator.ts",
     "generate:resources": "deno run -A ./bin/scripts/resource-generator.ts",
-    "test": "deno test -A --no-check",
+    "test": "deno test -A",
     "esm:add": "deno run -A https://esm.sh/v124 add",
     "esm:update": "deno run -A https://esm.sh/v124 update",
-    "esm:remove": "deno run -A https://esm.sh/v124 remove"
+    "esm:remove": "deno run -A https://esm.sh/v124 remove",
+    "cache": "deno cache --lock=deno.lock --lock-write main.ts bin/scripts/*.ts src/**/*.test.ts",
+    "cache:reload": "deno cache --reload --lock=deno.lock main.ts bin/scripts/*.ts src/**/*.test.ts"
   },
   "test": {
     "include": [

@@ -62,14 +62,12 @@ export class DigitaloceanDnsRecordModule extends ResourceModule<
       const dns_record_service = new DigitaloceanDnsRecordService(credentials);
       const dns_records = await dns_record_service.list();
       dns_record_match = dns_records.rows.find(
-        (r) =>
-          r.name === resourceId && r.recordType === this.dns_record.typeInput,
+        (r) => r.name === resourceId && r.recordType === this.dns_record.typeInput,
       );
     }
 
     return {
-      [this.getResourceRef(this.dns_record)]:
-        dns_record_match?.id || resourceId,
+      [this.getResourceRef(this.dns_record)]: dns_record_match?.id || resourceId,
     };
   }
 

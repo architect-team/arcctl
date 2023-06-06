@@ -19,9 +19,9 @@ export class DigitaloceanRegionService extends BaseService<'region'> {
     const region = regions.find((r) => r.slug === id);
     return region
       ? {
-          id: region.slug,
-          name: region.name,
-        }
+        id: region.slug,
+        name: region.name,
+      }
       : undefined;
   }
 

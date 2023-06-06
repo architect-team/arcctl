@@ -98,8 +98,7 @@ async function promptForDatacenter(command_helper: CommandHelper, name?: string)
 
   let selected = datacenterRecords.find((d) => d.name === name);
 
-  const datacenter =
-    selected ||
+  const datacenter = selected ||
     (await Select.prompt({
       message: 'Select a datacenter to destroy',
       options: datacenterRecords.map((r) => r.name),

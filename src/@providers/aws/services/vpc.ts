@@ -72,17 +72,17 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
             .describeVpcs(
               filterBy.name
                 ? {
-                    Filters: [
-                      {
-                        Name: 'tag:Name',
-                        Values: [filterBy.name],
-                      },
-                      ...defaultFilters,
-                    ],
-                  }
+                  Filters: [
+                    {
+                      Name: 'tag:Name',
+                      Values: [filterBy.name],
+                    },
+                    ...defaultFilters,
+                  ],
+                }
                 : {
-                    Filters: defaultFilters,
-                  },
+                  Filters: defaultFilters,
+                },
             )
             .promise();
           res.total += vpcData?.Vpcs?.length || 0;

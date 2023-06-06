@@ -45,12 +45,16 @@ export abstract class Provider<C extends ProviderCredentials = ProviderCredentia
 
   public abstract testCredentials(): Promise<boolean>;
 
-  public getResourceEntries(): Entries<{
-    [T in ResourceType]: BaseService<T>;
-  }> {
-    return Object.entries(this.resources) as Entries<{
+  public getResourceEntries(): Entries<
+    {
       [T in ResourceType]: BaseService<T>;
-    }>;
+    }
+  > {
+    return Object.entries(this.resources) as Entries<
+      {
+        [T in ResourceType]: BaseService<T>;
+      }
+    >;
   }
 
   public toJSON(): Record<string, unknown> {

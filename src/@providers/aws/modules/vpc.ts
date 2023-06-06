@@ -117,8 +117,7 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
       [`${moduleId}.aws_subnet.private[0]`]: subnetIds.private[0],
       [`${moduleId}.aws_subnet.private[1]`]: subnetIds.private[1],
       [`${moduleId}.aws_subnet.private[2]`]: subnetIds.private[2],
-      [`${moduleId}.aws_internet_gateway.this[0]`]:
-        routeIds.publicGatewayIds[0],
+      [`${moduleId}.aws_internet_gateway.this[0]`]: routeIds.publicGatewayIds[0],
       [`${moduleId}.aws_nat_gateway.this[0]`]: natGateways[0],
       [`${moduleId}.aws_eip.nat[0]`]: eipId,
     };

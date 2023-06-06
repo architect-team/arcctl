@@ -309,10 +309,9 @@ export default class AwsUtils {
                 }
                 const tags = Object.entries(data.nodegroup?.tags || {});
                 results.nodePools?.push({
-                  name:
-                    tags.find((tag) => {
-                      return tag[0] === 'Name';
-                    })?.[1] || '',
+                  name: tags.find((tag) => {
+                    return tag[0] === 'Name';
+                  })?.[1] || '',
                   count: data.nodegroup?.scalingConfig?.maxSize || 1,
                   nodeSize: (data.nodegroup?.instanceTypes || [])[0] || '',
                 });

@@ -3,7 +3,7 @@ import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseSchemaModule } from '../modules/database-schema.ts';
-import pg from 'pg';
+import { pg } from 'deps';
 
 export class PostgresDatabaseSchemaService extends TerraformResourceService<'databaseSchema', PostgresCredentials> {
   client: pg.Client;

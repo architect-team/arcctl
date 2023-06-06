@@ -2,7 +2,6 @@
 // terraform-aws-modules/eks/aws
 import { TerraformModule, TerraformModuleUserConfig } from 'cdktf';
 import { Construct } from 'constructs';
-
 export interface EksConfig extends TerraformModuleUserConfig {
   /**
    * Indicates whether or not to attach an additional policy for the cluster IAM role to utilize the encryption key provided
@@ -11,32 +10,32 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly attachClusterEncryptionPolicy?: boolean;
   /**
    * List of account maps to add to the aws-auth configmap
-   * @default
+   * @default 
    */
   readonly awsAuthAccounts?: any[];
   /**
    * List of Fargate profile pod execution role ARNs to add to the aws-auth configmap
-   * @default
+   * @default 
    */
   readonly awsAuthFargateProfilePodExecutionRoleArns?: string[];
   /**
    * List of non-Windows based node IAM role ARNs to add to the aws-auth configmap
-   * @default
+   * @default 
    */
   readonly awsAuthNodeIamRoleArnsNonWindows?: string[];
   /**
    * List of Windows based node IAM role ARNs to add to the aws-auth configmap
-   * @default
+   * @default 
    */
   readonly awsAuthNodeIamRoleArnsWindows?: string[];
   /**
    * List of role maps to add to the aws-auth configmap
-   * @default
+   * @default 
    */
   readonly awsAuthRoles?: any[];
   /**
    * List of user maps to add to the aws-auth configmap
-   * @default
+   * @default 
    */
   readonly awsAuthUsers?: any[];
   /**
@@ -50,7 +49,7 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly cloudwatchLogGroupRetentionInDays?: number;
   /**
    * List of additional, externally created security group IDs to attach to the cluster control plane
-   * @default
+   * @default 
    */
   readonly clusterAdditionalSecurityGroupIds?: string[];
   /**
@@ -184,7 +183,7 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly clusterVersion?: string;
   /**
    * A list of subnet IDs where the EKS cluster control plane (ENIs) will be provisioned. Used for expanding the pool of subnets used by nodes/node groups without replacing the EKS control plane
-   * @default
+   * @default 
    */
   readonly controlPlaneSubnetIds?: string[];
   /**
@@ -232,7 +231,7 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly createNodeSecurityGroup?: boolean;
   /**
    * Additional list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s)
-   * @default
+   * @default 
    */
   readonly customOidcThumbprints?: string[];
   /**
@@ -309,12 +308,12 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly iamRoleUseNamePrefix?: boolean;
   /**
    * A list of IAM ARNs for [key administrators](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-default-allow-administrators). If no value is provided, the current caller identity is used to ensure at least one key admin is available
-   * @default
+   * @default 
    */
   readonly kmsKeyAdministrators?: string[];
   /**
    * A list of aliases to create. Note - due to the use of `toset()`, values must be static strings and not computed values
-   * @default
+   * @default 
    */
   readonly kmsKeyAliases?: string[];
   /**
@@ -331,27 +330,27 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly kmsKeyEnableDefaultPolicy?: boolean;
   /**
    * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`
-   * @default
+   * @default 
    */
   readonly kmsKeyOverridePolicyDocuments?: string[];
   /**
    * A list of IAM ARNs for those who will have full key permissions (`kms:*`)
-   * @default
+   * @default 
    */
   readonly kmsKeyOwners?: string[];
   /**
    * A list of IAM ARNs for [key service users](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-service-integration)
-   * @default
+   * @default 
    */
   readonly kmsKeyServiceUsers?: string[];
   /**
    * List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s
-   * @default
+   * @default 
    */
   readonly kmsKeySourcePolicyDocuments?: string[];
   /**
    * A list of IAM ARNs for [key users](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-default-allow-users)
-   * @default
+   * @default 
    */
   readonly kmsKeyUsers?: string[];
   /**
@@ -394,7 +393,7 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly nodeSecurityGroupUseNamePrefix?: boolean;
   /**
    * List of OpenID Connect audience client IDs to add to the IRSA provider
-   * @default
+   * @default 
    */
   readonly openidConnectAudiences?: string[];
   /**
@@ -424,7 +423,7 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly selfManagedNodeGroups?: any;
   /**
    * A list of subnet IDs where the nodes/node groups will be provisioned. If `control_plane_subnet_ids` is not provided, the EKS cluster control plane (ENIs) will be provisioned in these subnets
-   * @default
+   * @default 
    */
   readonly subnetIds?: string[];
   /**
@@ -439,7 +438,7 @@ export interface EksConfig extends TerraformModuleUserConfig {
   readonly vpcId?: string;
 }
 export class Eks extends TerraformModule {
-  private readonly inputs: { [name: string]: any } = {};
+  private readonly inputs: { [name: string]: any } = { }
   public constructor(scope: Construct, id: string, config: EksConfig = {}) {
     super(scope, id, {
       ...config,
@@ -448,46 +447,36 @@ export class Eks extends TerraformModule {
     });
     this.attachClusterEncryptionPolicy = config.attachClusterEncryptionPolicy;
     this.awsAuthAccounts = config.awsAuthAccounts;
-    this.awsAuthFargateProfilePodExecutionRoleArns =
-      config.awsAuthFargateProfilePodExecutionRoleArns;
-    this.awsAuthNodeIamRoleArnsNonWindows =
-      config.awsAuthNodeIamRoleArnsNonWindows;
+    this.awsAuthFargateProfilePodExecutionRoleArns = config.awsAuthFargateProfilePodExecutionRoleArns;
+    this.awsAuthNodeIamRoleArnsNonWindows = config.awsAuthNodeIamRoleArnsNonWindows;
     this.awsAuthNodeIamRoleArnsWindows = config.awsAuthNodeIamRoleArnsWindows;
     this.awsAuthRoles = config.awsAuthRoles;
     this.awsAuthUsers = config.awsAuthUsers;
     this.cloudwatchLogGroupKmsKeyId = config.cloudwatchLogGroupKmsKeyId;
-    this.cloudwatchLogGroupRetentionInDays =
-      config.cloudwatchLogGroupRetentionInDays;
-    this.clusterAdditionalSecurityGroupIds =
-      config.clusterAdditionalSecurityGroupIds;
+    this.cloudwatchLogGroupRetentionInDays = config.cloudwatchLogGroupRetentionInDays;
+    this.clusterAdditionalSecurityGroupIds = config.clusterAdditionalSecurityGroupIds;
     this.clusterAddons = config.clusterAddons;
     this.clusterAddonsTimeouts = config.clusterAddonsTimeouts;
     this.clusterEnabledLogTypes = config.clusterEnabledLogTypes;
     this.clusterEncryptionConfig = config.clusterEncryptionConfig;
-    this.clusterEncryptionPolicyDescription =
-      config.clusterEncryptionPolicyDescription;
+    this.clusterEncryptionPolicyDescription = config.clusterEncryptionPolicyDescription;
     this.clusterEncryptionPolicyName = config.clusterEncryptionPolicyName;
     this.clusterEncryptionPolicyPath = config.clusterEncryptionPolicyPath;
     this.clusterEncryptionPolicyTags = config.clusterEncryptionPolicyTags;
-    this.clusterEncryptionPolicyUseNamePrefix =
-      config.clusterEncryptionPolicyUseNamePrefix;
+    this.clusterEncryptionPolicyUseNamePrefix = config.clusterEncryptionPolicyUseNamePrefix;
     this.clusterEndpointPrivateAccess = config.clusterEndpointPrivateAccess;
     this.clusterEndpointPublicAccess = config.clusterEndpointPublicAccess;
-    this.clusterEndpointPublicAccessCidrs =
-      config.clusterEndpointPublicAccessCidrs;
+    this.clusterEndpointPublicAccessCidrs = config.clusterEndpointPublicAccessCidrs;
     this.clusterIamRoleDnsSuffix = config.clusterIamRoleDnsSuffix;
     this.clusterIdentityProviders = config.clusterIdentityProviders;
     this.clusterIpFamily = config.clusterIpFamily;
     this.clusterName = config.clusterName;
-    this.clusterSecurityGroupAdditionalRules =
-      config.clusterSecurityGroupAdditionalRules;
-    this.clusterSecurityGroupDescription =
-      config.clusterSecurityGroupDescription;
+    this.clusterSecurityGroupAdditionalRules = config.clusterSecurityGroupAdditionalRules;
+    this.clusterSecurityGroupDescription = config.clusterSecurityGroupDescription;
     this.clusterSecurityGroupId = config.clusterSecurityGroupId;
     this.clusterSecurityGroupName = config.clusterSecurityGroupName;
     this.clusterSecurityGroupTags = config.clusterSecurityGroupTags;
-    this.clusterSecurityGroupUseNamePrefix =
-      config.clusterSecurityGroupUseNamePrefix;
+    this.clusterSecurityGroupUseNamePrefix = config.clusterSecurityGroupUseNamePrefix;
     this.clusterServiceIpv4Cidr = config.clusterServiceIpv4Cidr;
     this.clusterServiceIpv6Cidr = config.clusterServiceIpv6Cidr;
     this.clusterTags = config.clusterTags;
@@ -497,8 +486,7 @@ export class Eks extends TerraformModule {
     this.create = config.create;
     this.createAwsAuthConfigmap = config.createAwsAuthConfigmap;
     this.createCloudwatchLogGroup = config.createCloudwatchLogGroup;
-    this.createClusterPrimarySecurityGroupTags =
-      config.createClusterPrimarySecurityGroupTags;
+    this.createClusterPrimarySecurityGroupTags = config.createClusterPrimarySecurityGroupTags;
     this.createClusterSecurityGroup = config.createClusterSecurityGroup;
     this.createCniIpv6IamPolicy = config.createCniIpv6IamPolicy;
     this.createIamRole = config.createIamRole;
@@ -531,11 +519,9 @@ export class Eks extends TerraformModule {
     this.kmsKeySourcePolicyDocuments = config.kmsKeySourcePolicyDocuments;
     this.kmsKeyUsers = config.kmsKeyUsers;
     this.manageAwsAuthConfigmap = config.manageAwsAuthConfigmap;
-    this.nodeSecurityGroupAdditionalRules =
-      config.nodeSecurityGroupAdditionalRules;
+    this.nodeSecurityGroupAdditionalRules = config.nodeSecurityGroupAdditionalRules;
     this.nodeSecurityGroupDescription = config.nodeSecurityGroupDescription;
-    this.nodeSecurityGroupEnableRecommendedRules =
-      config.nodeSecurityGroupEnableRecommendedRules;
+    this.nodeSecurityGroupEnableRecommendedRules = config.nodeSecurityGroupEnableRecommendedRules;
     this.nodeSecurityGroupId = config.nodeSecurityGroupId;
     this.nodeSecurityGroupName = config.nodeSecurityGroupName;
     this.nodeSecurityGroupTags = config.nodeSecurityGroupTags;
@@ -551,9 +537,7 @@ export class Eks extends TerraformModule {
     this.vpcId = config.vpcId;
   }
   public get attachClusterEncryptionPolicy(): boolean | undefined {
-    return this.inputs['attach_cluster_encryption_policy'] as
-      | boolean
-      | undefined;
+    return this.inputs['attach_cluster_encryption_policy'] as boolean | undefined;
   }
   public set attachClusterEncryptionPolicy(value: boolean | undefined) {
     this.inputs['attach_cluster_encryption_policy'] = value;
@@ -565,27 +549,19 @@ export class Eks extends TerraformModule {
     this.inputs['aws_auth_accounts'] = value;
   }
   public get awsAuthFargateProfilePodExecutionRoleArns(): string[] | undefined {
-    return this.inputs['aws_auth_fargate_profile_pod_execution_role_arns'] as
-      | string[]
-      | undefined;
+    return this.inputs['aws_auth_fargate_profile_pod_execution_role_arns'] as string[] | undefined;
   }
-  public set awsAuthFargateProfilePodExecutionRoleArns(
-    value: string[] | undefined,
-  ) {
+  public set awsAuthFargateProfilePodExecutionRoleArns(value: string[] | undefined) {
     this.inputs['aws_auth_fargate_profile_pod_execution_role_arns'] = value;
   }
   public get awsAuthNodeIamRoleArnsNonWindows(): string[] | undefined {
-    return this.inputs['aws_auth_node_iam_role_arns_non_windows'] as
-      | string[]
-      | undefined;
+    return this.inputs['aws_auth_node_iam_role_arns_non_windows'] as string[] | undefined;
   }
   public set awsAuthNodeIamRoleArnsNonWindows(value: string[] | undefined) {
     this.inputs['aws_auth_node_iam_role_arns_non_windows'] = value;
   }
   public get awsAuthNodeIamRoleArnsWindows(): string[] | undefined {
-    return this.inputs['aws_auth_node_iam_role_arns_windows'] as
-      | string[]
-      | undefined;
+    return this.inputs['aws_auth_node_iam_role_arns_windows'] as string[] | undefined;
   }
   public set awsAuthNodeIamRoleArnsWindows(value: string[] | undefined) {
     this.inputs['aws_auth_node_iam_role_arns_windows'] = value;
@@ -609,17 +585,13 @@ export class Eks extends TerraformModule {
     this.inputs['cloudwatch_log_group_kms_key_id'] = value;
   }
   public get cloudwatchLogGroupRetentionInDays(): number | undefined {
-    return this.inputs['cloudwatch_log_group_retention_in_days'] as
-      | number
-      | undefined;
+    return this.inputs['cloudwatch_log_group_retention_in_days'] as number | undefined;
   }
   public set cloudwatchLogGroupRetentionInDays(value: number | undefined) {
     this.inputs['cloudwatch_log_group_retention_in_days'] = value;
   }
   public get clusterAdditionalSecurityGroupIds(): string[] | undefined {
-    return this.inputs['cluster_additional_security_group_ids'] as
-      | string[]
-      | undefined;
+    return this.inputs['cluster_additional_security_group_ids'] as string[] | undefined;
   }
   public set clusterAdditionalSecurityGroupIds(value: string[] | undefined) {
     this.inputs['cluster_additional_security_group_ids'] = value;
@@ -631,13 +603,9 @@ export class Eks extends TerraformModule {
     this.inputs['cluster_addons'] = value;
   }
   public get clusterAddonsTimeouts(): { [key: string]: string } | undefined {
-    return this.inputs['cluster_addons_timeouts'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['cluster_addons_timeouts'] as { [key: string]: string } | undefined;
   }
-  public set clusterAddonsTimeouts(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set clusterAddonsTimeouts(value: { [key: string]: string } | undefined) {
     this.inputs['cluster_addons_timeouts'] = value;
   }
   public get clusterEnabledLogTypes(): string[] | undefined {
@@ -653,9 +621,7 @@ export class Eks extends TerraformModule {
     this.inputs['cluster_encryption_config'] = value;
   }
   public get clusterEncryptionPolicyDescription(): string | undefined {
-    return this.inputs['cluster_encryption_policy_description'] as
-      | string
-      | undefined;
+    return this.inputs['cluster_encryption_policy_description'] as string | undefined;
   }
   public set clusterEncryptionPolicyDescription(value: string | undefined) {
     this.inputs['cluster_encryption_policy_description'] = value;
@@ -672,30 +638,20 @@ export class Eks extends TerraformModule {
   public set clusterEncryptionPolicyPath(value: string | undefined) {
     this.inputs['cluster_encryption_policy_path'] = value;
   }
-  public get clusterEncryptionPolicyTags():
-    | { [key: string]: string }
-    | undefined {
-    return this.inputs['cluster_encryption_policy_tags'] as
-      | { [key: string]: string }
-      | undefined;
+  public get clusterEncryptionPolicyTags(): { [key: string]: string } | undefined {
+    return this.inputs['cluster_encryption_policy_tags'] as { [key: string]: string } | undefined;
   }
-  public set clusterEncryptionPolicyTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set clusterEncryptionPolicyTags(value: { [key: string]: string } | undefined) {
     this.inputs['cluster_encryption_policy_tags'] = value;
   }
   public get clusterEncryptionPolicyUseNamePrefix(): boolean | undefined {
-    return this.inputs['cluster_encryption_policy_use_name_prefix'] as
-      | boolean
-      | undefined;
+    return this.inputs['cluster_encryption_policy_use_name_prefix'] as boolean | undefined;
   }
   public set clusterEncryptionPolicyUseNamePrefix(value: boolean | undefined) {
     this.inputs['cluster_encryption_policy_use_name_prefix'] = value;
   }
   public get clusterEndpointPrivateAccess(): boolean | undefined {
-    return this.inputs['cluster_endpoint_private_access'] as
-      | boolean
-      | undefined;
+    return this.inputs['cluster_endpoint_private_access'] as boolean | undefined;
   }
   public set clusterEndpointPrivateAccess(value: boolean | undefined) {
     this.inputs['cluster_endpoint_private_access'] = value;
@@ -707,9 +663,7 @@ export class Eks extends TerraformModule {
     this.inputs['cluster_endpoint_public_access'] = value;
   }
   public get clusterEndpointPublicAccessCidrs(): string[] | undefined {
-    return this.inputs['cluster_endpoint_public_access_cidrs'] as
-      | string[]
-      | undefined;
+    return this.inputs['cluster_endpoint_public_access_cidrs'] as string[] | undefined;
   }
   public set clusterEndpointPublicAccessCidrs(value: string[] | undefined) {
     this.inputs['cluster_endpoint_public_access_cidrs'] = value;
@@ -739,17 +693,13 @@ export class Eks extends TerraformModule {
     this.inputs['cluster_name'] = value;
   }
   public get clusterSecurityGroupAdditionalRules(): any | undefined {
-    return this.inputs['cluster_security_group_additional_rules'] as
-      | any
-      | undefined;
+    return this.inputs['cluster_security_group_additional_rules'] as any | undefined;
   }
   public set clusterSecurityGroupAdditionalRules(value: any | undefined) {
     this.inputs['cluster_security_group_additional_rules'] = value;
   }
   public get clusterSecurityGroupDescription(): string | undefined {
-    return this.inputs['cluster_security_group_description'] as
-      | string
-      | undefined;
+    return this.inputs['cluster_security_group_description'] as string | undefined;
   }
   public set clusterSecurityGroupDescription(value: string | undefined) {
     this.inputs['cluster_security_group_description'] = value;
@@ -767,19 +717,13 @@ export class Eks extends TerraformModule {
     this.inputs['cluster_security_group_name'] = value;
   }
   public get clusterSecurityGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['cluster_security_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['cluster_security_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set clusterSecurityGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set clusterSecurityGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['cluster_security_group_tags'] = value;
   }
   public get clusterSecurityGroupUseNamePrefix(): boolean | undefined {
-    return this.inputs['cluster_security_group_use_name_prefix'] as
-      | boolean
-      | undefined;
+    return this.inputs['cluster_security_group_use_name_prefix'] as boolean | undefined;
   }
   public set clusterSecurityGroupUseNamePrefix(value: boolean | undefined) {
     this.inputs['cluster_security_group_use_name_prefix'] = value;
@@ -803,9 +747,7 @@ export class Eks extends TerraformModule {
     this.inputs['cluster_tags'] = value;
   }
   public get clusterTimeouts(): { [key: string]: string } | undefined {
-    return this.inputs['cluster_timeouts'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['cluster_timeouts'] as { [key: string]: string } | undefined;
   }
   public set clusterTimeouts(value: { [key: string]: string } | undefined) {
     this.inputs['cluster_timeouts'] = value;
@@ -841,9 +783,7 @@ export class Eks extends TerraformModule {
     this.inputs['create_cloudwatch_log_group'] = value;
   }
   public get createClusterPrimarySecurityGroupTags(): boolean | undefined {
-    return this.inputs['create_cluster_primary_security_group_tags'] as
-      | boolean
-      | undefined;
+    return this.inputs['create_cluster_primary_security_group_tags'] as boolean | undefined;
   }
   public set createClusterPrimarySecurityGroupTags(value: boolean | undefined) {
     this.inputs['create_cluster_primary_security_group_tags'] = value;
@@ -926,16 +866,10 @@ export class Eks extends TerraformModule {
   public set fargateProfiles(value: any | undefined) {
     this.inputs['fargate_profiles'] = value;
   }
-  public get iamRoleAdditionalPolicies():
-    | { [key: string]: string }
-    | undefined {
-    return this.inputs['iam_role_additional_policies'] as
-      | { [key: string]: string }
-      | undefined;
+  public get iamRoleAdditionalPolicies(): { [key: string]: string } | undefined {
+    return this.inputs['iam_role_additional_policies'] as { [key: string]: string } | undefined;
   }
-  public set iamRoleAdditionalPolicies(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set iamRoleAdditionalPolicies(value: { [key: string]: string } | undefined) {
     this.inputs['iam_role_additional_policies'] = value;
   }
   public get iamRoleArn(): string | undefined {
@@ -969,9 +903,7 @@ export class Eks extends TerraformModule {
     this.inputs['iam_role_permissions_boundary'] = value;
   }
   public get iamRoleTags(): { [key: string]: string } | undefined {
-    return this.inputs['iam_role_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['iam_role_tags'] as { [key: string]: string } | undefined;
   }
   public set iamRoleTags(value: { [key: string]: string } | undefined) {
     this.inputs['iam_role_tags'] = value;
@@ -1013,9 +945,7 @@ export class Eks extends TerraformModule {
     this.inputs['kms_key_enable_default_policy'] = value;
   }
   public get kmsKeyOverridePolicyDocuments(): string[] | undefined {
-    return this.inputs['kms_key_override_policy_documents'] as
-      | string[]
-      | undefined;
+    return this.inputs['kms_key_override_policy_documents'] as string[] | undefined;
   }
   public set kmsKeyOverridePolicyDocuments(value: string[] | undefined) {
     this.inputs['kms_key_override_policy_documents'] = value;
@@ -1033,9 +963,7 @@ export class Eks extends TerraformModule {
     this.inputs['kms_key_service_users'] = value;
   }
   public get kmsKeySourcePolicyDocuments(): string[] | undefined {
-    return this.inputs['kms_key_source_policy_documents'] as
-      | string[]
-      | undefined;
+    return this.inputs['kms_key_source_policy_documents'] as string[] | undefined;
   }
   public set kmsKeySourcePolicyDocuments(value: string[] | undefined) {
     this.inputs['kms_key_source_policy_documents'] = value;
@@ -1053,9 +981,7 @@ export class Eks extends TerraformModule {
     this.inputs['manage_aws_auth_configmap'] = value;
   }
   public get nodeSecurityGroupAdditionalRules(): any | undefined {
-    return this.inputs['node_security_group_additional_rules'] as
-      | any
-      | undefined;
+    return this.inputs['node_security_group_additional_rules'] as any | undefined;
   }
   public set nodeSecurityGroupAdditionalRules(value: any | undefined) {
     this.inputs['node_security_group_additional_rules'] = value;
@@ -1067,13 +993,9 @@ export class Eks extends TerraformModule {
     this.inputs['node_security_group_description'] = value;
   }
   public get nodeSecurityGroupEnableRecommendedRules(): boolean | undefined {
-    return this.inputs['node_security_group_enable_recommended_rules'] as
-      | boolean
-      | undefined;
+    return this.inputs['node_security_group_enable_recommended_rules'] as boolean | undefined;
   }
-  public set nodeSecurityGroupEnableRecommendedRules(
-    value: boolean | undefined,
-  ) {
+  public set nodeSecurityGroupEnableRecommendedRules(value: boolean | undefined) {
     this.inputs['node_security_group_enable_recommended_rules'] = value;
   }
   public get nodeSecurityGroupId(): string | undefined {
@@ -1089,19 +1011,13 @@ export class Eks extends TerraformModule {
     this.inputs['node_security_group_name'] = value;
   }
   public get nodeSecurityGroupTags(): { [key: string]: string } | undefined {
-    return this.inputs['node_security_group_tags'] as
-      | { [key: string]: string }
-      | undefined;
+    return this.inputs['node_security_group_tags'] as { [key: string]: string } | undefined;
   }
-  public set nodeSecurityGroupTags(
-    value: { [key: string]: string } | undefined,
-  ) {
+  public set nodeSecurityGroupTags(value: { [key: string]: string } | undefined) {
     this.inputs['node_security_group_tags'] = value;
   }
   public get nodeSecurityGroupUseNamePrefix(): boolean | undefined {
-    return this.inputs['node_security_group_use_name_prefix'] as
-      | boolean
-      | undefined;
+    return this.inputs['node_security_group_use_name_prefix'] as boolean | undefined;
   }
   public set nodeSecurityGroupUseNamePrefix(value: boolean | undefined) {
     this.inputs['node_security_group_use_name_prefix'] = value;
@@ -1161,103 +1077,103 @@ export class Eks extends TerraformModule {
     this.inputs['vpc_id'] = value;
   }
   public get awsAuthConfigmapYamlOutput() {
-    return this.getString('aws_auth_configmap_yaml');
+    return this.getString('aws_auth_configmap_yaml')
   }
   public get cloudwatchLogGroupArnOutput() {
-    return this.getString('cloudwatch_log_group_arn');
+    return this.getString('cloudwatch_log_group_arn')
   }
   public get cloudwatchLogGroupNameOutput() {
-    return this.getString('cloudwatch_log_group_name');
+    return this.getString('cloudwatch_log_group_name')
   }
   public get clusterAddonsOutput() {
-    return this.getString('cluster_addons');
+    return this.getString('cluster_addons')
   }
   public get clusterArnOutput() {
-    return this.getString('cluster_arn');
+    return this.getString('cluster_arn')
   }
   public get clusterCertificateAuthorityDataOutput() {
-    return this.getString('cluster_certificate_authority_data');
+    return this.getString('cluster_certificate_authority_data')
   }
   public get clusterEndpointOutput() {
-    return this.getString('cluster_endpoint');
+    return this.getString('cluster_endpoint')
   }
   public get clusterIamRoleArnOutput() {
-    return this.getString('cluster_iam_role_arn');
+    return this.getString('cluster_iam_role_arn')
   }
   public get clusterIamRoleNameOutput() {
-    return this.getString('cluster_iam_role_name');
+    return this.getString('cluster_iam_role_name')
   }
   public get clusterIamRoleUniqueIdOutput() {
-    return this.getString('cluster_iam_role_unique_id');
+    return this.getString('cluster_iam_role_unique_id')
   }
   public get clusterIdOutput() {
-    return this.getString('cluster_id');
+    return this.getString('cluster_id')
   }
   public get clusterIdentityProvidersOutput() {
-    return this.getString('cluster_identity_providers');
+    return this.getString('cluster_identity_providers')
   }
   public get clusterNameOutput() {
-    return this.getString('cluster_name');
+    return this.getString('cluster_name')
   }
   public get clusterOidcIssuerUrlOutput() {
-    return this.getString('cluster_oidc_issuer_url');
+    return this.getString('cluster_oidc_issuer_url')
   }
   public get clusterPlatformVersionOutput() {
-    return this.getString('cluster_platform_version');
+    return this.getString('cluster_platform_version')
   }
   public get clusterPrimarySecurityGroupIdOutput() {
-    return this.getString('cluster_primary_security_group_id');
+    return this.getString('cluster_primary_security_group_id')
   }
   public get clusterSecurityGroupArnOutput() {
-    return this.getString('cluster_security_group_arn');
+    return this.getString('cluster_security_group_arn')
   }
   public get clusterSecurityGroupIdOutput() {
-    return this.getString('cluster_security_group_id');
+    return this.getString('cluster_security_group_id')
   }
   public get clusterStatusOutput() {
-    return this.getString('cluster_status');
+    return this.getString('cluster_status')
   }
   public get clusterTlsCertificateSha1FingerprintOutput() {
-    return this.getString('cluster_tls_certificate_sha1_fingerprint');
+    return this.getString('cluster_tls_certificate_sha1_fingerprint')
   }
   public get clusterVersionOutput() {
-    return this.getString('cluster_version');
+    return this.getString('cluster_version')
   }
   public get eksManagedNodeGroupsOutput() {
-    return this.getString('eks_managed_node_groups');
+    return this.getString('eks_managed_node_groups')
   }
   public get eksManagedNodeGroupsAutoscalingGroupNamesOutput() {
-    return this.getString('eks_managed_node_groups_autoscaling_group_names');
+    return this.getString('eks_managed_node_groups_autoscaling_group_names')
   }
   public get fargateProfilesOutput() {
-    return this.getString('fargate_profiles');
+    return this.getString('fargate_profiles')
   }
   public get kmsKeyArnOutput() {
-    return this.getString('kms_key_arn');
+    return this.getString('kms_key_arn')
   }
   public get kmsKeyIdOutput() {
-    return this.getString('kms_key_id');
+    return this.getString('kms_key_id')
   }
   public get kmsKeyPolicyOutput() {
-    return this.getString('kms_key_policy');
+    return this.getString('kms_key_policy')
   }
   public get nodeSecurityGroupArnOutput() {
-    return this.getString('node_security_group_arn');
+    return this.getString('node_security_group_arn')
   }
   public get nodeSecurityGroupIdOutput() {
-    return this.getString('node_security_group_id');
+    return this.getString('node_security_group_id')
   }
   public get oidcProviderOutput() {
-    return this.getString('oidc_provider');
+    return this.getString('oidc_provider')
   }
   public get oidcProviderArnOutput() {
-    return this.getString('oidc_provider_arn');
+    return this.getString('oidc_provider_arn')
   }
   public get selfManagedNodeGroupsOutput() {
-    return this.getString('self_managed_node_groups');
+    return this.getString('self_managed_node_groups')
   }
   public get selfManagedNodeGroupsAutoscalingGroupNamesOutput() {
-    return this.getString('self_managed_node_groups_autoscaling_group_names');
+    return this.getString('self_managed_node_groups_autoscaling_group_names')
   }
   protected synthesizeAttributes() {
     return this.inputs;

@@ -11,12 +11,10 @@ export abstract class Datacenter {
      * Graph of resources the environment defines
      */
     graph: CloudGraph,
-
     /**
      * Name of an environment to enrich resources for
      */
     environmentName?: string,
-
     /**
      * Whether or not to build the graph using debug features
      */

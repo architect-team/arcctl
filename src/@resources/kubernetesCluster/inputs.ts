@@ -1,4 +1,3 @@
-
 export type ClusterInputs = {
   /**
    * Name of the cluster

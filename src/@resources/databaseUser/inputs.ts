@@ -12,17 +12,17 @@ export type DatabaseUserApplyInputs = {
   /**
    * The protocol of the underlying database
    */
-  protocol: string;
+  protocol?: string;
 
   /**
    * The host address of the underlying database
    */
-  host: string;
+  host?: string;
 
   /**
    * The port the underlying database is listening on
    */
-  port: string | number;
+  port?: string | number;
 };
 
 export default DatabaseUserApplyInputs;

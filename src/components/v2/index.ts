@@ -1,11 +1,5 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import {
-  Component,
-  DockerBuildFn,
-  DockerPushFn,
-  DockerTagFn,
-  GraphContext,
-} from '../component.ts';
+import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { ProbeSchema } from './probe.ts';
@@ -129,34 +123,31 @@ export default class ComponentV2 extends Component {
           type: 'dockerBuild',
           repository: context.component.name,
           component_source: context.component.source,
-          context:
-            context.component.debug &&
-            build_config.debug &&
-            build_config.debug.context
-              ? build_config.debug.context
-              : build_config.context,
-          dockerfile:
-            context.component.debug &&
-            build_config.debug &&
-            build_config.debug.context
-              ? build_config.debug.dockerfile
-              : build_config.dockerfile || 'Dockerfile',
-          args:
-            context.component.debug &&
-            build_config.debug &&
-            build_config.debug.args
-              ? build_config.debug.args
-              : build_config.args || {},
+          context: context.component.debug &&
+              build_config.debug &&
+              build_config.debug.context
+            ? build_config.debug.context
+            : build_config.context,
+          dockerfile: context.component.debug &&
+              build_config.debug &&
+              build_config.debug.context
+            ? build_config.debug.dockerfile
+            : build_config.dockerfile || 'Dockerfile',
+          args: context.component.debug &&
+              build_config.debug &&
+              build_config.debug.args
+            ? build_config.debug.args
+            : build_config.args || {},
           ...(context.component.debug &&
-          build_config.debug &&
-          build_config.debug.target
+              build_config.debug &&
+              build_config.debug.target
             ? {
-                target: build_config.debug.target,
-              }
+              target: build_config.debug.target,
+            }
             : build_config.target
             ? {
-                target: build_config.target,
-              }
+              target: build_config.target,
+            }
             : {}),
         },
       });
@@ -178,9 +169,11 @@ export default class ComponentV2 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [database_key, database_config] of Object.entries(
-      this.databases || {},
-    )) {
+    for (
+      const [database_key, database_config] of Object.entries(
+        this.databases || {},
+      )
+    ) {
       if (!database_config.type.includes(':')) {
         throw new Error(
           `Invalid database type. Must be of the format, <engine>:<version>`,
@@ -214,9 +207,11 @@ export default class ComponentV2 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [deployment_key, deployment_config] of Object.entries(
-      this.deployments || {},
-    )) {
+    for (
+      const [deployment_key, deployment_config] of Object.entries(
+        this.deployments || {},
+      )
+    ) {
       const deployment_node = new CloudNode({
         name: deployment_key,
         component: context.component.name,
@@ -229,27 +224,15 @@ export default class ComponentV2 extends Component {
             environment: context.environment,
           }),
           image: deployment_config.image,
-          ...(deployment_config.command
-            ? { command: deployment_config.command }
-            : {}),
-          ...(deployment_config.entrypoint
-            ? { entrypoint: deployment_config.entrypoint }
-            : {}),
-          ...(deployment_config.environment
-            ? { environment: deployment_config.environment }
-            : {}),
-          ...(deployment_config.cpu
-            ? { cpu: deployment_config.cpu as number }
-            : {}),
-          ...(deployment_config.memory
-            ? { memory: deployment_config.memory }
-            : {}),
+          ...(deployment_config.command ? { command: deployment_config.command } : {}),
+          ...(deployment_config.entrypoint ? { entrypoint: deployment_config.entrypoint } : {}),
+          ...(deployment_config.environment ? { environment: deployment_config.environment } : {}),
+          ...(deployment_config.cpu ? { cpu: deployment_config.cpu as number } : {}),
+          ...(deployment_config.memory ? { memory: deployment_config.memory } : {}),
           ...(deployment_config.probes
             ? {
-                ...(deployment_config.probes.liveness
-                  ? { liveness: deployment_config.probes.liveness }
-                  : {}),
-              }
+              ...(deployment_config.probes.liveness ? { liveness: deployment_config.probes.liveness } : {}),
+            }
             : {}),
           volume_mounts: [],
           replicas: 1,
@@ -273,9 +256,11 @@ export default class ComponentV2 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [service_key, service_config] of Object.entries(
-      this.services || {},
-    )) {
+    for (
+      const [service_key, service_config] of Object.entries(
+        this.services || {},
+      )
+    ) {
       const service_node = new CloudNode({
         name: service_key,
         component: context.component.name,
@@ -326,9 +311,11 @@ export default class ComponentV2 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [ingress_key, ingress_config] of Object.entries(
-      this.ingresses || {},
-    )) {
+    for (
+      const [ingress_key, ingress_config] of Object.entries(
+        this.ingresses || {},
+      )
+    ) {
       const service_node = graph.nodes.find(
         (n) => n.name === ingress_config.service && n.type === 'service',
       ) as CloudNode<'service'> | undefined;

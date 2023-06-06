@@ -46,7 +46,7 @@ export const testDatabaseIntegration = (
   constructor: new (data: object) => Component,
   options: { database_name: string; deployment_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents));
+  const component = new constructor(yaml.load(contents) as object);
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -114,7 +114,7 @@ export const testDeploymentGeneration = (
   constructor: new (data: object) => Component,
   options: { deployment_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents));
+  const component = new constructor(yaml.load(contents) as object);
   const graph = component.getGraph({
     component: {
       name: 'test',
@@ -148,7 +148,7 @@ export const testServiceGeneration = (
   constructor: new (data: object) => Component,
   options: { deployment_name: string; service_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents));
+  const component = new constructor(yaml.load(contents) as object);
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -201,7 +201,7 @@ export const testServiceIntegration = (
     deployment_name: string;
   },
 ): void => {
-  const component = new constructor(yaml.load(contents));
+  const component = new constructor(yaml.load(contents) as object);
   const graph = component.getGraph({
     component: {
       name: 'component',

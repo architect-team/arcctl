@@ -46,10 +46,9 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
       data: { meta, kubernetes_clusters },
     } = await this.client.kubernetes.listKubernetesClusters({
       per_page: pagingOptions?.limit,
-      page:
-        pagingOptions?.offset && pagingOptions.limit
-          ? Math.floor(pagingOptions.offset / pagingOptions.limit)
-          : undefined,
+      page: pagingOptions?.offset && pagingOptions.limit
+        ? Math.floor(pagingOptions.offset / pagingOptions.limit)
+        : undefined,
     });
 
     return {

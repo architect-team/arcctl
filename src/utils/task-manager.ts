@@ -19,8 +19,7 @@ export default class TaskManager<T> {
     const output: string[] = [];
     for (const [index, task] of this.tasks.entries()) {
       if (task.finished) continue;
-      const prefix =
-        index === 0 ? ` ${this.frames[this.frameIndex++]} ` : '   ';
+      const prefix = index === 0 ? ` ${this.frames[this.frameIndex++]} ` : '   ';
       if (this.frameIndex >= this.frames.length) {
         this.frameIndex = 0;
       }

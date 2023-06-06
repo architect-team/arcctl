@@ -73,12 +73,12 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
 
     const nodeGroups = this.inputs.nodePools
       ? this.inputs.nodePools.map((nodePool) => ({
-          desired_size: 1,
-          instance_types: [nodePool.nodeSize],
-          max_size: nodePool.count,
-          min_size: 1,
-          name: nodePool.name,
-        }))
+        desired_size: 1,
+        instance_types: [nodePool.nodeSize],
+        max_size: nodePool.count,
+        min_size: 1,
+        name: nodePool.name,
+      }))
       : [];
     const managedNodeGroups: Record<string, (typeof nodeGroups)[number]> = {};
     for (const nodeGroup of nodeGroups) {

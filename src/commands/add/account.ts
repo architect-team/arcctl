@@ -35,8 +35,7 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
     Deno.exit(1);
   }
 
-  const providerName =
-    options.provider ||
+  const providerName = options.provider ||
     (await Select.prompt({
       message: 'What provider will this account connect to?',
       options: Object.keys(SupportedProviders),

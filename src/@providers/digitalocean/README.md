@@ -13,7 +13,7 @@ Once the token is generated it will appear in the list of keys. Copy the token a
 ## Supported resources
 
 - [x] region (list, get)
-- [x] vpc (list, get, create,  delete)
+- [x] vpc (list, get, create, delete)
 - [x] nodeSize (list, get)
 - [x] kubernetesVersion (list, get)
 - [x] kubernetesCluster (list, get, create, delete)

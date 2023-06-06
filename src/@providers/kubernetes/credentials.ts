@@ -1,27 +1,23 @@
-import {
-  ProviderCredentials,
-  ProviderCredentialsSchema,
-} from '../credentials.ts';
+import { ProviderCredentials, ProviderCredentialsSchema } from '../credentials.ts';
 
 export interface KubernetesCredentials extends ProviderCredentials {
   configPath?: string;
   configContext?: string;
 }
 
-export const KubernetesCredentialsSchema: ProviderCredentialsSchema<KubernetesCredentials> =
-  {
-    type: 'object',
-    properties: {
-      configPath: {
-        type: 'string',
-        description: '',
-        nullable: true,
-      },
-      configContext: {
-        type: 'string',
-        description: '',
-        nullable: true,
-      },
+export const KubernetesCredentialsSchema: ProviderCredentialsSchema<KubernetesCredentials> = {
+  type: 'object',
+  properties: {
+    configPath: {
+      type: 'string',
+      description: '',
+      nullable: true,
     },
-    additionalProperties: false,
-  };
+    configContext: {
+      type: 'string',
+      description: '',
+      nullable: true,
+    },
+  },
+  additionalProperties: false,
+};

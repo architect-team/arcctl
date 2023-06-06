@@ -97,8 +97,9 @@ export class ComponentStore {
    * @returns {string} - ID of the newly cached artifacts
    */
   async add(component_or_path: string | Component): Promise<string> {
-    const component =
-      typeof component_or_path === 'string' ? await parseComponent(component_or_path) : component_or_path;
+    const component = typeof component_or_path === 'string'
+      ? await parseComponent(component_or_path)
+      : component_or_path;
     const component_contents = JSON.stringify(component);
     const artifact_id = crypto
       .createHash('sha256')

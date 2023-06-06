@@ -40,8 +40,8 @@ export class DigitaloceanVpcService extends TerraformResourceService<'vpc', Digi
     } = await this.client.vpc.listVpcs({});
     const regionVpcs = filterOptions?.region
       ? vpcs.filter((vpc) => {
-          return vpc.region === filterOptions.region;
-        })
+        return vpc.region === filterOptions.region;
+      })
       : vpcs;
     return {
       total: regionVpcs.length,

@@ -36,11 +36,10 @@ export class AwsRegionService extends BaseService<'region'> {
     const regionsData = await AwsUtils.getEC2(this.credentials).describeRegions().promise();
     return {
       total: regionsData.Regions?.length || 0,
-      rows:
-        regionsData.Regions?.map((r) => ({
-          id: r.RegionName!,
-          name: r.RegionName!,
-        })) || [],
+      rows: regionsData.Regions?.map((r) => ({
+        id: r.RegionName!,
+        name: r.RegionName!,
+      })) || [],
     };
   }
 }

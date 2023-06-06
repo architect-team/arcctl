@@ -2,9 +2,7 @@ import { ResourceType } from '../../../@resources/types.ts';
 import { CldctlTest } from '../../tests.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 
-export class DigitalOceanDatabaseTest
-  implements CldctlTest<DigitaloceanCredentials>
-{
+export class DigitalOceanDatabaseTest implements CldctlTest<DigitaloceanCredentials> {
   name = 'Basic Database Test';
 
   stacks = [

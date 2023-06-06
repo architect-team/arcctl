@@ -66,8 +66,7 @@ async function destroy_resource_action(
     Deno.exit(0);
   }
 
-  resource_id =
-    resource_id ||
+  resource_id = resource_id ||
     (await Select.prompt({
       message: `Which ${type} resource should be deleted?`,
       options: choices,

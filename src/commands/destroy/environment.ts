@@ -25,7 +25,7 @@ async function destroy_environment_action(options: DestroyResourceOptons, name?:
   if (!datacenterRecord) {
     const confirmed = await Confirm.prompt(
       'The environment is pointed to an invalid datacenter. ' +
-        "The environment can be removed, but the resources can't be destroyed. Would you like to proceed?",
+        'The environment can be removed, but the resources can\'t be destroyed. Would you like to proceed?',
     );
 
     if (confirmed) {
@@ -94,8 +94,7 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 
   let selected = environmentRecords.find((r) => r.name === name);
 
-  const environment =
-    selected ||
+  const environment = selected ||
     (await Select.prompt({
       message: 'Select an environment to destroy',
       options: environmentRecords.map((r) => r.name),

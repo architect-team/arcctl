@@ -23,31 +23,29 @@ export class KubernetesServiceModule extends ResourceModule<
           ...inputs.labels,
         },
       },
-      spec:
-        'external_name' in inputs
-          ? {
-              type: 'ExternalName',
-              externalName: inputs.external_name,
+      spec: 'external_name' in inputs
+        ? {
+          type: 'ExternalName',
+          externalName: inputs.external_name,
+        }
+        : {
+          type: 'ClusterIP',
+          selector: inputs.selector
+            ? {
+              'architect.io/name': inputs.selector.replaceAll('/', '--'),
             }
-          : {
-              type: 'ClusterIP',
-              selector: inputs.selector
-                ? {
-                    'architect.io/name': inputs.selector.replaceAll('/', '--'),
-                  }
-                : undefined,
-              port: [
-                {
-                  port: 80,
-                  nodePort: inputs.listener_port,
-                  targetPort: String(inputs.target_port),
-                },
-              ],
+            : undefined,
+          port: [
+            {
+              port: 80,
+              nodePort: inputs.listener_port,
+              targetPort: String(inputs.target_port),
             },
+          ],
+        },
     });
 
-    const protocol =
-      'external_name' in inputs ? 'http' : inputs.protocol || 'http';
+    const protocol = 'external_name' in inputs ? 'http' : inputs.protocol || 'http';
     this.outputs = {
       id: inputs.name,
       protocol,

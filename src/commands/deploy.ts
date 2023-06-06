@@ -39,8 +39,7 @@ async function deploy_action(options: DeployOptions, tag: string, environment_na
     }
     const previousPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
 
-    const environment =
-      environmentRecord.config ||
+    const environment = environmentRecord.config ||
       new EnvironmentV1({
         components: {},
       });

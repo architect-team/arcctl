@@ -1,9 +1,4 @@
-import {
-  PluginArchitecture,
-  PluginBinary,
-  PluginBundleType,
-  PluginPlatform,
-} from './plugin-types.ts';
+import { PluginArchitecture, PluginBinary, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 import AdmZip from 'adm-zip';
 import tar from 'tar';
 
@@ -46,7 +41,9 @@ export default class PluginUtils {
       }
     }
     throw new Error(
-      `Unable to find proper binary for ${PluginPlatform[platform]}:${PluginArchitecture[architecture]}. Please contact Architect support for help.`,
+      `Unable to find proper binary for ${PluginPlatform[platform]}:${
+        PluginArchitecture[architecture]
+      }. Please contact Architect support for help.`,
     );
   }
 }

@@ -1,4 +1,13 @@
-import { Provider, SupportedProviders, ProviderStore } from '../@providers/index.ts';
+import { JSONSchemaType } from 'ajv';
+import cliSpinners from 'cli-spinners';
+import { colors } from 'cliffy/ansi/colors.ts';
+import { Command } from 'cliffy/command/mod.ts';
+import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
+import process from 'node:process';
+import readline from 'node:readline';
+import { deepMerge } from 'std/collections/deep_merge.ts';
+import * as path from 'std/path/mod.ts';
+import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
@@ -9,15 +18,6 @@ import { Terraform } from '../terraform/terraform.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import { createTable } from '../utils/table.ts';
-import { JSONSchemaType } from 'ajv';
-import cliSpinners from 'cli-spinners';
-import { deepMerge } from 'std/collections/deep_merge.ts';
-import { Command } from 'cliffy/command/mod.ts';
-import { colors } from 'cliffy/ansi/colors.ts';
-import * as path from 'std/path/mod.ts';
-import readline from 'node:readline';
-import process from 'node:process';
-import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -401,12 +401,12 @@ export class CommandHelper {
         })),
         ...('construct' in service || 'create' in service
           ? [
-              Select.separator(),
-              {
-                value: 'create-new',
-                name: `Create a new ${property.name}`,
-              },
-            ]
+            Select.separator(),
+            {
+              value: 'create-new',
+              name: `Create a new ${property.name}`,
+            },
+          ]
           : []),
       ],
     });
@@ -489,7 +489,7 @@ export class CommandHelper {
             name: property.name,
             schema,
           }),
-          data),
+            data),
         };
       }
 

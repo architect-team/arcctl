@@ -19,7 +19,7 @@ $ cldctl add credentials
 ## Currently supported providers
 
 - [x] [DigitalOcean](./digitalocean/)
-- [X] [AWS](./aws/)
+- [x] [AWS](./aws/)
 - [x] [Kubernetes](./kubernetes/)
 - [ ] Google Cloud
 - [ ] Azure
@@ -83,8 +83,8 @@ export class MyVpcService extends ResourceService<'vpc'> {
     } = await this.client.vpc.listVpcs({});
     const regionVpcs = filterOptions?.region
       ? vpcs.filter((vpc) => {
-          return vpc.region === filterOptions.region;
-        })
+        return vpc.region === filterOptions.region;
+      })
       : vpcs;
     return {
       total: regionVpcs.length,

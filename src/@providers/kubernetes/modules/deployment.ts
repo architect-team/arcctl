@@ -47,10 +47,7 @@ export class KubernetesDeploymentModule extends ResourceModule<
               {
                 name: normalizedName,
                 image: inputs.image,
-                command:
-                  typeof inputs.command === 'string'
-                    ? inputs.command.split(' ')
-                    : inputs.command,
+                command: typeof inputs.command === 'string' ? inputs.command.split(' ') : inputs.command,
                 env: Object.entries(inputs.environment || {}).map(
                   ([key, value]) => ({
                     name: key,
@@ -74,10 +71,7 @@ export class KubernetesDeploymentModule extends ResourceModule<
               },
               ...(inputs.sidecars?.map((container, index) => ({
                 name: `${normalizedName}-sidecar-${index}`,
-                command:
-                  typeof container.command === 'string'
-                    ? container.command.split(' ')
-                    : container.command,
+                command: typeof container.command === 'string' ? container.command.split(' ') : container.command,
                 image: container.image,
                 env: Object.entries(container.environment || {}).map(
                   ([key, value]) => ({

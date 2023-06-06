@@ -1,0 +1,13 @@
+{
+  "language": "typescript",
+  "app": "<not-required>",
+  "terraformModules": [],
+  "terraformProviders": [
+    {
+      "name": "docker",
+      "source": "kreuzwerker/docker",
+      "version": "3.0.2"
+    }
+  ],
+  "projectId": "0080e096-c93c-4771-bf22-0e0ea5230f0b"
+}

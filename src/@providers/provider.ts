@@ -1,9 +1,6 @@
 import { ResourceType } from '../@resources/index.ts';
 import { ResourceService } from './base.service.ts';
-import {
-  ProviderCredentials,
-  ProviderCredentialsSchema,
-} from './credentials.ts';
+import { ProviderCredentials, ProviderCredentialsSchema } from './credentials.ts';
 import { CldctlTestResource } from './tests.ts';
 
 export type ProviderResources<C extends ProviderCredentials> = {
@@ -42,12 +39,16 @@ export abstract class Provider<
 
   public abstract testCredentials(): Promise<boolean>;
 
-  public getResourceEntries(): Entries<{
-    [T in ResourceType]: ResourceService<T, C>;
-  }> {
-    return Object.entries(this.resources) as Entries<{
+  public getResourceEntries(): Entries<
+    {
       [T in ResourceType]: ResourceService<T, C>;
-    }>;
+    }
+  > {
+    return Object.entries(this.resources) as Entries<
+      {
+        [T in ResourceType]: ResourceService<T, C>;
+      }
+    >;
   }
 
   public toJSON(): Record<string, unknown> {

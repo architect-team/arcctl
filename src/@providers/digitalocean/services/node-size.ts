@@ -19,8 +19,8 @@ export class DigitaloceanNodeSizeService extends ResourceService<'nodeSize', Dig
     const match = options.sizes.find((size) => size.slug === id);
     return match
       ? {
-          id: match.slug,
-        }
+        id: match.slug,
+      }
       : undefined;
   }
 

@@ -80,8 +80,7 @@ export type ResourceType =
   | 'service'
   | 'task'
   | 'volume'
-  | 'vpc'
-;
+  | 'vpc';
 
 export const ResourceTypeList: ResourceType[] = [
   'arcctlAccount',
@@ -119,108 +118,108 @@ export type ResourceInputs = {
     account?: string,
   } & arcctlAccountInputs;
   'cronjob': {
-    type: 'cronjob',
-    account?: string,
+    type: 'cronjob';
+    account?: string;
   } & cronjobInputs;
   'database': {
-    type: 'database',
-    account?: string,
+    type: 'database';
+    account?: string;
   } & databaseInputs;
   'databaseSchema': {
-    type: 'databaseSchema',
-    account?: string,
+    type: 'databaseSchema';
+    account?: string;
   } & databaseSchemaInputs;
   'databaseSize': {
-    type: 'databaseSize',
-    account?: string,
+    type: 'databaseSize';
+    account?: string;
   } & databaseSizeInputs;
   'databaseType': {
-    type: 'databaseType',
-    account?: string,
+    type: 'databaseType';
+    account?: string;
   } & databaseTypeInputs;
   'databaseUser': {
-    type: 'databaseUser',
-    account?: string,
+    type: 'databaseUser';
+    account?: string;
   } & databaseUserInputs;
   'databaseVersion': {
-    type: 'databaseVersion',
-    account?: string,
+    type: 'databaseVersion';
+    account?: string;
   } & databaseVersionInputs;
   'deployment': {
-    type: 'deployment',
-    account?: string,
+    type: 'deployment';
+    account?: string;
   } & deploymentInputs;
   'dnsRecord': {
-    type: 'dnsRecord',
-    account?: string,
+    type: 'dnsRecord';
+    account?: string;
   } & dnsRecordInputs;
   'dnsZone': {
-    type: 'dnsZone',
-    account?: string,
+    type: 'dnsZone';
+    account?: string;
   } & dnsZoneInputs;
   'dockerBuild': {
-    type: 'dockerBuild',
-    account?: string,
+    type: 'dockerBuild';
+    account?: string;
   } & dockerBuildInputs;
   'helmChart': {
-    type: 'helmChart',
-    account?: string,
+    type: 'helmChart';
+    account?: string;
   } & helmChartInputs;
   'ingressRule': {
-    type: 'ingressRule',
-    account?: string,
+    type: 'ingressRule';
+    account?: string;
   } & ingressRuleInputs;
   'kubernetesCluster': {
-    type: 'kubernetesCluster',
-    account?: string,
+    type: 'kubernetesCluster';
+    account?: string;
   } & kubernetesClusterInputs;
   'kubernetesVersion': {
-    type: 'kubernetesVersion',
-    account?: string,
+    type: 'kubernetesVersion';
+    account?: string;
   } & kubernetesVersionInputs;
   'loadBalancer': {
-    type: 'loadBalancer',
-    account?: string,
+    type: 'loadBalancer';
+    account?: string;
   } & loadBalancerInputs;
   'loadBalancerType': {
-    type: 'loadBalancerType',
-    account?: string,
+    type: 'loadBalancerType';
+    account?: string;
   } & loadBalancerTypeInputs;
   'namespace': {
-    type: 'namespace',
-    account?: string,
+    type: 'namespace';
+    account?: string;
   } & namespaceInputs;
   'node': {
-    type: 'node',
-    account?: string,
+    type: 'node';
+    account?: string;
   } & nodeInputs;
   'nodeSize': {
-    type: 'nodeSize',
-    account?: string,
+    type: 'nodeSize';
+    account?: string;
   } & nodeSizeInputs;
   'region': {
-    type: 'region',
-    account?: string,
+    type: 'region';
+    account?: string;
   } & regionInputs;
   'secret': {
-    type: 'secret',
-    account?: string,
+    type: 'secret';
+    account?: string;
   } & secretInputs;
   'service': {
-    type: 'service',
-    account?: string,
+    type: 'service';
+    account?: string;
   } & serviceInputs;
   'task': {
-    type: 'task',
-    account?: string,
+    type: 'task';
+    account?: string;
   } & taskInputs;
   'volume': {
-    type: 'volume',
-    account?: string,
+    type: 'volume';
+    account?: string;
   } & volumeInputs;
   'vpc': {
-    type: 'vpc',
-    account?: string,
+    type: 'vpc';
+    account?: string;
   } & vpcInputs;
 };
 

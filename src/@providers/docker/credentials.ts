@@ -1,7 +1,4 @@
-import {
-  ProviderCredentials,
-  ProviderCredentialsSchema,
-} from '../credentials.ts';
+import { ProviderCredentials, ProviderCredentialsSchema } from '../credentials.ts';
 
 export interface DockerCredentials extends ProviderCredentials {
   host?: string;
@@ -10,30 +7,29 @@ export interface DockerCredentials extends ProviderCredentials {
   key_material?: string;
 }
 
-export const DockerCredentialsSchema: ProviderCredentialsSchema<DockerCredentials> =
-  {
-    type: 'object',
-    properties: {
-      host: {
-        type: 'string',
-        description: '',
-        nullable: true,
-      },
-      ca_material: {
-        type: 'string',
-        description: '',
-        nullable: true,
-      },
-      cert_material: {
-        type: 'string',
-        description: '',
-        nullable: true,
-      },
-      key_material: {
-        type: 'string',
-        description: '',
-        nullable: true,
-      },
+export const DockerCredentialsSchema: ProviderCredentialsSchema<DockerCredentials> = {
+  type: 'object',
+  properties: {
+    host: {
+      type: 'string',
+      description: '',
+      nullable: true,
     },
-    additionalProperties: false,
-  };
+    ca_material: {
+      type: 'string',
+      description: '',
+      nullable: true,
+    },
+    cert_material: {
+      type: 'string',
+      description: '',
+      nullable: true,
+    },
+    key_material: {
+      type: 'string',
+      description: '',
+      nullable: true,
+    },
+  },
+  additionalProperties: false,
+};

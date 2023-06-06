@@ -321,8 +321,7 @@ export default class DatacenterV1 extends Datacenter {
 
         // See if the node matches any hooks
         for (const hook of this.environment?.hooks || []) {
-          const doesMatchNode =
-            !hook.when ||
+          const doesMatchNode = !hook.when ||
             Object.entries(hook.when || {}).every(
               ([key, value]) => key in node.inputs && (node.inputs as any)[key] === value,
             );
@@ -383,8 +382,7 @@ export default class DatacenterV1 extends Datacenter {
                   return `\${{ ${target_node_id}.${resource_key} }}`;
                 })
                 .replace(/\${{\s?this\.(\S+)\s?}}/g, (_, node_key: string) =>
-                  this.getNestedValue(node, node_key.split('.')),
-                ),
+                  this.getNestedValue(node, node_key.split('.'))),
             );
 
           // Create inline resources defined by the hook

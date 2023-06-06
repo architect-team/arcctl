@@ -112,26 +112,31 @@ export default class ComponentV2 extends Component {
           type: 'dockerBuild',
           repository: context.component.name,
           component_source: context.component.source,
-          context:
-            context.component.debug && build_config.debug && build_config.debug.context
-              ? build_config.debug.context
-              : build_config.context,
-          dockerfile:
-            context.component.debug && build_config.debug && build_config.debug.context
-              ? build_config.debug.dockerfile
-              : build_config.dockerfile || 'Dockerfile',
-          args:
-            context.component.debug && build_config.debug && build_config.debug.args
-              ? build_config.debug.args
-              : build_config.args || {},
-          ...(context.component.debug && build_config.debug && build_config.debug.target
+          context: context.component.debug &&
+              build_config.debug &&
+              build_config.debug.context
+            ? build_config.debug.context
+            : build_config.context,
+          dockerfile: context.component.debug &&
+              build_config.debug &&
+              build_config.debug.context
+            ? build_config.debug.dockerfile
+            : build_config.dockerfile || 'Dockerfile',
+          args: context.component.debug &&
+              build_config.debug &&
+              build_config.debug.args
+            ? build_config.debug.args
+            : build_config.args || {},
+          ...(context.component.debug &&
+              build_config.debug &&
+              build_config.debug.target
             ? {
-                target: build_config.debug.target,
-              }
+              target: build_config.debug.target,
+            }
             : build_config.target
             ? {
-                target: build_config.target,
-              }
+              target: build_config.target,
+            }
             : {}),
         },
       });
@@ -142,8 +147,15 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  private addDatabasesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
-    for (const [database_key, database_config] of Object.entries(this.databases || {})) {
+  private addDatabasesToGraph(
+    graph: CloudGraph,
+    context: GraphContext,
+  ): CloudGraph {
+    for (
+      const [database_key, database_config] of Object.entries(
+        this.databases || {},
+      )
+    ) {
       if (!database_config.type.includes(':')) {
         throw new Error(`Invalid database type. Must be of the format, <engine>:<version>`);
       }
@@ -171,8 +183,15 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  private addDeploymentsToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
-    for (const [deployment_key, deployment_config] of Object.entries(this.deployments || {})) {
+  private addDeploymentsToGraph(
+    graph: CloudGraph,
+    context: GraphContext,
+  ): CloudGraph {
+    for (
+      const [deployment_key, deployment_config] of Object.entries(
+        this.deployments || {},
+      )
+    ) {
       const deployment_node = new CloudNode({
         name: deployment_key,
         component: context.component.name,
@@ -192,8 +211,8 @@ export default class ComponentV2 extends Component {
           ...(deployment_config.memory ? { memory: deployment_config.memory } : {}),
           ...(deployment_config.probes
             ? {
-                ...(deployment_config.probes.liveness ? { liveness: deployment_config.probes.liveness } : {}),
-              }
+              ...(deployment_config.probes.liveness ? { liveness: deployment_config.probes.liveness } : {}),
+            }
             : {}),
           volume_mounts: [],
           replicas: 1,
@@ -206,8 +225,15 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  private addServicesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
-    for (const [service_key, service_config] of Object.entries(this.services || {})) {
+  private addServicesToGraph(
+    graph: CloudGraph,
+    context: GraphContext,
+  ): CloudGraph {
+    for (
+      const [service_key, service_config] of Object.entries(
+        this.services || {},
+      )
+    ) {
       const service_node = new CloudNode({
         name: service_key,
         component: context.component.name,
@@ -247,11 +273,18 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  private addIngressesToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
-    for (const [ingress_key, ingress_config] of Object.entries(this.ingresses || {})) {
-      const service_node = graph.nodes.find((n) => n.name === ingress_config.service && n.type === 'service') as
-        | CloudNode<'service'>
-        | undefined;
+  private addIngressesToGraph(
+    graph: CloudGraph,
+    context: GraphContext,
+  ): CloudGraph {
+    for (
+      const [ingress_key, ingress_config] of Object.entries(
+        this.ingresses || {},
+      )
+    ) {
+      const service_node = graph.nodes.find(
+        (n) => n.name === ingress_config.service && n.type === 'service',
+      ) as CloudNode<'service'> | undefined;
       if (!service_node) {
         throw new Error(`The service, ${ingress_config.service}, does not exist`);
       }

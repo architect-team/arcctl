@@ -3,10 +3,9 @@ import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
-import inquirer from 'inquirer';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { Confirm } from 'cliffy/prompt/mod.ts';
+import { Confirm, Select, SelectSettings } from 'cliffy/prompt/mod.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
@@ -26,7 +25,7 @@ async function destroy_environment_action(options: DestroyResourceOptons, name?:
   if (!datacenterRecord) {
     const confirmed = await Confirm.prompt(
       'The environment is pointed to an invalid datacenter. ' +
-        "The environment can be removed, but the resources can't be destroyed. Would you like to proceed?",
+        'The environment can be removed, but the resources can\'t be destroyed. Would you like to proceed?',
     );
 
     if (confirmed) {
@@ -93,23 +92,21 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
     Deno.exit(1);
   }
 
-  const selected = environmentRecords.find((r) => r.name === name);
-  const { environment } = await inquirer.prompt(
-    [
-      {
-        name: 'environment',
-        type: 'list',
-        message: 'Select an environment to destroy',
-        choices: environmentRecords.map((r) => ({
-          name: r.name,
-          value: r,
-        })),
-      },
-    ],
-    { environment: selected },
-  );
+  let selected = environmentRecords.find((r) => r.name === name);
 
-  return environment;
+  const environment = selected ||
+    (await Select.prompt({
+      message: 'Select an environment to destroy',
+      options: environmentRecords.map((r) => r.name),
+    }));
+
+  selected = environmentRecords.find((r) => r.name === environment);
+  if (!selected) {
+    console.log(`Invalid environment name: ${selected}`);
+    Deno.exit(1);
+  }
+
+  return selected;
 }
 
 export default DestroyEnvironmentCommand;

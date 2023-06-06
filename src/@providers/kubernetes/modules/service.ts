@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Service } from '../.gen/providers/kubernetes/service/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class KubernetesServiceModule extends ResourceModule<'service', KubernetesCredentials> {
   private service: Service;
@@ -20,27 +20,26 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
           ...this.inputs?.labels,
         },
       },
-      spec:
-        this.inputs && 'external_name' in this.inputs
-          ? {
-              type: 'ExternalName',
-              externalName: this.inputs.external_name,
+      spec: this.inputs && 'external_name' in this.inputs
+        ? {
+          type: 'ExternalName',
+          externalName: this.inputs.external_name,
+        }
+        : {
+          type: 'ClusterIP',
+          selector: this.inputs?.selector
+            ? {
+              'architect.io/name': this.inputs.selector.replaceAll('/', '--'),
             }
-          : {
-              type: 'ClusterIP',
-              selector: this.inputs?.selector
-                ? {
-                    'architect.io/name': this.inputs.selector.replaceAll('/', '--'),
-                  }
-                : undefined,
-              port: [
-                {
-                  port: 80,
-                  nodePort: this.inputs?.listener_port,
-                  targetPort: String(this.inputs?.target_port || 80),
-                },
-              ],
+            : undefined,
+          port: [
+            {
+              port: 80,
+              nodePort: this.inputs?.listener_port,
+              targetPort: String(this.inputs?.target_port || 80),
             },
+          ],
+        },
     });
 
     const protocol = this.inputs && 'external_name' in this.inputs ? 'http' : this.inputs?.protocol || 'http';

@@ -1,4 +1,13 @@
-import { Provider, SupportedProviders, ProviderStore, WritableResourceService } from '../@providers/index.ts';
+import { JSONSchemaType } from 'ajv';
+import cliSpinners from 'cli-spinners';
+import { colors } from 'cliffy/ansi/colors.ts';
+import { Command } from 'cliffy/command/mod.ts';
+import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
+import process from 'node:process';
+import readline from 'node:readline';
+import { deepMerge } from 'std/collections/deep_merge.ts';
+import * as path from 'std/path/mod.ts';
+import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
@@ -7,18 +16,7 @@ import { EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
-import { createProvider } from '../utils/providers.ts';
 import { createTable } from '../utils/table.ts';
-import { JSONSchemaType } from 'ajv';
-import cliSpinners from 'cli-spinners';
-import { deepMerge } from 'std/collections/deep_merge.ts';
-import inquirer from 'inquirer';
-import { Command } from 'cliffy/command/mod.ts';
-import { colors } from 'cliffy/ansi/colors.ts';
-import * as path from 'std/path/mod.ts';
-import readline from 'node:readline';
-import process from 'node:process';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
 
 export type GlobalOptions = {
   configHome?: string;
@@ -246,23 +244,23 @@ export class CommandHelper {
   ): Promise<Array<T>> {
     const results: Array<T> = [];
 
-    // TODO: Replace inquirer
-    const { count } = await inquirer.prompt([
-      {
-        name: 'count',
-        type: 'number',
-        message: `How many ${property.schema.description || property.name} should be created?`,
-        validate: (input: number) => {
-          if (property.schema.minimum && input < property.schema.minimum) {
-            return `${property.name} must be greater than ${property.schema.minimum}`;
-          } else if (property.schema.maximum && input > property.schema.maximum) {
-            return `${property.name} must be less than ${property.schema.maximum}`;
-          }
+    const count = await NumberPrompt.prompt({
+      message: `How many ${property.schema.description || property.name} should be created?`,
+      validate: (value: string) => {
+        if (!(typeof value === 'number' || (!!value && !isNaN(Number(value))))) {
+          return false;
+        }
 
-          return true;
-        },
+        const val = parseFloat(value);
+
+        if (property.schema.minimum && val < property.schema.minimum) {
+          return `${property.name} must be greater than ${property.schema.minimum}`;
+        } else if (property.schema.maximum && val > property.schema.maximum) {
+          return `${property.name} must be less than ${property.schema.maximum}`;
+        }
+        return false;
       },
-    ]);
+    });
 
     for (let i = 0; i < count; i++) {
       console.log(`Inputs for ${property.name}[${i}]:`);
@@ -288,42 +286,33 @@ export class CommandHelper {
     validator?: (input?: number) => string | true,
     existingValues: Record<string, unknown> = {},
   ): Promise<number> {
-    const { result } = await inquirer.prompt(
-      [
-        {
-          name: 'result',
-          type: 'input', // https://github.com/SBoudrias/Inquirer.ts/issues/866
-          message: `${property.schema.description || property.name}${
-            property.schema.properties.required ? '' : ' (optional)'
-          }`,
-          validate: (input_string?: string) => {
-            if (input_string) {
-              const number = Number.parseFloat(input_string);
-              if (Number.isNaN(number)) {
-                return 'Must be a number';
-              }
-            }
+    if (existingValues[property.name]) {
+      return existingValues[property.name] as number;
+    }
 
-            const input = input_string as unknown as number;
-            if (property.schema.properties.required && !input) {
-              return `${property.name} is required`;
-            } else if (property.schema.minimum && input && input < property.schema.minimum) {
-              return `${property.name} must be greater than ${property.schema.minimum}`;
-            } else if (property.schema.maximum && input && input > property.schema.maximum) {
-              return `${property.name} must be less than ${property.schema.maximum}`;
-            }
+    const result = await Input.prompt({
+      message: `${property.schema.description || property.name}${
+        property.schema.properties.required ? '' : ' (optional)'
+      }`,
+      validate: (value?: string) => {
+        const number = Number.parseFloat(value || '');
+        if (value && Number.isNaN(number)) {
+          return 'Must be a number';
+        }
 
-            return validator ? validator(input) : true;
-          },
-        },
-      ],
-      existingValues[property.name]
-        ? {
-            result: existingValues[property.name] as number,
-          }
-        : {},
-    );
-    return result;
+        if (property.schema.properties.required && !value) {
+          return `${property.name} is required`;
+        } else if (property.schema.minimum && value && number < property.schema.minimum) {
+          return `${property.name} must be greater than ${property.schema.minimum}`;
+        } else if (property.schema.maximum && value && number > property.schema.maximum) {
+          return `${property.name} must be less than ${property.schema.maximum}`;
+        }
+
+        return validator ? validator(number) : true;
+      },
+    });
+
+    return Number.parseFloat(result);
   }
 
   /**
@@ -334,29 +323,23 @@ export class CommandHelper {
     validator?: (input?: string) => string | true,
     existingValues: Record<string, unknown> = {},
   ): Promise<string> {
-    const { result } = await inquirer.prompt(
-      [
-        {
-          name: 'result',
-          type: 'input',
-          message: `${property.schema.description || property.name}${
-            property.schema.properties?.required ? '' : ' (optional)'
-          }`,
-          validate: (input?: string) => {
-            if (property.schema.properties?.required && !input) {
-              return `${property.name} is required`;
-            }
+    if (existingValues[property.name]) {
+      return existingValues[property.name] as string;
+    }
 
-            return validator ? validator(input) : true;
-          },
-        },
-      ],
-      existingValues[property.name]
-        ? {
-            result: existingValues[property.name] as string,
-          }
-        : {},
-    );
+    const result = await Input.prompt({
+      message: `${property.schema.description || property.name}${
+        property.schema.properties?.required ? '' : ' (optional)'
+      }`,
+      validate: (input?: string) => {
+        if (property.schema.properties?.required && !input) {
+          return `${property.name} is required`;
+        }
+
+        return validator ? validator(input) : true;
+      },
+    });
+
     return result;
   }
 
@@ -373,18 +356,12 @@ export class CommandHelper {
     console.log(`${property.name} is a key/value store.`);
 
     while (await this.promptForContinuation(`Would you like to add a key/value pair to ${property.name}?`)) {
-      const { key } = await inquirer.prompt([
-        {
-          name: 'key',
-          type: 'input',
-          message: 'Key:',
-        },
-      ]);
+      const key = await Input.prompt('Key:');
 
       results[key] = await this.promptForSchemaProperties<any>(
         graph,
         provider,
-        key,
+        key as any,
         { name: key, schema: property.schema.additionalProperties },
         data,
       );
@@ -412,41 +389,34 @@ export class CommandHelper {
     const { rows: options } = await service.list(data as any);
     options.sort((a, b) => a.id.localeCompare(b.id));
 
-    const answers = await inquirer.prompt(
-      [
-        {
-          name: property.name,
-          type: 'list',
-          message: property.schema.description || property.name,
-          choices: [
-            ...options.map((row) => ({
-              name: row.id,
-              value: row.id,
-            })),
-            ...('construct' in service || 'create' in service
-              ? [
-                  new inquirer.Separator(),
-                  {
-                    value: 'create-new',
-                    name: `Create a new ${property.name}`,
-                  },
-                ]
-              : []),
-          ],
-        },
+    const answer = await Select.prompt({
+      message: property.schema.description || property.name,
+      options: [
+        ...options.map((row) => ({
+          name: row.id,
+          value: row.id,
+        })),
+        ...('construct' in service || 'create' in service
+          ? [
+            Select.separator(),
+            {
+              value: 'create-new',
+              name: `Create a new ${property.name}`,
+            },
+          ]
+          : []),
       ],
-      data,
-    );
+    });
 
-    if (answers[property.name as string] === 'create-new') {
+    if (answer === 'create-new') {
       console.log(`Inputs for ${property.name}`);
       const node = await this.promptForNewResource(graph, provider, property.name, data);
       console.log(`End ${property.name} inputs`);
       return `\${{ ${node.id}.id }}`;
-    } else if (answers[property.name as string] === 'none') {
+    } else if (answer === 'none') {
       return undefined;
     } else {
-      return answers[property.name];
+      return answer;
     }
   }
 
@@ -516,7 +486,7 @@ export class CommandHelper {
             name: property.name,
             schema,
           }),
-          data),
+            data),
         };
       }
 
@@ -602,7 +572,7 @@ export class CommandHelper {
       });
 
       if (selected_account === newAccountName) {
-        return createProvider();
+        return this.createAccount();
       }
 
       account = filteredAccounts.find((p) => p.name === selected_account);
@@ -676,25 +646,17 @@ export class CommandHelper {
     }
 
     if (service.presets?.length) {
-      const { result } = await inquirer.prompt([
-        {
-          name: 'result',
-          type: 'list',
-          message: 'Please select one of our default configurations or customize the creation of your resource.',
-          choices: [
-            ...service.presets.map((p) => ({
-              name: p.display,
-              value: p.values,
-            })),
-            {
-              name: 'Custom',
-              values: {},
-            },
-          ],
-        },
-      ]);
+      const result = await Select.prompt({
+        message: 'Please select one of our default configurations or customize the creation of your resource.',
+        options: [...service.presets.map((p) => p.display), 'custom'],
+      });
 
-      data = deepMerge(data, result);
+      let service_preset_values = service.presets.find((p) => p.display === result)?.values;
+      if (!service_preset_values || result === 'custom') {
+        service_preset_values = {};
+      }
+
+      data = deepMerge(data, service_preset_values);
     }
 
     const inputs = await this.promptForSchemaProperties<any>(
@@ -719,6 +681,73 @@ export class CommandHelper {
     graph.insertNodes(node);
 
     return node;
+  }
+
+  public async promptForCredentials(provider_type: keyof typeof SupportedProviders): Promise<Record<string, string>> {
+    const credential_schema = SupportedProviders[provider_type].CredentialsSchema;
+
+    const credentials: Record<string, string> = {};
+    for (const [key, value] of Object.entries(credential_schema.properties)) {
+      const cred = await Secret.prompt({
+        message: key,
+        default: (value as any).default || '',
+      });
+      if (!(value as any).default && cred === '') {
+        console.log('Required credential requires input');
+        Deno.exit(1);
+      }
+      credentials[key] = cred;
+    }
+
+    return credentials;
+  }
+
+  private async createAccount(): Promise<Provider> {
+    const allAccounts = this.providerStore.getProviders();
+    const providers = Object.keys(SupportedProviders);
+
+    const res = await prompt([
+      {
+        name: 'name',
+        type: Input,
+        message: 'What would you like to name the new account?',
+        validate: (input: string) => {
+          if (allAccounts.some((a) => a.name === input)) {
+            return 'An account with that name already exists.';
+          }
+          return true;
+        },
+      },
+      {
+        type: Select,
+        name: 'type',
+        message: 'What type of provider are you registering the credentials for?',
+        options: providers,
+      },
+    ]);
+
+    const providerType = res.type as keyof typeof SupportedProviders;
+    const credentials = await this.promptForCredentials(providerType);
+
+    const account = new SupportedProviders[providerType](
+      res.name!,
+      credentials as any,
+    );
+
+    const validCredentials = await account.testCredentials();
+    if (!validCredentials) {
+      throw new Error('Invalid credentials');
+    }
+
+    try {
+      this.providerStore.saveProvider(account);
+      console.log(`${account.name} account registered`);
+    } catch (ex: any) {
+      console.error(ex.message);
+      Deno.exit(1);
+    }
+
+    return account;
   }
 
   public handleTerraformError(ex: any): void {

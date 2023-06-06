@@ -32,11 +32,10 @@ export class AwsRegionService extends ResourceService<'region', AwsCredentials> 
     const regionsData = await AwsUtils.getEC2(this.credentials).describeRegions().promise();
     return {
       total: regionsData.Regions?.length || 0,
-      rows:
-        regionsData.Regions?.map((r) => ({
-          id: r.RegionName!,
-          name: r.RegionName!,
-        })) || [],
+      rows: regionsData.Regions?.map((r) => ({
+        id: r.RegionName!,
+        name: r.RegionName!,
+      })) || [],
     };
   }
 }

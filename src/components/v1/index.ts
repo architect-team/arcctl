@@ -1,19 +1,13 @@
 import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import {
-  Component,
-  DockerBuildFn,
-  DockerPushFn,
-  DockerTagFn,
-  GraphContext,
-} from '../component.ts';
-import { DatabaseSchemaV1 } from "./database-schema-v1.ts";
+import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
+import { DatabaseSchemaV1 } from './database-schema-v1.ts';
 import { parseExpressionRefs } from './expressions.ts';
-import { InterfaceSchemaV1 } from "./interface-schema-v1.ts";
-import { ParameterSchemaV1 } from "./parameter-schema-v1.ts";
-import { DebuggableServiceSchemaV1 } from "./service-schema-v1.ts";
-import { DebuggableStaticBucketSchemaV1 } from "./static-schema-v1.ts";
-import { DebuggableTaskSchemaV1 } from "./task-schema-v1.ts";
+import { InterfaceSchemaV1 } from './interface-schema-v1.ts';
+import { ParameterSchemaV1 } from './parameter-schema-v1.ts';
+import { DebuggableServiceSchemaV1 } from './service-schema-v1.ts';
+import { DebuggableStaticBucketSchemaV1 } from './static-schema-v1.ts';
+import { DebuggableTaskSchemaV1 } from './task-schema-v1.ts';
 
 export default class ComponentV1 extends Component {
   /**
@@ -94,9 +88,11 @@ export default class ComponentV1 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [service_name, service_config] of Object.entries(
-      this.services || {},
-    )) {
+    for (
+      const [service_name, service_config] of Object.entries(
+        this.services || {},
+      )
+    ) {
       // Generate the image build node as-needed
       let image = '';
       const deployment_node_id = CloudNode.genId({
@@ -115,38 +111,35 @@ export default class ComponentV1 extends Component {
             type: 'dockerBuild',
             component_source: undefined as any,
             repository: context.component.name,
-            context:
-              context.component.debug &&
-              service_config.debug &&
-              'build' in service_config.debug &&
-              service_config.debug.build?.context
-                ? service_config.debug.build.context
-                : service_config.build.context,
-            dockerfile:
-              context.component.debug &&
-              service_config.debug &&
-              'build' in service_config.debug &&
-              service_config.debug.build?.dockerfile
-                ? service_config.debug.build.dockerfile
-                : service_config.build.dockerfile || 'Dockerfile',
-            args:
-              context.component.debug &&
-              service_config.debug &&
-              'build' in service_config.debug &&
-              service_config.debug.build?.args
-                ? (service_config.debug.build.args as Record<string, string>)
-                : service_config.build.args || {},
+            context: context.component.debug &&
+                service_config.debug &&
+                'build' in service_config.debug &&
+                service_config.debug.build?.context
+              ? service_config.debug.build.context
+              : service_config.build.context,
+            dockerfile: context.component.debug &&
+                service_config.debug &&
+                'build' in service_config.debug &&
+                service_config.debug.build?.dockerfile
+              ? service_config.debug.build.dockerfile
+              : service_config.build.dockerfile || 'Dockerfile',
+            args: context.component.debug &&
+                service_config.debug &&
+                'build' in service_config.debug &&
+                service_config.debug.build?.args
+              ? (service_config.debug.build.args as Record<string, string>)
+              : service_config.build.args || {},
             ...(context.component.debug &&
-            service_config.debug &&
-            'build' in service_config.debug &&
-            service_config.debug.build?.target
+                service_config.debug &&
+                'build' in service_config.debug &&
+                service_config.debug.build?.target
               ? {
-                  target: service_config.debug.build.target,
-                }
+                target: service_config.debug.build.target,
+              }
               : service_config.build.target
               ? {
-                  target: service_config.build.target,
-                }
+                target: service_config.build.target,
+              }
               : {}),
           },
         });
@@ -179,27 +172,19 @@ export default class ComponentV1 extends Component {
           replicas: Number(service_config.replicas || 1), // TODO: Ensure this is a number value
           ...(service_config.scaling
             ? {
-                autoscaling: {
-                  min_replicas: Number(service_config.scaling.min_replicas),
-                  max_replicas: Number(service_config.scaling.max_replicas),
-                },
-              }
+              autoscaling: {
+                min_replicas: Number(service_config.scaling.min_replicas),
+                max_replicas: Number(service_config.scaling.max_replicas),
+              },
+            }
             : {}),
           image: image,
-          ...(service_config.command
-            ? { command: service_config.command }
-            : {}),
-          ...(service_config.entrypoint
-            ? { entrypoint: service_config.entrypoint }
-            : {}),
-          ...(service_config.environment
-            ? { environment: service_config.environment }
-            : {}),
+          ...(service_config.command ? { command: service_config.command } : {}),
+          ...(service_config.entrypoint ? { entrypoint: service_config.entrypoint } : {}),
+          ...(service_config.environment ? { environment: service_config.environment } : {}),
           ...(service_config.cpu ? { cpu: service_config.cpu as number } : {}),
           ...(service_config.memory ? { memory: service_config.memory } : {}),
-          ...(service_config.liveness_probe
-            ? { liveness_probe: service_config.liveness_probe }
-            : {}),
+          ...(service_config.liveness_probe ? { liveness_probe: service_config.liveness_probe } : {}),
           volume_mounts: Object.entries(service_config.volumes || {}).reduce(
             (mounts, [volume_name, volume_config]) => {
               const volume_node = new CloudNode({
@@ -209,9 +194,7 @@ export default class ComponentV1 extends Component {
                 inputs: {
                   type: 'volume',
                   mountPath: volume_config.mount_path,
-                  ...(volume_config.host_path
-                    ? { hostPath: volume_config.host_path }
-                    : {}),
+                  ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
 
@@ -231,9 +214,7 @@ export default class ComponentV1 extends Component {
               mounts.push({
                 volume: volume_node.resource_id,
                 mount_path: volume_config.mount_path!,
-                readonly: volume_config.readonly
-                  ? Boolean(volume_config.readonly)
-                  : false,
+                readonly: volume_config.readonly ? Boolean(volume_config.readonly) : false,
               });
               return mounts;
             },
@@ -246,9 +227,11 @@ export default class ComponentV1 extends Component {
       graph.insertNodes(parseExpressionRefs(graph, context, deployment_node));
 
       // Create and insert the service nodes for each interface
-      for (const [interface_name, interface_config] of Object.entries(
-        service_config.interfaces || {},
-      )) {
+      for (
+        const [interface_name, interface_config] of Object.entries(
+          service_config.interfaces || {},
+        )
+      ) {
         const service_node = new CloudNode<'service'>({
           name: `${service_name}-${interface_name}`,
           component: context.component.name,
@@ -260,15 +243,12 @@ export default class ComponentV1 extends Component {
               component: context.component.name,
               environment: context.environment,
             }),
-            protocol:
-              typeof interface_config === 'object' && interface_config.protocol
-                ? interface_config.protocol
-                : 'http',
+            protocol: typeof interface_config === 'object' && interface_config.protocol
+              ? interface_config.protocol
+              : 'http',
             selector: deployment_node.resource_id,
             target_port: Number(
-              typeof interface_config === 'object'
-                ? interface_config.port
-                : interface_config,
+              typeof interface_config === 'object' ? interface_config.port : interface_config,
             ),
           },
         });
@@ -322,9 +302,11 @@ export default class ComponentV1 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [task_name, task_config] of Object.entries(
-      this.tasks || {},
-    ).filter(([_, task_config]) => task_config.schedule)) {
+    for (
+      const [task_name, task_config] of Object.entries(
+        this.tasks || {},
+      ).filter(([_, task_config]) => task_config.schedule)
+    ) {
       // Generate the image build node as-needed
       let image = '';
       if (!('image' in task_config)) {
@@ -343,27 +325,24 @@ export default class ComponentV1 extends Component {
             type: 'dockerBuild',
             component_source: undefined as any,
             repository: context.component.name,
-            context:
-              context.component.debug &&
-              task_config.debug &&
-              'build' in task_config.debug &&
-              task_config.debug.build?.context
-                ? task_config.debug.build.context
-                : task_config.build.context,
-            dockerfile:
-              context.component.debug &&
-              task_config.debug &&
-              'build' in task_config.debug &&
-              task_config.debug.build?.dockerfile
-                ? task_config.debug.build.dockerfile
-                : task_config.build.dockerfile || 'Dockerfile',
-            args:
-              context.component.debug &&
-              task_config.debug &&
-              'build' in task_config.debug &&
-              task_config.debug.build?.args
-                ? (task_config.debug.build.args as Record<string, string>)
-                : task_config.build.args || {},
+            context: context.component.debug &&
+                task_config.debug &&
+                'build' in task_config.debug &&
+                task_config.debug.build?.context
+              ? task_config.debug.build.context
+              : task_config.build.context,
+            dockerfile: context.component.debug &&
+                task_config.debug &&
+                'build' in task_config.debug &&
+                task_config.debug.build?.dockerfile
+              ? task_config.debug.build.dockerfile
+              : task_config.build.dockerfile || 'Dockerfile',
+            args: context.component.debug &&
+                task_config.debug &&
+                'build' in task_config.debug &&
+                task_config.debug.build?.args
+              ? (task_config.debug.build.args as Record<string, string>)
+              : task_config.build.args || {},
           },
         });
 
@@ -390,12 +369,8 @@ export default class ComponentV1 extends Component {
           schedule: task_config.schedule!,
           image: image,
           ...(task_config.command ? { command: task_config.command } : {}),
-          ...(task_config.entrypoint
-            ? { entrypoint: task_config.entrypoint }
-            : {}),
-          ...(task_config.environment
-            ? { environment: task_config.environment }
-            : {}),
+          ...(task_config.entrypoint ? { entrypoint: task_config.entrypoint } : {}),
+          ...(task_config.environment ? { environment: task_config.environment } : {}),
           ...(task_config.cpu ? { cpu: Number(task_config.cpu) } : {}),
           ...(task_config.memory ? { memory: task_config.memory } : {}),
           ...(task_config.labels ? { labels: task_config.labels } : {}),
@@ -408,9 +383,7 @@ export default class ComponentV1 extends Component {
                 inputs: {
                   type: 'volume',
                   mountPath: volume_config.mount_path,
-                  ...(volume_config.host_path
-                    ? { hostPath: volume_config.host_path }
-                    : {}),
+                  ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
 
@@ -430,9 +403,7 @@ export default class ComponentV1 extends Component {
               mounts.push({
                 volume: `\${{ ${volume_node.id}.id }}`,
                 mount_path: volume_config.mount_path!,
-                readonly: volume_config.readonly
-                  ? Boolean(volume_config.readonly)
-                  : false,
+                readonly: volume_config.readonly ? Boolean(volume_config.readonly) : false,
               });
               return mounts;
             },
@@ -452,15 +423,14 @@ export default class ComponentV1 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [interface_key, interface_config] of Object.entries(
-      this.interfaces || {},
-    )) {
-      const regex_match =
-        /\${{\s?services\.([\w-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g.exec(
-          typeof interface_config === 'string'
-            ? interface_config
-            : interface_config.url,
-        );
+    for (
+      const [interface_key, interface_config] of Object.entries(
+        this.interfaces || {},
+      )
+    ) {
+      const regex_match = /\${{\s?services\.([\w-]+)\.interfaces\.([\w-]+)\.([\dA-Za-z]+)\s?}}/g.exec(
+        typeof interface_config === 'string' ? interface_config : interface_config.url,
+      );
 
       if (!regex_match) {
         throw new Error(`Invalid interface url`);
@@ -485,8 +455,7 @@ export default class ComponentV1 extends Component {
         environment: context.environment,
       });
 
-      const target_interface =
-        this.services![deployment_name].interfaces![service_name];
+      const target_interface = this.services![deployment_name].interfaces![service_name];
 
       const interface_node = new CloudNode<'service'>({
         name: interface_key,
@@ -499,14 +468,10 @@ export default class ComponentV1 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          protocol:
-            typeof target_interface === 'object' && target_interface.protocol
-              ? target_interface.protocol
-              : 'http',
-          target_port:
-            typeof target_interface === 'object'
-              ? target_interface.port
-              : (target_interface as any),
+          protocol: typeof target_interface === 'object' && target_interface.protocol
+            ? target_interface.protocol
+            : 'http',
+          target_port: typeof target_interface === 'object' ? target_interface.port : (target_interface as any),
           selector: deployment_resource_id,
         },
       });
@@ -559,9 +524,11 @@ export default class ComponentV1 extends Component {
     graph: CloudGraph,
     context: GraphContext,
   ): CloudGraph {
-    for (const [database_key, database_config] of Object.entries(
-      this.databases || {},
-    )) {
+    for (
+      const [database_key, database_config] of Object.entries(
+        this.databases || {},
+      )
+    ) {
       if (!database_config.type.includes(':')) {
         throw new Error(
           `Invalid database type. Must be of the format, <engine>:<version>`,

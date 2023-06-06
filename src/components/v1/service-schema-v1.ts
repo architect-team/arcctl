@@ -63,18 +63,18 @@ export type ServiceSchemaV1 = RuntimeSchemaV1 & {
     | number
     | string
     | {
-        host?: string;
-        port: number | string;
-        protocol?: string;
-        username?: string;
-        password?: string;
-        url?: string;
-        ingress?: {
-          subdomain?: string;
-          path?: string;
-          internal?: boolean;
-        };
-      }
+      host?: string;
+      port: number | string;
+      protocol?: string;
+      username?: string;
+      password?: string;
+      url?: string;
+      ingress?: {
+        subdomain?: string;
+        path?: string;
+        internal?: boolean;
+      };
+    }
   >;
 };
 

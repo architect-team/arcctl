@@ -1,7 +1,7 @@
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../../../@resources/types.ts';
 import { CldctlTest, CldctlTestContext } from '../../tests.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { assertEquals, assertArrayIncludes } from 'std/testing/asserts.ts';
+import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 
 export class DigitalOceanDnsRecordTest implements CldctlTest<DigitaloceanCredentials> {
   name = 'Basic DNS Record Test';

@@ -13,12 +13,10 @@ export abstract class Environment {
      * Name of the environment
      */
     environment_name: string,
-
     /**
      * Store used to pull component artifacts
      */
     componentStore: ComponentStore,
-
     /**
      * Whether or not to build the graph using debug features
      */

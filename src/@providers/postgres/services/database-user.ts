@@ -1,11 +1,11 @@
+import { Construct } from 'constructs';
+import { pg } from 'deps';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseUserModule } from '../modules/database-user.ts';
-import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
-import { Construct } from 'constructs';
-import pg from 'pg';
 
 export class PostgresDatabaseUserService extends TerraformResourceService<'databaseUser', PostgresCredentials> {
   private client: pg.Client;

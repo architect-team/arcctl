@@ -1,10 +1,10 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
-import EnvironmentV1 from '../environments/v1/index.ts';
-import { Pipeline } from '../pipeline/index.ts';
-import * as path from 'std/path/mod.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
 import cliSpinners from 'cli-spinners';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import EnvironmentV1 from '../environments/v1/index.ts';
+import { Pipeline } from '../pipeline/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type DeployOptions = {
   ingress?: string[];
@@ -14,6 +14,7 @@ type DeployOptions = {
 const DeployCommand = BaseCommand()
   .description('Deploy a component into an existing environment')
   .arguments('<tag:string> <environment:string>') // 'Component tag to deploy to the environment'
+  .option('-e, --environment <environment:string>', 'Environments to deploy the component to', { collect: true })
   .option('-i, --ingress <ingress:string>', 'Mappings of ingress rules for this component to subdomains', {
     collect: true,
   })
@@ -39,8 +40,7 @@ async function deploy_action(options: DeployOptions, tag: string, environment_na
     }
     const previousPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
 
-    const environment =
-      environmentRecord.config ||
+    const environment = environmentRecord.config ||
       new EnvironmentV1({
         components: {},
       });

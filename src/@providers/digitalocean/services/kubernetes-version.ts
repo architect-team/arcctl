@@ -23,9 +23,9 @@ export class DigitaloceanKubernetesVersionService extends ResourceService<
 
     return match
       ? {
-          id: match.slug,
-          name: match.kubernetes_version,
-        }
+        id: match.slug,
+        name: match.kubernetes_version,
+      }
       : undefined;
   }
 

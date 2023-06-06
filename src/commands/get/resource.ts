@@ -1,7 +1,7 @@
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
-import inquirer from 'inquirer';
+import { Select } from 'cliffy/prompt/mod.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -35,15 +35,10 @@ async function get_resource_action(options: GetResourceOption, resource_type?: R
       rows: [],
     };
 
-    const answers = await inquirer.prompt([
-      {
-        type: 'list',
-        name: 'id',
-        message: `Which ${type}?`,
-        choices: results.rows.map((r) => r.id),
-      },
-    ]);
-    resource_id = answers.id;
+    resource_id = await Select.prompt({
+      message: `Which ${type}?`,
+      options: results.rows.map((r) => r.id),
+    });
   }
 
   if (!provider.resources[type]?.get) {

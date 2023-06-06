@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class KubernetesDeploymentModule extends ResourceModule<'deployment', KubernetesCredentials> {
   private deployment: Deployment;
@@ -40,8 +40,9 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
               {
                 name: normalizedName,
                 image: this.inputs?.image || 'unknown',
-                command:
-                  typeof this.inputs?.command === 'string' ? this.inputs.command.split(' ') : this.inputs?.command,
+                command: typeof this.inputs?.command === 'string'
+                  ? this.inputs.command.split(' ')
+                  : this.inputs?.command,
                 env: Object.entries(this.inputs?.environment || {}).map(([key, value]) => ({
                   name: key,
                   value: String(value),

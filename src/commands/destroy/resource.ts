@@ -4,9 +4,8 @@ import { Pipeline, PipelineStep } from '../../pipeline/index.ts';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import cliSpinners from 'cli-spinners';
-import inquirer from 'inquirer';
 import winston, { Logger } from 'winston';
-import { Confirm } from 'cliffy/prompt/mod.ts';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -31,7 +30,7 @@ async function destroy_resource_action(
   const command_helper = new CommandHelper(options);
 
   if (resource_type) {
-    const is_creatable_type = await command_helper.isCreatableResourceType(resource_type);
+    const is_creatable_type = command_helper.isCreatableResourceType(resource_type);
     if (!is_creatable_type) {
       console.error(`Deletion of ${resource_type} resources is not supported`);
       Deno.exit(1);
@@ -52,10 +51,11 @@ async function destroy_resource_action(
     Deno.exit(1);
   }
 
-  let choices: any[] = [];
+  let choices: { name: string; value: string }[] = [];
   if (service.list) {
     const res = await service.list();
     choices = res.rows.map((row) => ({
+      // deno-lint-ignore no-explicit-any
       name: (row as any).name ? `${(row as any).name} (${row.id})` : row.id,
       value: row.id,
     }));
@@ -66,17 +66,16 @@ async function destroy_resource_action(
     Deno.exit(0);
   }
 
-  const { id } = await inquirer.prompt<{ id: string }>(
-    [
-      {
-        name: 'id',
-        type: 'list',
-        message: `Which ${type} resource should be deleted?`,
-        choices,
-      },
-    ],
-    { id: resource_id },
-  );
+  resource_id = resource_id ||
+    (await Select.prompt({
+      message: `Which ${type} resource should be deleted?`,
+      options: choices,
+    }));
+
+  if (!choices.find((r) => r.value === resource_id)) {
+    console.log(`Invalid resource ID: ${resource_id}`);
+    Deno.exit(1);
+  }
 
   const proceed = await Confirm.prompt(
     `Are you sure you would like to delete this resource? Don't interrupt the process once it starts!`,
@@ -92,7 +91,7 @@ async function destroy_resource_action(
     type: type,
     resource: {
       account: account.name,
-      id,
+      id: resource_id,
     },
   });
 

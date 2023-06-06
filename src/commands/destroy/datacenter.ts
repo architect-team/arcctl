@@ -3,10 +3,9 @@ import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
-import inquirer from 'inquirer';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
-import { Confirm } from 'cliffy/prompt/mod.ts';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
 
 type DestroyDatacenterOptions = {
   verbose: boolean;
@@ -97,23 +96,21 @@ async function promptForDatacenter(command_helper: CommandHelper, name?: string)
     Deno.exit(1);
   }
 
-  const selected = datacenterRecords.find((d) => d.name === name);
-  const { datacenter } = await inquirer.prompt(
-    [
-      {
-        name: 'datacenter',
-        type: 'list',
-        message: 'Select a datacenter to destroy',
-        choices: datacenterRecords.map((r) => ({
-          name: r.name,
-          value: r,
-        })),
-      },
-    ],
-    { datacenter: selected },
-  );
+  let selected = datacenterRecords.find((d) => d.name === name);
 
-  return datacenter;
+  const datacenter = selected ||
+    (await Select.prompt({
+      message: 'Select a datacenter to destroy',
+      options: datacenterRecords.map((r) => r.name),
+    }));
+
+  selected = datacenterRecords.find((r) => r.name === datacenter);
+  if (!selected) {
+    console.log(`Invalid datacenter name: ${selected}`);
+    Deno.exit(1);
+  }
+
+  return selected;
 }
 
 export default DestroyDatacenterCommand;

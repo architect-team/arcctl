@@ -5,7 +5,8 @@
       "src/"
     ],
     "exclude": [
-      "src/**/.gen/**/*.ts"
+      "src/**/.gen/**/*.ts",
+      "src/**/*.schema.json"
     ],
     "rules": {
       "exclude": ["no-explicit-any", "no-unused-vars"]
@@ -21,7 +22,8 @@
       "src/"
     ],
     "exclude": [
-      "src/**/.gen/**/*.ts"
+      "src/**/.gen/**/*.ts",
+      "src/**/*.schema.json"
     ]
   },
   "tasks": {

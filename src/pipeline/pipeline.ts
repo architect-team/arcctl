@@ -31,7 +31,7 @@ export class Pipeline {
    * @param sourceId
    * @param targetId
    */
-  private replaceStepRefs(sourceId: string, targetId: string): void {
+  public replaceStepRefs(sourceId: string, targetId: string): void {
     // Replace expressions within nodes
     this.steps = this.steps.map((step) => {
       return new PipelineStep(
@@ -59,7 +59,7 @@ export class Pipeline {
   /**
    * Replace step references with actual output values
    */
-  private async replaceRefsWithOutputValues<T>(input: T, options: ApplyStepOptions): Promise<T> {
+  public async replaceRefsWithOutputValues<T>(input: T, options: ApplyStepOptions): Promise<T> {
     const strVal = await replaceAsync(JSON.stringify(input), /\${{\s?([^.]+).(\S+)\s?}}/g, async (_, step_id, key) => {
       const step = this.steps.find((s) => s.id === step_id);
       const outputs = await step?.getOutputs(options);
@@ -75,7 +75,7 @@ export class Pipeline {
     return JSON.parse(strVal);
   }
 
-  private async getTerraformPlugin(): Promise<Terraform> {
+  public async getTerraformPlugin(): Promise<Terraform> {
     if (this._terraform) {
       return this._terraform;
     }
@@ -88,7 +88,7 @@ export class Pipeline {
   /**
    * Returns a pipeline step that is ready to be applied
    */
-  private getNextStep(...seenIds: string[]): PipelineStep | undefined {
+  public getNextStep(...seenIds: string[]): PipelineStep | undefined {
     const availableSteps = this.steps
       .sort(
         (first, second) =>

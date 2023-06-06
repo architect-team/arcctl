@@ -11,4 +11,5 @@ coverage
 /cdktf.out
 .terraform
 .DS_Store
-build
+/build
+.local

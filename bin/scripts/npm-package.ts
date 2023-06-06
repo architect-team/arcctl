@@ -1,4 +1,5 @@
 import { build, emptyDir } from 'dnt';
+import { walk } from "std/fs/mod.ts";
 import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
